@@ -1,0 +1,12 @@
+
+COMMENT ON TABLE MAM_VIEW_DEFINITION IS 'ビュー定義テンプレート // View definition template';
+
+
+COMMENT ON COLUMN MAM_VIEW_DEFINITION.TABLE_NAME IS 'ビュー名 // #MA.TABLE_NM // View name';
+
+
+COMMENT ON COLUMN MAM_VIEW_DEFINITION.VIEW_DEFINITION IS 'ビュー定義 // #MA.SQL_SRC // View definition';
+
+
+COMMENT ON COLUMN MAM_VIEW_DEFINITION.MST_NM IS 'マスタ名 // #MA.ORA_OBJ_NM // Master name';
+

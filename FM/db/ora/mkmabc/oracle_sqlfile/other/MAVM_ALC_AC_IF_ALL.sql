@@ -1,0 +1,39 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE VIEW MAVM_ALC_AC_IF_ALL(
+	CO_CD,
+	ALC_AC_CD,
+	ALC_AC_NM,
+	ALC_AC_NM_LCL1,
+	ALC_AC_NM_LCL2,
+	ALC_AC_NM_LCL3,
+	ALC_AC_NM_LCL4,
+	ALC_AC_NM_LCL5,
+	MEMO1,
+	MEMO2,
+	MEMO3
+)
+AS
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--配賦科目ＣＤ
+	T1.ALC_AC_CD,
+	--配賦科目名
+	T1.ALC_AC_NM,
+	--配賦科目名（ロケール１）
+	T1.ALC_AC_NM_LCL1,
+	--配賦科目名（ロケール２）
+	T1.ALC_AC_NM_LCL2,
+	--配賦科目名（ロケール３）
+	T1.ALC_AC_NM_LCL3,
+	--配賦科目名（ロケール４）
+	T1.ALC_AC_NM_LCL4,
+	--配賦科目名（ロケール５）
+	T1.ALC_AC_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_ALC_AC_MST T1
+;
+

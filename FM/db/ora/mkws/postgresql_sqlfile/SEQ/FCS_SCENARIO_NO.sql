@@ -1,0 +1,9 @@
+\encoding UTF-8
+
+CREATE SEQUENCE fcs_scenario_no
+	INCREMENT 1
+	START 1
+	MAXVALUE 9999999
+	MINVALUE 1
+	NO CYCLE;
+

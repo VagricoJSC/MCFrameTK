@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>MSBGL0210</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">MS</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">MSBG</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">MSBGL_ArApplReg</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">売掛消込登録</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">MS.MSUDL5010</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING">買掛金相殺の入金を検索する</COLUMN>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="METHOD_ID" TYPE="STRING">Srch04</COLUMN>
+    <COLUMN ID="METHOD" TYPE="STRING">Srch04</COLUMN>
+    <COLUMN ID="METHOD_NAME" TYPE="STRING">買掛金相殺検索</COLUMN>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <COLUMN ID="LOGIC_BODY" TYPE="STRING">"mcframe.serverMAUD.MAUDL5010.MAUDL_Searcher"</COLUMN>
+    <COLUMN ID="PRIVATE" TYPE="STRING"/>
+    <blocks>
+        <BLOCK>
+            <ID>Srch04_Hdr</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Srch04_Hdr</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>rcv_act_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Payment received result No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">入金実績ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.RCV_ACT_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rcv_act_seq</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Payment received result sequence number</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">入金実績連番</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.SLIP_SEQ</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_rcv_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset payment received No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺入金ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.RCV_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_rcv_dat_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset payment received data type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺入金データ区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.RCV_DAT_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_rcv_dat_typ_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset payment received info. type name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺入金情報区分名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.RCV_DAT_TYP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_bcst_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset destination cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_bcst_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset destination name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺先名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_dt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset date</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺日</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_ac_dt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Recording date</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">計上日</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_trd_cur_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset currency cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺通貨ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CUR_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_trd_cur_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset currency name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺通貨名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CUR_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_xrate</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset exchange rate</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺為替レート</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_rcv_amt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset amount</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺額</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_subttl2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Amount subtotal 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">金額小計２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_subttl3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Amount subtotal 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">金額小計３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_not_proc_bal</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset outstanding balance</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺未処理残高</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_sttl_cd1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset method cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺方法ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.STTL_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_sttl_nm1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset method name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺方法名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.STTL_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_sls_purc_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset sales purchase tax type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺売上仕入税区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.SLS_PURC_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_purc_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset sales flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺売上ＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_sls_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset purchase flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺仕入ＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_tax_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset tax cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺税ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TAX_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_tax_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset tax name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺税名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TAX_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_tax_rate</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset tax rate</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺税率</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TAX_RATE</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_tax_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset tax type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺税区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TAX_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_debt_cred_id_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset debtor identification type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺借方先識別区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DEBT_CRED_ID_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_debt_cred_id_typ_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset debtor identification type name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺借方先識別区分名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DEBT_CRED_ID_TYP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_debt_cred_id_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset debtor cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺借方先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>setoff_debt_cred_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Offset debtor name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">相殺借方先名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>amt_dec_place</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Number of decimal places</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">小数部有効桁数</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DEC_PLACE</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>upri_dec_place</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Number of decimal places</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">小数部有効桁数</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DEC_PLACE</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rcv_upd_cntr</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Payment received update counter</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">入金更新カウンタ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UPD_CNT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+    <vSpecs>
+        <GROUP CODE="U">
+            <SPEC>
+                <ID>MS.MSBGL0210.Srch04</ID>
+                <COLUMN ID="CODE" TYPE="STRING">U</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+                <blocks>
+                    <BLOCK>
+                        <ID>Srch04_Hdr</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>rcv_act_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rcv_act_seq</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_dat_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_dat_typ_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_bcst_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_bcst_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_dt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_ac_dt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_trd_cur_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_trd_cur_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_xrate</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_amt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_subttl2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_subttl3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_not_proc_bal</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sttl_cd1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sttl_nm1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sls_purc_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_purc_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sls_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_rate</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_typ_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>amt_dec_place</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>upri_dec_place</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rcv_upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="K">
+            <SPEC>
+                <ID>CONST</ID>
+                <COLUMN ID="CODE" TYPE="STRING">K</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <blocks>
+                    <BLOCK>
+                        <ID>Srch04_Hdr</ID>
+                        <COLUMN ID="CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>rcv_act_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rcv_act_seq</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_dat_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">MSC_RCV_DAT_TYP</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_dat_typ_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_bcst_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_bcst_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_dt</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_ac_dt</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_trd_cur_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_trd_cur_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_xrate</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_rcv_amt</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_subttl2</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_subttl3</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_not_proc_bal</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sttl_cd1</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sttl_nm1</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sls_purc_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_purc_flg</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_sls_flg</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_rate</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_tax_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">MAC_DEBT_CRED_ID_TYP</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_typ_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_id_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>setoff_debt_cred_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>amt_dec_place</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>upri_dec_place</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rcv_upd_cntr</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="o"/>
+    </vSpecs>
+</SPEC>

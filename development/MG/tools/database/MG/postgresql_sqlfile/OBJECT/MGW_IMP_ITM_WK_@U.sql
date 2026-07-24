@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgw_imp_itm_wk_$u(
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	loc_cd,
+	oper_ptn,
+	oper_cd,
+	oper_seq,
+	wk_cost_cd,
+	term,
+	calc_ctg_cd,
+	wg_cd,
+	base_qty,
+	fxd_wk_cost,
+	wk_cost,
+	min_wk_cost,
+	batch_wk_cost,
+	rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	non_calc_flg,
+	imp_err_flg,
+	imp_flg,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.itm_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.itm_sub1,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.itm_sub2,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.itm_sub3,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.loc_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.oper_ptn,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.oper_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.oper_seq,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.wk_cost_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.term,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.calc_ctg_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.wg_cd,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.base_qty,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.fxd_wk_cost,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.wk_cost,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.min_wk_cost,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.batch_wk_cost,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.rmrks,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.sub_char1,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.sub_char2,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.sub_char3,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.non_calc_flg,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.imp_err_flg,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.imp_flg,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.ins_usr_id,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.ins_usr_nm,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.ins_ts,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.ins_func_id,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_cntr,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_usr_id,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_usr_nm,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_ts,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_func_id,
+	mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.upd_srv_req_no
+FROM
+	mgw_imp_itm_wk_all mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org
+WHERE
+	0 = 0
+	AND mgw_imp_itm_wk_$u_mgw_imp_itm_wk_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

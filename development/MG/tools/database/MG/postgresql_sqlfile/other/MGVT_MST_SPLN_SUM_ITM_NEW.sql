@@ -1,0 +1,56 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgvt_mst_spln_sum_itm_new(
+dpt_cd,
+cst_cd,
+wrk_no,
+spln_itm_cd,
+itm_cd,
+itm_sub1,
+itm_sub2,
+itm_sub3,
+cur_cd,
+spln_ym,
+spln_qty,
+spln_amt,
+ym,
+spln_vers,
+ins_usr_id,
+ins_usr_nm,
+ins_ts,
+ins_func_id,
+upd_cntr,
+upd_usr_id,
+upd_usr_nm,
+upd_ts,
+upd_func_id,
+upd_srv_req_no
+)
+AS
+SELECT
+	null::varchar (20) AS dpt_cd,
+	null::varchar (20) AS cst_cd,
+	null::varchar (15) AS wrk_no,
+	null::varchar (40) AS spln_itm_cd,
+	null::varchar (40) AS itm_cd,
+	null::varchar (5) AS itm_sub1,
+	null::varchar (5) AS itm_sub2,
+	null::varchar (5) AS itm_sub3,
+	null::varchar (3) AS cur_cd,
+	null::timestamp(0) AS spln_ym,
+	null::numeric (21,8) AS spln_qty,
+	null::numeric (21,8) AS spln_amt,
+	null::timestamp(0) AS ym,
+	null::varchar (20) AS spln_vers,
+	null::varchar (500) AS ins_usr_id,
+	null::varchar (100) AS ins_usr_nm,
+	null::timestamp(3) AS ins_ts,
+	null::varchar (50) AS ins_func_id,
+	null::numeric (9,0) AS upd_cntr,
+	null::varchar (500) AS upd_usr_id,
+	null::varchar (100) AS upd_usr_nm,
+	null::timestamp(3) AS upd_ts,
+	null::varchar (50) AS upd_func_id,
+	null::varchar (50) AS upd_srv_req_no
+;;
+

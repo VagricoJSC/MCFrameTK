@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>MSBAL0020</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">MS</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">MSBA</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">MSBAL_WgRqstAdjst</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">ＷＧ間依頼調整</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">MS.MSUDL5010</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING">在庫推移、またはシミュ用在庫推移を検索する。</COLUMN>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="METHOD_ID" TYPE="STRING">Srch03</COLUMN>
+    <COLUMN ID="METHOD" TYPE="STRING">Srch03</COLUMN>
+    <COLUMN ID="METHOD_NAME" TYPE="STRING">検索（在庫推移）</COLUMN>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <COLUMN ID="LOGIC_BODY" TYPE="STRING">"mcframe.serverMAUD.MAUDL5010.MAUDL_Searcher"</COLUMN>
+    <COLUMN ID="PRIVATE" TYPE="STRING"/>
+    <blocks>
+        <BLOCK>
+            <ID>Srch03_Cnd</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Srch03_Cnd</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>itm_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Item cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">品目ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB1</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB2</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB3</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Item name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">品名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>gi_loc_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">GI location cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">出庫場所ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.LOC_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dt_fr</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Period FROM</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">期間ＦＲＯＭ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dt_to</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Period TO</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">期間ＴＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sim_mrp_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Simulation No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">シミュレーションＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.SIM_MRP_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>opn_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Include unfirm</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">未確定含む</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+        <BLOCK>
+            <ID>Srch03_Rslt</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Srch03_Rslt</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>20</bNum>
+            <items>
+                <ITEM>
+                    <ID>itm_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Item cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">品目ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB1</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB2</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_sub3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Branch No. 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">枝番３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_SUB3</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>itm_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Item name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">品名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ITM_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>unit_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Unit cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">単位ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UNIT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>unit_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Unit name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">単位名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UNIT_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dec_place</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Number of decimal places</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">小数部有効桁数</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DEC_PLACE</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>loc_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Location cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">場所ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.LOC_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>loc_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Location name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">場所名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.LOC_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>wg_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">WG cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ワーキンググループＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.WG_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>wg_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">WG name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ワーキンググループ名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.WG_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sd_adjst_dtl_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Demand and supply management details type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">需給調整明細区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SD_ADJST_DTL_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sd_adjst_dtl_typ_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Demand and supply management details type name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">需給調整明細区分名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SD_ADJST_DTL_TYP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rqmt_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Requirements type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">所要区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.RQMT_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>prod_pln_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Production planning type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">生産計画立案区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.PROD_PLN_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>schd_dt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Scheduled date</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">予定日</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>schd_qty</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Scheduled qty.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">予定数量</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.QTY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+        <BLOCK>
+            <ID>Srch03_IoAct</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Srch03_IoAct</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>30</bNum>
+            <items>
+                <ITEM>
+                    <ID>wg_rqst_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.WG_RQST_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>wg_rqst_prms_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.WG_RQST_PRMS_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>gi_act_qty</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.QTY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>gr_act_qty</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.QTY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+    <vSpecs>
+        <GROUP CODE="U">
+            <SPEC>
+                <ID>MS.MSBAL0020.Srch03</ID>
+                <COLUMN ID="CODE" TYPE="STRING">U</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+                <blocks>
+                    <BLOCK>
+                        <ID>Srch03_Cnd</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>itm_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gi_loc_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dt_fr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dt_to</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sim_mrp_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>opn_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Srch03_Rslt</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>itm_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>unit_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>unit_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dec_place</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>loc_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>loc_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sd_adjst_dtl_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sd_adjst_dtl_typ_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rqmt_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prod_pln_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>schd_dt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>schd_qty</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Srch03_IoAct</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>wg_rqst_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_rqst_prms_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gi_act_qty</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gr_act_qty</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="K">
+            <SPEC>
+                <ID>CONST</ID>
+                <COLUMN ID="CODE" TYPE="STRING">K</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <blocks>
+                    <BLOCK>
+                        <ID>Srch03_Cnd</ID>
+                        <COLUMN ID="CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>itm_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub1</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub2</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub3</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gi_loc_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dt_fr</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dt_to</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sim_mrp_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>opn_flg</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Srch03_Rslt</ID>
+                        <COLUMN ID="CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>itm_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub1</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub2</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_sub3</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>itm_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>unit_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>unit_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dec_place</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>loc_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>loc_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sd_adjst_dtl_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">MSC_SD_ADJST_DTL_TYP</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sd_adjst_dtl_typ_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rqmt_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prod_pln_typ</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>schd_dt</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>schd_qty</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Srch03_IoAct</ID>
+                        <COLUMN ID="CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>wg_rqst_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_rqst_prms_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gi_act_qty</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>gr_act_qty</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="o"/>
+    </vSpecs>
+</SPEC>

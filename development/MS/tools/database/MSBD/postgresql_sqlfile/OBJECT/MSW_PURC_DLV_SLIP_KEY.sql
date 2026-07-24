@@ -1,0 +1,84 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION msw_purc_dlv_slip_key()
+RETURNS TABLE (
+	dlv_slip_mng_no varchar,
+	dlv_slip_mng_seq numeric
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('msw_purc_dlv_slip_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE msw_purc_dlv_slip_key$temp(
+				dlv_slip_mng_no varchar (15) NULL,
+				dlv_slip_mng_seq numeric (4,0) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX msw_purc_dlv_slip_key_pk_ie ON msw_purc_dlv_slip_key$temp
+				USING BTREE (dlv_slip_mng_no,dlv_slip_mng_seq);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('msw_purc_dlv_slip_key$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM msw_purc_dlv_slip_key$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW msw_purc_dlv_slip_key
+AS
+SELECT *
+FROM msw_purc_dlv_slip_key();
+
+CREATE OR REPLACE FUNCTION msw_purc_dlv_slip_key$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('msw_purc_dlv_slip_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE msw_purc_dlv_slip_key$temp(
+				dlv_slip_mng_no varchar (15) NULL,
+				dlv_slip_mng_seq numeric (4,0) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX msw_purc_dlv_slip_key_pk_ie ON msw_purc_dlv_slip_key$temp
+				USING BTREE (dlv_slip_mng_no,dlv_slip_mng_seq);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('msw_purc_dlv_slip_key$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO msw_purc_dlv_slip_key$temp(
+			dlv_slip_mng_no,
+			dlv_slip_mng_seq
+		)VALUES (
+			NEW.dlv_slip_mng_no,
+			NEW.dlv_slip_mng_seq
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE msw_purc_dlv_slip_key$temp
+		SET 
+			dlv_slip_mng_no = NEW.dlv_slip_mng_no,
+			dlv_slip_mng_seq = NEW.dlv_slip_mng_seq
+		WHERE 0=0
+		AND (dlv_slip_mng_no = OLD.dlv_slip_mng_no OR dlv_slip_mng_no IS NULL AND OLD.dlv_slip_mng_no IS NULL)
+		AND (dlv_slip_mng_seq = OLD.dlv_slip_mng_seq OR dlv_slip_mng_seq IS NULL AND OLD.dlv_slip_mng_seq IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM msw_purc_dlv_slip_key$temp
+		WHERE 0=0
+		AND (dlv_slip_mng_no = OLD.dlv_slip_mng_no OR dlv_slip_mng_no IS NULL AND OLD.dlv_slip_mng_no IS NULL)
+		AND (dlv_slip_mng_seq = OLD.dlv_slip_mng_seq OR dlv_slip_mng_seq IS NULL AND OLD.dlv_slip_mng_seq IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER msw_purc_dlv_slip_key$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON msw_purc_dlv_slip_key
+FOR EACH ROW
+EXECUTE PROCEDURE msw_purc_dlv_slip_key$func();
+;
+

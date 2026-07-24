@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>MSBEL1160</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">MS</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">MSBE</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">MSBEL_ProvDtlModReg</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">支給明細訂正登録</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">MS.MSUDL5010</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING">納品書を発行する</COLUMN>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="METHOD_ID" TYPE="STRING">Prnt01</COLUMN>
+    <COLUMN ID="METHOD" TYPE="STRING">Prnt01</COLUMN>
+    <COLUMN ID="METHOD_NAME" TYPE="STRING">納品書発行</COLUMN>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <COLUMN ID="LOGIC_BODY" TYPE="STRING">"mcframe.serverMAUD.MAUDL5010.MAUDL_Operation"</COLUMN>
+    <COLUMN ID="PRIVATE" TYPE="STRING"/>
+    <blocks>
+        <BLOCK>
+            <ID>Prnt01_Dtl</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING">$share$</COLUMN>
+            <COLUMN ID="DEPEND" TYPE="STRING">MS.MSBEL1160.Chk02.Chk02_Dtl</COLUMN>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Prnt01_Dtl</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>peg_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Pegging No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">紐付けＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.INT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>err_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Error</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">エラー</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>prov_src_act_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Supply-from result type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支給元実績区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.PROV_SRC_ACT_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>prov_act_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Supply result No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支給実績ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.PROV_ACT_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>prov_act_seq</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Supply result sequence number</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支給実績連番</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.SLIP_SEQ</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dlv_slip_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery note No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納品書ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DLV_SLIP_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dlv_slip_d_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery note details No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納品書明細ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DLV_SLIP_D_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>trn_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">トランザクション区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.TRN_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dlv_prnt_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery note issued</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納品書発行済</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dlv_prnt_tm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery note issue date and time</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納品書発行日時</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>prov_upd_cntr</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Update counter (Supply result)</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">更新カウンタ（支給実績）</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UPD_CNT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>xfr_act_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Movement result No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">移動実績ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.XFR_ACT_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>xfr_upd_cntr</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Update counter (Movement result)</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">更新カウンタ（移動実績）</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UPD_CNT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rtn_sts_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Process result status type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">処理結果状況区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.RTN_STS_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+        <BLOCK>
+            <ID>Prnt01_Cnd</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Prnt01_Cnd</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>20</bNum>
+            <items>
+                <ITEM>
+                    <ID>indiv_prnt_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Individual issue</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">個別発行</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+    <vSpecs>
+        <GROUP CODE="U">
+            <SPEC>
+                <ID>MS.MSBEL1160.Prnt01</ID>
+                <COLUMN ID="CODE" TYPE="STRING">U</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+                <blocks>
+                    <BLOCK>
+                        <ID>Prnt01_Dtl</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>peg_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>err_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_src_act_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_act_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_act_seq</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_slip_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_slip_d_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>trn_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_prnt_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_prnt_tm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>xfr_act_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>xfr_upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rtn_sts_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Prnt01_Cnd</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>indiv_prnt_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="K"/>
+        <GROUP CODE="o">
+            <SPEC>
+                <ID>CALL_OPE.chk02</ID>
+                <COLUMN ID="CODE" TYPE="STRING">o</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="TARGET" TYPE="STRING">OPE.MS.MSBEL1160.Chk02</COLUMN>
+                <COLUMN ID="VERSION" TYPE="STRING"/>
+                <COLUMN ID="_GROUP_ID" TYPE="STRING">CALL_OPE</COLUMN>
+                <COLUMN ID="_ID" TYPE="STRING">chk02</COLUMN>
+                <COLUMN ID="_TARGET_TYPE" TYPE="STRING"/>
+                <COLUMN ID="_TARGET_MODULE" TYPE="STRING"/>
+                <COLUMN ID="_TARGET" TYPE="STRING"/>
+                <blocks>
+                    <BLOCK>
+                        <ID>Prnt01_Dtl</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <COLUMN ID="UP_TYPE" TYPE="STRING">Chk02_Dtl</COLUMN>
+                        <COLUMN ID="DOWN_TYPE" TYPE="STRING">Chk02_Dtl</COLUMN>
+                        <COLUMN ID="UP_DEST_CLASS_DEF" TYPE="STRING">MCList&lt;mcframe.serverMSBE.MSBEL1160.Chk02_DtlR&gt;</COLUMN>
+                        <COLUMN ID="DOWN_SRC_CLASS_DEF" TYPE="STRING">MCList&lt;mcframe.serverMSBE.MSBEL1160.Chk02_DtlR&gt;</COLUMN>
+                        <items>
+                            <ITEM>
+                                <ID>peg_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">peg_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">peg_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>err_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">err_flg</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_src_act_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">prov_src_act_typ</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">prov_src_act_typ</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_act_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">prov_act_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">prov_act_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_act_seq</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">prov_act_seq</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">prov_act_seq</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_slip_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">dlv_slip_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">dlv_slip_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_slip_d_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">dlv_slip_d_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">dlv_slip_d_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>trn_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">trn_typ</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">trn_typ</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_prnt_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">dlv_prnt_flg</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">dlv_prnt_flg</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_prnt_tm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">dlv_prnt_tm</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">dlv_prnt_tm</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>prov_upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">prov_upd_cntr</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">prov_upd_cntr</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>xfr_act_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">xfr_act_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">xfr_act_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>xfr_upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">xfr_upd_cntr</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">xfr_upd_cntr</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rtn_sts_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">rtn_sts_typ</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Prnt01_Cnd</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <COLUMN ID="UP_TYPE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_TYPE" TYPE="STRING"/>
+                        <COLUMN ID="UP_DEST_CLASS_DEF" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_SRC_CLASS_DEF" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>indiv_prnt_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+    </vSpecs>
+</SPEC>

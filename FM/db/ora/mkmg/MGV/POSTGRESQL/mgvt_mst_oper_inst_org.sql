@@ -1,0 +1,67 @@
+DO $$
+BEGIN
+CREATE OR REPLACE VIEW mgvt_mst_oper_inst
+AS
+SELECT
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_inst_no,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.mfg_inst_no,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.itm_mfg_inst_no,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_ord_no,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.disp_seq,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_seq,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.st_schd_tm,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.end_schd_tm,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_loc_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_str_ln_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.base_unit_qty,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.base_unit_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_std_qty,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_conv_qty,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_unit_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_unit_conv_rnd_typ,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_unit_dec_place,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.unschd_inst_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.unschd_act_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.bkf_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.wk_cost_calc_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_inst_grp,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.usr_cd,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_lt,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_lt_add_qty,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_offst_typ,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_offst,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_offst_add_qty,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.lmt_fr_dt_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_lower_yield,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_std_yield,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_upper_yield,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.wip_rate,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.yield_oper_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.yield_oper_ratio,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.can_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.oper_abort_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.mes_flg,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.intr_rmrks,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.inst_rpt_rmrks,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.sub_char1,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.sub_char2,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.sub_char3,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.ins_usr_id,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.ins_usr_nm,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.ins_ts,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.ins_func_id,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_cntr,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_usr_id,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_usr_nm,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_ts,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_func_id,
+	mgvt_mst_oper_inst_org_mst_oper_inst_t1.upd_srv_req_no
+FROM 
+	mst_oper_inst mgvt_mst_oper_inst_org_mst_oper_inst_t1
+;
+EXCEPTION WHEN OTHERS THEN
+	null;
+END
+$$
+;

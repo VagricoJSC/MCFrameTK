@@ -1,0 +1,60 @@
+
+COMMENT ON TABLE MSVT_MRP_STK IS 'ＭＲＰ用在庫情報 // Inventory info. for MRP';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.LOT_NO IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.SUBLOT_NO IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.GD_CD IS '格付ＣＤ // #MA.STK_GD_CD // Grading cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.BASE_UNIT_QTY IS '基準単位数量 // #MA.QTY // Base unit qty.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.VER_NO IS '版ＮＯ // #MA.VER_NO // Version No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.FIRST_GR_DT IS '最古入庫日 // #MA.DT // Oldest GR date';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.LOT_SEQ IS 'ロットシーケンス // #MA.LOT_SEQ // Lot sequence';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.AVL_SCHD_DT IS '使用可能予定日 // #MA.DT // Available date';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.LMT_DT IS '使用期限 // #MA.DT // Usage expiration date';
+
+
+COMMENT ON COLUMN MSVT_MRP_STK.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCMessage Constant-->
+<mcframe>
+	<!-- 国際化対象となる値はメッセージ定義書に定義すること-->
+	<!-- メッセージ変換 -->
+	<wrap>
+		<err>
+			<lv>F,E</lv>
+		</err>
+	</wrap>
+
+	<!-- Push用JavaScript -->
+<PUSH_SCRIPT><lv>I</lv><msg><![CDATA[
+(function() {{
+	var ws = new WebSocket('{1}');
+	ws.onopen = function(e) {{
+		{2}.onOpen(e);
+	};
+	ws.onclose = function(e) {{
+		{2}.onClose(e);
+	};
+	ws.onmessage = function(e) {{
+		{2}.onMessage(e);
+	};
+	ws.onerror = function(e) {{
+		{2}.onError(e);
+	};
+	return ws;
+})();
+]]></msg></PUSH_SCRIPT>
+<PUSH_AUTH><lv>I</lv><msg><![CDATA[
+{{
+	"method" : "AUTH",
+	"userid" : "{1}",
+	"loginseq" : "{2}",
+	"locale" : "{3}"
+}
+]]></msg></PUSH_AUTH>
+<PUSH_READ><lv>I</lv><msg><![CDATA[
+{{
+	"method" : "READ",
+	"userid" : "{1}",
+	"noticeid" : "{2}"
+}
+]]></msg></PUSH_READ>
+
+<!--
+以下の書式で記述してください。
+
+<FCUCC0001><lv>E</lv><msg><![CDATA[
+テストメッセージです。
+バインド1={1}
+バインド2={2}
+]]></msg></FCUCC0001>
+ -->
+</mcframe>

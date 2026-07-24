@@ -1,0 +1,51 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW msvt_accpt_stk(
+itm_cd,
+itm_sub1,
+itm_sub2,
+itm_sub3,
+loc_cd,
+str_ln_cd,
+stk_arrv_bp_cd,
+lot_no,
+sublot_no,
+sno1,
+sno2,
+sno3,
+sno4,
+fix_no_typ,
+fix_no,
+pack_unit_cd,
+gd_cd,
+in_xfr_typ,
+quality_typ,
+asst_typ,
+stk_insp_typ,
+stk_id_typ,
+stk_bp_cd,
+pack_unit_qty,
+base_unit_qty,
+sub_char1,
+sub_char2,
+sub_char3,
+ins_usr_id,
+ins_usr_nm,
+ins_ts,
+ins_func_id,
+upd_cntr,
+upd_usr_id,
+upd_usr_nm,
+upd_ts,
+upd_func_id,
+upd_srv_req_no
+)
+AS
+SELECT
+	msvt_accpt_stk_mst_stk_t1.*
+FROM
+	mst_stk msvt_accpt_stk_mst_stk_t1
+WHERE 0=0
+AND msvt_accpt_stk_mst_stk_t1.asst_typ IN (fcpa_const$get_const_val('MAC_ASST_TYP','CO_SLS'), fcpa_const$get_const_val('MAC_ASST_TYP','CO_PROD'))
+;;
+

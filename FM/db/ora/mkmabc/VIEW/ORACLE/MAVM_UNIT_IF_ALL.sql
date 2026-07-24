@@ -1,0 +1,24 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--単位ＣＤ
+	T1.UNIT_CD,
+	--単位名
+	T1.UNIT_NM,
+	--単位名（ロケール１）
+	T1.UNIT_NM_LCL1,
+	--単位名（ロケール２）
+	T1.UNIT_NM_LCL2,
+	--単位名（ロケール３）
+	T1.UNIT_NM_LCL3,
+	--単位名（ロケール４）
+	T1.UNIT_NM_LCL4,
+	--単位名（ロケール５）
+	T1.UNIT_NM_LCL5,
+	T1.DEC_PLACE,
+	T1.RND_TYP,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_UNIT_MST T1
+/

@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>MBBCL5020</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">MB</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">MBBC</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">MBBCL_AttachService</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">添付帳票登録サービス</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">MB.MBUDL5010</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING">添付ファイル情報を登録・更新する</COLUMN>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="METHOD_ID" TYPE="STRING">Attach_Upd01</COLUMN>
+    <COLUMN ID="METHOD" TYPE="STRING">Attach_Upd01</COLUMN>
+    <COLUMN ID="METHOD_NAME" TYPE="STRING">登録・更新</COLUMN>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <COLUMN ID="LOGIC_BODY" TYPE="STRING">"mcframe.serverMAUD.MAUDL5010.MAUDL_Operation"</COLUMN>
+    <COLUMN ID="PRIVATE" TYPE="STRING"/>
+    <blocks>
+        <BLOCK>
+            <ID>Attach_Upd01_Dtl</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING">$share$</COLUMN>
+            <COLUMN ID="DEPEND" TYPE="STRING">MB.MBBCL5020.Attach_Chk01.Attach_Chk01_Dtl</COLUMN>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Attach_Upd01_Dtl</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>data_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Report management No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">帳票管理ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IT_DAT_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edition</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Version</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">版</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.SLIP_REV</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key4</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 4</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー４</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key5</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 5</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー５</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key6</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 6</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー６</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key7</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 7</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー７</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key8</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 8</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー８</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key9</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 9</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー９</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key10</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 10</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー１０</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>report_id</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Report ID</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">帳票ＩＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.REPORT_ID</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction date</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引年月日</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>bp_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">BP cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>cur_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction currency cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引通貨ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CUR_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>amt</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction amount</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引金額</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rmrks1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Remarks 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">備考１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ATTACHMENT_RMRKS</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rmrks2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Remarks 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">備考２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ATTACHMENT_RMRKS</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rmrks3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Remarks 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">備考３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ATTACHMENT_RMRKS</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rmrks4</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Remarks 4</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">備考４</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ATTACHMENT_RMRKS</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rmrks5</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Remarks 5</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">備考５</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.ATTACHMENT_RMRKS</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>file_bin</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Attachment source file</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">添付元ファイル</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIN</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>doc_id</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Document ID</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ドキュメントID</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DOC_ID</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>file_path</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Storage location file path</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">保存先ファイルパス</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FILE_PATH</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>file_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Storage location file name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">保存先ファイル名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FILE_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>wg_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">WG cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ワーキンググループＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sls_dpt_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Sales dept. cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">売上部門ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>purc_dpt_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Purchasing dept. cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">購買部門ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>ar_dpt_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">AR dept. cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">債権部門ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>bill_dpt_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Billing dept. cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">請求部門ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>bsppl_dpt_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Cd. of dept. in charge of scheduled payee</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支払予定管理先担当部門ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dlv_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery destination cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納品先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dest_cd1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Distribution channel cd. 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">仕向先ＣＤ１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dest_cd2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Distribution channel cd. 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">仕向先ＣＤ２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>dest_cd3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Distribution channel cd. 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">仕向先ＣＤ３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>cst_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Customer cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>acst_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">AR customer cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">売掛先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>bcst_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Billing customer cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">請求先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sppl_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Supplier cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">発注先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>asppl_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">AP supplier cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">買掛先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>bsppl_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Scheduled payee cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支払予定管理先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>psppl_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Payee cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">支払先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>cntry_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Country cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">国ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CNTRY_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>ptax_cur_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Taxpaying currency cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">納税通貨ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CUR_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>wrk_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Sales project No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">案件ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.WRK_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>tterm_cd1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction terms cd. 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引条件ＣＤ１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TTERM_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>tterm_cd2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction terms cd. 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引条件ＣＤ２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TTERM_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>tterm_cd3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Transaction terms cd. 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取引条件ＣＤ３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.TTERM_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edi_sub_char1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">EDI spare CHAR column 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＥＤＩ予備ＣＨＡＲ項目１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_SUB_CHAR1</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edi_sub_char2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">EDI spare CHAR column 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＥＤＩ予備ＣＨＡＲ項目２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_SUB_CHAR2</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edi_sub_char3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">EDI spare CHAR column 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＥＤＩ予備ＣＨＡＲ項目３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_SUB_CHAR3</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edi_sub_char4</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">EDI spare CHAR column 4</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＥＤＩ予備ＣＨＡＲ項目４</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_SUB_CHAR4</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>edi_sub_char5</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">EDI spare CHAR column 5</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＥＤＩ予備ＣＨＡＲ項目５</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_SUB_CHAR5</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>upd_cntr</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Update counter</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">更新カウンタ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.UPD_CNT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>if_proc_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">IF process type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ＩＦ処理区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_PROC_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>select_file_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Select external file flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">外部ファイル選択ＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>attach_file_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Attach file flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ファイル添付ＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>peg_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Pegging No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">紐付けＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.INT</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>err_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Error flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">エラーＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>rtn_sts_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Process result status type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">処理結果状況区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.RTN_STS_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+        <BLOCK>
+            <ID>Attach_Upd01_Hdr</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING">$share$</COLUMN>
+            <COLUMN ID="DEPEND" TYPE="STRING">MB.MBBCL5020.Attach_Chk01.Attach_Chk01_Hdr</COLUMN>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Attach_Upd01_Hdr</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>20</bNum>
+            <items>
+                <ITEM>
+                    <ID>upd_cntr_chk_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Check for update counter flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">更新カウンタチェックＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>del_flg</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Cancel slip flg.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">取消伝票ＦＬＧ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+        <BLOCK>
+            <ID>Attach_Upd01_Dtl2</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Attach_Upd01_Dtl2</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>30</bNum>
+            <items>
+                <ITEM>
+                    <ID>biz_typ</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business type</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務区分</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_TYP</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>report_id</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Report ID</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">帳票ＩＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.REPORT_ID</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 1</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー１</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 2</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー２</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 3</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー３</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key4</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 4</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー４</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key5</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 5</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー５</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key6</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 6</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー６</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key7</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 7</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー７</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key8</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 8</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー８</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key9</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 9</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー９</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>biz_key10</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Business key 10</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">業務キー１０</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BIZ_KEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>data_lno</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Data row No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">データ行ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.IF_DATA_LNO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+    <vSpecs>
+        <GROUP CODE="U">
+            <SPEC>
+                <ID>MB.MBBCL5020.Attach_Upd01</ID>
+                <COLUMN ID="CODE" TYPE="STRING">U</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+                <blocks>
+                    <BLOCK>
+                        <ID>Attach_Upd01_Dtl</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>data_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edition</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key4</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key5</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key6</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key7</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key8</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key9</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key10</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>report_id</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>bp_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cur_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>amt</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rmrks1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rmrks2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rmrks3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rmrks4</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rmrks5</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>file_bin</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>doc_id</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>file_path</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>file_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wg_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>purc_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>ar_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>bill_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>bsppl_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dest_cd1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dest_cd2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dest_cd3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cst_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>acst_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>bcst_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sppl_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>asppl_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>bsppl_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>psppl_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cntry_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>ptax_cur_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>wrk_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>tterm_cd1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>tterm_cd2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>tterm_cd3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edi_sub_char1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edi_sub_char2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edi_sub_char3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edi_sub_char4</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>edi_sub_char5</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>upd_cntr</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>if_proc_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>select_file_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>attach_file_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>peg_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>err_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>rtn_sts_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Attach_Upd01_Hdr</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>upd_cntr_chk_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>del_flg</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                    <BLOCK>
+                        <ID>Attach_Upd01_Dtl2</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>biz_typ</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>report_id</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key1</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key2</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key3</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key4</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key5</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key6</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key7</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key8</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key9</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>biz_key10</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>data_lno</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="K"/>
+        <GROUP CODE="o"/>
+    </vSpecs>
+</SPEC>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MST_INPT_ALLOC_BR</dbc>
+
+	<cond>
+		<cols>
+			batch_data_no,exe_sts_typ,batch_log_no,log_sub_key1,log_sub_key2,
+			ins_ts,upd_ts,
+			st_schd_tm,end_schd_tm,mfg_inst_no
+		</cols>
+	</cond>
+
+	<list>
+		<!-- ＰＧ実行状況区分 -->
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+	</list>
+
+	<format>
+		<st_schd_tm>YMDHM</st_schd_tm>
+		<end_schd_tm>YMDHM</end_schd_tm>
+	</format>
+
+	<app>
+		<ref>true</ref>
+
+		<dtl>
+			<move>
+				<col1>par_itm_nm</col1>
+				<pos1>12</pos1>
+
+				<col2>mfg_loc_nm</col2>
+				<pos2>14</pos2>
+			</move>
+
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+				
+				<col2>par_itm_nm</col2>
+				<lbl2>親品名</lbl2>
+				<msg2>親品名</msg2>
+				
+				<col3>mfg_loc_nm</col3>
+				<lbl3>製造場所名</lbl3>
+				<msg3>製造場所名</msg3>
+				
+			</label>
+
+		</dtl>
+
+		<trans>
+			<mid>MS</mid>
+			<scrn>MSBCP1010</scrn>
+			<cndBlk>Cnd</cndBlk>
+			<do_srch>true</do_srch>
+
+			<toCol1>ope</toCol1>
+			<typ1>C</typ1>
+			<val1>3</val1>
+
+			<toCol2>srch_tgt_no</toCol2>
+			<frCol2>mfg_inst_no</frCol2>
+			
+		</trans>
+	</app>
+</mcframe>

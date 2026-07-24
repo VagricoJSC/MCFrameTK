@@ -1,0 +1,1011 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE PACKAGE MGPA_SET_ITM_EXT
+/**************************************************************************
+<SYNOPSIS>
+	ロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を拡張項目として扱い、
+	品目拡張別に計算させるための処理
+<REMARKS>
+
+<ARGUMENTS>
+<HISTORY>
+**************************************************************************/
+IS
+
+PROCEDURE P_SET_ITM_EXT (
+	I_ARG		MGT_ARG%ROWTYPE
+) ;
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに品目拡張ごとの情報を追加する
+	ロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	品目拡張に設定する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_ARG
+		対象となる原価計算設定情報のレコード
+<HISTORY>
+**************************************************************************/
+
+PROCEDURE P_ITM_EXT_NULL (
+	I_ARG		MGT_ARG%ROWTYPE
+	, I_SQL_NO	IN	NUMBER DEFAULT NULL
+) ;
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに追加したレコードを削除する
+	品目拡張にロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	設定した箇所をNULL文字に変換する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_ARG
+		対象となる原価計算設定情報のレコード
+<HISTORY>
+**************************************************************************/
+
+PROCEDURE P_ITM_EXT_NULL (
+	I_CALC_GRP_CD	IN	MAPA_META.CALC_GRP_CD%TYPE,
+	I_CALC_NO	IN	MAPA_META.CALC_NO%TYPE,
+	I_ST_YM	IN	MAPA_META.YM%TYPE,
+	I_SQL_NO	IN	NUMBER
+) ;
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに追加したレコードを削除する
+	品目拡張にロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	設定した箇所をNULL文字に変換する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_CALC_GRP_CD
+		対象となる計算グループＣＤ
+<IN>	I_CALC_NO
+		対象となる原価計算ＮＯ
+<IN>	I_ST_YM
+		対象となる対象期間先頭年月
+<HISTORY>
+**************************************************************************/
+END MGPA_SET_ITM_EXT ;
+
+/
+show errors;
+
+
+CREATE OR REPLACE PACKAGE BODY MGPA_SET_ITM_EXT
+IS
+	G_NULL_VAL	CONSTANT MAPA_META.STR20%TYPE := MAC_STR.NULL_VAL ;
+
+	G_ITM_EXT	CONSTANT MAPA_META.CALC_PARM_KEY%TYPE := 'ETC_ITM_EXT' ;
+
+PROCEDURE P_SET_ITM_EXT (
+	I_ARG		MGT_ARG%ROWTYPE
+	)
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに品目拡張ごとの情報を追加する
+	ロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	品目拡張に設定する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_ARG
+		対象となる原価計算設定情報のレコード
+<HISTORY>
+**************************************************************************/
+AS
+	C_UNIT_CALC	CONSTANT MAPA_META.UNIT_CALC_TYP%TYPE := MAC_UNIT_CALC_TYP.CALC ;
+
+	L_EXT_NO	INTEGER ;
+	L_ITM_EXT		MGT_CALC_ITM.ITM_EXT%TYPE ;
+	L_STK_CALC_GRP_CD	MAPA_META.CALC_GRP_CD%TYPE ;
+	L_WIP_CALC_GRP_CD	MAPA_META.CALC_GRP_CD%TYPE ;
+
+	L_CNT		NUMBER ;
+
+	TYPE ITM_LIST IS TABLE OF MGT_CALC_ITM%ROWTYPE INDEX BY BINARY_INTEGER ;
+	L_ITM_LIST	ITM_LIST ;
+	i		BINARY_INTEGER ;
+
+	TYPE ITM_EXT_LIST IS TABLE OF MGT_CALC_ITM.ITM_EXT%TYPE INDEX BY BINARY_INTEGER ;
+	L_ITM_EXT_LIST	ITM_EXT_LIST ;
+	j		BINARY_INTEGER ;
+BEGIN
+	IF I_ARG.SA_TYP = MAC_SA_TYP.PLN
+	OR I_ARG.COST_CALC_TYP <> MAC_COST_CALC_TYP.CALC_STK THEN
+		RETURN ;
+	END IF ;
+
+	SELECT	MAX(DECODE(m.PARM_VAL, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, NULL))
+	INTO	L_EXT_NO
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = G_ITM_EXT
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	IF L_EXT_NO IS NULL THEN
+		RETURN ;
+	END IF ;
+	SELECT	NVL(MIN(m.PARM_VAL), I_ARG.CALC_GRP_CD)
+	INTO	L_STK_CALC_GRP_CD
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = 'ETC_STK_CALC_GRP'
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	SELECT	NVL(MIN(m.PARM_VAL), I_ARG.CALC_GRP_CD)
+	INTO	L_WIP_CALC_GRP_CD
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = 'ETC_WIP_CALC_GRP'
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_SET_ITM_EXT.P_SET_ITM_EXT') ;
+
+	FOR x IN (
+		SELECT	t.*
+		FROM	MGT_CALC_ITM t
+		WHERE	0=0
+		AND	t.CALC_NO = I_ARG.CALC_NO
+		AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+		AND	t.ITM_EXT = G_NULL_VAL
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGT_CALC_PTN x
+				WHERE	0=0
+				AND	x.CALC_NO = t.CALC_NO
+				AND	x.CALC_GRP_CD = t.CALC_GRP_CD
+				AND	x.CALC_PTN_CD = t.CALC_PTN_CD
+				AND	(
+					L_EXT_NO = 1 AND x.LOT_TYP = C_UNIT_CALC
+					OR
+					L_EXT_NO = 2 AND x.SUBLOT_TYP = C_UNIT_CALC
+					OR
+					L_EXT_NO = 3 AND x.SNO1_TYP = C_UNIT_CALC
+					OR
+					L_EXT_NO = 4 AND x.SNO2_TYP = C_UNIT_CALC
+					OR
+					L_EXT_NO = 5 AND x.SNO3_TYP = C_UNIT_CALC
+					OR
+					L_EXT_NO = 6 AND x.SNO4_TYP = C_UNIT_CALC
+					)
+			)
+		)
+	LOOP
+		L_ITM_LIST.DELETE ;
+		L_ITM_EXT_LIST.DELETE ;
+		i := 0 ;
+		j := 0 ;
+		FOR y0 IN (
+			SELECT	t.ROWID	row_id,
+				t.*
+			FROM	MGT_CALC_ITM_MFG_INST t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			SELECT	COUNT(*)
+			INTO	L_CNT
+			FROM	(
+				SELECT	DISTINCT
+					DECODE(L_EXT_NO,
+						1, t.LOT_NO,
+						2, t.SUBLOT_NO,
+						3, t.SNO1,
+						4, t.SNO2,
+						5, t.SNO3,
+						6, t.SNO4,
+						NULL)	ITM_EXT
+				FROM	MGT_CALC_MFG t
+				WHERE	0=0
+				AND	t.CALC_NO = y0.CALC_NO
+				AND	t.CALC_GRP_CD = y0.CALC_GRP_CD
+				AND	t.ITM_CD = y0.ITM_CD
+				AND	t.ITM_SUB1 = y0.ITM_SUB1
+				AND	t.ITM_SUB2 = y0.ITM_SUB2
+				AND	t.ITM_SUB3 = y0.ITM_SUB3
+				AND	t.ITM_EXT = y0.ITM_EXT
+				AND	t.ITM_MFG_INST_NO = y0.ITM_MFG_INST_NO
+				AND	t.MFG_ACT_NO = y0.MFG_ACT_NO
+				)
+			WHERE	0=0
+			;
+
+			IF L_CNT > 1 THEN
+				FOR z0 IN (
+					SELECT	DISTINCT
+						DECODE(L_EXT_NO,
+							1, t.LOT_NO,
+							2, t.SUBLOT_NO,
+							3, t.SNO1,
+							4, t.SNO2,
+							5, t.SNO3,
+							6, t.SNO4,
+							NULL)	ITM_EXT
+					FROM	MGT_CALC_MFG t
+					WHERE	0=0
+					AND	t.CALC_NO = y0.CALC_NO
+					AND	t.CALC_GRP_CD = y0.CALC_GRP_CD
+					AND	t.ITM_CD = y0.ITM_CD
+					AND	t.ITM_SUB1 = y0.ITM_SUB1
+					AND	t.ITM_SUB2 = y0.ITM_SUB2
+					AND	t.ITM_SUB3 = y0.ITM_SUB3
+					AND	t.ITM_EXT = y0.ITM_EXT
+					AND	t.ITM_MFG_INST_NO = y0.ITM_MFG_INST_NO
+					AND	t.MFG_ACT_NO = y0.MFG_ACT_NO
+					)
+				LOOP
+					IF z0.ITM_EXT IS NOT NULL AND z0.ITM_EXT != G_NULL_VAL THEN
+						j := j + 1 ;
+						L_ITM_EXT_LIST(j) := z0.ITM_EXT ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+		END LOOP ;
+
+		FOR y IN (
+			SELECT	t.ROWID	row_id,
+				t.*,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					NULL)	INST_ITM_EXT
+			FROM	MGT_CALC_ITM_MFG_INST t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			SELECT	MIN(DECODE(L_EXT_NO,
+						1, t.LOT_NO,
+						2, t.SUBLOT_NO,
+						3, t.SNO1,
+						4, t.SNO2,
+						5, t.SNO3,
+						6, t.SNO4,
+						NULL)
+					)
+			INTO	L_ITM_EXT
+			FROM	MGT_CALC_MFG t
+			WHERE	0=0
+			AND	t.CALC_NO = y.CALC_NO
+			AND	t.CALC_GRP_CD = y.CALC_GRP_CD
+			AND	t.ITM_CD = y.ITM_CD
+			AND	t.ITM_SUB1 = y.ITM_SUB1
+			AND	t.ITM_SUB2 = y.ITM_SUB2
+			AND	t.ITM_SUB3 = y.ITM_SUB3
+			AND	t.ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			IF L_ITM_EXT IS NULL OR L_ITM_EXT = G_NULL_VAL THEN
+				L_ITM_EXT := y.INST_ITM_EXT ;
+				IF L_ITM_EXT IS NULL OR L_ITM_EXT = G_NULL_VAL THEN
+					GOTO NEXT_LOOP_Y ;
+				END IF ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = L_ITM_EXT THEN
+						GOTO NEXT_LOOP_Y ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_INST_WIP t
+			SET	t.ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.CALC_NO = y.CALC_NO
+			AND	t.CALC_GRP_CD = y.CALC_GRP_CD
+			AND	t.ITM_CD = y.ITM_CD
+			AND	t.ITM_SUB1 = y.ITM_SUB1
+			AND	t.ITM_SUB2 = y.ITM_SUB2
+			AND	t.ITM_SUB3 = y.ITM_SUB3
+			AND	t.ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			UPDATE	MGT_CALC_MFG t
+			SET	t.ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.CALC_NO = y.CALC_NO
+			AND	t.CALC_GRP_CD = y.CALC_GRP_CD
+			AND	t.ITM_CD = y.ITM_CD
+			AND	t.ITM_SUB1 = y.ITM_SUB1
+			AND	t.ITM_SUB2 = y.ITM_SUB2
+			AND	t.ITM_SUB3 = y.ITM_SUB3
+			AND	t.ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			UPDATE	MGT_CALC_WK t
+			SET	t.ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.CALC_NO = y.CALC_NO
+			AND	t.CALC_GRP_CD = y.CALC_GRP_CD
+			AND	t.ITM_CD = y.ITM_CD
+			AND	t.ITM_SUB1 = y.ITM_SUB1
+			AND	t.ITM_SUB2 = y.ITM_SUB2
+			AND	t.ITM_SUB3 = y.ITM_SUB3
+			AND	t.ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			UPDATE	MGT_CALC_INPT t
+			SET	t.PAR_ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.CALC_NO = y.CALC_NO
+			AND	t.CALC_GRP_CD = y.CALC_GRP_CD
+			AND	t.PAR_ITM_CD = y.ITM_CD
+			AND	t.PAR_ITM_SUB1 = y.ITM_SUB1
+			AND	t.PAR_ITM_SUB2 = y.ITM_SUB2
+			AND	t.PAR_ITM_SUB3 = y.ITM_SUB3
+			AND	t.PAR_ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			UPDATE	MGT_ST_WIP t
+			SET	t.ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.CALC_GRP_CD = L_WIP_CALC_GRP_CD
+			AND	t.YM = I_ARG.ST_YM
+			AND	t.ITM_CD = y.ITM_CD
+			AND	t.ITM_SUB1 = y.ITM_SUB1
+			AND	t.ITM_SUB2 = y.ITM_SUB2
+			AND	t.ITM_SUB3 = y.ITM_SUB3
+			AND	t.ITM_EXT = y.ITM_EXT
+			AND	t.ITM_MFG_INST_NO = y.ITM_MFG_INST_NO
+			AND	t.MFG_ACT_NO = y.MFG_ACT_NO
+			;
+
+			UPDATE	MGT_CALC_ITM_MFG_INST t
+			SET	t.ITM_EXT = L_ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = y.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = L_ITM_EXT THEN
+						GOTO NEXT_LOOP_Y ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := L_ITM_EXT ;
+
+			<<NEXT_LOOP_Y>>
+				NULL ;
+		END LOOP ;
+
+		FOR z1 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_CALC_PURC t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			IF z1.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z1 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z1.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z1 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_PURC t
+			SET	t.ITM_EXT = z1.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z1.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = z1.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z1 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z1.ITM_EXT ;
+
+			<<NEXT_LOOP_Z1>>
+				NULL ;
+		END LOOP ;
+
+		FOR z2 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_CALC_INPT t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			IF z2.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z2 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z2.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z2 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_INPT t
+			SET	t.ITM_EXT = z2.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z2.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = z2.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z2 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z2.ITM_EXT ;
+
+			<<NEXT_LOOP_Z2>>
+				NULL ;
+		END LOOP ;
+
+		FOR z3 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_CALC_IO t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			IF z3.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z3 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z3.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z3 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_IO t
+			SET	t.ITM_EXT = z3.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z3.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT= z3.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z3 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z3.ITM_EXT ;
+
+			<<NEXT_LOOP_Z3>>
+				NULL ;
+		END LOOP ;
+
+		FOR z4 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_CALC_SLS t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			IF z4.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z4 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z4.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z4 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_SLS t
+			SET	t.ITM_EXT = z4.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z4.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = z4.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z4 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z4.ITM_EXT ;
+
+			<<NEXT_LOOP_Z4>>
+				NULL ;
+		END LOOP ;
+
+		FOR z5 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_ST_STK t
+			WHERE	0=0
+			AND	t.YM = I_ARG.ST_YM
+			AND	t.CALC_GRP_CD = L_STK_CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	(
+				I_ARG.RUNTIME_WG_CD IS NULL AND t.WG_CD = x.WG_CD
+				OR
+				I_ARG.RUNTIME_WG_CD IS NOT NULL AND (
+					t.WG_CD = x.WG_CD
+					OR
+					EXISTS (
+						SELECT 'X' FROM MAM_GRP_WG w
+						WHERE w.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+						AND w.WG_CD = t.WG_CD
+						)
+					)
+				)
+			)
+		LOOP
+			IF z5.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z5 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z5.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z5 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_ST_STK t
+			SET	t.ITM_EXT = z5.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z5.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = z5.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z5 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z5.ITM_EXT ;
+
+			<<NEXT_LOOP_Z5>>
+				NULL ;
+		END LOOP ;
+
+		FOR z6 IN (
+			SELECT	t.ROWID row_id,
+				DECODE(L_EXT_NO,
+					1, t.LOT_NO,
+					2, t.SUBLOT_NO,
+					3, t.SNO1,
+					4, t.SNO2,
+					5, t.SNO3,
+					6, t.SNO4,
+					t.ITM_EXT
+					)	ITM_EXT
+			FROM	MGT_CALC_GP_ALC t
+			WHERE	0=0
+			AND	t.CALC_NO = x.CALC_NO
+			AND	t.CALC_GRP_CD = x.CALC_GRP_CD
+			AND	t.ITM_CD = x.ITM_CD
+			AND	t.ITM_SUB1 = x.ITM_SUB1
+			AND	t.ITM_SUB2 = x.ITM_SUB2
+			AND	t.ITM_SUB3 = x.ITM_SUB3
+			AND	t.ITM_EXT = x.ITM_EXT
+			AND	t.WG_CD = x.WG_CD
+			)
+		LOOP
+			IF z6.ITM_EXT = G_NULL_VAL THEN
+				GOTO NEXT_LOOP_Z6 ;
+			END IF ;
+
+			IF j > 0 THEN
+				FOR p IN 1..j LOOP
+					IF L_ITM_EXT_LIST(p) = z6.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z6 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			UPDATE	MGT_CALC_GP_ALC t
+			SET	t.ITM_EXT = z6.ITM_EXT
+			WHERE	0=0
+			AND	t.ROWID = z6.row_id
+			;
+
+			IF i > 0 THEN
+				FOR p IN 1..i LOOP
+					IF L_ITM_LIST(p).ITM_EXT = z6.ITM_EXT THEN
+						GOTO NEXT_LOOP_Z6 ;
+					END IF ;
+				END LOOP ;
+			END IF ;
+
+			i := i + 1 ;
+			L_ITM_LIST(i) := x ;
+			L_ITM_LIST(i).ITM_EXT := z6.ITM_EXT ;
+
+			<<NEXT_LOOP_Z6>>
+				NULL ;
+		END LOOP ;
+
+		IF i > 0 THEN
+			FORALL p IN 1..i
+				INSERT INTO MGT_CALC_ITM VALUES L_ITM_LIST(p) ;
+		END IF ;
+	END LOOP ;
+
+	L_ITM_LIST.DELETE ;
+	L_ITM_EXT_LIST.DELETE ;
+	i := 0 ;
+	j := 0 ;
+
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_SET_ITM_EXT.P_SET_ITM_EXT') ;
+
+END P_SET_ITM_EXT ;
+
+PROCEDURE P_ITM_EXT_NULL (
+	I_ARG		MGT_ARG%ROWTYPE
+	, I_SQL_NO	IN	NUMBER DEFAULT NULL
+)
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに追加したレコードを削除する
+	品目拡張にロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	設定した箇所をNULL文字に変換する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_ARG
+		対象となる原価計算設定情報のレコード
+<HISTORY>
+**************************************************************************/
+AS
+	L_EXT_NO	INTEGER ;
+	L_STK_CALC_GRP_CD	MAPA_META.CALC_GRP_CD%TYPE ;
+	L_WIP_CALC_GRP_CD	MAPA_META.CALC_GRP_CD%TYPE ;
+BEGIN
+	SELECT	MAX(DECODE(m.PARM_VAL, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, NULL))
+	INTO	L_EXT_NO
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = G_ITM_EXT
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	IF L_EXT_NO IS NULL THEN
+		RETURN ;
+	END IF ;
+	SELECT	NVL(MIN(m.PARM_VAL), I_ARG.CALC_GRP_CD)
+	INTO	L_STK_CALC_GRP_CD
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = 'ETC_STK_CALC_GRP'
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	SELECT	NVL(MIN(m.PARM_VAL), I_ARG.CALC_GRP_CD)
+	INTO	L_WIP_CALC_GRP_CD
+	FROM	MGT_PARM m
+	WHERE	0=0
+	AND	m.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	m.PARM_KEY = 'ETC_WIP_CALC_GRP'
+	AND	m.PARM_VAL IS NOT NULL
+	;
+
+	IF I_SQL_NO IS NULL THEN
+		FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_SET_ITM_EXT.P_ITM_EXT_NULL') ;
+	ELSE
+		FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_SET_ITM_EXT.P_ITM_EXT_NULL - ' || I_SQL_NO) ;
+	END IF ;
+
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 3 THEN
+
+	DELETE	MGT_CALC_ITM t
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 4 THEN
+	UPDATE	MGT_ST_STK t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.YM = I_ARG.ST_YM
+	AND	t.CALC_GRP_CD = L_STK_CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 5 THEN
+	UPDATE	MGT_ST_WIP t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.YM = I_ARG.ST_YM
+	AND	t.CALC_GRP_CD = L_WIP_CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 6 THEN
+	UPDATE	MGT_CALC_INST_WIP t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 7 THEN
+	UPDATE	MGT_CALC_MFG t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 8 THEN
+	UPDATE	MGT_CALC_WK t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 1 THEN
+	UPDATE	MGT_CALC_INPT t
+	SET	t.PAR_ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.PAR_ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 9 THEN
+	UPDATE	MGT_CALC_ITM_MFG_INST t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 10 THEN
+	UPDATE	MGT_CALC_PURC t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 1 THEN
+	UPDATE	MGT_CALC_INPT t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 11 THEN
+	UPDATE	MGT_CALC_IO t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 12 THEN
+	UPDATE	MGT_CALC_SLS t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL OR I_SQL_NO = 13 THEN
+	UPDATE	MGT_CALC_GP_ALC t
+	SET	t.ITM_EXT = G_NULL_VAL
+	WHERE	0=0
+	AND	t.CALC_NO = I_ARG.CALC_NO
+	AND	t.CALC_GRP_CD = I_ARG.CALC_GRP_CD
+	AND	t.ITM_EXT != G_NULL_VAL
+	;
+
+	END IF ;
+	IF I_SQL_NO IS NULL THEN
+		FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_SET_ITM_EXT.P_ITM_EXT_NULL') ;
+	ELSE
+		FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_SET_ITM_EXT.P_ITM_EXT_NULL - ' || I_SQL_NO) ;
+	END IF ;
+
+END P_ITM_EXT_NULL ;
+
+PROCEDURE P_ITM_EXT_NULL (
+	I_CALC_GRP_CD	IN	MAPA_META.CALC_GRP_CD%TYPE,
+	I_CALC_NO	IN	MAPA_META.CALC_NO%TYPE,
+	I_ST_YM	IN	MAPA_META.YM%TYPE,
+	I_SQL_NO	IN	NUMBER
+)
+/**************************************************************************
+<SYNOPSIS>
+	MGT_CALC_ITMに追加したレコードを削除する
+	品目拡張にロットＮＯ、サブロットＮＯ、手配ＮＯ１ -> 手配ＮＯ４を
+	設定した箇所をNULL文字に変換する
+<REMARKS>
+<ARGUMENTS>
+<IN>	I_CALC_GRP_CD
+		対象となる計算グループＣＤ
+<IN>	I_CALC_NO
+		対象となる原価計算ＮＯ
+<IN>	I_ST_YM
+		対象となる対象期間先頭年月
+<HISTORY>
+**************************************************************************/
+AS
+
+	L_ARG		MGT_ARG%ROWTYPE ;
+
+BEGIN
+
+	L_ARG.CALC_GRP_CD := I_CALC_GRP_CD ;
+	L_ARG.CALC_NO := I_CALC_NO ;
+	L_ARG.ST_YM := I_ST_YM ;
+
+	P_ITM_EXT_NULL(L_ARG, I_SQL_NO);
+
+END P_ITM_EXT_NULL ;
+END MGPA_SET_ITM_EXT ;
+
+/
+show errors;
+
+

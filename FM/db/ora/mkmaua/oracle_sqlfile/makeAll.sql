@@ -1,0 +1,72 @@
+SET DEFINE OFF
+SET ESCCHAR @
+SET SQLBLANKLINES ON
+
+@".\make1MAUA.sql"
+
+@".\make1MAUA-s.sql"
+
+@".\make2MAUA.sql"
+
+@".\make3MAUA.sql"
+
+@".\makeComment_MAUA.sql"
+
+@".\makeHistoryTab_MAUA.sql"
+
+@".\makeHistoryTrigger_MAUA.sql"
+
+@".\makeExctrlTrigg_MAUA.sql"
+
+DECLARE
+/************************************************************************/
+/* SYNOPSIS :								*/
+/*	ST_DT,END_DTに対する値を設定するトリガを作成し、実行します。	*/
+/*	実行するためには、CREATE ANY TRIGGER システム権限が必要です。	*/
+/************************************************************************/
+	CURSOR CUR_SQL IS
+		SELECT 	tbl.TABLE_NAME,
+			tbl.TABLE_NAME  || '_TR_D' TRG_NAME,
+'CREATE OR REPLACE TRIGGER ' || tbl.TABLE_NAME || '_TR_D
+BEFORE INSERT OR UPDATE ON ' || tbl.TABLE_NAME || '
+REFERENCING OLD AS OLD NEW AS NEW
+FOR EACH ROW
+BEGIN
+	:NEW.ST_DT := TRUNC(:NEW.ST_DT, ''DD'') ;
+	:NEW.END_DT := TRUNC(:NEW.END_DT, ''DD'') + 23/24 + 59/1440 + 59/86400 ;
+END ;'	TRG_SQL
+		FROM	(
+			SELECT	t.TABLE_NAME
+			FROM	USER_TABLES t
+			WHERE	0=0
+			AND	t.TABLE_NAME LIKE 'MAM%'
+			AND	t.TABLE_NAME NOT LIKE '%_R'
+			AND	EXISTS (SELECT 'X' FROM USER_TAB_COLUMNS x WHERE x.TABLE_NAME = t.TABLE_NAME AND x.COLUMN_NAME = 'ST_DT')
+			AND	EXISTS (SELECT 'X' FROM USER_TAB_COLUMNS x WHERE x.TABLE_NAME = t.TABLE_NAME AND x.COLUMN_NAME = 'END_DT')
+			ORDER BY t.TABLE_NAME
+			) tbl
+		WHERE	0=0
+	;
+
+BEGIN
+	FOR x IN CUR_SQL LOOP
+		DBMS_OUTPUT.PUT_LINE(x.TABLE_NAME || ' CREATE TRIGGER(' || x.TRG_NAME || ')' ) ;
+		DBMS_UTILITY.EXEC_DDL_STATEMENT(x.TRG_SQL) ;
+		DBMS_OUTPUT.PUT_LINE(x.TABLE_NAME || ' SUCCEED TRIGGER(' || x.TRG_NAME || ')') ;
+	END LOOP ;
+
+EXCEPTION
+WHEN OTHERS THEN
+	DBMS_OUTPUT.PUT_LINE('ERROR !!'||SQLCODE) ;
+	DBMS_OUTPUT.PUT_LINE(SQLERRM) ;
+END ;
+
+/
+show errors;
+
+
+call MAPA_MASTER.P_MST_CTL_BATCH();
+
+@".\makeAll_PJ.sql"
+
+SET DEFINE ON

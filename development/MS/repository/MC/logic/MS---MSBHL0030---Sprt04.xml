@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>MSBHL0030</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">MS</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">MSBH</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">MSBHL_PaySchdReg</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">支払予定登録</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">MS.MSUDL5010</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING">今回有償支給額を取得する。</COLUMN>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="METHOD_ID" TYPE="STRING">Sprt04</COLUMN>
+    <COLUMN ID="METHOD" TYPE="STRING">Sprt04</COLUMN>
+    <COLUMN ID="METHOD_NAME" TYPE="STRING">有償支給残高取得</COLUMN>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <COLUMN ID="LOGIC_BODY" TYPE="STRING">"mcframe.serverMAUD.MAUDL5010.MAUDL_Searcher"</COLUMN>
+    <COLUMN ID="PRIVATE" TYPE="STRING"/>
+    <blocks>
+        <BLOCK>
+            <ID>Sprt04_Cnd</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Sprt04_Cnd</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>ap_d_no</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">AP details No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">買掛明細ＮＯ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.AP_D_NO</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>onr_prov_bal</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Chargeable supply balance</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">有償支給残高</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.MONEY</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+    <vSpecs>
+        <GROUP CODE="U">
+            <SPEC>
+                <ID>MS.MSBHL0030.Sprt04</ID>
+                <COLUMN ID="CODE" TYPE="STRING">U</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+                <blocks>
+                    <BLOCK>
+                        <ID>Sprt04_Cnd</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>ap_d_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">E</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>onr_prov_bal</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="K">
+            <SPEC>
+                <ID>CONST</ID>
+                <COLUMN ID="CODE" TYPE="STRING">K</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <blocks>
+                    <BLOCK>
+                        <ID>Sprt04_Cnd</ID>
+                        <COLUMN ID="CODE" TYPE="STRING"/>
+                        <items>
+                            <ITEM>
+                                <ID>ap_d_no</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>onr_prov_bal</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+        <GROUP CODE="o">
+            <SPEC>
+                <ID>MSBHL5080.Srch03</ID>
+                <COLUMN ID="CODE" TYPE="STRING">o</COLUMN>
+                <COLUMN ID="CLASS" TYPE="STRING"/>
+                <COLUMN ID="TARGET" TYPE="STRING">OPE.MS.MSBHL5080.ApSetoff_Srch03</COLUMN>
+                <COLUMN ID="VERSION" TYPE="STRING"/>
+                <COLUMN ID="_GROUP_ID" TYPE="STRING">MSBHL5080</COLUMN>
+                <COLUMN ID="_ID" TYPE="STRING">Srch03</COLUMN>
+                <COLUMN ID="_TARGET_TYPE" TYPE="STRING"/>
+                <COLUMN ID="_TARGET_MODULE" TYPE="STRING"/>
+                <COLUMN ID="_TARGET" TYPE="STRING"/>
+                <blocks>
+                    <BLOCK>
+                        <ID>Sprt04_Cnd</ID>
+                        <COLUMN ID="UP_CODE" TYPE="STRING"/>
+                        <COLUMN ID="DOWN_CODE" TYPE="STRING"/>
+                        <COLUMN ID="UP_TYPE" TYPE="STRING">ApSetoff_Srch03_Dtl</COLUMN>
+                        <COLUMN ID="DOWN_TYPE" TYPE="STRING">ApSetoff_Srch03_Dtl</COLUMN>
+                        <COLUMN ID="UP_DEST_CLASS_DEF" TYPE="STRING">MCList&lt;mcframe.serverMSBH.MSBHL5080.ApSetoff_Srch03_DtlR&gt;</COLUMN>
+                        <COLUMN ID="DOWN_SRC_CLASS_DEF" TYPE="STRING">MCList&lt;mcframe.serverMSBH.MSBHL5080.ApSetoff_Srch03_DtlR&gt;</COLUMN>
+                        <items>
+                            <ITEM>
+                                <ID>ap_d_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">ap_d_no</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">ap_d_no</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>onr_prov_bal</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <COLUMN ID="DOWN_CODE" TYPE="STRING">onr_prov_bal</COLUMN>
+                                <COLUMN ID="UP_JK" TYPE="BOOLEAN">false</COLUMN>
+                                <COLUMN ID="DOWN_JK" TYPE="BOOLEAN">false</COLUMN>
+                            </ITEM>
+                        </items>
+                    </BLOCK>
+                </blocks>
+            </SPEC>
+        </GROUP>
+    </vSpecs>
+</SPEC>

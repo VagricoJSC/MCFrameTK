@@ -1,0 +1,569 @@
+package mcframe.serverMSBF.MSBFL0060;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCExtList;
+import mcframe.commonCore.container.MCConstRow;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.container.MCContainerMeta;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCBinary;
+
+/**
+ * ブロック"Srch02_Cnd"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract class Srch02_CndR_MC_A extends MCConstRow {
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public static final String $peg_no = "peg_no";
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public static final String $row_idx = "row_idx";
+	/**
+	 * Inspection No. 検査ＮＯ.<p>
+	 *
+	 */
+	public static final String $insp_no = "insp_no";
+	/**
+	 * Base date 起算日.<p>
+	 *
+	 */
+	public static final String $lmt_dt_frm = "lmt_dt_frm";
+	/**
+	 * Expiration date 有効期限.<p>
+	 *
+	 */
+	public static final String $vld_dt = "vld_dt";
+	/**
+	 * Usage expiration date 使用期限.<p>
+	 *
+	 */
+	public static final String $lmt_dt = "lmt_dt";
+
+
+	public static final MCMeta peg_no_META = createCommonMeta($peg_no, mcframe.commonMA.meta.MA_META.INT);
+	public static final MCMeta row_idx_META = createCommonMeta($row_idx, mcframe.commonMA.meta.MA_META.INT);
+	public static final MCMeta insp_no_META = createCommonMeta($insp_no, mcframe.commonMA.meta.MA_META.INSP_NO);
+	public static final MCMeta lmt_dt_frm_META = createCommonMeta($lmt_dt_frm, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta vld_dt_META = createCommonMeta($vld_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta lmt_dt_META = createCommonMeta($lmt_dt, mcframe.commonMA.meta.MA_META.DT);
+
+	protected static final ConstMetaList<Srch02_CndR> constMetas = new ConstMetaList<Srch02_CndR>(
+		MCConstRow.constMetas,
+		new MCMeta[]{
+			peg_no_META,
+			row_idx_META,
+			insp_no_META,
+			lmt_dt_frm_META,
+			vld_dt_META,
+			lmt_dt_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+
+	/** 項目属性情報のグループ[CONST]のキー定数 */
+	public static final String $$CONST = "CONST";
+
+	/**
+	 * グループ毎に定義される項目属性情報です。
+	 */
+	protected static final MCExtMap EXTMAP = new MCExtMap(
+		null,
+		new MCExtMap.Entry($$CONST, new MCExtList(
+			new String[][]{
+			}
+		))
+	);
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * 指定グループの項目属性情報を返します。
+	 */
+	public Map<String, String> getExtMap(String aGroup){
+		if(aGroup == null) return null;
+		return EXTMAP.get(aGroup);
+	}
+
+	/**
+	 * 指定グループの項目属性が登録された項目リストを返します。
+	 */
+	public List<String> getKeys(String aGroup){
+		if(aGroup == null) return null;
+		return EXTMAP.getKeyList(aGroup);
+	}
+
+	/**
+	 * 項目属性のグループのSet情報を返します。
+	 */
+	public Set<String> getExtGroups(){
+		Set<String> ret = EXTMAP.keySet();
+		return ret;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected Srch02_CndR_MC_A(ConstMetaList<? extends Srch02_CndR> metas) {
+		super(metas);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Srch02_CndR clone() {
+		return (Srch02_CndR) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Srch02_CndR createInstance() {
+		return (Srch02_CndR) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Srch02_CndR getValues(String... names) {
+		return (Srch02_CndR) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public MCNumber peg_no() {
+		return getConstNumber(offset + 0, $peg_no);
+	}
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public void peg_no(MCNumber value) {
+		setConstNumber(offset + 0, $peg_no, value);
+	}
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public void peg_no(int value) {
+		setConstNumber(offset + 0, $peg_no, value);
+	}
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public void peg_no(long value) {
+		setConstNumber(offset + 0, $peg_no, value);
+	}
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public void peg_no(float value) {
+		setConstNumber(offset + 0, $peg_no, value);
+	}
+
+	/**
+	 * Pegging No. 紐付けＮＯ.<p>
+	 *
+	 */
+	public void peg_no(double value) {
+		setConstNumber(offset + 0, $peg_no, value);
+	}
+
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public MCNumber row_idx() {
+		return getConstNumber(offset + 1, $row_idx);
+	}
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public void row_idx(MCNumber value) {
+		setConstNumber(offset + 1, $row_idx, value);
+	}
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public void row_idx(int value) {
+		setConstNumber(offset + 1, $row_idx, value);
+	}
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public void row_idx(long value) {
+		setConstNumber(offset + 1, $row_idx, value);
+	}
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public void row_idx(float value) {
+		setConstNumber(offset + 1, $row_idx, value);
+	}
+
+	/**
+	 * Selected row No. 選択行ＮＯ.<p>
+	 *
+	 */
+	public void row_idx(double value) {
+		setConstNumber(offset + 1, $row_idx, value);
+	}
+
+
+	/**
+	 * Inspection No. 検査ＮＯ.<p>
+	 *
+	 */
+	public String insp_no() {
+		return getConstString(offset + 2, $insp_no);
+	}
+
+	/**
+	 * Inspection No. 検査ＮＯ.<p>
+	 *
+	 */
+	public void insp_no(String value) {
+		setConstString(offset + 2, $insp_no, value);
+	}
+
+
+	/**
+	 * Base date 起算日.<p>
+	 *
+	 */
+	public MCDate lmt_dt_frm() {
+		return getConstDate(offset + 3, $lmt_dt_frm);
+	}
+
+	/**
+	 * Base date 起算日.<p>
+	 *
+	 */
+	public void lmt_dt_frm(MCDate value) {
+		setConstDate(offset + 3, $lmt_dt_frm, value);
+	}
+
+
+	/**
+	 * Expiration date 有効期限.<p>
+	 *
+	 */
+	public MCDate vld_dt() {
+		return getConstDate(offset + 4, $vld_dt);
+	}
+
+	/**
+	 * Expiration date 有効期限.<p>
+	 *
+	 */
+	public void vld_dt(MCDate value) {
+		setConstDate(offset + 4, $vld_dt, value);
+	}
+
+
+	/**
+	 * Usage expiration date 使用期限.<p>
+	 *
+	 */
+	public MCDate lmt_dt() {
+		return getConstDate(offset + 5, $lmt_dt);
+	}
+
+	/**
+	 * Usage expiration date 使用期限.<p>
+	 *
+	 */
+	public void lmt_dt(MCDate value) {
+		setConstDate(offset + 5, $lmt_dt, value);
+	}
+
+
+	public String getString(String name) {
+		if ($insp_no.equalsIgnoreCase(name)) {
+			return insp_no();
+		}
+		return super.getString(name);
+	}
+	public MCNumber getNumber(String name) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			return peg_no();
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			return row_idx();
+		}
+		return super.getNumber(name);
+	}
+	public MCDate getDate(String name) {
+		if ($lmt_dt_frm.equalsIgnoreCase(name)) {
+			return lmt_dt_frm();
+		}
+		if ($vld_dt.equalsIgnoreCase(name)) {
+			return vld_dt();
+		}
+		if ($lmt_dt.equalsIgnoreCase(name)) {
+			return lmt_dt();
+		}
+		return super.getDate(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($insp_no.equalsIgnoreCase(name)) {
+			return insp_no();
+		}
+		return super.getStringNE(name);
+	}
+	public MCNumber getNumberNE(String name) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			return peg_no();
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			return row_idx();
+		}
+		return super.getNumberNE(name);
+	}
+	public MCDate getDateNE(String name) {
+		if ($lmt_dt_frm.equalsIgnoreCase(name)) {
+			return lmt_dt_frm();
+		}
+		if ($vld_dt.equalsIgnoreCase(name)) {
+			return vld_dt();
+		}
+		if ($lmt_dt.equalsIgnoreCase(name)) {
+			return lmt_dt();
+		}
+		return super.getDateNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($insp_no.equalsIgnoreCase(name)) {
+			insp_no(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+	public void setNumber(String name, MCNumber value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, int value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, long value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, float value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, double value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setDate(String name, MCDate value) {
+		if ($lmt_dt_frm.equalsIgnoreCase(name)) {
+			lmt_dt_frm(value);
+			return;
+		}
+		if ($vld_dt.equalsIgnoreCase(name)) {
+			vld_dt(value);
+			return;
+		}
+		if ($lmt_dt.equalsIgnoreCase(name)) {
+			lmt_dt(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($insp_no.equalsIgnoreCase(name)) {
+			insp_no(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+	public void setNumberNE(String name, MCNumber value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, int value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, long value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, float value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, double value) {
+		if ($peg_no.equalsIgnoreCase(name)) {
+			peg_no(value);
+			return;
+		}
+		if ($row_idx.equalsIgnoreCase(name)) {
+			row_idx(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setDateNE(String name, MCDate value) {
+		if ($lmt_dt_frm.equalsIgnoreCase(name)) {
+			lmt_dt_frm(value);
+			return;
+		}
+		if ($vld_dt.equalsIgnoreCase(name)) {
+			vld_dt(value);
+			return;
+		}
+		if ($lmt_dt.equalsIgnoreCase(name)) {
+			lmt_dt(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+
+
+
+}
+

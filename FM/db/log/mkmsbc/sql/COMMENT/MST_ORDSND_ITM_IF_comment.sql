@@ -1,0 +1,306 @@
+
+COMMENT ON TABLE MST_ORDSND_ITM_IF IS 'オーダ送信用品目マスタＩＦ // Item master for order export IF';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.DATA_LNO IS 'データ行ＮＯ // #MA.IF_DATA_LNO // Data row No.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.DATA_NO IS 'データＮＯ // #MA.IF_DATA_NO // Data No.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.EXE_STS_TYP IS 'ＰＧ実行状況区分 // #MA.EXE_STS_TYP // PG execution status type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.DATA_CRUD_TYP IS 'データ更新区分 // #MA.DATA_CRUD_TYP // Data update type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.EXT_SYS_CD IS '外部システムＣＤ // #MA.EXT_SYS_CD // External system cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_WG_CD IS 'ＩＦワーキンググループＣＤ // #MA.WG_CD // IF working group cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_ITM_CD IS 'ＩＦ品目ＣＤ // #MA.ITM_CD // IF item cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_ITM_SUB1 IS 'ＩＦ枝番１ // #MA.ITM_SUB1 // IF branch No. 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_ITM_SUB2 IS 'ＩＦ枝番２ // #MA.ITM_SUB2 // IF branch No. 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_ITM_SUB3 IS 'ＩＦ枝番３ // #MA.ITM_SUB3 // IF branch No. 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_NM IS '品名 // #MA.ITM_NM // Item name';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_ALT_NM1 IS '品目別名１ // #MA.ITM_ALT_NM1 // Item alias name 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_ALT_NM2 IS '品目別名２ // #MA.ITM_ALT_NM2 // Item alias name 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_ALT_NM3 IS '品目別名３ // #MA.ITM_ALT_NM3 // Item alias name 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_ALT_NM4 IS '品目別名４ // #MA.ITM_ALT_NM4 // Item alias name 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BASE_ITM_NM IS '標準品名 // #MA.ITM_NM // Standard Item name';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BASE_ITM_ALT_NM1 IS '標準品目別名１ // #MA.ITM_ALT_NM1 // Standard item alias name 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BASE_ITM_ALT_NM2 IS '標準品目別名２ // #MA.ITM_ALT_NM2 // Standard item alias name 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BASE_ITM_ALT_NM3 IS '標準品目別名３ // #MA.ITM_ALT_NM3 // Standard item alias name 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BASE_ITM_ALT_NM4 IS '標準品目別名４ // #MA.ITM_ALT_NM4 // Standard item alias name 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.IF_UNIT_CD IS 'ＩＦ単位ＣＤ // #MA.UNIT_CD // IF unit cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UNIT_CD IS '単位ＣＤ // #MA.UNIT_CD // Unit cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.DEC_PLACE IS '小数部有効桁数 // #MA.DEC_PLACE // Number of decimal places';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.LOT_MNG_TYP IS 'ロット管理区分 // #MA.LOT_MNG_TYP // Lot management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUBLOT_MNG_TYP IS 'サブロット管理区分 // #MA.SUBLOT_MNG_TYP // Sublot management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SNO1_MNG_TYP IS '手配ＮＯ１管理区分 // #MA.SNO_MNG_TYP // SEIBAN No. 1 management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SNO2_MNG_TYP IS '手配ＮＯ２管理区分 // #MA.SNO_MNG_TYP // SEIBAN No. 2 management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SNO3_MNG_TYP IS '手配ＮＯ３管理区分 // #MA.SNO_MNG_TYP // SEIBAN No. 3 management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SNO4_MNG_TYP IS '手配ＮＯ４管理区分 // #MA.SNO_MNG_TYP // SEIBAN No. 4 management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.STK_MNG_TYP IS '在庫管理区分 // #MA.STK_MNG_TYP // Inventory management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ASSET_MNG_TYP IS '資産管理区分 // #MA.ASSET_MNG_TYP // Asset management type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_TYP IS '品目区分 // #MA.ITM_TYP // Item type';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_TYP_D_CD IS '品目区分詳細ＣＤ // #MA.ITM_TYP_D_CD // Item type details cd.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD1 IS '品目分類ＣＤ１ // #MA.ITM_GRP_CD // Item classification cd. 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD2 IS '品目分類ＣＤ２ // #MA.ITM_GRP_CD // Item classification cd. 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD3 IS '品目分類ＣＤ３ // #MA.ITM_GRP_CD // Item classification cd. 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD4 IS '品目分類ＣＤ４ // #MA.ITM_GRP_CD // Item classification cd. 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD5 IS '品目分類ＣＤ５ // #MA.ITM_GRP_CD // Item classification cd. 5';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD6 IS '品目分類ＣＤ６ // #MA.ITM_GRP_CD // Item classification cd. 6';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD7 IS '品目分類ＣＤ７ // #MA.ITM_GRP_CD // Item classification cd. 7';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD8 IS '品目分類ＣＤ８ // #MA.ITM_GRP_CD // Item classification cd. 8';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD9 IS '品目分類ＣＤ９ // #MA.ITM_GRP_CD // Item classification cd. 9';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.ITM_GRP_CD10 IS '品目分類ＣＤ１０ // #MA.ITM_GRP_CD // Item classification cd. 10';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR1 IS '予備ＣＨＡＲ項目１ // #MA.IF_SUB_CHAR1 // Spare CHAR column 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR2 IS '予備ＣＨＡＲ項目２ // #MA.IF_SUB_CHAR2 // Spare CHAR column 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR3 IS '予備ＣＨＡＲ項目３ // #MA.IF_SUB_CHAR3 // Spare CHAR column 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR4 IS '予備ＣＨＡＲ項目４ // #MA.IF_SUB_CHAR4 // Spare CHAR column 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR5 IS '予備ＣＨＡＲ項目５ // #MA.IF_SUB_CHAR5 // Spare CHAR column 5';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR6 IS '予備ＣＨＡＲ項目６ // #MA.IF_SUB_CHAR6 // Spare CHAR column 6';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR7 IS '予備ＣＨＡＲ項目７ // #MA.IF_SUB_CHAR7 // Spare CHAR column 7';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR8 IS '予備ＣＨＡＲ項目８ // #MA.IF_SUB_CHAR8 // Spare CHAR column 8';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR9 IS '予備ＣＨＡＲ項目９ // #MA.IF_SUB_CHAR9 // Spare CHAR column 9';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR10 IS '予備ＣＨＡＲ項目１０ // #MA.IF_SUB_CHAR10 // Spare CHAR column 10';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR11 IS '予備ＣＨＡＲ項目１１ // #MA.IF_SUB_CHAR11 // Spare CHAR column 11';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR12 IS '予備ＣＨＡＲ項目１２ // #MA.IF_SUB_CHAR12 // Spare CHAR column 12';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR13 IS '予備ＣＨＡＲ項目１３ // #MA.IF_SUB_CHAR13 // Spare CHAR column 13';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR14 IS '予備ＣＨＡＲ項目１４ // #MA.IF_SUB_CHAR14 // Spare CHAR column 14';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR15 IS '予備ＣＨＡＲ項目１５ // #MA.IF_SUB_CHAR15 // Spare CHAR column 15';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR16 IS '予備ＣＨＡＲ項目１６ // #MA.IF_SUB_CHAR16 // Spare CHAR column 16';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR17 IS '予備ＣＨＡＲ項目１７ // #MA.IF_SUB_CHAR17 // Spare CHAR column 17';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR18 IS '予備ＣＨＡＲ項目１８ // #MA.IF_SUB_CHAR18 // Spare CHAR column 18';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR19 IS '予備ＣＨＡＲ項目１９ // #MA.IF_SUB_CHAR19 // Spare CHAR column 19';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR20 IS '予備ＣＨＡＲ項目２０ // #MA.IF_SUB_CHAR20 // Spare CHAR column 20';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR21 IS '予備ＣＨＡＲ項目２１ // #MA.IF_SUB_CHAR21 // Spare CHAR column 21';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR22 IS '予備ＣＨＡＲ項目２２ // #MA.IF_SUB_CHAR22 // Spare CHAR column 22';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR23 IS '予備ＣＨＡＲ項目２３ // #MA.IF_SUB_CHAR23 // Spare CHAR column 23';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR24 IS '予備ＣＨＡＲ項目２４ // #MA.IF_SUB_CHAR24 // Spare CHAR column 24';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR25 IS '予備ＣＨＡＲ項目２５ // #MA.IF_SUB_CHAR25 // Spare CHAR column 25';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR26 IS '予備ＣＨＡＲ項目２６ // #MA.IF_SUB_CHAR26 // Spare CHAR column 26';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR27 IS '予備ＣＨＡＲ項目２７ // #MA.IF_SUB_CHAR27 // Spare CHAR column 27';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR28 IS '予備ＣＨＡＲ項目２８ // #MA.IF_SUB_CHAR28 // Spare CHAR column 28';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR29 IS '予備ＣＨＡＲ項目２９ // #MA.IF_SUB_CHAR29 // Spare CHAR column 29';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_CHAR30 IS '予備ＣＨＡＲ項目３０ // #MA.IF_SUB_CHAR30 // Spare CHAR column 30';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_NUM1 IS '予備ＮＵＭ項目１ // #MA.IF_SUB_NUM1 // Spare NUM column 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_NUM2 IS '予備ＮＵＭ項目２ // #MA.IF_SUB_NUM2 // Spare NUM column 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_NUM3 IS '予備ＮＵＭ項目３ // #MA.IF_SUB_NUM3 // Spare NUM column 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_NUM4 IS '予備ＮＵＭ項目４ // #MA.IF_SUB_NUM4 // Spare NUM column 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_NUM5 IS '予備ＮＵＭ項目５ // #MA.IF_SUB_NUM5 // Spare NUM column 5';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_DT1 IS '予備ＤＡＴＥ項目１ // #MA.DT // Spare DATE column 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_DT2 IS '予備ＤＡＴＥ項目２ // #MA.DT // Spare DATE column 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_DT3 IS '予備ＤＡＴＥ項目３ // #MA.DT // Spare DATE column 3';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_DT4 IS '予備ＤＡＴＥ項目４ // #MA.DT // Spare DATE column 4';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.SUB_DT5 IS '予備ＤＡＴＥ項目５ // #MA.DT // Spare DATE column 5';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.BATCH_LOG_NO IS 'ログＮＯ // #MA.BATCH_LOG_NO // Log No.';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.LOG_SUB_KEY1 IS 'ログサブキー１ // #MA.BATCH_LOG_SUB_KEY1 // Log sub key 1';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.LOG_SUB_KEY2 IS 'ログサブキー２ // #MA.BATCH_LOG_SUB_KEY2 // Log sub key 2';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MST_ORDSND_ITM_IF.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

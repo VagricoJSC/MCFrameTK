@@ -1,0 +1,2231 @@
+package mcframe.clientMABS.MABSP1070;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCExtList;
+import mcframe.clientCore.container.MCKeyList;
+import mcframe.clientCore.container.MCConstRow;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.container.MCContainerMeta;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCBinary;
+
+/**
+ * ブロック"Dtl"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract class DtlR_MC_A extends MCConstRow {
+
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public static final String $check = "check";
+	/**
+	 * Logical delete 論理削除.<p>
+	 *
+	 */
+	public static final String $del_flg = "del_flg";
+	/**
+	 * Assortment group cd. 品揃グループＣＤ.<p>
+	 *
+	 */
+	public static final String $set_grp_cd = "set_grp_cd";
+	/**
+	 * Assortment group name 品揃グループ名.<p>
+	 *
+	 */
+	public static final String $set_grp_nm = "set_grp_nm";
+	public static final String $main_itm_p = "main_itm_p";
+	/**
+	 * Representative item type 代表品目区分.<p>
+	 *
+	 */
+	public static final String $main_itm_typ = "main_itm_typ";
+	/**
+	 * Representative item type name 代表品目区分名.<p>
+	 *
+	 */
+	public static final String $main_itm_typ_nm = "main_itm_typ_nm";
+	/**
+	 * Representative item type details cd. 代表品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public static final String $main_itm_typ_d_cd = "main_itm_typ_d_cd";
+	/**
+	 * Representative item type details name 代表品目区分詳細名.<p>
+	 *
+	 */
+	public static final String $main_itm_typ_d_nm = "main_itm_typ_d_nm";
+	public static final String $set_itm_p = "set_itm_p";
+	/**
+	 * Assortment item type 品揃品目区分.<p>
+	 *
+	 */
+	public static final String $set_itm_typ = "set_itm_typ";
+	/**
+	 * Assortment item type name 品揃品目区分名.<p>
+	 *
+	 */
+	public static final String $set_itm_typ_nm = "set_itm_typ_nm";
+	/**
+	 * Assortment item type details cd. 品揃品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public static final String $set_itm_typ_d_cd = "set_itm_typ_d_cd";
+	/**
+	 * Assortment item type details name 品揃品目区分詳細名.<p>
+	 *
+	 */
+	public static final String $set_itm_typ_d_nm = "set_itm_typ_d_nm";
+	/**
+	 * Representative item unit cd. 代表品目単位ＣＤ.<p>
+	 *
+	 */
+	public static final String $main_itm_unit_cd = "main_itm_unit_cd";
+	/**
+	 * Representative item unit name 代表品目単位名.<p>
+	 *
+	 */
+	public static final String $main_itm_unit_nm = "main_itm_unit_nm";
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public static final String $main_itm_dec_place = "main_itm_dec_place";
+	public static final String $main_itm_qty_p = "main_itm_qty_p";
+	/**
+	 * Assortment item unit cd. 品揃品目単位ＣＤ.<p>
+	 *
+	 */
+	public static final String $set_itm_unit_cd = "set_itm_unit_cd";
+	/**
+	 * Assortment item unit name 品揃品目単位名.<p>
+	 *
+	 */
+	public static final String $set_itm_unit_nm = "set_itm_unit_nm";
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public static final String $set_itm_dec_place = "set_itm_dec_place";
+	public static final String $set_itm_qty_p = "set_itm_qty_p";
+	/**
+	 * Memo 1 メモ１.<p>
+	 *
+	 */
+	public static final String $memo1 = "memo1";
+	/**
+	 * Memo 2 メモ２.<p>
+	 *
+	 */
+	public static final String $memo2 = "memo2";
+	/**
+	 * Memo 3 メモ３.<p>
+	 *
+	 */
+	public static final String $memo3 = "memo3";
+	/**
+	 * Entry user ID 登録ユーザＩＤ.<p>
+	 *
+	 */
+	public static final String $ins_usr_id = "ins_usr_id";
+	/**
+	 * Entry user name 登録ユーザ名.<p>
+	 *
+	 */
+	public static final String $ins_usr_nm = "ins_usr_nm";
+	/**
+	 * Entry date and time 登録日時.<p>
+	 *
+	 */
+	public static final String $ins_ts = "ins_ts";
+	/**
+	 * Entry function ID 登録機能ＩＤ.<p>
+	 *
+	 */
+	public static final String $ins_func_id = "ins_func_id";
+	/**
+	 * Entry function name 登録機能名.<p>
+	 *
+	 */
+	public static final String $ins_func_nm = "ins_func_nm";
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public static final String $upd_cntr = "upd_cntr";
+	/**
+	 * Update user ID 更新ユーザＩＤ.<p>
+	 *
+	 */
+	public static final String $upd_usr_id = "upd_usr_id";
+	/**
+	 * Update user name 更新ユーザ名.<p>
+	 *
+	 */
+	public static final String $upd_usr_nm = "upd_usr_nm";
+	/**
+	 * Update date and time 更新日時.<p>
+	 *
+	 */
+	public static final String $upd_ts = "upd_ts";
+	/**
+	 * Update function ID 更新機能ＩＤ.<p>
+	 *
+	 */
+	public static final String $upd_func_id = "upd_func_id";
+	/**
+	 * Update function name 更新機能名.<p>
+	 *
+	 */
+	public static final String $upd_func_nm = "upd_func_nm";
+	/**
+	 * Update request No. 更新リクエストＮＯ.<p>
+	 *
+	 */
+	public static final String $upd_srv_req_no = "upd_srv_req_no";
+	/**
+	 * Logical delete user ID 論理削除ユーザＩＤ.<p>
+	 *
+	 */
+	public static final String $del_usr_id = "del_usr_id";
+	/**
+	 * Logical delete user name 論理削除ユーザ名.<p>
+	 *
+	 */
+	public static final String $del_usr_nm = "del_usr_nm";
+	/**
+	 * Logical delete date and time 論理削除日時.<p>
+	 *
+	 */
+	public static final String $del_ts = "del_ts";
+
+	public static final String $main_itm_cd = $main_itm_p + ".itm_cd";
+	public static final String $main_itm_sub1 = $main_itm_p + ".itm_sub1";
+	public static final String $main_itm_sub2 = $main_itm_p + ".itm_sub2";
+	public static final String $main_itm_sub3 = $main_itm_p + ".itm_sub3";
+	public static final String $main_itm_nm = $main_itm_p + ".itm_nm";
+	public static final String $set_itm_cd = $set_itm_p + ".itm_cd";
+	public static final String $set_itm_sub1 = $set_itm_p + ".itm_sub1";
+	public static final String $set_itm_sub2 = $set_itm_p + ".itm_sub2";
+	public static final String $set_itm_sub3 = $set_itm_p + ".itm_sub3";
+	public static final String $set_itm_nm = $set_itm_p + ".itm_nm";
+	public static final String $main_itm_qty = $main_itm_qty_p + ".qty";
+	public static final String $set_itm_qty = $set_itm_qty_p + ".qty";
+
+	public static final MCMeta check_META = createCommonMeta($check, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta del_flg_META = createCommonMeta($del_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta set_grp_cd_META = createCommonMeta($set_grp_cd, mcframe.commonMA.meta.MA_META.SET_GRP_CD);
+	public static final MCMeta set_grp_nm_META = createCommonMeta($set_grp_nm, mcframe.commonMA.meta.MA_META.SET_GRP_NM);
+	public static final MCMeta main_itm_p_META = createInnerRowMeta($main_itm_p, mcframe.clientMAUB.MAUBP5030.ItmR.class);
+	public static final MCMeta main_itm_typ_META = createCommonMeta($main_itm_typ, mcframe.commonMA.meta.MA_META.ITM_TYP);
+	public static final MCMeta main_itm_typ_nm_META = createCommonMeta($main_itm_typ_nm, mcframe.commonMA.meta.MA_META.ITM_TYP_NM);
+	public static final MCMeta main_itm_typ_d_cd_META = createCommonMeta($main_itm_typ_d_cd, mcframe.commonMA.meta.MA_META.ITM_TYP_D_CD);
+	public static final MCMeta main_itm_typ_d_nm_META = createCommonMeta($main_itm_typ_d_nm, mcframe.commonMA.meta.MA_META.ITM_TYP_D_NM);
+	public static final MCMeta set_itm_p_META = createInnerRowMeta($set_itm_p, mcframe.clientMAUB.MAUBP5030.ItmR.class);
+	public static final MCMeta set_itm_typ_META = createCommonMeta($set_itm_typ, mcframe.commonMA.meta.MA_META.ITM_TYP);
+	public static final MCMeta set_itm_typ_nm_META = createCommonMeta($set_itm_typ_nm, mcframe.commonMA.meta.MA_META.ITM_TYP_NM);
+	public static final MCMeta set_itm_typ_d_cd_META = createCommonMeta($set_itm_typ_d_cd, mcframe.commonMA.meta.MA_META.ITM_TYP_D_CD);
+	public static final MCMeta set_itm_typ_d_nm_META = createCommonMeta($set_itm_typ_d_nm, mcframe.commonMA.meta.MA_META.ITM_TYP_D_NM);
+	public static final MCMeta main_itm_unit_cd_META = createCommonMeta($main_itm_unit_cd, mcframe.commonMA.meta.MA_META.UNIT_CD);
+	public static final MCMeta main_itm_unit_nm_META = createCommonMeta($main_itm_unit_nm, mcframe.commonMA.meta.MA_META.UNIT_NM);
+	public static final MCMeta main_itm_dec_place_META = createCommonMeta($main_itm_dec_place, mcframe.commonMA.meta.MA_META.DEC_PLACE);
+	public static final MCMeta main_itm_qty_p_META = createInnerRowMeta($main_itm_qty_p, mcframe.clientMAUB.MAUBP5040.QtyR.class);
+	public static final MCMeta set_itm_unit_cd_META = createCommonMeta($set_itm_unit_cd, mcframe.commonMA.meta.MA_META.UNIT_CD);
+	public static final MCMeta set_itm_unit_nm_META = createCommonMeta($set_itm_unit_nm, mcframe.commonMA.meta.MA_META.UNIT_NM);
+	public static final MCMeta set_itm_dec_place_META = createCommonMeta($set_itm_dec_place, mcframe.commonMA.meta.MA_META.DEC_PLACE);
+	public static final MCMeta set_itm_qty_p_META = createInnerRowMeta($set_itm_qty_p, mcframe.clientMAUB.MAUBP5040.QtyR.class);
+	public static final MCMeta memo1_META = createCommonMeta($memo1, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta memo2_META = createCommonMeta($memo2, mcframe.commonMA.meta.MA_META.MST_MEMO2);
+	public static final MCMeta memo3_META = createCommonMeta($memo3, mcframe.commonMA.meta.MA_META.MST_MEMO3);
+	public static final MCMeta ins_usr_id_META = createCommonMeta($ins_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta ins_usr_nm_META = createCommonMeta($ins_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta ins_ts_META = createCommonMeta($ins_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta ins_func_id_META = createCommonMeta($ins_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta ins_func_nm_META = createCommonMeta($ins_func_nm, mcframe.commonMA.meta.MA_META.FUNC_NM);
+	public static final MCMeta upd_cntr_META = createCommonMeta($upd_cntr, mcframe.commonMA.meta.MA_META.UPD_CNT);
+	public static final MCMeta upd_usr_id_META = createCommonMeta($upd_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta upd_usr_nm_META = createCommonMeta($upd_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta upd_func_nm_META = createCommonMeta($upd_func_nm, mcframe.commonMA.meta.MA_META.FUNC_NM);
+	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta del_usr_id_META = createCommonMeta($del_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta del_usr_nm_META = createCommonMeta($del_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta del_ts_META = createCommonMeta($del_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+
+	protected static final ConstMetaList<DtlR> constMetas = new ConstMetaList<DtlR>(
+		MCConstRow.constMetas,
+		new MCMeta[]{
+			check_META,
+			del_flg_META,
+			set_grp_cd_META,
+			set_grp_nm_META,
+			main_itm_p_META,
+			main_itm_typ_META,
+			main_itm_typ_nm_META,
+			main_itm_typ_d_cd_META,
+			main_itm_typ_d_nm_META,
+			set_itm_p_META,
+			set_itm_typ_META,
+			set_itm_typ_nm_META,
+			set_itm_typ_d_cd_META,
+			set_itm_typ_d_nm_META,
+			main_itm_unit_cd_META,
+			main_itm_unit_nm_META,
+			main_itm_dec_place_META,
+			main_itm_qty_p_META,
+			set_itm_unit_cd_META,
+			set_itm_unit_nm_META,
+			set_itm_dec_place_META,
+			set_itm_qty_p_META,
+			memo1_META,
+			memo2_META,
+			memo3_META,
+			ins_usr_id_META,
+			ins_usr_nm_META,
+			ins_ts_META,
+			ins_func_id_META,
+			ins_func_nm_META,
+			upd_cntr_META,
+			upd_usr_id_META,
+			upd_usr_nm_META,
+			upd_ts_META,
+			upd_func_id_META,
+			upd_func_nm_META,
+			upd_srv_req_no_META,
+			del_usr_id_META,
+			del_usr_nm_META,
+			del_ts_META
+		},
+		new String[][]{
+			{
+				"main_itm_cd",
+				"main_itm_sub1",
+				"main_itm_sub2",
+				"main_itm_sub3",
+				"main_itm_nm",
+				"set_itm_cd",
+				"set_itm_sub1",
+				"set_itm_sub2",
+				"set_itm_sub3",
+				"set_itm_nm",
+				"main_itm_qty",
+				"set_itm_qty"
+			},
+			{
+				$main_itm_cd,
+				$main_itm_sub1,
+				$main_itm_sub2,
+				$main_itm_sub3,
+				$main_itm_nm,
+				$set_itm_cd,
+				$set_itm_sub1,
+				$set_itm_sub2,
+				$set_itm_sub3,
+				$set_itm_nm,
+				$main_itm_qty,
+				$set_itm_qty
+			}
+		}
+	);
+
+	/**
+	 * "KEYS"グループのキー項目情報です。
+	 */
+	protected static final MCKeyList KEYS = new MCKeyList(
+		null,
+		new String[]{
+			$set_grp_cd,	// set_grp_cd
+			$main_itm_p + ".itm_cd",	// main_itm_p.itm_cd
+			$main_itm_p + ".itm_sub1",	// main_itm_p.itm_sub1
+			$main_itm_p + ".itm_sub2",	// main_itm_p.itm_sub2
+			$main_itm_p + ".itm_sub3",	// main_itm_p.itm_sub3
+			$set_itm_p + ".itm_cd",	// set_itm_p.itm_cd
+			$set_itm_p + ".itm_sub1",	// set_itm_p.itm_sub1
+			$set_itm_p + ".itm_sub2",	// set_itm_p.itm_sub2
+			$set_itm_p + ".itm_sub3",	// set_itm_p.itm_sub3
+			$main_itm_unit_cd	// main_itm_unit_cd
+		}
+	);
+
+	/** 項目属性情報のグループ[LIST_OUT_BASE]のキー定数 */
+	public static final String $$LIST_OUT_BASE = "LIST_OUT_BASE";
+	/** 項目属性情報のグループ[LIST_IN]のキー定数 */
+	public static final String $$LIST_IN = "LIST_IN";
+	/** 項目属性情報のグループ[LIST_IN_BASE]のキー定数 */
+	public static final String $$LIST_IN_BASE = "LIST_IN_BASE";
+
+	/**
+	 * グループ毎に定義される項目属性情報です。
+	 */
+	protected static final MCExtMap EXTMAP = new MCExtMap(
+		null,
+		new MCExtMap.Entry($$LIST_OUT_BASE, new MCExtList(
+			new String[][]{
+				{$main_itm_p + ".itm_cd", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub1;itm_sub2;itm_sub3;unit_cd;unit_nm;dec_place"},	// main_itm_p.itm_cd
+				{$main_itm_p + ".itm_sub1", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub2;itm_sub3;unit_cd;unit_nm;dec_place"},	// main_itm_p.itm_sub1
+				{$main_itm_p + ".itm_sub2", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub3;unit_cd;unit_nm;dec_place"},	// main_itm_p.itm_sub2
+				{$main_itm_p + ".itm_sub3", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;unit_cd;unit_nm;dec_place"},	// main_itm_p.itm_sub3
+				{$set_itm_p + ".itm_cd", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub1;itm_sub2;itm_sub3;unit_cd;unit_nm;dec_place"},	// set_itm_p.itm_cd
+				{$set_itm_p + ".itm_sub1", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub2;itm_sub3;unit_cd;unit_nm;dec_place"},	// set_itm_p.itm_sub1
+				{$set_itm_p + ".itm_sub2", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;itm_sub3;unit_cd;unit_nm;dec_place"},	// set_itm_p.itm_sub2
+				{$set_itm_p + ".itm_sub3", "itm_nm;itm_typ;itm_typ_nm;itm_typ_d_cd;itm_typ_d_nm;unit_cd;unit_nm;dec_place"},	// set_itm_p.itm_sub3
+				{$main_itm_unit_cd, "unit_nm;dec_place"},	// main_itm_unit_cd
+				{$set_itm_unit_cd, "unit_nm;dec_place"}	// set_itm_unit_cd
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN, new MCExtList(
+			new String[][]{
+				{$main_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3"},	// main_itm_p.itm_cd
+				{$main_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;main_itm_cd"},	// main_itm_p.itm_sub1
+				{$main_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;main_itm_cd;main_itm_sub1"},	// main_itm_p.itm_sub2
+				{$main_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;main_itm_cd;main_itm_sub1;main_itm_sub2"},	// main_itm_p.itm_sub3
+				{$set_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3"},	// set_itm_p.itm_cd
+				{$set_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;set_itm_cd"},	// set_itm_p.itm_sub1
+				{$set_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;set_itm_cd;set_itm_sub1"},	// set_itm_p.itm_sub2
+				{$set_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;set_itm_cd;set_itm_sub1;set_itm_sub2"},	// set_itm_p.itm_sub3
+				{$main_itm_unit_cd, "main_itm_cd;main_itm_sub1;main_itm_sub2;main_itm_sub3"},	// main_itm_unit_cd
+				{$set_itm_unit_cd, "set_itm_cd;set_itm_sub1;set_itm_sub2;set_itm_sub3"}	// set_itm_unit_cd
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
+			new String[][]{
+				{$main_itm_p + ".itm_cd", "itm_is_srch_typ"},	// main_itm_p.itm_cd
+				{$main_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd"},	// main_itm_p.itm_sub1
+				{$main_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1"},	// main_itm_p.itm_sub2
+				{$main_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"},	// main_itm_p.itm_sub3
+				{$set_itm_p + ".itm_cd", "itm_is_srch_typ"},	// set_itm_p.itm_cd
+				{$set_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd"},	// set_itm_p.itm_sub1
+				{$set_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1"},	// set_itm_p.itm_sub2
+				{$set_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"},	// set_itm_p.itm_sub3
+				{$main_itm_unit_cd, "itm_cd;itm_sub1;itm_sub2;itm_sub3"},	// main_itm_unit_cd
+				{$set_itm_unit_cd, "itm_cd;itm_sub1;itm_sub2;itm_sub3"}	// set_itm_unit_cd
+			}
+		))
+	);
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * "KEYS"グループのキー項目情報を返します。
+	 */
+	public MCKeyList getKeys(){
+		return KEYS;
+	}
+
+	/**
+	 * 指定グループの項目属性情報を返します。
+	 */
+	public Map<String, String> getExtMap(String aGroup){
+		if(aGroup == null) return null;
+		return EXTMAP.get(aGroup);
+	}
+
+	/**
+	 * 指定グループの項目属性が登録された項目リストを返します。
+	 */
+	public MCKeyList getKeys(String aGroup){
+		if(aGroup == null) return null;
+		return new MCKeyList(EXTMAP.getKeyList(aGroup));
+	}
+
+	/**
+	 * 項目属性のグループのSet情報を返します。
+	 */
+	public Set<String> getExtGroups(){
+		Set<String> ret = EXTMAP.keySet();
+		return ret;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected DtlR_MC_A(ConstMetaList<? extends DtlR> metas) {
+		super(metas);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR clone() {
+		return (DtlR) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR createInstance() {
+		return (DtlR) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR getValues(String... names) {
+		return (DtlR) super.getValues(names);
+	}
+
+
+
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public boolean check() {
+		return getConstBoolean(offset + 0, $check);
+	}
+
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public void check(boolean value) {
+		setConstBoolean(offset + 0, $check, value);
+	}
+
+
+	/**
+	 * Logical delete 論理削除.<p>
+	 *
+	 */
+	public boolean del_flg() {
+		return getConstBoolean(offset + 1, $del_flg);
+	}
+
+	/**
+	 * Logical delete 論理削除.<p>
+	 *
+	 */
+	public void del_flg(boolean value) {
+		setConstBoolean(offset + 1, $del_flg, value);
+	}
+
+
+	/**
+	 * Assortment group cd. 品揃グループＣＤ.<p>
+	 *
+	 */
+	public String set_grp_cd() {
+		return getConstString(offset + 2, $set_grp_cd);
+	}
+
+	/**
+	 * Assortment group cd. 品揃グループＣＤ.<p>
+	 *
+	 */
+	public void set_grp_cd(String value) {
+		setConstString(offset + 2, $set_grp_cd, value);
+	}
+
+
+	/**
+	 * Assortment group name 品揃グループ名.<p>
+	 *
+	 */
+	public String set_grp_nm() {
+		return getConstString(offset + 3, $set_grp_nm);
+	}
+
+	/**
+	 * Assortment group name 品揃グループ名.<p>
+	 *
+	 */
+	public void set_grp_nm(String value) {
+		setConstString(offset + 3, $set_grp_nm, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5030.ItmR main_itm_p(){
+		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 4, $main_itm_p);
+	}
+	
+	public void main_itm_p(mcframe.clientMAUB.MAUBP5030.ItmR row){
+		setConstInnerRow(offset + 4, $main_itm_p, row);
+	}
+
+
+	/**
+	 * Representative item type 代表品目区分.<p>
+	 *
+	 */
+	public String main_itm_typ() {
+		return getConstString(offset + 5, $main_itm_typ);
+	}
+
+	/**
+	 * Representative item type 代表品目区分.<p>
+	 *
+	 */
+	public void main_itm_typ(String value) {
+		setConstString(offset + 5, $main_itm_typ, value);
+	}
+
+
+	/**
+	 * Representative item type name 代表品目区分名.<p>
+	 *
+	 */
+	public String main_itm_typ_nm() {
+		return getConstString(offset + 6, $main_itm_typ_nm);
+	}
+
+	/**
+	 * Representative item type name 代表品目区分名.<p>
+	 *
+	 */
+	public void main_itm_typ_nm(String value) {
+		setConstString(offset + 6, $main_itm_typ_nm, value);
+	}
+
+
+	/**
+	 * Representative item type details cd. 代表品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public String main_itm_typ_d_cd() {
+		return getConstString(offset + 7, $main_itm_typ_d_cd);
+	}
+
+	/**
+	 * Representative item type details cd. 代表品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public void main_itm_typ_d_cd(String value) {
+		setConstString(offset + 7, $main_itm_typ_d_cd, value);
+	}
+
+
+	/**
+	 * Representative item type details name 代表品目区分詳細名.<p>
+	 *
+	 */
+	public String main_itm_typ_d_nm() {
+		return getConstString(offset + 8, $main_itm_typ_d_nm);
+	}
+
+	/**
+	 * Representative item type details name 代表品目区分詳細名.<p>
+	 *
+	 */
+	public void main_itm_typ_d_nm(String value) {
+		setConstString(offset + 8, $main_itm_typ_d_nm, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5030.ItmR set_itm_p(){
+		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 9, $set_itm_p);
+	}
+	
+	public void set_itm_p(mcframe.clientMAUB.MAUBP5030.ItmR row){
+		setConstInnerRow(offset + 9, $set_itm_p, row);
+	}
+
+
+	/**
+	 * Assortment item type 品揃品目区分.<p>
+	 *
+	 */
+	public String set_itm_typ() {
+		return getConstString(offset + 10, $set_itm_typ);
+	}
+
+	/**
+	 * Assortment item type 品揃品目区分.<p>
+	 *
+	 */
+	public void set_itm_typ(String value) {
+		setConstString(offset + 10, $set_itm_typ, value);
+	}
+
+
+	/**
+	 * Assortment item type name 品揃品目区分名.<p>
+	 *
+	 */
+	public String set_itm_typ_nm() {
+		return getConstString(offset + 11, $set_itm_typ_nm);
+	}
+
+	/**
+	 * Assortment item type name 品揃品目区分名.<p>
+	 *
+	 */
+	public void set_itm_typ_nm(String value) {
+		setConstString(offset + 11, $set_itm_typ_nm, value);
+	}
+
+
+	/**
+	 * Assortment item type details cd. 品揃品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public String set_itm_typ_d_cd() {
+		return getConstString(offset + 12, $set_itm_typ_d_cd);
+	}
+
+	/**
+	 * Assortment item type details cd. 品揃品目区分詳細ＣＤ.<p>
+	 *
+	 */
+	public void set_itm_typ_d_cd(String value) {
+		setConstString(offset + 12, $set_itm_typ_d_cd, value);
+	}
+
+
+	/**
+	 * Assortment item type details name 品揃品目区分詳細名.<p>
+	 *
+	 */
+	public String set_itm_typ_d_nm() {
+		return getConstString(offset + 13, $set_itm_typ_d_nm);
+	}
+
+	/**
+	 * Assortment item type details name 品揃品目区分詳細名.<p>
+	 *
+	 */
+	public void set_itm_typ_d_nm(String value) {
+		setConstString(offset + 13, $set_itm_typ_d_nm, value);
+	}
+
+
+	/**
+	 * Representative item unit cd. 代表品目単位ＣＤ.<p>
+	 *
+	 */
+	public String main_itm_unit_cd() {
+		return getConstString(offset + 14, $main_itm_unit_cd);
+	}
+
+	/**
+	 * Representative item unit cd. 代表品目単位ＣＤ.<p>
+	 *
+	 */
+	public void main_itm_unit_cd(String value) {
+		setConstString(offset + 14, $main_itm_unit_cd, value);
+	}
+
+
+	/**
+	 * Representative item unit name 代表品目単位名.<p>
+	 *
+	 */
+	public String main_itm_unit_nm() {
+		return getConstString(offset + 15, $main_itm_unit_nm);
+	}
+
+	/**
+	 * Representative item unit name 代表品目単位名.<p>
+	 *
+	 */
+	public void main_itm_unit_nm(String value) {
+		setConstString(offset + 15, $main_itm_unit_nm, value);
+	}
+
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumber main_itm_dec_place() {
+		return getConstNumber(offset + 16, $main_itm_dec_place);
+	}
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public void main_itm_dec_place(MCNumber value) {
+		setConstNumber(offset + 16, $main_itm_dec_place, value);
+	}
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public void main_itm_dec_place(int value) {
+		setConstNumber(offset + 16, $main_itm_dec_place, value);
+	}
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public void main_itm_dec_place(long value) {
+		setConstNumber(offset + 16, $main_itm_dec_place, value);
+	}
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public void main_itm_dec_place(float value) {
+		setConstNumber(offset + 16, $main_itm_dec_place, value);
+	}
+
+	/**
+	 * Representative item number of decimal places 代表品目小数部有効桁数.<p>
+	 *
+	 */
+	public void main_itm_dec_place(double value) {
+		setConstNumber(offset + 16, $main_itm_dec_place, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5040.QtyR main_itm_qty_p(){
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 17, $main_itm_qty_p);
+	}
+	
+	public void main_itm_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
+		setConstInnerRow(offset + 17, $main_itm_qty_p, row);
+	}
+
+
+	/**
+	 * Assortment item unit cd. 品揃品目単位ＣＤ.<p>
+	 *
+	 */
+	public String set_itm_unit_cd() {
+		return getConstString(offset + 18, $set_itm_unit_cd);
+	}
+
+	/**
+	 * Assortment item unit cd. 品揃品目単位ＣＤ.<p>
+	 *
+	 */
+	public void set_itm_unit_cd(String value) {
+		setConstString(offset + 18, $set_itm_unit_cd, value);
+	}
+
+
+	/**
+	 * Assortment item unit name 品揃品目単位名.<p>
+	 *
+	 */
+	public String set_itm_unit_nm() {
+		return getConstString(offset + 19, $set_itm_unit_nm);
+	}
+
+	/**
+	 * Assortment item unit name 品揃品目単位名.<p>
+	 *
+	 */
+	public void set_itm_unit_nm(String value) {
+		setConstString(offset + 19, $set_itm_unit_nm, value);
+	}
+
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumber set_itm_dec_place() {
+		return getConstNumber(offset + 20, $set_itm_dec_place);
+	}
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public void set_itm_dec_place(MCNumber value) {
+		setConstNumber(offset + 20, $set_itm_dec_place, value);
+	}
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public void set_itm_dec_place(int value) {
+		setConstNumber(offset + 20, $set_itm_dec_place, value);
+	}
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public void set_itm_dec_place(long value) {
+		setConstNumber(offset + 20, $set_itm_dec_place, value);
+	}
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public void set_itm_dec_place(float value) {
+		setConstNumber(offset + 20, $set_itm_dec_place, value);
+	}
+
+	/**
+	 * Assortment item number of decimal places 品揃品目小数部有効桁数.<p>
+	 *
+	 */
+	public void set_itm_dec_place(double value) {
+		setConstNumber(offset + 20, $set_itm_dec_place, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5040.QtyR set_itm_qty_p(){
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 21, $set_itm_qty_p);
+	}
+	
+	public void set_itm_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
+		setConstInnerRow(offset + 21, $set_itm_qty_p, row);
+	}
+
+
+	/**
+	 * Memo 1 メモ１.<p>
+	 *
+	 */
+	public String memo1() {
+		return getConstString(offset + 22, $memo1);
+	}
+
+	/**
+	 * Memo 1 メモ１.<p>
+	 *
+	 */
+	public void memo1(String value) {
+		setConstString(offset + 22, $memo1, value);
+	}
+
+
+	/**
+	 * Memo 2 メモ２.<p>
+	 *
+	 */
+	public String memo2() {
+		return getConstString(offset + 23, $memo2);
+	}
+
+	/**
+	 * Memo 2 メモ２.<p>
+	 *
+	 */
+	public void memo2(String value) {
+		setConstString(offset + 23, $memo2, value);
+	}
+
+
+	/**
+	 * Memo 3 メモ３.<p>
+	 *
+	 */
+	public String memo3() {
+		return getConstString(offset + 24, $memo3);
+	}
+
+	/**
+	 * Memo 3 メモ３.<p>
+	 *
+	 */
+	public void memo3(String value) {
+		setConstString(offset + 24, $memo3, value);
+	}
+
+
+	/**
+	 * Entry user ID 登録ユーザＩＤ.<p>
+	 *
+	 */
+	public String ins_usr_id() {
+		return getConstString(offset + 25, $ins_usr_id);
+	}
+
+	/**
+	 * Entry user ID 登録ユーザＩＤ.<p>
+	 *
+	 */
+	public void ins_usr_id(String value) {
+		setConstString(offset + 25, $ins_usr_id, value);
+	}
+
+
+	/**
+	 * Entry user name 登録ユーザ名.<p>
+	 *
+	 */
+	public String ins_usr_nm() {
+		return getConstString(offset + 26, $ins_usr_nm);
+	}
+
+	/**
+	 * Entry user name 登録ユーザ名.<p>
+	 *
+	 */
+	public void ins_usr_nm(String value) {
+		setConstString(offset + 26, $ins_usr_nm, value);
+	}
+
+
+	/**
+	 * Entry date and time 登録日時.<p>
+	 *
+	 */
+	public MCTimestamp ins_ts() {
+		return getConstTimestamp(offset + 27, $ins_ts);
+	}
+
+	/**
+	 * Entry date and time 登録日時.<p>
+	 *
+	 */
+	public void ins_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 27, $ins_ts, value);
+	}
+
+
+	/**
+	 * Entry function ID 登録機能ＩＤ.<p>
+	 *
+	 */
+	public String ins_func_id() {
+		return getConstString(offset + 28, $ins_func_id);
+	}
+
+	/**
+	 * Entry function ID 登録機能ＩＤ.<p>
+	 *
+	 */
+	public void ins_func_id(String value) {
+		setConstString(offset + 28, $ins_func_id, value);
+	}
+
+
+	/**
+	 * Entry function name 登録機能名.<p>
+	 *
+	 */
+	public String ins_func_nm() {
+		return getConstString(offset + 29, $ins_func_nm);
+	}
+
+	/**
+	 * Entry function name 登録機能名.<p>
+	 *
+	 */
+	public void ins_func_nm(String value) {
+		setConstString(offset + 29, $ins_func_nm, value);
+	}
+
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public MCNumber upd_cntr() {
+		return getConstNumber(offset + 30, $upd_cntr);
+	}
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public void upd_cntr(MCNumber value) {
+		setConstNumber(offset + 30, $upd_cntr, value);
+	}
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public void upd_cntr(int value) {
+		setConstNumber(offset + 30, $upd_cntr, value);
+	}
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public void upd_cntr(long value) {
+		setConstNumber(offset + 30, $upd_cntr, value);
+	}
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public void upd_cntr(float value) {
+		setConstNumber(offset + 30, $upd_cntr, value);
+	}
+
+	/**
+	 * Update counter 更新カウンタ.<p>
+	 *
+	 */
+	public void upd_cntr(double value) {
+		setConstNumber(offset + 30, $upd_cntr, value);
+	}
+
+
+	/**
+	 * Update user ID 更新ユーザＩＤ.<p>
+	 *
+	 */
+	public String upd_usr_id() {
+		return getConstString(offset + 31, $upd_usr_id);
+	}
+
+	/**
+	 * Update user ID 更新ユーザＩＤ.<p>
+	 *
+	 */
+	public void upd_usr_id(String value) {
+		setConstString(offset + 31, $upd_usr_id, value);
+	}
+
+
+	/**
+	 * Update user name 更新ユーザ名.<p>
+	 *
+	 */
+	public String upd_usr_nm() {
+		return getConstString(offset + 32, $upd_usr_nm);
+	}
+
+	/**
+	 * Update user name 更新ユーザ名.<p>
+	 *
+	 */
+	public void upd_usr_nm(String value) {
+		setConstString(offset + 32, $upd_usr_nm, value);
+	}
+
+
+	/**
+	 * Update date and time 更新日時.<p>
+	 *
+	 */
+	public MCTimestamp upd_ts() {
+		return getConstTimestamp(offset + 33, $upd_ts);
+	}
+
+	/**
+	 * Update date and time 更新日時.<p>
+	 *
+	 */
+	public void upd_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 33, $upd_ts, value);
+	}
+
+
+	/**
+	 * Update function ID 更新機能ＩＤ.<p>
+	 *
+	 */
+	public String upd_func_id() {
+		return getConstString(offset + 34, $upd_func_id);
+	}
+
+	/**
+	 * Update function ID 更新機能ＩＤ.<p>
+	 *
+	 */
+	public void upd_func_id(String value) {
+		setConstString(offset + 34, $upd_func_id, value);
+	}
+
+
+	/**
+	 * Update function name 更新機能名.<p>
+	 *
+	 */
+	public String upd_func_nm() {
+		return getConstString(offset + 35, $upd_func_nm);
+	}
+
+	/**
+	 * Update function name 更新機能名.<p>
+	 *
+	 */
+	public void upd_func_nm(String value) {
+		setConstString(offset + 35, $upd_func_nm, value);
+	}
+
+
+	/**
+	 * Update request No. 更新リクエストＮＯ.<p>
+	 *
+	 */
+	public String upd_srv_req_no() {
+		return getConstString(offset + 36, $upd_srv_req_no);
+	}
+
+	/**
+	 * Update request No. 更新リクエストＮＯ.<p>
+	 *
+	 */
+	public void upd_srv_req_no(String value) {
+		setConstString(offset + 36, $upd_srv_req_no, value);
+	}
+
+
+	/**
+	 * Logical delete user ID 論理削除ユーザＩＤ.<p>
+	 *
+	 */
+	public String del_usr_id() {
+		return getConstString(offset + 37, $del_usr_id);
+	}
+
+	/**
+	 * Logical delete user ID 論理削除ユーザＩＤ.<p>
+	 *
+	 */
+	public void del_usr_id(String value) {
+		setConstString(offset + 37, $del_usr_id, value);
+	}
+
+
+	/**
+	 * Logical delete user name 論理削除ユーザ名.<p>
+	 *
+	 */
+	public String del_usr_nm() {
+		return getConstString(offset + 38, $del_usr_nm);
+	}
+
+	/**
+	 * Logical delete user name 論理削除ユーザ名.<p>
+	 *
+	 */
+	public void del_usr_nm(String value) {
+		setConstString(offset + 38, $del_usr_nm, value);
+	}
+
+
+	/**
+	 * Logical delete date and time 論理削除日時.<p>
+	 *
+	 */
+	public MCTimestamp del_ts() {
+		return getConstTimestamp(offset + 39, $del_ts);
+	}
+
+	/**
+	 * Logical delete date and time 論理削除日時.<p>
+	 *
+	 */
+	public void del_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 39, $del_ts, value);
+	}
+
+
+	public String getString(String name) {
+		if ($set_grp_cd.equalsIgnoreCase(name)) {
+			return set_grp_cd();
+		}
+		if ($set_grp_nm.equalsIgnoreCase(name)) {
+			return set_grp_nm();
+		}
+		if ($main_itm_typ.equalsIgnoreCase(name)) {
+			return main_itm_typ();
+		}
+		if ($main_itm_typ_nm.equalsIgnoreCase(name)) {
+			return main_itm_typ_nm();
+		}
+		if ($main_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			return main_itm_typ_d_cd();
+		}
+		if ($main_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			return main_itm_typ_d_nm();
+		}
+		if ($set_itm_typ.equalsIgnoreCase(name)) {
+			return set_itm_typ();
+		}
+		if ($set_itm_typ_nm.equalsIgnoreCase(name)) {
+			return set_itm_typ_nm();
+		}
+		if ($set_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			return set_itm_typ_d_cd();
+		}
+		if ($set_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			return set_itm_typ_d_nm();
+		}
+		if ($main_itm_unit_cd.equalsIgnoreCase(name)) {
+			return main_itm_unit_cd();
+		}
+		if ($main_itm_unit_nm.equalsIgnoreCase(name)) {
+			return main_itm_unit_nm();
+		}
+		if ($set_itm_unit_cd.equalsIgnoreCase(name)) {
+			return set_itm_unit_cd();
+		}
+		if ($set_itm_unit_nm.equalsIgnoreCase(name)) {
+			return set_itm_unit_nm();
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			return memo1();
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			return memo2();
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			return memo3();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($ins_func_nm.equalsIgnoreCase(name)) {
+			return ins_func_nm();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_func_nm.equalsIgnoreCase(name)) {
+			return upd_func_nm();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		if ($del_usr_id.equalsIgnoreCase(name)) {
+			return del_usr_id();
+		}
+		if ($del_usr_nm.equalsIgnoreCase(name)) {
+			return del_usr_nm();
+		}
+		return super.getString(name);
+	}
+	public MCNumber getNumber(String name) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			return main_itm_dec_place();
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			return set_itm_dec_place();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumber(name);
+	}
+	public MCTimestamp getTimestamp(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		if ($del_ts.equalsIgnoreCase(name)) {
+			return del_ts();
+		}
+		return super.getTimestamp(name);
+	}
+	public boolean getBoolean(String name) {
+		if ($check.equalsIgnoreCase(name)) {
+			return check();
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			return del_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($set_grp_cd.equalsIgnoreCase(name)) {
+			return set_grp_cd();
+		}
+		if ($set_grp_nm.equalsIgnoreCase(name)) {
+			return set_grp_nm();
+		}
+		if ($main_itm_typ.equalsIgnoreCase(name)) {
+			return main_itm_typ();
+		}
+		if ($main_itm_typ_nm.equalsIgnoreCase(name)) {
+			return main_itm_typ_nm();
+		}
+		if ($main_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			return main_itm_typ_d_cd();
+		}
+		if ($main_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			return main_itm_typ_d_nm();
+		}
+		if ($set_itm_typ.equalsIgnoreCase(name)) {
+			return set_itm_typ();
+		}
+		if ($set_itm_typ_nm.equalsIgnoreCase(name)) {
+			return set_itm_typ_nm();
+		}
+		if ($set_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			return set_itm_typ_d_cd();
+		}
+		if ($set_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			return set_itm_typ_d_nm();
+		}
+		if ($main_itm_unit_cd.equalsIgnoreCase(name)) {
+			return main_itm_unit_cd();
+		}
+		if ($main_itm_unit_nm.equalsIgnoreCase(name)) {
+			return main_itm_unit_nm();
+		}
+		if ($set_itm_unit_cd.equalsIgnoreCase(name)) {
+			return set_itm_unit_cd();
+		}
+		if ($set_itm_unit_nm.equalsIgnoreCase(name)) {
+			return set_itm_unit_nm();
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			return memo1();
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			return memo2();
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			return memo3();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($ins_func_nm.equalsIgnoreCase(name)) {
+			return ins_func_nm();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_func_nm.equalsIgnoreCase(name)) {
+			return upd_func_nm();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		if ($del_usr_id.equalsIgnoreCase(name)) {
+			return del_usr_id();
+		}
+		if ($del_usr_nm.equalsIgnoreCase(name)) {
+			return del_usr_nm();
+		}
+		return super.getStringNE(name);
+	}
+	public MCNumber getNumberNE(String name) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			return main_itm_dec_place();
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			return set_itm_dec_place();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumberNE(name);
+	}
+	public MCTimestamp getTimestampNE(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		if ($del_ts.equalsIgnoreCase(name)) {
+			return del_ts();
+		}
+		return super.getTimestampNE(name);
+	}
+	public boolean getBooleanNE(String name) {
+		if ($check.equalsIgnoreCase(name)) {
+			return check();
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			return del_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($set_grp_cd.equalsIgnoreCase(name)) {
+			set_grp_cd(value);
+			return;
+		}
+		if ($set_grp_nm.equalsIgnoreCase(name)) {
+			set_grp_nm(value);
+			return;
+		}
+		if ($main_itm_typ.equalsIgnoreCase(name)) {
+			main_itm_typ(value);
+			return;
+		}
+		if ($main_itm_typ_nm.equalsIgnoreCase(name)) {
+			main_itm_typ_nm(value);
+			return;
+		}
+		if ($main_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			main_itm_typ_d_cd(value);
+			return;
+		}
+		if ($main_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			main_itm_typ_d_nm(value);
+			return;
+		}
+		if ($set_itm_typ.equalsIgnoreCase(name)) {
+			set_itm_typ(value);
+			return;
+		}
+		if ($set_itm_typ_nm.equalsIgnoreCase(name)) {
+			set_itm_typ_nm(value);
+			return;
+		}
+		if ($set_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			set_itm_typ_d_cd(value);
+			return;
+		}
+		if ($set_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			set_itm_typ_d_nm(value);
+			return;
+		}
+		if ($main_itm_unit_cd.equalsIgnoreCase(name)) {
+			main_itm_unit_cd(value);
+			return;
+		}
+		if ($main_itm_unit_nm.equalsIgnoreCase(name)) {
+			main_itm_unit_nm(value);
+			return;
+		}
+		if ($set_itm_unit_cd.equalsIgnoreCase(name)) {
+			set_itm_unit_cd(value);
+			return;
+		}
+		if ($set_itm_unit_nm.equalsIgnoreCase(name)) {
+			set_itm_unit_nm(value);
+			return;
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			memo1(value);
+			return;
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			memo2(value);
+			return;
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			memo3(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($ins_func_nm.equalsIgnoreCase(name)) {
+			ins_func_nm(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_func_nm.equalsIgnoreCase(name)) {
+			upd_func_nm(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		if ($del_usr_id.equalsIgnoreCase(name)) {
+			del_usr_id(value);
+			return;
+		}
+		if ($del_usr_nm.equalsIgnoreCase(name)) {
+			del_usr_nm(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+	public void setNumber(String name, MCNumber value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, int value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, long value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, float value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, double value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setTimestamp(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		if ($del_ts.equalsIgnoreCase(name)) {
+			del_ts(value);
+			return;
+		}
+		super.setTimestamp(name, value);
+	}
+	public void setBoolean(String name, boolean value) {
+		if ($check.equalsIgnoreCase(name)) {
+			check(value);
+			return;
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			del_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($set_grp_cd.equalsIgnoreCase(name)) {
+			set_grp_cd(value);
+			return;
+		}
+		if ($set_grp_nm.equalsIgnoreCase(name)) {
+			set_grp_nm(value);
+			return;
+		}
+		if ($main_itm_typ.equalsIgnoreCase(name)) {
+			main_itm_typ(value);
+			return;
+		}
+		if ($main_itm_typ_nm.equalsIgnoreCase(name)) {
+			main_itm_typ_nm(value);
+			return;
+		}
+		if ($main_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			main_itm_typ_d_cd(value);
+			return;
+		}
+		if ($main_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			main_itm_typ_d_nm(value);
+			return;
+		}
+		if ($set_itm_typ.equalsIgnoreCase(name)) {
+			set_itm_typ(value);
+			return;
+		}
+		if ($set_itm_typ_nm.equalsIgnoreCase(name)) {
+			set_itm_typ_nm(value);
+			return;
+		}
+		if ($set_itm_typ_d_cd.equalsIgnoreCase(name)) {
+			set_itm_typ_d_cd(value);
+			return;
+		}
+		if ($set_itm_typ_d_nm.equalsIgnoreCase(name)) {
+			set_itm_typ_d_nm(value);
+			return;
+		}
+		if ($main_itm_unit_cd.equalsIgnoreCase(name)) {
+			main_itm_unit_cd(value);
+			return;
+		}
+		if ($main_itm_unit_nm.equalsIgnoreCase(name)) {
+			main_itm_unit_nm(value);
+			return;
+		}
+		if ($set_itm_unit_cd.equalsIgnoreCase(name)) {
+			set_itm_unit_cd(value);
+			return;
+		}
+		if ($set_itm_unit_nm.equalsIgnoreCase(name)) {
+			set_itm_unit_nm(value);
+			return;
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			memo1(value);
+			return;
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			memo2(value);
+			return;
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			memo3(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($ins_func_nm.equalsIgnoreCase(name)) {
+			ins_func_nm(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_func_nm.equalsIgnoreCase(name)) {
+			upd_func_nm(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		if ($del_usr_id.equalsIgnoreCase(name)) {
+			del_usr_id(value);
+			return;
+		}
+		if ($del_usr_nm.equalsIgnoreCase(name)) {
+			del_usr_nm(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+	public void setNumberNE(String name, MCNumber value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, int value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, long value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, float value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, double value) {
+		if ($main_itm_dec_place.equalsIgnoreCase(name)) {
+			main_itm_dec_place(value);
+			return;
+		}
+		if ($set_itm_dec_place.equalsIgnoreCase(name)) {
+			set_itm_dec_place(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setTimestampNE(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		if ($del_ts.equalsIgnoreCase(name)) {
+			del_ts(value);
+			return;
+		}
+		super.setTimestampNE(name, value);
+	}
+	public void setBooleanNE(String name, boolean value) {
+		if ($check.equalsIgnoreCase(name)) {
+			check(value);
+			return;
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			del_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+	public MCRow getInnerRow(String name) {
+		if ($main_itm_p.equalsIgnoreCase(name)) {
+			return main_itm_p();
+		}
+		if ($set_itm_p.equalsIgnoreCase(name)) {
+			return set_itm_p();
+		}
+		if ($main_itm_qty_p.equalsIgnoreCase(name)) {
+			return main_itm_qty_p();
+		}
+		if ($set_itm_qty_p.equalsIgnoreCase(name)) {
+			return set_itm_qty_p();
+		}
+		return super.getInnerRow(name);
+	}
+
+	public void setInnerRow(String name, MCRow value) {
+		if ($main_itm_p.equalsIgnoreCase(name)) {
+			main_itm_p(
+				((MCContainerMeta) main_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5030.ItmR.class, value)
+			);
+			return;
+		}
+		if ($set_itm_p.equalsIgnoreCase(name)) {
+			set_itm_p(
+				((MCContainerMeta) set_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5030.ItmR.class, value)
+			);
+			return;
+		}
+		if ($main_itm_qty_p.equalsIgnoreCase(name)) {
+			main_itm_qty_p(
+				((MCContainerMeta) main_itm_qty_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5040.QtyR.class, value)
+			);
+			return;
+		}
+		if ($set_itm_qty_p.equalsIgnoreCase(name)) {
+			set_itm_qty_p(
+				((MCContainerMeta) set_itm_qty_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5040.QtyR.class, value)
+			);
+			return;
+		}
+		super.setInnerRow(name, value);
+	}
+
+
+	/**
+	 * Representative item cd. 代表品目ＣＤ.<p>
+	 *
+	 */
+	public String main_itm_cd() {
+		return main_itm_p().itm_cd();
+	}
+
+	/**
+	 * Representative item cd. 代表品目ＣＤ.<p>
+	 *
+	 */
+	public void main_itm_cd(String value) {
+		main_itm_p().itm_cd(value);
+	}
+
+	/**
+	 * Representative branch No. 1 代表枝番１.<p>
+	 *
+	 */
+	public String main_itm_sub1() {
+		return main_itm_p().itm_sub1();
+	}
+
+	/**
+	 * Representative branch No. 1 代表枝番１.<p>
+	 *
+	 */
+	public void main_itm_sub1(String value) {
+		main_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 * Representative branch No. 2 代表枝番２.<p>
+	 *
+	 */
+	public String main_itm_sub2() {
+		return main_itm_p().itm_sub2();
+	}
+
+	/**
+	 * Representative branch No. 2 代表枝番２.<p>
+	 *
+	 */
+	public void main_itm_sub2(String value) {
+		main_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 * Representative branch No. 3 代表枝番３.<p>
+	 *
+	 */
+	public String main_itm_sub3() {
+		return main_itm_p().itm_sub3();
+	}
+
+	/**
+	 * Representative branch No. 3 代表枝番３.<p>
+	 *
+	 */
+	public void main_itm_sub3(String value) {
+		main_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 * Representative item name 代表品名.<p>
+	 *
+	 */
+	public String main_itm_nm() {
+		return main_itm_p().itm_nm();
+	}
+
+	/**
+	 * Representative item name 代表品名.<p>
+	 *
+	 */
+	public void main_itm_nm(String value) {
+		main_itm_p().itm_nm(value);
+	}
+
+	/**
+	 * Assortment item cd. 品揃品目ＣＤ.<p>
+	 *
+	 */
+	public String set_itm_cd() {
+		return set_itm_p().itm_cd();
+	}
+
+	/**
+	 * Assortment item cd. 品揃品目ＣＤ.<p>
+	 *
+	 */
+	public void set_itm_cd(String value) {
+		set_itm_p().itm_cd(value);
+	}
+
+	/**
+	 * Assortment branch No. 1 品揃枝番１.<p>
+	 *
+	 */
+	public String set_itm_sub1() {
+		return set_itm_p().itm_sub1();
+	}
+
+	/**
+	 * Assortment branch No. 1 品揃枝番１.<p>
+	 *
+	 */
+	public void set_itm_sub1(String value) {
+		set_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 * Assortment branch No. 2 品揃枝番２.<p>
+	 *
+	 */
+	public String set_itm_sub2() {
+		return set_itm_p().itm_sub2();
+	}
+
+	/**
+	 * Assortment branch No. 2 品揃枝番２.<p>
+	 *
+	 */
+	public void set_itm_sub2(String value) {
+		set_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 * Assortment branch No. 3 品揃枝番３.<p>
+	 *
+	 */
+	public String set_itm_sub3() {
+		return set_itm_p().itm_sub3();
+	}
+
+	/**
+	 * Assortment branch No. 3 品揃枝番３.<p>
+	 *
+	 */
+	public void set_itm_sub3(String value) {
+		set_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 * Assortment item name 品揃品名.<p>
+	 *
+	 */
+	public String set_itm_nm() {
+		return set_itm_p().itm_nm();
+	}
+
+	/**
+	 * Assortment item name 品揃品名.<p>
+	 *
+	 */
+	public void set_itm_nm(String value) {
+		set_itm_p().itm_nm(value);
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public MCNumber main_itm_qty() {
+		return main_itm_qty_p().qty();
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public void main_itm_qty(MCNumber value) {
+		main_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public void main_itm_qty(int value) {
+		main_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public void main_itm_qty(long value) {
+		main_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public void main_itm_qty(float value) {
+		main_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Representative item qty. 代表品目数量.<p>
+	 *
+	 */
+	public void main_itm_qty(double value) {
+		main_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public MCNumber set_itm_qty() {
+		return set_itm_qty_p().qty();
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public void set_itm_qty(MCNumber value) {
+		set_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public void set_itm_qty(int value) {
+		set_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public void set_itm_qty(long value) {
+		set_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public void set_itm_qty(float value) {
+		set_itm_qty_p().qty(value);
+	}
+
+	/**
+	 * Assortment item qty. 品揃品目数量.<p>
+	 *
+	 */
+	public void set_itm_qty(double value) {
+		set_itm_qty_p().qty(value);
+	}
+
+}
+

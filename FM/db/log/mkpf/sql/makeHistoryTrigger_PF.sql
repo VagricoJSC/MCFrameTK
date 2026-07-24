@@ -1,0 +1,8 @@
+SET ESCCHAR @
+
+@".\HST_TR\PFT_SDRV_IF_ALL_TR_R.sql"
+
+@".\HST_TR\PFT_SDRV_IF_FILE_ALL_TR_R.sql"
+
+@".\HST_TR\PFT_IF_FILE_ALL_TR_R.sql"
+

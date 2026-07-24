@@ -1,0 +1,487 @@
+package mcframe.clientMGBD.MGBDP0530;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCExtList;
+import mcframe.clientCore.container.MCKeyList;
+import mcframe.clientCore.container.MCConstRow;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.container.MCContainerMeta;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCBinary;
+
+/**
+ * ブロック"Tab4"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract class Tab4R_MC_A extends MCConstRow {
+
+	public static final String $par_itm_p = "par_itm_p";
+	public static final String $chd_itm_p = "chd_itm_p";
+	/**
+	 * BOM pattern 構成パタン.<p>
+	 *
+	 */
+	public static final String $bom_ptn = "bom_ptn";
+
+	public static final String $par_itm_cd = $par_itm_p + ".itm_cd";
+	public static final String $par_itm_sub1 = $par_itm_p + ".itm_sub1";
+	public static final String $par_itm_sub2 = $par_itm_p + ".itm_sub2";
+	public static final String $par_itm_sub3 = $par_itm_p + ".itm_sub3";
+	public static final String $par_itm_nm = $par_itm_p + ".itm_nm";
+	public static final String $chd_itm_cd = $chd_itm_p + ".itm_cd";
+	public static final String $chd_itm_sub1 = $chd_itm_p + ".itm_sub1";
+	public static final String $chd_itm_sub2 = $chd_itm_p + ".itm_sub2";
+	public static final String $chd_itm_sub3 = $chd_itm_p + ".itm_sub3";
+	public static final String $chd_itm_nm = $chd_itm_p + ".itm_nm";
+
+	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta chd_itm_p_META = createInnerRowMeta($chd_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta bom_ptn_META = createCommonMeta($bom_ptn, mcframe.commonMA.meta.MA_META.BOM_PTN);
+
+	protected static final ConstMetaList<Tab4R> constMetas = new ConstMetaList<Tab4R>(
+		MCConstRow.constMetas,
+		new MCMeta[]{
+			par_itm_p_META,
+			chd_itm_p_META,
+			bom_ptn_META
+		},
+		new String[][]{
+			{
+				"par_itm_cd",
+				"par_itm_sub1",
+				"par_itm_sub2",
+				"par_itm_sub3",
+				"par_itm_nm",
+				"chd_itm_cd",
+				"chd_itm_sub1",
+				"chd_itm_sub2",
+				"chd_itm_sub3",
+				"chd_itm_nm"
+			},
+			{
+				$par_itm_cd,
+				$par_itm_sub1,
+				$par_itm_sub2,
+				$par_itm_sub3,
+				$par_itm_nm,
+				$chd_itm_cd,
+				$chd_itm_sub1,
+				$chd_itm_sub2,
+				$chd_itm_sub3,
+				$chd_itm_nm
+			}
+		}
+	);
+
+	/**
+	 * "KEYS"グループのキー項目情報です。
+	 */
+	protected static final MCKeyList KEYS = new MCKeyList(
+		null,
+		new String[]{
+		}
+	);
+
+	/** 項目属性情報のグループ[LIST_OUT_BASE]のキー定数 */
+	public static final String $$LIST_OUT_BASE = "LIST_OUT_BASE";
+	/** 項目属性情報のグループ[LIST_IN]のキー定数 */
+	public static final String $$LIST_IN = "LIST_IN";
+	/** 項目属性情報のグループ[LIST_IN_BASE]のキー定数 */
+	public static final String $$LIST_IN_BASE = "LIST_IN_BASE";
+	/** 項目属性情報のグループ[DISP_CTL]のキー定数 */
+	public static final String $$DISP_CTL = "DISP_CTL";
+
+	/**
+	 * グループ毎に定義される項目属性情報です。
+	 */
+	protected static final MCExtMap EXTMAP = new MCExtMap(
+		null,
+		new MCExtMap.Entry($$LIST_OUT_BASE, new MCExtList(
+			new String[][]{
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN, new MCExtList(
+			new String[][]{
+				{$par_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.ASSET1;true;true"},	// par_itm_p.itm_cd
+				{$par_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.ASSET1;par_itm_cd;true;true"},	// par_itm_p.itm_sub1
+				{$par_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.ASSET1;par_itm_cd;par_itm_sub1;true;true"},	// par_itm_p.itm_sub2
+				{$par_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.ASSET1;par_itm_cd;par_itm_sub1;par_itm_sub2;true;true"},	// par_itm_p.itm_sub3
+				{$chd_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;true;true"},	// chd_itm_p.itm_cd
+				{$chd_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;chd_itm_cd;true;true"},	// chd_itm_p.itm_sub1
+				{$chd_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;chd_itm_cd;chd_itm_sub1;true;true"},	// chd_itm_p.itm_sub2
+				{$chd_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.NOT_ASSET3;chd_itm_cd;chd_itm_sub1;chd_itm_sub2;true;true"}	// chd_itm_p.itm_sub3
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
+			new String[][]{
+				{$par_itm_p + ".itm_cd", "itm_is_srch_typ;release_flg_on;release_flg_off"},	// par_itm_p.itm_cd
+				{$par_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd;release_flg_on;release_flg_off"},	// par_itm_p.itm_sub1
+				{$par_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1;release_flg_on;release_flg_off"},	// par_itm_p.itm_sub2
+				{$par_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2;release_flg_on;release_flg_off"},	// par_itm_p.itm_sub3
+				{$chd_itm_p + ".itm_cd", "itm_is_srch_typ;release_flg_on;release_flg_off"},	// chd_itm_p.itm_cd
+				{$chd_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd;release_flg_on;release_flg_off"},	// chd_itm_p.itm_sub1
+				{$chd_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1;release_flg_on;release_flg_off"},	// chd_itm_p.itm_sub2
+				{$chd_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2;release_flg_on;release_flg_off"}	// chd_itm_p.itm_sub3
+			}
+		)),
+		new MCExtMap.Entry($$DISP_CTL, new MCExtList(
+			new String[][]{
+			}
+		))
+	);
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * "KEYS"グループのキー項目情報を返します。
+	 */
+	public MCKeyList getKeys(){
+		return KEYS;
+	}
+
+	/**
+	 * 指定グループの項目属性情報を返します。
+	 */
+	public Map<String, String> getExtMap(String aGroup){
+		if(aGroup == null) return null;
+		return EXTMAP.get(aGroup);
+	}
+
+	/**
+	 * 指定グループの項目属性が登録された項目リストを返します。
+	 */
+	public MCKeyList getKeys(String aGroup){
+		if(aGroup == null) return null;
+		return new MCKeyList(EXTMAP.getKeyList(aGroup));
+	}
+
+	/**
+	 * 項目属性のグループのSet情報を返します。
+	 */
+	public Set<String> getExtGroups(){
+		Set<String> ret = EXTMAP.keySet();
+		return ret;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected Tab4R_MC_A(ConstMetaList<? extends Tab4R> metas) {
+		super(metas);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Tab4R clone() {
+		return (Tab4R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Tab4R createInstance() {
+		return (Tab4R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public Tab4R getValues(String... names) {
+		return (Tab4R) super.getValues(names);
+	}
+
+
+
+	public mcframe.clientMAUB.MAUBP0030.ItmR par_itm_p(){
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 0, $par_itm_p);
+	}
+	
+	public void par_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
+		setConstInnerRow(offset + 0, $par_itm_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP0030.ItmR chd_itm_p(){
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 1, $chd_itm_p);
+	}
+	
+	public void chd_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
+		setConstInnerRow(offset + 1, $chd_itm_p, row);
+	}
+
+
+	/**
+	 * BOM pattern 構成パタン.<p>
+	 *
+	 */
+	public String bom_ptn() {
+		return getConstString(offset + 2, $bom_ptn);
+	}
+
+	/**
+	 * BOM pattern 構成パタン.<p>
+	 *
+	 */
+	public void bom_ptn(String value) {
+		setConstString(offset + 2, $bom_ptn, value);
+	}
+
+
+	public String getString(String name) {
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			return bom_ptn();
+		}
+		return super.getString(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			return bom_ptn();
+		}
+		return super.getStringNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			bom_ptn(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			bom_ptn(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public MCRow getInnerRow(String name) {
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			return par_itm_p();
+		}
+		if ($chd_itm_p.equalsIgnoreCase(name)) {
+			return chd_itm_p();
+		}
+		return super.getInnerRow(name);
+	}
+
+	public void setInnerRow(String name, MCRow value) {
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			par_itm_p(
+				((MCContainerMeta) par_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
+			);
+			return;
+		}
+		if ($chd_itm_p.equalsIgnoreCase(name)) {
+			chd_itm_p(
+				((MCContainerMeta) chd_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
+			);
+			return;
+		}
+		super.setInnerRow(name, value);
+	}
+
+
+	/**
+	 * Parent item cd. 親品目ＣＤ.<p>
+	 *
+	 */
+	public String par_itm_cd() {
+		return par_itm_p().itm_cd();
+	}
+
+	/**
+	 * Parent item cd. 親品目ＣＤ.<p>
+	 *
+	 */
+	public void par_itm_cd(String value) {
+		par_itm_p().itm_cd(value);
+	}
+
+	/**
+	 * Parent branch No. 1 親枝番１.<p>
+	 *
+	 */
+	public String par_itm_sub1() {
+		return par_itm_p().itm_sub1();
+	}
+
+	/**
+	 * Parent branch No. 1 親枝番１.<p>
+	 *
+	 */
+	public void par_itm_sub1(String value) {
+		par_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 * Parent branch No. 2 親枝番２.<p>
+	 *
+	 */
+	public String par_itm_sub2() {
+		return par_itm_p().itm_sub2();
+	}
+
+	/**
+	 * Parent branch No. 2 親枝番２.<p>
+	 *
+	 */
+	public void par_itm_sub2(String value) {
+		par_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 * Parent branch No. 3 親枝番３.<p>
+	 *
+	 */
+	public String par_itm_sub3() {
+		return par_itm_p().itm_sub3();
+	}
+
+	/**
+	 * Parent branch No. 3 親枝番３.<p>
+	 *
+	 */
+	public void par_itm_sub3(String value) {
+		par_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 * Parent item name 親品名.<p>
+	 *
+	 */
+	public String par_itm_nm() {
+		return par_itm_p().itm_nm();
+	}
+
+	/**
+	 * Parent item name 親品名.<p>
+	 *
+	 */
+	public void par_itm_nm(String value) {
+		par_itm_p().itm_nm(value);
+	}
+
+	/**
+	 * Child item cd. 子品目ＣＤ.<p>
+	 *
+	 */
+	public String chd_itm_cd() {
+		return chd_itm_p().itm_cd();
+	}
+
+	/**
+	 * Child item cd. 子品目ＣＤ.<p>
+	 *
+	 */
+	public void chd_itm_cd(String value) {
+		chd_itm_p().itm_cd(value);
+	}
+
+	/**
+	 * Child branch No. 1 子枝番１.<p>
+	 *
+	 */
+	public String chd_itm_sub1() {
+		return chd_itm_p().itm_sub1();
+	}
+
+	/**
+	 * Child branch No. 1 子枝番１.<p>
+	 *
+	 */
+	public void chd_itm_sub1(String value) {
+		chd_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 * Child branch No. 2 子枝番２.<p>
+	 *
+	 */
+	public String chd_itm_sub2() {
+		return chd_itm_p().itm_sub2();
+	}
+
+	/**
+	 * Child branch No. 2 子枝番２.<p>
+	 *
+	 */
+	public void chd_itm_sub2(String value) {
+		chd_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 * Child branch No. 3 子枝番３.<p>
+	 *
+	 */
+	public String chd_itm_sub3() {
+		return chd_itm_p().itm_sub3();
+	}
+
+	/**
+	 * Child branch No. 3 子枝番３.<p>
+	 *
+	 */
+	public void chd_itm_sub3(String value) {
+		chd_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 * Child item name 子品名.<p>
+	 *
+	 */
+	public String chd_itm_nm() {
+		return chd_itm_p().itm_nm();
+	}
+
+	/**
+	 * Child item name 子品名.<p>
+	 *
+	 */
+	public void chd_itm_nm(String value) {
+		chd_itm_p().itm_nm(value);
+	}
+
+}
+

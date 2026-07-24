@@ -1,0 +1,148 @@
+package mcframe.serverMSBB.MSBBL4010;
+
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.container.MCList.SortType;
+import mcframe.commonCore.notice.*;
+import mcframe.serverCore.logic.*;
+import mcframe.serverCore.notice.MCMessagePool;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cl;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import mcframe.commonMA.constant.*;
+import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMB.dbc.*;
+import mcframe.serverMS.dbc.*;
+import mcframe.serverMAUC.MAUCL0060.ElmArgsR;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.serverMAUC.MAUCL0010.MAUCL_MCDataUtil.*;
+import static mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys.*;
+import static mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil.*;
+import static mcframe.serverMAUC.MAUCL0030.MAUCL_Dac.*;
+import static mcframe.serverMAUC.MAUCL0060.MAUCL_Num.*;
+import mcframe.commonMB.constant.*;
+import static mcframe.commonMB.notice.MB_Msg.*;
+import static mcframe.serverMBUC.MBUCL0010.MBUCL_MCDataUtil.*;
+import mcframe.commonMS.constant.*;
+import static mcframe.commonMS.notice.MS_Msg.*;
+
+import static mcframe.serverFXUC.FXUCL0160.FXUCL_DateUtil.*;
+import static mcframe.serverFXUC.FXUCL0170.FXUCL_ValidaterUtil.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMS.dbc.MSFunction.*;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+import static mcframe.serverMB.dbc.MBBAFunction.*;
+import static mcframe.serverMB.dbc.MBBBFunction.*;
+import static mcframe.serverMB.dbc.MBBCFunction.*;
+import static mcframe.serverMB.dbc.MBBEFunction.*;
+import static mcframe.serverMS.dbc.MSBAFunction.*;
+import static mcframe.serverMS.dbc.MSBBFunction.*;
+import static mcframe.serverMS.dbc.MSBCFunction.*;
+import static mcframe.serverMS.dbc.MSBDFunction.*;
+import static mcframe.serverMS.dbc.MSBEFunction.*;
+import static mcframe.serverMS.dbc.MSBFFunction.*;
+import static mcframe.serverMS.dbc.MSBGFunction.*;
+import static mcframe.serverMS.dbc.MSBHFunction.*;
+import static mcframe.serverMS.dbc.MSBIFunction.*;
+
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+import mcframe.serverMSBB.MSBBL4010.*;	// このimportはFrameManagerの自動生成で追加されました。
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "MSBBL_WrkMngReg"ロジッククラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class MSBBL_WrkMngReg_MC extends MSBBL_WrkMngReg_MC_A{
+	//FMCB CUSTOM START
+
+	/**
+	 * WrkMng_UpdChk01オペレーション.<p>
+	 *
+	 * 案件管理情報の更新前チェック<br>
+	 */
+	public class WrkMng_UpdChk01 extends MSBBL_WrkMngReg_MC_A.WrkMng_UpdChk01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * WrkMng_DelChk01オペレーション.<p>
+	 *
+	 * 案件管理情報の削除前チェック<br>
+	 */
+	public class WrkMng_DelChk01 extends MSBBL_WrkMngReg_MC_A.WrkMng_DelChk01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * WrkMng_Del01オペレーション.<p>
+	 *
+	 * 案件管理情報を削除する<br>
+	 */
+	public class WrkMng_Del01 extends MSBBL_WrkMngReg_MC_A.WrkMng_Del01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * Srch01オペレーション.<p>
+	 *
+	 * 案件管理情報を検索する<br>
+	 */
+	public class Srch01 extends MSBBL_WrkMngReg_MC_A.Srch01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * WrkMng_Upd01オペレーション.<p>
+	 *
+	 * 案件管理情報を更新する<br>
+	 */
+	public class WrkMng_Upd01 extends MSBBL_WrkMngReg_MC_A.WrkMng_Upd01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * Upd01オペレーション.<p>
+	 *
+	 * 案件管理情報を更新する<br>
+	 */
+	public class Upd01 extends MSBBL_WrkMngReg_MC_A.Upd01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * Del01オペレーション.<p>
+	 *
+	 * 案件管理情報を削除する<br>
+	 */
+	public class Del01 extends MSBBL_WrkMngReg_MC_A.Del01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+
+	//FMCB CUSTOM END
+}

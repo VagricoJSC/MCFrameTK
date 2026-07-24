@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCPlugin Constant-->
+<mcframe>
+	
+	<login>
+		<c1>mcframe.clientMAUC.MAUCP0030.MAUCP_Dac</c1>
+		<c2>mcframe.clientMAUC.MAUCP0020.MAUCP_AppSys</c2>
+	</login>
+	
+	<!-- LogoutEvent (Client) -->
+	<logout>
+		<c1>mcframe.clientMAUC.MAUCP0030.MAUCP_Dac</c1>
+		<c2>mcframe.clientMAUC.MAUCP0020.MAUCP_AppSys</c2>
+	</logout>
+
+	<ws>
+		<!-- LoginEvent (WebService) -->
+		<login>
+			<c1>mcframe.serverMAUC.MAUCL0030.MAUCL_WSLogin</c1>
+		</login>
+		<!-- LogoutEvent (WebService) -->
+		<logout>
+			<c1>mcframe.serverMAUC.MAUCL0030.MAUCL_WSLogin</c1>
+		</logout>
+	</ws>
+	<batch>
+		<!-- LoginEvent (Batch Client) -->
+		<login>
+			<c1>mcframe.serverMAUC.MAUCL0030.MAUCL_BatchLogin</c1>
+		</login>
+		<!-- LogoutEvent (Batch Client) -->
+		<logout>
+			<c1>mcframe.serverMAUC.MAUCL0030.MAUCL_BatchLogin</c1>
+		</logout>
+	</batch>
+
+	<!-- Report ID -->
+	<report>
+		<cartridge>
+			<BizDatDL>
+				<client>
+					<class>mcframe.clientMAUD.MAUDP0010.MAUDP_BizDatDLCartridge</class>
+				</client>
+			</BizDatDL>
+		</cartridge>
+	</report>
+
+	<!-- Transaction Listener-->
+
+	<database>
+		<tranLsnrDef>
+			<MAUDL5010>
+				<class>mcframe.serverMAUD.MAUDL5010.MAUDL_TransactionListener</class>
+			</MAUDL5010>
+		</tranLsnrDef>
+		<tranLsnr>
+			<create>
+				<MA>MAUDL5010</MA>
+				<FC>MAUDL5010</FC>
+			</create>
+			<commit>
+				<ALL>MAUDL5010</ALL>
+			</commit>
+		</tranLsnr>
+		<continuesIfOnError>*</continuesIfOnError>
+	</database>
+	
+	<!-- Logic Before After-->
+	<dispatcher>
+		<logicBeforeAfter>
+			<class>mcframe.serverMAUD.MAUDL5010.MAUDL_LogicBeforeAfter</class>
+		</logicBeforeAfter>
+	</dispatcher>
+
+	<!-- Mining Push Dest-->
+	<mining>
+		<push>
+			<dest>
+				<wg>
+					<getter>mcframe.serverMAUD.MAUDL5010.MAUDL_PushDestWg</getter>
+					<list>
+						<cols>wg_cd,wg_nm</cols>
+						<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getWg</logic>
+					</list>
+				</wg>
+				<dpt>
+					<getter>mcframe.serverMAUD.MAUDL5010.MAUDL_PushDestDpt</getter>
+					<list>
+						<cols>dpt_cd,def_dpt_nm</cols>
+						<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getDptBase</logic>
+					</list>
+				</dpt>
+			</dest>
+		</push>
+	</mining>
+	
+	<!-- query api-->
+	 <queryapi>
+		<lockUpdTable>
+			<MA>
+				MAM_ACCOUNT,
+				MAM_ACT_PTN,
+				MAM_AC_DPT,
+				MAM_AC_ITM_GRP,
+				MAM_AC_RSN,
+				MAM_AC_SUBTYPEM,
+				MAM_AC_TAX,
+				MAM_ALC_AC_GRP,
+				MAM_ALC_AC,
+				MAM_ALC_COEF,
+				MAM_ALC_PTN,
+				MAM_ALLOC_GRP,
+				MAM_APRV_ROLE,
+				MAM_AREA,
+				MAM_AUTO_JNL_KEY,
+				MAM_BANK_AC,
+				MAM_BANK_BRANCH,
+				MAM_BANK,
+				MAM_BIZ_RSN,
+				MAM_BP_GRP,
+				MAM_BP,
+				MAM_CALC_CTG,
+				MAM_CALC_GRP,
+				MAM_CALC_PTN,
+				MAM_CAL_BASE,
+				MAM_CNTRY,
+				MAM_COST_CTG,
+				MAM_COST_DPT,
+				MAM_COST_IO_CONF,
+				MAM_COST_IO,
+				MAM_COST_MENU,
+				MAM_COST_SLS,
+				MAM_CO,
+				MAM_CTG_GRP,
+				MAM_CUR,
+				MAM_DA,
+				MAM_DPT_BASE,
+				MAM_DPT,
+				MAM_DPT_LVL,
+				MAM_EXIM_PORT,
+				MAM_EXPNS_GRP,
+				MAM_EXPNS,
+				MAM_EXT_SYS,
+				MAM_EX_CNTNR,
+				MAM_GP_ALC,
+				MAM_GP_GRP,
+				MAM_GP,
+				MAM_HS_GRP,
+				MAM_HS,
+				MAM_INSP_POINT,
+				MAM_INSP_PTN,
+				MAM_ITM_COMP_GRP,
+				MAM_ITM_GRP,
+				MAM_ITM_JNL,
+				MAM_ITM,
+				MAM_ITM_SHIP_GRP,
+				MAM_ITM_SPEC_GRP,
+				MAM_ITM_TYP_D,
+				MAM_JNL_ACT,
+				MAM_JNL_GRP,
+				MAM_JNL_PTN_BASE,
+				MAM_LG_GRP,
+				MAM_LOC_GRP,
+				MAM_LOC,
+				MAM_MPS_GRP,
+				MAM_NOTE_RSN,
+				MAM_NUM_PTN,
+				MAM_OPER,
+				MAM_PF_GRP,
+				MAM_PRE_ALC_PTN,
+				MAM_PRE_ALC_RATE,
+				MAM_RPT_CMP_CONF,
+				MAM_RPT_CMP,
+				MAM_RPT_CONF,
+				MAM_RPT_KEY,
+				MAM_RPT_PTN,
+				MAM_RSRC,
+				MAM_SETOFF_GRP,
+				MAM_SET_GRP,
+				MAM_SHIP_TERM,
+				MAM_SHIP_VALID,
+				MAM_SHIP_WK_GRP,
+				MAM_SHIP_WK,
+				MAM_SITE_CO,
+				MAM_SITE,
+				MAM_SLIP_FORM,
+				MAM_SLS_ANLY,
+				MAM_SLS_ITM_GRP,
+				MAM_SLS_UPRI_GRP,
+				MAM_SLS_UPRI_RANK,
+				MAM_SPEC_DESC,
+				MAM_SPEC,
+				MAM_SPLN_ITM,
+				MAM_STK_EVAL,
+				MAM_STK_GD,
+				MAM_STR_LN,
+				MAM_STTL,
+				MAM_SUB_ACCOUNT,
+				MAM_TAX,
+				MAM_TERM,
+				MAM_TRD,
+				MAM_TRNSPT,
+				MAM_TTERM,
+				MAM_UNIT,
+				MAM_USR,
+				MAM_WG,
+				MAM_WK_COST,
+				MAM_WK_DAY,
+				MAM_WK_RSN,
+				MAM_XRATE
+			</MA>
+		</lockUpdTable>
+	</queryapi>
+</mcframe>

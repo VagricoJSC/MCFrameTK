@@ -1,0 +1,747 @@
+package mcframe.serverMABC.MABCL0310;
+
+import mcframe.commonCore.param.MCOperationInfo;
+import mcframe.commonCore.param.MCContainerDef;
+import mcframe.commonCore.param.MCGeneralContainerDef;
+import mcframe.commonCore.param.MCBlockDef;
+import mcframe.commonCore.param.MCItemDef;
+import mcframe.commonCore.param.MCDef;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cn;
+
+/**
+ * [MABCL_ItmReg]の入出力情報となる電文（上り・下り電文）と
+ * 画面コンテナの間のデータ変換の定義を行うクラスです。
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズはできません。
+ */
+@SuppressWarnings({"all"})
+abstract public class PDef_MC_A extends MCDef {
+	public MCContainerDef getCustomDef(String id){
+		if (id == null) {
+			return null;
+		} 
+//FMCB GET_DEF START
+		else if (id.equals("MA.MABCL0310.Srch01.UP.BLOCK0")){
+			return MA_MABCL0310_Srch01_UP_BLOCK0();
+		}
+		else if (id.equals("MA.MABCL0310.Srch01.DOWN.BLOCK0")){
+			return MA_MABCL0310_Srch01_DOWN_BLOCK0();
+		}
+		else if (id.equals("MA.MABCL0310.Srch01.DOWN.BLOCK1")){
+			return MA_MABCL0310_Srch01_DOWN_BLOCK1();
+		}
+		else if (id.equals("MA.MABCL0310.Srch01.DOWN.BLOCK2")){
+			return MA_MABCL0310_Srch01_DOWN_BLOCK2();
+		}
+		else if (id.equals("MA.MABCL0310.Srch01.DOWN.BLOCK3")){
+			return MA_MABCL0310_Srch01_DOWN_BLOCK3();
+		}
+		else if (id.equals("MA.MABCL0310.Upd01.UP.BLOCK0")){
+			return MA_MABCL0310_Upd01_UP_BLOCK0();
+		}
+		else if (id.equals("MA.MABCL0310.Upd01.UP.BLOCK1")){
+			return MA_MABCL0310_Upd01_UP_BLOCK1();
+		}
+		else if (id.equals("MA.MABCL0310.Upd01.UP.BLOCK2")){
+			return MA_MABCL0310_Upd01_UP_BLOCK2();
+		}
+		else if (id.equals("MA.MABCL0310.Upd01.UP.BLOCK3")){
+			return MA_MABCL0310_Upd01_UP_BLOCK3();
+		}
+		else if (id.equals("MA.MABCL0310.Upd01.UP.BLOCK4")){
+			return MA_MABCL0310_Upd01_UP_BLOCK4();
+		}
+//FMCB GET_DEF END
+		else {
+			return null;
+		}
+	}
+	//FMCB DEF_CLASSES START
+		
+	
+	static final MCOperationInfo MA_MABCL0310_Srch01_INFO = new MCOperationInfo("MA", "MABCL0310", "Srch01", "000000", new PDef());
+
+	public static MCContainerDef MA_MABCL0310_Srch01_UP_BLOCK0() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3")
+			}
+			,
+			MCBlockDef.create("Srch01_Cnd")
+		);
+	}
+
+
+	public static MCContainerDef MA_MABCL0310_Srch01_DOWN_BLOCK0() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("base_itm_nm", "base_itm_nm"),
+				MCItemDef.create("base_itm_alt_nm1", "base_itm_alt_nm1"),
+				MCItemDef.create("base_itm_alt_nm2", "base_itm_alt_nm2"),
+				MCItemDef.create("base_itm_alt_nm3", "base_itm_alt_nm3"),
+				MCItemDef.create("base_itm_alt_nm4", "base_itm_alt_nm4"),
+				MCItemDef.create("th_image", "th_image"),
+				MCItemDef.create("stk_mng_typ", "stk_mng_typ"),
+				MCItemDef.create("stk_mng_typ_nm", "stk_mng_typ_nm"),
+				MCItemDef.create("asset_mng_typ", "asset_mng_typ"),
+				MCItemDef.create("asset_mng_typ_nm", "asset_mng_typ_nm"),
+				MCItemDef.create("sundry_itm_flg", "sundry_itm_flg"),
+				MCItemDef.create("dscnt_itm_flg", "dscnt_itm_flg"),
+				MCItemDef.create("unit_cd", "unit_cd"),
+				MCItemDef.create("unit_nm", "unit_nm"),
+				MCItemDef.create("dec_place", "dec_place"),
+				MCItemDef.create("rnd_typ", "rnd_typ"),
+				MCItemDef.create("rnd_typ_nm", "rnd_typ_nm"),
+				MCItemDef.create("dim_unit_cd", "dim_unit_cd"),
+				MCItemDef.create("dim_unit_nm", "dim_unit_nm"),
+				MCItemDef.create("dim", "dim"),
+				MCItemDef.create("wt_unit_cd", "wt_unit_cd"),
+				MCItemDef.create("wt_unit_nm", "wt_unit_nm"),
+				MCItemDef.create("wt", "wt"),
+				MCItemDef.create("conts_unit_cd", "conts_unit_cd"),
+				MCItemDef.create("conts_unit_nm", "conts_unit_nm"),
+				MCItemDef.create("conts_qty", "conts_qty"),
+				MCItemDef.create("unit_dim", "unit_dim"),
+				MCItemDef.create("unit_wt", "unit_wt"),
+				MCItemDef.create("sls_itm_grp_cd", "sls_itm_grp_cd"),
+				MCItemDef.create("sls_itm_grp_nm", "sls_itm_grp_nm"),
+				MCItemDef.create("itm_grp_cd1", "itm_grp_cd1"),
+				MCItemDef.create("itm_grp_nm1", "itm_grp_nm1"),
+				MCItemDef.create("itm_grp_cd2", "itm_grp_cd2"),
+				MCItemDef.create("itm_grp_nm2", "itm_grp_nm2"),
+				MCItemDef.create("itm_grp_cd3", "itm_grp_cd3"),
+				MCItemDef.create("itm_grp_nm3", "itm_grp_nm3"),
+				MCItemDef.create("itm_grp_cd4", "itm_grp_cd4"),
+				MCItemDef.create("itm_grp_nm4", "itm_grp_nm4"),
+				MCItemDef.create("itm_grp_cd5", "itm_grp_cd5"),
+				MCItemDef.create("itm_grp_nm5", "itm_grp_nm5"),
+				MCItemDef.create("itm_grp_cd6", "itm_grp_cd6"),
+				MCItemDef.create("itm_grp_nm6", "itm_grp_nm6"),
+				MCItemDef.create("itm_grp_cd7", "itm_grp_cd7"),
+				MCItemDef.create("itm_grp_nm7", "itm_grp_nm7"),
+				MCItemDef.create("itm_grp_cd8", "itm_grp_cd8"),
+				MCItemDef.create("itm_grp_nm8", "itm_grp_nm8"),
+				MCItemDef.create("itm_grp_cd9", "itm_grp_cd9"),
+				MCItemDef.create("itm_grp_nm9", "itm_grp_nm9"),
+				MCItemDef.create("itm_grp_cd10", "itm_grp_cd10"),
+				MCItemDef.create("itm_grp_nm10", "itm_grp_nm10"),
+				MCItemDef.create("hs_cd", "hs_cd"),
+				MCItemDef.create("hs_nm", "hs_nm"),
+				MCItemDef.create("jan_typ", "jan_typ"),
+				MCItemDef.create("jan_typ_nm", "jan_typ_nm"),
+				MCItemDef.create("jan_cd", "jan_cd"),
+				MCItemDef.create("itf_cd", "itf_cd"),
+				MCItemDef.create("gtin_cd", "gtin_cd"),
+				MCItemDef.create("memo1_c", "memo1_c"),
+				MCItemDef.create("memo2_c", "memo2_c"),
+				MCItemDef.create("memo3_c", "memo3_c"),
+				MCItemDef.create("ins_usr_id_c", "ins_usr_id_c"),
+				MCItemDef.create("ins_usr_nm_c", "ins_usr_nm_c"),
+				MCItemDef.create("ins_ts_c", "ins_ts_c"),
+				MCItemDef.create("ins_func_id_c", "ins_func_id_c"),
+				MCItemDef.create("ins_func_nm_c", "ins_func_nm_c"),
+				MCItemDef.create("upd_cntr_c", "upd_cntr_c"),
+				MCItemDef.create("upd_usr_id_c", "upd_usr_id_c"),
+				MCItemDef.create("upd_usr_nm_c", "upd_usr_nm_c"),
+				MCItemDef.create("upd_ts_c", "upd_ts_c"),
+				MCItemDef.create("upd_func_id_c", "upd_func_id_c"),
+				MCItemDef.create("upd_func_nm_c", "upd_func_nm_c"),
+				MCItemDef.create("upd_srv_req_no_c", "upd_srv_req_no_c"),
+				MCItemDef.create("itm_typ", "itm_typ"),
+				MCItemDef.create("itm_typ_nm", "itm_typ_nm"),
+				MCItemDef.create("itm_typ_d_cd", "itm_typ_d_cd"),
+				MCItemDef.create("itm_typ_d_nm", "itm_typ_d_nm"),
+				MCItemDef.create("itm_jnl_cd", "itm_jnl_cd"),
+				MCItemDef.create("itm_jnl_nm", "itm_jnl_nm"),
+				MCItemDef.create("ac_itm_grp_cd", "ac_itm_grp_cd"),
+				MCItemDef.create("ac_itm_grp_nm", "ac_itm_grp_nm"),
+				MCItemDef.create("minus_stk_flg", "minus_stk_flg"),
+				MCItemDef.create("not_new_lot_flg", "not_new_lot_flg"),
+				MCItemDef.create("gi_alloc_flg", "gi_alloc_flg"),
+				MCItemDef.create("sls_tax_cd", "sls_tax_cd"),
+				MCItemDef.create("sls_tax_nm", "sls_tax_nm"),
+				MCItemDef.create("purc_tax_cd", "purc_tax_cd"),
+				MCItemDef.create("purc_tax_nm", "purc_tax_nm"),
+				MCItemDef.create("prov_tax_cd", "prov_tax_cd"),
+				MCItemDef.create("prov_tax_nm", "prov_tax_nm"),
+				MCItemDef.create("wtax_rate", "wtax_rate"),
+				MCItemDef.create("ship_unit_cd", "ship_unit_cd"),
+				MCItemDef.create("ship_unit_nm", "ship_unit_nm"),
+				MCItemDef.create("mfg_unit_cd", "mfg_unit_cd"),
+				MCItemDef.create("mfg_unit_nm", "mfg_unit_nm"),
+				MCItemDef.create("purc_unit_cd", "purc_unit_cd"),
+				MCItemDef.create("purc_unit_nm", "purc_unit_nm"),
+				MCItemDef.create("pckg_unit_cd", "pckg_unit_cd"),
+				MCItemDef.create("pckg_unit_nm", "pckg_unit_nm"),
+				MCItemDef.create("pack_alloc_flg", "pack_alloc_flg"),
+				MCItemDef.create("lot_mng_typ", "lot_mng_typ"),
+				MCItemDef.create("lot_mng_typ_nm", "lot_mng_typ_nm"),
+				MCItemDef.create("lot_no_typ", "lot_no_typ"),
+				MCItemDef.create("lot_no_typ_nm", "lot_no_typ_nm"),
+				MCItemDef.create("lot_no_ptn_cd", "lot_no_ptn_cd"),
+				MCItemDef.create("lot_no_ptn_nm", "lot_no_ptn_nm"),
+				MCItemDef.create("sublot_mng_typ", "sublot_mng_typ"),
+				MCItemDef.create("sublot_mng_typ_nm", "sublot_mng_typ_nm"),
+				MCItemDef.create("sublot_no_typ", "sublot_no_typ"),
+				MCItemDef.create("sublot_no_typ_nm", "sublot_no_typ_nm"),
+				MCItemDef.create("sublot_no_ptn_cd", "sublot_no_ptn_cd"),
+				MCItemDef.create("sublot_no_ptn_nm", "sublot_no_ptn_nm"),
+				MCItemDef.create("bp_lot_flg", "bp_lot_flg"),
+				MCItemDef.create("insp_bind_typ", "insp_bind_typ"),
+				MCItemDef.create("insp_bind_typ_nm", "insp_bind_typ_nm"),
+				MCItemDef.create("skip_chk_ship_flg", "skip_chk_ship_flg"),
+				MCItemDef.create("mrkt_judg_flg", "mrkt_judg_flg"),
+				MCItemDef.create("mrkt_judg_role_cd", "mrkt_judg_role_cd"),
+				MCItemDef.create("mrkt_judg_role_nm", "mrkt_judg_role_nm"),
+				MCItemDef.create("mrkt_judg_upd_role_cd", "mrkt_judg_upd_role_cd"),
+				MCItemDef.create("mrkt_judg_upd_role_nm", "mrkt_judg_upd_role_nm"),
+				MCItemDef.create("lmt_ctl_flg", "lmt_ctl_flg"),
+				MCItemDef.create("lmt_ctl_categ", "lmt_ctl_categ"),
+				MCItemDef.create("cont_fctr_flg", "cont_fctr_flg"),
+				MCItemDef.create("std_cont_fctr", "std_cont_fctr"),
+				MCItemDef.create("cont_fctr_unit_cd", "cont_fctr_unit_cd"),
+				MCItemDef.create("cont_fctr_unit_nm", "cont_fctr_unit_nm"),
+				MCItemDef.create("cont_fctr_rnd_typ", "cont_fctr_rnd_typ"),
+				MCItemDef.create("cont_fctr_rnd_typ_nm", "cont_fctr_rnd_typ_nm"),
+				MCItemDef.create("cont_fctr_dec_place", "cont_fctr_dec_place"),
+				MCItemDef.create("sno1_mng_typ", "sno1_mng_typ"),
+				MCItemDef.create("sno1_mng_typ_nm", "sno1_mng_typ_nm"),
+				MCItemDef.create("slo_sno1_flg", "slo_sno1_flg"),
+				MCItemDef.create("rqmt_sno1_flg", "rqmt_sno1_flg"),
+				MCItemDef.create("sno1_num_typ", "sno1_num_typ"),
+				MCItemDef.create("sno1_num_typ_nm", "sno1_num_typ_nm"),
+				MCItemDef.create("sno1_ptn_cd", "sno1_ptn_cd"),
+				MCItemDef.create("sno1_ptn_nm", "sno1_ptn_nm"),
+				MCItemDef.create("sno2_mng_typ", "sno2_mng_typ"),
+				MCItemDef.create("sno2_mng_typ_nm", "sno2_mng_typ_nm"),
+				MCItemDef.create("slo_sno2_flg", "slo_sno2_flg"),
+				MCItemDef.create("rqmt_sno2_flg", "rqmt_sno2_flg"),
+				MCItemDef.create("sno2_num_typ", "sno2_num_typ"),
+				MCItemDef.create("sno2_num_typ_nm", "sno2_num_typ_nm"),
+				MCItemDef.create("sno2_ptn_cd", "sno2_ptn_cd"),
+				MCItemDef.create("sno2_ptn_nm", "sno2_ptn_nm"),
+				MCItemDef.create("sno3_mng_typ", "sno3_mng_typ"),
+				MCItemDef.create("sno3_mng_typ_nm", "sno3_mng_typ_nm"),
+				MCItemDef.create("slo_sno3_flg", "slo_sno3_flg"),
+				MCItemDef.create("rqmt_sno3_flg", "rqmt_sno3_flg"),
+				MCItemDef.create("sno3_num_typ", "sno3_num_typ"),
+				MCItemDef.create("sno3_num_typ_nm", "sno3_num_typ_nm"),
+				MCItemDef.create("sno3_ptn_cd", "sno3_ptn_cd"),
+				MCItemDef.create("sno3_ptn_nm", "sno3_ptn_nm"),
+				MCItemDef.create("sno4_mng_typ", "sno4_mng_typ"),
+				MCItemDef.create("sno4_mng_typ_nm", "sno4_mng_typ_nm"),
+				MCItemDef.create("slo_sno4_flg", "slo_sno4_flg"),
+				MCItemDef.create("rqmt_sno4_flg", "rqmt_sno4_flg"),
+				MCItemDef.create("sno4_num_typ", "sno4_num_typ"),
+				MCItemDef.create("sno4_num_typ_nm", "sno4_num_typ_nm"),
+				MCItemDef.create("sno4_ptn_cd", "sno4_ptn_cd"),
+				MCItemDef.create("sno4_ptn_nm", "sno4_ptn_nm"),
+				MCItemDef.create("def_bom_ptn", "def_bom_ptn"),
+				MCItemDef.create("mfg_inst_unit_typ", "mfg_inst_unit_typ"),
+				MCItemDef.create("mfg_inst_unit_typ_nm", "mfg_inst_unit_typ_nm"),
+				MCItemDef.create("mrp_proc_typ", "mrp_proc_typ"),
+				MCItemDef.create("mrp_proc_typ_nm", "mrp_proc_typ_nm"),
+				MCItemDef.create("rqmt_typ", "rqmt_typ"),
+				MCItemDef.create("rqmt_typ_nm", "rqmt_typ_nm"),
+				MCItemDef.create("prod_pln_typ", "prod_pln_typ"),
+				MCItemDef.create("prod_pln_typ_nm", "prod_pln_typ_nm"),
+				MCItemDef.create("dmnd_date_div_mons", "dmnd_date_div_mons"),
+				MCItemDef.create("alloc_margin_days", "alloc_margin_days"),
+				MCItemDef.create("mrp_alloc_margin_days", "mrp_alloc_margin_days"),
+				MCItemDef.create("mrp_opn_xfr_days", "mrp_opn_xfr_days"),
+				MCItemDef.create("rqmt_rstr_qty", "rqmt_rstr_qty"),
+				MCItemDef.create("inpt_itm_add_flg", "inpt_itm_add_flg"),
+				MCItemDef.create("inpt_itm_del_flg", "inpt_itm_del_flg"),
+				MCItemDef.create("sch_flg", "sch_flg"),
+				MCItemDef.create("cntry_org_cd", "cntry_org_cd"),
+				MCItemDef.create("cntry_org_nm", "cntry_org_nm"),
+				MCItemDef.create("comp_spec_typ", "comp_spec_typ"),
+				MCItemDef.create("comp_spec_typ_nm", "comp_spec_typ_nm"),
+				MCItemDef.create("comp_rev_at_slo_flg", "comp_rev_at_slo_flg"),
+				MCItemDef.create("comp_core_itm_flg", "comp_core_itm_flg"),
+				MCItemDef.create("itm_spec_grp_cd", "itm_spec_grp_cd"),
+				MCItemDef.create("itm_spec_grp_nm", "itm_spec_grp_nm"),
+				MCItemDef.create("sls_upri_grp_cd", "sls_upri_grp_cd"),
+				MCItemDef.create("sls_upri_grp_nm", "sls_upri_grp_nm"),
+				MCItemDef.create("bill_crryovr_times", "bill_crryovr_times"),
+				MCItemDef.create("pay_crryovr_times", "pay_crryovr_times"),
+				MCItemDef.create("slo_proc_flg", "slo_proc_flg"),
+				MCItemDef.create("slo_proc_typ", "slo_proc_typ"),
+				MCItemDef.create("slo_proc_typ_nm", "slo_proc_typ_nm"),
+				MCItemDef.create("ship_inst_typ", "ship_inst_typ"),
+				MCItemDef.create("ship_inst_typ_nm", "ship_inst_typ_nm"),
+				MCItemDef.create("ship_lot_back_stop_flg", "ship_lot_back_stop_flg"),
+				MCItemDef.create("itm_ship_grp_cd", "itm_ship_grp_cd"),
+				MCItemDef.create("itm_ship_grp_nm", "itm_ship_grp_nm"),
+				MCItemDef.create("ship_valid_grp_cd", "ship_valid_grp_cd"),
+				MCItemDef.create("ship_valid_grp_nm", "ship_valid_grp_nm"),
+				MCItemDef.create("arr_skip_flg", "arr_skip_flg"),
+				MCItemDef.create("purc_dlv_slip_flg", "purc_dlv_slip_flg"),
+				MCItemDef.create("ship_term_cd", "ship_term_cd"),
+				MCItemDef.create("ship_term_nm", "ship_term_nm"),
+				MCItemDef.create("exim_xpns_typ", "exim_xpns_typ"),
+				MCItemDef.create("exim_xpns_typ_nm", "exim_xpns_typ_nm"),
+				MCItemDef.create("stk_lst_flg", "stk_lst_flg"),
+				MCItemDef.create("ver_flg", "ver_flg"),
+				MCItemDef.create("sls_upri_cng_flg", "sls_upri_cng_flg"),
+				MCItemDef.create("purc_upri_cng_flg", "purc_upri_cng_flg"),
+				MCItemDef.create("prov_upri_cng_flg", "prov_upri_cng_flg"),
+				MCItemDef.create("ref_itm_cd", "ref_itm_cd"),
+				MCItemDef.create("ref_itm_sub1", "ref_itm_sub1"),
+				MCItemDef.create("ref_itm_sub2", "ref_itm_sub2"),
+				MCItemDef.create("ref_itm_sub3", "ref_itm_sub3"),
+				MCItemDef.create("ref_itm_nm", "ref_itm_nm"),
+				MCItemDef.create("ext_sys_no_itm", "ext_sys_no_itm"),
+				MCItemDef.create("chng_no", "chng_no"),
+				MCItemDef.create("calc_ptn_cd", "calc_ptn_cd"),
+				MCItemDef.create("calc_ptn_nm", "calc_ptn_nm"),
+				MCItemDef.create("cost_std_qty", "cost_std_qty"),
+				MCItemDef.create("itm_alc_grp", "itm_alc_grp"),
+				MCItemDef.create("sls_flg", "sls_flg"),
+				MCItemDef.create("sls_input_flg", "sls_input_flg"),
+				MCItemDef.create("mfg_flg", "mfg_flg"),
+				MCItemDef.create("mfg_input_flg", "mfg_input_flg"),
+				MCItemDef.create("purc_flg", "purc_flg"),
+				MCItemDef.create("purc_input_flg", "purc_input_flg"),
+				MCItemDef.create("insp_flg", "insp_flg"),
+				MCItemDef.create("insp_input_flg", "insp_input_flg"),
+				MCItemDef.create("release_flg", "release_flg"),
+				MCItemDef.create("release_tm", "release_tm"),
+				MCItemDef.create("release_usr_cd", "release_usr_cd"),
+				MCItemDef.create("release_usr_nm", "release_usr_nm"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("ins_usr_id", "ins_usr_id"),
+				MCItemDef.create("ins_usr_nm", "ins_usr_nm"),
+				MCItemDef.create("ins_ts", "ins_ts"),
+				MCItemDef.create("ins_func_id", "ins_func_id"),
+				MCItemDef.create("ins_func_nm", "ins_func_nm"),
+				MCItemDef.create("upd_cntr", "upd_cntr"),
+				MCItemDef.create("upd_usr_id", "upd_usr_id"),
+				MCItemDef.create("upd_usr_nm", "upd_usr_nm"),
+				MCItemDef.create("upd_ts", "upd_ts"),
+				MCItemDef.create("upd_func_id", "upd_func_id"),
+				MCItemDef.create("upd_func_nm", "upd_func_nm"),
+				MCItemDef.create("upd_srv_req_no", "upd_srv_req_no"),
+				MCItemDef.create("del_usr_id", "del_usr_id"),
+				MCItemDef.create("del_usr_nm", "del_usr_nm"),
+				MCItemDef.create("del_ts", "del_ts")
+			}
+			,
+			MCBlockDef.create("Srch01_Rslt")
+		);
+	}
+	public static MCContainerDef MA_MABCL0310_Srch01_DOWN_BLOCK1() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("itm_typ", "itm_typ"),
+				MCItemDef.create("itm_typ_nm", "itm_typ_nm"),
+				MCItemDef.create("itm_typ_d_cd", "itm_typ_d_cd"),
+				MCItemDef.create("itm_typ_d_nm", "itm_typ_d_nm"),
+				MCItemDef.create("st_dt", "st_dt"),
+				MCItemDef.create("end_dt", "end_dt"),
+				MCItemDef.create("sls_tax_cd", "sls_tax_cd"),
+				MCItemDef.create("sls_tax_nm", "sls_tax_nm"),
+				MCItemDef.create("purc_tax_cd", "purc_tax_cd"),
+				MCItemDef.create("purc_tax_nm", "purc_tax_nm"),
+				MCItemDef.create("prov_tax_cd", "prov_tax_cd"),
+				MCItemDef.create("prov_tax_nm", "prov_tax_nm"),
+				MCItemDef.create("sls_itm_grp_cd", "sls_itm_grp_cd"),
+				MCItemDef.create("sls_itm_grp_nm", "sls_itm_grp_nm"),
+				MCItemDef.create("wtax_rate", "wtax_rate"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("ins_usr_id", "ins_usr_id"),
+				MCItemDef.create("ins_usr_nm", "ins_usr_nm"),
+				MCItemDef.create("ins_ts", "ins_ts"),
+				MCItemDef.create("ins_func_id", "ins_func_id"),
+				MCItemDef.create("ins_func_nm", "ins_func_nm"),
+				MCItemDef.create("upd_cntr", "upd_cntr"),
+				MCItemDef.create("upd_usr_id", "upd_usr_id"),
+				MCItemDef.create("upd_usr_nm", "upd_usr_nm"),
+				MCItemDef.create("upd_ts", "upd_ts"),
+				MCItemDef.create("upd_func_id", "upd_func_id"),
+				MCItemDef.create("upd_func_nm", "upd_func_nm"),
+				MCItemDef.create("upd_srv_req_no", "upd_srv_req_no"),
+				MCItemDef.create("del_usr_id", "del_usr_id"),
+				MCItemDef.create("del_usr_nm", "del_usr_nm"),
+				MCItemDef.create("del_ts", "del_ts")
+			}
+			,
+			MCBlockDef.create("Srch01_Sub")
+		);
+	}
+	public static MCContainerDef MA_MABCL0310_Srch01_DOWN_BLOCK2() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("itm_typ", "itm_typ"),
+				MCItemDef.create("itm_typ_nm", "itm_typ_nm"),
+				MCItemDef.create("itm_typ_d_cd", "itm_typ_d_cd"),
+				MCItemDef.create("itm_typ_d_nm", "itm_typ_d_nm"),
+				MCItemDef.create("unit_cd", "unit_cd"),
+				MCItemDef.create("unit_nm", "unit_nm"),
+				MCItemDef.create("dec_place", "dec_place"),
+				MCItemDef.create("conv_base_qty", "conv_base_qty"),
+				MCItemDef.create("conv_qty", "conv_qty"),
+				MCItemDef.create("rnd_typ", "rnd_typ"),
+				MCItemDef.create("rnd_typ_nm", "rnd_typ_nm"),
+				MCItemDef.create("pack_flg", "pack_flg"),
+				MCItemDef.create("pckg_flg", "pckg_flg"),
+				MCItemDef.create("unit_dim", "unit_dim"),
+				MCItemDef.create("unit_wt", "unit_wt"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("ins_usr_id", "ins_usr_id"),
+				MCItemDef.create("ins_usr_nm", "ins_usr_nm"),
+				MCItemDef.create("ins_ts", "ins_ts"),
+				MCItemDef.create("ins_func_id", "ins_func_id"),
+				MCItemDef.create("ins_func_nm", "ins_func_nm"),
+				MCItemDef.create("upd_cntr", "upd_cntr"),
+				MCItemDef.create("upd_usr_id", "upd_usr_id"),
+				MCItemDef.create("upd_usr_nm", "upd_usr_nm"),
+				MCItemDef.create("upd_ts", "upd_ts"),
+				MCItemDef.create("upd_func_id", "upd_func_id"),
+				MCItemDef.create("upd_func_nm", "upd_func_nm"),
+				MCItemDef.create("upd_srv_req_no", "upd_srv_req_no"),
+				MCItemDef.create("del_usr_id", "del_usr_id"),
+				MCItemDef.create("del_usr_nm", "del_usr_nm"),
+				MCItemDef.create("del_ts", "del_ts")
+			}
+			,
+			MCBlockDef.create("Srch01_Unit")
+		);
+	}
+	public static MCContainerDef MA_MABCL0310_Srch01_DOWN_BLOCK3() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_nm_std", "itm_nm_std"),
+				MCItemDef.create("lcl_cd", "lcl_cd"),
+				MCItemDef.create("lcl_nm", "lcl_nm"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("itm_alt_nm1", "itm_alt_nm1"),
+				MCItemDef.create("itm_alt_nm2", "itm_alt_nm2"),
+				MCItemDef.create("itm_alt_nm3", "itm_alt_nm3"),
+				MCItemDef.create("itm_alt_nm4", "itm_alt_nm4"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("ins_usr_id", "ins_usr_id"),
+				MCItemDef.create("ins_usr_nm", "ins_usr_nm"),
+				MCItemDef.create("ins_ts", "ins_ts"),
+				MCItemDef.create("ins_func_id", "ins_func_id"),
+				MCItemDef.create("ins_func_nm", "ins_func_nm"),
+				MCItemDef.create("upd_cntr", "upd_cntr"),
+				MCItemDef.create("upd_usr_id", "upd_usr_id"),
+				MCItemDef.create("upd_usr_nm", "upd_usr_nm"),
+				MCItemDef.create("upd_ts", "upd_ts"),
+				MCItemDef.create("upd_func_id", "upd_func_id"),
+				MCItemDef.create("upd_func_nm", "upd_func_nm"),
+				MCItemDef.create("upd_srv_req_no", "upd_srv_req_no")
+			}
+			,
+			MCBlockDef.create("Srch01_Lcl")
+		);
+	}
+	
+	static final MCOperationInfo MA_MABCL0310_Upd01_INFO = new MCOperationInfo("MA", "MABCL0310", "Upd01", "000000", new PDef());
+
+	public static MCContainerDef MA_MABCL0310_Upd01_UP_BLOCK0() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Upd01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("base_itm_nm", "base_itm_nm"),
+				MCItemDef.create("base_itm_alt_nm1", "base_itm_alt_nm1"),
+				MCItemDef.create("base_itm_alt_nm2", "base_itm_alt_nm2"),
+				MCItemDef.create("base_itm_alt_nm3", "base_itm_alt_nm3"),
+				MCItemDef.create("base_itm_alt_nm4", "base_itm_alt_nm4"),
+				MCItemDef.create("th_image", "th_image"),
+				MCItemDef.create("stk_mng_typ", "stk_mng_typ"),
+				MCItemDef.create("asset_mng_typ", "asset_mng_typ"),
+				MCItemDef.create("sundry_itm_flg", "sundry_itm_flg"),
+				MCItemDef.create("dscnt_itm_flg", "dscnt_itm_flg"),
+				MCItemDef.create("unit_cd", "unit_cd"),
+				MCItemDef.create("dec_place", "dec_place"),
+				MCItemDef.create("rnd_typ", "rnd_typ"),
+				MCItemDef.create("dim_unit_cd", "dim_unit_cd"),
+				MCItemDef.create("dim", "dim"),
+				MCItemDef.create("wt_unit_cd", "wt_unit_cd"),
+				MCItemDef.create("wt", "wt"),
+				MCItemDef.create("conts_unit_cd", "conts_unit_cd"),
+				MCItemDef.create("conts_qty", "conts_qty"),
+				MCItemDef.create("unit_dim", "unit_dim"),
+				MCItemDef.create("unit_wt", "unit_wt"),
+				MCItemDef.create("sls_itm_grp_cd", "sls_itm_grp_cd"),
+				MCItemDef.create("itm_grp_cd1", "itm_grp_cd1"),
+				MCItemDef.create("itm_grp_cd2", "itm_grp_cd2"),
+				MCItemDef.create("itm_grp_cd3", "itm_grp_cd3"),
+				MCItemDef.create("itm_grp_cd4", "itm_grp_cd4"),
+				MCItemDef.create("itm_grp_cd5", "itm_grp_cd5"),
+				MCItemDef.create("itm_grp_cd6", "itm_grp_cd6"),
+				MCItemDef.create("itm_grp_cd7", "itm_grp_cd7"),
+				MCItemDef.create("itm_grp_cd8", "itm_grp_cd8"),
+				MCItemDef.create("itm_grp_cd9", "itm_grp_cd9"),
+				MCItemDef.create("itm_grp_cd10", "itm_grp_cd10"),
+				MCItemDef.create("hs_cd", "hs_cd"),
+				MCItemDef.create("jan_typ", "jan_typ"),
+				MCItemDef.create("jan_cd", "jan_cd"),
+				MCItemDef.create("itf_cd", "itf_cd"),
+				MCItemDef.create("gtin_cd", "gtin_cd"),
+				MCItemDef.create("memo1_c", "memo1_c"),
+				MCItemDef.create("memo2_c", "memo2_c"),
+				MCItemDef.create("memo3_c", "memo3_c"),
+				MCItemDef.create("upd_cntr_c", "upd_cntr_c"),
+				MCItemDef.create("itm_typ", "itm_typ"),
+				MCItemDef.create("itm_typ_d_cd", "itm_typ_d_cd"),
+				MCItemDef.create("itm_jnl_cd", "itm_jnl_cd"),
+				MCItemDef.create("ac_itm_grp_cd", "ac_itm_grp_cd"),
+				MCItemDef.create("minus_stk_flg", "minus_stk_flg"),
+				MCItemDef.create("not_new_lot_flg", "not_new_lot_flg"),
+				MCItemDef.create("gi_alloc_flg", "gi_alloc_flg"),
+				MCItemDef.create("sls_tax_cd", "sls_tax_cd"),
+				MCItemDef.create("purc_tax_cd", "purc_tax_cd"),
+				MCItemDef.create("prov_tax_cd", "prov_tax_cd"),
+				MCItemDef.create("wtax_rate", "wtax_rate"),
+				MCItemDef.create("ship_unit_cd", "ship_unit_cd"),
+				MCItemDef.create("mfg_unit_cd", "mfg_unit_cd"),
+				MCItemDef.create("purc_unit_cd", "purc_unit_cd"),
+				MCItemDef.create("pckg_unit_cd", "pckg_unit_cd"),
+				MCItemDef.create("pack_alloc_flg", "pack_alloc_flg"),
+				MCItemDef.create("lot_mng_typ", "lot_mng_typ"),
+				MCItemDef.create("lot_no_typ", "lot_no_typ"),
+				MCItemDef.create("lot_no_ptn_cd", "lot_no_ptn_cd"),
+				MCItemDef.create("sublot_mng_typ", "sublot_mng_typ"),
+				MCItemDef.create("sublot_no_typ", "sublot_no_typ"),
+				MCItemDef.create("sublot_no_ptn_cd", "sublot_no_ptn_cd"),
+				MCItemDef.create("bp_lot_flg", "bp_lot_flg"),
+				MCItemDef.create("insp_bind_typ", "insp_bind_typ"),
+				MCItemDef.create("skip_chk_ship_flg", "skip_chk_ship_flg"),
+				MCItemDef.create("mrkt_judg_flg", "mrkt_judg_flg"),
+				MCItemDef.create("mrkt_judg_role_cd", "mrkt_judg_role_cd"),
+				MCItemDef.create("mrkt_judg_upd_role_cd", "mrkt_judg_upd_role_cd"),
+				MCItemDef.create("lmt_ctl_flg", "lmt_ctl_flg"),
+				MCItemDef.create("lmt_ctl_categ", "lmt_ctl_categ"),
+				MCItemDef.create("cont_fctr_flg", "cont_fctr_flg"),
+				MCItemDef.create("std_cont_fctr", "std_cont_fctr"),
+				MCItemDef.create("cont_fctr_unit_cd", "cont_fctr_unit_cd"),
+				MCItemDef.create("cont_fctr_rnd_typ", "cont_fctr_rnd_typ"),
+				MCItemDef.create("cont_fctr_dec_place", "cont_fctr_dec_place"),
+				MCItemDef.create("sno1_mng_typ", "sno1_mng_typ"),
+				MCItemDef.create("slo_sno1_flg", "slo_sno1_flg"),
+				MCItemDef.create("rqmt_sno1_flg", "rqmt_sno1_flg"),
+				MCItemDef.create("sno1_num_typ", "sno1_num_typ"),
+				MCItemDef.create("sno1_ptn_cd", "sno1_ptn_cd"),
+				MCItemDef.create("sno2_mng_typ", "sno2_mng_typ"),
+				MCItemDef.create("slo_sno2_flg", "slo_sno2_flg"),
+				MCItemDef.create("rqmt_sno2_flg", "rqmt_sno2_flg"),
+				MCItemDef.create("sno2_num_typ", "sno2_num_typ"),
+				MCItemDef.create("sno2_ptn_cd", "sno2_ptn_cd"),
+				MCItemDef.create("sno3_mng_typ", "sno3_mng_typ"),
+				MCItemDef.create("slo_sno3_flg", "slo_sno3_flg"),
+				MCItemDef.create("rqmt_sno3_flg", "rqmt_sno3_flg"),
+				MCItemDef.create("sno3_num_typ", "sno3_num_typ"),
+				MCItemDef.create("sno3_ptn_cd", "sno3_ptn_cd"),
+				MCItemDef.create("sno4_mng_typ", "sno4_mng_typ"),
+				MCItemDef.create("slo_sno4_flg", "slo_sno4_flg"),
+				MCItemDef.create("rqmt_sno4_flg", "rqmt_sno4_flg"),
+				MCItemDef.create("sno4_num_typ", "sno4_num_typ"),
+				MCItemDef.create("sno4_ptn_cd", "sno4_ptn_cd"),
+				MCItemDef.create("def_bom_ptn", "def_bom_ptn"),
+				MCItemDef.create("mfg_inst_unit_typ", "mfg_inst_unit_typ"),
+				MCItemDef.create("mrp_proc_typ", "mrp_proc_typ"),
+				MCItemDef.create("rqmt_typ", "rqmt_typ"),
+				MCItemDef.create("prod_pln_typ", "prod_pln_typ"),
+				MCItemDef.create("dmnd_date_div_mons", "dmnd_date_div_mons"),
+				MCItemDef.create("alloc_margin_days", "alloc_margin_days"),
+				MCItemDef.create("mrp_alloc_margin_days", "mrp_alloc_margin_days"),
+				MCItemDef.create("mrp_opn_xfr_days", "mrp_opn_xfr_days"),
+				MCItemDef.create("rqmt_rstr_qty", "rqmt_rstr_qty"),
+				MCItemDef.create("inpt_itm_add_flg", "inpt_itm_add_flg"),
+				MCItemDef.create("inpt_itm_del_flg", "inpt_itm_del_flg"),
+				MCItemDef.create("sch_flg", "sch_flg"),
+				MCItemDef.create("cntry_org_cd", "cntry_org_cd"),
+				MCItemDef.create("comp_spec_typ", "comp_spec_typ"),
+				MCItemDef.create("comp_rev_at_slo_flg", "comp_rev_at_slo_flg"),
+				MCItemDef.create("comp_core_itm_flg", "comp_core_itm_flg"),
+				MCItemDef.create("itm_spec_grp_cd", "itm_spec_grp_cd"),
+				MCItemDef.create("sls_upri_grp_cd", "sls_upri_grp_cd"),
+				MCItemDef.create("bill_crryovr_times", "bill_crryovr_times"),
+				MCItemDef.create("pay_crryovr_times", "pay_crryovr_times"),
+				MCItemDef.create("slo_proc_flg", "slo_proc_flg"),
+				MCItemDef.create("slo_proc_typ", "slo_proc_typ"),
+				MCItemDef.create("ship_inst_typ", "ship_inst_typ"),
+				MCItemDef.create("ship_lot_back_stop_flg", "ship_lot_back_stop_flg"),
+				MCItemDef.create("itm_ship_grp_cd", "itm_ship_grp_cd"),
+				MCItemDef.create("ship_valid_grp_cd", "ship_valid_grp_cd"),
+				MCItemDef.create("arr_skip_flg", "arr_skip_flg"),
+				MCItemDef.create("purc_dlv_slip_flg", "purc_dlv_slip_flg"),
+				MCItemDef.create("ship_term_cd", "ship_term_cd"),
+				MCItemDef.create("exim_xpns_typ", "exim_xpns_typ"),
+				MCItemDef.create("stk_lst_flg", "stk_lst_flg"),
+				MCItemDef.create("ver_flg", "ver_flg"),
+				MCItemDef.create("sls_upri_cng_flg", "sls_upri_cng_flg"),
+				MCItemDef.create("purc_upri_cng_flg", "purc_upri_cng_flg"),
+				MCItemDef.create("prov_upri_cng_flg", "prov_upri_cng_flg"),
+				MCItemDef.create("ref_itm_cd", "ref_itm_cd"),
+				MCItemDef.create("ref_itm_sub1", "ref_itm_sub1"),
+				MCItemDef.create("ref_itm_sub2", "ref_itm_sub2"),
+				MCItemDef.create("ref_itm_sub3", "ref_itm_sub3"),
+				MCItemDef.create("ext_sys_no_itm", "ext_sys_no_itm"),
+				MCItemDef.create("chng_no", "chng_no"),
+				MCItemDef.create("calc_ptn_cd", "calc_ptn_cd"),
+				MCItemDef.create("cost_std_qty", "cost_std_qty"),
+				MCItemDef.create("itm_alc_grp", "itm_alc_grp"),
+				MCItemDef.create("sls_flg", "sls_flg"),
+				MCItemDef.create("sls_input_flg", "sls_input_flg"),
+				MCItemDef.create("mfg_flg", "mfg_flg"),
+				MCItemDef.create("mfg_input_flg", "mfg_input_flg"),
+				MCItemDef.create("purc_flg", "purc_flg"),
+				MCItemDef.create("purc_input_flg", "purc_input_flg"),
+				MCItemDef.create("insp_flg", "insp_flg"),
+				MCItemDef.create("insp_input_flg", "insp_input_flg"),
+				MCItemDef.create("release_flg", "release_flg"),
+				MCItemDef.create("release_tm", "release_tm"),
+				MCItemDef.create("release_usr_cd", "release_usr_cd"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("upd_cntr", "upd_cntr")
+			}
+			,
+			MCBlockDef.create("Upd01_Dtl")
+		);
+	}
+
+	public static MCContainerDef MA_MABCL0310_Upd01_UP_BLOCK1() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Upd01",
+			new MCItemDef[]{
+				MCItemDef.create("upd_only_com_flg", "upd_only_com_flg")
+			}
+			,
+			MCBlockDef.create("Upd01_Cnd")
+		);
+	}
+
+	public static MCContainerDef MA_MABCL0310_Upd01_UP_BLOCK2() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Upd01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("st_dt_key", "st_dt_key"),
+				MCItemDef.create("st_dt", "st_dt"),
+				MCItemDef.create("end_dt", "end_dt"),
+				MCItemDef.create("sls_tax_cd", "sls_tax_cd"),
+				MCItemDef.create("purc_tax_cd", "purc_tax_cd"),
+				MCItemDef.create("prov_tax_cd", "prov_tax_cd"),
+				MCItemDef.create("sls_itm_grp_cd", "sls_itm_grp_cd"),
+				MCItemDef.create("wtax_rate", "wtax_rate"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("upd_cntr", "upd_cntr")
+			}
+			,
+			MCBlockDef.create("Upd01_Sub")
+		);
+	}
+
+	public static MCContainerDef MA_MABCL0310_Upd01_UP_BLOCK3() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Upd01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("unit_cd", "unit_cd"),
+				MCItemDef.create("dec_place", "dec_place"),
+				MCItemDef.create("conv_base_qty", "conv_base_qty"),
+				MCItemDef.create("conv_qty", "conv_qty"),
+				MCItemDef.create("rnd_typ", "rnd_typ"),
+				MCItemDef.create("pack_flg", "pack_flg"),
+				MCItemDef.create("pckg_flg", "pckg_flg"),
+				MCItemDef.create("unit_dim", "unit_dim"),
+				MCItemDef.create("unit_wt", "unit_wt"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("del_flg", "del_flg"),
+				MCItemDef.create("upd_cntr", "upd_cntr")
+			}
+			,
+			MCBlockDef.create("Upd01_Unit")
+		);
+	}
+
+	public static MCContainerDef MA_MABCL0310_Upd01_UP_BLOCK4() {
+
+		return new MCGeneralContainerDef("MA", "MABCL0310", "Upd01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("lcl_cd", "lcl_cd"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("itm_alt_nm1", "itm_alt_nm1"),
+				MCItemDef.create("itm_alt_nm2", "itm_alt_nm2"),
+				MCItemDef.create("itm_alt_nm3", "itm_alt_nm3"),
+				MCItemDef.create("itm_alt_nm4", "itm_alt_nm4"),
+				MCItemDef.create("memo1", "memo1"),
+				MCItemDef.create("memo2", "memo2"),
+				MCItemDef.create("memo3", "memo3"),
+				MCItemDef.create("upd_cntr", "upd_cntr")
+			}
+			,
+			MCBlockDef.create("Upd01_Lcl")
+		);
+	}
+
+
+	//FMCB DEF_CLASSES END
+}
+

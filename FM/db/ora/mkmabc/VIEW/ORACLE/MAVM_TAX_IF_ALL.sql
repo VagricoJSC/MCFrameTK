@@ -1,0 +1,28 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--税ＣＤ
+	T1.TAX_CD,
+	--税名
+	T1.TAX_NM,
+	--税名（ロケール１）
+	T1.TAX_NM_LCL1,
+	--税名（ロケール２）
+	T1.TAX_NM_LCL2,
+	--税名（ロケール３）
+	T1.TAX_NM_LCL3,
+	--税名（ロケール４）
+	T1.TAX_NM_LCL4,
+	--税名（ロケール５）
+	T1.TAX_NM_LCL5,
+	T1.TAX_TYP,
+	T1.INC_TAX_FLG,
+	T1.TAX_RATE,
+	T1.SLS_FLG,
+	T1.PURC_FLG,
+	T1.PROV_FLG,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_TAX_MST T1
+/

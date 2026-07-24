@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMG.dbc.MGT_ACT_WK_RCV</dbc>
+
+	<cond>
+		<cols>
+			data_lno,data_no,exe_sts_typ,data_crud_typ,ext_sys_cd,ext_data_no,ext_data_lno,
+			data_make_dt,imp_flg,calc_ctg_cd,wg_cd,ym,itm_cd,itm_sub1,itm_sub2,itm_sub3,
+			batch_log_no,log_sub_key1,log_sub_key2,ins_ts,upd_ts
+		</cols>
+	</cond>
+	<list>
+		<sdrv_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getSdrvStsTyp</logic>
+			<link>sdrv_sts_typ_nm</link>
+			<use>both</use>
+		</sdrv_sts_typ>
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+		<data_crud_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getDataCrudTyp</logic>
+			<link>data_crud_typ_nm</link>
+			<use>both</use>
+		</data_crud_typ>
+	</list>
+
+	<dtl>
+		<mode>
+			<data_crud_typ>RO</data_crud_typ>
+			<ext_sys_cd>RO</ext_sys_cd>
+			<ext_data_no>RO</ext_data_no>
+			<ext_data_lno>RO</ext_data_lno>
+			<data_make_dt>RO</data_make_dt>
+			<ext_data_lno>RO</ext_data_lno>
+		</mode>
+	</dtl>
+
+	<format>
+		<ym>YM</ym>
+		<ac_dt>YMD</ac_dt>
+		<if_sub_dt1>YMD</if_sub_dt1>
+		<if_sub_dt2>YMD</if_sub_dt2>
+		<if_sub_dt3>YMD</if_sub_dt3>
+		<if_sub_dt4>YMD</if_sub_dt4>
+		<if_sub_dt5>YMD</if_sub_dt5>
+	</format>
+
+	<app>
+		<upd>true</upd>
+
+		<dtl>
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<col2>data_crud_typ_nm</col2>
+				<col3>sdrv_sts_typ_nm</col3>
+			</label>
+			<move>
+				<col1>sdrv_sts_typ</col1>
+				<pos1>5</pos1>
+				<col2>sdrv_sts_typ_nm</col2>
+				<pos2>6</pos2>
+			</move>
+		</dtl>
+
+		<addSql>
+			<orderBy>
+				<col1>data_no,data_lno</col1>
+			</orderBy>
+		</addSql>
+	</app>
+</mcframe>

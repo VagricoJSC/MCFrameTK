@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mcframe Environment Configuration-->
+<mcframe>
+
+<!-- Framework Default Value -->
+
+<!-- Locale List -->
+<locale>
+	<entry>
+		<ja_JP>@</ja_JP>
+		<system/>
+	</entry>
+	<list>ja_JP</list>
+	<last></last>
+</locale>
+
+
+<!-- Log -->
+<log>
+	<admin>
+		<file>admin_{USER}.log</file>
+		<level>INFO</level>
+		<fwlevel>APP</fwlevel>
+		<rotation>1MB</rotation>
+		<backup>2</backup>
+	</admin>
+	<debug>
+		<file>debug_{USER}.log</file>
+		<level>DEBUG</level>
+		<fwlevel>DEBUG</fwlevel>
+		<rotation>1MB</rotation>
+		<backup>2</backup>
+	</debug>
+	<dir>{MCF_HOME}/log</dir>
+	<!-- JRW-5-0582-12912 add {THREAD} to <header> -->
+
+	<header>[{DATE}][{REQNO}][{THREAD}][{COCD}][{LEVEL}][{MSGID}]\n</header>
+	<header_short>[{DATE}][{REQNO}][{THREAD}][{LEVEL}][{MSGID}]\n</header_short>
+	<dateformat>yyyy/MM/dd HH:mm:ss.SSS</dateformat>
+	<encode>UTF-8</encode>
+	<devlog>false</devlog>
+	<stacktracewritelevel>WARN</stacktracewritelevel>
+	<stacktracelevel>DEBUG</stacktracelevel>
+</log>
+
+
+<!-- Authentication -->
+<auth>
+	<mode>MCFRAME</mode>
+	<overlap>confirm</overlap>
+	<license>
+		<unnamed>
+			<modselect></modselect>
+		</unnamed>
+	</license>
+</auth>
+
+
+<!-- History -->
+<history>
+	<register>true</register>
+	<!-- 6.3.0 add-s -->
+	<fileout>
+		<register>false</register>
+	</fileout>
+	<!-- 6.3.0 add-e -->
+	<login>
+		<register>true</register>
+	</login>
+</history>
+
+<!-- MCSystemTime -->
+<mcsystime>
+	<interval>0</interval>
+	<last></last>
+</mcsystime>
+
+
+<!-- Exec -->
+<exec>
+	<current>{MCF_HOME}</current>
+	<execsrv>
+		<active>false</active>
+		<host>localhost</host>
+		<port>11099</port>
+	</execsrv>
+</exec>
+
+
+<!-- NET -->
+<net>
+	<param>
+		<mcdp>
+			<!-- 7013-0004 added -->
+			<dpversion></dpversion>
+		</mcdp>
+		<json>
+			<numbertype>string</numbertype><!-- 7012-2903 -->
+		</json>
+	</param>
+</net>
+
+
+<!-- HTTP -->
+<http>
+	<accept>
+		<encode>gzip</encode>
+	</accept>
+</http>
+
+
+<!-- Mail -->
+<mail>
+	<default>
+		<timeout>60000</timeout>
+		<charset>UTF-8</charset>
+		<addr></addr>
+	</default>
+	<smtp>
+		<host></host>
+		<port>25</port>
+		<user></user>
+		<password></password>
+		<timeout>{mail.default.timeout}</timeout>
+		<prop>
+			<mail.degug></mail.degug>
+		</prop>
+	</smtp>
+	<pop3>
+		<host></host>
+		<port>110</port>
+		<user></user>
+		<password></password>
+		<timeout>{mail.default.timeout}</timeout>
+		<prop>
+			<mail.degug></mail.degug>
+		</prop>
+	</pop3>
+</mail>
+
+
+<!-- Resource -->
+<resource>
+	<format>xml</format>
+	<division>
+		<package>false</package>
+	</division>
+	<trim_xml>.*MCScreen.*_A.xml|.*MCLayout.*_A.xml|.*MCOperation.*_A.xml</trim_xml>
+</resource>
+
+
+<!-- Connect from Others -->
+<contact>
+	<openurl>
+		<port>11070</port>
+		<encode>UTF-8</encode>
+	</openurl>
+</contact>
+
+
+<!-- Asynchronous -->
+<async>
+	<push>
+		<type>3</type>
+	</push>
+</async>
+
+
+<!-- Scenario Test 6.4.0 -->
+<scenario>
+	<active>false</active>
+</scenario>
+
+</mcframe>

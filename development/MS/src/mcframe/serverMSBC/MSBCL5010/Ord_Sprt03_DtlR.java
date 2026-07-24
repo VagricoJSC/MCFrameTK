@@ -1,0 +1,289 @@
+package mcframe.serverMSBC.MSBCL5010;
+
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.annotation.EI;
+
+/**
+ * ブロック"Ord_Sprt03_Dtl"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>alias</th>
+ *  	<th>項目名</th>
+ *  	<th>フルネーム</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>INNERROW/COLUMNPATH</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>peg_no</td>
+ *  	<td>Pegging No.</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INT INT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_ord_typ</td>
+ *  	<td>Order type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#ITM_ORD_TYP ITM_ORD_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>po_schd_dt</td>
+ *  	<td>Scheduled PO date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gi_schd_dt</td>
+ *  	<td>Scheduled GI date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_st_schd_dt</td>
+ *  	<td>Scheduled mfg. start date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_end_schd_dt</td>
+ *  	<td>Scheduled mfg. end date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>strg_schd_dt</td>
+ *  	<td>Scheduled storage completion date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>accpt_schd_dt</td>
+ *  	<td>Scheduled acceptance date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>insp_st_schd_dt</td>
+ *  	<td>Scheduled inspection start date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_end_schd_dt</td>
+ *  	<td>Scheduled inspection end date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>avl_schd_dt</td>
+ *  	<td>Available date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>master_dt</td>
+ *  	<td>Master application date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_cd</td>
+ *  	<td>Item cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_CD ITM_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_sub1</td>
+ *  	<td>Branch No. 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB1 ITM_SUB1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_sub2</td>
+ *  	<td>Branch No. 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB2 ITM_SUB2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_sub3</td>
+ *  	<td>Branch No. 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB3 ITM_SUB3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_loc_cd</td>
+ *  	<td>Mfg. location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sppl_cd</td>
+ *  	<td>Supplier cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>maker_cd</td>
+ *  	<td>Maker cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>rqst_loc_cd</td>
+ *  	<td>Requested location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>bom_ptn</td>
+ *  	<td>BOM pattern</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BOM_PTN BOM_PTN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>strg_loc_cd</td>
+ *  	<td>Storage location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_qty</td>
+ *  	<td>Order scheduled qty.</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_lt</td>
+ *  	<td>Inspection LT</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LT LT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>insp_offst</td>
+ *  	<td>Inspection offset</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LT LT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_sppl_cd</td>
+ *  	<td>Subcontractor cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>in_prmt_insp_flg</td>
+ *  	<td>Allow inspecting lot use</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>accpt_insp_lt</td>
+ *  	<td>Acceptance LT</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LT LT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dlv_cd</td>
+ *  	<td>Delivery destination cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。
+ */
+@EI
+public class Ord_Sprt03_DtlR extends Ord_Sprt03_DtlR_MC_A {
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static Ord_Sprt03_DtlR create() {
+		Ord_Sprt03_DtlR row = new Ord_Sprt03_DtlR(constMetas);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> Ord_Sprt03_DtlR createByName(T proto) {
+		Ord_Sprt03_DtlR row = Ord_Sprt03_DtlR.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	public Ord_Sprt03_DtlR(ConstMetaList<? extends Ord_Sprt03_DtlR> metas) {
+		super(metas);
+	}
+}

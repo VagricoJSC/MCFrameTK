@@ -1,0 +1,24 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--売上分類区分
+	T1.COST_SLS_TYP,
+	--売上分類ＣＤ
+	T1.COST_SLS_CD,
+	--売上分類名
+	T1.COST_SLS_NM,
+	--売上分類名（ロケール１）
+	T1.COST_SLS_NM_LCL1,
+	--売上分類名（ロケール２）
+	T1.COST_SLS_NM_LCL2,
+	--売上分類名（ロケール３）
+	T1.COST_SLS_NM_LCL3,
+	--売上分類名（ロケール４）
+	T1.COST_SLS_NM_LCL4,
+	--売上分類名（ロケール５）
+	T1.COST_SLS_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_COST_SLS_MST T1
+/

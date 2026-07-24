@@ -1,0 +1,12 @@
+\encoding UTF-8
+
+\i ./HST_TR/MSC_IO_SCHD_TYP_MAP_TR_R.sql
+
+\i ./HST_TR/MSC_STK_ANLY_CTL_DEF_TR_R.sql
+
+\i ./HST_TR/MSC_STK_ANLY_CTL_ALL_TR_R.sql
+
+\i ./HST_TR/MSC_NON_MOV_SCHD_CTL_DEF_TR_R.sql
+
+\i ./HST_TR/MSC_NON_MOV_SCHD_CTL_ALL_TR_R.sql
+

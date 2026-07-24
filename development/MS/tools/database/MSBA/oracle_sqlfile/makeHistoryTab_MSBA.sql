@@ -1,0 +1,16 @@
+SET ESCCHAR @
+
+@".\HST_TAB\deleteHistoryTab_MSBA1.sql"
+
+@".\HST_TAB\MST_DMND_ALL_R.sql"
+
+@".\HST_TAB\MST_DLY_DMND_ALL_R.sql"
+
+@".\HST_TAB\MST_DLY_SD_ALL_R.sql"
+
+@".\HST_TAB\MST_DMND_REC_MAP_ALL_R.sql"
+
+@".\HST_TAB\MST_WG_RQST_ALL_R.sql"
+
+@".\HST_TAB\MST_WG_RQST_PRMS_ALL_R.sql"
+

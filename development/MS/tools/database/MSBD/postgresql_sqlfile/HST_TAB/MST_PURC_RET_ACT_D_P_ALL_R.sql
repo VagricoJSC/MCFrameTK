@@ -1,0 +1,82 @@
+\encoding UTF-8
+
+CREATE TABLE mst_purc_ret_act_d_p_all_r
+(
+hst_id numeric(24,0) DEFAULT 0 NOT NULL,
+hst_type varchar(2) NOT NULL,
+purc_ret_act_d_no varchar (15) NULL,
+co_cd varchar (10) NULL,
+purc_ret_act_no varchar (15) NULL,
+purc_ret_act_rev numeric (4,0) NULL,
+disp_seq numeric (5,0) NULL,
+itm_cd varchar (40) NULL,
+itm_sub1 varchar (5) DEFAULT '*' NULL,
+itm_sub2 varchar (5) DEFAULT '*' NULL,
+itm_sub3 varchar (5) DEFAULT '*' NULL,
+ver_no varchar (10) NULL,
+itm_nm varchar (100) NULL,
+iv_itm_nm varchar (100) NULL,
+sno1 varchar (15) DEFAULT '*' NULL,
+sno2 varchar (15) DEFAULT '*' NULL,
+sno3 varchar (15) DEFAULT '*' NULL,
+sno4 varchar (15) DEFAULT '*' NULL,
+lot_no varchar (15) NULL,
+sublot_no varchar (15) NULL,
+bp_lot_no varchar (15) NULL,
+purc_typ varchar (1) NULL,
+mfg_inst_no varchar (15) NULL,
+in_xfr_typ varchar (1) NULL,
+quality_typ varchar (1) NULL,
+stk_insp_typ varchar (1) NULL,
+stk_id_typ varchar (1) NULL,
+stk_mng_typ varchar (1) NULL,
+gd_cd varchar (2) NULL,
+stk_arrv_bp_cd varchar (20) DEFAULT '*' NULL,
+ret_rsn_cd varchar (10) NULL,
+sundry_itm_flg char (1) DEFAULT '0' NULL,
+sppl_itm_cd varchar (40) NULL,
+sppl_itm_nm varchar (100) NULL,
+purc_ret_loc_wg_cd varchar (10) NULL,
+purc_ret_loc_cd varchar (20) NULL,
+maker_cd varchar (20) DEFAULT '*' NULL,
+str_ln_cd varchar (10) NULL,
+trd_unit_qty numeric (21,8) NULL,
+trd_unit_cd varchar (5) NULL,
+base_unit_qty numeric (21,8) NULL,
+base_unit_cd varchar (5) NULL,
+purc_id_typ varchar (1) NULL,
+purc_cont_qty numeric (21,8) NULL,
+po_no varchar (15) NULL,
+ref_purc_act_no varchar (15) NULL,
+ref_purc_act_seq numeric (4,0) NULL,
+ref_purc_act_d_no varchar (15) NULL,
+ref_purc_act_d_seq numeric (4,0) NULL,
+purc_ret_schd_d_no varchar (15) NULL,
+sls_act_d_no varchar (15) NULL,
+can_flg char (1) DEFAULT '0' NULL,
+intr_rmrks varchar (100) NULL,
+purc_ret_print_d_rmrks varchar (100) NULL,
+trd_d_rmrks varchar (100) NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+
+ALTER TABLE mst_purc_ret_act_d_p_all_r ADD CONSTRAINT mst_purc_ret_act_d_p_all_r_pk PRIMARY KEY(hst_id);
+
+
+INSERT INTO fcm_history_table (history_table_name, table_name, trigger_name)
+VALUES ('mst_purc_ret_act_d_p_all_r', 'mst_purc_ret_act_d_p_all', 'mst_purc_ret_act_d_p_all_tr_r');
+

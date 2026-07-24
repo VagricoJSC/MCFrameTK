@@ -1,0 +1,43 @@
+\encoding UTF-8
+
+COMMENT ON TABLE mbc_bulk_imp_ctg_def IS 'デフォルトまとめ登録テーブルカテゴリ // Default batch entry table category';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.table_ctg IS 'テーブルカテゴリ // #MA.TABLE_CTG // Table category';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.table_ctg_nm IS 'テーブルカテゴリ名称 // #MA.TABLE_CTG_NM // Table category name';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.table_ctg_seq IS 'テーブルカテゴリ順序 // #MA.INT3 // Table category sequence';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.ins_usr_id IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.ins_usr_nm IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.ins_ts IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.ins_func_id IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_cntr IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_usr_id IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_usr_nm IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_ts IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_func_id IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN mbc_bulk_imp_ctg_def.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

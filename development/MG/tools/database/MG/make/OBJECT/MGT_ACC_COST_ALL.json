@@ -1,0 +1,498 @@
+{
+"version" : "1.0.0",
+"scriptComment" : "コメントを記入",
+"mcddlList" : [
+	{
+		"mcddl" : "CREATE_TABLE",
+		"tableName" : "MGT_ACC_COST_ALL",
+		"jpName" : "原価展開情報（原価計算結果）",
+		"comment" : "[]",
+		"doDynamic" : false,
+		"columnList" : [
+			{
+			"isKey" : true,
+			"name" : "CALC_NO",
+			"dataType" : "C",
+			"length" : "15",
+			"integerLength" : "15",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "原価計算ＮＯ",
+			"fullName" : "Calculation No."
+			},
+			{
+			"isKey" : true,
+			"name" : "CALC_GRP_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "計算グループＣＤ",
+			"fullName" : "Calculation group cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "INPT_REC_NO",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "投入レコードＮＯ",
+			"fullName" : "Input record No."
+			},
+			{
+			"isKey" : true,
+			"name" : "WK_REC_NO",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工数レコードＮＯ",
+			"fullName" : "Man-hour record No."
+			},
+			{
+			"isKey" : true,
+			"name" : "OPER_ACT_NO",
+			"dataType" : "C",
+			"length" : "15",
+			"integerLength" : "15",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程実績ＮＯ",
+			"fullName" : "Operation result No."
+			},
+			{
+			"isKey" : true,
+			"name" : "OPER_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程ＣＤ",
+			"fullName" : "Operation cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "OPER_SEQ",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程連番",
+			"fullName" : "Operation sequence number"
+			},
+			{
+			"isKey" : true,
+			"name" : "EXPNS_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "費目ＣＤ",
+			"fullName" : "Cost element cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "CO_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "会社ＣＤ",
+			"fullName" : "Company cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "ACT_COST",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "実際原価",
+			"fullName" : "Actual cost"
+			},
+			{
+			"isKey" : false,
+			"name" : "STD_COST",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "標準原価",
+			"fullName" : "Standard cost"
+			},
+			{
+			"isKey" : false,
+			"name" : "SML_INPT_REC_NO",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "集計用投入レコードＮＯ",
+			"fullName" : "Input record No. for aggregation"
+			},
+			{
+			"isKey" : false,
+			"name" : "TOP_REC_NO",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "最上位レコードＮＯ",
+			"fullName" : "Top record No."
+			},
+			{
+			"isKey" : false,
+			"name" : "LOC_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "場所ＣＤ",
+			"fullName" : "Location cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "STR_LN_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "ラインＣＤ",
+			"fullName" : "Line cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "OPER_COST_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "工程原価ＦＬＧ",
+			"fullName" : "Operation cost flg."
+			},
+			{
+			"isKey" : false,
+			"name" : "EXPNS_TYP",
+			"dataType" : "C",
+			"length" : "1",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "費目区分",
+			"fullName" : "Cost element type"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "数量差異",
+			"fullName" : "Quantity variance"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_WK",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "工数差異",
+			"fullName" : "Time variance"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_UP",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "価格差異",
+			"fullName" : "Price variance"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_RT",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "配賦率差異",
+			"fullName" : "Allocation rate variance"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_STD",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "標準調整差異",
+			"fullName" : "Standard adjustment variance"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_A",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "差異１",
+			"fullName" : "Variance 1"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_B",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "差異２",
+			"fullName" : "Variance 2"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_C",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "差異３",
+			"fullName" : "Variance 3"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_D",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "差異４",
+			"fullName" : "Variance 4"
+			},
+			{
+			"isKey" : false,
+			"name" : "DIFF_E",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "差異５",
+			"fullName" : "Variance 5"
+			},
+			{
+			"isKey" : false,
+			"name" : "INS_USR_ID",
+			"dataType" : "C",
+			"length" : "500",
+			"integerLength" : "500",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "登録ユーザＩＤ",
+			"fullName" : "Entry user ID"
+			},
+			{
+			"isKey" : false,
+			"name" : "INS_USR_NM",
+			"dataType" : "C",
+			"length" : "100",
+			"integerLength" : "100",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "登録ユーザ名",
+			"fullName" : "Entry user name"
+			},
+			{
+			"isKey" : false,
+			"name" : "INS_TS",
+			"dataType" : "TS",
+			"length" : "0",
+			"integerLength" : "",
+			"decimalLength" : "3",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "登録日時",
+			"fullName" : "Entry date and time"
+			},
+			{
+			"isKey" : false,
+			"name" : "INS_FUNC_ID",
+			"dataType" : "C",
+			"length" : "50",
+			"integerLength" : "50",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "登録機能ＩＤ",
+			"fullName" : "Entry function ID"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_CNTR",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "0",
+			"jpName" : "更新カウンタ",
+			"fullName" : "Update counter"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_USR_ID",
+			"dataType" : "C",
+			"length" : "500",
+			"integerLength" : "500",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "更新ユーザＩＤ",
+			"fullName" : "Update user ID"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_USR_NM",
+			"dataType" : "C",
+			"length" : "100",
+			"integerLength" : "100",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "更新ユーザ名",
+			"fullName" : "Update user name"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_TS",
+			"dataType" : "TS",
+			"length" : "0",
+			"integerLength" : "",
+			"decimalLength" : "3",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "更新日時",
+			"fullName" : "Update date and time"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_FUNC_ID",
+			"dataType" : "C",
+			"length" : "50",
+			"integerLength" : "50",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "更新機能ＩＤ",
+			"fullName" : "Update function ID"
+			},
+			{
+			"isKey" : false,
+			"name" : "UPD_SRV_REQ_NO",
+			"dataType" : "C",
+			"length" : "50",
+			"integerLength" : "50",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "更新リクエストＮＯ",
+			"fullName" : "Update request No."
+			}
+		],
+		"indexList": [
+			{
+			"name" : "MGT_ACC_COST_ALL_IE01",
+			"items" : "INPT_REC_NO, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE02",
+			"items" : "WK_REC_NO, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE03",
+			"items" : "OPER_ACT_NO, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE04",
+			"items" : "OPER_CD, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE05",
+			"items" : "SML_INPT_REC_NO, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE06",
+			"items" : "TOP_REC_NO, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			},
+			{
+			"name" : "MGT_ACC_COST_ALL_IE07",
+			"items" : "LOC_CD, CALC_NO, CALC_GRP_CD, CO_CD",
+			"tableSpace" : ""
+			}
+		],
+		"tableSpace" : "",
+		"primaryTableSpace" : ""
+	}
+]
+}

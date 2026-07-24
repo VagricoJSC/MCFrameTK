@@ -1,0 +1,8 @@
+\encoding UTF-8
+
+\i ./HST_TR/MST_CLOSE_ALL_TR_R.sql
+
+\i ./HST_TR/MST_AR_PRE_CLOSE_ALL_TR_R.sql
+
+\i ./HST_TR/MST_AP_PRE_CLOSE_ALL_TR_R.sql
+

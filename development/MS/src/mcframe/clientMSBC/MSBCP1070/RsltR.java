@@ -1,0 +1,1521 @@
+package mcframe.clientMSBC.MSBCP1070;
+
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.annotation.EI;
+
+/**
+ * ブロック"Rslt"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>alias</th>
+ *  	<th>項目名</th>
+ *  	<th>フルネーム</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>INNERROW/COLUMNPATH</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_mtd_typ</td>
+ *  	<td>Production method type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_MTD_TYP MFG_MTD_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_mtd_typ_nm</td>
+ *  	<td>Production method type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_MTD_TYP_NM MFG_MTD_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_sts_typ</td>
+ *  	<td>Mfg. status type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_STS_TYP MFG_STS_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_sts_typ_nm</td>
+ *  	<td>Mfg. status name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_STS_TYP_NM MFG_STS_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_loc_cd</td>
+ *  	<td>Mfg. location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_loc_nm</td>
+ *  	<td>Mfg. location name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_NM LOC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_str_ln_cd</td>
+ *  	<td>Mfg. rack/line cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_CD STR_LN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_str_ln_nm</td>
+ *  	<td>Mfg. rack/line name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_NM STR_LN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_str_ln_cd_none_flg</td>
+ *  	<td>Without mfg. location rack/line</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sppl_cd</td>
+ *  	<td>Subcontractor cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sppl_nm</td>
+ *  	<td>Subcontractor name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_NM BP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>bom_ptn</td>
+ *  	<td>BOM pattern</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BOM_PTN BOM_PTN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>strg_loc_cd</td>
+ *  	<td>Storage location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>strg_loc_nm</td>
+ *  	<td>Storage location name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_NM LOC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>strg_str_ln_cd</td>
+ *  	<td>Storage rack/line cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_CD STR_LN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>strg_str_ln_nm</td>
+ *  	<td>Storage rack/line name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_NM STR_LN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>strg_str_ln_cd_none_flg</td>
+ *  	<td>Without storage location rack/line</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_mfg_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_mfg_rem_st_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_mfg_rem_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_mfg_abort_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_yield_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_dfct_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ord_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>not_inst_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_cd</td>
+ *  	<td>Base unit cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_nm</td>
+ *  	<td>Base unit name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_NM UNIT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_dec_place</td>
+ *  	<td>Base unit number of decimal places</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_std_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_unit_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_unit_act_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_unit_schd_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_unit_rem_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_unit_cd</td>
+ *  	<td>Operation unit cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_unit_nm</td>
+ *  	<td>Operation unit name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_NM UNIT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_unit_dec_place</td>
+ *  	<td>Operation unit number of decimal places</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_yield_schd_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_yield_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_dfct_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_cd</td>
+ *  	<td>Unit cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_nm</td>
+ *  	<td>Unit name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_NM UNIT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_dec_place</td>
+ *  	<td>Transaction unit number of decimal places</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>pr_rate</td>
+ *  	<td>Progress</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#PER PER}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>rqst_dlv_rqst_dt</td>
+ *  	<td>Desired delivery date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>rqst_dlv_rqst_hm</td>
+ *  	<td>Desired delivery time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>st_schd_dt</td>
+ *  	<td>Scheduled start date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>st_schd_hm</td>
+ *  	<td>Schedule start time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ord_st_schd_dt</td>
+ *  	<td>Scheduled start date (Plan)</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>st_act_dt</td>
+ *  	<td>Actual start date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>st_act_hm</td>
+ *  	<td>Actual start time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>st_ac_dt</td>
+ *  	<td>Start recording date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>end_schd_dt</td>
+ *  	<td>Scheduled end date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>end_schd_hm</td>
+ *  	<td>Scheduled end time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ord_end_schd_dt</td>
+ *  	<td>Scheduled end date (Plan)</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>end_act_dt</td>
+ *  	<td>Actual end date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>end_act_hm</td>
+ *  	<td>Actual end time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>end_ac_dt</td>
+ *  	<td>End recording date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_schd_dt</td>
+ *  	<td>Scheduled output date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_hm</td>
+ *  	<td>Output schedule time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_act_dt</td>
+ *  	<td>Actual output date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_act_hm</td>
+ *  	<td>Actual output time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#HM HM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_ac_dt</td>
+ *  	<td>Output recording date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_ptn</td>
+ *  	<td>Operation pattern</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_PTN OPER_PTN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_cd</td>
+ *  	<td>Operation cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_CD OPER_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_nm</td>
+ *  	<td>Operation name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_NM OPER_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_seq</td>
+ *  	<td>Operation sequence number</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_SEQ OPER_SEQ}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>disp_seq</td>
+ *  	<td>Routing</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INT INT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_loc_cd</td>
+ *  	<td>Operation location cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_loc_nm</td>
+ *  	<td>Operation location name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_NM LOC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_str_ln_cd</td>
+ *  	<td>Operation rack/line cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_CD STR_LN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_str_ln_nm</td>
+ *  	<td>Operation rack/line name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_NM STR_LN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_str_ln_cd_none_flg</td>
+ *  	<td>Without operation rack/line</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_lower_yield</td>
+ *  	<td>Operation min. yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_std_yield</td>
+ *  	<td>Operation standard yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_upper_yield</td>
+ *  	<td>Operation max. yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>wip_rate</td>
+ *  	<td>WIP progress</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RATE RATE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>usr_cd</td>
+ *  	<td>Operation PIC cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>usr_nm</td>
+ *  	<td>Operation PIC name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_rsrc</td>
+ *  	<td>Operation resources</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_RSRC OPER_RSRC}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>lot_no</td>
+ *  	<td>Lot No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOT_NO LOT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sublot_no</td>
+ *  	<td>Sublot No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SUBLOT_NO SUBLOT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sno_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMSUB.MSUBP5020.SnoWrkNoR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inst_dt</td>
+ *  	<td>Order date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_usr_cd</td>
+ *  	<td>Order PIC cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inst_usr_nm</td>
+ *  	<td>Order PIC name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_dpt_cd</td>
+ *  	<td>Order dept. cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_CD DPT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inst_dpt_nm</td>
+ *  	<td>Order dept. name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_NM DPT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_rpt_rmrks</td>
+ *  	<td>Order sheet remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_INST_RPT_RMRKS MFG_INST_RPT_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>intr_rmrks</td>
+ *  	<td>Internal remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_INST_INTR_RMRKS MFG_INST_INTR_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_intr_rmrks</td>
+ *  	<td>Operation internal remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#OPER_INST_INTR_RMRKS OPER_INST_INTR_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_inst_rpt_rmrks</td>
+ *  	<td>Operation order sheet remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#OPER_INST_RPT_RMRKS OPER_INST_RPT_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_po_cnt_rmrks</td>
+ *  	<td>Order/PO contact remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#INST_PO_CNT_RMRKS INST_PO_CNT_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>disp_pd</td>
+ *  	<td>Display expiration for print</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#DISP_PD DISP_PD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_lower_yield</td>
+ *  	<td>Item min. yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_std_yield</td>
+ *  	<td>Item standard yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_upper_yield</td>
+ *  	<td>Item max. yield</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD YIELD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_inst_no</td>
+ *  	<td>Mfg. order No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MFG_INST_NO MFG_INST_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_inst_rev</td>
+ *  	<td>Mfg. order rev. number</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLIP_REV SLIP_REV}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>div_seq</td>
+ *  	<td>Split sequence number</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#DIV_SEQ DIV_SEQ}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_act_no</td>
+ *  	<td>Mfg. result No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MFG_ACT_NO MFG_ACT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inst_abort_flg</td>
+ *  	<td>Cancel remaining order</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_aprv_sts_typ</td>
+ *  	<td>Mfg. approval status type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_APRV_STS_TYP MFG_APRV_STS_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_aprv_sts_typ_nm</td>
+ *  	<td>Mfg. approval status type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_APRV_STS_TYP_NM MFG_APRV_STS_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_tgt_flg</td>
+ *  	<td>For Approval</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_dt</td>
+ *  	<td>Approval date</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_tm</td>
+ *  	<td>Approval date and time</td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#TM TM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_usr_cd</td>
+ *  	<td>Approver cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_usr_nm</td>
+ *  	<td>Approver name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_dpt_cd</td>
+ *  	<td>Approval dept. cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_CD DPT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_dpt_nm</td>
+ *  	<td>Approval dept. name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_NM DPT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_rsn</td>
+ *  	<td>Approval reason</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#APRV_RSN APRV_RSN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_mfg_inst_no</td>
+ *  	<td>Item mfg. order No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_MFG_INST_NO ITM_MFG_INST_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_ord_no</td>
+ *  	<td>Item order No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_ORD_NO ITM_ORD_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_ord_no</td>
+ *  	<td>Operation order No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_ORD_NO OPER_ORD_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>oper_inst_no</td>
+ *  	<td>Operation order No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_INST_NO OPER_INST_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_act_no</td>
+ *  	<td>Operation result No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_ACT_NO OPER_ACT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_inst_unit_typ</td>
+ *  	<td>Mfg. order unit type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MFG_INST_UNIT_TYP MFG_INST_UNIT_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_inst_unit_typ_nm</td>
+ *  	<td>Mfg. order unit type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MFG_INST_UNIT_TYP_NM MFG_INST_UNIT_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>outsrc_flg</td>
+ *  	<td>Subcontracting</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>schd_chg_flg</td>
+ *  	<td>Plan changed</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>unschd_inst_flg</td>
+ *  	<td>Unplanned order</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>unschd_act_flg</td>
+ *  	<td>Unplanned result</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_loc_wg_cd</td>
+ *  	<td>WG cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WG_CD WG_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_loc_wg_nm</td>
+ *  	<td>WG name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WG_NM WG_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_loc_site_cd</td>
+ *  	<td>Factory/Distribution warehouse cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SITE_CD SITE_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_loc_site_nm</td>
+ *  	<td>Factory/Distribution warehouse name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SITE_NM SITE_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_loc_grp_cd</td>
+ *  	<td>Mfg. location group cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_GRP_CD LOC_GRP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_loc_grp_nm</td>
+ *  	<td>Mfg. location group name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_GRP_NM LOC_GRP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>po_d_no</td>
+ *  	<td>PO details No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#PO_D_NO PO_D_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>po_aprv_sts_typ</td>
+ *  	<td>PO approval status type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_STS_TYP APRV_STS_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>po_aprv_sts_typ_nm</td>
+ *  	<td>PO approval status type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_STS_TYP_NM APRV_STS_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_oper_flg</td>
+ *  	<td>Output recording operation</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_oper_ratio</td>
+ *  	<td>Output operation ratio</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD_OPER_RATIO YIELD_OPER_RATIO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>oper_inst_grp</td>
+ *  	<td>Operation order group</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#OPER_INST_GRP OPER_INST_GRP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_no</td>
+ *  	<td>Output schedule No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD_SCHD_NO YIELD_SCHD_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_act_no</td>
+ *  	<td>Output result No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD_ACT_NO YIELD_ACT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_rate</td>
+ *  	<td>Output progress</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RATE RATE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_typ</td>
+ *  	<td>Output type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD_TYP YIELD_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_typ_nm</td>
+ *  	<td>Output type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#YIELD_TYP_NM YIELD_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_rsn_cd</td>
+ *  	<td>Output reason cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BIZ_RSN_CD BIZ_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_rsn_nm</td>
+ *  	<td>Output reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BIZ_RSN_NM BIZ_RSN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>quality_typ</td>
+ *  	<td>Conforming type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP QUALITY_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>quality_typ_nm</td>
+ *  	<td>Conforming type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP_NM QUALITY_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>gd_cd</td>
+ *  	<td>Grading cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gd_nm</td>
+ *  	<td>Grading name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_NM STK_GD_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>not_stk_flg</td>
+ *  	<td>MRO supply</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_sts_typ</td>
+ *  	<td>Inspection status type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#INSP_STS_TYP INSP_STS_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>insp_sts_typ_nm</td>
+ *  	<td>Inspection status name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#INSP_STS_TYP_NM INSP_STS_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_intr_rmrks</td>
+ *  	<td>Output schedule internal remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#YIELD_SCHD_INTR_RMRKS YIELD_SCHD_INTR_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_schd_rpt_rmrks</td>
+ *  	<td>Output schedule order sheet remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#YIELD_SCHD_RPT_RMRKS YIELD_SCHD_RPT_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_cnt_rmrks</td>
+ *  	<td>Inspection contact remarks</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#INSP_CNT_RMRKS INSP_CNT_RMRKS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_mfg_inst_sub_char1</td>
+ *  	<td>Item spare 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#ITM_MFG_INST_SUB_CHAR1 ITM_MFG_INST_SUB_CHAR1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_mfg_inst_sub_char2</td>
+ *  	<td>Item spare 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#ITM_MFG_INST_SUB_CHAR2 ITM_MFG_INST_SUB_CHAR2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_mfg_inst_sub_char3</td>
+ *  	<td>Item spare 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#ITM_MFG_INST_SUB_CHAR3 ITM_MFG_INST_SUB_CHAR3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_inst_sub_char1</td>
+ *  	<td>Mfg. spare 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_INST_SUB_CHAR1 MFG_INST_SUB_CHAR1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mfg_inst_sub_char2</td>
+ *  	<td>Mfg. spare 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_INST_SUB_CHAR2 MFG_INST_SUB_CHAR2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mfg_inst_sub_char3</td>
+ *  	<td>Mfg. spare 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#MFG_INST_SUB_CHAR3 MFG_INST_SUB_CHAR3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sub_char1</td>
+ *  	<td>Operation spare 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#OPER_INST_SUB_CHAR1 OPER_INST_SUB_CHAR1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sub_char2</td>
+ *  	<td>Operation spare 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#OPER_INST_SUB_CHAR2 OPER_INST_SUB_CHAR2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sub_char3</td>
+ *  	<td>Operation spare 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#OPER_INST_SUB_CHAR3 OPER_INST_SUB_CHAR3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_sub_char1</td>
+ *  	<td>Output schedule spare 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#YIELD_SCHD_SUB_CHAR1 YIELD_SCHD_SUB_CHAR1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>yield_schd_sub_char2</td>
+ *  	<td>Output schedule spare 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#YIELD_SCHD_SUB_CHAR2 YIELD_SCHD_SUB_CHAR2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>yield_schd_sub_char3</td>
+ *  	<td>Output schedule spare 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#YIELD_SCHD_SUB_CHAR3 YIELD_SCHD_SUB_CHAR3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_typ</td>
+ *  	<td>Item type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_TYP ITM_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_typ_nm</td>
+ *  	<td>Item type name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_TYP_NM ITM_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_typ_d_cd</td>
+ *  	<td>Item type details cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_TYP_D_CD ITM_TYP_D_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>itm_typ_d_nm</td>
+ *  	<td>Item type details name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_TYP_D_NM ITM_TYP_D_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_grp_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5170.ItmGrpR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sppl_grp_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5190.BpGrpR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ins_usr_id</td>
+ *  	<td>Entry user ID</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_ID FCM_USR_ID}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ins_usr_nm</td>
+ *  	<td>Entry user name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_NM FCM_USR_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ins_func_id</td>
+ *  	<td>Entry function ID</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_ID FUNC_ID}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ins_func_nm</td>
+ *  	<td>Entry function name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_NM FUNC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ins_ts</td>
+ *  	<td>Entry date and time</td>
+ *  	<td>Timestamp</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SYS_TS SYS_TS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>upd_usr_id</td>
+ *  	<td>Update user ID</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_ID FCM_USR_ID}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>upd_usr_nm</td>
+ *  	<td>Update user name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_NM FCM_USR_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>upd_func_id</td>
+ *  	<td>Update function ID</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_ID FUNC_ID}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>upd_func_nm</td>
+ *  	<td>Update function name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_NM FUNC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>upd_ts</td>
+ *  	<td>Update date and time</td>
+ *  	<td>Timestamp</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SYS_TS SYS_TS}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>upd_srv_req_no</td>
+ *  	<td>Update request No.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SRV_REQ_NO SRV_REQ_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。
+ */
+@EI
+public class RsltR extends RsltR_MC_A {
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static RsltR create() {
+		RsltR row = new RsltR(constMetas);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> RsltR createByName(T proto) {
+		RsltR row = RsltR.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	public RsltR(ConstMetaList<? extends RsltR> metas) {
+		super(metas);
+	}
+}

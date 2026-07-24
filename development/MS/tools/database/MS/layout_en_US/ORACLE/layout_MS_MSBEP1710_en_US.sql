@@ -1,0 +1,5 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location3.System.MS.MSBEP1710.en_US%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBEP1710.en_US.list.item0','MSBEP1710,Cnd,Cnd.tdlv_nm,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBEP1710.en_US.list.item1','MSBEP1710,Cnd,Cnd.ship_schd_no,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBEP1710.en_US.list.item2','MSBEP1710,Cnd,Cnd.ship_rqst_no,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBEP1710.en_US.list.item3','MSBEP1710,Cnd,Cnd.cst_po_d_no,true,false,'); 

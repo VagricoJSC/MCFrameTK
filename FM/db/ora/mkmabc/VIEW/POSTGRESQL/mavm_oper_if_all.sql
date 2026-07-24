@@ -1,0 +1,22 @@
+SELECT
+	--会社ＣＤ
+	mavm_oper_if_all_mavm_oper_mst_t1.co_cd,
+	--工程ＣＤ
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_cd,
+	--工程名
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm,
+	--工程名（ロケール１）
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm_lcl1,
+	--工程名（ロケール２）
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm_lcl2,
+	--工程名（ロケール３）
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm_lcl3,
+	--工程名（ロケール４）
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm_lcl4,
+	--工程名（ロケール５）
+	mavm_oper_if_all_mavm_oper_mst_t1.oper_nm_lcl5,
+	mavm_oper_if_all_mavm_oper_mst_t1.memo1,
+	mavm_oper_if_all_mavm_oper_mst_t1.memo2,
+	mavm_oper_if_all_mavm_oper_mst_t1.memo3
+FROM mavm_oper_mst mavm_oper_if_all_mavm_oper_mst_t1
+;

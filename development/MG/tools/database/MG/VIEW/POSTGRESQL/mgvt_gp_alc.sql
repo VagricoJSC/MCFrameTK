@@ -1,0 +1,36 @@
+SELECT	mgvt_gp_alc_mgt_calc_gp_alc_t1.wg_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.ym,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.mng_dpt_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_sub1,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_sub2,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_sub3,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_ext,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.lot_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.sublot_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.sno1,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.sno2,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.sno3,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.sno4,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.loc_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.oper_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.bp_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_dpt_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.itm_mfg_inst_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.iv_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.po_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.slo_no,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.asst_typ,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.gp_alc_cd,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.qty,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.amt,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_val1,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_val2,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_val3,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_val4,
+	mgvt_gp_alc_mgt_calc_gp_alc_t1.alc_val5
+FROM	mgw_arg mgvt_gp_alc_mgw_arg_w1, mgt_calc_gp_alc mgvt_gp_alc_mgt_calc_gp_alc_t1
+WHERE	0=0
+AND	mgvt_gp_alc_mgw_arg_w1.calc_no = mgvt_gp_alc_mgt_calc_gp_alc_t1.calc_no
+AND	mgvt_gp_alc_mgw_arg_w1.calc_grp_cd = mgvt_gp_alc_mgt_calc_gp_alc_t1.calc_grp_cd
+;

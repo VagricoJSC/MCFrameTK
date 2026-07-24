@@ -1,0 +1,106 @@
+\encoding UTF-8
+
+COMMENT ON VIEW mgt_calc_ptn IS '計算対象計算パタン情報 // (Calculation) Calculation pattern info.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.calc_no IS '原価計算ＮＯ // #MA.CALC_NO // Calculation No.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.calc_grp_cd IS '計算グループＣＤ // #MA.CALC_GRP_CD // Calculation group cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.calc_ptn_cd IS '計算パタンＣＤ // #MA.CALC_PTN_CD // Calculation pattern cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.mfg_purc_typ IS '製造購買区分 // #MA.MFG_PURC_TYP // Mfg. purchase type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.eval_typ IS '金額評価区分 // #MA.EVAL_TYP // Amount evaluation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.dpt_typ IS '部門計算区分 // #MA.UNIT_CALC_TYP // Dept. calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.lot_typ IS 'ロットＮＯ計算区分 // #MA.UNIT_CALC_TYP // Lot No. calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sublot_typ IS 'サブロットＮＯ計算区分 // #MA.UNIT_CALC_TYP // Sublot No. calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno1_typ IS '手配ＮＯ１計算区分 // #MA.UNIT_CALC_TYP // SEIBAN No. 1 calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno2_typ IS '手配ＮＯ２計算区分 // #MA.UNIT_CALC_TYP // SEIBAN No. 2 calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno3_typ IS '手配ＮＯ３計算区分 // #MA.UNIT_CALC_TYP // SEIBAN No. 3 calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno4_typ IS '手配ＮＯ４計算区分 // #MA.UNIT_CALC_TYP // SEIBAN No. 4 calculation type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.lot_exp_typ IS 'ロットＮＯ展開区分 // #MA.EXP_SET_TYP // Lot No. explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sublot_exp_typ IS 'サブロットＮＯ展開区分 // #MA.EXP_SET_TYP // Sublot No. explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno1_exp_typ IS '手配ＮＯ１展開区分 // #MA.EXP_SET_TYP // SEIBAN No. 1 explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno2_exp_typ IS '手配ＮＯ２展開区分 // #MA.EXP_SET_TYP // SEIBAN No. 2 explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno3_exp_typ IS '手配ＮＯ３展開区分 // #MA.EXP_SET_TYP // SEIBAN No. 3 explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.sno4_exp_typ IS '手配ＮＯ４展開区分 // #MA.EXP_SET_TYP // SEIBAN No. 4 explosion type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.std_rnd_typ IS '標準端数処理区分 // #MA.RND_TYP // Rounding type (Standard)';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.std_dec_place IS '標準小数部有効桁数 // #MA.DEC_PLACE // Standard number of decimal places';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.amt_rnd_typ IS '金額端数処理区分 // #MA.RND_TYP // Rounding type (Amount)';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.amt_dec_place IS '金額小数部有効桁数 // #MA.DEC_PLACE // Amount number of decimal places';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.ave_rnd_typ IS '単価端数処理区分 // #MA.RND_TYP // Rounding type (Unit price)';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.ave_dec_place IS '単価小数部有効桁数 // #MA.DEC_PLACE // Unit price number of decimal places';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.adj_typ IS '端数調整区分 // #MA.ADJ_TYP // Fraction adjustment type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.wip_typ IS '仕掛区分 // #MA.WIP_TYP // WIP type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.bd_agg_typ IS '内訳集計区分 // #MA.BD_AGG_TYP // Breakdown aggregated type';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.mrgn_expns_cd IS '調整費目ＣＤ // #MA.EXPNS_CD // Adjustment cost element cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.purc_expns_cd IS '購買費目ＣＤ // #MA.EXPNS_CD // Purchase cost element item cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.out_expns_cd IS '外注費目ＣＤ // #MA.EXPNS_CD // Subcontract cost element cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.inpt_expns_cd IS '投入費目ＣＤ // #MA.EXPNS_CD // Input cost element cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.ss_expns_cd IS '自給費目ＣＤ // #MA.EXPNS_CD // Self supply cost element cd.';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.prov_expns_cd IS '有償差額費目ＣＤ // #MA.EXPNS_CD // Cost element cd. for gain or loss of chargeable item';
+
+
+COMMENT ON COLUMN mgt_calc_ptn.exp_alloc_typ IS '展開割付区分 // #MA.EXP_ALLOC_TYP // Explosion allocation type';
+

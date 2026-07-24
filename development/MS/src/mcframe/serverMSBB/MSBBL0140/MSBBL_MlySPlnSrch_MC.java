@@ -1,0 +1,153 @@
+package mcframe.serverMSBB.MSBBL0140;
+
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.container.MCList.SortType;
+import mcframe.commonCore.notice.*;
+import mcframe.serverCore.logic.*;
+import mcframe.serverCore.notice.MCMessagePool;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cl;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import mcframe.commonMA.constant.*;
+import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMB.dbc.*;
+import mcframe.serverMS.dbc.*;
+import mcframe.serverMAUC.MAUCL0060.ElmArgsR;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.serverMAUC.MAUCL0010.MAUCL_MCDataUtil.*;
+import static mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys.*;
+import static mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil.*;
+import static mcframe.serverMAUC.MAUCL0030.MAUCL_Dac.*;
+import static mcframe.serverMAUC.MAUCL0060.MAUCL_Num.*;
+import mcframe.commonMB.constant.*;
+import static mcframe.commonMB.notice.MB_Msg.*;
+import static mcframe.serverMBUC.MBUCL0010.MBUCL_MCDataUtil.*;
+import mcframe.commonMS.constant.*;
+import static mcframe.commonMS.notice.MS_Msg.*;
+
+import static mcframe.serverFXUC.FXUCL0160.FXUCL_DateUtil.*;
+import static mcframe.serverFXUC.FXUCL0170.FXUCL_ValidaterUtil.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMS.dbc.MSFunction.*;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+import static mcframe.serverMB.dbc.MBBAFunction.*;
+import static mcframe.serverMB.dbc.MBBBFunction.*;
+import static mcframe.serverMB.dbc.MBBCFunction.*;
+import static mcframe.serverMB.dbc.MBBEFunction.*;
+import static mcframe.serverMS.dbc.MSBAFunction.*;
+import static mcframe.serverMS.dbc.MSBBFunction.*;
+import static mcframe.serverMS.dbc.MSBCFunction.*;
+import static mcframe.serverMS.dbc.MSBDFunction.*;
+import static mcframe.serverMS.dbc.MSBEFunction.*;
+import static mcframe.serverMS.dbc.MSBFFunction.*;
+import static mcframe.serverMS.dbc.MSBGFunction.*;
+import static mcframe.serverMS.dbc.MSBHFunction.*;
+import static mcframe.serverMS.dbc.MSBIFunction.*;
+
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+import static mcframe.serverMSBB.MSBBL0140.Query.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "MSBBL_MlySPlnSrch"ロジッククラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class MSBBL_MlySPlnSrch_MC extends MSBBL_MlySPlnSrch_MC_A{
+	//FMCB CUSTOM START
+
+	/**
+	 * Srch01オペレーション.<p>
+	 *
+	 */
+	public class Srch01 extends MSBBL_MlySPlnSrch_MC_A.Srch01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected void doSearchMain() {
+			super.doSearchMain();
+			editUp();
+			srch();
+		}
+
+		/**
+		 * 前処理
+		 */
+		protected void editUp() {
+			up0().addNumberColumn("ac_cl_day", getCo().ac_cl_day());
+			up0().addNumberColumn("ac_cl_mon_base", getCo().ac_cl_mon_base());
+			editUpOnOffStr(up0(), "edited_flg_str", up0().edited_t_flg(), up0().edited_f_flg());
+		}
+
+		/**
+		 * 入力別販売計画検索
+		 */
+		protected void srch() {
+			MCQueryPlan sql = MSBBL0140_MST_SPLN_USR_VERS_S01();
+			executeQuery(down0(), sql, up0());
+		}
+	}
+
+	/**
+	 * Srch02オペレーション.<p>
+	 *
+	 */
+	public class Srch02 extends MSBBL_MlySPlnSrch_MC_A.Srch02 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected void doSearchMain() {
+			super.doSearchMain();
+			editUp();
+			srch();
+		}
+
+		/**
+		 * 前処理
+		 */
+		protected void editUp() {
+			up0().addNumberColumn("ac_cl_day", getCo().ac_cl_day());
+			up0().addNumberColumn("ac_cl_mon_base", getCo().ac_cl_mon_base());
+			editUpOnOffStr(up0(), "edited_flg_str", up0().edited_t_flg(), up0().edited_f_flg());
+			editUpOnOffStr(up0(), "adopted_flg_str", up0().adopted_t_flg(), up0().adopted_f_flg());
+		}
+		
+		/**
+		 * バージョン検索処理
+		 */
+		protected void srch() {
+			MCQueryPlan sql = MSBBL0140_MST_SPLN_SUM_VERS_S01();
+			executeQuery(down0(), sql, up0());
+		}
+	}
+
+	protected void editUpOnOffStr(MCRow up, String col, boolean t_flg, boolean f_flg) {
+		if (!(t_flg && f_flg)) {
+			if (t_flg) {
+				up.addStringColumn(col, toTrueStr(true));
+			}
+			if (f_flg) {
+				up.addStringColumn(col, toFalseStr(false));
+			}
+		}
+	}
+
+	//FMCB CUSTOM END
+}

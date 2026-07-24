@@ -1,0 +1,25926 @@
+package mcframe.clientMSBB.MSBBP1210;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import mcframe.clientCore.beans.*;
+import mcframe.clientCore.beans.action.*;
+import mcframe.clientCore.beans.combobox.*;
+import mcframe.clientCore.beans.text.*;
+import mcframe.clientCore.beans.list.*;
+import mcframe.clientCore.event.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.param.*;
+import mcframe.commonCore.notice.*;
+import mcframe.commonCore.util.MCCollectionUtil;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.clientCore.beans.table.*;
+import mcframe.clientCore.beans.tree.*;
+import mcframe.clientCore.beans.popup.MCTextPopupMenuItem;
+import mcframe.clientCore.beans.text.MCInputMethodType;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller;
+
+/**
+ * 画面"MSBBP_SloReg"パネルクラスです。<p>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSUDP_PanelBase{
+	/** 
+	 * モジュールID<p>
+	 *
+	 * 画面インスタンスから参照する場合には{@link #getModuleID()}を使用してください。
+	 */
+	public static final String MODULE_ID = "MS";
+	/** 
+	 * サブモジュールID<p>
+	 *
+	 * 画面インスタンスから参照する場合には{@link #getSubmoduleID()}を使用してください。
+	 */
+	public static final String SUBMODULE_ID = "MSBB";
+	/** 
+	 * 画面ID<p>
+	 *
+	 * 画面はモジュールIDと画面IDで一意に特定できます。<br>
+	 * 画面インスタンスから参照する場合には{@link #getScreenID()}を使用してください。
+	 */
+	public static final String SCREEN_ID = "MSBBP1210";
+
+	/** モジュールIDを取得します。 */
+	public String getModuleID(){ return MODULE_ID; }
+	/** サブモジュールIDを取得します。 */
+	public String getSubmoduleID(){ return SUBMODULE_ID; }
+	/** 画面IDを取得します。 */
+	public String getScreenID(){ return SCREEN_ID; }
+	// [ScreenOpe]ブロック関連のField定義
+	public MCPanel ScreenOpePanel = null;
+	public MCTitledBorder ScreenOpeTitledBorder = null;
+	// [ScreenOpe]ブロックの項目のField定義
+	// [Cnd]ブロック関連のField定義
+	public MCPanel CndPanel = null;
+	public MCTitledBorder CndTitledBorder = null;
+	// [Cnd]ブロックの項目のField定義
+	/**
+	 * INS,Create,0;UPD,Modify,1;DEL,Cancel,2;REF,View,3 INS,登録する,0;UPD,訂正する,1;DEL,取り消す,2;REF,参照する,3.<p>
+	 *
+	 */
+	public MCButtonGroup Cnd_ope_Group = null;
+	public MCRadioButton Cnd_ope_INS = null;
+	public MCRadioButton Cnd_ope_UPD = null;
+	public MCRadioButton Cnd_ope_DEL = null;
+	public MCRadioButton Cnd_ope_REF = null;
+	/**
+	 * Search target type 検索対象区分.<p>
+	 *
+	 */
+	public MCTextField Cnd_srch_tgt_typ = null;
+	public MCLabel Cnd_srch_tgt_typ_nm_Label = null;
+	/**
+	 * Search target type name 検索対象区分名.<p>
+	 *
+	 */
+	public MCTextField Cnd_srch_tgt_typ_nm = null;
+	/**
+	 * Search target No. 検索対象ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Cnd_srch_tgt_no = null;
+	/**
+	 * Search target rev. number 検索対象改訂番号.<p>
+	 *
+	 */
+	public MCNumberField Cnd_srch_tgt_rev = null;
+	/**
+	 * Latest 最新.<p>
+	 *
+	 */
+	public MCCheckBox Cnd_latest_flg = null;
+	/**
+	 * Search 検索する.<p>
+	 *
+	 */
+	public MCButton Cnd_srch_slo = null;
+	/**
+	 * Search 検索する.<p>
+	 *
+	 */
+	public MCButton Cnd_srch_qtn = null;
+	// [HdrTab]ブロック関連のField定義
+	public MCPanel HdrTabPanel = null;
+	public MCTabbedPane HdrTabTab = null;
+	// [HdrTab]ブロックの項目のField定義
+	// [Hdr]ブロック関連のField定義
+	public MCPanel HdrPanel = null;
+	// [Hdr]ブロックの項目のField定義
+	public MCLabel Hdr_trd_cd_Label = null;
+	/**
+	 * Transaction cd. 取引ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_trd_cd = null;
+	/**
+	 * Transaction name 取引名.<p>
+	 *
+	 */
+	public MCTextField Hdr_trd_nm = null;
+	/**
+	 * Transaction pattern type 取引パタン区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_trd_ptn_typ = null;
+	/**
+	 * Search target No. 検索対象ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_srch_tgt_no = null;
+	public MCLabel Hdr_slo_no_Label = null;
+	/**
+	 * Sales order No. 受注ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_no = null;
+	/**
+	 * Sales order rev. number 受注改訂番号.<p>
+	 *
+	 */
+	public MCNumberField Hdr_slo_rev = null;
+	/**
+	 * Latest 最新.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_latest_flg = null;
+	public MCLabel Hdr_slo_dt_Label = null;
+	/**
+	 * Sales order date 受注日.<p>
+	 *
+	 */
+	public MCDateField Hdr_slo_dt = null;
+	public MCLabel Hdr_slo_typ_Label = null;
+	/**
+	 * Sales order type 受注区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_slo_typ = null;
+	/**
+	 * Sales order type name 受注区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_typ_nm = null;
+	/**
+	 * For Approval 承認対象.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_aprv_flg = null;
+	/**
+	 * Approval withdraw 承認引戻.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_aprv_back_flg = null;
+	public MCLabel Hdr_aprv_no_Label = null;
+	/**
+	 * Approval No. 承認ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_aprv_no = null;
+	public MCLabel Hdr_aprv_sts_typ_Label = null;
+	/**
+	 * Approval status type 承認状況区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_aprv_sts_typ = null;
+	/**
+	 * Approval status type name 承認状況区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_aprv_sts_typ_nm = null;
+	/**
+	 * Updatable 更新可能.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_aprv_upd_flg = null;
+	/**
+	 * Cancellable 取消可能.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_aprv_can_flg = null;
+	/**
+	 * EDI ＥＤＩ.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_edi_flg = null;
+	public mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H Hdr_dlv_p_PPanel;
+	public MCTextField Hdr_dlv_cd;	// [Hdr]の[dlv_p.bp_cd]を[Hdr_dlv_cd]としてエイリアス定義。
+	public MCTextField Hdr_dlv_nm;	// [Hdr]の[dlv_p.bp_nm]を[Hdr_dlv_nm]としてエイリアス定義。
+	public MCCheckBox Hdr_dlv_sundry_flg;	// [Hdr]の[dlv_p.dlv_sundry_flg]を[Hdr_dlv_sundry_flg]としてエイリアス定義。
+	public MCCheckBox Hdr_pri_prnt_flg;	// [Hdr]の[dlv_p.pri_prnt_flg]を[Hdr_pri_prnt_flg]としてエイリアス定義。
+	public MCTextComboBox Hdr_dlv_lg_grp_cd;	// [Hdr]の[dlv_p.lg_grp_cd]を[Hdr_dlv_lg_grp_cd]としてエイリアス定義。
+	public MCTextField Hdr_dlv_lg_grp_nm;	// [Hdr]の[dlv_p.lg_grp_nm]を[Hdr_dlv_lg_grp_nm]としてエイリアス定義。
+	public MCTextField Hdr_dlv_cntry_cd;	// [Hdr]の[dlv_p.cntry_cd]を[Hdr_dlv_cntry_cd]としてエイリアス定義。
+	public MCTextField Hdr_dlv_cntry_nm;	// [Hdr]の[dlv_p.cntry_nm]を[Hdr_dlv_cntry_nm]としてエイリアス定義。
+	public MCTextField Hdr_dlv_zip_cd;	// [Hdr]の[dlv_p.zip_cd]を[Hdr_dlv_zip_cd]としてエイリアス定義。
+	public MCTextField Hdr_dlv_addr1;	// [Hdr]の[dlv_p.addr1]を[Hdr_dlv_addr1]としてエイリアス定義。
+	public MCTextField Hdr_dlv_addr2;	// [Hdr]の[dlv_p.addr2]を[Hdr_dlv_addr2]としてエイリアス定義。
+	public MCTextField Hdr_dlv_addr3;	// [Hdr]の[dlv_p.addr3]を[Hdr_dlv_addr3]としてエイリアス定義。
+	public MCTextField Hdr_dlv_addr4;	// [Hdr]の[dlv_p.addr4]を[Hdr_dlv_addr4]としてエイリアス定義。
+	public MCTextField Hdr_dlv_tel;	// [Hdr]の[dlv_p.tel]を[Hdr_dlv_tel]としてエイリアス定義。
+	public MCTextField Hdr_dlv_fax;	// [Hdr]の[dlv_p.fax]を[Hdr_dlv_fax]としてエイリアス定義。
+	public MCTextField Hdr_dlv_cntct_dpt;	// [Hdr]の[dlv_p.dlv_cntct_dpt]を[Hdr_dlv_cntct_dpt]としてエイリアス定義。
+	public MCTextField Hdr_dlv_cntct_psn;	// [Hdr]の[dlv_p.dlv_cntct_psn]を[Hdr_dlv_cntct_psn]としてエイリアス定義。
+	/**
+	 * Normal customer cd. 通常得意先ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_def_cst_cd = null;
+	/**
+	 * Report output locale cd. 帳票出力ロケールＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_prnt_lcl_cd = null;
+	public MCLabel Hdr_dest_cd1_Label = null;
+	/**
+	 * Distribution channel cd. 1 仕向先ＣＤ１.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_cd1 = null;
+	/**
+	 * Distribution channel name 1 仕向先名１.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_nm1 = null;
+	public MCLabel Hdr_dest_cd2_Label = null;
+	/**
+	 * Distribution channel cd. 2 仕向先ＣＤ２.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_cd2 = null;
+	/**
+	 * Distribution channel name 2 仕向先名２.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_nm2 = null;
+	public MCLabel Hdr_dest_cd3_Label = null;
+	/**
+	 * Distribution channel cd. 3 仕向先ＣＤ３.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_cd3 = null;
+	/**
+	 * Distribution channel name 3 仕向先名３.<p>
+	 *
+	 */
+	public MCTextField Hdr_dest_nm3 = null;
+	public mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H Hdr_tdlv_p_PPanel;
+	public MCTextField Hdr_tdlv_cd;	// [Hdr]の[tdlv_p.bp_cd]を[Hdr_tdlv_cd]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_nm;	// [Hdr]の[tdlv_p.bp_nm]を[Hdr_tdlv_nm]としてエイリアス定義。
+	public MCCheckBox Hdr_tdlv_sundry_flg;	// [Hdr]の[tdlv_p.dlv_sundry_flg]を[Hdr_tdlv_sundry_flg]としてエイリアス定義。
+	public MCTextComboBox Hdr_tdlv_lg_grp_cd;	// [Hdr]の[tdlv_p.lg_grp_cd]を[Hdr_tdlv_lg_grp_cd]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_lg_grp_nm;	// [Hdr]の[tdlv_p.lg_grp_nm]を[Hdr_tdlv_lg_grp_nm]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_cntry_cd;	// [Hdr]の[tdlv_p.cntry_cd]を[Hdr_tdlv_cntry_cd]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_cntry_nm;	// [Hdr]の[tdlv_p.cntry_nm]を[Hdr_tdlv_cntry_nm]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_zip_cd;	// [Hdr]の[tdlv_p.zip_cd]を[Hdr_tdlv_zip_cd]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_addr1;	// [Hdr]の[tdlv_p.addr1]を[Hdr_tdlv_addr1]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_addr2;	// [Hdr]の[tdlv_p.addr2]を[Hdr_tdlv_addr2]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_addr3;	// [Hdr]の[tdlv_p.addr3]を[Hdr_tdlv_addr3]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_addr4;	// [Hdr]の[tdlv_p.addr4]を[Hdr_tdlv_addr4]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_tel;	// [Hdr]の[tdlv_p.tel]を[Hdr_tdlv_tel]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_fax;	// [Hdr]の[tdlv_p.fax]を[Hdr_tdlv_fax]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_cntct_dpt;	// [Hdr]の[tdlv_p.dlv_cntct_dpt]を[Hdr_tdlv_cntct_dpt]としてエイリアス定義。
+	public MCTextField Hdr_tdlv_cntct_psn;	// [Hdr]の[tdlv_p.dlv_cntct_psn]を[Hdr_tdlv_cntct_psn]としてエイリアス定義。
+	public MCLabel Hdr_via_dlv_typ_Label = null;
+	/**
+	 * Receiving point stopover type 配送先経由区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_via_dlv_typ = null;
+	/**
+	 * Receiving point stopover name 配送先経由区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_via_dlv_typ_nm = null;
+	public MCLabel Hdr_cst_cd_Label = null;
+	/**
+	 * Customer cd. 得意先ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_cst_cd = null;
+	/**
+	 * Customer name 得意先名.<p>
+	 *
+	 */
+	public MCTextField Hdr_cst_nm = null;
+	public MCLabel Hdr_sls_basis_typ_Label = null;
+	/**
+	 * Revenue recording type 売上計上区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_sls_basis_typ = null;
+	/**
+	 * Revenue recording type name 売上計上区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_sls_basis_typ_nm = null;
+	/**
+	 * Customer revenue recording type 得意先売上計上区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_bp_sls_basis_typ = null;
+	public MCCheckBox Hdr_hdr_not_lg_mix_flg = null;
+	public MCCheckBox Hdr_hdr_not_lot_mix_flg = null;
+	public MCCheckBox Hdr_hdr_not_sublot_mix_flg = null;
+	public mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H Hdr_usr_dpt_p_PPanel;
+	public MCTextField Hdr_sls_usr_cd;	// [Hdr]の[usr_dpt_p.usr_cd]を[Hdr_sls_usr_cd]としてエイリアス定義。
+	public MCTextField Hdr_sls_usr_nm;	// [Hdr]の[usr_dpt_p.usr_nm]を[Hdr_sls_usr_nm]としてエイリアス定義。
+	public MCTextComboBox Hdr_sls_dpt_cd;	// [Hdr]の[usr_dpt_p.dpt_cd]を[Hdr_sls_dpt_cd]としてエイリアス定義。
+	public MCTextField Hdr_sls_dpt_nm;	// [Hdr]の[usr_dpt_p.dpt_nm]を[Hdr_sls_dpt_nm]としてエイリアス定義。
+	/**
+	 * Customer PIC cd. 得意先担当者ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_cst_usr_cd = null;
+	/**
+	 * Customer dept. in charge cd. 得意先担当部門ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_cst_dpt_cd = null;
+	/**
+	 * AR dept. type 債権部門区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_ar_dpt_typ = null;
+	/**
+	 * AR dept. cd. 債権部門ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_lnk_ar_dpt_cd = null;
+	public MCLabel Hdr_wg_cd_Label = null;
+	/**
+	 * WG cd. ワーキンググループＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_wg_cd = null;
+	/**
+	 * WG name ワーキンググループ名.<p>
+	 *
+	 */
+	public MCTextField Hdr_wg_nm = null;
+	public MCLabel Hdr_trd_cur_cd_Label = null;
+	/**
+	 * Transaction currency cd. 取引通貨ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_trd_cur_cd = null;
+	/**
+	 * Transaction currency name 取引通貨名.<p>
+	 *
+	 */
+	public MCTextField Hdr_trd_cur_nm = null;
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_cred_bal_p_PPanel;
+	public MCNumberField Hdr_cred_bal;	// [Hdr]の[cred_bal_p.amt]を[Hdr_cred_bal]としてエイリアス定義。
+	/**
+	 * Transaction currency amount number of decimal places 取引通貨金額小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_trd_cur_amt_dec_place = null;
+	/**
+	 * Transaction currency unit price number of decimal places 取引通貨単価小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_trd_cur_upri_dec_place = null;
+	public MCLabel Hdr_base_cur_cd_Label = null;
+	/**
+	 * Base currency cd. 基準通貨ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_base_cur_cd = null;
+	/**
+	 * Base currency name 基準通貨名.<p>
+	 *
+	 */
+	public MCTextField Hdr_base_cur_nm = null;
+	/**
+	 * Set exchange rate 為替レート指定.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_xrate_inpt_flg = null;
+	public mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H Hdr_xrate_p_PPanel;
+	public MCNumberField Hdr_xrate;	// [Hdr]の[xrate_p.xrate]を[Hdr_xrate]としてエイリアス定義。
+	/**
+	 * Exchange rate cd. 為替レートＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_xrate_cd = null;
+	/**
+	 * Base currency amount number of decimal places 基準通貨金額小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_base_cur_amt_dec_place = null;
+	/**
+	 * Base currency unit price number of decimal places 基準通貨単価小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_base_cur_upri_dec_place = null;
+	public MCLabel Hdr_ptax_cur_cd_Label = null;
+	/**
+	 * Taxpaying currency cd. 納税通貨ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_ptax_cur_cd = null;
+	/**
+	 * Tax currency name 納税通貨名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ptax_cur_nm = null;
+	/**
+	 * Set tax exchange rate 納税為替レート指定.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_ptax_xrate_inpt_flg = null;
+	public mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H Hdr_ptax_xrate_p_PPanel;
+	public MCNumberField Hdr_ptax_xrate;	// [Hdr]の[ptax_xrate_p.xrate]を[Hdr_ptax_xrate]としてエイリアス定義。
+	/**
+	 * Tax currency amount number of decimal places 納税通貨金額小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_ptax_cur_amt_dec_place = null;
+	/**
+	 * Tax currency unit number of decimal places 納税通貨単価小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_ptax_cur_upri_dec_place = null;
+	/**
+	 * Receiving point required 配送先必須.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_tdlv_req_flg = null;
+	/**
+	 * Allow sales unit price change 販売単価変更許可.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_sls_upri_cng_flg = null;
+	/**
+	 * Customer invoice transaction 得意先インボイス取引.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_cst_iv_flg = null;
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_cst_bill_crryovr_times = null;
+	/**
+	 * Sales unit price acquisition type 販売単価取得区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_sls_upri_req_typ = null;
+	/**
+	 * Shipping schedule split type 出荷予定分割区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_ship_schd_split_typ = null;
+	/**
+	 * Rounding type (Sales amount) 売上金額端数処理区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_sls_amt_rnd_typ = null;
+	/**
+	 * Sales tax rounding type 売上税端数処理区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_sls_tax_rnd_typ = null;
+	/**
+	 * Exchange rounding type 為替端数処理区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_xrate_rnd_typ = null;
+	/**
+	 * Withholding tax rounding type 源泉徴収税端数処理区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_wtax_rnd_typ = null;
+	public MCLabel Hdr_qtn_no_Label = null;
+	/**
+	 * Quotation No. 見積ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_qtn_no = null;
+	/**
+	 * Quotation rev. number 見積改訂番号.<p>
+	 *
+	 */
+	public MCNumberField Hdr_qtn_rev = null;
+	public mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H Hdr_wrk_no_p_PPanel;
+	public MCTextField Hdr_wrk_no;	// [Hdr]の[wrk_no_p.wrk_no]を[Hdr_wrk_no]としてエイリアス定義。
+	public MCTextField Hdr_wrk_nm;	// [Hdr]の[wrk_no_p.wrk_nm]を[Hdr_wrk_nm]としてエイリアス定義。
+	public MCLabel Hdr_prof_rate_Label = null;
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public MCNumberField Hdr_prof_rate = null;
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_ttl_amt_p_PPanel;
+	public MCNumberField Hdr_ttl_amt;	// [Hdr]の[ttl_amt_p.amt]を[Hdr_ttl_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_ttl_amt_no_cost_p_PPanel;
+	public MCNumberField Hdr_ttl_amt_no_cost;	// [Hdr]の[ttl_amt_no_cost_p.amt]を[Hdr_ttl_amt_no_cost]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_trd_cur_amt_p_PPanel;
+	public MCNumberField Hdr_trd_cur_amt;	// [Hdr]の[trd_cur_amt_p.amt]を[Hdr_trd_cur_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_trd_cur_inc_tax_amt_p_PPanel;
+	public MCNumberField Hdr_trd_cur_inc_tax_amt;	// [Hdr]の[trd_cur_inc_tax_amt_p.amt]を[Hdr_trd_cur_inc_tax_amt]としてエイリアス定義。
+	public MCLabel Hdr_assort_typ_Label = null;
+	/**
+	 * Assortment type 品揃区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_assort_typ = null;
+	/**
+	 * Assortment type name 品揃区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_assort_typ_nm = null;
+	public MCLabel Hdr_adv_ship_ctrl_typ_Label = null;
+	/**
+	 * Advance received control shipping type 前受金出荷制御区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_adv_ship_ctrl_typ = null;
+	/**
+	 * Advance received shipping control type name 前受金出荷制御区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_adv_ship_ctrl_typ_nm = null;
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_adv_bill_amt_p_PPanel;
+	public MCNumberField Hdr_adv_bill_amt;	// [Hdr]の[adv_bill_amt_p.amt]を[Hdr_adv_bill_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_adv_rcv_amt_p_PPanel;
+	public MCNumberField Hdr_adv_rcv_amt;	// [Hdr]の[adv_rcv_amt_p.amt]を[Hdr_adv_rcv_amt]としてエイリアス定義。
+	public MCLabel Hdr_cst_po_no_Label = null;
+	/**
+	 * Customer order No. 得意先注文ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_cst_po_no = null;
+	/**
+	 * Customer order rev. number 得意先注文改訂番号.<p>
+	 *
+	 */
+	public MCNumberField Hdr_cst_po_rev = null;
+	public MCLabel Hdr_rcpt_dt_Label = null;
+	/**
+	 * Receiving date 受付日.<p>
+	 *
+	 */
+	public MCDateField Hdr_rcpt_dt = null;
+	public MCLabel Hdr_rcpt_usr_cd_Label = null;
+	/**
+	 * Receiving PIC cd. 受付担当者ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_rcpt_usr_cd = null;
+	/**
+	 * Receiving PIC name 受付担当者名.<p>
+	 *
+	 */
+	public MCTextField Hdr_rcpt_usr_nm = null;
+	public MCLabel Hdr_acst_cd_Label = null;
+	/**
+	 * AR customer cd. 売掛先ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_acst_cd = null;
+	/**
+	 * AR customer name 売掛先名.<p>
+	 *
+	 */
+	public MCTextField Hdr_acst_nm = null;
+	public MCLabel Hdr_ar_dpt_cd_Label = null;
+	/**
+	 * AR dept. cd. 債権部門ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_ar_dpt_cd = null;
+	/**
+	 * AR dept. name 債権部門名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ar_dpt_nm = null;
+	public MCLabel Hdr_iv_no_Label = null;
+	/**
+	 * Invoice No. インボイスＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_iv_no = null;
+	/**
+	 * Auto 自動.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_iv_num_flg = null;
+	public MCLabel Hdr_trnspt_cd_Label = null;
+	/**
+	 * Transportation method cd. 輸送方法ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_trnspt_cd = null;
+	/**
+	 * Transportation method name 輸送方法名.<p>
+	 *
+	 */
+	public MCTextField Hdr_trnspt_nm = null;
+	public MCLabel Hdr_vssl_flght_Label = null;
+	/**
+	 * Ship/flight name 船名／便名.<p>
+	 *
+	 */
+	public MCTextField Hdr_vssl_flght = null;
+	public MCLabel Hdr_load_port_cd_Label = null;
+	/**
+	 * Loading port cd. 船積港ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_load_port_cd = null;
+	/**
+	 * Loading port name 船積港名.<p>
+	 *
+	 */
+	public MCTextField Hdr_load_port_nm = null;
+	public MCLabel Hdr_etd_dt_Label = null;
+	/**
+	 * Estimated date of loading 船積予定日.<p>
+	 *
+	 */
+	public MCDateField Hdr_etd_dt = null;
+	public MCLabel Hdr_dschrg_port_cd_Label = null;
+	/**
+	 * Unloading port cd. 船卸港ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_dschrg_port_cd = null;
+	/**
+	 * Unloading port name 船卸港名.<p>
+	 *
+	 */
+	public MCTextField Hdr_dschrg_port_nm = null;
+	public MCLabel Hdr_eta_dt_Label = null;
+	/**
+	 * Estimated date of unloading 船卸予定日.<p>
+	 *
+	 */
+	public MCDateField Hdr_eta_dt = null;
+	public MCLabel Hdr_via_port_cd_Label = null;
+	/**
+	 * Stopover point cd. 経由地ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_via_port_cd = null;
+	/**
+	 * Stopover point name 経由地名.<p>
+	 *
+	 */
+	public MCTextField Hdr_via_port_nm = null;
+	public MCLabel Hdr_via_schd_dt_Label = null;
+	/**
+	 * Estimated stopover date 経由予定日.<p>
+	 *
+	 */
+	public MCDateField Hdr_via_schd_dt = null;
+	public MCLabel Hdr_tterm_cd1_Label = null;
+	/**
+	 * Transaction terms cd. 1 取引条件ＣＤ１.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_tterm_cd1 = null;
+	/**
+	 * Transaction terms name 1 取引条件名１.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_nm1 = null;
+	public MCLabel Hdr_tterm_rmrks1_Label = null;
+	/**
+	 * Transaction terms remarks 1 取引条件備考１.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_rmrks1 = null;
+	public MCLabel Hdr_tterm_cd2_Label = null;
+	/**
+	 * Transaction terms cd. 2 取引条件ＣＤ２.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_tterm_cd2 = null;
+	/**
+	 * Transaction terms name 2 取引条件名２.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_nm2 = null;
+	public MCLabel Hdr_tterm_rmrks2_Label = null;
+	/**
+	 * Transaction terms remarks 2 取引条件備考２.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_rmrks2 = null;
+	public MCLabel Hdr_tterm_cd3_Label = null;
+	/**
+	 * Transaction terms cd. 3 取引条件ＣＤ３.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_tterm_cd3 = null;
+	/**
+	 * Transaction terms name 3 取引条件名３.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_nm3 = null;
+	public MCLabel Hdr_tterm_rmrks3_Label = null;
+	/**
+	 * Transaction terms remarks 3 取引条件備考３.<p>
+	 *
+	 */
+	public MCTextField Hdr_tterm_rmrks3 = null;
+	public MCLabel Hdr_cst_po_rmrks_Label = null;
+	/**
+	 * Customer order remarks 得意先注文備考.<p>
+	 *
+	 */
+	public MCTextField Hdr_cst_po_rmrks = null;
+	public MCLabel Hdr_trd_rmrks_Label = null;
+	/**
+	 * Transaction remarks 取引備考.<p>
+	 *
+	 */
+	public MCTextField Hdr_trd_rmrks = null;
+	public MCLabel Hdr_intr_rmrks_Label = null;
+	/**
+	 * Internal remarks 内部備考.<p>
+	 *
+	 */
+	public MCTextField Hdr_intr_rmrks = null;
+	public MCLabel Hdr_sub_char1_Label = null;
+	/**
+	 * Spare 1 予備１.<p>
+	 *
+	 */
+	public MCTextField Hdr_sub_char1 = null;
+	public MCLabel Hdr_sub_char2_Label = null;
+	/**
+	 * Spare 2 予備２.<p>
+	 *
+	 */
+	public MCTextField Hdr_sub_char2 = null;
+	public MCLabel Hdr_sub_char3_Label = null;
+	/**
+	 * Spare 3 予備３.<p>
+	 *
+	 */
+	public MCTextField Hdr_sub_char3 = null;
+	public MCLabel Hdr_edi_sub_char1_Label = null;
+	/**
+	 * EDI spare CHAR column 1 ＥＤＩ予備ＣＨＡＲ項目１.<p>
+	 *
+	 */
+	public MCTextField Hdr_edi_sub_char1 = null;
+	public MCLabel Hdr_edi_sub_char2_Label = null;
+	/**
+	 * EDI spare CHAR column 2 ＥＤＩ予備ＣＨＡＲ項目２.<p>
+	 *
+	 */
+	public MCTextField Hdr_edi_sub_char2 = null;
+	public MCLabel Hdr_edi_sub_char3_Label = null;
+	/**
+	 * EDI spare CHAR column 3 ＥＤＩ予備ＣＨＡＲ項目３.<p>
+	 *
+	 */
+	public MCTextField Hdr_edi_sub_char3 = null;
+	public MCLabel Hdr_edi_sub_char4_Label = null;
+	/**
+	 * EDI spare CHAR column 4 ＥＤＩ予備ＣＨＡＲ項目４.<p>
+	 *
+	 */
+	public MCTextField Hdr_edi_sub_char4 = null;
+	public MCLabel Hdr_edi_sub_char5_Label = null;
+	/**
+	 * EDI spare CHAR column 5 ＥＤＩ予備ＣＨＡＲ項目５.<p>
+	 *
+	 */
+	public MCTextField Hdr_edi_sub_char5 = null;
+	public MCLabel Hdr_edi_sub_num1_Label = null;
+	/**
+	 * EDI spare NUM column 1 ＥＤＩ予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public MCNumberField Hdr_edi_sub_num1 = null;
+	public MCLabel Hdr_edi_sub_dt1_Label = null;
+	/**
+	 * EDI spare DATE column 1 ＥＤＩ予備ＤＡＴＥ項目１.<p>
+	 *
+	 */
+	public MCDateField Hdr_edi_sub_dt1 = null;
+	public MCLabel Hdr_can_rsn_cd_Label = null;
+	/**
+	 * Canceling reason cd. 取消理由ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_can_rsn_cd = null;
+	/**
+	 * Canceling reason name 取消理由名.<p>
+	 *
+	 */
+	public MCTextField Hdr_can_rsn_nm = null;
+	public MCLabel Hdr_can_rmrks_Label = null;
+	/**
+	 * Cancel remarks 取消備考.<p>
+	 *
+	 */
+	public MCTextField Hdr_can_rmrks = null;
+	public MCLabel Hdr_ins_usr_id_Label = null;
+	/**
+	 * Entry user ID 登録ユーザＩＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_usr_id = null;
+	/**
+	 * Entry user name 登録ユーザ名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_usr_nm = null;
+	public MCLabel Hdr_ins_func_id_Label = null;
+	/**
+	 * Entry function ID 登録機能ＩＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_func_id = null;
+	/**
+	 * Entry function name 登録機能名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_func_nm = null;
+	public MCLabel Hdr_upd_usr_id_Label = null;
+	/**
+	 * Update user ID 更新ユーザＩＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_upd_usr_id = null;
+	/**
+	 * Update user name 更新ユーザ名.<p>
+	 *
+	 */
+	public MCTextField Hdr_upd_usr_nm = null;
+	public MCLabel Hdr_upd_func_id_Label = null;
+	/**
+	 * Update function ID 更新機能ＩＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_upd_func_id = null;
+	/**
+	 * Update function name 更新機能名.<p>
+	 *
+	 */
+	public MCTextField Hdr_upd_func_nm = null;
+	public MCLabel Hdr_ins_ts_Label = null;
+	/**
+	 * Entry date and time 登録日時.<p>
+	 *
+	 */
+	public MCTimestampField Hdr_ins_ts = null;
+	public MCLabel Hdr_upd_ts_Label = null;
+	/**
+	 * Update date and time 更新日時.<p>
+	 *
+	 */
+	public MCTimestampField Hdr_upd_ts = null;
+	public MCLabel Hdr_upd_srv_req_no_Label = null;
+	/**
+	 * Update request No. 更新リクエストＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_upd_srv_req_no = null;
+	public mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H Hdr_ship_rqst_p_PPanel;
+	public MCDateField Hdr_ship_rqst_dt;	// [Hdr]の[ship_rqst_p.ymd]を[Hdr_ship_rqst_dt]としてエイリアス定義。
+	public MCDateField Hdr_ship_rqst_hm;	// [Hdr]の[ship_rqst_p.hm]を[Hdr_ship_rqst_hm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H Hdr_dlv_rqst_p_PPanel;
+	public MCDateField Hdr_dlv_rqst_dt;	// [Hdr]の[dlv_rqst_p.ymd]を[Hdr_dlv_rqst_dt]としてエイリアス定義。
+	public MCDateField Hdr_dlv_rqst_hm;	// [Hdr]の[dlv_rqst_p.hm]を[Hdr_dlv_rqst_hm]としてエイリアス定義。
+	/**
+	 * Day type 曜日区分.<p>
+	 *
+	 */
+	public MCTextField Hdr_dlv_day_week_typ = null;
+	public MCLabel Hdr_dlv_day_week_typ_nm_Label = null;
+	/**
+	 * Arrival day of week 着曜日.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_dlv_day_week_typ_nm = null;
+	// [Hdr2]ブロック関連のField定義
+	public MCPanel Hdr2Panel = null;
+	// [Hdr2]ブロックの項目のField定義
+	// [BulkSet]ブロック関連のField定義
+	public MCPanel BulkSetPanel = null;
+	// [BulkSet]ブロックの項目のField定義
+	// [Dtl]ブロック関連のField定義
+	public MCPanel DtlPanel = null;
+	public MCScrollPane DtlScrollPane = null;
+	public MCTable2<mcframe.clientMSBB.MSBBP1210.DtlR> DtlTable = null;
+	// [Dtl]ブロックの項目のField定義
+	/**
+	 * Cancel remaining 打切.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_abort_flg = null;
+	/**
+	 * Sales status type 販売状況区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_sts_typ = null;
+	/**
+	 * Sales status type name 販売状況区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_sts_typ_nm = null;
+	/**
+	 * Allocation status type 引当状況区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_sts_typ = null;
+	/**
+	 * Allocation status type name 引当状況区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_sts_typ_nm = null;
+	/**
+	 * Sales order details No. 受注明細ＮＯ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_d_no = null;
+	/**
+	 * Customer item cd. 得意先品目ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cst_itm_cd = null;
+	/**
+	 * Customer item name 得意先品名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cst_itm_nm = null;
+	public mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D Dtl_itm_p_PPanel;
+	public MCColumnConfig columnDtl_itm_cd;// [Dtl]の[itm_p.itm_cd]を[columnDtl_itm_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_itm_sub1;// [Dtl]の[itm_p.itm_sub1]を[columnDtl_itm_sub1]としてエイリアス定義。
+	public MCColumnConfig columnDtl_itm_sub2;// [Dtl]の[itm_p.itm_sub2]を[columnDtl_itm_sub2]としてエイリアス定義。
+	public MCColumnConfig columnDtl_itm_sub3;// [Dtl]の[itm_p.itm_sub3]を[columnDtl_itm_sub3]としてエイリアス定義。
+	public MCColumnConfig columnDtl_itm_nm;// [Dtl]の[itm_p.itm_nm]を[columnDtl_itm_nm]としてエイリアス定義。
+	/**
+	 * Miscellaneous item 諸口品.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sundry_itm_flg = null;
+	/**
+	 * Item name for invoice インボイス表記品名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_iv_itm_nm = null;
+	/**
+	 * Inventory management type 在庫管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_stk_mng_typ = null;
+	/**
+	 * Asset management type 資産管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_asset_mng_typ = null;
+	/**
+	 * Asset management type name 資産管理区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_asset_mng_typ_nm = null;
+	/**
+	 * Lot management type ロット管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_lot_mng_typ = null;
+	/**
+	 * Lot No. type ロットＮＯ区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_lot_no_typ = null;
+	/**
+	 * Sublot management type サブロット管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sublot_mng_typ = null;
+	/**
+	 * Sublot No. type サブロットＮＯ区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sublot_no_typ = null;
+	/**
+	 * SEIBAN No. 1 management type 手配ＮＯ１管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno1_mng_typ = null;
+	/**
+	 * SEIBAN No. 2 management type 手配ＮＯ２管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno2_mng_typ = null;
+	/**
+	 * SEIBAN No. 3 management type 手配ＮＯ３管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno3_mng_typ = null;
+	/**
+	 * SEIBAN No. 4 management type 手配ＮＯ４管理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno4_mng_typ = null;
+	/**
+	 * SEIBAN No. 1 numbering type 手配ＮＯ１発番区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno1_num_typ = null;
+	/**
+	 * SEIBAN No. 2 numbering type 手配ＮＯ２発番区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno2_num_typ = null;
+	/**
+	 * SEIBAN No. 3 numbering type 手配ＮＯ３発番区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno3_num_typ = null;
+	/**
+	 * SEIBAN No. 4 numbering type 手配ＮＯ４発番区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno4_num_typ = null;
+	/**
+	 * Sales order SEIBAN No. 1 required 受注手配ＮＯ１必須.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_sno1_flg = null;
+	/**
+	 * Sales order SEIBAN No. 2 required 受注手配ＮＯ２必須.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_sno2_flg = null;
+	/**
+	 * Sales order SEIBAN No. 3 required 受注手配ＮＯ３必須.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_sno3_flg = null;
+	/**
+	 * Sales order SEIBAN No. 4 required 受注手配ＮＯ４必須.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_sno4_flg = null;
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_itm_bill_crryovr_times = null;
+	/**
+	 * Discount item 値引品目.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dscnt_itm_flg = null;
+	/**
+	 * Sales order procurement item 受注手配品.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_proc_flg = null;
+	/**
+	 * Place of origin cd. 原産地ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cntry_org_cd = null;
+	/**
+	 * Place of origin name 原産地名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cntry_org_nm = null;
+	/**
+	 * Consignment 貸出.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_vmi_flg = null;
+	/**
+	 * Transaction unit cd. 取引単位ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_cd = null;
+	/**
+	 * Transaction unit name 取引単位名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_nm = null;
+	/**
+	 * Transaction unit number of decimal places 取引単位小数部有効桁数.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_dec_place = null;
+	/**
+	 * Transaction unit conversion base qty. 取引単位分母数量.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_conv_base_qty = null;
+	/**
+	 * Transaction unit conversion qty. 取引単位換算数量.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_conv_qty = null;
+	/**
+	 * Transaction unit rounding type 取引単位端数処理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_unit_rnd_typ = null;
+	/**
+	 * Allow sales unit price change 販売単価変更許可.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_upri_cng_flg = null;
+	/**
+	 * For version control 版管理対象.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ver_flg = null;
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_trd_unit_qty_p_PPanel;
+	public MCColumnConfig columnDtl_trd_unit_qty;// [Dtl]の[trd_unit_qty_p.qty]を[columnDtl_trd_unit_qty]としてエイリアス定義。
+	public mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D Dtl_trd_cur_upri_amt_p_PPanel;
+	public MCColumnConfig columnDtl_upri_not_tgt_flg;// [Dtl]の[trd_cur_upri_amt_p.upri_not_tgt_flg]を[columnDtl_upri_not_tgt_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_upri;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_upri]を[columnDtl_trd_cur_upri]としてエイリアス定義。
+	public MCColumnConfig columnDtl_interim_flg;// [Dtl]の[trd_cur_upri_amt_p.interim_flg]を[columnDtl_interim_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_amt;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_amt]を[columnDtl_trd_cur_amt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_inc_tax_amt;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_inc_tax_amt]を[columnDtl_trd_cur_inc_tax_amt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tax_fix_flg;// [Dtl]の[trd_cur_upri_amt_p.tax_fix_flg]を[columnDtl_tax_fix_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tax_cd;// [Dtl]の[trd_cur_upri_amt_p.tax_cd]を[columnDtl_tax_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tax_nm;// [Dtl]の[trd_cur_upri_amt_p.tax_nm]を[columnDtl_tax_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tax_rate;// [Dtl]の[trd_cur_upri_amt_p.tax_rate]を[columnDtl_tax_rate]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tax_typ;// [Dtl]の[trd_cur_upri_amt_p.tax_typ]を[columnDtl_tax_typ]としてエイリアス定義。
+	public MCColumnConfig columnDtl_inc_tax_flg;// [Dtl]の[trd_cur_upri_amt_p.inc_tax_flg]を[columnDtl_inc_tax_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_tax_amt;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_tax_amt]を[columnDtl_trd_cur_tax_amt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_dscnt_amt;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_dscnt_amt]を[columnDtl_trd_cur_dscnt_amt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dscnt_rsn_cd;// [Dtl]の[trd_cur_upri_amt_p.dscnt_rsn_cd]を[columnDtl_dscnt_rsn_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dscnt_rsn_nm;// [Dtl]の[trd_cur_upri_amt_p.dscnt_rsn_nm]を[columnDtl_dscnt_rsn_nm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_cost_upri_p_PPanel;
+	public MCColumnConfig columnDtl_cost_upri;// [Dtl]の[cost_upri_p.upri]を[columnDtl_cost_upri]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_cost_amt_p_PPanel;
+	public MCColumnConfig columnDtl_cost_amt;// [Dtl]の[cost_amt_p.amt]を[columnDtl_cost_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_iv_upri_p_PPanel;
+	public MCColumnConfig columnDtl_iv_upri;// [Dtl]の[iv_upri_p.upri]を[columnDtl_iv_upri]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_iv_amt_p_PPanel;
+	public MCColumnConfig columnDtl_iv_amt;// [Dtl]の[iv_amt_p.amt]を[columnDtl_iv_amt]としてエイリアス定義。
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_prof_rate = null;
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_wtax_rate = null;
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_wtax_amt_p_PPanel;
+	public MCColumnConfig columnDtl_wtax_amt;// [Dtl]の[wtax_amt_p.amt]を[columnDtl_wtax_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_base_cur_upri_p_PPanel;
+	public MCColumnConfig columnDtl_base_cur_upri;// [Dtl]の[base_cur_upri_p.upri]を[columnDtl_base_cur_upri]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_base_cur_amt_p_PPanel;
+	public MCColumnConfig columnDtl_base_cur_amt;// [Dtl]の[base_cur_amt_p.amt]を[columnDtl_base_cur_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_base_cur_inc_tax_amt_p_PPanel;
+	public MCColumnConfig columnDtl_base_cur_inc_tax_amt;// [Dtl]の[base_cur_inc_tax_amt_p.amt]を[columnDtl_base_cur_inc_tax_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_base_cur_tax_amt_p_PPanel;
+	public MCColumnConfig columnDtl_base_cur_tax_amt;// [Dtl]の[base_cur_tax_amt_p.amt]を[columnDtl_base_cur_tax_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_ptax_cur_upri_p_PPanel;
+	public MCColumnConfig columnDtl_ptax_cur_upri;// [Dtl]の[ptax_cur_upri_p.upri]を[columnDtl_ptax_cur_upri]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_ptax_cur_amt_p_PPanel;
+	public MCColumnConfig columnDtl_ptax_cur_amt;// [Dtl]の[ptax_cur_amt_p.amt]を[columnDtl_ptax_cur_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_ptax_cur_inc_tax_amt_p_PPanel;
+	public MCColumnConfig columnDtl_ptax_cur_inc_tax_amt;// [Dtl]の[ptax_cur_inc_tax_amt_p.amt]を[columnDtl_ptax_cur_inc_tax_amt]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_ptax_cur_tax_amt_p_PPanel;
+	public MCColumnConfig columnDtl_ptax_cur_tax_amt;// [Dtl]の[ptax_cur_tax_amt_p.amt]を[columnDtl_ptax_cur_tax_amt]としてエイリアス定義。
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_bill_crryovr_times = null;
+	/**
+	 * Grading cd. 格付ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_gd_cd = null;
+	/**
+	 * Grading name 格付名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_gd_nm = null;
+	/**
+	 * Numbering SEIBAN No. 手配ＮＯ発番.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sno_num_flg = null;
+	public mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D Dtl_sno_p_PPanel;
+	public MCColumnConfig columnDtl_sno1_null_flg;// [Dtl]の[sno_p.sno1_null_flg]を[columnDtl_sno1_null_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno1;// [Dtl]の[sno_p.sno1]を[columnDtl_sno1]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno2_null_flg;// [Dtl]の[sno_p.sno2_null_flg]を[columnDtl_sno2_null_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno2;// [Dtl]の[sno_p.sno2]を[columnDtl_sno2]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno3_null_flg;// [Dtl]の[sno_p.sno3_null_flg]を[columnDtl_sno3_null_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno3;// [Dtl]の[sno_p.sno3]を[columnDtl_sno3]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno4_null_flg;// [Dtl]の[sno_p.sno4_null_flg]を[columnDtl_sno4_null_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sno4;// [Dtl]の[sno_p.sno4]を[columnDtl_sno4]としてエイリアス定義。
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_set_itm_grp_no = null;
+	public mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D Dtl_ship_rqst_dt_p_PPanel;
+	public MCColumnConfig columnDtl_ship_rqst_dt;// [Dtl]の[ship_rqst_dt_p.ymd]を[columnDtl_ship_rqst_dt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_ship_rqst_hm;// [Dtl]の[ship_rqst_dt_p.hm]を[columnDtl_ship_rqst_hm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D Dtl_dlv_rqst_dt_p_PPanel;
+	public MCColumnConfig columnDtl_dlv_rqst_dt;// [Dtl]の[dlv_rqst_dt_p.ymd]を[columnDtl_dlv_rqst_dt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_rqst_hm;// [Dtl]の[dlv_rqst_dt_p.hm]を[columnDtl_dlv_rqst_hm]としてエイリアス定義。
+	/**
+	 * Day type 曜日区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dlv_day_week_typ = null;
+	/**
+	 * Arrival day of week 着曜日.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dlv_day_week_typ_nm = null;
+	/**
+	 * Scheduled sales date 売上予定日.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_schd_dt = null;
+	/**
+	 * Scheduled acceptance date 検収予定日.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_accpt_schd_dt = null;
+	/**
+	 * Split shipping schedule 出荷予定分割.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_schd_split_flg = null;
+	/**
+	 * Not auto-calculate 自動計算しない.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_not_dt_calc_flg = null;
+	public mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D Dtl_ship_schd_dt_p_PPanel;
+	public MCColumnConfig columnDtl_ship_schd_dt;// [Dtl]の[ship_schd_dt_p.ymd]を[columnDtl_ship_schd_dt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_ship_schd_hm;// [Dtl]の[ship_schd_dt_p.hm]を[columnDtl_ship_schd_hm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D Dtl_dlv_schd_dt_p_PPanel;
+	public MCColumnConfig columnDtl_dlv_schd_dt;// [Dtl]の[dlv_schd_dt_p.ymd]を[columnDtl_dlv_schd_dt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_schd_hm;// [Dtl]の[dlv_schd_dt_p.hm]を[columnDtl_dlv_schd_hm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D Dtl_dlv_p_PPanel;
+	public MCColumnConfig columnDtl_dlv_cd;// [Dtl]の[dlv_p.bp_cd]を[columnDtl_dlv_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_nm;// [Dtl]の[dlv_p.bp_nm]を[columnDtl_dlv_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_sundry_flg;// [Dtl]の[dlv_p.dlv_sundry_flg]を[columnDtl_dlv_sundry_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_pri_prnt_flg;// [Dtl]の[dlv_p.pri_prnt_flg]を[columnDtl_pri_prnt_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_show_dtl;// [Dtl]の[dlv_p.show_dtl]を[columnDtl_dlv_show_dtl]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_lg_grp_cd;// [Dtl]の[dlv_p.lg_grp_cd]を[columnDtl_dlv_lg_grp_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_lg_grp_nm;// [Dtl]の[dlv_p.lg_grp_nm]を[columnDtl_dlv_lg_grp_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_cntry_cd;// [Dtl]の[dlv_p.cntry_cd]を[columnDtl_dlv_cntry_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_cntry_nm;// [Dtl]の[dlv_p.cntry_nm]を[columnDtl_dlv_cntry_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_zip_cd;// [Dtl]の[dlv_p.zip_cd]を[columnDtl_dlv_zip_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_addr1;// [Dtl]の[dlv_p.addr1]を[columnDtl_dlv_addr1]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_addr2;// [Dtl]の[dlv_p.addr2]を[columnDtl_dlv_addr2]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_addr3;// [Dtl]の[dlv_p.addr3]を[columnDtl_dlv_addr3]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_addr4;// [Dtl]の[dlv_p.addr4]を[columnDtl_dlv_addr4]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_tel;// [Dtl]の[dlv_p.tel]を[columnDtl_dlv_tel]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_fax;// [Dtl]の[dlv_p.fax]を[columnDtl_dlv_fax]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_cntct_dpt;// [Dtl]の[dlv_p.dlv_cntct_dpt]を[columnDtl_dlv_cntct_dpt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_dlv_cntct_psn;// [Dtl]の[dlv_p.dlv_cntct_psn]を[columnDtl_dlv_cntct_psn]としてエイリアス定義。
+	/**
+	 * Report output locale cd. 帳票出力ロケールＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_prnt_lcl_cd = null;
+	/**
+	 * Receiving point required 配送先必須.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_tdlv_req_flg = null;
+	/**
+	 * Distribution channel cd. 1 仕向先ＣＤ１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_cd1 = null;
+	/**
+	 * Distribution channel name 1 仕向先１名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_nm1 = null;
+	/**
+	 * Distribution channel cd. 2 仕向先ＣＤ２.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_cd2 = null;
+	/**
+	 * Distribution channel name 2 仕向先２名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_nm2 = null;
+	/**
+	 * Distribution channel cd. 3 仕向先ＣＤ３.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_cd3 = null;
+	/**
+	 * Distribution channel name 3 仕向先３名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_dest_nm3 = null;
+	public mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D Dtl_tdlv_p_PPanel;
+	public MCColumnConfig columnDtl_tdlv_cd;// [Dtl]の[tdlv_p.bp_cd]を[columnDtl_tdlv_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_nm;// [Dtl]の[tdlv_p.bp_nm]を[columnDtl_tdlv_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_sundry_flg;// [Dtl]の[tdlv_p.dlv_sundry_flg]を[columnDtl_tdlv_sundry_flg]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_show_dtl;// [Dtl]の[tdlv_p.show_dtl]を[columnDtl_tdlv_show_dtl]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_lg_grp_cd;// [Dtl]の[tdlv_p.lg_grp_cd]を[columnDtl_tdlv_lg_grp_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_lg_grp_nm;// [Dtl]の[tdlv_p.lg_grp_nm]を[columnDtl_tdlv_lg_grp_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_cntry_cd;// [Dtl]の[tdlv_p.cntry_cd]を[columnDtl_tdlv_cntry_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_cntry_nm;// [Dtl]の[tdlv_p.cntry_nm]を[columnDtl_tdlv_cntry_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_zip_cd;// [Dtl]の[tdlv_p.zip_cd]を[columnDtl_tdlv_zip_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_addr1;// [Dtl]の[tdlv_p.addr1]を[columnDtl_tdlv_addr1]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_addr2;// [Dtl]の[tdlv_p.addr2]を[columnDtl_tdlv_addr2]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_addr3;// [Dtl]の[tdlv_p.addr3]を[columnDtl_tdlv_addr3]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_addr4;// [Dtl]の[tdlv_p.addr4]を[columnDtl_tdlv_addr4]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_tel;// [Dtl]の[tdlv_p.tel]を[columnDtl_tdlv_tel]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_fax;// [Dtl]の[tdlv_p.fax]を[columnDtl_tdlv_fax]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_cntct_dpt;// [Dtl]の[tdlv_p.dlv_cntct_dpt]を[columnDtl_tdlv_cntct_dpt]としてエイリアス定義。
+	public MCColumnConfig columnDtl_tdlv_cntct_psn;// [Dtl]の[tdlv_p.dlv_cntct_psn]を[columnDtl_tdlv_cntct_psn]としてエイリアス定義。
+	/**
+	 * Receiving point stopover type 配送先経由区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_via_dlv_typ = null;
+	/**
+	 * Receiving point stopover name 配送先経由区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_via_dlv_typ_nm = null;
+	/**
+	 * Sales keeping customer inventory 預り売上.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_cststk_flg = null;
+	/**
+	 * Procurement type (Master value) 手配区分（マスタ値）.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_def_proc_typ = null;
+	/**
+	 * Procurement type 手配区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_proc_typ = null;
+	/**
+	 * Procurement type name 手配区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_proc_typ_nm = null;
+	/**
+	 * Order type (Master value) 指図区分（マスタ値）.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_def_ship_inst_typ = null;
+	/**
+	 * Order type 指図区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_inst_typ = null;
+	/**
+	 * Order type name 指図区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_inst_typ_nm = null;
+	/**
+	 * Split type 分割区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_schd_split_typ = null;
+	/**
+	 * Split type name 分割区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_schd_split_typ_nm = null;
+	/**
+	 * Allocation range type 引当範囲区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_scope_typ = null;
+	/**
+	 * Allocation range type name 引当範囲区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_scope_typ_nm = null;
+	/**
+	 * Prohibit mixed distribution G 物流Ｇ混在不可.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_not_lg_mix_flg = null;
+	/**
+	 * Allocation type 引当区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_typ = null;
+	/**
+	 * Allocation type name 引当区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_typ_nm = null;
+	/**
+	 * Gross allocation location group cd. 総量引当場所グループＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_grp_cd = null;
+	/**
+	 * Gross allocation location group name 総量引当場所グループ名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_alloc_grp_nm = null;
+	/**
+	 * Shipping distribution group cd. 出荷物流グループＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_lg_grp_cd = null;
+	/**
+	 * Shipping distribution group name 出荷物流グループ名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_lg_grp_nm = null;
+	/**
+	 * Normal shipping location cd. 通常出荷場所ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_def_loc_cd = null;
+	/**
+	 * Normal shipping location name 通常出荷場所名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_def_loc_nm = null;
+	/**
+	 * Location cd. 場所ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_loc_cd = null;
+	/**
+	 * Location name 場所名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_loc_nm = null;
+	/**
+	 * WG cd. ワーキンググループＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_wg_cd = null;
+	/**
+	 * For rack/line 棚・ライン対象.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_str_ln_tgt_flg = null;
+	public mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D Dtl_str_ln_p_PPanel;
+	public MCColumnConfig columnDtl_str_ln_cd;// [Dtl]の[str_ln_p.str_ln_cd]を[columnDtl_str_ln_cd]としてエイリアス定義。
+	public MCColumnConfig columnDtl_str_ln_nm;// [Dtl]の[str_ln_p.str_ln_nm]を[columnDtl_str_ln_nm]としてエイリアス定義。
+	public MCColumnConfig columnDtl_str_ln_cd_none_flg;// [Dtl]の[str_ln_p.str_ln_cd_none_flg]を[columnDtl_str_ln_cd_none_flg]としてエイリアス定義。
+	public mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D Dtl_lot_no_p_PPanel;
+	public MCColumnConfig columnDtl_lot_no;// [Dtl]の[lot_no_p.lot_no]を[columnDtl_lot_no]としてエイリアス定義。
+	public MCColumnConfig columnDtl_sublot_no;// [Dtl]の[lot_no_p.sublot_no]を[columnDtl_sublot_no]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D Dtl_ver_no_p_PPanel;
+	public MCColumnConfig columnDtl_ver_no;// [Dtl]の[ver_no_p.ver_no]を[columnDtl_ver_no]としてエイリアス定義。
+	/**
+	 * Prohibit mixed lots ロット混在不可.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_not_lot_mix_flg = null;
+	/**
+	 * Prohibit mixed sublots サブロット混在不可.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_not_sublot_mix_flg = null;
+	/**
+	 * Requested location cd. 依頼先場所ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_rqst_to_loc_cd = null;
+	/**
+	 * Location name (Requested) 依頼先場所名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_rqst_to_loc_nm = null;
+	/**
+	 * Supplier cd. 発注先ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sppl_cd = null;
+	/**
+	 * Supplier name 発注先名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sppl_nm = null;
+	/**
+	 * Maker cd. メーカＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_maker_cd = null;
+	/**
+	 * Maker name メーカ名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_maker_nm = null;
+	/**
+	 * Request date 依頼日.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_rqst_dt = null;
+	/**
+	 * Request desired delivery date 依頼納入希望日.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_rqst_dlv_rqst_dt = null;
+	/**
+	 * Requested contact remarks 依頼先連絡備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_wg_rqst_cnt_rmrks = null;
+	/**
+	 * Shipping conditions cd. 出荷条件ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_term_cd = null;
+	/**
+	 * Shipping conditions name 出荷条件名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_term_nm = null;
+	/**
+	 * Pending shipping 出荷留め.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_block_flg = null;
+	/**
+	 * Shipping notification remarks 出荷連絡備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_cnt_rmrks = null;
+	/**
+	 * Customer order details No. 得意先注文明細ＮＯ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cst_po_d_no = null;
+	/**
+	 * Customer order details remarks 得意先注文明細備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_cst_po_d_rmrks = null;
+	/**
+	 * Sales reason cd. 売上理由ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_rsn_cd = null;
+	/**
+	 * Sales reason name 売上理由名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_rsn_nm = null;
+	/**
+	 * Sales other accounting 販売他勘定.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_acxfr_flg = null;
+	/**
+	 * Charged dept. cd. 負担部門ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_bd_dpt_cd = null;
+	/**
+	 * Charged dept. name 負担部門名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_bd_dpt_nm = null;
+	/**
+	 * Sales unit price acquisition type 販売単価取得区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_upri_req_typ = null;
+	/**
+	 * Sales unit price acquisition type name 販売単価取得区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_upri_req_typ_nm = null;
+	/**
+	 * Transaction details remarks 取引明細備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_trd_d_rmrks = null;
+	/**
+	 * Internal details remarks 内部明細備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_intr_rmrks = null;
+	/**
+	 * Spare 1 予備１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sub_char1 = null;
+	/**
+	 * Spare 2 予備２.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sub_char2 = null;
+	/**
+	 * Spare 3 予備３.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sub_char3 = null;
+	/**
+	 * EDI details spare CHAR column 1 ＥＤＩ明細予備ＣＨＡＲ項目１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_char1 = null;
+	/**
+	 * EDI details spare CHAR column 2 ＥＤＩ明細予備ＣＨＡＲ項目２.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_char2 = null;
+	/**
+	 * EDI details spare CHAR column 3 ＥＤＩ明細予備ＣＨＡＲ項目３.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_char3 = null;
+	/**
+	 * EDI details spare CHAR column 4 ＥＤＩ明細予備ＣＨＡＲ項目４.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_char4 = null;
+	/**
+	 * EDI details spare CHAR column 5 ＥＤＩ明細予備ＣＨＡＲ項目５.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_char5 = null;
+	/**
+	 * EDI details spare NUM column 1 ＥＤＩ明細予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_num1 = null;
+	/**
+	 * EDI details spare DATE column 1 ＥＤＩ明細予備ＤＡＴＥ項目１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_edi_sub_d_dt1 = null;
+	/**
+	 * Canceling reason cd. 取消理由ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_can_rsn_cd = null;
+	/**
+	 * Canceling reason name 取消理由名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_can_rsn_nm = null;
+	/**
+	 * Details cancel remarks 明細取消備考.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_slo_d_can_rmkrs = null;
+	/**
+	 * Shipping completed 出荷完了.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_ship_cmpl_flg = null;
+	/**
+	 * Sales completed 売上完了.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_sls_cmpl_flg = null;
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_base_unit_qty_p_PPanel;
+	public MCColumnConfig columnDtl_base_unit_qty;// [Dtl]の[base_unit_qty_p.qty]を[columnDtl_base_unit_qty]としてエイリアス定義。
+	/**
+	 * Base unit cd. 基準単位ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_base_unit_cd = null;
+	/**
+	 * Base unit name 基準単位名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_base_unit_nm = null;
+	/**
+	 * Base unit number of decimal places 基準単位小数部有効桁数.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_base_unit_dec_place = null;
+	/**
+	 * Base unit rounding type 基準単位端数処理区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_base_unit_rnd_typ = null;
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_alloc_qty_p_PPanel;
+	public MCColumnConfig columnDtl_alloc_qty;// [Dtl]の[alloc_qty_p.qty]を[columnDtl_alloc_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_wait_qty_p_PPanel;
+	public MCColumnConfig columnDtl_wait_qty;// [Dtl]の[wait_qty_p.qty]を[columnDtl_wait_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_ship_inst_qty_p_PPanel;
+	public MCColumnConfig columnDtl_ship_inst_qty;// [Dtl]の[ship_inst_qty_p.qty]を[columnDtl_ship_inst_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_ship_act_qty_p_PPanel;
+	public MCColumnConfig columnDtl_ship_act_qty;// [Dtl]の[ship_act_qty_p.qty]を[columnDtl_ship_act_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_iv_schd_qty_p_PPanel;
+	public MCColumnConfig columnDtl_iv_schd_qty;// [Dtl]の[iv_schd_qty_p.qty]を[columnDtl_iv_schd_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_iv_act_qty_p_PPanel;
+	public MCColumnConfig columnDtl_iv_act_qty;// [Dtl]の[iv_act_qty_p.qty]を[columnDtl_iv_act_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_sls_qty_p_PPanel;
+	public MCColumnConfig columnDtl_sls_qty;// [Dtl]の[sls_qty_p.qty]を[columnDtl_sls_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_ship_ret_qty_p_PPanel;
+	public MCColumnConfig columnDtl_ship_ret_qty;// [Dtl]の[ship_ret_qty_p.qty]を[columnDtl_ship_ret_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_re_ship_schd_qty_p_PPanel;
+	public MCColumnConfig columnDtl_re_ship_schd_qty;// [Dtl]の[re_ship_schd_qty_p.qty]を[columnDtl_re_ship_schd_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_ship_schd_abort_qty_p_PPanel;
+	public MCColumnConfig columnDtl_ship_schd_abort_qty;// [Dtl]の[ship_schd_abort_qty_p.qty]を[columnDtl_ship_schd_abort_qty]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_sls_schd_abort_qty_p_PPanel;
+	public MCColumnConfig columnDtl_sls_schd_abort_qty;// [Dtl]の[sls_schd_abort_qty_p.qty]を[columnDtl_sls_schd_abort_qty]としてエイリアス定義。
+	/**
+	 * Quotation details No. 見積明細ＮＯ.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_qtn_d_no = null;
+	/**
+	 * Display order 表示順.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_disp_seq = null;
+	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_old_trd_cur_upri_p_PPanel;
+	public MCColumnConfig columnDtl_old_trd_cur_upri;// [Dtl]の[old_trd_cur_upri_p.upri]を[columnDtl_old_trd_cur_upri]としてエイリアス定義。
+	// [Btn]ブロック関連のField定義
+	public MCPanel BtnPanel = null;
+	// [Btn]ブロックの項目のField定義
+	/**
+	 * Sales order promising 販売納期調整.<p>
+	 *
+	 */
+	public MCButton Btn_open_MSBBP1230 = null;
+	public mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H Btn_open_MSBEP0500_p_PPanel;
+	/**
+	 * Reacquire unit price 単価再取得.<p>
+	 *
+	 */
+	public MCButton Btn_sprt = null;
+	public mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H Btn_menu_move_p_PPanel;
+	/**
+	 * Add row 行追加.<p>
+	 *
+	 */
+	public MCButton Btn_radd = null;
+	/**
+	 * Delete row 行削除.<p>
+	 *
+	 */
+	public MCButton Btn_rdel = null;
+	/**
+	 * Copy row 行コピー.<p>
+	 *
+	 */
+	public MCButton Btn_rcopy = null;
+	/**
+	 * Update 更新する.<p>
+	 *
+	 */
+	public MCButton Btn_ins = null;
+	/**
+	 * Update 更新する.<p>
+	 *
+	 */
+	public MCButton Btn_upd = null;
+	/**
+	 * Cancel 取り消す.<p>
+	 *
+	 */
+	public MCButton Btn_del = null;
+	// [EastBtn]ブロック関連のField定義
+	public MCPanel EastBtnPanel = null;
+	// [EastBtn]ブロックの項目のField定義
+	/** [SRCH]モードを表す定数 */
+	public static final String SRCH = "SRCH";
+	/** [REF]モードを表す定数 */
+	public static final String REF = "REF";
+	/** [UPD]モードを表す定数 */
+	public static final String UPD = "UPD";
+	/** [UPD_QTN]モードを表す定数 */
+	public static final String UPD_QTN = "UPD_QTN";
+	/** [UPD_APRV]モードを表す定数 */
+	public static final String UPD_APRV = "UPD_APRV";
+	/** [UPD_TRNST]モードを表す定数 */
+	public static final String UPD_TRNST = "UPD_TRNST";
+	/** [FIX_U]モードを表す定数 */
+	public static final String FIX_U = "FIX_U";
+	/** [INS]モードを表す定数 */
+	public static final String INS = "INS";
+	/** [INS_QTN]モードを表す定数 */
+	public static final String INS_QTN = "INS_QTN";
+	/** [FIX_I]モードを表す定数 */
+	public static final String FIX_I = "FIX_I";
+	/** [DEL]モードを表す定数 */
+	public static final String DEL = "DEL";
+	/** [FIX_D]モードを表す定数 */
+	public static final String FIX_D = "FIX_D";
+
+	/** 
+	 * ステータスの配列<p>
+	 *
+	 * 画面インスタンスから参照する場合には{@link #getStatusSet()}を使用してください。
+	 */
+	public static final String[] statusArray = new String[]{SRCH, REF, UPD, UPD_QTN, UPD_APRV, UPD_TRNST, FIX_U, INS, INS_QTN, FIX_I, DEL, FIX_D};
+	
+	/** [MS_MSBBL1210_Srch01]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller createMS_MSBBL1210_Srch01() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MS_MSBBL1210_Srch01Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MS_MSBBL1210_Srch01Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Srch01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Srch01]の呼び出し */
+	protected void callMS_MSBBL1210_Srch01() {
+		MCCaller caller = createMS_MSBBL1210_Srch01();
+		caller.exec();
+	}
+	/** [MS_MSBBL1210_Srch02]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller createMS_MSBBL1210_Srch02() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MS_MSBBL1210_Srch02Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MS_MSBBL1210_Srch02Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Srch02Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Srch02]の呼び出し */
+	protected void callMS_MSBBL1210_Srch02() {
+		MCCaller caller = createMS_MSBBL1210_Srch02();
+		caller.exec();
+	}
+	/** [MS_MSBBL1210_Ins01]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller createMS_MSBBL1210_Ins01() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MS_MSBBL1210_Ins01Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MS_MSBBL1210_Ins01Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Ins01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Ins01]の呼び出し */
+	protected void callMS_MSBBL1210_Ins01() {
+		MCCaller caller = createMS_MSBBL1210_Ins01();
+		caller.exec();
+	}
+	/** [MS_MSBBL1210_Upd01]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller createMS_MSBBL1210_Upd01() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MS_MSBBL1210_Upd01Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MS_MSBBL1210_Upd01Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Upd01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Upd01]の呼び出し */
+	protected void callMS_MSBBL1210_Upd01() {
+		MCCaller caller = createMS_MSBBL1210_Upd01();
+		caller.exec();
+	}
+	/** [MS_MSBBL1210_Del01]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller createMS_MSBBL1210_Del01() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MS_MSBBL1210_Del01Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MS_MSBBL1210_Del01Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Del01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Del01]の呼び出し */
+	protected void callMS_MSBBL1210_Del01() {
+		MCCaller caller = createMS_MSBBL1210_Del01();
+		caller.exec();
+	}
+	/** [MS_MSBBL1210_Sprt01]のCallerの作成 */
+	protected MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller createMS_MSBBL1210_Sprt01() {
+		MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MS_MSBBL1210_Sprt01Bridge>
+		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MS_MSBBL1210_Sprt01Bridge>(
+					(MSBBP_SloReg)this, new MS_MSBBL1210_Sprt01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_Sprt01]の呼び出し */
+	protected void callMS_MSBBL1210_Sprt01() {
+		MCCaller caller = createMS_MSBBL1210_Sprt01();
+		caller.exec();
+	}
+	/** [Cnd]ブロックのコンテナField定義 */
+	private final mcframe.clientMSBB.MSBBP1210.CndR aCndR;
+	/** [Hdr]ブロックのコンテナField定義 */
+	private final mcframe.clientMSBB.MSBBP1210.HdrR aHdrR;
+	/** [Dtl]ブロックのコンテナField定義 */
+	private final MCList<mcframe.clientMSBB.MSBBP1210.DtlR> aDtlL;
+	/** [DtlComp]ブロックのコンテナField定義 */
+	private final MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> aDtlCompL;
+	/** [DtlSpec]ブロックのコンテナField定義 */
+	private final MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> aDtlSpecL;
+	/** [UpriSrch]ブロックのコンテナField定義 */
+	private final MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> aUpriSrchL;
+
+	/**
+	 * 項目コピーによってaCndRを設定します。
+	 *
+	 * aCndRのインスタンスは変更されません。
+	 *
+	 * @param row CndR
+	 */
+	public void setCndR(mcframe.clientMSBB.MSBBP1210.CndR row) {
+		if (row != null) {
+			MCRow.copyall(getCndR(), row);
+		}
+	}
+
+	/**
+	 * [Cnd]ブロックのコンテナaCndRを返します。
+	 *
+	 * @return CndR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.CndR getCndR() {
+		return aCndR;
+	}
+
+	/**
+	 * aCndRを作成します。
+	 *
+	 * @return CndR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.CndR createCndR() {
+		return mcframe.clientMSBB.MSBBP1210.CndR.create();
+	}
+
+	/**
+	 * 項目コピーによってaHdrRを設定します。
+	 *
+	 * aHdrRのインスタンスは変更されません。
+	 *
+	 * @param row HdrR
+	 */
+	public void setHdrR(mcframe.clientMSBB.MSBBP1210.HdrR row) {
+		if (row != null) {
+			MCRow.copyall(getHdrR(), row);
+		}
+	}
+
+	/**
+	 * [Hdr]ブロックのコンテナaHdrRを返します。
+	 *
+	 * @return HdrR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.HdrR getHdrR() {
+		return aHdrR;
+	}
+
+	/**
+	 * aHdrRを作成します。
+	 *
+	 * @return HdrR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.HdrR createHdrR() {
+		return mcframe.clientMSBB.MSBBP1210.HdrR.create();
+	}
+
+	/**
+	 * コピーによってaDtlLを設定します。
+	 *
+	 * aDtlLのインスタンスは変更されません。
+	 *
+	 * @param dataset DtlL
+	 */
+	public void setDtlL(MCList<mcframe.clientMSBB.MSBBP1210.DtlR> aList) {
+		if (getDtlL() != aList) {
+			getDtlL().setAll(aList);
+		}
+	}
+
+	/**
+	 * [Dtl]ブロックのコンテナaDtlLを返します。
+	 *
+	 * @return DtlL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlR> getDtlL() {
+		return aDtlL;
+	}
+
+	/**
+	 * aDtlRを作成します。
+	 *
+	 * @return DtlR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.DtlR createDtlR() {
+		return mcframe.clientMSBB.MSBBP1210.DtlR.create();
+	}
+
+	/**
+	 * aDtlLを作成します。
+	 *
+	 * @return DtlL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlR> createDtlL() {
+		return MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class);
+	}
+
+	/**
+	 * DtlTableを初期化します。
+	 */
+	protected void createDtlTable(){
+		if(DtlTable == null){
+			DtlTable = beansFactory.createTable2("Dtl.table");
+		}
+	}
+
+	/**
+	 * コピーによってaDtlCompLを設定します。
+	 *
+	 * aDtlCompLのインスタンスは変更されません。
+	 *
+	 * @param dataset DtlCompL
+	 */
+	public void setDtlCompL(MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> aList) {
+		if (getDtlCompL() != aList) {
+			getDtlCompL().setAll(aList);
+		}
+	}
+
+	/**
+	 * [DtlComp]ブロックのコンテナaDtlCompLを返します。
+	 *
+	 * @return DtlCompL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> getDtlCompL() {
+		return aDtlCompL;
+	}
+
+	/**
+	 * aDtlCompRを作成します。
+	 *
+	 * @return DtlCompR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.DtlCompR createDtlCompR() {
+		return mcframe.clientMSBB.MSBBP1210.DtlCompR.create();
+	}
+
+	/**
+	 * aDtlCompLを作成します。
+	 *
+	 * @return DtlCompL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> createDtlCompL() {
+		return MCList.create(mcframe.clientMSBB.MSBBP1210.DtlCompR.class);
+	}
+
+	/**
+	 * コピーによってaDtlSpecLを設定します。
+	 *
+	 * aDtlSpecLのインスタンスは変更されません。
+	 *
+	 * @param dataset DtlSpecL
+	 */
+	public void setDtlSpecL(MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> aList) {
+		if (getDtlSpecL() != aList) {
+			getDtlSpecL().setAll(aList);
+		}
+	}
+
+	/**
+	 * [DtlSpec]ブロックのコンテナaDtlSpecLを返します。
+	 *
+	 * @return DtlSpecL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> getDtlSpecL() {
+		return aDtlSpecL;
+	}
+
+	/**
+	 * aDtlSpecRを作成します。
+	 *
+	 * @return DtlSpecR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.DtlSpecR createDtlSpecR() {
+		return mcframe.clientMSBB.MSBBP1210.DtlSpecR.create();
+	}
+
+	/**
+	 * aDtlSpecLを作成します。
+	 *
+	 * @return DtlSpecL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> createDtlSpecL() {
+		return MCList.create(mcframe.clientMSBB.MSBBP1210.DtlSpecR.class);
+	}
+
+	/**
+	 * コピーによってaUpriSrchLを設定します。
+	 *
+	 * aUpriSrchLのインスタンスは変更されません。
+	 *
+	 * @param dataset UpriSrchL
+	 */
+	public void setUpriSrchL(MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> aList) {
+		if (getUpriSrchL() != aList) {
+			getUpriSrchL().setAll(aList);
+		}
+	}
+
+	/**
+	 * [UpriSrch]ブロックのコンテナaUpriSrchLを返します。
+	 *
+	 * @return UpriSrchL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> getUpriSrchL() {
+		return aUpriSrchL;
+	}
+
+	/**
+	 * aUpriSrchRを作成します。
+	 *
+	 * @return UpriSrchR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.UpriSrchR createUpriSrchR() {
+		return mcframe.clientMSBB.MSBBP1210.UpriSrchR.create();
+	}
+
+	/**
+	 * aUpriSrchLを作成します。
+	 *
+	 * @return UpriSrchL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> createUpriSrchL() {
+		return MCList.create(mcframe.clientMSBB.MSBBP1210.UpriSrchR.class);
+	}
+
+	/**
+	 * 保持するコンテナのListを返します。
+	 *
+	 * @return コンテナのList
+	 */
+	public List<MCContainer> getContainers(){
+		List<MCContainer> ret = super.getContainers();
+		if(!MCCollectionUtil.contains(ret, getCndR())) ret.add(getCndR());
+		if(!MCCollectionUtil.contains(ret, getHdrR())) ret.add(getHdrR());
+		if(!MCCollectionUtil.contains(ret, getDtlL())) ret.add(getDtlL());
+		if(!MCCollectionUtil.contains(ret, getDtlCompL())) ret.add(getDtlCompL());
+		if(!MCCollectionUtil.contains(ret, getDtlSpecL())) ret.add(getDtlSpecL());
+		if(!MCCollectionUtil.contains(ret, getUpriSrchL())) ret.add(getUpriSrchL());
+		return ret;
+	}
+
+	/**
+	 * コンテナに対応したブロックのIDを返します。
+	 *
+	 * 引数のコンテナに対応するブロックがない場合にはnullを返します。<br>
+	 * 引数がnullの場合にはnullを返します。<br>
+	 *
+	 * @return ブロックID
+	 */
+	public String getBlockId(MCContainer aCnt){
+		if(aCnt == null) return null;
+		if(aCnt == getCndR()) return "Cnd";
+		if(aCnt == getHdrR()) return "Hdr";
+		if(aCnt == getDtlL()) return "Dtl";
+		if(aCnt == getDtlCompL()) return "DtlComp";
+		if(aCnt == getDtlSpecL()) return "DtlSpec";
+		if(aCnt == getUpriSrchL()) return "UpriSrch";
+		return super.getBlockId(aCnt);
+	}
+
+	/**
+	 * ブロックIDに対応したコンテナを返します。
+	 *
+	 * 引数のブロックIDに対応するブロックがない場合にはnullを返します。<br>
+	 * 引数がnullの場合にはnullを返します。<br>
+	 *
+	 * @return コンテナ
+	 */
+	public MCContainer getContainer(String bId){
+		if(bId == null) return null;
+		if(bId.equals("Cnd")) return getCndR();
+		if(bId.equals("Hdr")) return getHdrR();
+		if(bId.equals("Dtl")) return getDtlL();
+		if(bId.equals("DtlComp")) return getDtlCompL();
+		if(bId.equals("DtlSpec")) return getDtlSpecL();
+		if(bId.equals("UpriSrch")) return getUpriSrchL();
+		return super.getContainer(bId);
+	}
+
+	/**
+	 * 保持するPanel(枠)のListを返します。
+	 *
+	 * @return MCPanelのList
+	 */
+	public List<MCPanel> getMCPanels(){
+		List<MCPanel> ret = super.getMCPanels();
+		ret.add(ScreenOpePanel);
+		ret.add(CndPanel);
+		ret.add(HdrTabPanel);
+		ret.add(HdrPanel);
+		ret.add(Hdr2Panel);
+		ret.add(BulkSetPanel);
+		ret.add(DtlPanel);
+		ret.add(BtnPanel);
+		ret.add(EastBtnPanel);
+		return ret;
+	}
+
+	/**
+	 * コンストラクタです。通常の画面として作成するときに使用します。
+	 */
+	public MSBBP_SloReg_MC_A() {
+		aCndR = createCndR();
+		aHdrR = createHdrR();
+		aDtlL = createDtlL();
+		aDtlCompL = createDtlCompL();
+		aDtlSpecL = createDtlSpecL();
+		aUpriSrchL = createUpriSrchL();
+
+	}
+
+	/**
+	 * コンストラクタです。埋込カラムとして作成するときに使用します。
+	 *
+	 * @param name 対応するInnerRow項目名
+	 */
+	public MSBBP_SloReg_MC_A(String name) {
+		aCndR = createCndR();
+		aHdrR = createHdrR();
+		aDtlL = createDtlL();
+		createDtlTable();
+		DtlTable.setRowName(name);
+		aDtlCompL = createDtlCompL();
+		aDtlSpecL = createDtlSpecL();
+		aUpriSrchL = createUpriSrchL();
+	}
+
+
+	/**
+	 * 埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	public void jbCreate(){
+		super.jbCreate();
+		MSBBP_SloReg_MC.jbCreateScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateCnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateHdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateHdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateHdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateBulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateDtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbCreateEastBtn((MSBBP_SloReg)this);
+	}
+
+	/**
+	 * [ScreenOpe]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateScreenOpe(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [Cnd]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateCnd(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [HdrTab]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateHdrTab(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [Hdr]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateHdr(MSBBP_SloReg p) {
+		p.Hdr_dlv_p_PPanel = mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.create(p.getHdrR().dlv_p());
+		p.Hdr_dlv_p_PPanel.setName("Hdr.dlv_p");
+		p.Hdr_dlv_cd = p.Hdr_dlv_p_PPanel.Dlv_bp_cd;
+		p.Hdr_dlv_cd.addAliasName("Hdr.dlv_cd", p);
+		p.Hdr_dlv_nm = p.Hdr_dlv_p_PPanel.Dlv_bp_nm;
+		p.Hdr_dlv_nm.addAliasName("Hdr.dlv_nm", p);
+		p.Hdr_dlv_sundry_flg = p.Hdr_dlv_p_PPanel.Dlv_dlv_sundry_flg;
+		p.Hdr_dlv_sundry_flg.addAliasName("Hdr.dlv_sundry_flg", p);
+		p.Hdr_pri_prnt_flg = p.Hdr_dlv_p_PPanel.Dlv_pri_prnt_flg;
+		p.Hdr_pri_prnt_flg.addAliasName("Hdr.pri_prnt_flg", p);
+		p.Hdr_dlv_lg_grp_cd = p.Hdr_dlv_p_PPanel.Dlv_lg_grp_cd;
+		p.Hdr_dlv_lg_grp_cd.addAliasName("Hdr.dlv_lg_grp_cd", p);
+		p.Hdr_dlv_lg_grp_nm = p.Hdr_dlv_p_PPanel.Dlv_lg_grp_nm;
+		p.Hdr_dlv_lg_grp_nm.addAliasName("Hdr.dlv_lg_grp_nm", p);
+		p.Hdr_dlv_cntry_cd = p.Hdr_dlv_p_PPanel.Dlv_cntry_cd;
+		p.Hdr_dlv_cntry_cd.addAliasName("Hdr.dlv_cntry_cd", p);
+		p.Hdr_dlv_cntry_nm = p.Hdr_dlv_p_PPanel.Dlv_cntry_nm;
+		p.Hdr_dlv_cntry_nm.addAliasName("Hdr.dlv_cntry_nm", p);
+		p.Hdr_dlv_zip_cd = p.Hdr_dlv_p_PPanel.Dlv_zip_cd;
+		p.Hdr_dlv_zip_cd.addAliasName("Hdr.dlv_zip_cd", p);
+		p.Hdr_dlv_addr1 = p.Hdr_dlv_p_PPanel.Dlv_addr1;
+		p.Hdr_dlv_addr1.addAliasName("Hdr.dlv_addr1", p);
+		p.Hdr_dlv_addr2 = p.Hdr_dlv_p_PPanel.Dlv_addr2;
+		p.Hdr_dlv_addr2.addAliasName("Hdr.dlv_addr2", p);
+		p.Hdr_dlv_addr3 = p.Hdr_dlv_p_PPanel.Dlv_addr3;
+		p.Hdr_dlv_addr3.addAliasName("Hdr.dlv_addr3", p);
+		p.Hdr_dlv_addr4 = p.Hdr_dlv_p_PPanel.Dlv_addr4;
+		p.Hdr_dlv_addr4.addAliasName("Hdr.dlv_addr4", p);
+		p.Hdr_dlv_tel = p.Hdr_dlv_p_PPanel.Dlv_tel;
+		p.Hdr_dlv_tel.addAliasName("Hdr.dlv_tel", p);
+		p.Hdr_dlv_fax = p.Hdr_dlv_p_PPanel.Dlv_fax;
+		p.Hdr_dlv_fax.addAliasName("Hdr.dlv_fax", p);
+		p.Hdr_dlv_cntct_dpt = p.Hdr_dlv_p_PPanel.Dlv_dlv_cntct_dpt;
+		p.Hdr_dlv_cntct_dpt.addAliasName("Hdr.dlv_cntct_dpt", p);
+		p.Hdr_dlv_cntct_psn = p.Hdr_dlv_p_PPanel.Dlv_dlv_cntct_psn;
+		p.Hdr_dlv_cntct_psn.addAliasName("Hdr.dlv_cntct_psn", p);
+		p.Hdr_tdlv_p_PPanel = mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.create(p.getHdrR().tdlv_p());
+		p.Hdr_tdlv_p_PPanel.setName("Hdr.tdlv_p");
+		p.Hdr_tdlv_cd = p.Hdr_tdlv_p_PPanel.Dlv_bp_cd;
+		p.Hdr_tdlv_cd.addAliasName("Hdr.tdlv_cd", p);
+		p.Hdr_tdlv_nm = p.Hdr_tdlv_p_PPanel.Dlv_bp_nm;
+		p.Hdr_tdlv_nm.addAliasName("Hdr.tdlv_nm", p);
+		p.Hdr_tdlv_sundry_flg = p.Hdr_tdlv_p_PPanel.Dlv_dlv_sundry_flg;
+		p.Hdr_tdlv_sundry_flg.addAliasName("Hdr.tdlv_sundry_flg", p);
+		p.Hdr_tdlv_lg_grp_cd = p.Hdr_tdlv_p_PPanel.Dlv_lg_grp_cd;
+		p.Hdr_tdlv_lg_grp_cd.addAliasName("Hdr.tdlv_lg_grp_cd", p);
+		p.Hdr_tdlv_lg_grp_nm = p.Hdr_tdlv_p_PPanel.Dlv_lg_grp_nm;
+		p.Hdr_tdlv_lg_grp_nm.addAliasName("Hdr.tdlv_lg_grp_nm", p);
+		p.Hdr_tdlv_cntry_cd = p.Hdr_tdlv_p_PPanel.Dlv_cntry_cd;
+		p.Hdr_tdlv_cntry_cd.addAliasName("Hdr.tdlv_cntry_cd", p);
+		p.Hdr_tdlv_cntry_nm = p.Hdr_tdlv_p_PPanel.Dlv_cntry_nm;
+		p.Hdr_tdlv_cntry_nm.addAliasName("Hdr.tdlv_cntry_nm", p);
+		p.Hdr_tdlv_zip_cd = p.Hdr_tdlv_p_PPanel.Dlv_zip_cd;
+		p.Hdr_tdlv_zip_cd.addAliasName("Hdr.tdlv_zip_cd", p);
+		p.Hdr_tdlv_addr1 = p.Hdr_tdlv_p_PPanel.Dlv_addr1;
+		p.Hdr_tdlv_addr1.addAliasName("Hdr.tdlv_addr1", p);
+		p.Hdr_tdlv_addr2 = p.Hdr_tdlv_p_PPanel.Dlv_addr2;
+		p.Hdr_tdlv_addr2.addAliasName("Hdr.tdlv_addr2", p);
+		p.Hdr_tdlv_addr3 = p.Hdr_tdlv_p_PPanel.Dlv_addr3;
+		p.Hdr_tdlv_addr3.addAliasName("Hdr.tdlv_addr3", p);
+		p.Hdr_tdlv_addr4 = p.Hdr_tdlv_p_PPanel.Dlv_addr4;
+		p.Hdr_tdlv_addr4.addAliasName("Hdr.tdlv_addr4", p);
+		p.Hdr_tdlv_tel = p.Hdr_tdlv_p_PPanel.Dlv_tel;
+		p.Hdr_tdlv_tel.addAliasName("Hdr.tdlv_tel", p);
+		p.Hdr_tdlv_fax = p.Hdr_tdlv_p_PPanel.Dlv_fax;
+		p.Hdr_tdlv_fax.addAliasName("Hdr.tdlv_fax", p);
+		p.Hdr_tdlv_cntct_dpt = p.Hdr_tdlv_p_PPanel.Dlv_dlv_cntct_dpt;
+		p.Hdr_tdlv_cntct_dpt.addAliasName("Hdr.tdlv_cntct_dpt", p);
+		p.Hdr_tdlv_cntct_psn = p.Hdr_tdlv_p_PPanel.Dlv_dlv_cntct_psn;
+		p.Hdr_tdlv_cntct_psn.addAliasName("Hdr.tdlv_cntct_psn", p);
+		p.Hdr_usr_dpt_p_PPanel = mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.create(p.getHdrR().usr_dpt_p());
+		p.Hdr_usr_dpt_p_PPanel.setName("Hdr.usr_dpt_p");
+		p.Hdr_sls_usr_cd = p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_cd;
+		p.Hdr_sls_usr_cd.addAliasName("Hdr.sls_usr_cd", p);
+		p.Hdr_sls_usr_nm = p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_nm;
+		p.Hdr_sls_usr_nm.addAliasName("Hdr.sls_usr_nm", p);
+		p.Hdr_sls_dpt_cd = p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd;
+		p.Hdr_sls_dpt_cd.addAliasName("Hdr.sls_dpt_cd", p);
+		p.Hdr_sls_dpt_nm = p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm;
+		p.Hdr_sls_dpt_nm.addAliasName("Hdr.sls_dpt_nm", p);
+		p.Hdr_cred_bal_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().cred_bal_p());
+		p.Hdr_cred_bal_p_PPanel.setName("Hdr.cred_bal_p");
+		p.Hdr_cred_bal = p.Hdr_cred_bal_p_PPanel.Amt_amt;
+		p.Hdr_cred_bal.addAliasName("Hdr.cred_bal", p);
+		p.Hdr_xrate_p_PPanel = mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.create(p.getHdrR().xrate_p());
+		p.Hdr_xrate_p_PPanel.setName("Hdr.xrate_p");
+		p.Hdr_xrate = p.Hdr_xrate_p_PPanel.Xrate_xrate;
+		p.Hdr_xrate.addAliasName("Hdr.xrate", p);
+		p.Hdr_ptax_xrate_p_PPanel = mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.create(p.getHdrR().ptax_xrate_p());
+		p.Hdr_ptax_xrate_p_PPanel.setName("Hdr.ptax_xrate_p");
+		p.Hdr_ptax_xrate = p.Hdr_ptax_xrate_p_PPanel.Xrate_xrate;
+		p.Hdr_ptax_xrate.addAliasName("Hdr.ptax_xrate", p);
+		p.Hdr_wrk_no_p_PPanel = mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.create(p.getHdrR().wrk_no_p());
+		p.Hdr_wrk_no_p_PPanel.setName("Hdr.wrk_no_p");
+		p.Hdr_wrk_no = p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no;
+		p.Hdr_wrk_no.addAliasName("Hdr.wrk_no", p);
+		p.Hdr_wrk_nm = p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_nm;
+		p.Hdr_wrk_nm.addAliasName("Hdr.wrk_nm", p);
+		p.Hdr_ttl_amt_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().ttl_amt_p());
+		p.Hdr_ttl_amt_p_PPanel.setName("Hdr.ttl_amt_p");
+		p.Hdr_ttl_amt = p.Hdr_ttl_amt_p_PPanel.Amt_amt;
+		p.Hdr_ttl_amt.addAliasName("Hdr.ttl_amt", p);
+		p.Hdr_ttl_amt_no_cost_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().ttl_amt_no_cost_p());
+		p.Hdr_ttl_amt_no_cost_p_PPanel.setName("Hdr.ttl_amt_no_cost_p");
+		p.Hdr_ttl_amt_no_cost = p.Hdr_ttl_amt_no_cost_p_PPanel.Amt_amt;
+		p.Hdr_ttl_amt_no_cost.addAliasName("Hdr.ttl_amt_no_cost", p);
+		p.Hdr_trd_cur_amt_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().trd_cur_amt_p());
+		p.Hdr_trd_cur_amt_p_PPanel.setName("Hdr.trd_cur_amt_p");
+		p.Hdr_trd_cur_amt = p.Hdr_trd_cur_amt_p_PPanel.Amt_amt;
+		p.Hdr_trd_cur_amt.addAliasName("Hdr.trd_cur_amt", p);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().trd_cur_inc_tax_amt_p());
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.setName("Hdr.trd_cur_inc_tax_amt_p");
+		p.Hdr_trd_cur_inc_tax_amt = p.Hdr_trd_cur_inc_tax_amt_p_PPanel.Amt_amt;
+		p.Hdr_trd_cur_inc_tax_amt.addAliasName("Hdr.trd_cur_inc_tax_amt", p);
+		p.Hdr_adv_bill_amt_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().adv_bill_amt_p());
+		p.Hdr_adv_bill_amt_p_PPanel.setName("Hdr.adv_bill_amt_p");
+		p.Hdr_adv_bill_amt = p.Hdr_adv_bill_amt_p_PPanel.Amt_amt;
+		p.Hdr_adv_bill_amt.addAliasName("Hdr.adv_bill_amt", p);
+		p.Hdr_adv_rcv_amt_p_PPanel = mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.create(p.getHdrR().adv_rcv_amt_p());
+		p.Hdr_adv_rcv_amt_p_PPanel.setName("Hdr.adv_rcv_amt_p");
+		p.Hdr_adv_rcv_amt = p.Hdr_adv_rcv_amt_p_PPanel.Amt_amt;
+		p.Hdr_adv_rcv_amt.addAliasName("Hdr.adv_rcv_amt", p);
+		p.Hdr_ship_rqst_p_PPanel = mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.create(p.getHdrR().ship_rqst_p());
+		p.Hdr_ship_rqst_p_PPanel.setName("Hdr.ship_rqst_p");
+		p.Hdr_ship_rqst_dt = p.Hdr_ship_rqst_p_PPanel.YmdHm_ymd;
+		p.Hdr_ship_rqst_dt.addAliasName("Hdr.ship_rqst_dt", p);
+		p.Hdr_ship_rqst_hm = p.Hdr_ship_rqst_p_PPanel.YmdHm_hm;
+		p.Hdr_ship_rqst_hm.addAliasName("Hdr.ship_rqst_hm", p);
+		p.Hdr_dlv_rqst_p_PPanel = mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.create(p.getHdrR().dlv_rqst_p());
+		p.Hdr_dlv_rqst_p_PPanel.setName("Hdr.dlv_rqst_p");
+		p.Hdr_dlv_rqst_dt = p.Hdr_dlv_rqst_p_PPanel.YmdHm_ymd;
+		p.Hdr_dlv_rqst_dt.addAliasName("Hdr.dlv_rqst_dt", p);
+		p.Hdr_dlv_rqst_hm = p.Hdr_dlv_rqst_p_PPanel.YmdHm_hm;
+		p.Hdr_dlv_rqst_hm.addAliasName("Hdr.dlv_rqst_hm", p);
+	}
+
+	/**
+	 * [Hdr2]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateHdr2(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [BulkSet]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateBulkSet(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [Dtl]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateDtl(MSBBP_SloReg p) {
+		p.Dtl_itm_p_PPanel = mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$itm_p);
+		p.Dtl_itm_p_PPanel.setName("Dtl.itm_p");
+		p.columnDtl_itm_cd = p.Dtl_itm_p_PPanel.columnItm_itm_cd;
+		p.columnDtl_itm_cd.addAliasName("Dtl.itm_cd", p);
+		p.columnDtl_itm_sub1 = p.Dtl_itm_p_PPanel.columnItm_itm_sub1;
+		p.columnDtl_itm_sub1.addAliasName("Dtl.itm_sub1", p);
+		p.columnDtl_itm_sub2 = p.Dtl_itm_p_PPanel.columnItm_itm_sub2;
+		p.columnDtl_itm_sub2.addAliasName("Dtl.itm_sub2", p);
+		p.columnDtl_itm_sub3 = p.Dtl_itm_p_PPanel.columnItm_itm_sub3;
+		p.columnDtl_itm_sub3.addAliasName("Dtl.itm_sub3", p);
+		p.columnDtl_itm_nm = p.Dtl_itm_p_PPanel.columnItm_itm_nm;
+		p.columnDtl_itm_nm.addAliasName("Dtl.itm_nm", p);
+		p.Dtl_trd_unit_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$trd_unit_qty_p);
+		p.Dtl_trd_unit_qty_p_PPanel.setName("Dtl.trd_unit_qty_p");
+		p.columnDtl_trd_unit_qty = p.Dtl_trd_unit_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_trd_unit_qty.addAliasName("Dtl.trd_unit_qty", p);
+		p.Dtl_trd_cur_upri_amt_p_PPanel = mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$trd_cur_upri_amt_p);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.setName("Dtl.trd_cur_upri_amt_p");
+		p.columnDtl_upri_not_tgt_flg = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg;
+		p.columnDtl_upri_not_tgt_flg.addAliasName("Dtl.upri_not_tgt_flg", p);
+		p.columnDtl_trd_cur_upri = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri;
+		p.columnDtl_trd_cur_upri.addAliasName("Dtl.trd_cur_upri", p);
+		p.columnDtl_interim_flg = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_interim_flg;
+		p.columnDtl_interim_flg.addAliasName("Dtl.interim_flg", p);
+		p.columnDtl_trd_cur_amt = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_amt;
+		p.columnDtl_trd_cur_amt.addAliasName("Dtl.trd_cur_amt", p);
+		p.columnDtl_trd_cur_inc_tax_amt = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_inc_tax_amt;
+		p.columnDtl_trd_cur_inc_tax_amt.addAliasName("Dtl.trd_cur_inc_tax_amt", p);
+		p.columnDtl_tax_fix_flg = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_fix_flg;
+		p.columnDtl_tax_fix_flg.addAliasName("Dtl.tax_fix_flg", p);
+		p.columnDtl_tax_cd = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd;
+		p.columnDtl_tax_cd.addAliasName("Dtl.tax_cd", p);
+		p.columnDtl_tax_nm = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_nm;
+		p.columnDtl_tax_nm.addAliasName("Dtl.tax_nm", p);
+		p.columnDtl_tax_rate = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_rate;
+		p.columnDtl_tax_rate.addAliasName("Dtl.tax_rate", p);
+		p.columnDtl_tax_typ = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_typ;
+		p.columnDtl_tax_typ.addAliasName("Dtl.tax_typ", p);
+		p.columnDtl_inc_tax_flg = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_inc_tax_flg;
+		p.columnDtl_inc_tax_flg.addAliasName("Dtl.inc_tax_flg", p);
+		p.columnDtl_trd_cur_tax_amt = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_tax_amt;
+		p.columnDtl_trd_cur_tax_amt.addAliasName("Dtl.trd_cur_tax_amt", p);
+		p.columnDtl_trd_cur_dscnt_amt = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_dscnt_amt;
+		p.columnDtl_trd_cur_dscnt_amt.addAliasName("Dtl.trd_cur_dscnt_amt", p);
+		p.columnDtl_dscnt_rsn_cd = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd;
+		p.columnDtl_dscnt_rsn_cd.addAliasName("Dtl.dscnt_rsn_cd", p);
+		p.columnDtl_dscnt_rsn_nm = p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_nm;
+		p.columnDtl_dscnt_rsn_nm.addAliasName("Dtl.dscnt_rsn_nm", p);
+		p.Dtl_cost_upri_p_PPanel = mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$cost_upri_p);
+		p.Dtl_cost_upri_p_PPanel.setName("Dtl.cost_upri_p");
+		p.columnDtl_cost_upri = p.Dtl_cost_upri_p_PPanel.columnUpri_upri;
+		p.columnDtl_cost_upri.addAliasName("Dtl.cost_upri", p);
+		p.Dtl_cost_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$cost_amt_p);
+		p.Dtl_cost_amt_p_PPanel.setName("Dtl.cost_amt_p");
+		p.columnDtl_cost_amt = p.Dtl_cost_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_cost_amt.addAliasName("Dtl.cost_amt", p);
+		p.Dtl_iv_upri_p_PPanel = mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$iv_upri_p);
+		p.Dtl_iv_upri_p_PPanel.setName("Dtl.iv_upri_p");
+		p.columnDtl_iv_upri = p.Dtl_iv_upri_p_PPanel.columnUpri_upri;
+		p.columnDtl_iv_upri.addAliasName("Dtl.iv_upri", p);
+		p.Dtl_iv_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$iv_amt_p);
+		p.Dtl_iv_amt_p_PPanel.setName("Dtl.iv_amt_p");
+		p.columnDtl_iv_amt = p.Dtl_iv_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_iv_amt.addAliasName("Dtl.iv_amt", p);
+		p.Dtl_wtax_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$wtax_amt_p);
+		p.Dtl_wtax_amt_p_PPanel.setName("Dtl.wtax_amt_p");
+		p.columnDtl_wtax_amt = p.Dtl_wtax_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_wtax_amt.addAliasName("Dtl.wtax_amt", p);
+		p.Dtl_base_cur_upri_p_PPanel = mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$base_cur_upri_p);
+		p.Dtl_base_cur_upri_p_PPanel.setName("Dtl.base_cur_upri_p");
+		p.columnDtl_base_cur_upri = p.Dtl_base_cur_upri_p_PPanel.columnUpri_upri;
+		p.columnDtl_base_cur_upri.addAliasName("Dtl.base_cur_upri", p);
+		p.Dtl_base_cur_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$base_cur_amt_p);
+		p.Dtl_base_cur_amt_p_PPanel.setName("Dtl.base_cur_amt_p");
+		p.columnDtl_base_cur_amt = p.Dtl_base_cur_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_base_cur_amt.addAliasName("Dtl.base_cur_amt", p);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$base_cur_inc_tax_amt_p);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.setName("Dtl.base_cur_inc_tax_amt_p");
+		p.columnDtl_base_cur_inc_tax_amt = p.Dtl_base_cur_inc_tax_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_base_cur_inc_tax_amt.addAliasName("Dtl.base_cur_inc_tax_amt", p);
+		p.Dtl_base_cur_tax_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$base_cur_tax_amt_p);
+		p.Dtl_base_cur_tax_amt_p_PPanel.setName("Dtl.base_cur_tax_amt_p");
+		p.columnDtl_base_cur_tax_amt = p.Dtl_base_cur_tax_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_base_cur_tax_amt.addAliasName("Dtl.base_cur_tax_amt", p);
+		p.Dtl_ptax_cur_upri_p_PPanel = mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ptax_cur_upri_p);
+		p.Dtl_ptax_cur_upri_p_PPanel.setName("Dtl.ptax_cur_upri_p");
+		p.columnDtl_ptax_cur_upri = p.Dtl_ptax_cur_upri_p_PPanel.columnUpri_upri;
+		p.columnDtl_ptax_cur_upri.addAliasName("Dtl.ptax_cur_upri", p);
+		p.Dtl_ptax_cur_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ptax_cur_amt_p);
+		p.Dtl_ptax_cur_amt_p_PPanel.setName("Dtl.ptax_cur_amt_p");
+		p.columnDtl_ptax_cur_amt = p.Dtl_ptax_cur_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_ptax_cur_amt.addAliasName("Dtl.ptax_cur_amt", p);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ptax_cur_inc_tax_amt_p);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.setName("Dtl.ptax_cur_inc_tax_amt_p");
+		p.columnDtl_ptax_cur_inc_tax_amt = p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_ptax_cur_inc_tax_amt.addAliasName("Dtl.ptax_cur_inc_tax_amt", p);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ptax_cur_tax_amt_p);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.setName("Dtl.ptax_cur_tax_amt_p");
+		p.columnDtl_ptax_cur_tax_amt = p.Dtl_ptax_cur_tax_amt_p_PPanel.columnAmt_amt;
+		p.columnDtl_ptax_cur_tax_amt.addAliasName("Dtl.ptax_cur_tax_amt", p);
+		p.Dtl_sno_p_PPanel = mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$sno_p);
+		p.Dtl_sno_p_PPanel.setName("Dtl.sno_p");
+		p.columnDtl_sno1_null_flg = p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg;
+		p.columnDtl_sno1_null_flg.addAliasName("Dtl.sno1_null_flg", p);
+		p.columnDtl_sno1 = p.Dtl_sno_p_PPanel.columnSno_sno1;
+		p.columnDtl_sno1.addAliasName("Dtl.sno1", p);
+		p.columnDtl_sno2_null_flg = p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg;
+		p.columnDtl_sno2_null_flg.addAliasName("Dtl.sno2_null_flg", p);
+		p.columnDtl_sno2 = p.Dtl_sno_p_PPanel.columnSno_sno2;
+		p.columnDtl_sno2.addAliasName("Dtl.sno2", p);
+		p.columnDtl_sno3_null_flg = p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg;
+		p.columnDtl_sno3_null_flg.addAliasName("Dtl.sno3_null_flg", p);
+		p.columnDtl_sno3 = p.Dtl_sno_p_PPanel.columnSno_sno3;
+		p.columnDtl_sno3.addAliasName("Dtl.sno3", p);
+		p.columnDtl_sno4_null_flg = p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg;
+		p.columnDtl_sno4_null_flg.addAliasName("Dtl.sno4_null_flg", p);
+		p.columnDtl_sno4 = p.Dtl_sno_p_PPanel.columnSno_sno4;
+		p.columnDtl_sno4.addAliasName("Dtl.sno4", p);
+		p.Dtl_ship_rqst_dt_p_PPanel = mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_rqst_dt_p);
+		p.Dtl_ship_rqst_dt_p_PPanel.setName("Dtl.ship_rqst_dt_p");
+		p.columnDtl_ship_rqst_dt = p.Dtl_ship_rqst_dt_p_PPanel.columnYmdHm_ymd;
+		p.columnDtl_ship_rqst_dt.addAliasName("Dtl.ship_rqst_dt", p);
+		p.columnDtl_ship_rqst_hm = p.Dtl_ship_rqst_dt_p_PPanel.columnYmdHm_hm;
+		p.columnDtl_ship_rqst_hm.addAliasName("Dtl.ship_rqst_hm", p);
+		p.Dtl_dlv_rqst_dt_p_PPanel = mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$dlv_rqst_dt_p);
+		p.Dtl_dlv_rqst_dt_p_PPanel.setName("Dtl.dlv_rqst_dt_p");
+		p.columnDtl_dlv_rqst_dt = p.Dtl_dlv_rqst_dt_p_PPanel.columnYmdHm_ymd;
+		p.columnDtl_dlv_rqst_dt.addAliasName("Dtl.dlv_rqst_dt", p);
+		p.columnDtl_dlv_rqst_hm = p.Dtl_dlv_rqst_dt_p_PPanel.columnYmdHm_hm;
+		p.columnDtl_dlv_rqst_hm.addAliasName("Dtl.dlv_rqst_hm", p);
+		p.Dtl_ship_schd_dt_p_PPanel = mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_schd_dt_p);
+		p.Dtl_ship_schd_dt_p_PPanel.setName("Dtl.ship_schd_dt_p");
+		p.columnDtl_ship_schd_dt = p.Dtl_ship_schd_dt_p_PPanel.columnYmdHm_ymd;
+		p.columnDtl_ship_schd_dt.addAliasName("Dtl.ship_schd_dt", p);
+		p.columnDtl_ship_schd_hm = p.Dtl_ship_schd_dt_p_PPanel.columnYmdHm_hm;
+		p.columnDtl_ship_schd_hm.addAliasName("Dtl.ship_schd_hm", p);
+		p.Dtl_dlv_schd_dt_p_PPanel = mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$dlv_schd_dt_p);
+		p.Dtl_dlv_schd_dt_p_PPanel.setName("Dtl.dlv_schd_dt_p");
+		p.columnDtl_dlv_schd_dt = p.Dtl_dlv_schd_dt_p_PPanel.columnYmdHm_ymd;
+		p.columnDtl_dlv_schd_dt.addAliasName("Dtl.dlv_schd_dt", p);
+		p.columnDtl_dlv_schd_hm = p.Dtl_dlv_schd_dt_p_PPanel.columnYmdHm_hm;
+		p.columnDtl_dlv_schd_hm.addAliasName("Dtl.dlv_schd_hm", p);
+		p.Dtl_dlv_p_PPanel = mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$dlv_p);
+		p.Dtl_dlv_p_PPanel.setName("Dtl.dlv_p");
+		p.columnDtl_dlv_cd = p.Dtl_dlv_p_PPanel.columnDlv_bp_cd;
+		p.columnDtl_dlv_cd.addAliasName("Dtl.dlv_cd", p);
+		p.columnDtl_dlv_nm = p.Dtl_dlv_p_PPanel.columnDlv_bp_nm;
+		p.columnDtl_dlv_nm.addAliasName("Dtl.dlv_nm", p);
+		p.columnDtl_dlv_sundry_flg = p.Dtl_dlv_p_PPanel.columnDlv_dlv_sundry_flg;
+		p.columnDtl_dlv_sundry_flg.addAliasName("Dtl.dlv_sundry_flg", p);
+		p.columnDtl_pri_prnt_flg = p.Dtl_dlv_p_PPanel.columnDlv_pri_prnt_flg;
+		p.columnDtl_pri_prnt_flg.addAliasName("Dtl.pri_prnt_flg", p);
+		p.columnDtl_dlv_show_dtl = p.Dtl_dlv_p_PPanel.columnDlv_show_dtl;
+		p.columnDtl_dlv_show_dtl.addAliasName("Dtl.dlv_show_dtl", p);
+		p.columnDtl_dlv_lg_grp_cd = p.Dtl_dlv_p_PPanel.columnDlv_lg_grp_cd;
+		p.columnDtl_dlv_lg_grp_cd.addAliasName("Dtl.dlv_lg_grp_cd", p);
+		p.columnDtl_dlv_lg_grp_nm = p.Dtl_dlv_p_PPanel.columnDlv_lg_grp_nm;
+		p.columnDtl_dlv_lg_grp_nm.addAliasName("Dtl.dlv_lg_grp_nm", p);
+		p.columnDtl_dlv_cntry_cd = p.Dtl_dlv_p_PPanel.columnDlv_cntry_cd;
+		p.columnDtl_dlv_cntry_cd.addAliasName("Dtl.dlv_cntry_cd", p);
+		p.columnDtl_dlv_cntry_nm = p.Dtl_dlv_p_PPanel.columnDlv_cntry_nm;
+		p.columnDtl_dlv_cntry_nm.addAliasName("Dtl.dlv_cntry_nm", p);
+		p.columnDtl_dlv_zip_cd = p.Dtl_dlv_p_PPanel.columnDlv_zip_cd;
+		p.columnDtl_dlv_zip_cd.addAliasName("Dtl.dlv_zip_cd", p);
+		p.columnDtl_dlv_addr1 = p.Dtl_dlv_p_PPanel.columnDlv_addr1;
+		p.columnDtl_dlv_addr1.addAliasName("Dtl.dlv_addr1", p);
+		p.columnDtl_dlv_addr2 = p.Dtl_dlv_p_PPanel.columnDlv_addr2;
+		p.columnDtl_dlv_addr2.addAliasName("Dtl.dlv_addr2", p);
+		p.columnDtl_dlv_addr3 = p.Dtl_dlv_p_PPanel.columnDlv_addr3;
+		p.columnDtl_dlv_addr3.addAliasName("Dtl.dlv_addr3", p);
+		p.columnDtl_dlv_addr4 = p.Dtl_dlv_p_PPanel.columnDlv_addr4;
+		p.columnDtl_dlv_addr4.addAliasName("Dtl.dlv_addr4", p);
+		p.columnDtl_dlv_tel = p.Dtl_dlv_p_PPanel.columnDlv_tel;
+		p.columnDtl_dlv_tel.addAliasName("Dtl.dlv_tel", p);
+		p.columnDtl_dlv_fax = p.Dtl_dlv_p_PPanel.columnDlv_fax;
+		p.columnDtl_dlv_fax.addAliasName("Dtl.dlv_fax", p);
+		p.columnDtl_dlv_cntct_dpt = p.Dtl_dlv_p_PPanel.columnDlv_dlv_cntct_dpt;
+		p.columnDtl_dlv_cntct_dpt.addAliasName("Dtl.dlv_cntct_dpt", p);
+		p.columnDtl_dlv_cntct_psn = p.Dtl_dlv_p_PPanel.columnDlv_dlv_cntct_psn;
+		p.columnDtl_dlv_cntct_psn.addAliasName("Dtl.dlv_cntct_psn", p);
+		p.Dtl_tdlv_p_PPanel = mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$tdlv_p);
+		p.Dtl_tdlv_p_PPanel.setName("Dtl.tdlv_p");
+		p.columnDtl_tdlv_cd = p.Dtl_tdlv_p_PPanel.columnDlv_bp_cd;
+		p.columnDtl_tdlv_cd.addAliasName("Dtl.tdlv_cd", p);
+		p.columnDtl_tdlv_nm = p.Dtl_tdlv_p_PPanel.columnDlv_bp_nm;
+		p.columnDtl_tdlv_nm.addAliasName("Dtl.tdlv_nm", p);
+		p.columnDtl_tdlv_sundry_flg = p.Dtl_tdlv_p_PPanel.columnDlv_dlv_sundry_flg;
+		p.columnDtl_tdlv_sundry_flg.addAliasName("Dtl.tdlv_sundry_flg", p);
+		p.columnDtl_tdlv_show_dtl = p.Dtl_tdlv_p_PPanel.columnDlv_show_dtl;
+		p.columnDtl_tdlv_show_dtl.addAliasName("Dtl.tdlv_show_dtl", p);
+		p.columnDtl_tdlv_lg_grp_cd = p.Dtl_tdlv_p_PPanel.columnDlv_lg_grp_cd;
+		p.columnDtl_tdlv_lg_grp_cd.addAliasName("Dtl.tdlv_lg_grp_cd", p);
+		p.columnDtl_tdlv_lg_grp_nm = p.Dtl_tdlv_p_PPanel.columnDlv_lg_grp_nm;
+		p.columnDtl_tdlv_lg_grp_nm.addAliasName("Dtl.tdlv_lg_grp_nm", p);
+		p.columnDtl_tdlv_cntry_cd = p.Dtl_tdlv_p_PPanel.columnDlv_cntry_cd;
+		p.columnDtl_tdlv_cntry_cd.addAliasName("Dtl.tdlv_cntry_cd", p);
+		p.columnDtl_tdlv_cntry_nm = p.Dtl_tdlv_p_PPanel.columnDlv_cntry_nm;
+		p.columnDtl_tdlv_cntry_nm.addAliasName("Dtl.tdlv_cntry_nm", p);
+		p.columnDtl_tdlv_zip_cd = p.Dtl_tdlv_p_PPanel.columnDlv_zip_cd;
+		p.columnDtl_tdlv_zip_cd.addAliasName("Dtl.tdlv_zip_cd", p);
+		p.columnDtl_tdlv_addr1 = p.Dtl_tdlv_p_PPanel.columnDlv_addr1;
+		p.columnDtl_tdlv_addr1.addAliasName("Dtl.tdlv_addr1", p);
+		p.columnDtl_tdlv_addr2 = p.Dtl_tdlv_p_PPanel.columnDlv_addr2;
+		p.columnDtl_tdlv_addr2.addAliasName("Dtl.tdlv_addr2", p);
+		p.columnDtl_tdlv_addr3 = p.Dtl_tdlv_p_PPanel.columnDlv_addr3;
+		p.columnDtl_tdlv_addr3.addAliasName("Dtl.tdlv_addr3", p);
+		p.columnDtl_tdlv_addr4 = p.Dtl_tdlv_p_PPanel.columnDlv_addr4;
+		p.columnDtl_tdlv_addr4.addAliasName("Dtl.tdlv_addr4", p);
+		p.columnDtl_tdlv_tel = p.Dtl_tdlv_p_PPanel.columnDlv_tel;
+		p.columnDtl_tdlv_tel.addAliasName("Dtl.tdlv_tel", p);
+		p.columnDtl_tdlv_fax = p.Dtl_tdlv_p_PPanel.columnDlv_fax;
+		p.columnDtl_tdlv_fax.addAliasName("Dtl.tdlv_fax", p);
+		p.columnDtl_tdlv_cntct_dpt = p.Dtl_tdlv_p_PPanel.columnDlv_dlv_cntct_dpt;
+		p.columnDtl_tdlv_cntct_dpt.addAliasName("Dtl.tdlv_cntct_dpt", p);
+		p.columnDtl_tdlv_cntct_psn = p.Dtl_tdlv_p_PPanel.columnDlv_dlv_cntct_psn;
+		p.columnDtl_tdlv_cntct_psn.addAliasName("Dtl.tdlv_cntct_psn", p);
+		p.Dtl_str_ln_p_PPanel = mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$str_ln_p);
+		p.Dtl_str_ln_p_PPanel.setName("Dtl.str_ln_p");
+		p.columnDtl_str_ln_cd = p.Dtl_str_ln_p_PPanel.columnStrLn_str_ln_cd;
+		p.columnDtl_str_ln_cd.addAliasName("Dtl.str_ln_cd", p);
+		p.columnDtl_str_ln_nm = p.Dtl_str_ln_p_PPanel.columnStrLn_str_ln_nm;
+		p.columnDtl_str_ln_nm.addAliasName("Dtl.str_ln_nm", p);
+		p.columnDtl_str_ln_cd_none_flg = p.Dtl_str_ln_p_PPanel.columnStrLn_str_ln_cd_none_flg;
+		p.columnDtl_str_ln_cd_none_flg.addAliasName("Dtl.str_ln_cd_none_flg", p);
+		p.Dtl_lot_no_p_PPanel = mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$lot_no_p);
+		p.Dtl_lot_no_p_PPanel.setName("Dtl.lot_no_p");
+		p.columnDtl_lot_no = p.Dtl_lot_no_p_PPanel.columnLotNo_lot_no;
+		p.columnDtl_lot_no.addAliasName("Dtl.lot_no", p);
+		p.columnDtl_sublot_no = p.Dtl_lot_no_p_PPanel.columnLotNo_sublot_no;
+		p.columnDtl_sublot_no.addAliasName("Dtl.sublot_no", p);
+		p.Dtl_ver_no_p_PPanel = mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ver_no_p);
+		p.Dtl_ver_no_p_PPanel.setName("Dtl.ver_no_p");
+		p.columnDtl_ver_no = p.Dtl_ver_no_p_PPanel.columnVerNo_ver_no;
+		p.columnDtl_ver_no.addAliasName("Dtl.ver_no", p);
+		p.Dtl_base_unit_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$base_unit_qty_p);
+		p.Dtl_base_unit_qty_p_PPanel.setName("Dtl.base_unit_qty_p");
+		p.columnDtl_base_unit_qty = p.Dtl_base_unit_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_base_unit_qty.addAliasName("Dtl.base_unit_qty", p);
+		p.Dtl_alloc_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$alloc_qty_p);
+		p.Dtl_alloc_qty_p_PPanel.setName("Dtl.alloc_qty_p");
+		p.columnDtl_alloc_qty = p.Dtl_alloc_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_alloc_qty.addAliasName("Dtl.alloc_qty", p);
+		p.Dtl_wait_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$wait_qty_p);
+		p.Dtl_wait_qty_p_PPanel.setName("Dtl.wait_qty_p");
+		p.columnDtl_wait_qty = p.Dtl_wait_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_wait_qty.addAliasName("Dtl.wait_qty", p);
+		p.Dtl_ship_inst_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_inst_qty_p);
+		p.Dtl_ship_inst_qty_p_PPanel.setName("Dtl.ship_inst_qty_p");
+		p.columnDtl_ship_inst_qty = p.Dtl_ship_inst_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_ship_inst_qty.addAliasName("Dtl.ship_inst_qty", p);
+		p.Dtl_ship_act_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_act_qty_p);
+		p.Dtl_ship_act_qty_p_PPanel.setName("Dtl.ship_act_qty_p");
+		p.columnDtl_ship_act_qty = p.Dtl_ship_act_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_ship_act_qty.addAliasName("Dtl.ship_act_qty", p);
+		p.Dtl_iv_schd_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$iv_schd_qty_p);
+		p.Dtl_iv_schd_qty_p_PPanel.setName("Dtl.iv_schd_qty_p");
+		p.columnDtl_iv_schd_qty = p.Dtl_iv_schd_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_iv_schd_qty.addAliasName("Dtl.iv_schd_qty", p);
+		p.Dtl_iv_act_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$iv_act_qty_p);
+		p.Dtl_iv_act_qty_p_PPanel.setName("Dtl.iv_act_qty_p");
+		p.columnDtl_iv_act_qty = p.Dtl_iv_act_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_iv_act_qty.addAliasName("Dtl.iv_act_qty", p);
+		p.Dtl_sls_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$sls_qty_p);
+		p.Dtl_sls_qty_p_PPanel.setName("Dtl.sls_qty_p");
+		p.columnDtl_sls_qty = p.Dtl_sls_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_sls_qty.addAliasName("Dtl.sls_qty", p);
+		p.Dtl_ship_ret_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_ret_qty_p);
+		p.Dtl_ship_ret_qty_p_PPanel.setName("Dtl.ship_ret_qty_p");
+		p.columnDtl_ship_ret_qty = p.Dtl_ship_ret_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_ship_ret_qty.addAliasName("Dtl.ship_ret_qty", p);
+		p.Dtl_re_ship_schd_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$re_ship_schd_qty_p);
+		p.Dtl_re_ship_schd_qty_p_PPanel.setName("Dtl.re_ship_schd_qty_p");
+		p.columnDtl_re_ship_schd_qty = p.Dtl_re_ship_schd_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_re_ship_schd_qty.addAliasName("Dtl.re_ship_schd_qty", p);
+		p.Dtl_ship_schd_abort_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$ship_schd_abort_qty_p);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.setName("Dtl.ship_schd_abort_qty_p");
+		p.columnDtl_ship_schd_abort_qty = p.Dtl_ship_schd_abort_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_ship_schd_abort_qty.addAliasName("Dtl.ship_schd_abort_qty", p);
+		p.Dtl_sls_schd_abort_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$sls_schd_abort_qty_p);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.setName("Dtl.sls_schd_abort_qty_p");
+		p.columnDtl_sls_schd_abort_qty = p.Dtl_sls_schd_abort_qty_p_PPanel.columnQty_qty;
+		p.columnDtl_sls_schd_abort_qty.addAliasName("Dtl.sls_schd_abort_qty", p);
+		p.Dtl_old_trd_cur_upri_p_PPanel = mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.create(mcframe.clientMSBB.MSBBP1210.DtlR.$old_trd_cur_upri_p);
+		p.Dtl_old_trd_cur_upri_p_PPanel.setName("Dtl.old_trd_cur_upri_p");
+		p.columnDtl_old_trd_cur_upri = p.Dtl_old_trd_cur_upri_p_PPanel.columnUpri_upri;
+		p.columnDtl_old_trd_cur_upri.addAliasName("Dtl.old_trd_cur_upri", p);
+	}
+
+	/**
+	 * [Btn]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateBtn(MSBBP_SloReg p) {
+		p.Btn_open_MSBEP0500_p_PPanel = mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.create();
+		p.Btn_open_MSBEP0500_p_PPanel.setName("Btn.open_MSBEP0500_p");
+		p.Btn_menu_move_p_PPanel = mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.create();
+		p.Btn_menu_move_p_PPanel.setName("Btn.menu_move_p");
+	}
+
+	/**
+	 * [EastBtn]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
+	 */
+	protected static void jbCreateEastBtn(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * この画面のステータスのSet集合を返します。
+	 * 
+	 * @return ステータスのSet
+	 */
+	@Override
+	public Set<String> getStatusSet(){
+		Set<String> sSet = super.getStatusSet();
+		for(String aStr : statusArray) sSet.add(aStr);
+		return sSet;
+	}
+
+	
+	/** [Cnd_srch_tgt_typ_nm_ListPutter]の定義 */
+	private MCListPutter Cnd_srch_tgt_typ_nm_p = null;
+
+	/**
+	 * [Cnd_srch_tgt_typ_nm_ListPutter]の取得
+	 */
+	protected MCListPutter getCnd_srch_tgt_typ_nm_ListPutter() {
+		if (Cnd_srch_tgt_typ_nm_p == null) {
+			Cnd_srch_tgt_typ_nm_p = createCnd_srch_tgt_typ_nm_ListPutter(Cnd_srch_tgt_typ_nm, "srch_tgt_typ_nm", "srch_tgt_typ");
+
+		}
+		return Cnd_srch_tgt_typ_nm_p;
+	}
+	
+	
+	/** [Hdr_trd_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_trd_cd_p = null;
+
+	/**
+	 * [Hdr_trd_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_trd_cd_ListPutter() {
+		if (Hdr_trd_cd_p == null) {
+			Hdr_trd_cd_p = createHdr_trd_cd_ListPutter(Hdr_trd_cd, "trd_cd", "trd_nm","trd_ptn_typ");
+
+		}
+		return Hdr_trd_cd_p;
+	}
+	
+	
+	/** [Hdr_slo_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_slo_typ_p = null;
+
+	/**
+	 * [Hdr_slo_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_slo_typ_ListPutter() {
+		if (Hdr_slo_typ_p == null) {
+			Hdr_slo_typ_p = createHdr_slo_typ_ListPutter(Hdr_slo_typ, "slo_typ", "slo_typ_nm");
+
+		}
+		return Hdr_slo_typ_p;
+	}
+	
+	
+	/** [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_dlv_p_PPanel_Dlv_bp_cd_p = null;
+
+	/**
+	 * [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter() {
+		if (Hdr_dlv_p_PPanel_Dlv_bp_cd_p == null) {
+			Hdr_dlv_p_PPanel_Dlv_bp_cd_p = createHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter(Hdr_dlv_p_PPanel.Dlv_bp_cd, "dlv_cd", "dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_cntry_cd","dlv_cntry_nm","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","dlv_lg_grp_cd","tdlv_req_flg","def_cst_cd","prnt_lcl_cd");
+		}
+		return Hdr_dlv_p_PPanel_Dlv_bp_cd_p;
+	}
+	
+	
+	/** [Hdr_dest_cd1_ListPutter]の定義 */
+	private MCListPutter Hdr_dest_cd1_p = null;
+
+	/**
+	 * [Hdr_dest_cd1_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dest_cd1_ListPutter() {
+		if (Hdr_dest_cd1_p == null) {
+			Hdr_dest_cd1_p = createHdr_dest_cd1_ListPutter(Hdr_dest_cd1, "dest_cd1", "dest_nm1");
+
+		}
+		return Hdr_dest_cd1_p;
+	}
+	
+	
+	/** [Hdr_dest_cd2_ListPutter]の定義 */
+	private MCListPutter Hdr_dest_cd2_p = null;
+
+	/**
+	 * [Hdr_dest_cd2_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dest_cd2_ListPutter() {
+		if (Hdr_dest_cd2_p == null) {
+			Hdr_dest_cd2_p = createHdr_dest_cd2_ListPutter(Hdr_dest_cd2, "dest_cd2", "dest_nm2");
+
+		}
+		return Hdr_dest_cd2_p;
+	}
+	
+	
+	/** [Hdr_dest_cd3_ListPutter]の定義 */
+	private MCListPutter Hdr_dest_cd3_p = null;
+
+	/**
+	 * [Hdr_dest_cd3_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dest_cd3_ListPutter() {
+		if (Hdr_dest_cd3_p == null) {
+			Hdr_dest_cd3_p = createHdr_dest_cd3_ListPutter(Hdr_dest_cd3, "dest_cd3", "dest_nm3");
+
+		}
+		return Hdr_dest_cd3_p;
+	}
+	
+	
+	/** [Hdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_tdlv_p_PPanel_Dlv_bp_cd_p = null;
+
+	/**
+	 * [Hdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter() {
+		if (Hdr_tdlv_p_PPanel_Dlv_bp_cd_p == null) {
+			Hdr_tdlv_p_PPanel_Dlv_bp_cd_p = createHdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter(Hdr_tdlv_p_PPanel.Dlv_bp_cd, "tdlv_cd", "tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","via_dlv_typ");
+		}
+		return Hdr_tdlv_p_PPanel_Dlv_bp_cd_p;
+	}
+	
+	
+	/** [Hdr_via_dlv_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_via_dlv_typ_p = null;
+
+	/**
+	 * [Hdr_via_dlv_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_via_dlv_typ_ListPutter() {
+		if (Hdr_via_dlv_typ_p == null) {
+			Hdr_via_dlv_typ_p = createHdr_via_dlv_typ_ListPutter(Hdr_via_dlv_typ, "via_dlv_typ", "via_dlv_typ_nm");
+
+		}
+		return Hdr_via_dlv_typ_p;
+	}
+	
+	
+	/** [Hdr_cst_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_cst_cd_p = null;
+
+	/**
+	 * [Hdr_cst_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_cst_cd_ListPutter() {
+		if (Hdr_cst_cd_p == null) {
+			Hdr_cst_cd_p = createHdr_cst_cd_ListPutter(Hdr_cst_cd, "cst_cd", "cst_nm","sls_basis_typ","bp_sls_basis_typ","trd_cur_cd","tterm_cd1","tterm_cd2","tterm_cd3","acst_cd","acst_nm","cst_iv_flg","sls_amt_rnd_typ","sls_tax_rnd_typ","sls_upri_cng_flg","cst_usr_cd","cst_dpt_cd","ar_dpt_typ","lnk_ar_dpt_cd","sls_upri_req_typ","ship_schd_split_typ","cst_bill_crryovr_times","hdr_not_lg_mix_flg","hdr_not_lot_mix_flg","hdr_not_sublot_mix_flg");
+
+		}
+		return Hdr_cst_cd_p;
+	}
+	
+	
+	/** [Hdr_sls_basis_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_sls_basis_typ_p = null;
+
+	/**
+	 * [Hdr_sls_basis_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_sls_basis_typ_ListPutter() {
+		if (Hdr_sls_basis_typ_p == null) {
+			Hdr_sls_basis_typ_p = createHdr_sls_basis_typ_ListPutter(Hdr_sls_basis_typ, "sls_basis_typ", "sls_basis_typ_nm");
+
+		}
+		return Hdr_sls_basis_typ_p;
+	}
+	
+	
+	/** [Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_p = null;
+
+	/**
+	 * [Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter() {
+		if (Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_p == null) {
+			Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_p = createHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter(Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd, "sls_dpt_cd", "sls_dpt_nm","wg_cd","wg_nm");
+		}
+		return Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_p;
+	}
+	
+	
+	/** [Hdr_trd_cur_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_trd_cur_cd_p = null;
+
+	/**
+	 * [Hdr_trd_cur_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_trd_cur_cd_ListPutter() {
+		if (Hdr_trd_cur_cd_p == null) {
+			Hdr_trd_cur_cd_p = createHdr_trd_cur_cd_ListPutter(Hdr_trd_cur_cd, "trd_cur_cd", "trd_cur_nm","trd_cur_amt_dec_place","trd_cur_upri_dec_place");
+
+		}
+		return Hdr_trd_cur_cd_p;
+	}
+	
+	
+	/** [Hdr_assort_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_assort_typ_p = null;
+
+	/**
+	 * [Hdr_assort_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_assort_typ_ListPutter() {
+		if (Hdr_assort_typ_p == null) {
+			Hdr_assort_typ_p = createHdr_assort_typ_ListPutter(Hdr_assort_typ, "assort_typ", "assort_typ_nm");
+
+		}
+		return Hdr_assort_typ_p;
+	}
+	
+	
+	/** [Hdr_adv_ship_ctrl_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_adv_ship_ctrl_typ_p = null;
+
+	/**
+	 * [Hdr_adv_ship_ctrl_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_adv_ship_ctrl_typ_ListPutter() {
+		if (Hdr_adv_ship_ctrl_typ_p == null) {
+			Hdr_adv_ship_ctrl_typ_p = createHdr_adv_ship_ctrl_typ_ListPutter(Hdr_adv_ship_ctrl_typ, "adv_ship_ctrl_typ", "adv_ship_ctrl_typ_nm");
+
+		}
+		return Hdr_adv_ship_ctrl_typ_p;
+	}
+	
+	
+	/** [Hdr_rcpt_usr_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_rcpt_usr_cd_p = null;
+
+	/**
+	 * [Hdr_rcpt_usr_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_rcpt_usr_cd_ListPutter() {
+		if (Hdr_rcpt_usr_cd_p == null) {
+			Hdr_rcpt_usr_cd_p = createHdr_rcpt_usr_cd_ListPutter(Hdr_rcpt_usr_cd, "rcpt_usr_cd", "rcpt_usr_nm");
+
+		}
+		return Hdr_rcpt_usr_cd_p;
+	}
+	
+	
+	/** [Hdr_ar_dpt_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_ar_dpt_cd_p = null;
+
+	/**
+	 * [Hdr_ar_dpt_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_ar_dpt_cd_ListPutter() {
+		if (Hdr_ar_dpt_cd_p == null) {
+			Hdr_ar_dpt_cd_p = createHdr_ar_dpt_cd_ListPutter(Hdr_ar_dpt_cd, "ar_dpt_cd", "ar_dpt_nm");
+
+		}
+		return Hdr_ar_dpt_cd_p;
+	}
+	
+	
+	/** [Hdr_trnspt_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_trnspt_cd_p = null;
+
+	/**
+	 * [Hdr_trnspt_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_trnspt_cd_ListPutter() {
+		if (Hdr_trnspt_cd_p == null) {
+			Hdr_trnspt_cd_p = createHdr_trnspt_cd_ListPutter(Hdr_trnspt_cd, "trnspt_cd", "trnspt_nm");
+
+		}
+		return Hdr_trnspt_cd_p;
+	}
+	
+	
+	/** [Hdr_load_port_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_load_port_cd_p = null;
+
+	/**
+	 * [Hdr_load_port_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_load_port_cd_ListPutter() {
+		if (Hdr_load_port_cd_p == null) {
+			Hdr_load_port_cd_p = createHdr_load_port_cd_ListPutter(Hdr_load_port_cd, "load_port_cd", "load_port_nm");
+
+		}
+		return Hdr_load_port_cd_p;
+	}
+	
+	
+	/** [Hdr_dschrg_port_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_dschrg_port_cd_p = null;
+
+	/**
+	 * [Hdr_dschrg_port_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dschrg_port_cd_ListPutter() {
+		if (Hdr_dschrg_port_cd_p == null) {
+			Hdr_dschrg_port_cd_p = createHdr_dschrg_port_cd_ListPutter(Hdr_dschrg_port_cd, "dschrg_port_cd", "dschrg_port_nm");
+
+		}
+		return Hdr_dschrg_port_cd_p;
+	}
+	
+	
+	/** [Hdr_via_port_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_via_port_cd_p = null;
+
+	/**
+	 * [Hdr_via_port_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_via_port_cd_ListPutter() {
+		if (Hdr_via_port_cd_p == null) {
+			Hdr_via_port_cd_p = createHdr_via_port_cd_ListPutter(Hdr_via_port_cd, "via_port_cd", "via_port_nm");
+
+		}
+		return Hdr_via_port_cd_p;
+	}
+	
+	
+	/** [Hdr_tterm_cd1_ListPutter]の定義 */
+	private MCListPutter Hdr_tterm_cd1_p = null;
+
+	/**
+	 * [Hdr_tterm_cd1_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_tterm_cd1_ListPutter() {
+		if (Hdr_tterm_cd1_p == null) {
+			Hdr_tterm_cd1_p = createHdr_tterm_cd1_ListPutter(Hdr_tterm_cd1, "tterm_cd1", "tterm_nm1");
+
+		}
+		return Hdr_tterm_cd1_p;
+	}
+	
+	
+	/** [Hdr_tterm_cd2_ListPutter]の定義 */
+	private MCListPutter Hdr_tterm_cd2_p = null;
+
+	/**
+	 * [Hdr_tterm_cd2_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_tterm_cd2_ListPutter() {
+		if (Hdr_tterm_cd2_p == null) {
+			Hdr_tterm_cd2_p = createHdr_tterm_cd2_ListPutter(Hdr_tterm_cd2, "tterm_cd2", "tterm_nm2");
+
+		}
+		return Hdr_tterm_cd2_p;
+	}
+	
+	
+	/** [Hdr_tterm_cd3_ListPutter]の定義 */
+	private MCListPutter Hdr_tterm_cd3_p = null;
+
+	/**
+	 * [Hdr_tterm_cd3_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_tterm_cd3_ListPutter() {
+		if (Hdr_tterm_cd3_p == null) {
+			Hdr_tterm_cd3_p = createHdr_tterm_cd3_ListPutter(Hdr_tterm_cd3, "tterm_cd3", "tterm_nm3");
+
+		}
+		return Hdr_tterm_cd3_p;
+	}
+	
+	
+	/** [Hdr_can_rsn_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_can_rsn_cd_p = null;
+
+	/**
+	 * [Hdr_can_rsn_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_can_rsn_cd_ListPutter() {
+		if (Hdr_can_rsn_cd_p == null) {
+			Hdr_can_rsn_cd_p = createHdr_can_rsn_cd_ListPutter(Hdr_can_rsn_cd, "can_rsn_cd", "can_rsn_nm");
+
+		}
+		return Hdr_can_rsn_cd_p;
+	}
+	
+	
+	/** [Hdr_dlv_day_week_typ_nm_ListPutter]の定義 */
+	private MCListPutter Hdr_dlv_day_week_typ_nm_p = null;
+
+	/**
+	 * [Hdr_dlv_day_week_typ_nm_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_dlv_day_week_typ_nm_ListPutter() {
+		if (Hdr_dlv_day_week_typ_nm_p == null) {
+			Hdr_dlv_day_week_typ_nm_p = createHdr_dlv_day_week_typ_nm_ListPutter(Hdr_dlv_day_week_typ_nm, "dlv_day_week_typ_nm", "dlv_day_week_typ");
+
+		}
+		return Hdr_dlv_day_week_typ_nm_p;
+	}
+	
+	
+	/** [Dtl_cst_itm_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_cst_itm_cd_p = null;
+
+	/**
+	 * [Dtl_cst_itm_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_cst_itm_cd_ListPutter() {
+		if (Dtl_cst_itm_cd_p == null) {
+			Dtl_cst_itm_cd_p = createDtl_cst_itm_cd_ListPutter(columnDtl_cst_itm_cd, "cst_itm_cd", "cst_itm_nm","itm_cd","itm_sub1","itm_sub2","itm_sub3");
+
+		}
+		return Dtl_cst_itm_cd_p;
+	}
+	
+	
+	/** [Dtl_itm_p_PPanel_columnItm_itm_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_itm_p_PPanel_columnItm_itm_cd_p = null;
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter() {
+		if (Dtl_itm_p_PPanel_columnItm_itm_cd_p == null) {
+			Dtl_itm_p_PPanel_columnItm_itm_cd_p = createDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_cd, "itm_cd", "itm_sub1","itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn");
+		}
+		return Dtl_itm_p_PPanel_columnItm_itm_cd_p;
+	}
+	
+	
+	/** [Dtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter]の定義 */
+	private MCListPutter Dtl_itm_p_PPanel_columnItm_itm_sub1_p = null;
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter() {
+		if (Dtl_itm_p_PPanel_columnItm_itm_sub1_p == null) {
+			Dtl_itm_p_PPanel_columnItm_itm_sub1_p = createDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub1, "itm_sub1", "itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn");
+		}
+		return Dtl_itm_p_PPanel_columnItm_itm_sub1_p;
+	}
+	
+	
+	/** [Dtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter]の定義 */
+	private MCListPutter Dtl_itm_p_PPanel_columnItm_itm_sub2_p = null;
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter() {
+		if (Dtl_itm_p_PPanel_columnItm_itm_sub2_p == null) {
+			Dtl_itm_p_PPanel_columnItm_itm_sub2_p = createDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub2, "itm_sub2", "itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn");
+		}
+		return Dtl_itm_p_PPanel_columnItm_itm_sub2_p;
+	}
+	
+	
+	/** [Dtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter]の定義 */
+	private MCListPutter Dtl_itm_p_PPanel_columnItm_itm_sub3_p = null;
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter() {
+		if (Dtl_itm_p_PPanel_columnItm_itm_sub3_p == null) {
+			Dtl_itm_p_PPanel_columnItm_itm_sub3_p = createDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub3, "itm_sub3", "itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn");
+		}
+		return Dtl_itm_p_PPanel_columnItm_itm_sub3_p;
+	}
+	
+	
+	/** [Dtl_cntry_org_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_cntry_org_cd_p = null;
+
+	/**
+	 * [Dtl_cntry_org_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_cntry_org_cd_ListPutter() {
+		if (Dtl_cntry_org_cd_p == null) {
+			Dtl_cntry_org_cd_p = createDtl_cntry_org_cd_ListPutter(columnDtl_cntry_org_cd, "cntry_org_cd", "cntry_org_nm");
+
+		}
+		return Dtl_cntry_org_cd_p;
+	}
+	
+	
+	/** [Dtl_trd_unit_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_trd_unit_cd_p = null;
+
+	/**
+	 * [Dtl_trd_unit_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_trd_unit_cd_ListPutter() {
+		if (Dtl_trd_unit_cd_p == null) {
+			Dtl_trd_unit_cd_p = createDtl_trd_unit_cd_ListPutter(columnDtl_trd_unit_cd, "trd_unit_cd", "trd_unit_nm","trd_unit_dec_place","trd_unit_conv_base_qty","trd_unit_conv_qty");
+
+		}
+		return Dtl_trd_unit_cd_p;
+	}
+	
+	
+	/** [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_p = null;
+
+	/**
+	 * [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter() {
+		if (Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_p == null) {
+			Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_p = createDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter(Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd, "tax_cd", "tax_nm","tax_rate","tax_typ","inc_tax_flg");
+		}
+		return Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_p;
+	}
+	
+	
+	/** [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_p = null;
+
+	/**
+	 * [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter() {
+		if (Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_p == null) {
+			Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_p = createDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter(Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd, "dscnt_rsn_cd", "dscnt_rsn_nm");
+		}
+		return Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_p;
+	}
+	
+	
+	/** [Dtl_gd_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_gd_cd_p = null;
+
+	/**
+	 * [Dtl_gd_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_gd_cd_ListPutter() {
+		if (Dtl_gd_cd_p == null) {
+			Dtl_gd_cd_p = createDtl_gd_cd_ListPutter(columnDtl_gd_cd, "gd_cd", "gd_nm");
+
+		}
+		return Dtl_gd_cd_p;
+	}
+	
+	
+	/** [Dtl_dlv_day_week_typ_nm_ListPutter]の定義 */
+	private MCListPutter Dtl_dlv_day_week_typ_nm_p = null;
+
+	/**
+	 * [Dtl_dlv_day_week_typ_nm_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_dlv_day_week_typ_nm_ListPutter() {
+		if (Dtl_dlv_day_week_typ_nm_p == null) {
+			Dtl_dlv_day_week_typ_nm_p = createDtl_dlv_day_week_typ_nm_ListPutter(columnDtl_dlv_day_week_typ_nm, "dlv_day_week_typ_nm", "dlv_day_week_typ");
+
+		}
+		return Dtl_dlv_day_week_typ_nm_p;
+	}
+	
+	
+	/** [Dtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_dlv_p_PPanel_columnDlv_bp_cd_p = null;
+
+	/**
+	 * [Dtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter() {
+		if (Dtl_dlv_p_PPanel_columnDlv_bp_cd_p == null) {
+			Dtl_dlv_p_PPanel_columnDlv_bp_cd_p = createDtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter(Dtl_dlv_p_PPanel.columnDlv_bp_cd, "dlv_cd", "dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_cntry_cd","dlv_cntry_nm","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","dlv_lg_grp_cd","tdlv_req_flg","prnt_lcl_cd");
+		}
+		return Dtl_dlv_p_PPanel_columnDlv_bp_cd_p;
+	}
+	
+	
+	/** [Dtl_dest_cd1_ListPutter]の定義 */
+	private MCListPutter Dtl_dest_cd1_p = null;
+
+	/**
+	 * [Dtl_dest_cd1_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_dest_cd1_ListPutter() {
+		if (Dtl_dest_cd1_p == null) {
+			Dtl_dest_cd1_p = createDtl_dest_cd1_ListPutter(columnDtl_dest_cd1, "dest_cd1", "dest_nm1");
+
+		}
+		return Dtl_dest_cd1_p;
+	}
+	
+	
+	/** [Dtl_dest_cd2_ListPutter]の定義 */
+	private MCListPutter Dtl_dest_cd2_p = null;
+
+	/**
+	 * [Dtl_dest_cd2_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_dest_cd2_ListPutter() {
+		if (Dtl_dest_cd2_p == null) {
+			Dtl_dest_cd2_p = createDtl_dest_cd2_ListPutter(columnDtl_dest_cd2, "dest_cd2", "dest_nm2");
+
+		}
+		return Dtl_dest_cd2_p;
+	}
+	
+	
+	/** [Dtl_dest_cd3_ListPutter]の定義 */
+	private MCListPutter Dtl_dest_cd3_p = null;
+
+	/**
+	 * [Dtl_dest_cd3_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_dest_cd3_ListPutter() {
+		if (Dtl_dest_cd3_p == null) {
+			Dtl_dest_cd3_p = createDtl_dest_cd3_ListPutter(columnDtl_dest_cd3, "dest_cd3", "dest_nm3");
+
+		}
+		return Dtl_dest_cd3_p;
+	}
+	
+	
+	/** [Dtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_tdlv_p_PPanel_columnDlv_bp_cd_p = null;
+
+	/**
+	 * [Dtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter() {
+		if (Dtl_tdlv_p_PPanel_columnDlv_bp_cd_p == null) {
+			Dtl_tdlv_p_PPanel_columnDlv_bp_cd_p = createDtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter(Dtl_tdlv_p_PPanel.columnDlv_bp_cd, "tdlv_cd", "tdlv_nm","tdlv_sundry_flg","tdlv_cntct_dpt","tdlv_cntct_psn","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_lg_grp_cd","via_dlv_typ","tdlv_cntry_cd","tdlv_cntry_nm");
+		}
+		return Dtl_tdlv_p_PPanel_columnDlv_bp_cd_p;
+	}
+	
+	
+	/** [Dtl_via_dlv_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_via_dlv_typ_p = null;
+
+	/**
+	 * [Dtl_via_dlv_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_via_dlv_typ_ListPutter() {
+		if (Dtl_via_dlv_typ_p == null) {
+			Dtl_via_dlv_typ_p = createDtl_via_dlv_typ_ListPutter(columnDtl_via_dlv_typ, "via_dlv_typ", "via_dlv_typ_nm");
+
+		}
+		return Dtl_via_dlv_typ_p;
+	}
+	
+	
+	/** [Dtl_proc_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_proc_typ_p = null;
+
+	/**
+	 * [Dtl_proc_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_proc_typ_ListPutter() {
+		if (Dtl_proc_typ_p == null) {
+			Dtl_proc_typ_p = createDtl_proc_typ_ListPutter(columnDtl_proc_typ, "proc_typ", "proc_typ_nm");
+
+		}
+		return Dtl_proc_typ_p;
+	}
+	
+	
+	/** [Dtl_ship_inst_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_ship_inst_typ_p = null;
+
+	/**
+	 * [Dtl_ship_inst_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_ship_inst_typ_ListPutter() {
+		if (Dtl_ship_inst_typ_p == null) {
+			Dtl_ship_inst_typ_p = createDtl_ship_inst_typ_ListPutter(columnDtl_ship_inst_typ, "ship_inst_typ", "ship_inst_typ_nm");
+
+		}
+		return Dtl_ship_inst_typ_p;
+	}
+	
+	
+	/** [Dtl_ship_schd_split_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_ship_schd_split_typ_p = null;
+
+	/**
+	 * [Dtl_ship_schd_split_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_ship_schd_split_typ_ListPutter() {
+		if (Dtl_ship_schd_split_typ_p == null) {
+			Dtl_ship_schd_split_typ_p = createDtl_ship_schd_split_typ_ListPutter(columnDtl_ship_schd_split_typ, "ship_schd_split_typ", "ship_schd_split_typ_nm");
+
+		}
+		return Dtl_ship_schd_split_typ_p;
+	}
+	
+	
+	/** [Dtl_alloc_scope_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_alloc_scope_typ_p = null;
+
+	/**
+	 * [Dtl_alloc_scope_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_alloc_scope_typ_ListPutter() {
+		if (Dtl_alloc_scope_typ_p == null) {
+			Dtl_alloc_scope_typ_p = createDtl_alloc_scope_typ_ListPutter(columnDtl_alloc_scope_typ, "alloc_scope_typ", "alloc_scope_typ_nm");
+
+		}
+		return Dtl_alloc_scope_typ_p;
+	}
+	
+	
+	/** [Dtl_alloc_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_alloc_typ_p = null;
+
+	/**
+	 * [Dtl_alloc_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_alloc_typ_ListPutter() {
+		if (Dtl_alloc_typ_p == null) {
+			Dtl_alloc_typ_p = createDtl_alloc_typ_ListPutter(columnDtl_alloc_typ, "alloc_typ", "alloc_typ_nm");
+
+		}
+		return Dtl_alloc_typ_p;
+	}
+	
+	
+	/** [Dtl_alloc_grp_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_alloc_grp_cd_p = null;
+
+	/**
+	 * [Dtl_alloc_grp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_alloc_grp_cd_ListPutter() {
+		if (Dtl_alloc_grp_cd_p == null) {
+			Dtl_alloc_grp_cd_p = createDtl_alloc_grp_cd_ListPutter(columnDtl_alloc_grp_cd, "alloc_grp_cd", "alloc_grp_nm");
+
+		}
+		return Dtl_alloc_grp_cd_p;
+	}
+	
+	
+	/** [Dtl_ship_lg_grp_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_ship_lg_grp_cd_p = null;
+
+	/**
+	 * [Dtl_ship_lg_grp_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_ship_lg_grp_cd_ListPutter() {
+		if (Dtl_ship_lg_grp_cd_p == null) {
+			Dtl_ship_lg_grp_cd_p = createDtl_ship_lg_grp_cd_ListPutter(columnDtl_ship_lg_grp_cd, "ship_lg_grp_cd", "ship_lg_grp_nm");
+
+		}
+		return Dtl_ship_lg_grp_cd_p;
+	}
+	
+	
+	/** [Dtl_loc_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_loc_cd_p = null;
+
+	/**
+	 * [Dtl_loc_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_loc_cd_ListPutter() {
+		if (Dtl_loc_cd_p == null) {
+			Dtl_loc_cd_p = createDtl_loc_cd_ListPutter(columnDtl_loc_cd, "loc_cd", "loc_nm","str_ln_tgt_flg","wg_cd");
+
+		}
+		return Dtl_loc_cd_p;
+	}
+	
+	
+	/** [Dtl_rqst_to_loc_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_rqst_to_loc_cd_p = null;
+
+	/**
+	 * [Dtl_rqst_to_loc_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_rqst_to_loc_cd_ListPutter() {
+		if (Dtl_rqst_to_loc_cd_p == null) {
+			Dtl_rqst_to_loc_cd_p = createDtl_rqst_to_loc_cd_ListPutter(columnDtl_rqst_to_loc_cd, "rqst_to_loc_cd", "rqst_to_loc_nm");
+
+		}
+		return Dtl_rqst_to_loc_cd_p;
+	}
+	
+	
+	/** [Dtl_sppl_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_sppl_cd_p = null;
+
+	/**
+	 * [Dtl_sppl_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_sppl_cd_ListPutter() {
+		if (Dtl_sppl_cd_p == null) {
+			Dtl_sppl_cd_p = createDtl_sppl_cd_ListPutter(columnDtl_sppl_cd, "sppl_cd", "sppl_nm");
+
+		}
+		return Dtl_sppl_cd_p;
+	}
+	
+	
+	/** [Dtl_maker_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_maker_cd_p = null;
+
+	/**
+	 * [Dtl_maker_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_maker_cd_ListPutter() {
+		if (Dtl_maker_cd_p == null) {
+			Dtl_maker_cd_p = createDtl_maker_cd_ListPutter(columnDtl_maker_cd, "maker_cd", "maker_nm");
+
+		}
+		return Dtl_maker_cd_p;
+	}
+	
+	
+	/** [Dtl_ship_term_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_ship_term_cd_p = null;
+
+	/**
+	 * [Dtl_ship_term_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_ship_term_cd_ListPutter() {
+		if (Dtl_ship_term_cd_p == null) {
+			Dtl_ship_term_cd_p = createDtl_ship_term_cd_ListPutter(columnDtl_ship_term_cd, "ship_term_cd", "ship_term_nm");
+
+		}
+		return Dtl_ship_term_cd_p;
+	}
+	
+	
+	/** [Dtl_sls_rsn_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_sls_rsn_cd_p = null;
+
+	/**
+	 * [Dtl_sls_rsn_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_sls_rsn_cd_ListPutter() {
+		if (Dtl_sls_rsn_cd_p == null) {
+			Dtl_sls_rsn_cd_p = createDtl_sls_rsn_cd_ListPutter(columnDtl_sls_rsn_cd, "sls_rsn_cd", "sls_rsn_nm","sls_acxfr_flg");
+
+		}
+		return Dtl_sls_rsn_cd_p;
+	}
+	
+	
+	/** [Dtl_bd_dpt_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_bd_dpt_cd_p = null;
+
+	/**
+	 * [Dtl_bd_dpt_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_bd_dpt_cd_ListPutter() {
+		if (Dtl_bd_dpt_cd_p == null) {
+			Dtl_bd_dpt_cd_p = createDtl_bd_dpt_cd_ListPutter(columnDtl_bd_dpt_cd, "bd_dpt_cd", "bd_dpt_nm");
+
+		}
+		return Dtl_bd_dpt_cd_p;
+	}
+	
+	
+	/** [Dtl_sls_upri_req_typ_ListPutter]の定義 */
+	private MCListPutter Dtl_sls_upri_req_typ_p = null;
+
+	/**
+	 * [Dtl_sls_upri_req_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_sls_upri_req_typ_ListPutter() {
+		if (Dtl_sls_upri_req_typ_p == null) {
+			Dtl_sls_upri_req_typ_p = createDtl_sls_upri_req_typ_ListPutter(columnDtl_sls_upri_req_typ, "sls_upri_req_typ", "sls_upri_req_typ_nm");
+
+		}
+		return Dtl_sls_upri_req_typ_p;
+	}
+	
+	
+	/** [Dtl_can_rsn_cd_ListPutter]の定義 */
+	private MCListPutter Dtl_can_rsn_cd_p = null;
+
+	/**
+	 * [Dtl_can_rsn_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getDtl_can_rsn_cd_ListPutter() {
+		if (Dtl_can_rsn_cd_p == null) {
+			Dtl_can_rsn_cd_p = createDtl_can_rsn_cd_ListPutter(columnDtl_can_rsn_cd, "can_rsn_cd", "can_rsn_nm");
+
+		}
+		return Dtl_can_rsn_cd_p;
+	}
+	
+
+	/**
+	 * この画面を埋め込み画面として作成します。
+	 */
+	public static MSBBP_SloReg create(){
+		MSBBP_SloReg p = new MSBBP_SloReg();
+		p.jbCreate();
+		setParts(p);
+		p.appInit();
+		return p;
+	}
+
+	/**
+	 * この画面を埋め込み画面として作成します。
+	 */
+	public static MSBBP_SloReg create(String name){
+		MSBBP_SloReg p = new MSBBP_SloReg(name);
+		p.jbCreate();
+		setParts(p);
+		p.appInit();
+		return p;
+	}
+
+	/**
+	 * 画面部品初期設定
+	 */
+	protected void jbInit() {
+		super.jbInit();
+		MSBBP_SloReg_MC.jbfInitScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitCnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitHdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitHdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitHdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitBulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitDtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbfInitEastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitCnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitHdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitHdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitHdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitBulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitDtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.jbInitEastBtn((MSBBP_SloReg)this);
+	}
+
+	/**
+	 * [ScreenOpe]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitScreenOpe(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.ScreenOpePanel = p.beansFactory.createPanel("ScreenOpe");
+		p.ScreenOpeTitledBorder = p.beansFactory.createTitledBorder();
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Cnd]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitCnd(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.CndPanel = p.beansFactory.createPanel("Cnd");
+		p.CndTitledBorder = p.beansFactory.createTitledBorder();
+		// ブロックの項目の初期化
+		p.Cnd_ope_Group = p.beansFactory.createButtonGroup("Cnd.ope");
+		p.Cnd_ope_INS = p.beansFactory.createRadioButton("Cnd.ope_INS");
+		p.Cnd_ope_UPD = p.beansFactory.createRadioButton("Cnd.ope_UPD");
+		p.Cnd_ope_DEL = p.beansFactory.createRadioButton("Cnd.ope_DEL");
+		p.Cnd_ope_REF = p.beansFactory.createRadioButton("Cnd.ope_REF");
+		p.Cnd_srch_tgt_typ = p.beansFactory.createTextField("Cnd.srch_tgt_typ");
+		p.Cnd_srch_tgt_typ_nm_Label = p.beansFactory.createLabel("Cnd.srch_tgt_typ_nm_Label");
+		p.Cnd_srch_tgt_typ_nm = p.beansFactory.createTextField("Cnd.srch_tgt_typ_nm");
+		p.Cnd_srch_tgt_typ_nm.setLabel(p.Cnd_srch_tgt_typ_nm_Label);
+		p.Cnd_srch_tgt_no = p.beansFactory.createTextField("Cnd.srch_tgt_no");
+		p.Cnd_srch_tgt_rev = p.beansFactory.createNumberField("Cnd.srch_tgt_rev");
+		p.Cnd_latest_flg = p.beansFactory.createCheckBox("Cnd.latest_flg");
+		p.Cnd_srch_slo = p.beansFactory.createButton("Cnd.srch_slo", "srch");
+		p.Cnd_srch_qtn = p.beansFactory.createButton("Cnd.srch_qtn", "srch");
+	}
+
+	/**
+	 * [HdrTab]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitHdrTab(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.HdrTabPanel = p.beansFactory.createPanel("HdrTab");
+		p.HdrTabTab = p.beansFactory.createTabbedPane("HdrTab.tab");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Hdr]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitHdr(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.HdrPanel = p.beansFactory.createPanel("Hdr");
+		// ブロックの項目の初期化
+		p.Hdr_trd_cd_Label = p.beansFactory.createLabel("Hdr.trd_cd_Label");
+		p.Hdr_trd_cd = p.beansFactory.createTextComboBox("Hdr.trd_cd");
+		p.Hdr_trd_cd.setLabel(p.Hdr_trd_cd_Label);
+		p.Hdr_trd_nm = p.beansFactory.createTextField("Hdr.trd_nm");
+		p.Hdr_trd_ptn_typ = p.beansFactory.createTextField("Hdr.trd_ptn_typ");
+		p.Hdr_srch_tgt_no = p.beansFactory.createTextField("Hdr.srch_tgt_no");
+		p.Hdr_slo_no_Label = p.beansFactory.createLabel("Hdr.slo_no_Label");
+		p.Hdr_slo_no = p.beansFactory.createTextField("Hdr.slo_no");
+		p.Hdr_slo_no.setLabel(p.Hdr_slo_no_Label);
+		p.Hdr_slo_rev = p.beansFactory.createNumberField("Hdr.slo_rev");
+		p.Hdr_latest_flg = p.beansFactory.createCheckBox("Hdr.latest_flg");
+		p.Hdr_slo_dt_Label = p.beansFactory.createLabel("Hdr.slo_dt_Label");
+		p.Hdr_slo_dt = p.beansFactory.createDateField("Hdr.slo_dt");
+		p.Hdr_slo_dt.setLabel(p.Hdr_slo_dt_Label);
+		p.Hdr_slo_typ_Label = p.beansFactory.createLabel("Hdr.slo_typ_Label");
+		p.Hdr_slo_typ = p.beansFactory.createTextComboBox("Hdr.slo_typ");
+		p.Hdr_slo_typ.setLabel(p.Hdr_slo_typ_Label);
+		p.Hdr_slo_typ_nm = p.beansFactory.createTextField("Hdr.slo_typ_nm");
+		p.Hdr_aprv_flg = p.beansFactory.createCheckBox("Hdr.aprv_flg");
+		p.Hdr_aprv_back_flg = p.beansFactory.createCheckBox("Hdr.aprv_back_flg");
+		p.Hdr_aprv_no_Label = p.beansFactory.createLabel("Hdr.aprv_no_Label");
+		p.Hdr_aprv_no = p.beansFactory.createTextField("Hdr.aprv_no");
+		p.Hdr_aprv_no.setLabel(p.Hdr_aprv_no_Label);
+		p.Hdr_aprv_sts_typ_Label = p.beansFactory.createLabel("Hdr.aprv_sts_typ_Label");
+		p.Hdr_aprv_sts_typ = p.beansFactory.createTextField("Hdr.aprv_sts_typ");
+		p.Hdr_aprv_sts_typ.setLabel(p.Hdr_aprv_sts_typ_Label);
+		p.Hdr_aprv_sts_typ_nm = p.beansFactory.createTextField("Hdr.aprv_sts_typ_nm");
+		p.Hdr_aprv_upd_flg = p.beansFactory.createCheckBox("Hdr.aprv_upd_flg");
+		p.Hdr_aprv_can_flg = p.beansFactory.createCheckBox("Hdr.aprv_can_flg");
+		p.Hdr_edi_flg = p.beansFactory.createCheckBox("Hdr.edi_flg");
+		p.Hdr_def_cst_cd = p.beansFactory.createTextField("Hdr.def_cst_cd");
+		p.Hdr_prnt_lcl_cd = p.beansFactory.createTextField("Hdr.prnt_lcl_cd");
+		p.Hdr_dest_cd1_Label = p.beansFactory.createLabel("Hdr.dest_cd1_Label");
+		p.Hdr_dest_cd1 = p.beansFactory.createTextField("Hdr.dest_cd1");
+		p.Hdr_dest_cd1.setLabel(p.Hdr_dest_cd1_Label);
+		p.Hdr_dest_nm1 = p.beansFactory.createTextField("Hdr.dest_nm1");
+		p.Hdr_dest_cd2_Label = p.beansFactory.createLabel("Hdr.dest_cd2_Label");
+		p.Hdr_dest_cd2 = p.beansFactory.createTextField("Hdr.dest_cd2");
+		p.Hdr_dest_cd2.setLabel(p.Hdr_dest_cd2_Label);
+		p.Hdr_dest_nm2 = p.beansFactory.createTextField("Hdr.dest_nm2");
+		p.Hdr_dest_cd3_Label = p.beansFactory.createLabel("Hdr.dest_cd3_Label");
+		p.Hdr_dest_cd3 = p.beansFactory.createTextField("Hdr.dest_cd3");
+		p.Hdr_dest_cd3.setLabel(p.Hdr_dest_cd3_Label);
+		p.Hdr_dest_nm3 = p.beansFactory.createTextField("Hdr.dest_nm3");
+		p.Hdr_via_dlv_typ_Label = p.beansFactory.createLabel("Hdr.via_dlv_typ_Label");
+		p.Hdr_via_dlv_typ = p.beansFactory.createTextComboBox("Hdr.via_dlv_typ");
+		p.Hdr_via_dlv_typ.setLabel(p.Hdr_via_dlv_typ_Label);
+		p.Hdr_via_dlv_typ_nm = p.beansFactory.createTextField("Hdr.via_dlv_typ_nm");
+		p.Hdr_cst_cd_Label = p.beansFactory.createLabel("Hdr.cst_cd_Label");
+		p.Hdr_cst_cd = p.beansFactory.createTextComboBox("Hdr.cst_cd");
+		p.Hdr_cst_cd.setLabel(p.Hdr_cst_cd_Label);
+		p.Hdr_cst_nm = p.beansFactory.createTextField("Hdr.cst_nm");
+		p.Hdr_sls_basis_typ_Label = p.beansFactory.createLabel("Hdr.sls_basis_typ_Label");
+		p.Hdr_sls_basis_typ = p.beansFactory.createTextComboBox("Hdr.sls_basis_typ");
+		p.Hdr_sls_basis_typ.setLabel(p.Hdr_sls_basis_typ_Label);
+		p.Hdr_sls_basis_typ_nm = p.beansFactory.createTextField("Hdr.sls_basis_typ_nm");
+		p.Hdr_bp_sls_basis_typ = p.beansFactory.createTextField("Hdr.bp_sls_basis_typ");
+		p.Hdr_hdr_not_lg_mix_flg = p.beansFactory.createCheckBox("Hdr.hdr_not_lg_mix_flg");
+		p.Hdr_hdr_not_lot_mix_flg = p.beansFactory.createCheckBox("Hdr.hdr_not_lot_mix_flg");
+		p.Hdr_hdr_not_sublot_mix_flg = p.beansFactory.createCheckBox("Hdr.hdr_not_sublot_mix_flg");
+		p.Hdr_cst_usr_cd = p.beansFactory.createTextField("Hdr.cst_usr_cd");
+		p.Hdr_cst_dpt_cd = p.beansFactory.createTextField("Hdr.cst_dpt_cd");
+		p.Hdr_ar_dpt_typ = p.beansFactory.createTextField("Hdr.ar_dpt_typ");
+		p.Hdr_lnk_ar_dpt_cd = p.beansFactory.createTextField("Hdr.lnk_ar_dpt_cd");
+		p.Hdr_wg_cd_Label = p.beansFactory.createLabel("Hdr.wg_cd_Label");
+		p.Hdr_wg_cd = p.beansFactory.createTextField("Hdr.wg_cd");
+		p.Hdr_wg_cd.setLabel(p.Hdr_wg_cd_Label);
+		p.Hdr_wg_nm = p.beansFactory.createTextField("Hdr.wg_nm");
+		p.Hdr_trd_cur_cd_Label = p.beansFactory.createLabel("Hdr.trd_cur_cd_Label");
+		p.Hdr_trd_cur_cd = p.beansFactory.createTextComboBox("Hdr.trd_cur_cd");
+		p.Hdr_trd_cur_cd.setLabel(p.Hdr_trd_cur_cd_Label);
+		p.Hdr_trd_cur_nm = p.beansFactory.createTextField("Hdr.trd_cur_nm");
+		p.Hdr_trd_cur_amt_dec_place = p.beansFactory.createNumberField("Hdr.trd_cur_amt_dec_place");
+		p.Hdr_trd_cur_upri_dec_place = p.beansFactory.createNumberField("Hdr.trd_cur_upri_dec_place");
+		p.Hdr_base_cur_cd_Label = p.beansFactory.createLabel("Hdr.base_cur_cd_Label");
+		p.Hdr_base_cur_cd = p.beansFactory.createTextField("Hdr.base_cur_cd");
+		p.Hdr_base_cur_cd.setLabel(p.Hdr_base_cur_cd_Label);
+		p.Hdr_base_cur_nm = p.beansFactory.createTextField("Hdr.base_cur_nm");
+		p.Hdr_xrate_inpt_flg = p.beansFactory.createCheckBox("Hdr.xrate_inpt_flg");
+		p.Hdr_xrate_cd = p.beansFactory.createTextField("Hdr.xrate_cd");
+		p.Hdr_base_cur_amt_dec_place = p.beansFactory.createNumberField("Hdr.base_cur_amt_dec_place");
+		p.Hdr_base_cur_upri_dec_place = p.beansFactory.createNumberField("Hdr.base_cur_upri_dec_place");
+		p.Hdr_ptax_cur_cd_Label = p.beansFactory.createLabel("Hdr.ptax_cur_cd_Label");
+		p.Hdr_ptax_cur_cd = p.beansFactory.createTextField("Hdr.ptax_cur_cd");
+		p.Hdr_ptax_cur_cd.setLabel(p.Hdr_ptax_cur_cd_Label);
+		p.Hdr_ptax_cur_nm = p.beansFactory.createTextField("Hdr.ptax_cur_nm");
+		p.Hdr_ptax_xrate_inpt_flg = p.beansFactory.createCheckBox("Hdr.ptax_xrate_inpt_flg");
+		p.Hdr_ptax_cur_amt_dec_place = p.beansFactory.createNumberField("Hdr.ptax_cur_amt_dec_place");
+		p.Hdr_ptax_cur_upri_dec_place = p.beansFactory.createNumberField("Hdr.ptax_cur_upri_dec_place");
+		p.Hdr_tdlv_req_flg = p.beansFactory.createCheckBox("Hdr.tdlv_req_flg");
+		p.Hdr_sls_upri_cng_flg = p.beansFactory.createCheckBox("Hdr.sls_upri_cng_flg");
+		p.Hdr_cst_iv_flg = p.beansFactory.createCheckBox("Hdr.cst_iv_flg");
+		p.Hdr_cst_bill_crryovr_times = p.beansFactory.createNumberField("Hdr.cst_bill_crryovr_times");
+		p.Hdr_sls_upri_req_typ = p.beansFactory.createTextField("Hdr.sls_upri_req_typ");
+		p.Hdr_ship_schd_split_typ = p.beansFactory.createTextField("Hdr.ship_schd_split_typ");
+		p.Hdr_sls_amt_rnd_typ = p.beansFactory.createTextField("Hdr.sls_amt_rnd_typ");
+		p.Hdr_sls_tax_rnd_typ = p.beansFactory.createTextField("Hdr.sls_tax_rnd_typ");
+		p.Hdr_xrate_rnd_typ = p.beansFactory.createTextField("Hdr.xrate_rnd_typ");
+		p.Hdr_wtax_rnd_typ = p.beansFactory.createTextField("Hdr.wtax_rnd_typ");
+		p.Hdr_qtn_no_Label = p.beansFactory.createLabel("Hdr.qtn_no_Label");
+		p.Hdr_qtn_no = p.beansFactory.createTextField("Hdr.qtn_no");
+		p.Hdr_qtn_no.setLabel(p.Hdr_qtn_no_Label);
+		p.Hdr_qtn_rev = p.beansFactory.createNumberField("Hdr.qtn_rev");
+		p.Hdr_prof_rate_Label = p.beansFactory.createLabel("Hdr.prof_rate_Label");
+		p.Hdr_prof_rate = p.beansFactory.createNumberField("Hdr.prof_rate");
+		p.Hdr_prof_rate.setLabel(p.Hdr_prof_rate_Label);
+		p.Hdr_assort_typ_Label = p.beansFactory.createLabel("Hdr.assort_typ_Label");
+		p.Hdr_assort_typ = p.beansFactory.createTextComboBox("Hdr.assort_typ");
+		p.Hdr_assort_typ.setLabel(p.Hdr_assort_typ_Label);
+		p.Hdr_assort_typ_nm = p.beansFactory.createTextField("Hdr.assort_typ_nm");
+		p.Hdr_adv_ship_ctrl_typ_Label = p.beansFactory.createLabel("Hdr.adv_ship_ctrl_typ_Label");
+		p.Hdr_adv_ship_ctrl_typ = p.beansFactory.createTextComboBox("Hdr.adv_ship_ctrl_typ");
+		p.Hdr_adv_ship_ctrl_typ.setLabel(p.Hdr_adv_ship_ctrl_typ_Label);
+		p.Hdr_adv_ship_ctrl_typ_nm = p.beansFactory.createTextField("Hdr.adv_ship_ctrl_typ_nm");
+		p.Hdr_cst_po_no_Label = p.beansFactory.createLabel("Hdr.cst_po_no_Label");
+		p.Hdr_cst_po_no = p.beansFactory.createTextField("Hdr.cst_po_no");
+		p.Hdr_cst_po_no.setLabel(p.Hdr_cst_po_no_Label);
+		p.Hdr_cst_po_rev = p.beansFactory.createNumberField("Hdr.cst_po_rev");
+		p.Hdr_rcpt_dt_Label = p.beansFactory.createLabel("Hdr.rcpt_dt_Label");
+		p.Hdr_rcpt_dt = p.beansFactory.createDateField("Hdr.rcpt_dt");
+		p.Hdr_rcpt_dt.setLabel(p.Hdr_rcpt_dt_Label);
+		p.Hdr_rcpt_usr_cd_Label = p.beansFactory.createLabel("Hdr.rcpt_usr_cd_Label");
+		p.Hdr_rcpt_usr_cd = p.beansFactory.createTextField("Hdr.rcpt_usr_cd");
+		p.Hdr_rcpt_usr_cd.setLabel(p.Hdr_rcpt_usr_cd_Label);
+		p.Hdr_rcpt_usr_nm = p.beansFactory.createTextField("Hdr.rcpt_usr_nm");
+		p.Hdr_acst_cd_Label = p.beansFactory.createLabel("Hdr.acst_cd_Label");
+		p.Hdr_acst_cd = p.beansFactory.createTextField("Hdr.acst_cd");
+		p.Hdr_acst_cd.setLabel(p.Hdr_acst_cd_Label);
+		p.Hdr_acst_nm = p.beansFactory.createTextField("Hdr.acst_nm");
+		p.Hdr_ar_dpt_cd_Label = p.beansFactory.createLabel("Hdr.ar_dpt_cd_Label");
+		p.Hdr_ar_dpt_cd = p.beansFactory.createTextField("Hdr.ar_dpt_cd");
+		p.Hdr_ar_dpt_cd.setLabel(p.Hdr_ar_dpt_cd_Label);
+		p.Hdr_ar_dpt_nm = p.beansFactory.createTextField("Hdr.ar_dpt_nm");
+		p.Hdr_iv_no_Label = p.beansFactory.createLabel("Hdr.iv_no_Label");
+		p.Hdr_iv_no = p.beansFactory.createTextField("Hdr.iv_no");
+		p.Hdr_iv_no.setLabel(p.Hdr_iv_no_Label);
+		p.Hdr_iv_num_flg = p.beansFactory.createCheckBox("Hdr.iv_num_flg");
+		p.Hdr_trnspt_cd_Label = p.beansFactory.createLabel("Hdr.trnspt_cd_Label");
+		p.Hdr_trnspt_cd = p.beansFactory.createTextComboBox("Hdr.trnspt_cd");
+		p.Hdr_trnspt_cd.setLabel(p.Hdr_trnspt_cd_Label);
+		p.Hdr_trnspt_nm = p.beansFactory.createTextField("Hdr.trnspt_nm");
+		p.Hdr_vssl_flght_Label = p.beansFactory.createLabel("Hdr.vssl_flght_Label");
+		p.Hdr_vssl_flght = p.beansFactory.createTextField("Hdr.vssl_flght");
+		p.Hdr_vssl_flght.setLabel(p.Hdr_vssl_flght_Label);
+		p.Hdr_load_port_cd_Label = p.beansFactory.createLabel("Hdr.load_port_cd_Label");
+		p.Hdr_load_port_cd = p.beansFactory.createTextComboBox("Hdr.load_port_cd");
+		p.Hdr_load_port_cd.setLabel(p.Hdr_load_port_cd_Label);
+		p.Hdr_load_port_nm = p.beansFactory.createTextField("Hdr.load_port_nm");
+		p.Hdr_etd_dt_Label = p.beansFactory.createLabel("Hdr.etd_dt_Label");
+		p.Hdr_etd_dt = p.beansFactory.createDateField("Hdr.etd_dt");
+		p.Hdr_etd_dt.setLabel(p.Hdr_etd_dt_Label);
+		p.Hdr_dschrg_port_cd_Label = p.beansFactory.createLabel("Hdr.dschrg_port_cd_Label");
+		p.Hdr_dschrg_port_cd = p.beansFactory.createTextComboBox("Hdr.dschrg_port_cd");
+		p.Hdr_dschrg_port_cd.setLabel(p.Hdr_dschrg_port_cd_Label);
+		p.Hdr_dschrg_port_nm = p.beansFactory.createTextField("Hdr.dschrg_port_nm");
+		p.Hdr_eta_dt_Label = p.beansFactory.createLabel("Hdr.eta_dt_Label");
+		p.Hdr_eta_dt = p.beansFactory.createDateField("Hdr.eta_dt");
+		p.Hdr_eta_dt.setLabel(p.Hdr_eta_dt_Label);
+		p.Hdr_via_port_cd_Label = p.beansFactory.createLabel("Hdr.via_port_cd_Label");
+		p.Hdr_via_port_cd = p.beansFactory.createTextComboBox("Hdr.via_port_cd");
+		p.Hdr_via_port_cd.setLabel(p.Hdr_via_port_cd_Label);
+		p.Hdr_via_port_nm = p.beansFactory.createTextField("Hdr.via_port_nm");
+		p.Hdr_via_schd_dt_Label = p.beansFactory.createLabel("Hdr.via_schd_dt_Label");
+		p.Hdr_via_schd_dt = p.beansFactory.createDateField("Hdr.via_schd_dt");
+		p.Hdr_via_schd_dt.setLabel(p.Hdr_via_schd_dt_Label);
+		p.Hdr_tterm_cd1_Label = p.beansFactory.createLabel("Hdr.tterm_cd1_Label");
+		p.Hdr_tterm_cd1 = p.beansFactory.createTextComboBox("Hdr.tterm_cd1");
+		p.Hdr_tterm_cd1.setLabel(p.Hdr_tterm_cd1_Label);
+		p.Hdr_tterm_nm1 = p.beansFactory.createTextField("Hdr.tterm_nm1");
+		p.Hdr_tterm_rmrks1_Label = p.beansFactory.createLabel("Hdr.tterm_rmrks1_Label");
+		p.Hdr_tterm_rmrks1 = p.beansFactory.createTextField("Hdr.tterm_rmrks1");
+		p.Hdr_tterm_rmrks1.setLabel(p.Hdr_tterm_rmrks1_Label);
+		p.Hdr_tterm_cd2_Label = p.beansFactory.createLabel("Hdr.tterm_cd2_Label");
+		p.Hdr_tterm_cd2 = p.beansFactory.createTextComboBox("Hdr.tterm_cd2");
+		p.Hdr_tterm_cd2.setLabel(p.Hdr_tterm_cd2_Label);
+		p.Hdr_tterm_nm2 = p.beansFactory.createTextField("Hdr.tterm_nm2");
+		p.Hdr_tterm_rmrks2_Label = p.beansFactory.createLabel("Hdr.tterm_rmrks2_Label");
+		p.Hdr_tterm_rmrks2 = p.beansFactory.createTextField("Hdr.tterm_rmrks2");
+		p.Hdr_tterm_rmrks2.setLabel(p.Hdr_tterm_rmrks2_Label);
+		p.Hdr_tterm_cd3_Label = p.beansFactory.createLabel("Hdr.tterm_cd3_Label");
+		p.Hdr_tterm_cd3 = p.beansFactory.createTextComboBox("Hdr.tterm_cd3");
+		p.Hdr_tterm_cd3.setLabel(p.Hdr_tterm_cd3_Label);
+		p.Hdr_tterm_nm3 = p.beansFactory.createTextField("Hdr.tterm_nm3");
+		p.Hdr_tterm_rmrks3_Label = p.beansFactory.createLabel("Hdr.tterm_rmrks3_Label");
+		p.Hdr_tterm_rmrks3 = p.beansFactory.createTextField("Hdr.tterm_rmrks3");
+		p.Hdr_tterm_rmrks3.setLabel(p.Hdr_tterm_rmrks3_Label);
+		p.Hdr_cst_po_rmrks_Label = p.beansFactory.createLabel("Hdr.cst_po_rmrks_Label");
+		p.Hdr_cst_po_rmrks = p.beansFactory.createTextField("Hdr.cst_po_rmrks");
+		p.Hdr_cst_po_rmrks.setLabel(p.Hdr_cst_po_rmrks_Label);
+		p.Hdr_trd_rmrks_Label = p.beansFactory.createLabel("Hdr.trd_rmrks_Label");
+		p.Hdr_trd_rmrks = p.beansFactory.createTextField("Hdr.trd_rmrks");
+		p.Hdr_trd_rmrks.setLabel(p.Hdr_trd_rmrks_Label);
+		p.Hdr_intr_rmrks_Label = p.beansFactory.createLabel("Hdr.intr_rmrks_Label");
+		p.Hdr_intr_rmrks = p.beansFactory.createTextField("Hdr.intr_rmrks");
+		p.Hdr_intr_rmrks.setLabel(p.Hdr_intr_rmrks_Label);
+		p.Hdr_sub_char1_Label = p.beansFactory.createLabel("Hdr.sub_char1_Label");
+		p.Hdr_sub_char1 = p.beansFactory.createTextField("Hdr.sub_char1");
+		p.Hdr_sub_char1.setLabel(p.Hdr_sub_char1_Label);
+		p.Hdr_sub_char2_Label = p.beansFactory.createLabel("Hdr.sub_char2_Label");
+		p.Hdr_sub_char2 = p.beansFactory.createTextField("Hdr.sub_char2");
+		p.Hdr_sub_char2.setLabel(p.Hdr_sub_char2_Label);
+		p.Hdr_sub_char3_Label = p.beansFactory.createLabel("Hdr.sub_char3_Label");
+		p.Hdr_sub_char3 = p.beansFactory.createTextField("Hdr.sub_char3");
+		p.Hdr_sub_char3.setLabel(p.Hdr_sub_char3_Label);
+		p.Hdr_edi_sub_char1_Label = p.beansFactory.createLabel("Hdr.edi_sub_char1_Label");
+		p.Hdr_edi_sub_char1 = p.beansFactory.createTextField("Hdr.edi_sub_char1");
+		p.Hdr_edi_sub_char1.setLabel(p.Hdr_edi_sub_char1_Label);
+		p.Hdr_edi_sub_char2_Label = p.beansFactory.createLabel("Hdr.edi_sub_char2_Label");
+		p.Hdr_edi_sub_char2 = p.beansFactory.createTextField("Hdr.edi_sub_char2");
+		p.Hdr_edi_sub_char2.setLabel(p.Hdr_edi_sub_char2_Label);
+		p.Hdr_edi_sub_char3_Label = p.beansFactory.createLabel("Hdr.edi_sub_char3_Label");
+		p.Hdr_edi_sub_char3 = p.beansFactory.createTextField("Hdr.edi_sub_char3");
+		p.Hdr_edi_sub_char3.setLabel(p.Hdr_edi_sub_char3_Label);
+		p.Hdr_edi_sub_char4_Label = p.beansFactory.createLabel("Hdr.edi_sub_char4_Label");
+		p.Hdr_edi_sub_char4 = p.beansFactory.createTextField("Hdr.edi_sub_char4");
+		p.Hdr_edi_sub_char4.setLabel(p.Hdr_edi_sub_char4_Label);
+		p.Hdr_edi_sub_char5_Label = p.beansFactory.createLabel("Hdr.edi_sub_char5_Label");
+		p.Hdr_edi_sub_char5 = p.beansFactory.createTextField("Hdr.edi_sub_char5");
+		p.Hdr_edi_sub_char5.setLabel(p.Hdr_edi_sub_char5_Label);
+		p.Hdr_edi_sub_num1_Label = p.beansFactory.createLabel("Hdr.edi_sub_num1_Label");
+		p.Hdr_edi_sub_num1 = p.beansFactory.createNumberField("Hdr.edi_sub_num1");
+		p.Hdr_edi_sub_num1.setLabel(p.Hdr_edi_sub_num1_Label);
+		p.Hdr_edi_sub_dt1_Label = p.beansFactory.createLabel("Hdr.edi_sub_dt1_Label");
+		p.Hdr_edi_sub_dt1 = p.beansFactory.createDateField("Hdr.edi_sub_dt1");
+		p.Hdr_edi_sub_dt1.setLabel(p.Hdr_edi_sub_dt1_Label);
+		p.Hdr_can_rsn_cd_Label = p.beansFactory.createLabel("Hdr.can_rsn_cd_Label");
+		p.Hdr_can_rsn_cd = p.beansFactory.createTextComboBox("Hdr.can_rsn_cd");
+		p.Hdr_can_rsn_cd.setLabel(p.Hdr_can_rsn_cd_Label);
+		p.Hdr_can_rsn_nm = p.beansFactory.createTextField("Hdr.can_rsn_nm");
+		p.Hdr_can_rmrks_Label = p.beansFactory.createLabel("Hdr.can_rmrks_Label");
+		p.Hdr_can_rmrks = p.beansFactory.createTextField("Hdr.can_rmrks");
+		p.Hdr_can_rmrks.setLabel(p.Hdr_can_rmrks_Label);
+		p.Hdr_ins_usr_id_Label = p.beansFactory.createLabel("Hdr.ins_usr_id_Label");
+		p.Hdr_ins_usr_id = p.beansFactory.createTextField("Hdr.ins_usr_id");
+		p.Hdr_ins_usr_id.setLabel(p.Hdr_ins_usr_id_Label);
+		p.Hdr_ins_usr_nm = p.beansFactory.createTextField("Hdr.ins_usr_nm");
+		p.Hdr_ins_func_id_Label = p.beansFactory.createLabel("Hdr.ins_func_id_Label");
+		p.Hdr_ins_func_id = p.beansFactory.createTextField("Hdr.ins_func_id");
+		p.Hdr_ins_func_id.setLabel(p.Hdr_ins_func_id_Label);
+		p.Hdr_ins_func_nm = p.beansFactory.createTextField("Hdr.ins_func_nm");
+		p.Hdr_upd_usr_id_Label = p.beansFactory.createLabel("Hdr.upd_usr_id_Label");
+		p.Hdr_upd_usr_id = p.beansFactory.createTextField("Hdr.upd_usr_id");
+		p.Hdr_upd_usr_id.setLabel(p.Hdr_upd_usr_id_Label);
+		p.Hdr_upd_usr_nm = p.beansFactory.createTextField("Hdr.upd_usr_nm");
+		p.Hdr_upd_func_id_Label = p.beansFactory.createLabel("Hdr.upd_func_id_Label");
+		p.Hdr_upd_func_id = p.beansFactory.createTextField("Hdr.upd_func_id");
+		p.Hdr_upd_func_id.setLabel(p.Hdr_upd_func_id_Label);
+		p.Hdr_upd_func_nm = p.beansFactory.createTextField("Hdr.upd_func_nm");
+		p.Hdr_ins_ts_Label = p.beansFactory.createLabel("Hdr.ins_ts_Label");
+		p.Hdr_ins_ts = p.beansFactory.createTimestampField("Hdr.ins_ts");
+		p.Hdr_ins_ts.setLabel(p.Hdr_ins_ts_Label);
+		p.Hdr_upd_ts_Label = p.beansFactory.createLabel("Hdr.upd_ts_Label");
+		p.Hdr_upd_ts = p.beansFactory.createTimestampField("Hdr.upd_ts");
+		p.Hdr_upd_ts.setLabel(p.Hdr_upd_ts_Label);
+		p.Hdr_upd_srv_req_no_Label = p.beansFactory.createLabel("Hdr.upd_srv_req_no_Label");
+		p.Hdr_upd_srv_req_no = p.beansFactory.createTextField("Hdr.upd_srv_req_no");
+		p.Hdr_upd_srv_req_no.setLabel(p.Hdr_upd_srv_req_no_Label);
+		p.Hdr_dlv_day_week_typ = p.beansFactory.createTextField("Hdr.dlv_day_week_typ");
+		p.Hdr_dlv_day_week_typ_nm_Label = p.beansFactory.createLabel("Hdr.dlv_day_week_typ_nm_Label");
+		p.Hdr_dlv_day_week_typ_nm = p.beansFactory.createTextComboBox("Hdr.dlv_day_week_typ_nm");
+		p.Hdr_dlv_day_week_typ_nm.setLabel(p.Hdr_dlv_day_week_typ_nm_Label);
+	}
+
+	/**
+	 * [Hdr2]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitHdr2(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.Hdr2Panel = p.beansFactory.createPanel("Hdr2");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [BulkSet]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitBulkSet(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.BulkSetPanel = p.beansFactory.createPanel("BulkSet");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Dtl]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitDtl(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.DtlPanel = p.beansFactory.createPanel("Dtl");
+		p.DtlScrollPane = p.beansFactory.createScrollPane("Dtl.scroll");
+		p.createDtlTable();
+		// ブロックの項目の初期化
+		p.columnDtl_abort_flg = p.beansFactory.createTableColumn("Dtl.abort_flg", MCColumnType.CHECK);
+		p.columnDtl_sls_sts_typ = p.beansFactory.createTableColumn("Dtl.sls_sts_typ", MCColumnType.TEXT);
+		p.columnDtl_sls_sts_typ_nm = p.beansFactory.createTableColumn("Dtl.sls_sts_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_alloc_sts_typ = p.beansFactory.createTableColumn("Dtl.alloc_sts_typ", MCColumnType.TEXT);
+		p.columnDtl_alloc_sts_typ_nm = p.beansFactory.createTableColumn("Dtl.alloc_sts_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_slo_d_no = p.beansFactory.createTableColumn("Dtl.slo_d_no", MCColumnType.TEXT);
+		p.columnDtl_cst_itm_cd = p.beansFactory.createTableColumn("Dtl.cst_itm_cd", MCColumnType.TEXT);
+		p.columnDtl_cst_itm_nm = p.beansFactory.createTableColumn("Dtl.cst_itm_nm", MCColumnType.TEXT);
+		p.columnDtl_sundry_itm_flg = p.beansFactory.createTableColumn("Dtl.sundry_itm_flg", MCColumnType.CHECK);
+		p.columnDtl_iv_itm_nm = p.beansFactory.createTableColumn("Dtl.iv_itm_nm", MCColumnType.TEXT);
+		p.columnDtl_stk_mng_typ = p.beansFactory.createTableColumn("Dtl.stk_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_asset_mng_typ = p.beansFactory.createTableColumn("Dtl.asset_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_asset_mng_typ_nm = p.beansFactory.createTableColumn("Dtl.asset_mng_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_lot_mng_typ = p.beansFactory.createTableColumn("Dtl.lot_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_lot_no_typ = p.beansFactory.createTableColumn("Dtl.lot_no_typ", MCColumnType.TEXT);
+		p.columnDtl_sublot_mng_typ = p.beansFactory.createTableColumn("Dtl.sublot_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_sublot_no_typ = p.beansFactory.createTableColumn("Dtl.sublot_no_typ", MCColumnType.TEXT);
+		p.columnDtl_sno1_mng_typ = p.beansFactory.createTableColumn("Dtl.sno1_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_sno2_mng_typ = p.beansFactory.createTableColumn("Dtl.sno2_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_sno3_mng_typ = p.beansFactory.createTableColumn("Dtl.sno3_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_sno4_mng_typ = p.beansFactory.createTableColumn("Dtl.sno4_mng_typ", MCColumnType.TEXT);
+		p.columnDtl_sno1_num_typ = p.beansFactory.createTableColumn("Dtl.sno1_num_typ", MCColumnType.TEXT);
+		p.columnDtl_sno2_num_typ = p.beansFactory.createTableColumn("Dtl.sno2_num_typ", MCColumnType.TEXT);
+		p.columnDtl_sno3_num_typ = p.beansFactory.createTableColumn("Dtl.sno3_num_typ", MCColumnType.TEXT);
+		p.columnDtl_sno4_num_typ = p.beansFactory.createTableColumn("Dtl.sno4_num_typ", MCColumnType.TEXT);
+		p.columnDtl_slo_sno1_flg = p.beansFactory.createTableColumn("Dtl.slo_sno1_flg", MCColumnType.CHECK);
+		p.columnDtl_slo_sno2_flg = p.beansFactory.createTableColumn("Dtl.slo_sno2_flg", MCColumnType.CHECK);
+		p.columnDtl_slo_sno3_flg = p.beansFactory.createTableColumn("Dtl.slo_sno3_flg", MCColumnType.CHECK);
+		p.columnDtl_slo_sno4_flg = p.beansFactory.createTableColumn("Dtl.slo_sno4_flg", MCColumnType.CHECK);
+		p.columnDtl_itm_bill_crryovr_times = p.beansFactory.createTableColumn("Dtl.itm_bill_crryovr_times", MCColumnType.NUMBER);
+		p.columnDtl_dscnt_itm_flg = p.beansFactory.createTableColumn("Dtl.dscnt_itm_flg", MCColumnType.CHECK);
+		p.columnDtl_slo_proc_flg = p.beansFactory.createTableColumn("Dtl.slo_proc_flg", MCColumnType.CHECK);
+		p.columnDtl_cntry_org_cd = p.beansFactory.createTableColumn("Dtl.cntry_org_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_cntry_org_nm = p.beansFactory.createTableColumn("Dtl.cntry_org_nm", MCColumnType.TEXT);
+		p.columnDtl_vmi_flg = p.beansFactory.createTableColumn("Dtl.vmi_flg", MCColumnType.CHECK);
+		p.columnDtl_trd_unit_cd = p.beansFactory.createTableColumn("Dtl.trd_unit_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_trd_unit_nm = p.beansFactory.createTableColumn("Dtl.trd_unit_nm", MCColumnType.TEXT);
+		p.columnDtl_trd_unit_dec_place = p.beansFactory.createTableColumn("Dtl.trd_unit_dec_place", MCColumnType.NUMBER);
+		p.columnDtl_trd_unit_conv_base_qty = p.beansFactory.createTableColumn("Dtl.trd_unit_conv_base_qty", MCColumnType.NUMBER);
+		p.columnDtl_trd_unit_conv_qty = p.beansFactory.createTableColumn("Dtl.trd_unit_conv_qty", MCColumnType.NUMBER);
+		p.columnDtl_trd_unit_rnd_typ = p.beansFactory.createTableColumn("Dtl.trd_unit_rnd_typ", MCColumnType.TEXT);
+		p.columnDtl_sls_upri_cng_flg = p.beansFactory.createTableColumn("Dtl.sls_upri_cng_flg", MCColumnType.CHECK);
+		p.columnDtl_ver_flg = p.beansFactory.createTableColumn("Dtl.ver_flg", MCColumnType.CHECK);
+		p.columnDtl_prof_rate = p.beansFactory.createTableColumn("Dtl.prof_rate", MCColumnType.NUMBER);
+		p.columnDtl_wtax_rate = p.beansFactory.createTableColumn("Dtl.wtax_rate", MCColumnType.NUMBER);
+		p.columnDtl_bill_crryovr_times = p.beansFactory.createTableColumn("Dtl.bill_crryovr_times", MCColumnType.NUMBER);
+		p.columnDtl_gd_cd = p.beansFactory.createTableColumn("Dtl.gd_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_gd_nm = p.beansFactory.createTableColumn("Dtl.gd_nm", MCColumnType.TEXT);
+		p.columnDtl_sno_num_flg = p.beansFactory.createTableColumn("Dtl.sno_num_flg", MCColumnType.CHECK);
+		p.columnDtl_set_itm_grp_no = p.beansFactory.createTableColumn("Dtl.set_itm_grp_no", MCColumnType.NUMBER);
+		p.columnDtl_dlv_day_week_typ = p.beansFactory.createTableColumn("Dtl.dlv_day_week_typ", MCColumnType.TEXT);
+		p.columnDtl_dlv_day_week_typ_nm = p.beansFactory.createTableColumn("Dtl.dlv_day_week_typ_nm", MCColumnType.TEXT_COMBO);
+		p.columnDtl_sls_schd_dt = p.beansFactory.createTableColumn("Dtl.sls_schd_dt", MCColumnType.DATE);
+		p.columnDtl_accpt_schd_dt = p.beansFactory.createTableColumn("Dtl.accpt_schd_dt", MCColumnType.DATE);
+		p.columnDtl_ship_schd_split_flg = p.beansFactory.createTableColumn("Dtl.ship_schd_split_flg", MCColumnType.CHECK);
+		p.columnDtl_not_dt_calc_flg = p.beansFactory.createTableColumn("Dtl.not_dt_calc_flg", MCColumnType.CHECK);
+		p.columnDtl_prnt_lcl_cd = p.beansFactory.createTableColumn("Dtl.prnt_lcl_cd", MCColumnType.TEXT);
+		p.columnDtl_tdlv_req_flg = p.beansFactory.createTableColumn("Dtl.tdlv_req_flg", MCColumnType.CHECK);
+		p.columnDtl_dest_cd1 = p.beansFactory.createTableColumn("Dtl.dest_cd1", MCColumnType.TEXT);
+		p.columnDtl_dest_nm1 = p.beansFactory.createTableColumn("Dtl.dest_nm1", MCColumnType.TEXT);
+		p.columnDtl_dest_cd2 = p.beansFactory.createTableColumn("Dtl.dest_cd2", MCColumnType.TEXT);
+		p.columnDtl_dest_nm2 = p.beansFactory.createTableColumn("Dtl.dest_nm2", MCColumnType.TEXT);
+		p.columnDtl_dest_cd3 = p.beansFactory.createTableColumn("Dtl.dest_cd3", MCColumnType.TEXT);
+		p.columnDtl_dest_nm3 = p.beansFactory.createTableColumn("Dtl.dest_nm3", MCColumnType.TEXT);
+		p.columnDtl_via_dlv_typ = p.beansFactory.createTableColumn("Dtl.via_dlv_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_via_dlv_typ_nm = p.beansFactory.createTableColumn("Dtl.via_dlv_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_sls_cststk_flg = p.beansFactory.createTableColumn("Dtl.sls_cststk_flg", MCColumnType.CHECK);
+		p.columnDtl_def_proc_typ = p.beansFactory.createTableColumn("Dtl.def_proc_typ", MCColumnType.TEXT);
+		p.columnDtl_proc_typ = p.beansFactory.createTableColumn("Dtl.proc_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_proc_typ_nm = p.beansFactory.createTableColumn("Dtl.proc_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_def_ship_inst_typ = p.beansFactory.createTableColumn("Dtl.def_ship_inst_typ", MCColumnType.TEXT);
+		p.columnDtl_ship_inst_typ = p.beansFactory.createTableColumn("Dtl.ship_inst_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_ship_inst_typ_nm = p.beansFactory.createTableColumn("Dtl.ship_inst_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_ship_schd_split_typ = p.beansFactory.createTableColumn("Dtl.ship_schd_split_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_ship_schd_split_typ_nm = p.beansFactory.createTableColumn("Dtl.ship_schd_split_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_alloc_scope_typ = p.beansFactory.createTableColumn("Dtl.alloc_scope_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_alloc_scope_typ_nm = p.beansFactory.createTableColumn("Dtl.alloc_scope_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_not_lg_mix_flg = p.beansFactory.createTableColumn("Dtl.not_lg_mix_flg", MCColumnType.CHECK);
+		p.columnDtl_alloc_typ = p.beansFactory.createTableColumn("Dtl.alloc_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_alloc_typ_nm = p.beansFactory.createTableColumn("Dtl.alloc_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_alloc_grp_cd = p.beansFactory.createTableColumn("Dtl.alloc_grp_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_alloc_grp_nm = p.beansFactory.createTableColumn("Dtl.alloc_grp_nm", MCColumnType.TEXT);
+		p.columnDtl_ship_lg_grp_cd = p.beansFactory.createTableColumn("Dtl.ship_lg_grp_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_ship_lg_grp_nm = p.beansFactory.createTableColumn("Dtl.ship_lg_grp_nm", MCColumnType.TEXT);
+		p.columnDtl_def_loc_cd = p.beansFactory.createTableColumn("Dtl.def_loc_cd", MCColumnType.TEXT);
+		p.columnDtl_def_loc_nm = p.beansFactory.createTableColumn("Dtl.def_loc_nm", MCColumnType.TEXT);
+		p.columnDtl_loc_cd = p.beansFactory.createTableColumn("Dtl.loc_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_loc_nm = p.beansFactory.createTableColumn("Dtl.loc_nm", MCColumnType.TEXT);
+		p.columnDtl_wg_cd = p.beansFactory.createTableColumn("Dtl.wg_cd", MCColumnType.TEXT);
+		p.columnDtl_str_ln_tgt_flg = p.beansFactory.createTableColumn("Dtl.str_ln_tgt_flg", MCColumnType.CHECK);
+		p.columnDtl_not_lot_mix_flg = p.beansFactory.createTableColumn("Dtl.not_lot_mix_flg", MCColumnType.CHECK);
+		p.columnDtl_not_sublot_mix_flg = p.beansFactory.createTableColumn("Dtl.not_sublot_mix_flg", MCColumnType.CHECK);
+		p.columnDtl_rqst_to_loc_cd = p.beansFactory.createTableColumn("Dtl.rqst_to_loc_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_rqst_to_loc_nm = p.beansFactory.createTableColumn("Dtl.rqst_to_loc_nm", MCColumnType.TEXT);
+		p.columnDtl_sppl_cd = p.beansFactory.createTableColumn("Dtl.sppl_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_sppl_nm = p.beansFactory.createTableColumn("Dtl.sppl_nm", MCColumnType.TEXT);
+		p.columnDtl_maker_cd = p.beansFactory.createTableColumn("Dtl.maker_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_maker_nm = p.beansFactory.createTableColumn("Dtl.maker_nm", MCColumnType.TEXT);
+		p.columnDtl_rqst_dt = p.beansFactory.createTableColumn("Dtl.rqst_dt", MCColumnType.DATE);
+		p.columnDtl_rqst_dlv_rqst_dt = p.beansFactory.createTableColumn("Dtl.rqst_dlv_rqst_dt", MCColumnType.DATE);
+		p.columnDtl_wg_rqst_cnt_rmrks = p.beansFactory.createTableColumn("Dtl.wg_rqst_cnt_rmrks", MCColumnType.TEXT);
+		p.columnDtl_ship_term_cd = p.beansFactory.createTableColumn("Dtl.ship_term_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_ship_term_nm = p.beansFactory.createTableColumn("Dtl.ship_term_nm", MCColumnType.TEXT);
+		p.columnDtl_ship_block_flg = p.beansFactory.createTableColumn("Dtl.ship_block_flg", MCColumnType.CHECK);
+		p.columnDtl_ship_cnt_rmrks = p.beansFactory.createTableColumn("Dtl.ship_cnt_rmrks", MCColumnType.TEXT);
+		p.columnDtl_cst_po_d_no = p.beansFactory.createTableColumn("Dtl.cst_po_d_no", MCColumnType.TEXT);
+		p.columnDtl_cst_po_d_rmrks = p.beansFactory.createTableColumn("Dtl.cst_po_d_rmrks", MCColumnType.TEXT);
+		p.columnDtl_sls_rsn_cd = p.beansFactory.createTableColumn("Dtl.sls_rsn_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_sls_rsn_nm = p.beansFactory.createTableColumn("Dtl.sls_rsn_nm", MCColumnType.TEXT);
+		p.columnDtl_sls_acxfr_flg = p.beansFactory.createTableColumn("Dtl.sls_acxfr_flg", MCColumnType.CHECK);
+		p.columnDtl_bd_dpt_cd = p.beansFactory.createTableColumn("Dtl.bd_dpt_cd", MCColumnType.TEXT);
+		p.columnDtl_bd_dpt_nm = p.beansFactory.createTableColumn("Dtl.bd_dpt_nm", MCColumnType.TEXT);
+		p.columnDtl_sls_upri_req_typ = p.beansFactory.createTableColumn("Dtl.sls_upri_req_typ", MCColumnType.TEXT_COMBO);
+		p.columnDtl_sls_upri_req_typ_nm = p.beansFactory.createTableColumn("Dtl.sls_upri_req_typ_nm", MCColumnType.TEXT);
+		p.columnDtl_trd_d_rmrks = p.beansFactory.createTableColumn("Dtl.trd_d_rmrks", MCColumnType.TEXT);
+		p.columnDtl_intr_rmrks = p.beansFactory.createTableColumn("Dtl.intr_rmrks", MCColumnType.TEXT);
+		p.columnDtl_sub_char1 = p.beansFactory.createTableColumn("Dtl.sub_char1", MCColumnType.TEXT);
+		p.columnDtl_sub_char2 = p.beansFactory.createTableColumn("Dtl.sub_char2", MCColumnType.TEXT);
+		p.columnDtl_sub_char3 = p.beansFactory.createTableColumn("Dtl.sub_char3", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_char1 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_char1", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_char2 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_char2", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_char3 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_char3", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_char4 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_char4", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_char5 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_char5", MCColumnType.TEXT);
+		p.columnDtl_edi_sub_d_num1 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_num1", MCColumnType.NUMBER);
+		p.columnDtl_edi_sub_d_dt1 = p.beansFactory.createTableColumn("Dtl.edi_sub_d_dt1", MCColumnType.DATE);
+		p.columnDtl_can_rsn_cd = p.beansFactory.createTableColumn("Dtl.can_rsn_cd", MCColumnType.TEXT_COMBO);
+		p.columnDtl_can_rsn_nm = p.beansFactory.createTableColumn("Dtl.can_rsn_nm", MCColumnType.TEXT);
+		p.columnDtl_slo_d_can_rmkrs = p.beansFactory.createTableColumn("Dtl.slo_d_can_rmkrs", MCColumnType.TEXT);
+		p.columnDtl_ship_cmpl_flg = p.beansFactory.createTableColumn("Dtl.ship_cmpl_flg", MCColumnType.CHECK);
+		p.columnDtl_sls_cmpl_flg = p.beansFactory.createTableColumn("Dtl.sls_cmpl_flg", MCColumnType.CHECK);
+		p.columnDtl_base_unit_cd = p.beansFactory.createTableColumn("Dtl.base_unit_cd", MCColumnType.TEXT);
+		p.columnDtl_base_unit_nm = p.beansFactory.createTableColumn("Dtl.base_unit_nm", MCColumnType.TEXT);
+		p.columnDtl_base_unit_dec_place = p.beansFactory.createTableColumn("Dtl.base_unit_dec_place", MCColumnType.NUMBER);
+		p.columnDtl_base_unit_rnd_typ = p.beansFactory.createTableColumn("Dtl.base_unit_rnd_typ", MCColumnType.TEXT);
+		p.columnDtl_qtn_d_no = p.beansFactory.createTableColumn("Dtl.qtn_d_no", MCColumnType.TEXT);
+		p.columnDtl_disp_seq = p.beansFactory.createTableColumn("Dtl.disp_seq", MCColumnType.NUMBER);
+	}
+
+	/**
+	 * [Btn]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitBtn(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.BtnPanel = p.beansFactory.createPanel("Btn");
+		// ブロックの項目の初期化
+		p.Btn_open_MSBBP1230 = p.beansFactory.createButton("Btn.open_MSBBP1230", "open");
+		p.Btn_sprt = p.beansFactory.createButton("Btn.sprt", "calc");
+		p.Btn_radd = p.beansFactory.createButton("Btn.radd", "no_border");
+		p.Btn_rdel = p.beansFactory.createButton("Btn.rdel", "no_border");
+		p.Btn_rcopy = p.beansFactory.createButton("Btn.rcopy", "no_border");
+		p.Btn_ins = p.beansFactory.createButton("Btn.ins", "upd");
+		p.Btn_upd = p.beansFactory.createButton("Btn.upd", "upd");
+		p.Btn_del = p.beansFactory.createButton("Btn.del", "del");
+	}
+
+	/**
+	 * [EastBtn]ブロック関連の画面部品初期設定１
+	 */
+	protected static void jbfInitEastBtn(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.EastBtnPanel = p.beansFactory.createPanel("EastBtn");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [ScreenOpe]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitScreenOpe(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.ScreenOpePanel.setBorder(p.ScreenOpeTitledBorder);
+		p.add(p.ScreenOpePanel);
+		p.setLastBeans(p.ScreenOpePanel);
+		p.ScreenOpePanel.setNextBeans(p.CndPanel);
+		p.ScreenOpePanel.setValueCheck(false);
+		p.ScreenOpePanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
+		p.ScreenOpePanel.setLayoutPosition("NW");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Cnd]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitCnd(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.CndPanel.setBorder(p.CndTitledBorder);
+		p.add(p.CndPanel);
+		p.CndPanel.setNextBeans(p.HdrTabPanel);
+		p.CndPanel.setValueCheck(false);
+		p.CndPanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
+		p.CndPanel.setLayoutPosition("NC");
+		// ブロックの項目の初期化
+		p.ScreenOpePanel.setLastBeans(p.Cnd_ope_Group);
+		p.Cnd_ope_Group.setFirstBeans(p.Cnd_ope_INS);
+		p.Cnd_ope_INS.setActionCommand("0");
+		p.Cnd_ope_Group.add(p.Cnd_ope_INS);
+		p.ScreenOpePanel.add(p.Cnd_ope_INS);
+		p.Cnd_ope_INS.setNextBeans(p.Cnd_ope_UPD);
+		p.Cnd_ope_UPD.setActionCommand("1");
+		p.Cnd_ope_Group.add(p.Cnd_ope_UPD);
+		p.ScreenOpePanel.add(p.Cnd_ope_UPD);
+		p.Cnd_ope_UPD.setNextBeans(p.Cnd_ope_DEL);
+		p.Cnd_ope_DEL.setActionCommand("2");
+		p.Cnd_ope_Group.add(p.Cnd_ope_DEL);
+		p.ScreenOpePanel.add(p.Cnd_ope_DEL);
+		p.Cnd_ope_DEL.setNextBeans(p.Cnd_ope_REF);
+		p.Cnd_ope_REF.setActionCommand("3");
+		p.Cnd_ope_Group.add(p.Cnd_ope_REF);
+		p.ScreenOpePanel.add(p.Cnd_ope_REF);
+		p.Cnd_ope_Group.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.ope_META);
+		p.CndPanel.add(p.Cnd_srch_tgt_typ);
+		p.CndPanel.setLastBeans(p.Cnd_srch_tgt_typ);
+		p.Cnd_srch_tgt_typ.setNextBeans(p.Cnd_srch_tgt_typ_nm);
+		p.Cnd_srch_tgt_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.srch_tgt_typ_META);
+		p.CndPanel.add(p.Cnd_srch_tgt_typ_nm_Label);
+		p.CndPanel.add(p.Cnd_srch_tgt_typ_nm);
+		p.Cnd_srch_tgt_typ_nm.setNextBeans(p.Cnd_srch_tgt_no);
+		p.Cnd_srch_tgt_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.srch_tgt_typ_nm_META);
+		p.Cnd_srch_tgt_typ_nm.addLinkBeans(p.Cnd_srch_tgt_typ);
+		p.Cnd_srch_tgt_typ_nm.setListType(MCListType.STRICT);
+		p.CndPanel.add(p.Cnd_srch_tgt_no);
+		p.Cnd_srch_tgt_no.setNextBeans(p.Cnd_srch_tgt_rev);
+		p.Cnd_srch_tgt_no.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.srch_tgt_no_META);
+		p.CndPanel.add(p.Cnd_srch_tgt_rev);
+		p.Cnd_srch_tgt_rev.setNextBeans(p.Cnd_latest_flg);
+		p.Cnd_srch_tgt_rev.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.srch_tgt_rev_META);
+		p.CndPanel.add(p.Cnd_latest_flg);
+		p.Cnd_latest_flg.setNextBeans(p.Cnd_srch_slo);
+		p.Cnd_latest_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBP1210.CndR.latest_flg_META);
+		p.Cnd_srch_slo.setIcon("SEARCH");
+		p.Cnd_srch_slo.setFunctionKey(MCFunctionKey.F1);
+		p.CndPanel.add(p.Cnd_srch_slo);
+		p.Cnd_srch_slo.setNextBeans(p.Cnd_srch_qtn);
+		p.Cnd_srch_qtn.setIcon("SEARCH");
+		p.Cnd_srch_qtn.setFunctionKey(MCFunctionKey.F1);
+		p.CndPanel.add(p.Cnd_srch_qtn);
+	}
+
+	/**
+	 * [HdrTab]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitHdrTab(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.add(p.HdrTabPanel);
+		p.HdrTabPanel.setNextBeans(p.BulkSetPanel);
+		p.HdrTabPanel.add(p.HdrTabTab);
+		p.HdrTabPanel.setLastBeans(p.HdrTabTab);
+		p.HdrTabPanel.setLayoutPosition("CT");
+		// ブロックの項目の初期化
+		p.HdrTabTab.add(p.HdrPanel, "HdrTab.tab1");
+		p.HdrTabTab.setLastBeans(p.HdrPanel);
+		p.HdrPanel.setNextBeans(p.Hdr2Panel);
+		p.HdrTabTab.add(p.Hdr2Panel, "HdrTab.tab2");
+	}
+
+	/**
+	 * [Hdr]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitHdr(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.HdrPanel.setNextBeans(p.Hdr2Panel);
+		// ブロックの項目の初期化
+		p.Hdr_trd_cd.setListType(MCListType.STRICT);
+		p.Hdr_trd_cd.setLinkBeans(p.Hdr_trd_nm,p.Hdr_trd_ptn_typ);
+		p.HdrPanel.add(p.Hdr_trd_cd_Label);
+		p.HdrPanel.add(p.Hdr_trd_cd);
+		p.HdrPanel.setLastBeans(p.Hdr_trd_cd);
+		p.Hdr_trd_cd.setNextBeans(p.Hdr_trd_nm);
+		p.Hdr_trd_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cd_META);
+		p.HdrPanel.add(p.Hdr_trd_nm);
+		p.Hdr_trd_nm.setNextBeans(p.Hdr_trd_ptn_typ);
+		p.Hdr_trd_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_nm_META);
+		p.HdrPanel.add(p.Hdr_trd_ptn_typ);
+		p.Hdr_trd_ptn_typ.setNextBeans(p.Hdr_srch_tgt_no);
+		p.Hdr_trd_ptn_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_ptn_typ_META);
+		p.HdrPanel.add(p.Hdr_srch_tgt_no);
+		p.Hdr_srch_tgt_no.setNextBeans(p.Hdr_slo_no);
+		p.Hdr_srch_tgt_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.srch_tgt_no_META);
+		p.HdrPanel.add(p.Hdr_slo_no_Label);
+		p.HdrPanel.add(p.Hdr_slo_no);
+		p.Hdr_slo_no.setNextBeans(p.Hdr_slo_rev);
+		p.Hdr_slo_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_no_META);
+		p.HdrPanel.add(p.Hdr_slo_rev);
+		p.Hdr_slo_rev.setNextBeans(p.Hdr_latest_flg);
+		p.Hdr_slo_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_rev_META);
+		p.HdrPanel.add(p.Hdr_latest_flg);
+		p.Hdr_latest_flg.setNextBeans(p.Hdr_slo_dt);
+		p.Hdr_latest_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.latest_flg_META);
+		p.HdrPanel.add(p.Hdr_slo_dt_Label);
+		p.HdrPanel.add(p.Hdr_slo_dt);
+		p.Hdr_slo_dt.setNextBeans(p.Hdr_slo_typ);
+		p.Hdr_slo_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_dt_META);
+		p.Hdr_slo_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_slo_typ.setListType(MCListType.STRICT);
+		p.Hdr_slo_typ.setLinkBeans(p.Hdr_slo_typ_nm);
+		p.HdrPanel.add(p.Hdr_slo_typ_Label);
+		p.HdrPanel.add(p.Hdr_slo_typ);
+		p.Hdr_slo_typ.setNextBeans(p.Hdr_slo_typ_nm);
+		p.Hdr_slo_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_typ_META);
+		p.HdrPanel.add(p.Hdr_slo_typ_nm);
+		p.Hdr_slo_typ_nm.setNextBeans(p.Hdr_aprv_flg);
+		p.Hdr_slo_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_aprv_flg);
+		p.Hdr_aprv_flg.setNextBeans(p.Hdr_aprv_back_flg);
+		p.Hdr_aprv_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_flg_META);
+		p.HdrPanel.add(p.Hdr_aprv_back_flg);
+		p.Hdr_aprv_back_flg.setNextBeans(p.Hdr_aprv_no);
+		p.Hdr_aprv_back_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_back_flg_META);
+		p.HdrPanel.add(p.Hdr_aprv_no_Label);
+		p.HdrPanel.add(p.Hdr_aprv_no);
+		p.Hdr_aprv_no.setNextBeans(p.Hdr_aprv_sts_typ);
+		p.Hdr_aprv_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_no_META);
+		p.HdrPanel.add(p.Hdr_aprv_sts_typ_Label);
+		p.HdrPanel.add(p.Hdr_aprv_sts_typ);
+		p.Hdr_aprv_sts_typ.setNextBeans(p.Hdr_aprv_sts_typ_nm);
+		p.Hdr_aprv_sts_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_sts_typ_META);
+		p.HdrPanel.add(p.Hdr_aprv_sts_typ_nm);
+		p.Hdr_aprv_sts_typ_nm.setNextBeans(p.Hdr_aprv_upd_flg);
+		p.Hdr_aprv_sts_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_sts_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_aprv_upd_flg);
+		p.Hdr_aprv_upd_flg.setNextBeans(p.Hdr_aprv_can_flg);
+		p.Hdr_aprv_upd_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_upd_flg_META);
+		p.HdrPanel.add(p.Hdr_aprv_can_flg);
+		p.Hdr_aprv_can_flg.setNextBeans(p.Hdr_edi_flg);
+		p.Hdr_aprv_can_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_can_flg_META);
+		p.HdrPanel.add(p.Hdr_edi_flg);
+		p.Hdr_edi_flg.setNextBeans(p.Hdr_dlv_p_PPanel);
+		p.Hdr_edi_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_flg_META);
+		p.HdrPanel.add(p.Hdr_dlv_p_PPanel);
+		p.Hdr_dlv_p_PPanel.setNextBeans(p.Hdr_def_cst_cd);
+		p.Hdr_dlv_p_PPanel.Dlv_bp_cd.setLinkBeans(p.Hdr_dlv_nm,p.Hdr_dlv_sundry_flg,p.Hdr_pri_prnt_flg,p.Hdr_dlv_zip_cd,p.Hdr_dlv_addr1,p.Hdr_dlv_addr2,p.Hdr_dlv_addr3,p.Hdr_dlv_addr4,p.Hdr_dlv_cntry_cd,p.Hdr_dlv_cntry_nm,p.Hdr_dlv_tel,p.Hdr_dlv_fax,p.Hdr_dlv_cntct_dpt,p.Hdr_dlv_cntct_psn,p.Hdr_dlv_lg_grp_cd,p.Hdr_tdlv_req_flg,p.Hdr_def_cst_cd,p.Hdr_prnt_lcl_cd);
+		p.HdrPanel.add(p.Hdr_def_cst_cd);
+		p.Hdr_def_cst_cd.setNextBeans(p.Hdr_prnt_lcl_cd);
+		p.Hdr_def_cst_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.def_cst_cd_META);
+		p.HdrPanel.add(p.Hdr_prnt_lcl_cd);
+		p.Hdr_prnt_lcl_cd.setNextBeans(p.Hdr_dest_cd1);
+		p.Hdr_prnt_lcl_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.prnt_lcl_cd_META);
+		p.HdrPanel.add(p.Hdr_dest_cd1_Label);
+		p.HdrPanel.add(p.Hdr_dest_cd1);
+		p.Hdr_dest_cd1.setNextBeans(p.Hdr_dest_nm1);
+		p.Hdr_dest_cd1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_cd1_META);
+		p.Hdr_dest_cd1.addLinkBeans(p.Hdr_dest_nm1);
+		p.Hdr_dest_cd1.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_dest_nm1);
+		p.Hdr_dest_nm1.setNextBeans(p.Hdr_dest_cd2);
+		p.Hdr_dest_nm1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_nm1_META);
+		p.HdrPanel.add(p.Hdr_dest_cd2_Label);
+		p.HdrPanel.add(p.Hdr_dest_cd2);
+		p.Hdr_dest_cd2.setNextBeans(p.Hdr_dest_nm2);
+		p.Hdr_dest_cd2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_cd2_META);
+		p.Hdr_dest_cd2.addLinkBeans(p.Hdr_dest_nm2);
+		p.Hdr_dest_cd2.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_dest_nm2);
+		p.Hdr_dest_nm2.setNextBeans(p.Hdr_dest_cd3);
+		p.Hdr_dest_nm2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_nm2_META);
+		p.HdrPanel.add(p.Hdr_dest_cd3_Label);
+		p.HdrPanel.add(p.Hdr_dest_cd3);
+		p.Hdr_dest_cd3.setNextBeans(p.Hdr_dest_nm3);
+		p.Hdr_dest_cd3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_cd3_META);
+		p.Hdr_dest_cd3.addLinkBeans(p.Hdr_dest_nm3);
+		p.Hdr_dest_cd3.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_dest_nm3);
+		p.Hdr_dest_nm3.setNextBeans(p.Hdr_tdlv_p_PPanel);
+		p.Hdr_dest_nm3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dest_nm3_META);
+		p.HdrPanel.add(p.Hdr_tdlv_p_PPanel);
+		p.Hdr_tdlv_p_PPanel.setNextBeans(p.Hdr_via_dlv_typ);
+		p.Hdr_tdlv_p_PPanel.Dlv_bp_cd.setLinkBeans(p.Hdr_tdlv_nm,p.Hdr_tdlv_sundry_flg,p.Hdr_tdlv_lg_grp_cd,p.Hdr_tdlv_cntry_cd,p.Hdr_tdlv_cntry_nm,p.Hdr_tdlv_zip_cd,p.Hdr_tdlv_addr1,p.Hdr_tdlv_addr2,p.Hdr_tdlv_addr3,p.Hdr_tdlv_addr4,p.Hdr_tdlv_tel,p.Hdr_tdlv_fax,p.Hdr_tdlv_cntct_dpt,p.Hdr_tdlv_cntct_psn,p.Hdr_via_dlv_typ);
+		p.Hdr_via_dlv_typ.setListType(MCListType.STRICT);
+		p.Hdr_via_dlv_typ.setLinkBeans(p.Hdr_via_dlv_typ_nm);
+		p.HdrPanel.add(p.Hdr_via_dlv_typ_Label);
+		p.HdrPanel.add(p.Hdr_via_dlv_typ);
+		p.Hdr_via_dlv_typ.setNextBeans(p.Hdr_via_dlv_typ_nm);
+		p.Hdr_via_dlv_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_dlv_typ_META);
+		p.HdrPanel.add(p.Hdr_via_dlv_typ_nm);
+		p.Hdr_via_dlv_typ_nm.setNextBeans(p.Hdr_cst_cd);
+		p.Hdr_via_dlv_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_dlv_typ_nm_META);
+		p.Hdr_cst_cd.setListType(MCListType.STRICT);
+		p.Hdr_cst_cd.setLinkBeans(p.Hdr_cst_nm,p.Hdr_sls_basis_typ,p.Hdr_bp_sls_basis_typ,p.Hdr_trd_cur_cd,p.Hdr_tterm_cd1,p.Hdr_tterm_cd2,p.Hdr_tterm_cd3,p.Hdr_acst_cd,p.Hdr_acst_nm,p.Hdr_cst_iv_flg,p.Hdr_sls_amt_rnd_typ,p.Hdr_sls_tax_rnd_typ,p.Hdr_sls_upri_cng_flg,p.Hdr_cst_usr_cd,p.Hdr_cst_dpt_cd,p.Hdr_ar_dpt_typ,p.Hdr_lnk_ar_dpt_cd,p.Hdr_sls_upri_req_typ,p.Hdr_ship_schd_split_typ,p.Hdr_cst_bill_crryovr_times,p.Hdr_hdr_not_lg_mix_flg,p.Hdr_hdr_not_lot_mix_flg,p.Hdr_hdr_not_sublot_mix_flg);
+		p.HdrPanel.add(p.Hdr_cst_cd_Label);
+		p.HdrPanel.add(p.Hdr_cst_cd);
+		p.Hdr_cst_cd.setNextBeans(p.Hdr_cst_nm);
+		p.Hdr_cst_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_cd_META);
+		p.HdrPanel.add(p.Hdr_cst_nm);
+		p.Hdr_cst_nm.setNextBeans(p.Hdr_sls_basis_typ);
+		p.Hdr_cst_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_nm_META);
+		p.Hdr_sls_basis_typ.setListType(MCListType.STRICT);
+		p.Hdr_sls_basis_typ.setLinkBeans(p.Hdr_sls_basis_typ_nm);
+		p.HdrPanel.add(p.Hdr_sls_basis_typ_Label);
+		p.HdrPanel.add(p.Hdr_sls_basis_typ);
+		p.Hdr_sls_basis_typ.setNextBeans(p.Hdr_sls_basis_typ_nm);
+		p.Hdr_sls_basis_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_basis_typ_META);
+		p.HdrPanel.add(p.Hdr_sls_basis_typ_nm);
+		p.Hdr_sls_basis_typ_nm.setNextBeans(p.Hdr_bp_sls_basis_typ);
+		p.Hdr_sls_basis_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_basis_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_bp_sls_basis_typ);
+		p.Hdr_bp_sls_basis_typ.setNextBeans(p.Hdr_hdr_not_lg_mix_flg);
+		p.Hdr_bp_sls_basis_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.bp_sls_basis_typ_META);
+		p.HdrPanel.add(p.Hdr_hdr_not_lg_mix_flg);
+		p.Hdr_hdr_not_lg_mix_flg.setNextBeans(p.Hdr_hdr_not_lot_mix_flg);
+		p.Hdr_hdr_not_lg_mix_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.hdr_not_lg_mix_flg_META);
+		p.HdrPanel.add(p.Hdr_hdr_not_lot_mix_flg);
+		p.Hdr_hdr_not_lot_mix_flg.setNextBeans(p.Hdr_hdr_not_sublot_mix_flg);
+		p.Hdr_hdr_not_lot_mix_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.hdr_not_lot_mix_flg_META);
+		p.HdrPanel.add(p.Hdr_hdr_not_sublot_mix_flg);
+		p.Hdr_hdr_not_sublot_mix_flg.setNextBeans(p.Hdr_usr_dpt_p_PPanel);
+		p.Hdr_hdr_not_sublot_mix_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.hdr_not_sublot_mix_flg_META);
+		p.HdrPanel.add(p.Hdr_usr_dpt_p_PPanel);
+		p.Hdr_usr_dpt_p_PPanel.setNextBeans(p.Hdr_cst_usr_cd);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd.setLinkBeans(p.Hdr_sls_dpt_nm,p.Hdr_wg_cd,p.Hdr_wg_nm);
+		p.HdrPanel.add(p.Hdr_cst_usr_cd);
+		p.Hdr_cst_usr_cd.setNextBeans(p.Hdr_cst_dpt_cd);
+		p.Hdr_cst_usr_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_usr_cd_META);
+		p.HdrPanel.add(p.Hdr_cst_dpt_cd);
+		p.Hdr_cst_dpt_cd.setNextBeans(p.Hdr_ar_dpt_typ);
+		p.Hdr_cst_dpt_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_dpt_cd_META);
+		p.HdrPanel.add(p.Hdr_ar_dpt_typ);
+		p.Hdr_ar_dpt_typ.setNextBeans(p.Hdr_lnk_ar_dpt_cd);
+		p.Hdr_ar_dpt_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ar_dpt_typ_META);
+		p.HdrPanel.add(p.Hdr_lnk_ar_dpt_cd);
+		p.Hdr_lnk_ar_dpt_cd.setNextBeans(p.Hdr_wg_cd);
+		p.Hdr_lnk_ar_dpt_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.lnk_ar_dpt_cd_META);
+		p.HdrPanel.add(p.Hdr_wg_cd_Label);
+		p.HdrPanel.add(p.Hdr_wg_cd);
+		p.Hdr_wg_cd.setNextBeans(p.Hdr_wg_nm);
+		p.Hdr_wg_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wg_cd_META);
+		p.HdrPanel.add(p.Hdr_wg_nm);
+		p.Hdr_wg_nm.setNextBeans(p.Hdr_trd_cur_cd);
+		p.Hdr_wg_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wg_nm_META);
+		p.Hdr_trd_cur_cd.setListType(MCListType.STRICT);
+		p.Hdr_trd_cur_cd.setLinkBeans(p.Hdr_trd_cur_nm,p.Hdr_trd_cur_amt_dec_place,p.Hdr_trd_cur_upri_dec_place);
+		p.HdrPanel.add(p.Hdr_trd_cur_cd_Label);
+		p.HdrPanel.add(p.Hdr_trd_cur_cd);
+		p.Hdr_trd_cur_cd.setNextBeans(p.Hdr_trd_cur_nm);
+		p.Hdr_trd_cur_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cur_cd_META);
+		p.HdrPanel.add(p.Hdr_trd_cur_nm);
+		p.Hdr_trd_cur_nm.setNextBeans(p.Hdr_cred_bal_p_PPanel);
+		p.Hdr_trd_cur_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cur_nm_META);
+		p.HdrPanel.add(p.Hdr_cred_bal_p_PPanel);
+		p.Hdr_cred_bal_p_PPanel.setNextBeans(p.Hdr_trd_cur_amt_dec_place);
+		p.HdrPanel.add(p.Hdr_trd_cur_amt_dec_place);
+		p.Hdr_trd_cur_amt_dec_place.setNextBeans(p.Hdr_trd_cur_upri_dec_place);
+		p.Hdr_trd_cur_amt_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cur_amt_dec_place_META);
+		p.HdrPanel.add(p.Hdr_trd_cur_upri_dec_place);
+		p.Hdr_trd_cur_upri_dec_place.setNextBeans(p.Hdr_base_cur_cd);
+		p.Hdr_trd_cur_upri_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cur_upri_dec_place_META);
+		p.HdrPanel.add(p.Hdr_base_cur_cd_Label);
+		p.HdrPanel.add(p.Hdr_base_cur_cd);
+		p.Hdr_base_cur_cd.setNextBeans(p.Hdr_base_cur_nm);
+		p.Hdr_base_cur_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.base_cur_cd_META);
+		p.HdrPanel.add(p.Hdr_base_cur_nm);
+		p.Hdr_base_cur_nm.setNextBeans(p.Hdr_xrate_inpt_flg);
+		p.Hdr_base_cur_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.base_cur_nm_META);
+		p.HdrPanel.add(p.Hdr_xrate_inpt_flg);
+		p.Hdr_xrate_inpt_flg.setNextBeans(p.Hdr_xrate_p_PPanel);
+		p.Hdr_xrate_inpt_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.xrate_inpt_flg_META);
+		p.HdrPanel.add(p.Hdr_xrate_p_PPanel);
+		p.Hdr_xrate_p_PPanel.setNextBeans(p.Hdr_xrate_cd);
+		p.HdrPanel.add(p.Hdr_xrate_cd);
+		p.Hdr_xrate_cd.setNextBeans(p.Hdr_base_cur_amt_dec_place);
+		p.Hdr_xrate_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.xrate_cd_META);
+		p.HdrPanel.add(p.Hdr_base_cur_amt_dec_place);
+		p.Hdr_base_cur_amt_dec_place.setNextBeans(p.Hdr_base_cur_upri_dec_place);
+		p.Hdr_base_cur_amt_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.base_cur_amt_dec_place_META);
+		p.HdrPanel.add(p.Hdr_base_cur_upri_dec_place);
+		p.Hdr_base_cur_upri_dec_place.setNextBeans(p.Hdr_ptax_cur_cd);
+		p.Hdr_base_cur_upri_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.base_cur_upri_dec_place_META);
+		p.HdrPanel.add(p.Hdr_ptax_cur_cd_Label);
+		p.HdrPanel.add(p.Hdr_ptax_cur_cd);
+		p.Hdr_ptax_cur_cd.setNextBeans(p.Hdr_ptax_cur_nm);
+		p.Hdr_ptax_cur_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ptax_cur_cd_META);
+		p.HdrPanel.add(p.Hdr_ptax_cur_nm);
+		p.Hdr_ptax_cur_nm.setNextBeans(p.Hdr_ptax_xrate_inpt_flg);
+		p.Hdr_ptax_cur_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ptax_cur_nm_META);
+		p.HdrPanel.add(p.Hdr_ptax_xrate_inpt_flg);
+		p.Hdr_ptax_xrate_inpt_flg.setNextBeans(p.Hdr_ptax_xrate_p_PPanel);
+		p.Hdr_ptax_xrate_inpt_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ptax_xrate_inpt_flg_META);
+		p.HdrPanel.add(p.Hdr_ptax_xrate_p_PPanel);
+		p.Hdr_ptax_xrate_p_PPanel.setNextBeans(p.Hdr_ptax_cur_amt_dec_place);
+		p.HdrPanel.add(p.Hdr_ptax_cur_amt_dec_place);
+		p.Hdr_ptax_cur_amt_dec_place.setNextBeans(p.Hdr_ptax_cur_upri_dec_place);
+		p.Hdr_ptax_cur_amt_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ptax_cur_amt_dec_place_META);
+		p.HdrPanel.add(p.Hdr_ptax_cur_upri_dec_place);
+		p.Hdr_ptax_cur_upri_dec_place.setNextBeans(p.Hdr_tdlv_req_flg);
+		p.Hdr_ptax_cur_upri_dec_place.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ptax_cur_upri_dec_place_META);
+		p.HdrPanel.add(p.Hdr_tdlv_req_flg);
+		p.Hdr_tdlv_req_flg.setNextBeans(p.Hdr_sls_upri_cng_flg);
+		p.Hdr_tdlv_req_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tdlv_req_flg_META);
+		p.HdrPanel.add(p.Hdr_sls_upri_cng_flg);
+		p.Hdr_sls_upri_cng_flg.setNextBeans(p.Hdr_cst_iv_flg);
+		p.Hdr_sls_upri_cng_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_upri_cng_flg_META);
+		p.HdrPanel.add(p.Hdr_cst_iv_flg);
+		p.Hdr_cst_iv_flg.setNextBeans(p.Hdr_cst_bill_crryovr_times);
+		p.Hdr_cst_iv_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_iv_flg_META);
+		p.HdrPanel.add(p.Hdr_cst_bill_crryovr_times);
+		p.Hdr_cst_bill_crryovr_times.setNextBeans(p.Hdr_sls_upri_req_typ);
+		p.Hdr_cst_bill_crryovr_times.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_bill_crryovr_times_META);
+		p.HdrPanel.add(p.Hdr_sls_upri_req_typ);
+		p.Hdr_sls_upri_req_typ.setNextBeans(p.Hdr_ship_schd_split_typ);
+		p.Hdr_sls_upri_req_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_upri_req_typ_META);
+		p.HdrPanel.add(p.Hdr_ship_schd_split_typ);
+		p.Hdr_ship_schd_split_typ.setNextBeans(p.Hdr_sls_amt_rnd_typ);
+		p.Hdr_ship_schd_split_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ship_schd_split_typ_META);
+		p.HdrPanel.add(p.Hdr_sls_amt_rnd_typ);
+		p.Hdr_sls_amt_rnd_typ.setNextBeans(p.Hdr_sls_tax_rnd_typ);
+		p.Hdr_sls_amt_rnd_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_amt_rnd_typ_META);
+		p.HdrPanel.add(p.Hdr_sls_tax_rnd_typ);
+		p.Hdr_sls_tax_rnd_typ.setNextBeans(p.Hdr_xrate_rnd_typ);
+		p.Hdr_sls_tax_rnd_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_tax_rnd_typ_META);
+		p.HdrPanel.add(p.Hdr_xrate_rnd_typ);
+		p.Hdr_xrate_rnd_typ.setNextBeans(p.Hdr_wtax_rnd_typ);
+		p.Hdr_xrate_rnd_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.xrate_rnd_typ_META);
+		p.HdrPanel.add(p.Hdr_wtax_rnd_typ);
+		p.Hdr_wtax_rnd_typ.setNextBeans(p.Hdr_qtn_no);
+		p.Hdr_wtax_rnd_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wtax_rnd_typ_META);
+		p.HdrPanel.add(p.Hdr_qtn_no_Label);
+		p.HdrPanel.add(p.Hdr_qtn_no);
+		p.Hdr_qtn_no.setNextBeans(p.Hdr_qtn_rev);
+		p.Hdr_qtn_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.qtn_no_META);
+		p.HdrPanel.add(p.Hdr_qtn_rev);
+		p.Hdr_qtn_rev.setNextBeans(p.Hdr_wrk_no_p_PPanel);
+		p.Hdr_qtn_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.qtn_rev_META);
+		p.HdrPanel.add(p.Hdr_wrk_no_p_PPanel);
+		p.Hdr_wrk_no_p_PPanel.setNextBeans(p.Hdr_prof_rate);
+		p.HdrPanel.add(p.Hdr_prof_rate_Label);
+		p.HdrPanel.add(p.Hdr_prof_rate);
+		p.Hdr_prof_rate.setNextBeans(p.Hdr_ttl_amt_p_PPanel);
+		p.Hdr_prof_rate.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.prof_rate_META);
+		p.HdrPanel.add(p.Hdr_ttl_amt_p_PPanel);
+		p.Hdr_ttl_amt_p_PPanel.setNextBeans(p.Hdr_ttl_amt_no_cost_p_PPanel);
+		p.HdrPanel.add(p.Hdr_ttl_amt_no_cost_p_PPanel);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.setNextBeans(p.Hdr_trd_cur_amt_p_PPanel);
+		p.HdrPanel.add(p.Hdr_trd_cur_amt_p_PPanel);
+		p.Hdr_trd_cur_amt_p_PPanel.setNextBeans(p.Hdr_trd_cur_inc_tax_amt_p_PPanel);
+		p.HdrPanel.add(p.Hdr_trd_cur_inc_tax_amt_p_PPanel);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.setNextBeans(p.Hdr_assort_typ);
+		p.Hdr_assort_typ.setListType(MCListType.STRICT);
+		p.Hdr_assort_typ.setLinkBeans(p.Hdr_assort_typ_nm);
+		p.HdrPanel.add(p.Hdr_assort_typ_Label);
+		p.HdrPanel.add(p.Hdr_assort_typ);
+		p.Hdr_assort_typ.setNextBeans(p.Hdr_assort_typ_nm);
+		p.Hdr_assort_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.assort_typ_META);
+		p.HdrPanel.add(p.Hdr_assort_typ_nm);
+		p.Hdr_assort_typ_nm.setNextBeans(p.Hdr_adv_ship_ctrl_typ);
+		p.Hdr_assort_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.assort_typ_nm_META);
+		p.Hdr_adv_ship_ctrl_typ.setListType(MCListType.STRICT);
+		p.Hdr_adv_ship_ctrl_typ.setLinkBeans(p.Hdr_adv_ship_ctrl_typ_nm);
+		p.HdrPanel.add(p.Hdr_adv_ship_ctrl_typ_Label);
+		p.HdrPanel.add(p.Hdr_adv_ship_ctrl_typ);
+		p.Hdr_adv_ship_ctrl_typ.setNextBeans(p.Hdr_adv_ship_ctrl_typ_nm);
+		p.Hdr_adv_ship_ctrl_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.adv_ship_ctrl_typ_META);
+		p.HdrPanel.add(p.Hdr_adv_ship_ctrl_typ_nm);
+		p.Hdr_adv_ship_ctrl_typ_nm.setNextBeans(p.Hdr_adv_bill_amt_p_PPanel);
+		p.Hdr_adv_ship_ctrl_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.adv_ship_ctrl_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_adv_bill_amt_p_PPanel);
+		p.Hdr_adv_bill_amt_p_PPanel.setNextBeans(p.Hdr_adv_rcv_amt_p_PPanel);
+		p.HdrPanel.add(p.Hdr_adv_rcv_amt_p_PPanel);
+		p.Hdr_adv_rcv_amt_p_PPanel.setNextBeans(p.Hdr_cst_po_no);
+		p.HdrPanel.add(p.Hdr_cst_po_no_Label);
+		p.HdrPanel.add(p.Hdr_cst_po_no);
+		p.Hdr_cst_po_no.setNextBeans(p.Hdr_cst_po_rev);
+		p.Hdr_cst_po_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_po_no_META);
+		p.HdrPanel.add(p.Hdr_cst_po_rev);
+		p.Hdr_cst_po_rev.setNextBeans(p.Hdr_rcpt_dt);
+		p.Hdr_cst_po_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_po_rev_META);
+		p.HdrPanel.add(p.Hdr_rcpt_dt_Label);
+		p.HdrPanel.add(p.Hdr_rcpt_dt);
+		p.Hdr_rcpt_dt.setNextBeans(p.Hdr_rcpt_usr_cd);
+		p.Hdr_rcpt_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.rcpt_dt_META);
+		p.Hdr_rcpt_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.HdrPanel.add(p.Hdr_rcpt_usr_cd_Label);
+		p.HdrPanel.add(p.Hdr_rcpt_usr_cd);
+		p.Hdr_rcpt_usr_cd.setNextBeans(p.Hdr_rcpt_usr_nm);
+		p.Hdr_rcpt_usr_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.rcpt_usr_cd_META);
+		p.Hdr_rcpt_usr_cd.addLinkBeans(p.Hdr_rcpt_usr_nm);
+		p.Hdr_rcpt_usr_cd.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_rcpt_usr_nm);
+		p.Hdr_rcpt_usr_nm.setNextBeans(p.Hdr_acst_cd);
+		p.Hdr_rcpt_usr_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.rcpt_usr_nm_META);
+		p.HdrPanel.add(p.Hdr_acst_cd_Label);
+		p.HdrPanel.add(p.Hdr_acst_cd);
+		p.Hdr_acst_cd.setNextBeans(p.Hdr_acst_nm);
+		p.Hdr_acst_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.acst_cd_META);
+		p.HdrPanel.add(p.Hdr_acst_nm);
+		p.Hdr_acst_nm.setNextBeans(p.Hdr_ar_dpt_cd);
+		p.Hdr_acst_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.acst_nm_META);
+		p.HdrPanel.add(p.Hdr_ar_dpt_cd_Label);
+		p.HdrPanel.add(p.Hdr_ar_dpt_cd);
+		p.Hdr_ar_dpt_cd.setNextBeans(p.Hdr_ar_dpt_nm);
+		p.Hdr_ar_dpt_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ar_dpt_cd_META);
+		p.Hdr_ar_dpt_cd.addLinkBeans(p.Hdr_ar_dpt_nm);
+		p.Hdr_ar_dpt_cd.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_ar_dpt_nm);
+		p.Hdr_ar_dpt_nm.setNextBeans(p.Hdr_iv_no);
+		p.Hdr_ar_dpt_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ar_dpt_nm_META);
+		p.HdrPanel.add(p.Hdr_iv_no_Label);
+		p.HdrPanel.add(p.Hdr_iv_no);
+		p.Hdr_iv_no.setNextBeans(p.Hdr_iv_num_flg);
+		p.Hdr_iv_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.iv_no_META);
+		p.HdrPanel.add(p.Hdr_iv_num_flg);
+		p.Hdr_iv_num_flg.setNextBeans(p.Hdr_trnspt_cd);
+		p.Hdr_iv_num_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.iv_num_flg_META);
+		p.Hdr_trnspt_cd.setListType(MCListType.STRICT);
+		p.Hdr_trnspt_cd.setLinkBeans(p.Hdr_trnspt_nm);
+		p.HdrPanel.add(p.Hdr_trnspt_cd_Label);
+		p.HdrPanel.add(p.Hdr_trnspt_cd);
+		p.Hdr_trnspt_cd.setNextBeans(p.Hdr_trnspt_nm);
+		p.Hdr_trnspt_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trnspt_cd_META);
+		p.HdrPanel.add(p.Hdr_trnspt_nm);
+		p.Hdr_trnspt_nm.setNextBeans(p.Hdr_vssl_flght);
+		p.Hdr_trnspt_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trnspt_nm_META);
+		p.HdrPanel.add(p.Hdr_vssl_flght_Label);
+		p.HdrPanel.add(p.Hdr_vssl_flght);
+		p.Hdr_vssl_flght.setNextBeans(p.Hdr_load_port_cd);
+		p.Hdr_vssl_flght.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.vssl_flght_META);
+		p.Hdr_load_port_cd.setListType(MCListType.STRICT);
+		p.Hdr_load_port_cd.setLinkBeans(p.Hdr_load_port_nm);
+		p.HdrPanel.add(p.Hdr_load_port_cd_Label);
+		p.HdrPanel.add(p.Hdr_load_port_cd);
+		p.Hdr_load_port_cd.setNextBeans(p.Hdr_load_port_nm);
+		p.Hdr_load_port_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.load_port_cd_META);
+		p.HdrPanel.add(p.Hdr_load_port_nm);
+		p.Hdr_load_port_nm.setNextBeans(p.Hdr_etd_dt);
+		p.Hdr_load_port_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.load_port_nm_META);
+		p.HdrPanel.add(p.Hdr_etd_dt_Label);
+		p.HdrPanel.add(p.Hdr_etd_dt);
+		p.Hdr_etd_dt.setNextBeans(p.Hdr_dschrg_port_cd);
+		p.Hdr_etd_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.etd_dt_META);
+		p.Hdr_etd_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_dschrg_port_cd.setListType(MCListType.STRICT);
+		p.Hdr_dschrg_port_cd.setLinkBeans(p.Hdr_dschrg_port_nm);
+		p.HdrPanel.add(p.Hdr_dschrg_port_cd_Label);
+		p.HdrPanel.add(p.Hdr_dschrg_port_cd);
+		p.Hdr_dschrg_port_cd.setNextBeans(p.Hdr_dschrg_port_nm);
+		p.Hdr_dschrg_port_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dschrg_port_cd_META);
+		p.HdrPanel.add(p.Hdr_dschrg_port_nm);
+		p.Hdr_dschrg_port_nm.setNextBeans(p.Hdr_eta_dt);
+		p.Hdr_dschrg_port_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dschrg_port_nm_META);
+		p.HdrPanel.add(p.Hdr_eta_dt_Label);
+		p.HdrPanel.add(p.Hdr_eta_dt);
+		p.Hdr_eta_dt.setNextBeans(p.Hdr_via_port_cd);
+		p.Hdr_eta_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.eta_dt_META);
+		p.Hdr_eta_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_via_port_cd.setListType(MCListType.STRICT);
+		p.Hdr_via_port_cd.setLinkBeans(p.Hdr_via_port_nm);
+		p.HdrPanel.add(p.Hdr_via_port_cd_Label);
+		p.HdrPanel.add(p.Hdr_via_port_cd);
+		p.Hdr_via_port_cd.setNextBeans(p.Hdr_via_port_nm);
+		p.Hdr_via_port_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_port_cd_META);
+		p.HdrPanel.add(p.Hdr_via_port_nm);
+		p.Hdr_via_port_nm.setNextBeans(p.Hdr_via_schd_dt);
+		p.Hdr_via_port_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_port_nm_META);
+		p.HdrPanel.add(p.Hdr_via_schd_dt_Label);
+		p.HdrPanel.add(p.Hdr_via_schd_dt);
+		p.Hdr_via_schd_dt.setNextBeans(p.Hdr_tterm_cd1);
+		p.Hdr_via_schd_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_schd_dt_META);
+		p.Hdr_via_schd_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_tterm_cd1.setListType(MCListType.STRICT);
+		p.Hdr_tterm_cd1.setLinkBeans(p.Hdr_tterm_nm1);
+		p.HdrPanel.add(p.Hdr_tterm_cd1_Label);
+		p.HdrPanel.add(p.Hdr_tterm_cd1);
+		p.Hdr_tterm_cd1.setNextBeans(p.Hdr_tterm_nm1);
+		p.Hdr_tterm_cd1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_cd1_META);
+		p.HdrPanel.add(p.Hdr_tterm_nm1);
+		p.Hdr_tterm_nm1.setNextBeans(p.Hdr_tterm_rmrks1);
+		p.Hdr_tterm_nm1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_nm1_META);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks1_Label);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks1);
+		p.Hdr_tterm_rmrks1.setNextBeans(p.Hdr_tterm_cd2);
+		p.Hdr_tterm_rmrks1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_rmrks1_META);
+		p.Hdr_tterm_cd2.setListType(MCListType.STRICT);
+		p.Hdr_tterm_cd2.setLinkBeans(p.Hdr_tterm_nm2);
+		p.HdrPanel.add(p.Hdr_tterm_cd2_Label);
+		p.HdrPanel.add(p.Hdr_tterm_cd2);
+		p.Hdr_tterm_cd2.setNextBeans(p.Hdr_tterm_nm2);
+		p.Hdr_tterm_cd2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_cd2_META);
+		p.HdrPanel.add(p.Hdr_tterm_nm2);
+		p.Hdr_tterm_nm2.setNextBeans(p.Hdr_tterm_rmrks2);
+		p.Hdr_tterm_nm2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_nm2_META);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks2_Label);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks2);
+		p.Hdr_tterm_rmrks2.setNextBeans(p.Hdr_tterm_cd3);
+		p.Hdr_tterm_rmrks2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_rmrks2_META);
+		p.Hdr_tterm_cd3.setListType(MCListType.STRICT);
+		p.Hdr_tterm_cd3.setLinkBeans(p.Hdr_tterm_nm3);
+		p.HdrPanel.add(p.Hdr_tterm_cd3_Label);
+		p.HdrPanel.add(p.Hdr_tterm_cd3);
+		p.Hdr_tterm_cd3.setNextBeans(p.Hdr_tterm_nm3);
+		p.Hdr_tterm_cd3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_cd3_META);
+		p.HdrPanel.add(p.Hdr_tterm_nm3);
+		p.Hdr_tterm_nm3.setNextBeans(p.Hdr_tterm_rmrks3);
+		p.Hdr_tterm_nm3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_nm3_META);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks3_Label);
+		p.HdrPanel.add(p.Hdr_tterm_rmrks3);
+		p.Hdr_tterm_rmrks3.setNextBeans(p.Hdr_cst_po_rmrks);
+		p.Hdr_tterm_rmrks3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tterm_rmrks3_META);
+		p.HdrPanel.add(p.Hdr_cst_po_rmrks_Label);
+		p.HdrPanel.add(p.Hdr_cst_po_rmrks);
+		p.Hdr_cst_po_rmrks.setNextBeans(p.Hdr_trd_rmrks);
+		p.Hdr_cst_po_rmrks.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cst_po_rmrks_META);
+		p.HdrPanel.add(p.Hdr_trd_rmrks_Label);
+		p.HdrPanel.add(p.Hdr_trd_rmrks);
+		p.Hdr_trd_rmrks.setNextBeans(p.Hdr_intr_rmrks);
+		p.Hdr_trd_rmrks.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_rmrks_META);
+		p.HdrPanel.add(p.Hdr_intr_rmrks_Label);
+		p.HdrPanel.add(p.Hdr_intr_rmrks);
+		p.Hdr_intr_rmrks.setNextBeans(p.Hdr_sub_char1);
+		p.Hdr_intr_rmrks.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.intr_rmrks_META);
+		p.HdrPanel.add(p.Hdr_sub_char1_Label);
+		p.HdrPanel.add(p.Hdr_sub_char1);
+		p.Hdr_sub_char1.setNextBeans(p.Hdr_sub_char2);
+		p.Hdr_sub_char1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sub_char1_META);
+		p.HdrPanel.add(p.Hdr_sub_char2_Label);
+		p.HdrPanel.add(p.Hdr_sub_char2);
+		p.Hdr_sub_char2.setNextBeans(p.Hdr_sub_char3);
+		p.Hdr_sub_char2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sub_char2_META);
+		p.HdrPanel.add(p.Hdr_sub_char3_Label);
+		p.HdrPanel.add(p.Hdr_sub_char3);
+		p.Hdr_sub_char3.setNextBeans(p.Hdr_edi_sub_char1);
+		p.Hdr_sub_char3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sub_char3_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_char1_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_char1);
+		p.Hdr_edi_sub_char1.setNextBeans(p.Hdr_edi_sub_char2);
+		p.Hdr_edi_sub_char1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_char1_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_char2_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_char2);
+		p.Hdr_edi_sub_char2.setNextBeans(p.Hdr_edi_sub_char3);
+		p.Hdr_edi_sub_char2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_char2_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_char3_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_char3);
+		p.Hdr_edi_sub_char3.setNextBeans(p.Hdr_edi_sub_char4);
+		p.Hdr_edi_sub_char3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_char3_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_char4_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_char4);
+		p.Hdr_edi_sub_char4.setNextBeans(p.Hdr_edi_sub_char5);
+		p.Hdr_edi_sub_char4.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_char4_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_char5_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_char5);
+		p.Hdr_edi_sub_char5.setNextBeans(p.Hdr_edi_sub_num1);
+		p.Hdr_edi_sub_char5.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_char5_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_num1_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_num1);
+		p.Hdr_edi_sub_num1.setNextBeans(p.Hdr_edi_sub_dt1);
+		p.Hdr_edi_sub_num1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_num1_META);
+		p.HdrPanel.add(p.Hdr_edi_sub_dt1_Label);
+		p.HdrPanel.add(p.Hdr_edi_sub_dt1);
+		p.Hdr_edi_sub_dt1.setNextBeans(p.Hdr_can_rsn_cd);
+		p.Hdr_edi_sub_dt1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_sub_dt1_META);
+		p.Hdr_edi_sub_dt1.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_can_rsn_cd.setListType(MCListType.STRICT);
+		p.Hdr_can_rsn_cd.setLinkBeans(p.Hdr_can_rsn_nm);
+		p.HdrPanel.add(p.Hdr_can_rsn_cd_Label);
+		p.HdrPanel.add(p.Hdr_can_rsn_cd);
+		p.Hdr_can_rsn_cd.setNextBeans(p.Hdr_can_rsn_nm);
+		p.Hdr_can_rsn_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.can_rsn_cd_META);
+		p.HdrPanel.add(p.Hdr_can_rsn_nm);
+		p.Hdr_can_rsn_nm.setNextBeans(p.Hdr_can_rmrks);
+		p.Hdr_can_rsn_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.can_rsn_nm_META);
+		p.HdrPanel.add(p.Hdr_can_rmrks_Label);
+		p.HdrPanel.add(p.Hdr_can_rmrks);
+		p.Hdr_can_rmrks.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.can_rmrks_META);
+		p.Hdr2Panel.add(p.Hdr_ins_usr_id_Label);
+		p.Hdr2Panel.add(p.Hdr_ins_usr_id);
+		p.Hdr2Panel.setLastBeans(p.Hdr_ins_usr_id);
+		p.Hdr_ins_usr_id.setNextBeans(p.Hdr_ins_usr_nm);
+		p.Hdr_ins_usr_id.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_usr_id_META);
+		p.Hdr2Panel.add(p.Hdr_ins_usr_nm);
+		p.Hdr_ins_usr_nm.setNextBeans(p.Hdr_ins_func_id);
+		p.Hdr_ins_usr_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_usr_nm_META);
+		p.Hdr2Panel.add(p.Hdr_ins_func_id_Label);
+		p.Hdr2Panel.add(p.Hdr_ins_func_id);
+		p.Hdr_ins_func_id.setNextBeans(p.Hdr_ins_func_nm);
+		p.Hdr_ins_func_id.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_func_id_META);
+		p.Hdr2Panel.add(p.Hdr_ins_func_nm);
+		p.Hdr_ins_func_nm.setNextBeans(p.Hdr_upd_usr_id);
+		p.Hdr_ins_func_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_func_nm_META);
+		p.Hdr2Panel.add(p.Hdr_upd_usr_id_Label);
+		p.Hdr2Panel.add(p.Hdr_upd_usr_id);
+		p.Hdr_upd_usr_id.setNextBeans(p.Hdr_upd_usr_nm);
+		p.Hdr_upd_usr_id.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_usr_id_META);
+		p.Hdr2Panel.add(p.Hdr_upd_usr_nm);
+		p.Hdr_upd_usr_nm.setNextBeans(p.Hdr_upd_func_id);
+		p.Hdr_upd_usr_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_usr_nm_META);
+		p.Hdr2Panel.add(p.Hdr_upd_func_id_Label);
+		p.Hdr2Panel.add(p.Hdr_upd_func_id);
+		p.Hdr_upd_func_id.setNextBeans(p.Hdr_upd_func_nm);
+		p.Hdr_upd_func_id.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_func_id_META);
+		p.Hdr2Panel.add(p.Hdr_upd_func_nm);
+		p.Hdr_upd_func_nm.setNextBeans(p.Hdr_ins_ts);
+		p.Hdr_upd_func_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_func_nm_META);
+		p.Hdr2Panel.add(p.Hdr_ins_ts_Label);
+		p.Hdr2Panel.add(p.Hdr_ins_ts);
+		p.Hdr_ins_ts.setNextBeans(p.Hdr_upd_ts);
+		p.Hdr_ins_ts.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_ts_META);
+		p.Hdr_ins_ts.setFormatID(mcframe.commonMA.meta.MA_META.SYS_TS_FORMAT);
+		p.Hdr2Panel.add(p.Hdr_upd_ts_Label);
+		p.Hdr2Panel.add(p.Hdr_upd_ts);
+		p.Hdr_upd_ts.setNextBeans(p.Hdr_upd_srv_req_no);
+		p.Hdr_upd_ts.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_ts_META);
+		p.Hdr_upd_ts.setFormatID(mcframe.commonMA.meta.MA_META.SYS_TS_FORMAT);
+		p.Hdr2Panel.add(p.Hdr_upd_srv_req_no_Label);
+		p.Hdr2Panel.add(p.Hdr_upd_srv_req_no);
+		p.Hdr_upd_srv_req_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.upd_srv_req_no_META);
+		p.BulkSetPanel.add(p.Hdr_ship_rqst_p_PPanel);
+		p.BulkSetPanel.setLastBeans(p.Hdr_ship_rqst_p_PPanel);
+		p.Hdr_ship_rqst_p_PPanel.setNextBeans(p.Hdr_dlv_rqst_p_PPanel);
+		p.BulkSetPanel.add(p.Hdr_dlv_rqst_p_PPanel);
+		p.Hdr_dlv_rqst_p_PPanel.setNextBeans(p.Hdr_dlv_day_week_typ);
+		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ);
+		p.Hdr_dlv_day_week_typ.setNextBeans(p.Hdr_dlv_day_week_typ_nm);
+		p.Hdr_dlv_day_week_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_META);
+		p.Hdr_dlv_day_week_typ_nm.setListType(MCListType.STRICT);
+		p.Hdr_dlv_day_week_typ_nm.setLinkBeans(p.Hdr_dlv_day_week_typ);
+		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm_Label);
+		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm);
+		p.Hdr_dlv_day_week_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_nm_META);
+	}
+
+	/**
+	 * [Hdr2]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitHdr2(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [BulkSet]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitBulkSet(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.add(p.BulkSetPanel);
+		p.BulkSetPanel.setNextBeans(p.DtlPanel);
+		p.BulkSetPanel.setLayoutPosition("CBN");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Dtl]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitDtl(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.add(p.DtlPanel);
+		p.DtlPanel.setNextBeans(p.BtnPanel);
+		p.DtlPanel.add(p.DtlScrollPane);
+		p.DtlPanel.setLastBeans(p.DtlTable);
+		p.DtlScrollPane.setViewportView(p.DtlTable);
+		p.DtlTable.setList(p.getDtlL());
+		p.DtlPanel.setLayoutPosition("CBC");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * [Btn]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitBtn(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.add(p.BtnPanel);
+		p.BtnPanel.setNextBeans(p.EastBtnPanel);
+		p.BtnPanel.setLayoutPosition("SW");
+		// ブロックの項目の初期化
+		p.Btn_open_MSBBP1230.setFunctionKey(MCFunctionKey.F3);
+		p.BtnPanel.add(p.Btn_open_MSBBP1230);
+		p.BtnPanel.setLastBeans(p.Btn_open_MSBBP1230);
+		p.Btn_open_MSBBP1230.setNextBeans(p.Btn_open_MSBEP0500_p_PPanel);
+		p.BtnPanel.add(p.Btn_open_MSBEP0500_p_PPanel);
+		p.Btn_open_MSBEP0500_p_PPanel.setNextBeans(p.Btn_sprt);
+		p.Btn_sprt.setFunctionKey(MCFunctionKey.F7);
+		p.BtnPanel.add(p.Btn_sprt);
+		p.Btn_sprt.setNextBeans(p.Btn_menu_move_p_PPanel);
+		p.BtnPanel.add(p.Btn_menu_move_p_PPanel);
+		p.Btn_menu_move_p_PPanel.setNextBeans(p.Btn_radd);
+		p.Btn_radd.setIcon("INSERT_RECORD");
+		p.Btn_radd.setFunctionKey(MCFunctionKey.F5);
+		p.BtnPanel.add(p.Btn_radd);
+		p.Btn_radd.setNextBeans(p.Btn_rdel);
+		p.Btn_rdel.setIcon("DELETE_RECORD");
+		p.Btn_rdel.setFunctionKey(MCFunctionKey.F6);
+		p.BtnPanel.add(p.Btn_rdel);
+		p.Btn_rdel.setNextBeans(p.Btn_rcopy);
+		p.Btn_rcopy.setIcon("COPY_RECORD");
+		p.Btn_rcopy.setFunctionKey(MCFunctionKey.F17);
+		p.BtnPanel.add(p.Btn_rcopy);
+		p.Btn_rcopy.setNextBeans(p.Btn_ins);
+		p.Btn_ins.setIcon("REGISTER");
+		p.Btn_ins.setFunctionKey(MCFunctionKey.F9);
+		p.BtnPanel.add(p.Btn_ins);
+		p.Btn_ins.setNextBeans(p.Btn_upd);
+		p.Btn_upd.setIcon("REGISTER");
+		p.Btn_upd.setFunctionKey(MCFunctionKey.F9);
+		p.BtnPanel.add(p.Btn_upd);
+		p.Btn_del.setIcon("CANCEL");
+		p.Btn_del.setFunctionKey(MCFunctionKey.F12);
+		p.EastBtnPanel.setLastBeans(p.Btn_del);
+		p.EastBtnPanel.add(p.Btn_del);
+	}
+
+	/**
+	 * [EastBtn]ブロック関連の画面部品初期設定２
+	 */
+	protected static void jbInitEastBtn(MSBBP_SloReg p) {
+		// ブロック関連の初期化
+		p.add(p.EastBtnPanel);
+		p.EastBtnPanel.setLayoutPosition("SE");
+		// ブロックの項目の初期化
+	}
+
+	/**
+	 * MCLayouterの指定文字列を返します。
+	 */
+	public String getLayoutKey() {
+		return "G";
+	}
+
+	/**
+	 * 画面部品初期設定（MCFrame仕様）
+	 */
+	protected void mcInit() {
+		super.mcInit();
+		MSBBP_SloReg_MC.mcInitScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitCnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitHdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitHdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitHdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitBulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitDtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.mcInitEastBtn((MSBBP_SloReg)this);
+
+		// [SRCH]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitSRCH_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_UpriSrch((MSBBP_SloReg)this);
+
+		// [REF]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitREF_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_UpriSrch((MSBBP_SloReg)this);
+
+		// [UPD]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitUPD_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_UpriSrch((MSBBP_SloReg)this);
+
+		// [UPD_QTN]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitUPD__QTN_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_UpriSrch((MSBBP_SloReg)this);
+
+		// [UPD_APRV]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitUPD__APRV_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_UpriSrch((MSBBP_SloReg)this);
+
+		// [UPD_TRNST]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_UpriSrch((MSBBP_SloReg)this);
+
+		// [FIX_U]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitFIX__U_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_UpriSrch((MSBBP_SloReg)this);
+
+		// [INS]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitINS_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_UpriSrch((MSBBP_SloReg)this);
+
+		// [INS_QTN]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitINS__QTN_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_UpriSrch((MSBBP_SloReg)this);
+
+		// [FIX_I]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitFIX__I_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_UpriSrch((MSBBP_SloReg)this);
+
+		// [DEL]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitDEL_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_UpriSrch((MSBBP_SloReg)this);
+
+		// [FIX_D]ステータスのモードの設定
+		MSBBP_SloReg_MC.statusInitFIX__D_ScreenOpe((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_Cnd((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_HdrTab((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_Hdr((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_Hdr2((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_BulkSet((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_Dtl((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_DtlComp((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_DtlSpec((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_Btn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_EastBtn((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_UpriSrch((MSBBP_SloReg)this);
+
+	}
+
+	/**
+	 *  [ScreenOpe]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitScreenOpe(MSBBP_SloReg p) {
+	}
+
+	/**
+	 *  [Cnd]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitCnd(MSBBP_SloReg p) {
+		p.Cnd_ope_Group.addAllListener(p);
+		p.Cnd_ope_INS.addAllListener(p);
+		p.Cnd_ope_UPD.addAllListener(p);
+		p.Cnd_ope_DEL.addAllListener(p);
+		p.Cnd_ope_REF.addAllListener(p);
+		p.Cnd_srch_tgt_typ.setListListener(p);
+		p.Cnd_srch_tgt_typ.addAllListener(p);
+		p.Cnd_srch_tgt_typ_nm.setListListener(p);
+		p.Cnd_srch_tgt_typ_nm.addAllListener(p);
+		p.Cnd_srch_tgt_no.setListListener(p);
+		p.Cnd_srch_tgt_no.addAllListener(p);
+		p.Cnd_srch_tgt_rev.setListListener(p);
+		p.Cnd_srch_tgt_rev.addAllListener(p);
+		p.Cnd_latest_flg.addAllListener(p);
+		p.Cnd_srch_slo.addAllListener(p);
+		p.Cnd_srch_slo.setAPMethodName("doCnd_srch_slo");
+		p.Cnd_srch_qtn.addAllListener(p);
+		p.Cnd_srch_qtn.setAPMethodName("doCnd_srch_qtn");
+	}
+
+	/**
+	 *  [HdrTab]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitHdrTab(MSBBP_SloReg p) {
+		p.HdrTabTab.addAllListener(p);
+	}
+
+	/**
+	 *  [Hdr]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitHdr(MSBBP_SloReg p) {
+		p.Hdr_trd_cd.setListListener(p);
+		p.Hdr_trd_cd.addAllListener(p);
+		p.Hdr_trd_nm.setListListener(p);
+		p.Hdr_trd_nm.addAllListener(p);
+		p.Hdr_trd_ptn_typ.setListListener(p);
+		p.Hdr_trd_ptn_typ.addAllListener(p);
+		p.Hdr_srch_tgt_no.setListListener(p);
+		p.Hdr_srch_tgt_no.addAllListener(p);
+		p.Hdr_slo_no.setListListener(p);
+		p.Hdr_slo_no.addAllListener(p);
+		p.Hdr_slo_rev.setListListener(p);
+		p.Hdr_slo_rev.addAllListener(p);
+		p.Hdr_latest_flg.addAllListener(p);
+		p.Hdr_slo_dt.setListListener(p);
+		p.Hdr_slo_dt.addAllListener(p);
+		p.Hdr_slo_typ.setListListener(p);
+		p.Hdr_slo_typ.addAllListener(p);
+		p.Hdr_slo_typ_nm.setListListener(p);
+		p.Hdr_slo_typ_nm.addAllListener(p);
+		p.Hdr_aprv_flg.addAllListener(p);
+		p.Hdr_aprv_back_flg.addAllListener(p);
+		p.Hdr_aprv_no.setListListener(p);
+		p.Hdr_aprv_no.addAllListener(p);
+		p.Hdr_aprv_sts_typ.setListListener(p);
+		p.Hdr_aprv_sts_typ.addAllListener(p);
+		p.Hdr_aprv_sts_typ_nm.setListListener(p);
+		p.Hdr_aprv_sts_typ_nm.addAllListener(p);
+		p.Hdr_aprv_upd_flg.addAllListener(p);
+		p.Hdr_aprv_can_flg.addAllListener(p);
+		p.Hdr_edi_flg.addAllListener(p);
+		p.Hdr_dlv_p_PPanel.Dlv_bp_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_def_cst_cd.setListListener(p);
+		p.Hdr_def_cst_cd.addAllListener(p);
+		p.Hdr_prnt_lcl_cd.setListListener(p);
+		p.Hdr_prnt_lcl_cd.addAllListener(p);
+		p.Hdr_dest_cd1.setListListener(p);
+		p.Hdr_dest_cd1.addAllListener(p);
+		p.Hdr_dest_nm1.setListListener(p);
+		p.Hdr_dest_nm1.addAllListener(p);
+		p.Hdr_dest_cd2.setListListener(p);
+		p.Hdr_dest_cd2.addAllListener(p);
+		p.Hdr_dest_nm2.setListListener(p);
+		p.Hdr_dest_nm2.addAllListener(p);
+		p.Hdr_dest_cd3.setListListener(p);
+		p.Hdr_dest_cd3.addAllListener(p);
+		p.Hdr_dest_nm3.setListListener(p);
+		p.Hdr_dest_nm3.addAllListener(p);
+		p.Hdr_tdlv_p_PPanel.Dlv_bp_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_via_dlv_typ.setListListener(p);
+		p.Hdr_via_dlv_typ.addAllListener(p);
+		p.Hdr_via_dlv_typ_nm.setListListener(p);
+		p.Hdr_via_dlv_typ_nm.addAllListener(p);
+		p.Hdr_cst_cd.setListListener(p);
+		p.Hdr_cst_cd.addAllListener(p);
+		p.Hdr_cst_nm.setListListener(p);
+		p.Hdr_cst_nm.addAllListener(p);
+		p.Hdr_sls_basis_typ.setListListener(p);
+		p.Hdr_sls_basis_typ.addAllListener(p);
+		p.Hdr_sls_basis_typ_nm.setListListener(p);
+		p.Hdr_sls_basis_typ_nm.addAllListener(p);
+		p.Hdr_bp_sls_basis_typ.setListListener(p);
+		p.Hdr_bp_sls_basis_typ.addAllListener(p);
+		p.Hdr_hdr_not_lg_mix_flg.addAllListener(p);
+		p.Hdr_hdr_not_lot_mix_flg.addAllListener(p);
+		p.Hdr_hdr_not_sublot_mix_flg.addAllListener(p);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_cst_usr_cd.setListListener(p);
+		p.Hdr_cst_usr_cd.addAllListener(p);
+		p.Hdr_cst_dpt_cd.setListListener(p);
+		p.Hdr_cst_dpt_cd.addAllListener(p);
+		p.Hdr_ar_dpt_typ.setListListener(p);
+		p.Hdr_ar_dpt_typ.addAllListener(p);
+		p.Hdr_lnk_ar_dpt_cd.setListListener(p);
+		p.Hdr_lnk_ar_dpt_cd.addAllListener(p);
+		p.Hdr_wg_cd.setListListener(p);
+		p.Hdr_wg_cd.addAllListener(p);
+		p.Hdr_wg_nm.setListListener(p);
+		p.Hdr_wg_nm.addAllListener(p);
+		p.Hdr_trd_cur_cd.setListListener(p);
+		p.Hdr_trd_cur_cd.addAllListener(p);
+		p.Hdr_trd_cur_nm.setListListener(p);
+		p.Hdr_trd_cur_nm.addAllListener(p);
+		p.Hdr_trd_cur_amt_dec_place.setListListener(p);
+		p.Hdr_trd_cur_amt_dec_place.addAllListener(p);
+		p.Hdr_trd_cur_upri_dec_place.setListListener(p);
+		p.Hdr_trd_cur_upri_dec_place.addAllListener(p);
+		p.Hdr_base_cur_cd.setListListener(p);
+		p.Hdr_base_cur_cd.addAllListener(p);
+		p.Hdr_base_cur_nm.setListListener(p);
+		p.Hdr_base_cur_nm.addAllListener(p);
+		p.Hdr_xrate_inpt_flg.addAllListener(p);
+		p.Hdr_xrate_cd.setListListener(p);
+		p.Hdr_xrate_cd.addAllListener(p);
+		p.Hdr_base_cur_amt_dec_place.setListListener(p);
+		p.Hdr_base_cur_amt_dec_place.addAllListener(p);
+		p.Hdr_base_cur_upri_dec_place.setListListener(p);
+		p.Hdr_base_cur_upri_dec_place.addAllListener(p);
+		p.Hdr_ptax_cur_cd.setListListener(p);
+		p.Hdr_ptax_cur_cd.addAllListener(p);
+		p.Hdr_ptax_cur_nm.setListListener(p);
+		p.Hdr_ptax_cur_nm.addAllListener(p);
+		p.Hdr_ptax_xrate_inpt_flg.addAllListener(p);
+		p.Hdr_ptax_cur_amt_dec_place.setListListener(p);
+		p.Hdr_ptax_cur_amt_dec_place.addAllListener(p);
+		p.Hdr_ptax_cur_upri_dec_place.setListListener(p);
+		p.Hdr_ptax_cur_upri_dec_place.addAllListener(p);
+		p.Hdr_tdlv_req_flg.addAllListener(p);
+		p.Hdr_sls_upri_cng_flg.addAllListener(p);
+		p.Hdr_cst_iv_flg.addAllListener(p);
+		p.Hdr_cst_bill_crryovr_times.setListListener(p);
+		p.Hdr_cst_bill_crryovr_times.addAllListener(p);
+		p.Hdr_sls_upri_req_typ.setListListener(p);
+		p.Hdr_sls_upri_req_typ.addAllListener(p);
+		p.Hdr_ship_schd_split_typ.setListListener(p);
+		p.Hdr_ship_schd_split_typ.addAllListener(p);
+		p.Hdr_sls_amt_rnd_typ.setListListener(p);
+		p.Hdr_sls_amt_rnd_typ.addAllListener(p);
+		p.Hdr_sls_tax_rnd_typ.setListListener(p);
+		p.Hdr_sls_tax_rnd_typ.addAllListener(p);
+		p.Hdr_xrate_rnd_typ.setListListener(p);
+		p.Hdr_xrate_rnd_typ.addAllListener(p);
+		p.Hdr_wtax_rnd_typ.setListListener(p);
+		p.Hdr_wtax_rnd_typ.addAllListener(p);
+		p.Hdr_qtn_no.setListListener(p);
+		p.Hdr_qtn_no.addAllListener(p);
+		p.Hdr_qtn_rev.setListListener(p);
+		p.Hdr_qtn_rev.addAllListener(p);
+		p.Hdr_prof_rate.setListListener(p);
+		p.Hdr_prof_rate.addAllListener(p);
+		p.Hdr_assort_typ.setListListener(p);
+		p.Hdr_assort_typ.addAllListener(p);
+		p.Hdr_assort_typ_nm.setListListener(p);
+		p.Hdr_assort_typ_nm.addAllListener(p);
+		p.Hdr_adv_ship_ctrl_typ.setListListener(p);
+		p.Hdr_adv_ship_ctrl_typ.addAllListener(p);
+		p.Hdr_adv_ship_ctrl_typ_nm.setListListener(p);
+		p.Hdr_adv_ship_ctrl_typ_nm.addAllListener(p);
+		p.Hdr_cst_po_no.setListListener(p);
+		p.Hdr_cst_po_no.addAllListener(p);
+		p.Hdr_cst_po_rev.setListListener(p);
+		p.Hdr_cst_po_rev.addAllListener(p);
+		p.Hdr_rcpt_dt.setListListener(p);
+		p.Hdr_rcpt_dt.addAllListener(p);
+		p.Hdr_rcpt_usr_cd.setListListener(p);
+		p.Hdr_rcpt_usr_cd.addAllListener(p);
+		p.Hdr_rcpt_usr_nm.setListListener(p);
+		p.Hdr_rcpt_usr_nm.addAllListener(p);
+		p.Hdr_acst_cd.setListListener(p);
+		p.Hdr_acst_cd.addAllListener(p);
+		p.Hdr_acst_nm.setListListener(p);
+		p.Hdr_acst_nm.addAllListener(p);
+		p.Hdr_ar_dpt_cd.setListListener(p);
+		p.Hdr_ar_dpt_cd.addAllListener(p);
+		p.Hdr_ar_dpt_nm.setListListener(p);
+		p.Hdr_ar_dpt_nm.addAllListener(p);
+		p.Hdr_iv_no.setListListener(p);
+		p.Hdr_iv_no.addAllListener(p);
+		p.Hdr_iv_num_flg.addAllListener(p);
+		p.Hdr_trnspt_cd.setListListener(p);
+		p.Hdr_trnspt_cd.addAllListener(p);
+		p.Hdr_trnspt_nm.setListListener(p);
+		p.Hdr_trnspt_nm.addAllListener(p);
+		p.Hdr_vssl_flght.setListListener(p);
+		p.Hdr_vssl_flght.addAllListener(p);
+		p.Hdr_load_port_cd.setListListener(p);
+		p.Hdr_load_port_cd.addAllListener(p);
+		p.Hdr_load_port_nm.setListListener(p);
+		p.Hdr_load_port_nm.addAllListener(p);
+		p.Hdr_etd_dt.setListListener(p);
+		p.Hdr_etd_dt.addAllListener(p);
+		p.Hdr_dschrg_port_cd.setListListener(p);
+		p.Hdr_dschrg_port_cd.addAllListener(p);
+		p.Hdr_dschrg_port_nm.setListListener(p);
+		p.Hdr_dschrg_port_nm.addAllListener(p);
+		p.Hdr_eta_dt.setListListener(p);
+		p.Hdr_eta_dt.addAllListener(p);
+		p.Hdr_via_port_cd.setListListener(p);
+		p.Hdr_via_port_cd.addAllListener(p);
+		p.Hdr_via_port_nm.setListListener(p);
+		p.Hdr_via_port_nm.addAllListener(p);
+		p.Hdr_via_schd_dt.setListListener(p);
+		p.Hdr_via_schd_dt.addAllListener(p);
+		p.Hdr_tterm_cd1.setListListener(p);
+		p.Hdr_tterm_cd1.addAllListener(p);
+		p.Hdr_tterm_nm1.setListListener(p);
+		p.Hdr_tterm_nm1.addAllListener(p);
+		p.Hdr_tterm_rmrks1.setListListener(p);
+		p.Hdr_tterm_rmrks1.addAllListener(p);
+		p.Hdr_tterm_cd2.setListListener(p);
+		p.Hdr_tterm_cd2.addAllListener(p);
+		p.Hdr_tterm_nm2.setListListener(p);
+		p.Hdr_tterm_nm2.addAllListener(p);
+		p.Hdr_tterm_rmrks2.setListListener(p);
+		p.Hdr_tterm_rmrks2.addAllListener(p);
+		p.Hdr_tterm_cd3.setListListener(p);
+		p.Hdr_tterm_cd3.addAllListener(p);
+		p.Hdr_tterm_nm3.setListListener(p);
+		p.Hdr_tterm_nm3.addAllListener(p);
+		p.Hdr_tterm_rmrks3.setListListener(p);
+		p.Hdr_tterm_rmrks3.addAllListener(p);
+		p.Hdr_cst_po_rmrks.setListListener(p);
+		p.Hdr_cst_po_rmrks.addAllListener(p);
+		p.Hdr_trd_rmrks.setListListener(p);
+		p.Hdr_trd_rmrks.addAllListener(p);
+		p.Hdr_intr_rmrks.setListListener(p);
+		p.Hdr_intr_rmrks.addAllListener(p);
+		p.Hdr_sub_char1.setListListener(p);
+		p.Hdr_sub_char1.addAllListener(p);
+		p.Hdr_sub_char2.setListListener(p);
+		p.Hdr_sub_char2.addAllListener(p);
+		p.Hdr_sub_char3.setListListener(p);
+		p.Hdr_sub_char3.addAllListener(p);
+		p.Hdr_edi_sub_char1.setListListener(p);
+		p.Hdr_edi_sub_char1.addAllListener(p);
+		p.Hdr_edi_sub_char2.setListListener(p);
+		p.Hdr_edi_sub_char2.addAllListener(p);
+		p.Hdr_edi_sub_char3.setListListener(p);
+		p.Hdr_edi_sub_char3.addAllListener(p);
+		p.Hdr_edi_sub_char4.setListListener(p);
+		p.Hdr_edi_sub_char4.addAllListener(p);
+		p.Hdr_edi_sub_char5.setListListener(p);
+		p.Hdr_edi_sub_char5.addAllListener(p);
+		p.Hdr_edi_sub_num1.setListListener(p);
+		p.Hdr_edi_sub_num1.addAllListener(p);
+		p.Hdr_edi_sub_dt1.setListListener(p);
+		p.Hdr_edi_sub_dt1.addAllListener(p);
+		p.Hdr_can_rsn_cd.setListListener(p);
+		p.Hdr_can_rsn_cd.addAllListener(p);
+		p.Hdr_can_rsn_nm.setListListener(p);
+		p.Hdr_can_rsn_nm.addAllListener(p);
+		p.Hdr_can_rmrks.setListListener(p);
+		p.Hdr_can_rmrks.addAllListener(p);
+		p.Hdr_ins_usr_id.setListListener(p);
+		p.Hdr_ins_usr_id.addAllListener(p);
+		p.Hdr_ins_usr_nm.setListListener(p);
+		p.Hdr_ins_usr_nm.addAllListener(p);
+		p.Hdr_ins_func_id.setListListener(p);
+		p.Hdr_ins_func_id.addAllListener(p);
+		p.Hdr_ins_func_nm.setListListener(p);
+		p.Hdr_ins_func_nm.addAllListener(p);
+		p.Hdr_upd_usr_id.setListListener(p);
+		p.Hdr_upd_usr_id.addAllListener(p);
+		p.Hdr_upd_usr_nm.setListListener(p);
+		p.Hdr_upd_usr_nm.addAllListener(p);
+		p.Hdr_upd_func_id.setListListener(p);
+		p.Hdr_upd_func_id.addAllListener(p);
+		p.Hdr_upd_func_nm.setListListener(p);
+		p.Hdr_upd_func_nm.addAllListener(p);
+		p.Hdr_ins_ts.setListListener(p);
+		p.Hdr_ins_ts.addAllListener(p);
+		p.Hdr_upd_ts.setListListener(p);
+		p.Hdr_upd_ts.addAllListener(p);
+		p.Hdr_upd_srv_req_no.setListListener(p);
+		p.Hdr_upd_srv_req_no.addAllListener(p);
+		p.Hdr_dlv_day_week_typ.setListListener(p);
+		p.Hdr_dlv_day_week_typ.addAllListener(p);
+		p.Hdr_dlv_day_week_typ_nm.setListListener(p);
+		p.Hdr_dlv_day_week_typ_nm.addAllListener(p);
+	}
+
+	/**
+	 *  [Hdr2]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitHdr2(MSBBP_SloReg p) {
+	}
+
+	/**
+	 *  [BulkSet]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitBulkSet(MSBBP_SloReg p) {
+	}
+
+	/**
+	 *  [Dtl]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitDtl(MSBBP_SloReg p) {
+		p.DtlTable.addAllListener(p);
+		p.columnDtl_abort_flg.addAllListener(p);
+		p.columnDtl_sls_sts_typ.addAllListener(p);
+		p.columnDtl_sls_sts_typ.setListListener(p);
+		p.columnDtl_sls_sts_typ_nm.addAllListener(p);
+		p.columnDtl_sls_sts_typ_nm.setListListener(p);
+		p.columnDtl_alloc_sts_typ.addAllListener(p);
+		p.columnDtl_alloc_sts_typ.setListListener(p);
+		p.columnDtl_alloc_sts_typ_nm.addAllListener(p);
+		p.columnDtl_alloc_sts_typ_nm.setListListener(p);
+		p.columnDtl_slo_d_no.addAllListener(p);
+		p.columnDtl_slo_d_no.setListListener(p);
+		p.columnDtl_cst_itm_cd.addAllListener(p);
+		p.columnDtl_cst_itm_cd.setListListener(p);
+		p.columnDtl_cst_itm_nm.addAllListener(p);
+		p.columnDtl_cst_itm_nm.setListListener(p);
+		p.Dtl_itm_p_PPanel.columnItm_itm_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub1.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub2.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub3.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.columnDtl_sundry_itm_flg.addAllListener(p);
+		p.columnDtl_iv_itm_nm.addAllListener(p);
+		p.columnDtl_iv_itm_nm.setListListener(p);
+		p.columnDtl_stk_mng_typ.addAllListener(p);
+		p.columnDtl_stk_mng_typ.setListListener(p);
+		p.columnDtl_asset_mng_typ.addAllListener(p);
+		p.columnDtl_asset_mng_typ.setListListener(p);
+		p.columnDtl_asset_mng_typ_nm.addAllListener(p);
+		p.columnDtl_asset_mng_typ_nm.setListListener(p);
+		p.columnDtl_lot_mng_typ.addAllListener(p);
+		p.columnDtl_lot_mng_typ.setListListener(p);
+		p.columnDtl_lot_no_typ.addAllListener(p);
+		p.columnDtl_lot_no_typ.setListListener(p);
+		p.columnDtl_sublot_mng_typ.addAllListener(p);
+		p.columnDtl_sublot_mng_typ.setListListener(p);
+		p.columnDtl_sublot_no_typ.addAllListener(p);
+		p.columnDtl_sublot_no_typ.setListListener(p);
+		p.columnDtl_sno1_mng_typ.addAllListener(p);
+		p.columnDtl_sno1_mng_typ.setListListener(p);
+		p.columnDtl_sno2_mng_typ.addAllListener(p);
+		p.columnDtl_sno2_mng_typ.setListListener(p);
+		p.columnDtl_sno3_mng_typ.addAllListener(p);
+		p.columnDtl_sno3_mng_typ.setListListener(p);
+		p.columnDtl_sno4_mng_typ.addAllListener(p);
+		p.columnDtl_sno4_mng_typ.setListListener(p);
+		p.columnDtl_sno1_num_typ.addAllListener(p);
+		p.columnDtl_sno1_num_typ.setListListener(p);
+		p.columnDtl_sno2_num_typ.addAllListener(p);
+		p.columnDtl_sno2_num_typ.setListListener(p);
+		p.columnDtl_sno3_num_typ.addAllListener(p);
+		p.columnDtl_sno3_num_typ.setListListener(p);
+		p.columnDtl_sno4_num_typ.addAllListener(p);
+		p.columnDtl_sno4_num_typ.setListListener(p);
+		p.columnDtl_slo_sno1_flg.addAllListener(p);
+		p.columnDtl_slo_sno2_flg.addAllListener(p);
+		p.columnDtl_slo_sno3_flg.addAllListener(p);
+		p.columnDtl_slo_sno4_flg.addAllListener(p);
+		p.columnDtl_itm_bill_crryovr_times.addAllListener(p);
+		p.columnDtl_itm_bill_crryovr_times.setListListener(p);
+		p.columnDtl_dscnt_itm_flg.addAllListener(p);
+		p.columnDtl_slo_proc_flg.addAllListener(p);
+		p.columnDtl_cntry_org_cd.addAllListener(p);
+		p.columnDtl_cntry_org_cd.setListListener(p);
+		p.columnDtl_cntry_org_nm.addAllListener(p);
+		p.columnDtl_cntry_org_nm.setListListener(p);
+		p.columnDtl_vmi_flg.addAllListener(p);
+		p.columnDtl_trd_unit_cd.addAllListener(p);
+		p.columnDtl_trd_unit_cd.setListListener(p);
+		p.columnDtl_trd_unit_nm.addAllListener(p);
+		p.columnDtl_trd_unit_nm.setListListener(p);
+		p.columnDtl_trd_unit_dec_place.addAllListener(p);
+		p.columnDtl_trd_unit_dec_place.setListListener(p);
+		p.columnDtl_trd_unit_conv_base_qty.addAllListener(p);
+		p.columnDtl_trd_unit_conv_base_qty.setListListener(p);
+		p.columnDtl_trd_unit_conv_qty.addAllListener(p);
+		p.columnDtl_trd_unit_conv_qty.setListListener(p);
+		p.columnDtl_trd_unit_rnd_typ.addAllListener(p);
+		p.columnDtl_trd_unit_rnd_typ.setListListener(p);
+		p.columnDtl_sls_upri_cng_flg.addAllListener(p);
+		p.columnDtl_ver_flg.addAllListener(p);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.columnDtl_prof_rate.addAllListener(p);
+		p.columnDtl_prof_rate.setListListener(p);
+		p.columnDtl_wtax_rate.addAllListener(p);
+		p.columnDtl_wtax_rate.setListListener(p);
+		p.columnDtl_bill_crryovr_times.addAllListener(p);
+		p.columnDtl_bill_crryovr_times.setListListener(p);
+		p.columnDtl_gd_cd.addAllListener(p);
+		p.columnDtl_gd_cd.setListListener(p);
+		p.columnDtl_gd_nm.addAllListener(p);
+		p.columnDtl_gd_nm.setListListener(p);
+		p.columnDtl_sno_num_flg.addAllListener(p);
+		p.columnDtl_set_itm_grp_no.addAllListener(p);
+		p.columnDtl_set_itm_grp_no.setListListener(p);
+		p.columnDtl_dlv_day_week_typ.addAllListener(p);
+		p.columnDtl_dlv_day_week_typ.setListListener(p);
+		p.columnDtl_dlv_day_week_typ_nm.addAllListener(p);
+		p.columnDtl_dlv_day_week_typ_nm.setListListener(p);
+		p.columnDtl_sls_schd_dt.addAllListener(p);
+		p.columnDtl_sls_schd_dt.setListListener(p);
+		p.columnDtl_accpt_schd_dt.addAllListener(p);
+		p.columnDtl_accpt_schd_dt.setListListener(p);
+		p.columnDtl_ship_schd_split_flg.addAllListener(p);
+		p.columnDtl_not_dt_calc_flg.addAllListener(p);
+		p.Dtl_dlv_p_PPanel.columnDlv_bp_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.columnDtl_prnt_lcl_cd.addAllListener(p);
+		p.columnDtl_prnt_lcl_cd.setListListener(p);
+		p.columnDtl_tdlv_req_flg.addAllListener(p);
+		p.columnDtl_dest_cd1.addAllListener(p);
+		p.columnDtl_dest_cd1.setListListener(p);
+		p.columnDtl_dest_nm1.addAllListener(p);
+		p.columnDtl_dest_nm1.setListListener(p);
+		p.columnDtl_dest_cd2.addAllListener(p);
+		p.columnDtl_dest_cd2.setListListener(p);
+		p.columnDtl_dest_nm2.addAllListener(p);
+		p.columnDtl_dest_nm2.setListListener(p);
+		p.columnDtl_dest_cd3.addAllListener(p);
+		p.columnDtl_dest_cd3.setListListener(p);
+		p.columnDtl_dest_nm3.addAllListener(p);
+		p.columnDtl_dest_nm3.setListListener(p);
+		p.Dtl_tdlv_p_PPanel.columnDlv_bp_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.columnDtl_via_dlv_typ.addAllListener(p);
+		p.columnDtl_via_dlv_typ.setListListener(p);
+		p.columnDtl_via_dlv_typ_nm.addAllListener(p);
+		p.columnDtl_via_dlv_typ_nm.setListListener(p);
+		p.columnDtl_sls_cststk_flg.addAllListener(p);
+		p.columnDtl_def_proc_typ.addAllListener(p);
+		p.columnDtl_def_proc_typ.setListListener(p);
+		p.columnDtl_proc_typ.addAllListener(p);
+		p.columnDtl_proc_typ.setListListener(p);
+		p.columnDtl_proc_typ_nm.addAllListener(p);
+		p.columnDtl_proc_typ_nm.setListListener(p);
+		p.columnDtl_def_ship_inst_typ.addAllListener(p);
+		p.columnDtl_def_ship_inst_typ.setListListener(p);
+		p.columnDtl_ship_inst_typ.addAllListener(p);
+		p.columnDtl_ship_inst_typ.setListListener(p);
+		p.columnDtl_ship_inst_typ_nm.addAllListener(p);
+		p.columnDtl_ship_inst_typ_nm.setListListener(p);
+		p.columnDtl_ship_schd_split_typ.addAllListener(p);
+		p.columnDtl_ship_schd_split_typ.setListListener(p);
+		p.columnDtl_ship_schd_split_typ_nm.addAllListener(p);
+		p.columnDtl_ship_schd_split_typ_nm.setListListener(p);
+		p.columnDtl_alloc_scope_typ.addAllListener(p);
+		p.columnDtl_alloc_scope_typ.setListListener(p);
+		p.columnDtl_alloc_scope_typ_nm.addAllListener(p);
+		p.columnDtl_alloc_scope_typ_nm.setListListener(p);
+		p.columnDtl_not_lg_mix_flg.addAllListener(p);
+		p.columnDtl_alloc_typ.addAllListener(p);
+		p.columnDtl_alloc_typ.setListListener(p);
+		p.columnDtl_alloc_typ_nm.addAllListener(p);
+		p.columnDtl_alloc_typ_nm.setListListener(p);
+		p.columnDtl_alloc_grp_cd.addAllListener(p);
+		p.columnDtl_alloc_grp_cd.setListListener(p);
+		p.columnDtl_alloc_grp_nm.addAllListener(p);
+		p.columnDtl_alloc_grp_nm.setListListener(p);
+		p.columnDtl_ship_lg_grp_cd.addAllListener(p);
+		p.columnDtl_ship_lg_grp_cd.setListListener(p);
+		p.columnDtl_ship_lg_grp_nm.addAllListener(p);
+		p.columnDtl_ship_lg_grp_nm.setListListener(p);
+		p.columnDtl_def_loc_cd.addAllListener(p);
+		p.columnDtl_def_loc_cd.setListListener(p);
+		p.columnDtl_def_loc_nm.addAllListener(p);
+		p.columnDtl_def_loc_nm.setListListener(p);
+		p.columnDtl_loc_cd.addAllListener(p);
+		p.columnDtl_loc_cd.setListListener(p);
+		p.columnDtl_loc_nm.addAllListener(p);
+		p.columnDtl_loc_nm.setListListener(p);
+		p.columnDtl_wg_cd.addAllListener(p);
+		p.columnDtl_wg_cd.setListListener(p);
+		p.columnDtl_str_ln_tgt_flg.addAllListener(p);
+		p.columnDtl_not_lot_mix_flg.addAllListener(p);
+		p.columnDtl_not_sublot_mix_flg.addAllListener(p);
+		p.columnDtl_rqst_to_loc_cd.addAllListener(p);
+		p.columnDtl_rqst_to_loc_cd.setListListener(p);
+		p.columnDtl_rqst_to_loc_nm.addAllListener(p);
+		p.columnDtl_rqst_to_loc_nm.setListListener(p);
+		p.columnDtl_sppl_cd.addAllListener(p);
+		p.columnDtl_sppl_cd.setListListener(p);
+		p.columnDtl_sppl_nm.addAllListener(p);
+		p.columnDtl_sppl_nm.setListListener(p);
+		p.columnDtl_maker_cd.addAllListener(p);
+		p.columnDtl_maker_cd.setListListener(p);
+		p.columnDtl_maker_nm.addAllListener(p);
+		p.columnDtl_maker_nm.setListListener(p);
+		p.columnDtl_rqst_dt.addAllListener(p);
+		p.columnDtl_rqst_dt.setListListener(p);
+		p.columnDtl_rqst_dlv_rqst_dt.addAllListener(p);
+		p.columnDtl_rqst_dlv_rqst_dt.setListListener(p);
+		p.columnDtl_wg_rqst_cnt_rmrks.addAllListener(p);
+		p.columnDtl_wg_rqst_cnt_rmrks.setListListener(p);
+		p.columnDtl_ship_term_cd.addAllListener(p);
+		p.columnDtl_ship_term_cd.setListListener(p);
+		p.columnDtl_ship_term_nm.addAllListener(p);
+		p.columnDtl_ship_term_nm.setListListener(p);
+		p.columnDtl_ship_block_flg.addAllListener(p);
+		p.columnDtl_ship_cnt_rmrks.addAllListener(p);
+		p.columnDtl_ship_cnt_rmrks.setListListener(p);
+		p.columnDtl_cst_po_d_no.addAllListener(p);
+		p.columnDtl_cst_po_d_no.setListListener(p);
+		p.columnDtl_cst_po_d_rmrks.addAllListener(p);
+		p.columnDtl_cst_po_d_rmrks.setListListener(p);
+		p.columnDtl_sls_rsn_cd.addAllListener(p);
+		p.columnDtl_sls_rsn_cd.setListListener(p);
+		p.columnDtl_sls_rsn_nm.addAllListener(p);
+		p.columnDtl_sls_rsn_nm.setListListener(p);
+		p.columnDtl_sls_acxfr_flg.addAllListener(p);
+		p.columnDtl_bd_dpt_cd.addAllListener(p);
+		p.columnDtl_bd_dpt_cd.setListListener(p);
+		p.columnDtl_bd_dpt_nm.addAllListener(p);
+		p.columnDtl_bd_dpt_nm.setListListener(p);
+		p.columnDtl_sls_upri_req_typ.addAllListener(p);
+		p.columnDtl_sls_upri_req_typ.setListListener(p);
+		p.columnDtl_sls_upri_req_typ_nm.addAllListener(p);
+		p.columnDtl_sls_upri_req_typ_nm.setListListener(p);
+		p.columnDtl_trd_d_rmrks.addAllListener(p);
+		p.columnDtl_trd_d_rmrks.setListListener(p);
+		p.columnDtl_intr_rmrks.addAllListener(p);
+		p.columnDtl_intr_rmrks.setListListener(p);
+		p.columnDtl_sub_char1.addAllListener(p);
+		p.columnDtl_sub_char1.setListListener(p);
+		p.columnDtl_sub_char2.addAllListener(p);
+		p.columnDtl_sub_char2.setListListener(p);
+		p.columnDtl_sub_char3.addAllListener(p);
+		p.columnDtl_sub_char3.setListListener(p);
+		p.columnDtl_edi_sub_d_char1.addAllListener(p);
+		p.columnDtl_edi_sub_d_char1.setListListener(p);
+		p.columnDtl_edi_sub_d_char2.addAllListener(p);
+		p.columnDtl_edi_sub_d_char2.setListListener(p);
+		p.columnDtl_edi_sub_d_char3.addAllListener(p);
+		p.columnDtl_edi_sub_d_char3.setListListener(p);
+		p.columnDtl_edi_sub_d_char4.addAllListener(p);
+		p.columnDtl_edi_sub_d_char4.setListListener(p);
+		p.columnDtl_edi_sub_d_char5.addAllListener(p);
+		p.columnDtl_edi_sub_d_char5.setListListener(p);
+		p.columnDtl_edi_sub_d_num1.addAllListener(p);
+		p.columnDtl_edi_sub_d_num1.setListListener(p);
+		p.columnDtl_edi_sub_d_dt1.addAllListener(p);
+		p.columnDtl_edi_sub_d_dt1.setListListener(p);
+		p.columnDtl_can_rsn_cd.addAllListener(p);
+		p.columnDtl_can_rsn_cd.setListListener(p);
+		p.columnDtl_can_rsn_nm.addAllListener(p);
+		p.columnDtl_can_rsn_nm.setListListener(p);
+		p.columnDtl_slo_d_can_rmkrs.addAllListener(p);
+		p.columnDtl_slo_d_can_rmkrs.setListListener(p);
+		p.columnDtl_ship_cmpl_flg.addAllListener(p);
+		p.columnDtl_sls_cmpl_flg.addAllListener(p);
+		p.columnDtl_base_unit_cd.addAllListener(p);
+		p.columnDtl_base_unit_cd.setListListener(p);
+		p.columnDtl_base_unit_nm.addAllListener(p);
+		p.columnDtl_base_unit_nm.setListListener(p);
+		p.columnDtl_base_unit_dec_place.addAllListener(p);
+		p.columnDtl_base_unit_dec_place.setListListener(p);
+		p.columnDtl_base_unit_rnd_typ.addAllListener(p);
+		p.columnDtl_base_unit_rnd_typ.setListListener(p);
+		p.columnDtl_qtn_d_no.addAllListener(p);
+		p.columnDtl_qtn_d_no.setListListener(p);
+		p.columnDtl_disp_seq.addAllListener(p);
+		p.columnDtl_disp_seq.setListListener(p);
+	}
+
+	/**
+	 *  [Btn]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitBtn(MSBBP_SloReg p) {
+		p.Btn_open_MSBBP1230.addAllListener(p);
+		p.Btn_open_MSBBP1230.setAPMethodName("doBtn_open_MSBBP1230");
+		p.Btn_sprt.addAllListener(p);
+		p.Btn_sprt.setAPMethodName("doBtn_sprt");
+		p.Btn_radd.addAllListener(p);
+		p.Btn_radd.setAPMethodName("doBtn_radd");
+		p.Btn_rdel.addAllListener(p);
+		p.Btn_rdel.setAPMethodName("doBtn_rdel");
+		p.Btn_rcopy.addAllListener(p);
+		p.Btn_rcopy.setAPMethodName("doBtn_rcopy");
+		p.Btn_ins.addAllListener(p);
+		p.Btn_ins.setAPMethodName("doBtn_ins");
+		p.Btn_upd.addAllListener(p);
+		p.Btn_upd.setAPMethodName("doBtn_upd");
+		p.Btn_del.addAllListener(p);
+		p.Btn_del.setAPMethodName("doBtn_del");
+	}
+
+	/**
+	 *  [EastBtn]ブロックの画面部品初期設定（MCFrame仕様）
+	 */
+	protected static void mcInitEastBtn(MSBBP_SloReg p) {
+	}
+
+	/**
+	 * [SRCH]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, SRCH, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, SRCH, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, SRCH, MCMode.REQUIRED);
+		p.Cnd_srch_slo.putMode(p, SRCH, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, SRCH, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(SRCH, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, SRCH, MCMode.DISABLE);
+		p.Btn_del.putMode(p, SRCH, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [SRCH]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, REF, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, REF, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, REF, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, REF, MCMode.REQUIRED);
+		p.Cnd_srch_slo.putMode(p, REF, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, REF, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [REF]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [REF]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [REF]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, REF, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, REF, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(REF, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, REF, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, REF, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, REF, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, REF, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, REF, MCMode.DISABLE);
+		p.Btn_del.putMode(p, REF, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [REF]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, UPD, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, UPD, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, UPD, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, UPD, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_slo_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_slo_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_def_cst_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dest_nm1.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dest_nm2.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dest_nm3.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_via_dlv_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_cst_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_sls_basis_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.REQUIRED);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_trd_cur_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_xrate_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_xrate_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_prof_rate.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_assort_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.REQUIRED);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_cst_po_rev.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_ar_dpt_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_iv_num_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_trnspt_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_trnspt_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_load_port_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_load_port_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dschrg_port_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dschrg_port_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_via_port_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_via_port_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_cd1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_nm1.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_cd2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_nm2.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_cd3.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tterm_nm3.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_cst_po_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_trd_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_intr_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_day_week_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [UPD]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_sls_sts_typ.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_cst_itm_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_itm_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
+		p.columnDtl_sundry_itm_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_cntry_org_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_trd_unit_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.Dtl_cost_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
+		p.Dtl_cost_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_gd_cd.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_gd_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_set_itm_grp_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.columnDtl_dlv_day_week_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sls_schd_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_accpt_schd_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_ship_schd_split_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.REQUIRED);
+		p.columnDtl_prnt_lcl_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_dest_nm1.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_dest_nm2.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_dest_nm3.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.ENABLE);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_def_proc_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_proc_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_alloc_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_alloc_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_alloc_grp_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_loc_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.REQUIRED);
+		p.columnDtl_not_lot_mix_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sppl_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_maker_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_ship_term_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_ship_term_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_no.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, UPD, MCMode.REQUIRED);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_intr_rmrks.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sub_char1.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sub_char2.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_sub_char3.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char1.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char2.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char3.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char4.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char5.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_num1.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_can_rsn_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.ENABLE);
+		p.Btn_sprt.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(UPD, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.ENABLE);
+		p.Btn_radd.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_rdel.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_rcopy.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_ins.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, UPD, MCMode.ENABLE);
+		p.Btn_del.putMode(p, UPD, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [UPD]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_def_cst_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm1.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm2.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm3.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_via_dlv_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_sls_basis_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.REQUIRED);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_xrate_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_xrate_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_prof_rate.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_assort_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.REQUIRED);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_cst_po_rev.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_ar_dpt_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_iv_num_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_trnspt_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_trnspt_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_load_port_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_load_port_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dschrg_port_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dschrg_port_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_via_port_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_via_port_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm1.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm2.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm3.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_cst_po_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_trd_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_intr_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_day_week_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_sls_sts_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_itm_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_itm_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
+		p.columnDtl_sundry_itm_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_cntry_org_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_trd_unit_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Dtl_cost_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
+		p.Dtl_cost_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_gd_cd.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_gd_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_set_itm_grp_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.columnDtl_dlv_day_week_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_schd_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_accpt_schd_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_schd_split_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.REQUIRED);
+		p.columnDtl_prnt_lcl_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm1.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm2.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm3.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.ENABLE);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_def_proc_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_proc_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_grp_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_loc_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.REQUIRED);
+		p.columnDtl_not_lot_mix_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sppl_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_maker_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_term_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_term_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_intr_rmrks.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char3.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char4.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char5.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_num1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_can_rsn_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.ENABLE);
+		p.Btn_sprt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(UPD_QTN, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.ENABLE);
+		p.Btn_radd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_rdel.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_rcopy.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_ins.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Btn_del.putMode(p, UPD_QTN, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Hdr_slo_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_prof_rate.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Hdr_assort_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_cst_po_rev.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Hdr_ar_dpt_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_iv_num_flg.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.Hdr_trnspt_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_trnspt_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_load_port_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_load_port_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_dschrg_port_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_dschrg_port_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_via_port_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_via_port_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_tterm_cd1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_trd_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_intr_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_day_week_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_sls_sts_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_cst_itm_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_itm_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_cntry_org_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_gd_cd.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_gd_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_set_itm_grp_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.columnDtl_dlv_day_week_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sls_schd_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_accpt_schd_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_ship_schd_split_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_def_proc_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_proc_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_alloc_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_alloc_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_alloc_grp_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_loc_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.REQUIRED);
+		p.columnDtl_not_lot_mix_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sppl_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_maker_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_ship_term_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_ship_term_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, UPD_APRV, MCMode.REQUIRED);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_intr_rmrks.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sub_char1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sub_char2.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_sub_char3.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char2.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char3.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char4.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char5.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_num1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_can_rsn_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, UPD_APRV, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(UPD_APRV, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, UPD_APRV, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, UPD_APRV, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, UPD_APRV, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Btn_del.putMode(p, UPD_APRV, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_APRV]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, UPD_TRNST, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, UPD_TRNST, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, UPD_TRNST, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_Dtl(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_Btn(MSBBP_SloReg p){
+		p.Btn_rdel.putMode(p, UPD_TRNST, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, FIX_U, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, FIX_U, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, FIX_U, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, FIX_U, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(FIX_U, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, FIX_U, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, FIX_U, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, FIX_U, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, FIX_U, MCMode.DISABLE);
+		p.Btn_del.putMode(p, FIX_U, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, INS, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, INS, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, INS, MCMode.REQUIRED);
+		p.Cnd_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, INS, MCMode.INVISIBLE);
+		p.Cnd_srch_qtn.putMode(p, INS, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [INS]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_trd_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_slo_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_slo_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_def_cst_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dest_nm1.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dest_nm2.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dest_nm3.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_via_dlv_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_cst_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_sls_basis_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.REQUIRED);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_trd_cur_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_xrate_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_xrate_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_prof_rate.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_assort_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.REQUIRED);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_cst_po_rev.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_ar_dpt_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_iv_num_flg.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_trnspt_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_trnspt_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_load_port_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_load_port_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dschrg_port_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dschrg_port_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_via_port_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_via_port_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_cd1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_nm1.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_cd2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_nm2.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_cd3.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tterm_nm3.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_cst_po_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_trd_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_intr_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_day_week_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [INS]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_cst_itm_nm.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_itm_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
+		p.columnDtl_sundry_itm_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_stk_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_cntry_org_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_trd_unit_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_trd_unit_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS, MCMode.REQUIRED);
+		p.Dtl_cost_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
+		p.Dtl_cost_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_gd_cd.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_gd_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_set_itm_grp_no.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.columnDtl_dlv_day_week_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sls_schd_dt.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_accpt_schd_dt.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_ship_schd_split_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, INS, MCMode.ENABLE);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.REQUIRED);
+		p.columnDtl_prnt_lcl_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_dest_nm1.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_dest_nm2.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_dest_nm3.putMode(p, INS, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.ENABLE);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_def_proc_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_proc_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_alloc_typ.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_alloc_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_alloc_grp_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_loc_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.REQUIRED);
+		p.columnDtl_not_lot_mix_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sppl_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_maker_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_ship_term_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_ship_term_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_no.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_cd.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, INS, MCMode.REQUIRED);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_intr_rmrks.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sub_char1.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sub_char2.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_sub_char3.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char1.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char2.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char3.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char4.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char5.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_num1.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_can_rsn_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, INS, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [INS]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, INS, MCMode.DISABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.ENABLE);
+		p.Btn_sprt.putMode(p, INS, MCMode.ENABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(INS, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.ENABLE);
+		p.Btn_radd.putMode(p, INS, MCMode.ENABLE);
+		p.Btn_rdel.putMode(p, INS, MCMode.ENABLE);
+		p.Btn_rcopy.putMode(p, INS, MCMode.ENABLE);
+		p.Btn_ins.putMode(p, INS, MCMode.ENABLE);
+		p.Btn_upd.putMode(p, INS, MCMode.INVISIBLE);
+		p.Btn_del.putMode(p, INS, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [INS]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Cnd_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Cnd_srch_qtn.putMode(p, INS_QTN, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_def_cst_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm1.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm2.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dest_nm3.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_via_dlv_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_sls_basis_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.REQUIRED);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_usr_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_xrate_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_xrate_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.REQUIRED);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_prof_rate.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_assort_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.REQUIRED);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_cst_po_rev.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_usr_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_ar_dpt_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_iv_num_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_trnspt_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_trnspt_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_load_port_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_load_port_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dschrg_port_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dschrg_port_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_via_port_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_via_port_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm1.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm2.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_cd3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tterm_nm3.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_cst_po_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_trd_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_intr_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_sub_char3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char4.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_char5.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_num1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_edi_sub_dt1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_can_rsn_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
+		p.Hdr_dlv_day_week_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_itm_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_itm_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
+		p.columnDtl_sundry_itm_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_stk_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_cntry_org_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_trd_unit_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Dtl_cost_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
+		p.Dtl_cost_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_gd_cd.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_gd_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_set_itm_grp_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
+		p.columnDtl_dlv_day_week_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_schd_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_accpt_schd_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_schd_split_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.REQUIRED);
+		p.Dtl_dlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.REQUIRED);
+		p.columnDtl_prnt_lcl_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm1.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm2.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_dest_nm3.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.ENABLE);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_def_proc_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_proc_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_alloc_grp_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_loc_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.ENABLE);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.REQUIRED);
+		p.columnDtl_not_lot_mix_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sppl_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_maker_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_term_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_ship_term_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sls_rsn_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_intr_rmrks.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_sub_char3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char3.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char4.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_char5.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_num1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_can_rsn_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, INS_QTN, MCMode.DISABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.ENABLE);
+		p.Btn_sprt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(INS_QTN, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.ENABLE);
+		p.Btn_radd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Btn_rdel.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Btn_rcopy.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Btn_ins.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Btn_upd.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.Btn_del.putMode(p, INS_QTN, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, FIX_I, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, FIX_I, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, FIX_I, MCMode.REQUIRED);
+		p.Cnd_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Cnd_srch_qtn.putMode(p, FIX_I, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(FIX_I, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Btn_upd.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.Btn_del.putMode(p, FIX_I, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_I]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, DEL, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, DEL, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, DEL, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, DEL, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [DEL]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_can_rsn_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ins_usr_id.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [DEL]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [DEL]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, DEL, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, DEL, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(DEL, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, DEL, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, DEL, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, DEL, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, DEL, MCMode.DISABLE);
+		p.Btn_del.putMode(p, DEL, MCMode.ENABLE);
+
+	}
+
+	/**
+	 * [DEL]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [DEL]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[ScreenOpe]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_ScreenOpe(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[Cnd]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_Cnd(MSBBP_SloReg p){
+		p.Cnd_ope_Group.putMode(p, FIX_D, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Cnd_srch_tgt_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Cnd_srch_tgt_no.putMode(p, FIX_D, MCMode.REQUIRED);
+		p.Cnd_srch_tgt_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Cnd_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Cnd_srch_slo.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Cnd_srch_qtn.putMode(p, FIX_D, MCMode.INVISIBLE);
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[HdrTab]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_HdrTab(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[Hdr]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_Hdr(MSBBP_SloReg p){
+		p.Hdr_trd_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trd_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trd_ptn_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_srch_tgt_no.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_slo_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_back_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_sts_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_upd_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_can_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_def_cst_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_prnt_lcl_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_dest_cd1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dest_nm1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dest_cd2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dest_nm2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dest_cd3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dest_nm3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_tdlv_p_PPanel.Dlv_pri_prnt_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_via_dlv_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_via_dlv_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cst_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cst_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sls_basis_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_bp_sls_basis_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lg_mix_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_lot_mix_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_hdr_not_sublot_mix_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_usr_dpt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0320.MAUBP_UsrDpt_H.READ_ONLY);
+		p.Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cst_usr_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_cst_dpt_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_ar_dpt_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_lnk_ar_dpt_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_wg_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_wg_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trd_cur_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cred_bal_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_trd_cur_upri_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_base_cur_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_base_cur_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_xrate_inpt_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_xrate_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_xrate_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_base_cur_amt_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_base_cur_upri_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ptax_cur_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_inpt_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ptax_xrate_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0420.MAUBP_Xrate_H.READ_ONLY);
+		p.Hdr_ptax_cur_amt_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_ptax_cur_upri_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_tdlv_req_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_cng_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_cst_iv_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_cst_bill_crryovr_times.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_sls_upri_req_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_ship_schd_split_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_sls_amt_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_sls_tax_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_xrate_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_wtax_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_qtn_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_qtn_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_prof_rate.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_trd_cur_inc_tax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_assort_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_assort_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_adv_ship_ctrl_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_adv_bill_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_adv_rcv_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
+		p.Hdr_cst_po_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_rcpt_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_rcpt_usr_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_acst_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_acst_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ar_dpt_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_iv_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_iv_num_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trnspt_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trnspt_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_vssl_flght.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_load_port_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_load_port_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_etd_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_dschrg_port_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_eta_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_via_port_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_via_port_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_via_schd_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_cd3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_nm3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_tterm_rmrks3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cst_po_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_trd_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_intr_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sub_char1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sub_char2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sub_char3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char4.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_char5.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_num1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_edi_sub_dt1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_can_rsn_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_can_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_id.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ins_usr_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ins_func_id.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ins_func_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_id.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_usr_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_func_id.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_func_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ins_ts.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_ts.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_upd_srv_req_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ship_rqst_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
+		p.Hdr_dlv_day_week_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[Hdr2]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_Hdr2(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[BulkSet]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_BulkSet(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[Dtl]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_Dtl(MSBBP_SloReg p){
+		p.columnDtl_abort_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_sts_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_sts_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_cst_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_itm_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnDtl_sundry_itm_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_iv_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_asset_mng_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_lot_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_lot_no_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sublot_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sublot_no_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno1_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno2_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno3_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno4_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno1_num_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno2_num_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno3_num_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sno4_num_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno1_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno2_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno3_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_slo_sno4_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_itm_bill_crryovr_times.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_dscnt_itm_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_slo_proc_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_cntry_org_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_cntry_org_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_vmi_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_base_qty.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_conv_qty.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_trd_unit_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_ver_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_cost_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_iv_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_iv_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_prof_rate.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_wtax_rate.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_wtax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_base_cur_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_inc_tax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_base_cur_tax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
+		p.Dtl_ptax_cur_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.Dtl_ptax_cur_tax_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.READ_ONLY);
+		p.columnDtl_bill_crryovr_times.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_gd_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_gd_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sno_num_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5070.MAUBP_Sno_D.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno1_null_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno2_null_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno3_null_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_sno_p_PPanel.columnSno_sno4_null_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_set_itm_grp_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_ship_rqst_dt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_schd_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_accpt_schd_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_not_dt_calc_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_ship_schd_dt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_schd_dt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
+		p.Dtl_dlv_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5400.MAUBP_DlvCombo_D.READ_ONLY);
+		p.columnDtl_prnt_lcl_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_tdlv_req_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_dest_cd1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_dest_cd3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_dest_nm3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5150.MAUBP_Dlv_D.READ_ONLY);
+		p.Dtl_tdlv_p_PPanel.columnDlv_pri_prnt_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_via_dlv_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_via_dlv_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_cststk_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_def_proc_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_proc_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_proc_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_def_ship_inst_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_ship_inst_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_inst_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_schd_split_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_scope_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_not_lg_mix_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_alloc_grp_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_lg_grp_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_def_loc_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_loc_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_loc_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_wg_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_str_ln_tgt_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Dtl_str_ln_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP5030.MSUBP_LotNo_D.READ_ONLY);
+		p.Dtl_lot_no_p_PPanel.columnLotNo_crt_lot_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Dtl_ver_no_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5250.MAUBP_VerNo_D.READ_ONLY);
+		p.columnDtl_not_lot_mix_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_not_sublot_mix_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_rqst_to_loc_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sppl_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sppl_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_maker_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_maker_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_rqst_dlv_rqst_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_wg_rqst_cnt_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_term_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_block_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_cnt_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_cst_po_d_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_rsn_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_acxfr_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_bd_dpt_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_bd_dpt_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_upri_req_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_trd_d_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_intr_rmrks.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sub_char1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sub_char2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sub_char3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char4.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_char5.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_num1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_edi_sub_d_dt1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_can_rsn_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_slo_d_can_rmkrs.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_ship_cmpl_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_sls_cmpl_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_base_unit_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_base_unit_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_base_unit_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_base_unit_rnd_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Dtl_alloc_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_wait_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_inst_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_act_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_schd_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_iv_act_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_ret_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_re_ship_schd_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_ship_schd_abort_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.Dtl_sls_schd_abort_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_qtn_d_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_disp_seq.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_old_trd_cur_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.INVISIBLE);
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[DtlComp]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_DtlComp(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[DtlSpec]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_DtlSpec(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[Btn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_Btn(MSBBP_SloReg p){
+		p.Btn_open_MSBBP1230.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Btn_open_MSBEP0500_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP0070.MSUBP_StkInfo_H.DISABLE);
+		p.Btn_sprt.putMode(p, FIX_D, MCMode.DISABLE);
+		p.Btn_menu_move_p_PPanel.putStatus(FIX_D, mcframe.clientFSUB.FSUBP0060.FSUBP_RowMove_H.DISABLE);
+		p.Btn_radd.putMode(p, FIX_D, MCMode.DISABLE);
+		p.Btn_rdel.putMode(p, FIX_D, MCMode.DISABLE);
+		p.Btn_rcopy.putMode(p, FIX_D, MCMode.DISABLE);
+		p.Btn_ins.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Btn_upd.putMode(p, FIX_D, MCMode.DISABLE);
+		p.Btn_del.putMode(p, FIX_D, MCMode.DISABLE);
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[EastBtn]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_EastBtn(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[UpriSrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * 初期ステータスの文字列を返します。
+	 */
+	public String getInitStatus() {
+		return INS;
+	}
+
+	/**
+	 * Table/Treeの設定
+	 */
+	protected void setTableConfig() {
+		super.setTableConfig();
+		MSBBP_SloReg_MC.setTableConfigDtl((MSBBP_SloReg)this);
+	}
+
+	/**
+	 * [Dtl]ブロックのTableの設定
+	 */
+	protected static void setTableConfigDtl(MSBBP_SloReg p) {
+		p.columnDtl_abort_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.abort_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_abort_flg);
+		p.columnDtl_sls_sts_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_sts_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_sts_typ);
+		p.columnDtl_sls_sts_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_sts_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_sts_typ_nm);
+		p.columnDtl_alloc_sts_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_sts_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_sts_typ);
+		p.columnDtl_alloc_sts_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_sts_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_sts_typ_nm);
+		p.columnDtl_slo_d_no.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_d_no_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_d_no);
+		p.columnDtl_cst_itm_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cst_itm_cd_META);
+		p.columnDtl_cst_itm_cd.addLinkBeans(p.columnDtl_cst_itm_nm,p.columnDtl_itm_cd,p.columnDtl_itm_sub1,p.columnDtl_itm_sub2,p.columnDtl_itm_sub3);
+		p.DtlTable.addColumnConfig(p.columnDtl_cst_itm_cd);
+		p.columnDtl_cst_itm_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cst_itm_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_cst_itm_nm);
+		p.DtlTable.addTable(p.Dtl_itm_p_PPanel.ItmTable);
+		p.Dtl_itm_p_PPanel.columnItm_itm_cd.setLinkBeans(p.columnDtl_itm_sub1, p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub1.setLinkBeans(p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub2.setLinkBeans(p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub3.setLinkBeans(p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn);
+		p.columnDtl_sundry_itm_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sundry_itm_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sundry_itm_flg);
+		p.columnDtl_iv_itm_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.iv_itm_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_iv_itm_nm);
+		p.columnDtl_stk_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.stk_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_stk_mng_typ);
+		p.columnDtl_asset_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.asset_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_asset_mng_typ);
+		p.columnDtl_asset_mng_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.asset_mng_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_asset_mng_typ_nm);
+		p.columnDtl_lot_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.lot_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_lot_mng_typ);
+		p.columnDtl_lot_no_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.lot_no_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_lot_no_typ);
+		p.columnDtl_sublot_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sublot_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sublot_mng_typ);
+		p.columnDtl_sublot_no_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sublot_no_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sublot_no_typ);
+		p.columnDtl_sno1_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno1_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno1_mng_typ);
+		p.columnDtl_sno2_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno2_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno2_mng_typ);
+		p.columnDtl_sno3_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno3_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno3_mng_typ);
+		p.columnDtl_sno4_mng_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno4_mng_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno4_mng_typ);
+		p.columnDtl_sno1_num_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno1_num_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno1_num_typ);
+		p.columnDtl_sno2_num_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno2_num_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno2_num_typ);
+		p.columnDtl_sno3_num_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno3_num_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno3_num_typ);
+		p.columnDtl_sno4_num_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno4_num_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno4_num_typ);
+		p.columnDtl_slo_sno1_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_sno1_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_sno1_flg);
+		p.columnDtl_slo_sno2_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_sno2_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_sno2_flg);
+		p.columnDtl_slo_sno3_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_sno3_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_sno3_flg);
+		p.columnDtl_slo_sno4_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_sno4_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_sno4_flg);
+		p.columnDtl_itm_bill_crryovr_times.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.itm_bill_crryovr_times_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_itm_bill_crryovr_times);
+		p.columnDtl_dscnt_itm_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dscnt_itm_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_dscnt_itm_flg);
+		p.columnDtl_slo_proc_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_proc_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_proc_flg);
+		p.columnDtl_cntry_org_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cntry_org_cd_META);
+		p.columnDtl_cntry_org_cd.addLinkBeans(p.columnDtl_cntry_org_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_cntry_org_cd);
+		p.columnDtl_cntry_org_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cntry_org_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_cntry_org_nm);
+		p.columnDtl_vmi_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.vmi_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_vmi_flg);
+		p.columnDtl_trd_unit_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_cd_META);
+		p.columnDtl_trd_unit_cd.addLinkBeans(p.columnDtl_trd_unit_nm,p.columnDtl_trd_unit_dec_place,p.columnDtl_trd_unit_conv_base_qty,p.columnDtl_trd_unit_conv_qty);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_cd);
+		p.columnDtl_trd_unit_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_nm);
+		p.columnDtl_trd_unit_dec_place.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_dec_place_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_dec_place);
+		p.columnDtl_trd_unit_conv_base_qty.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_conv_base_qty_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_conv_base_qty);
+		p.columnDtl_trd_unit_conv_qty.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_conv_qty_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_conv_qty);
+		p.columnDtl_trd_unit_rnd_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_rnd_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_rnd_typ);
+		p.columnDtl_sls_upri_cng_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_upri_cng_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_upri_cng_flg);
+		p.columnDtl_ver_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ver_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ver_flg);
+		p.DtlTable.addTable(p.Dtl_trd_unit_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_trd_cur_upri_amt_p_PPanel.TrdUpriAmtTable);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setLinkBeans(p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setLinkBeans(p.columnDtl_dscnt_rsn_nm);
+		p.DtlTable.addTable(p.Dtl_cost_upri_p_PPanel.UpriTable);
+		p.DtlTable.addTable(p.Dtl_cost_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_iv_upri_p_PPanel.UpriTable);
+		p.DtlTable.addTable(p.Dtl_iv_amt_p_PPanel.AmtTable);
+		p.columnDtl_prof_rate.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.prof_rate_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_prof_rate);
+		p.columnDtl_wtax_rate.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.wtax_rate_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_wtax_rate);
+		p.DtlTable.addTable(p.Dtl_wtax_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_base_cur_upri_p_PPanel.UpriTable);
+		p.DtlTable.addTable(p.Dtl_base_cur_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_base_cur_inc_tax_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_base_cur_tax_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_ptax_cur_upri_p_PPanel.UpriTable);
+		p.DtlTable.addTable(p.Dtl_ptax_cur_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_ptax_cur_inc_tax_amt_p_PPanel.AmtTable);
+		p.DtlTable.addTable(p.Dtl_ptax_cur_tax_amt_p_PPanel.AmtTable);
+		p.columnDtl_bill_crryovr_times.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.bill_crryovr_times_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_bill_crryovr_times);
+		p.columnDtl_gd_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.gd_cd_META);
+		p.columnDtl_gd_cd.addLinkBeans(p.columnDtl_gd_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_gd_cd);
+		p.columnDtl_gd_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.gd_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_gd_nm);
+		p.columnDtl_sno_num_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sno_num_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sno_num_flg);
+		p.DtlTable.addTable(p.Dtl_sno_p_PPanel.SnoTable);
+		p.columnDtl_set_itm_grp_no.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.set_itm_grp_no_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_set_itm_grp_no);
+		p.DtlTable.addTable(p.Dtl_ship_rqst_dt_p_PPanel.YmdHmTable);
+		p.DtlTable.addTable(p.Dtl_dlv_rqst_dt_p_PPanel.YmdHmTable);
+		p.columnDtl_dlv_day_week_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dlv_day_week_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_dlv_day_week_typ);
+		p.columnDtl_dlv_day_week_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dlv_day_week_typ_nm_META);
+		p.columnDtl_dlv_day_week_typ_nm.addLinkBeans(p.columnDtl_dlv_day_week_typ);
+		p.DtlTable.addColumnConfig(p.columnDtl_dlv_day_week_typ_nm);
+		p.columnDtl_sls_schd_dt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_schd_dt_META);
+		p.columnDtl_sls_schd_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_schd_dt);
+		p.columnDtl_accpt_schd_dt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.accpt_schd_dt_META);
+		p.columnDtl_accpt_schd_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.DtlTable.addColumnConfig(p.columnDtl_accpt_schd_dt);
+		p.columnDtl_ship_schd_split_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_schd_split_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_schd_split_flg);
+		p.columnDtl_not_dt_calc_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.not_dt_calc_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_not_dt_calc_flg);
+		p.DtlTable.addTable(p.Dtl_ship_schd_dt_p_PPanel.YmdHmTable);
+		p.DtlTable.addTable(p.Dtl_dlv_schd_dt_p_PPanel.YmdHmTable);
+		p.DtlTable.addTable(p.Dtl_dlv_p_PPanel.DlvTable);
+		p.Dtl_dlv_p_PPanel.columnDlv_bp_cd.setLinkBeans(p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_prnt_lcl_cd);
+		p.columnDtl_prnt_lcl_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.prnt_lcl_cd_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_prnt_lcl_cd);
+		p.columnDtl_tdlv_req_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.tdlv_req_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_tdlv_req_flg);
+		p.columnDtl_dest_cd1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_cd1_META);
+		p.columnDtl_dest_cd1.setListType(MCListType.STRICT);
+		p.columnDtl_dest_cd1.addLinkBeans(p.columnDtl_dest_nm1);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_cd1);
+		p.columnDtl_dest_nm1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_nm1_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_nm1);
+		p.columnDtl_dest_cd2.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_cd2_META);
+		p.columnDtl_dest_cd2.setListType(MCListType.STRICT);
+		p.columnDtl_dest_cd2.addLinkBeans(p.columnDtl_dest_nm2);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_cd2);
+		p.columnDtl_dest_nm2.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_nm2_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_nm2);
+		p.columnDtl_dest_cd3.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_cd3_META);
+		p.columnDtl_dest_cd3.setListType(MCListType.STRICT);
+		p.columnDtl_dest_cd3.addLinkBeans(p.columnDtl_dest_nm3);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_cd3);
+		p.columnDtl_dest_nm3.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.dest_nm3_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_dest_nm3);
+		p.DtlTable.addTable(p.Dtl_tdlv_p_PPanel.DlvTable);
+		p.Dtl_tdlv_p_PPanel.columnDlv_bp_cd.setLinkBeans(p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_via_dlv_typ, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm);
+		p.columnDtl_via_dlv_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.via_dlv_typ_META);
+		p.columnDtl_via_dlv_typ.addLinkBeans(p.columnDtl_via_dlv_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_via_dlv_typ);
+		p.columnDtl_via_dlv_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.via_dlv_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_via_dlv_typ_nm);
+		p.columnDtl_sls_cststk_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_cststk_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_cststk_flg);
+		p.columnDtl_def_proc_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.def_proc_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_def_proc_typ);
+		p.columnDtl_proc_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.proc_typ_META);
+		p.columnDtl_proc_typ.addLinkBeans(p.columnDtl_proc_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_proc_typ);
+		p.columnDtl_proc_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.proc_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_proc_typ_nm);
+		p.columnDtl_def_ship_inst_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.def_ship_inst_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_def_ship_inst_typ);
+		p.columnDtl_ship_inst_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_inst_typ_META);
+		p.columnDtl_ship_inst_typ.addLinkBeans(p.columnDtl_ship_inst_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_inst_typ);
+		p.columnDtl_ship_inst_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_inst_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_inst_typ_nm);
+		p.columnDtl_ship_schd_split_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_schd_split_typ_META);
+		p.columnDtl_ship_schd_split_typ.addLinkBeans(p.columnDtl_ship_schd_split_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_schd_split_typ);
+		p.columnDtl_ship_schd_split_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_schd_split_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_schd_split_typ_nm);
+		p.columnDtl_alloc_scope_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_scope_typ_META);
+		p.columnDtl_alloc_scope_typ.addLinkBeans(p.columnDtl_alloc_scope_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_scope_typ);
+		p.columnDtl_alloc_scope_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_scope_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_scope_typ_nm);
+		p.columnDtl_not_lg_mix_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.not_lg_mix_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_not_lg_mix_flg);
+		p.columnDtl_alloc_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_typ_META);
+		p.columnDtl_alloc_typ.addLinkBeans(p.columnDtl_alloc_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_typ);
+		p.columnDtl_alloc_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_typ_nm);
+		p.columnDtl_alloc_grp_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_grp_cd_META);
+		p.columnDtl_alloc_grp_cd.addLinkBeans(p.columnDtl_alloc_grp_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_grp_cd);
+		p.columnDtl_alloc_grp_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.alloc_grp_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_alloc_grp_nm);
+		p.columnDtl_ship_lg_grp_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_lg_grp_cd_META);
+		p.columnDtl_ship_lg_grp_cd.addLinkBeans(p.columnDtl_ship_lg_grp_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_lg_grp_cd);
+		p.columnDtl_ship_lg_grp_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_lg_grp_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_lg_grp_nm);
+		p.columnDtl_def_loc_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.def_loc_cd_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_def_loc_cd);
+		p.columnDtl_def_loc_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.def_loc_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_def_loc_nm);
+		p.columnDtl_loc_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.loc_cd_META);
+		p.columnDtl_loc_cd.addLinkBeans(p.columnDtl_loc_nm,p.columnDtl_str_ln_tgt_flg,p.columnDtl_wg_cd);
+		p.DtlTable.addColumnConfig(p.columnDtl_loc_cd);
+		p.columnDtl_loc_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.loc_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_loc_nm);
+		p.columnDtl_wg_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.wg_cd_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_wg_cd);
+		p.columnDtl_str_ln_tgt_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.str_ln_tgt_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_str_ln_tgt_flg);
+		p.DtlTable.addTable(p.Dtl_str_ln_p_PPanel.StrLnTable);
+		p.DtlTable.addTable(p.Dtl_lot_no_p_PPanel.LotNoTable);
+		p.DtlTable.addTable(p.Dtl_ver_no_p_PPanel.VerNoTable);
+		p.columnDtl_not_lot_mix_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.not_lot_mix_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_not_lot_mix_flg);
+		p.columnDtl_not_sublot_mix_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.not_sublot_mix_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_not_sublot_mix_flg);
+		p.columnDtl_rqst_to_loc_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.rqst_to_loc_cd_META);
+		p.columnDtl_rqst_to_loc_cd.addLinkBeans(p.columnDtl_rqst_to_loc_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_rqst_to_loc_cd);
+		p.columnDtl_rqst_to_loc_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.rqst_to_loc_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_rqst_to_loc_nm);
+		p.columnDtl_sppl_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sppl_cd_META);
+		p.columnDtl_sppl_cd.addLinkBeans(p.columnDtl_sppl_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_sppl_cd);
+		p.columnDtl_sppl_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sppl_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sppl_nm);
+		p.columnDtl_maker_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.maker_cd_META);
+		p.columnDtl_maker_cd.addLinkBeans(p.columnDtl_maker_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_maker_cd);
+		p.columnDtl_maker_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.maker_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_maker_nm);
+		p.columnDtl_rqst_dt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.rqst_dt_META);
+		p.columnDtl_rqst_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.DtlTable.addColumnConfig(p.columnDtl_rqst_dt);
+		p.columnDtl_rqst_dlv_rqst_dt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.rqst_dlv_rqst_dt_META);
+		p.columnDtl_rqst_dlv_rqst_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.DtlTable.addColumnConfig(p.columnDtl_rqst_dlv_rqst_dt);
+		p.columnDtl_wg_rqst_cnt_rmrks.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.wg_rqst_cnt_rmrks_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_wg_rqst_cnt_rmrks);
+		p.columnDtl_ship_term_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_term_cd_META);
+		p.columnDtl_ship_term_cd.addLinkBeans(p.columnDtl_ship_term_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_term_cd);
+		p.columnDtl_ship_term_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_term_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_term_nm);
+		p.columnDtl_ship_block_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_block_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_block_flg);
+		p.columnDtl_ship_cnt_rmrks.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_cnt_rmrks_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_cnt_rmrks);
+		p.columnDtl_cst_po_d_no.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cst_po_d_no_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_cst_po_d_no);
+		p.columnDtl_cst_po_d_rmrks.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cst_po_d_rmrks_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_cst_po_d_rmrks);
+		p.columnDtl_sls_rsn_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_rsn_cd_META);
+		p.columnDtl_sls_rsn_cd.addLinkBeans(p.columnDtl_sls_rsn_nm,p.columnDtl_sls_acxfr_flg);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_rsn_cd);
+		p.columnDtl_sls_rsn_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_rsn_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_rsn_nm);
+		p.columnDtl_sls_acxfr_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_acxfr_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_acxfr_flg);
+		p.columnDtl_bd_dpt_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.bd_dpt_cd_META);
+		p.columnDtl_bd_dpt_cd.setListType(MCListType.STRICT);
+		p.columnDtl_bd_dpt_cd.addLinkBeans(p.columnDtl_bd_dpt_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_bd_dpt_cd);
+		p.columnDtl_bd_dpt_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.bd_dpt_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_bd_dpt_nm);
+		p.columnDtl_sls_upri_req_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_upri_req_typ_META);
+		p.columnDtl_sls_upri_req_typ.addLinkBeans(p.columnDtl_sls_upri_req_typ_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_upri_req_typ);
+		p.columnDtl_sls_upri_req_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_upri_req_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_upri_req_typ_nm);
+		p.columnDtl_trd_d_rmrks.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_d_rmrks_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_d_rmrks);
+		p.columnDtl_intr_rmrks.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.intr_rmrks_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_intr_rmrks);
+		p.columnDtl_sub_char1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sub_char1_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sub_char1);
+		p.columnDtl_sub_char2.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sub_char2_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sub_char2);
+		p.columnDtl_sub_char3.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sub_char3_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sub_char3);
+		p.columnDtl_edi_sub_d_char1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_char1_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_char1);
+		p.columnDtl_edi_sub_d_char2.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_char2_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_char2);
+		p.columnDtl_edi_sub_d_char3.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_char3_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_char3);
+		p.columnDtl_edi_sub_d_char4.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_char4_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_char4);
+		p.columnDtl_edi_sub_d_char5.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_char5_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_char5);
+		p.columnDtl_edi_sub_d_num1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_num1_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_num1);
+		p.columnDtl_edi_sub_d_dt1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.edi_sub_d_dt1_META);
+		p.columnDtl_edi_sub_d_dt1.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.DtlTable.addColumnConfig(p.columnDtl_edi_sub_d_dt1);
+		p.columnDtl_can_rsn_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.can_rsn_cd_META);
+		p.columnDtl_can_rsn_cd.addLinkBeans(p.columnDtl_can_rsn_nm);
+		p.DtlTable.addColumnConfig(p.columnDtl_can_rsn_cd);
+		p.columnDtl_can_rsn_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.can_rsn_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_can_rsn_nm);
+		p.columnDtl_slo_d_can_rmkrs.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.slo_d_can_rmkrs_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_slo_d_can_rmkrs);
+		p.columnDtl_ship_cmpl_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ship_cmpl_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_ship_cmpl_flg);
+		p.columnDtl_sls_cmpl_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sls_cmpl_flg_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_sls_cmpl_flg);
+		p.DtlTable.addTable(p.Dtl_base_unit_qty_p_PPanel.QtyTable);
+		p.columnDtl_base_unit_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.base_unit_cd_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_base_unit_cd);
+		p.columnDtl_base_unit_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.base_unit_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_base_unit_nm);
+		p.columnDtl_base_unit_dec_place.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.base_unit_dec_place_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_base_unit_dec_place);
+		p.columnDtl_base_unit_rnd_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.base_unit_rnd_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_base_unit_rnd_typ);
+		p.DtlTable.addTable(p.Dtl_alloc_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_wait_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_ship_inst_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_ship_act_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_iv_schd_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_iv_act_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_sls_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_ship_ret_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_re_ship_schd_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_ship_schd_abort_qty_p_PPanel.QtyTable);
+		p.DtlTable.addTable(p.Dtl_sls_schd_abort_qty_p_PPanel.QtyTable);
+		p.columnDtl_qtn_d_no.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.qtn_d_no_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_qtn_d_no);
+		p.columnDtl_disp_seq.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.disp_seq_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_disp_seq);
+		p.DtlTable.addTable(p.Dtl_old_trd_cur_upri_p_PPanel.UpriTable);
+	}
+
+	/**
+	 * コンボボックスの初期設定
+	 */
+	protected void listInit() {
+		super.listInit();
+		Cnd_srch_tgt_typ_nm.getListConfig().setPutter(getCnd_srch_tgt_typ_nm_ListPutter());
+		Hdr_trd_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_trd_cd.getListConfig().setPutter(getHdr_trd_cd_ListPutter());
+		Hdr_slo_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_slo_typ.getListConfig().setPutter(getHdr_slo_typ_ListPutter());
+		Hdr_dlv_p_PPanel.Dlv_bp_cd.getListConfig().setPutter(getHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter());
+		Hdr_dest_cd1.getListConfig().setPutter(getHdr_dest_cd1_ListPutter());
+		Hdr_dest_cd2.getListConfig().setPutter(getHdr_dest_cd2_ListPutter());
+		Hdr_dest_cd3.getListConfig().setPutter(getHdr_dest_cd3_ListPutter());
+		Hdr_tdlv_p_PPanel.Dlv_bp_cd.getListConfig().setPutter(getHdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter());
+		Hdr_via_dlv_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_via_dlv_typ.getListConfig().setPutter(getHdr_via_dlv_typ_ListPutter());
+		Hdr_cst_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_cst_cd.getListConfig().setPutter(getHdr_cst_cd_ListPutter());
+		Hdr_sls_basis_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_sls_basis_typ.getListConfig().setPutter(getHdr_sls_basis_typ_ListPutter());
+		Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd.getListConfig().setPutter(getHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter());
+		Hdr_trd_cur_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_trd_cur_cd.getListConfig().setPutter(getHdr_trd_cur_cd_ListPutter());
+		Hdr_assort_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_assort_typ.getListConfig().setPutter(getHdr_assort_typ_ListPutter());
+		Hdr_adv_ship_ctrl_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_adv_ship_ctrl_typ.getListConfig().setPutter(getHdr_adv_ship_ctrl_typ_ListPutter());
+		Hdr_rcpt_usr_cd.getListConfig().setPutter(getHdr_rcpt_usr_cd_ListPutter());
+		Hdr_ar_dpt_cd.getListConfig().setPutter(getHdr_ar_dpt_cd_ListPutter());
+		Hdr_trnspt_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_trnspt_cd.getListConfig().setPutter(getHdr_trnspt_cd_ListPutter());
+		Hdr_load_port_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_load_port_cd.getListConfig().setPutter(getHdr_load_port_cd_ListPutter());
+		Hdr_dschrg_port_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_dschrg_port_cd.getListConfig().setPutter(getHdr_dschrg_port_cd_ListPutter());
+		Hdr_via_port_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_via_port_cd.getListConfig().setPutter(getHdr_via_port_cd_ListPutter());
+		Hdr_tterm_cd1.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_tterm_cd1.getListConfig().setPutter(getHdr_tterm_cd1_ListPutter());
+		Hdr_tterm_cd2.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_tterm_cd2.getListConfig().setPutter(getHdr_tterm_cd2_ListPutter());
+		Hdr_tterm_cd3.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_tterm_cd3.getListConfig().setPutter(getHdr_tterm_cd3_ListPutter());
+		Hdr_can_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_can_rsn_cd.getListConfig().setPutter(getHdr_can_rsn_cd_ListPutter());
+		Hdr_dlv_day_week_typ_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_dlv_day_week_typ_nm.getListConfig().setPutter(getHdr_dlv_day_week_typ_nm_ListPutter());
+		columnDtl_cst_itm_cd.getListConfig().setPutter(getDtl_cst_itm_cd_ListPutter());
+		Dtl_itm_p_PPanel.columnItm_itm_cd.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter());
+		Dtl_itm_p_PPanel.columnItm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_itm_p_PPanel.columnItm_itm_sub1.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter());
+		Dtl_itm_p_PPanel.columnItm_itm_sub2.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_itm_p_PPanel.columnItm_itm_sub2.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter());
+		Dtl_itm_p_PPanel.columnItm_itm_sub3.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_itm_p_PPanel.columnItm_itm_sub3.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter());
+		columnDtl_cntry_org_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_cntry_org_cd.getListConfig().setPutter(getDtl_cntry_org_cd_ListPutter());
+		columnDtl_trd_unit_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_trd_unit_cd.getListConfig().setPutter(getDtl_trd_unit_cd_ListPutter());
+		Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.getListConfig().setPutter(getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter());
+		Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.getListConfig().setPutter(getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter());
+		columnDtl_gd_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_gd_cd.getListConfig().setPutter(getDtl_gd_cd_ListPutter());
+		columnDtl_dlv_day_week_typ_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_dlv_day_week_typ_nm.getListConfig().setPutter(getDtl_dlv_day_week_typ_nm_ListPutter());
+		Dtl_dlv_p_PPanel.columnDlv_bp_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Dtl_dlv_p_PPanel.columnDlv_bp_cd.getListConfig().setPutter(getDtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter());
+		columnDtl_dest_cd1.getListConfig().setPutter(getDtl_dest_cd1_ListPutter());
+		columnDtl_dest_cd2.getListConfig().setPutter(getDtl_dest_cd2_ListPutter());
+		columnDtl_dest_cd3.getListConfig().setPutter(getDtl_dest_cd3_ListPutter());
+		Dtl_tdlv_p_PPanel.columnDlv_bp_cd.getListConfig().setPutter(getDtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter());
+		columnDtl_via_dlv_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_via_dlv_typ.getListConfig().setPutter(getDtl_via_dlv_typ_ListPutter());
+		columnDtl_proc_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_proc_typ.getListConfig().setPutter(getDtl_proc_typ_ListPutter());
+		columnDtl_ship_inst_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_ship_inst_typ.getListConfig().setPutter(getDtl_ship_inst_typ_ListPutter());
+		columnDtl_ship_schd_split_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_ship_schd_split_typ.getListConfig().setPutter(getDtl_ship_schd_split_typ_ListPutter());
+		columnDtl_alloc_scope_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_alloc_scope_typ.getListConfig().setPutter(getDtl_alloc_scope_typ_ListPutter());
+		columnDtl_alloc_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_alloc_typ.getListConfig().setPutter(getDtl_alloc_typ_ListPutter());
+		columnDtl_alloc_grp_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_alloc_grp_cd.getListConfig().setPutter(getDtl_alloc_grp_cd_ListPutter());
+		columnDtl_ship_lg_grp_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_ship_lg_grp_cd.getListConfig().setPutter(getDtl_ship_lg_grp_cd_ListPutter());
+		columnDtl_loc_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_loc_cd.getListConfig().setPutter(getDtl_loc_cd_ListPutter());
+		columnDtl_rqst_to_loc_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_rqst_to_loc_cd.getListConfig().setPutter(getDtl_rqst_to_loc_cd_ListPutter());
+		columnDtl_sppl_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_sppl_cd.getListConfig().setPutter(getDtl_sppl_cd_ListPutter());
+		columnDtl_maker_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_maker_cd.getListConfig().setPutter(getDtl_maker_cd_ListPutter());
+		columnDtl_ship_term_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_ship_term_cd.getListConfig().setPutter(getDtl_ship_term_cd_ListPutter());
+		columnDtl_sls_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_sls_rsn_cd.getListConfig().setPutter(getDtl_sls_rsn_cd_ListPutter());
+		columnDtl_bd_dpt_cd.getListConfig().setPutter(getDtl_bd_dpt_cd_ListPutter());
+		columnDtl_sls_upri_req_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_sls_upri_req_typ.getListConfig().setPutter(getDtl_sls_upri_req_typ_ListPutter());
+		columnDtl_can_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		columnDtl_can_rsn_cd.getListConfig().setPutter(getDtl_can_rsn_cd_ListPutter());
+	}
+
+	/**
+	 * この画面を[SRCH]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setSRCHStatus() {
+		status = SRCH;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[REF]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setREFStatus() {
+		status = REF;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[UPD]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setUPDStatus() {
+		status = UPD;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[UPD_QTN]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setUPD_QTNStatus() {
+		status = UPD_QTN;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[UPD_APRV]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setUPD_APRVStatus() {
+		status = UPD_APRV;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[UPD_TRNST]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setUPD_TRNSTStatus() {
+		status = UPD_TRNST;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[FIX_U]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setFIX_UStatus() {
+		status = FIX_U;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[INS]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setINSStatus() {
+		status = INS;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[INS_QTN]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setINS_QTNStatus() {
+		status = INS_QTN;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[FIX_I]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setFIX_IStatus() {
+		status = FIX_I;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[DEL]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setDELStatus() {
+		status = DEL;
+		setAllStatus(status);
+	}
+
+	/**
+	 * この画面を[FIX_D]ステータスに設定します。
+	 */
+	@SuppressWarnings("deprecation")
+	public void setFIX_DStatus() {
+		status = FIX_D;
+		setAllStatus(status);
+	}
+
+
+	/**
+	 * この画面のステータスを設定します。
+	 *
+	 * @param status ステータス
+	 */
+	public void setStatus(String status) {
+		super.setStatus(status);
+		if (SRCH.equals(status)) {
+			setSRCHStatus();
+		}
+		else if (REF.equals(status)) {
+			setREFStatus();
+		}
+		else if (UPD.equals(status)) {
+			setUPDStatus();
+		}
+		else if (UPD_QTN.equals(status)) {
+			setUPD_QTNStatus();
+		}
+		else if (UPD_APRV.equals(status)) {
+			setUPD_APRVStatus();
+		}
+		else if (UPD_TRNST.equals(status)) {
+			setUPD_TRNSTStatus();
+		}
+		else if (FIX_U.equals(status)) {
+			setFIX_UStatus();
+		}
+		else if (INS.equals(status)) {
+			setINSStatus();
+		}
+		else if (INS_QTN.equals(status)) {
+			setINS_QTNStatus();
+		}
+		else if (FIX_I.equals(status)) {
+			setFIX_IStatus();
+		}
+		else if (DEL.equals(status)) {
+			setDELStatus();
+		}
+		else if (FIX_D.equals(status)) {
+			setFIX_DStatus();
+		}
+	}
+
+	/**
+	 * [Cnd_srch_tgt_typ_nm_ListPutter]の作成
+	 */
+	protected MCListPutter createCnd_srch_tgt_typ_nm_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.SlsSrchTgtTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_trd_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_trd_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Trd");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_slo_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_slo_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.SloTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+
+	/**
+	 * [Hdr_dest_cd1_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dest_cd1_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_dest_cd2_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dest_cd2_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_dest_cd3_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dest_cd3_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_tdlv_p_PPanel_Dlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+
+	/**
+	 * [Hdr_via_dlv_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_via_dlv_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ViaDlvTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_cst_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_cst_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_sls_basis_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_sls_basis_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SlsBasisTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Dpt");
+		return lp;
+	}
+
+	/**
+	 * [Hdr_trd_cur_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_trd_cur_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Cur");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_assort_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_assort_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.ShipAssortTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_adv_ship_ctrl_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_adv_ship_ctrl_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.AdvShipCtrlTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_rcpt_usr_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_rcpt_usr_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Usr");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_ar_dpt_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_ar_dpt_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Dpt");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_trnspt_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_trnspt_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Trnspt");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_load_port_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_load_port_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.EximPort");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_dschrg_port_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dschrg_port_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.EximPort");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_via_port_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_via_port_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.EximPort");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_tterm_cd1_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_tterm_cd1_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Tterm1");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_tterm_cd2_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_tterm_cd2_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Tterm2");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_tterm_cd3_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_tterm_cd3_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Tterm3");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_can_rsn_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_can_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloCanRsn");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_dlv_day_week_typ_nm_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_dlv_day_week_typ_nm_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.DayWeekTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_cst_itm_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_cst_itm_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.CstItm");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloItm");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloItmSub1");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloItmSub2");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloItmSub3");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_cntry_org_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_cntry_org_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Cntry");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_trd_unit_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_trd_unit_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ItmUnit");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SlsTax");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SlsDscntBizRsn");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_gd_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_gd_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.CstSloStkGd");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_dlv_day_week_typ_nm_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_dlv_day_week_typ_nm_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.DayWeekTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_dlv_p_PPanel_columnDlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_dest_cd1_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_dest_cd1_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_dest_cd2_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_dest_cd2_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_dest_cd3_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_dest_cd3_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_tdlv_p_PPanel_columnDlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Bp");
+		return lp;
+	}
+
+	/**
+	 * [Dtl_via_dlv_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_via_dlv_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ViaDlvTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_proc_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_proc_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SloProcTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_ship_inst_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_ship_inst_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ShipInstTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_ship_schd_split_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_ship_schd_split_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ShipSchdSplitTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_alloc_scope_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_alloc_scope_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.AllocScopeTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_alloc_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_alloc_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.AllocTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_alloc_grp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_alloc_grp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloAllocGrp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_ship_lg_grp_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_ship_lg_grp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloLgGrp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_loc_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_loc_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloLoc");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_rqst_to_loc_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_rqst_to_loc_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0040.ItmDtlRqstLoc");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_sppl_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_sppl_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0040.ItmDtlSppl");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_maker_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_maker_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0040.ItmDtlMaker");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_ship_term_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_ship_term_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.ShipTerm");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_sls_rsn_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_sls_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SlsBizRsn");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_bd_dpt_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_bd_dpt_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.Dpt");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_sls_upri_req_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_sls_upri_req_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MA.MAUAP0010.SlsUpriReqTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Dtl_can_rsn_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createDtl_can_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0030.SloCanRsn");
+		return lp;
+	}
+	 
+
+	/**
+	 * リストを保持する画面部品のリストを返します。
+	 */
+	public MCList getList(MCEventBeans combo, MCRow row, MCEventInfo info) {
+		MCList list = super.getList(combo, row, info);
+		if(list != null) return list;
+		if(combo == Cnd_srch_tgt_typ_nm) return getCnd_srch_tgt_typ_nm(row, info);
+		if(combo == Hdr_trd_cd) return getHdr_trd_cd(row, info);
+		if(combo == Hdr_slo_typ) return getHdr_slo_typ(row, info);
+		if(combo == Hdr_dlv_p_PPanel.Dlv_bp_cd) return getHdr_dlv_p_PPanel_Dlv_bp_cd(row, info);
+		if(combo == Hdr_dest_cd1) return getHdr_dest_cd1(row, info);
+		if(combo == Hdr_dest_cd2) return getHdr_dest_cd2(row, info);
+		if(combo == Hdr_dest_cd3) return getHdr_dest_cd3(row, info);
+		if(combo == Hdr_tdlv_p_PPanel.Dlv_bp_cd) return getHdr_tdlv_p_PPanel_Dlv_bp_cd(row, info);
+		if(combo == Hdr_via_dlv_typ) return getHdr_via_dlv_typ(row, info);
+		if(combo == Hdr_cst_cd) return getHdr_cst_cd(row, info);
+		if(combo == Hdr_sls_basis_typ) return getHdr_sls_basis_typ(row, info);
+		if(combo == Hdr_usr_dpt_p_PPanel.UsrDpt_dpt_cd) return getHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd(row, info);
+		if(combo == Hdr_trd_cur_cd) return getHdr_trd_cur_cd(row, info);
+		if(combo == Hdr_assort_typ) return getHdr_assort_typ(row, info);
+		if(combo == Hdr_adv_ship_ctrl_typ) return getHdr_adv_ship_ctrl_typ(row, info);
+		if(combo == Hdr_rcpt_usr_cd) return getHdr_rcpt_usr_cd(row, info);
+		if(combo == Hdr_ar_dpt_cd) return getHdr_ar_dpt_cd(row, info);
+		if(combo == Hdr_trnspt_cd) return getHdr_trnspt_cd(row, info);
+		if(combo == Hdr_load_port_cd) return getHdr_load_port_cd(row, info);
+		if(combo == Hdr_dschrg_port_cd) return getHdr_dschrg_port_cd(row, info);
+		if(combo == Hdr_via_port_cd) return getHdr_via_port_cd(row, info);
+		if(combo == Hdr_tterm_cd1) return getHdr_tterm_cd1(row, info);
+		if(combo == Hdr_tterm_cd2) return getHdr_tterm_cd2(row, info);
+		if(combo == Hdr_tterm_cd3) return getHdr_tterm_cd3(row, info);
+		if(combo == Hdr_can_rsn_cd) return getHdr_can_rsn_cd(row, info);
+		if(combo == Hdr_dlv_day_week_typ_nm) return getHdr_dlv_day_week_typ_nm(row, info);
+		if(combo == columnDtl_cst_itm_cd) return getDtl_cst_itm_cd(row, info);
+		if(combo == Dtl_itm_p_PPanel.columnItm_itm_cd) return getDtl_itm_p_PPanel_columnItm_itm_cd(row, info);
+		if(combo == Dtl_itm_p_PPanel.columnItm_itm_sub1) return getDtl_itm_p_PPanel_columnItm_itm_sub1(row, info);
+		if(combo == Dtl_itm_p_PPanel.columnItm_itm_sub2) return getDtl_itm_p_PPanel_columnItm_itm_sub2(row, info);
+		if(combo == Dtl_itm_p_PPanel.columnItm_itm_sub3) return getDtl_itm_p_PPanel_columnItm_itm_sub3(row, info);
+		if(combo == columnDtl_cntry_org_cd) return getDtl_cntry_org_cd(row, info);
+		if(combo == columnDtl_trd_unit_cd) return getDtl_trd_unit_cd(row, info);
+		if(combo == Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd) return getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd(row, info);
+		if(combo == Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd) return getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd(row, info);
+		if(combo == columnDtl_gd_cd) return getDtl_gd_cd(row, info);
+		if(combo == columnDtl_dlv_day_week_typ_nm) return getDtl_dlv_day_week_typ_nm(row, info);
+		if(combo == Dtl_dlv_p_PPanel.columnDlv_bp_cd) return getDtl_dlv_p_PPanel_columnDlv_bp_cd(row, info);
+		if(combo == columnDtl_dest_cd1) return getDtl_dest_cd1(row, info);
+		if(combo == columnDtl_dest_cd2) return getDtl_dest_cd2(row, info);
+		if(combo == columnDtl_dest_cd3) return getDtl_dest_cd3(row, info);
+		if(combo == Dtl_tdlv_p_PPanel.columnDlv_bp_cd) return getDtl_tdlv_p_PPanel_columnDlv_bp_cd(row, info);
+		if(combo == columnDtl_via_dlv_typ) return getDtl_via_dlv_typ(row, info);
+		if(combo == columnDtl_proc_typ) return getDtl_proc_typ(row, info);
+		if(combo == columnDtl_ship_inst_typ) return getDtl_ship_inst_typ(row, info);
+		if(combo == columnDtl_ship_schd_split_typ) return getDtl_ship_schd_split_typ(row, info);
+		if(combo == columnDtl_alloc_scope_typ) return getDtl_alloc_scope_typ(row, info);
+		if(combo == columnDtl_alloc_typ) return getDtl_alloc_typ(row, info);
+		if(combo == columnDtl_alloc_grp_cd) return getDtl_alloc_grp_cd(row, info);
+		if(combo == columnDtl_ship_lg_grp_cd) return getDtl_ship_lg_grp_cd(row, info);
+		if(combo == columnDtl_loc_cd) return getDtl_loc_cd(row, info);
+		if(combo == columnDtl_rqst_to_loc_cd) return getDtl_rqst_to_loc_cd(row, info);
+		if(combo == columnDtl_sppl_cd) return getDtl_sppl_cd(row, info);
+		if(combo == columnDtl_maker_cd) return getDtl_maker_cd(row, info);
+		if(combo == columnDtl_ship_term_cd) return getDtl_ship_term_cd(row, info);
+		if(combo == columnDtl_sls_rsn_cd) return getDtl_sls_rsn_cd(row, info);
+		if(combo == columnDtl_bd_dpt_cd) return getDtl_bd_dpt_cd(row, info);
+		if(combo == columnDtl_sls_upri_req_typ) return getDtl_sls_upri_req_typ(row, info);
+		if(combo == columnDtl_can_rsn_cd) return getDtl_can_rsn_cd(row, info);
+		return null;
+	}
+
+	/**
+	 * ActionPerformedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param ap ActionPerformedイベントが実行されたGUI部品
+	 */
+	public void doAPEvent(MCAPBeans ap, MCEventInfo info) {
+		super.doAPEvent(ap, info);
+		if (ap == Cnd_srch_slo) doCnd_srch_slo(info);
+		else if (ap == Cnd_srch_qtn) doCnd_srch_qtn(info);
+		else if (ap == Btn_open_MSBBP1230) doBtn_open_MSBBP1230(info);
+		else if (ap == Btn_sprt) doBtn_sprt(info);
+		else if (ap == Btn_radd) doBtn_radd(info);
+		else if (ap == Btn_rdel) doBtn_rdel(info);
+		else if (ap == Btn_rcopy) doBtn_rcopy(info);
+		else if (ap == Btn_ins) doBtn_ins(info);
+		else if (ap == Btn_upd) doBtn_upd(info);
+		else if (ap == Btn_del) doBtn_del(info);
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_slo]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doCnd_srch_slo(MCEventInfo info);
+
+	/**
+	 * [Cnd]パネルの[srch_qtn]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doCnd_srch_qtn(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[open_MSBBP1230]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_open_MSBBP1230(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[sprt]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_sprt(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[radd]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_radd(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[rdel]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_rdel(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[rcopy]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_rcopy(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[ins]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_ins(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[upd]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_upd(MCEventInfo info);
+
+	/**
+	 * [Btn]パネルの[del]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doBtn_del(MCEventInfo info);
+
+	/**
+	 * ValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param vc イベント対象のGUI部品
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doVCEvent(MCVCBeans vc, MCEventInfo info) {
+		if (!super.doVCEvent(vc, info)) {
+			return false;
+		}
+		if (vc == HdrTabTab) return doHdrTab_VC(info);
+		if (vc == DtlTable) return doDtl_VC(info);
+		if (vc == Cnd_ope_Group) return doCnd_ope_VC(info);
+		if (vc == Cnd_srch_tgt_typ) return doCnd_srch_tgt_typ_VC(info);
+		if (vc == Cnd_srch_tgt_typ_nm) return doCnd_srch_tgt_typ_nm_VC(info);
+		if (vc == Cnd_srch_tgt_no) return doCnd_srch_tgt_no_VC(info);
+		if (vc == Cnd_srch_tgt_rev) return doCnd_srch_tgt_rev_VC(info);
+		if (vc == Cnd_latest_flg) return doCnd_latest_flg_VC(info);
+		if (vc == Hdr_trd_cd) return doHdr_trd_cd_VC(info);
+		if (vc == Hdr_trd_nm) return doHdr_trd_nm_VC(info);
+		if (vc == Hdr_trd_ptn_typ) return doHdr_trd_ptn_typ_VC(info);
+		if (vc == Hdr_srch_tgt_no) return doHdr_srch_tgt_no_VC(info);
+		if (vc == Hdr_slo_no) return doHdr_slo_no_VC(info);
+		if (vc == Hdr_slo_rev) return doHdr_slo_rev_VC(info);
+		if (vc == Hdr_latest_flg) return doHdr_latest_flg_VC(info);
+		if (vc == Hdr_slo_dt) return doHdr_slo_dt_VC(info);
+		if (vc == Hdr_slo_typ) return doHdr_slo_typ_VC(info);
+		if (vc == Hdr_slo_typ_nm) return doHdr_slo_typ_nm_VC(info);
+		if (vc == Hdr_aprv_flg) return doHdr_aprv_flg_VC(info);
+		if (vc == Hdr_aprv_back_flg) return doHdr_aprv_back_flg_VC(info);
+		if (vc == Hdr_aprv_no) return doHdr_aprv_no_VC(info);
+		if (vc == Hdr_aprv_sts_typ) return doHdr_aprv_sts_typ_VC(info);
+		if (vc == Hdr_aprv_sts_typ_nm) return doHdr_aprv_sts_typ_nm_VC(info);
+		if (vc == Hdr_aprv_upd_flg) return doHdr_aprv_upd_flg_VC(info);
+		if (vc == Hdr_aprv_can_flg) return doHdr_aprv_can_flg_VC(info);
+		if (vc == Hdr_edi_flg) return doHdr_edi_flg_VC(info);
+		if (vc == Hdr_def_cst_cd) return doHdr_def_cst_cd_VC(info);
+		if (vc == Hdr_prnt_lcl_cd) return doHdr_prnt_lcl_cd_VC(info);
+		if (vc == Hdr_dest_cd1) return doHdr_dest_cd1_VC(info);
+		if (vc == Hdr_dest_nm1) return doHdr_dest_nm1_VC(info);
+		if (vc == Hdr_dest_cd2) return doHdr_dest_cd2_VC(info);
+		if (vc == Hdr_dest_nm2) return doHdr_dest_nm2_VC(info);
+		if (vc == Hdr_dest_cd3) return doHdr_dest_cd3_VC(info);
+		if (vc == Hdr_dest_nm3) return doHdr_dest_nm3_VC(info);
+		if (vc == Hdr_via_dlv_typ) return doHdr_via_dlv_typ_VC(info);
+		if (vc == Hdr_via_dlv_typ_nm) return doHdr_via_dlv_typ_nm_VC(info);
+		if (vc == Hdr_cst_cd) return doHdr_cst_cd_VC(info);
+		if (vc == Hdr_cst_nm) return doHdr_cst_nm_VC(info);
+		if (vc == Hdr_sls_basis_typ) return doHdr_sls_basis_typ_VC(info);
+		if (vc == Hdr_sls_basis_typ_nm) return doHdr_sls_basis_typ_nm_VC(info);
+		if (vc == Hdr_bp_sls_basis_typ) return doHdr_bp_sls_basis_typ_VC(info);
+		if (vc == Hdr_hdr_not_lg_mix_flg) return doHdr_hdr_not_lg_mix_flg_VC(info);
+		if (vc == Hdr_hdr_not_lot_mix_flg) return doHdr_hdr_not_lot_mix_flg_VC(info);
+		if (vc == Hdr_hdr_not_sublot_mix_flg) return doHdr_hdr_not_sublot_mix_flg_VC(info);
+		if (vc == Hdr_cst_usr_cd) return doHdr_cst_usr_cd_VC(info);
+		if (vc == Hdr_cst_dpt_cd) return doHdr_cst_dpt_cd_VC(info);
+		if (vc == Hdr_ar_dpt_typ) return doHdr_ar_dpt_typ_VC(info);
+		if (vc == Hdr_lnk_ar_dpt_cd) return doHdr_lnk_ar_dpt_cd_VC(info);
+		if (vc == Hdr_wg_cd) return doHdr_wg_cd_VC(info);
+		if (vc == Hdr_wg_nm) return doHdr_wg_nm_VC(info);
+		if (vc == Hdr_trd_cur_cd) return doHdr_trd_cur_cd_VC(info);
+		if (vc == Hdr_trd_cur_nm) return doHdr_trd_cur_nm_VC(info);
+		if (vc == Hdr_trd_cur_amt_dec_place) return doHdr_trd_cur_amt_dec_place_VC(info);
+		if (vc == Hdr_trd_cur_upri_dec_place) return doHdr_trd_cur_upri_dec_place_VC(info);
+		if (vc == Hdr_base_cur_cd) return doHdr_base_cur_cd_VC(info);
+		if (vc == Hdr_base_cur_nm) return doHdr_base_cur_nm_VC(info);
+		if (vc == Hdr_xrate_inpt_flg) return doHdr_xrate_inpt_flg_VC(info);
+		if (vc == Hdr_xrate_cd) return doHdr_xrate_cd_VC(info);
+		if (vc == Hdr_base_cur_amt_dec_place) return doHdr_base_cur_amt_dec_place_VC(info);
+		if (vc == Hdr_base_cur_upri_dec_place) return doHdr_base_cur_upri_dec_place_VC(info);
+		if (vc == Hdr_ptax_cur_cd) return doHdr_ptax_cur_cd_VC(info);
+		if (vc == Hdr_ptax_cur_nm) return doHdr_ptax_cur_nm_VC(info);
+		if (vc == Hdr_ptax_xrate_inpt_flg) return doHdr_ptax_xrate_inpt_flg_VC(info);
+		if (vc == Hdr_ptax_cur_amt_dec_place) return doHdr_ptax_cur_amt_dec_place_VC(info);
+		if (vc == Hdr_ptax_cur_upri_dec_place) return doHdr_ptax_cur_upri_dec_place_VC(info);
+		if (vc == Hdr_tdlv_req_flg) return doHdr_tdlv_req_flg_VC(info);
+		if (vc == Hdr_sls_upri_cng_flg) return doHdr_sls_upri_cng_flg_VC(info);
+		if (vc == Hdr_cst_iv_flg) return doHdr_cst_iv_flg_VC(info);
+		if (vc == Hdr_cst_bill_crryovr_times) return doHdr_cst_bill_crryovr_times_VC(info);
+		if (vc == Hdr_sls_upri_req_typ) return doHdr_sls_upri_req_typ_VC(info);
+		if (vc == Hdr_ship_schd_split_typ) return doHdr_ship_schd_split_typ_VC(info);
+		if (vc == Hdr_sls_amt_rnd_typ) return doHdr_sls_amt_rnd_typ_VC(info);
+		if (vc == Hdr_sls_tax_rnd_typ) return doHdr_sls_tax_rnd_typ_VC(info);
+		if (vc == Hdr_xrate_rnd_typ) return doHdr_xrate_rnd_typ_VC(info);
+		if (vc == Hdr_wtax_rnd_typ) return doHdr_wtax_rnd_typ_VC(info);
+		if (vc == Hdr_qtn_no) return doHdr_qtn_no_VC(info);
+		if (vc == Hdr_qtn_rev) return doHdr_qtn_rev_VC(info);
+		if (vc == Hdr_prof_rate) return doHdr_prof_rate_VC(info);
+		if (vc == Hdr_assort_typ) return doHdr_assort_typ_VC(info);
+		if (vc == Hdr_assort_typ_nm) return doHdr_assort_typ_nm_VC(info);
+		if (vc == Hdr_adv_ship_ctrl_typ) return doHdr_adv_ship_ctrl_typ_VC(info);
+		if (vc == Hdr_adv_ship_ctrl_typ_nm) return doHdr_adv_ship_ctrl_typ_nm_VC(info);
+		if (vc == Hdr_cst_po_no) return doHdr_cst_po_no_VC(info);
+		if (vc == Hdr_cst_po_rev) return doHdr_cst_po_rev_VC(info);
+		if (vc == Hdr_rcpt_dt) return doHdr_rcpt_dt_VC(info);
+		if (vc == Hdr_rcpt_usr_cd) return doHdr_rcpt_usr_cd_VC(info);
+		if (vc == Hdr_rcpt_usr_nm) return doHdr_rcpt_usr_nm_VC(info);
+		if (vc == Hdr_acst_cd) return doHdr_acst_cd_VC(info);
+		if (vc == Hdr_acst_nm) return doHdr_acst_nm_VC(info);
+		if (vc == Hdr_ar_dpt_cd) return doHdr_ar_dpt_cd_VC(info);
+		if (vc == Hdr_ar_dpt_nm) return doHdr_ar_dpt_nm_VC(info);
+		if (vc == Hdr_iv_no) return doHdr_iv_no_VC(info);
+		if (vc == Hdr_iv_num_flg) return doHdr_iv_num_flg_VC(info);
+		if (vc == Hdr_trnspt_cd) return doHdr_trnspt_cd_VC(info);
+		if (vc == Hdr_trnspt_nm) return doHdr_trnspt_nm_VC(info);
+		if (vc == Hdr_vssl_flght) return doHdr_vssl_flght_VC(info);
+		if (vc == Hdr_load_port_cd) return doHdr_load_port_cd_VC(info);
+		if (vc == Hdr_load_port_nm) return doHdr_load_port_nm_VC(info);
+		if (vc == Hdr_etd_dt) return doHdr_etd_dt_VC(info);
+		if (vc == Hdr_dschrg_port_cd) return doHdr_dschrg_port_cd_VC(info);
+		if (vc == Hdr_dschrg_port_nm) return doHdr_dschrg_port_nm_VC(info);
+		if (vc == Hdr_eta_dt) return doHdr_eta_dt_VC(info);
+		if (vc == Hdr_via_port_cd) return doHdr_via_port_cd_VC(info);
+		if (vc == Hdr_via_port_nm) return doHdr_via_port_nm_VC(info);
+		if (vc == Hdr_via_schd_dt) return doHdr_via_schd_dt_VC(info);
+		if (vc == Hdr_tterm_cd1) return doHdr_tterm_cd1_VC(info);
+		if (vc == Hdr_tterm_nm1) return doHdr_tterm_nm1_VC(info);
+		if (vc == Hdr_tterm_rmrks1) return doHdr_tterm_rmrks1_VC(info);
+		if (vc == Hdr_tterm_cd2) return doHdr_tterm_cd2_VC(info);
+		if (vc == Hdr_tterm_nm2) return doHdr_tterm_nm2_VC(info);
+		if (vc == Hdr_tterm_rmrks2) return doHdr_tterm_rmrks2_VC(info);
+		if (vc == Hdr_tterm_cd3) return doHdr_tterm_cd3_VC(info);
+		if (vc == Hdr_tterm_nm3) return doHdr_tterm_nm3_VC(info);
+		if (vc == Hdr_tterm_rmrks3) return doHdr_tterm_rmrks3_VC(info);
+		if (vc == Hdr_cst_po_rmrks) return doHdr_cst_po_rmrks_VC(info);
+		if (vc == Hdr_trd_rmrks) return doHdr_trd_rmrks_VC(info);
+		if (vc == Hdr_intr_rmrks) return doHdr_intr_rmrks_VC(info);
+		if (vc == Hdr_sub_char1) return doHdr_sub_char1_VC(info);
+		if (vc == Hdr_sub_char2) return doHdr_sub_char2_VC(info);
+		if (vc == Hdr_sub_char3) return doHdr_sub_char3_VC(info);
+		if (vc == Hdr_edi_sub_char1) return doHdr_edi_sub_char1_VC(info);
+		if (vc == Hdr_edi_sub_char2) return doHdr_edi_sub_char2_VC(info);
+		if (vc == Hdr_edi_sub_char3) return doHdr_edi_sub_char3_VC(info);
+		if (vc == Hdr_edi_sub_char4) return doHdr_edi_sub_char4_VC(info);
+		if (vc == Hdr_edi_sub_char5) return doHdr_edi_sub_char5_VC(info);
+		if (vc == Hdr_edi_sub_num1) return doHdr_edi_sub_num1_VC(info);
+		if (vc == Hdr_edi_sub_dt1) return doHdr_edi_sub_dt1_VC(info);
+		if (vc == Hdr_can_rsn_cd) return doHdr_can_rsn_cd_VC(info);
+		if (vc == Hdr_can_rsn_nm) return doHdr_can_rsn_nm_VC(info);
+		if (vc == Hdr_can_rmrks) return doHdr_can_rmrks_VC(info);
+		if (vc == Hdr_ins_usr_id) return doHdr_ins_usr_id_VC(info);
+		if (vc == Hdr_ins_usr_nm) return doHdr_ins_usr_nm_VC(info);
+		if (vc == Hdr_ins_func_id) return doHdr_ins_func_id_VC(info);
+		if (vc == Hdr_ins_func_nm) return doHdr_ins_func_nm_VC(info);
+		if (vc == Hdr_upd_usr_id) return doHdr_upd_usr_id_VC(info);
+		if (vc == Hdr_upd_usr_nm) return doHdr_upd_usr_nm_VC(info);
+		if (vc == Hdr_upd_func_id) return doHdr_upd_func_id_VC(info);
+		if (vc == Hdr_upd_func_nm) return doHdr_upd_func_nm_VC(info);
+		if (vc == Hdr_ins_ts) return doHdr_ins_ts_VC(info);
+		if (vc == Hdr_upd_ts) return doHdr_upd_ts_VC(info);
+		if (vc == Hdr_upd_srv_req_no) return doHdr_upd_srv_req_no_VC(info);
+		if (vc == Hdr_dlv_day_week_typ) return doHdr_dlv_day_week_typ_VC(info);
+		if (vc == Hdr_dlv_day_week_typ_nm) return doHdr_dlv_day_week_typ_nm_VC(info);
+		if (vc == columnDtl_abort_flg) return doDtl_abort_flg_VC(info);
+		if (vc == columnDtl_sls_sts_typ) return doDtl_sls_sts_typ_VC(info);
+		if (vc == columnDtl_sls_sts_typ_nm) return doDtl_sls_sts_typ_nm_VC(info);
+		if (vc == columnDtl_alloc_sts_typ) return doDtl_alloc_sts_typ_VC(info);
+		if (vc == columnDtl_alloc_sts_typ_nm) return doDtl_alloc_sts_typ_nm_VC(info);
+		if (vc == columnDtl_slo_d_no) return doDtl_slo_d_no_VC(info);
+		if (vc == columnDtl_cst_itm_cd) return doDtl_cst_itm_cd_VC(info);
+		if (vc == columnDtl_cst_itm_nm) return doDtl_cst_itm_nm_VC(info);
+		if (vc == columnDtl_sundry_itm_flg) return doDtl_sundry_itm_flg_VC(info);
+		if (vc == columnDtl_iv_itm_nm) return doDtl_iv_itm_nm_VC(info);
+		if (vc == columnDtl_stk_mng_typ) return doDtl_stk_mng_typ_VC(info);
+		if (vc == columnDtl_asset_mng_typ) return doDtl_asset_mng_typ_VC(info);
+		if (vc == columnDtl_asset_mng_typ_nm) return doDtl_asset_mng_typ_nm_VC(info);
+		if (vc == columnDtl_lot_mng_typ) return doDtl_lot_mng_typ_VC(info);
+		if (vc == columnDtl_lot_no_typ) return doDtl_lot_no_typ_VC(info);
+		if (vc == columnDtl_sublot_mng_typ) return doDtl_sublot_mng_typ_VC(info);
+		if (vc == columnDtl_sublot_no_typ) return doDtl_sublot_no_typ_VC(info);
+		if (vc == columnDtl_sno1_mng_typ) return doDtl_sno1_mng_typ_VC(info);
+		if (vc == columnDtl_sno2_mng_typ) return doDtl_sno2_mng_typ_VC(info);
+		if (vc == columnDtl_sno3_mng_typ) return doDtl_sno3_mng_typ_VC(info);
+		if (vc == columnDtl_sno4_mng_typ) return doDtl_sno4_mng_typ_VC(info);
+		if (vc == columnDtl_sno1_num_typ) return doDtl_sno1_num_typ_VC(info);
+		if (vc == columnDtl_sno2_num_typ) return doDtl_sno2_num_typ_VC(info);
+		if (vc == columnDtl_sno3_num_typ) return doDtl_sno3_num_typ_VC(info);
+		if (vc == columnDtl_sno4_num_typ) return doDtl_sno4_num_typ_VC(info);
+		if (vc == columnDtl_slo_sno1_flg) return doDtl_slo_sno1_flg_VC(info);
+		if (vc == columnDtl_slo_sno2_flg) return doDtl_slo_sno2_flg_VC(info);
+		if (vc == columnDtl_slo_sno3_flg) return doDtl_slo_sno3_flg_VC(info);
+		if (vc == columnDtl_slo_sno4_flg) return doDtl_slo_sno4_flg_VC(info);
+		if (vc == columnDtl_itm_bill_crryovr_times) return doDtl_itm_bill_crryovr_times_VC(info);
+		if (vc == columnDtl_dscnt_itm_flg) return doDtl_dscnt_itm_flg_VC(info);
+		if (vc == columnDtl_slo_proc_flg) return doDtl_slo_proc_flg_VC(info);
+		if (vc == columnDtl_cntry_org_cd) return doDtl_cntry_org_cd_VC(info);
+		if (vc == columnDtl_cntry_org_nm) return doDtl_cntry_org_nm_VC(info);
+		if (vc == columnDtl_vmi_flg) return doDtl_vmi_flg_VC(info);
+		if (vc == columnDtl_trd_unit_cd) return doDtl_trd_unit_cd_VC(info);
+		if (vc == columnDtl_trd_unit_nm) return doDtl_trd_unit_nm_VC(info);
+		if (vc == columnDtl_trd_unit_dec_place) return doDtl_trd_unit_dec_place_VC(info);
+		if (vc == columnDtl_trd_unit_conv_base_qty) return doDtl_trd_unit_conv_base_qty_VC(info);
+		if (vc == columnDtl_trd_unit_conv_qty) return doDtl_trd_unit_conv_qty_VC(info);
+		if (vc == columnDtl_trd_unit_rnd_typ) return doDtl_trd_unit_rnd_typ_VC(info);
+		if (vc == columnDtl_sls_upri_cng_flg) return doDtl_sls_upri_cng_flg_VC(info);
+		if (vc == columnDtl_ver_flg) return doDtl_ver_flg_VC(info);
+		if (vc == columnDtl_prof_rate) return doDtl_prof_rate_VC(info);
+		if (vc == columnDtl_wtax_rate) return doDtl_wtax_rate_VC(info);
+		if (vc == columnDtl_bill_crryovr_times) return doDtl_bill_crryovr_times_VC(info);
+		if (vc == columnDtl_gd_cd) return doDtl_gd_cd_VC(info);
+		if (vc == columnDtl_gd_nm) return doDtl_gd_nm_VC(info);
+		if (vc == columnDtl_sno_num_flg) return doDtl_sno_num_flg_VC(info);
+		if (vc == columnDtl_set_itm_grp_no) return doDtl_set_itm_grp_no_VC(info);
+		if (vc == columnDtl_dlv_day_week_typ) return doDtl_dlv_day_week_typ_VC(info);
+		if (vc == columnDtl_dlv_day_week_typ_nm) return doDtl_dlv_day_week_typ_nm_VC(info);
+		if (vc == columnDtl_sls_schd_dt) return doDtl_sls_schd_dt_VC(info);
+		if (vc == columnDtl_accpt_schd_dt) return doDtl_accpt_schd_dt_VC(info);
+		if (vc == columnDtl_ship_schd_split_flg) return doDtl_ship_schd_split_flg_VC(info);
+		if (vc == columnDtl_not_dt_calc_flg) return doDtl_not_dt_calc_flg_VC(info);
+		if (vc == columnDtl_prnt_lcl_cd) return doDtl_prnt_lcl_cd_VC(info);
+		if (vc == columnDtl_tdlv_req_flg) return doDtl_tdlv_req_flg_VC(info);
+		if (vc == columnDtl_dest_cd1) return doDtl_dest_cd1_VC(info);
+		if (vc == columnDtl_dest_nm1) return doDtl_dest_nm1_VC(info);
+		if (vc == columnDtl_dest_cd2) return doDtl_dest_cd2_VC(info);
+		if (vc == columnDtl_dest_nm2) return doDtl_dest_nm2_VC(info);
+		if (vc == columnDtl_dest_cd3) return doDtl_dest_cd3_VC(info);
+		if (vc == columnDtl_dest_nm3) return doDtl_dest_nm3_VC(info);
+		if (vc == columnDtl_via_dlv_typ) return doDtl_via_dlv_typ_VC(info);
+		if (vc == columnDtl_via_dlv_typ_nm) return doDtl_via_dlv_typ_nm_VC(info);
+		if (vc == columnDtl_sls_cststk_flg) return doDtl_sls_cststk_flg_VC(info);
+		if (vc == columnDtl_def_proc_typ) return doDtl_def_proc_typ_VC(info);
+		if (vc == columnDtl_proc_typ) return doDtl_proc_typ_VC(info);
+		if (vc == columnDtl_proc_typ_nm) return doDtl_proc_typ_nm_VC(info);
+		if (vc == columnDtl_def_ship_inst_typ) return doDtl_def_ship_inst_typ_VC(info);
+		if (vc == columnDtl_ship_inst_typ) return doDtl_ship_inst_typ_VC(info);
+		if (vc == columnDtl_ship_inst_typ_nm) return doDtl_ship_inst_typ_nm_VC(info);
+		if (vc == columnDtl_ship_schd_split_typ) return doDtl_ship_schd_split_typ_VC(info);
+		if (vc == columnDtl_ship_schd_split_typ_nm) return doDtl_ship_schd_split_typ_nm_VC(info);
+		if (vc == columnDtl_alloc_scope_typ) return doDtl_alloc_scope_typ_VC(info);
+		if (vc == columnDtl_alloc_scope_typ_nm) return doDtl_alloc_scope_typ_nm_VC(info);
+		if (vc == columnDtl_not_lg_mix_flg) return doDtl_not_lg_mix_flg_VC(info);
+		if (vc == columnDtl_alloc_typ) return doDtl_alloc_typ_VC(info);
+		if (vc == columnDtl_alloc_typ_nm) return doDtl_alloc_typ_nm_VC(info);
+		if (vc == columnDtl_alloc_grp_cd) return doDtl_alloc_grp_cd_VC(info);
+		if (vc == columnDtl_alloc_grp_nm) return doDtl_alloc_grp_nm_VC(info);
+		if (vc == columnDtl_ship_lg_grp_cd) return doDtl_ship_lg_grp_cd_VC(info);
+		if (vc == columnDtl_ship_lg_grp_nm) return doDtl_ship_lg_grp_nm_VC(info);
+		if (vc == columnDtl_def_loc_cd) return doDtl_def_loc_cd_VC(info);
+		if (vc == columnDtl_def_loc_nm) return doDtl_def_loc_nm_VC(info);
+		if (vc == columnDtl_loc_cd) return doDtl_loc_cd_VC(info);
+		if (vc == columnDtl_loc_nm) return doDtl_loc_nm_VC(info);
+		if (vc == columnDtl_wg_cd) return doDtl_wg_cd_VC(info);
+		if (vc == columnDtl_str_ln_tgt_flg) return doDtl_str_ln_tgt_flg_VC(info);
+		if (vc == columnDtl_not_lot_mix_flg) return doDtl_not_lot_mix_flg_VC(info);
+		if (vc == columnDtl_not_sublot_mix_flg) return doDtl_not_sublot_mix_flg_VC(info);
+		if (vc == columnDtl_rqst_to_loc_cd) return doDtl_rqst_to_loc_cd_VC(info);
+		if (vc == columnDtl_rqst_to_loc_nm) return doDtl_rqst_to_loc_nm_VC(info);
+		if (vc == columnDtl_sppl_cd) return doDtl_sppl_cd_VC(info);
+		if (vc == columnDtl_sppl_nm) return doDtl_sppl_nm_VC(info);
+		if (vc == columnDtl_maker_cd) return doDtl_maker_cd_VC(info);
+		if (vc == columnDtl_maker_nm) return doDtl_maker_nm_VC(info);
+		if (vc == columnDtl_rqst_dt) return doDtl_rqst_dt_VC(info);
+		if (vc == columnDtl_rqst_dlv_rqst_dt) return doDtl_rqst_dlv_rqst_dt_VC(info);
+		if (vc == columnDtl_wg_rqst_cnt_rmrks) return doDtl_wg_rqst_cnt_rmrks_VC(info);
+		if (vc == columnDtl_ship_term_cd) return doDtl_ship_term_cd_VC(info);
+		if (vc == columnDtl_ship_term_nm) return doDtl_ship_term_nm_VC(info);
+		if (vc == columnDtl_ship_block_flg) return doDtl_ship_block_flg_VC(info);
+		if (vc == columnDtl_ship_cnt_rmrks) return doDtl_ship_cnt_rmrks_VC(info);
+		if (vc == columnDtl_cst_po_d_no) return doDtl_cst_po_d_no_VC(info);
+		if (vc == columnDtl_cst_po_d_rmrks) return doDtl_cst_po_d_rmrks_VC(info);
+		if (vc == columnDtl_sls_rsn_cd) return doDtl_sls_rsn_cd_VC(info);
+		if (vc == columnDtl_sls_rsn_nm) return doDtl_sls_rsn_nm_VC(info);
+		if (vc == columnDtl_sls_acxfr_flg) return doDtl_sls_acxfr_flg_VC(info);
+		if (vc == columnDtl_bd_dpt_cd) return doDtl_bd_dpt_cd_VC(info);
+		if (vc == columnDtl_bd_dpt_nm) return doDtl_bd_dpt_nm_VC(info);
+		if (vc == columnDtl_sls_upri_req_typ) return doDtl_sls_upri_req_typ_VC(info);
+		if (vc == columnDtl_sls_upri_req_typ_nm) return doDtl_sls_upri_req_typ_nm_VC(info);
+		if (vc == columnDtl_trd_d_rmrks) return doDtl_trd_d_rmrks_VC(info);
+		if (vc == columnDtl_intr_rmrks) return doDtl_intr_rmrks_VC(info);
+		if (vc == columnDtl_sub_char1) return doDtl_sub_char1_VC(info);
+		if (vc == columnDtl_sub_char2) return doDtl_sub_char2_VC(info);
+		if (vc == columnDtl_sub_char3) return doDtl_sub_char3_VC(info);
+		if (vc == columnDtl_edi_sub_d_char1) return doDtl_edi_sub_d_char1_VC(info);
+		if (vc == columnDtl_edi_sub_d_char2) return doDtl_edi_sub_d_char2_VC(info);
+		if (vc == columnDtl_edi_sub_d_char3) return doDtl_edi_sub_d_char3_VC(info);
+		if (vc == columnDtl_edi_sub_d_char4) return doDtl_edi_sub_d_char4_VC(info);
+		if (vc == columnDtl_edi_sub_d_char5) return doDtl_edi_sub_d_char5_VC(info);
+		if (vc == columnDtl_edi_sub_d_num1) return doDtl_edi_sub_d_num1_VC(info);
+		if (vc == columnDtl_edi_sub_d_dt1) return doDtl_edi_sub_d_dt1_VC(info);
+		if (vc == columnDtl_can_rsn_cd) return doDtl_can_rsn_cd_VC(info);
+		if (vc == columnDtl_can_rsn_nm) return doDtl_can_rsn_nm_VC(info);
+		if (vc == columnDtl_slo_d_can_rmkrs) return doDtl_slo_d_can_rmkrs_VC(info);
+		if (vc == columnDtl_ship_cmpl_flg) return doDtl_ship_cmpl_flg_VC(info);
+		if (vc == columnDtl_sls_cmpl_flg) return doDtl_sls_cmpl_flg_VC(info);
+		if (vc == columnDtl_base_unit_cd) return doDtl_base_unit_cd_VC(info);
+		if (vc == columnDtl_base_unit_nm) return doDtl_base_unit_nm_VC(info);
+		if (vc == columnDtl_base_unit_dec_place) return doDtl_base_unit_dec_place_VC(info);
+		if (vc == columnDtl_base_unit_rnd_typ) return doDtl_base_unit_rnd_typ_VC(info);
+		if (vc == columnDtl_qtn_d_no) return doDtl_qtn_d_no_VC(info);
+		if (vc == columnDtl_disp_seq) return doDtl_disp_seq_VC(info);
+		return true;
+	}
+
+	/**
+	 * [HdrTab]Tabの選択Tabが変更される際のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdrTab_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]Tableの選択行が変更される際のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[ope]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_ope_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_srch_tgt_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_srch_tgt_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_srch_tgt_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_rev]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_srch_tgt_rev_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[latest_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_latest_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_ptn_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_ptn_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[srch_tgt_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_srch_tgt_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_rev_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_latest_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_back_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_back_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_sts_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_sts_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_upd_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_upd_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_can_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_can_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[def_cst_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_def_cst_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[prnt_lcl_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_prnt_lcl_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_cd1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_nm1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_cd2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_nm2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_cd3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dest_nm3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_via_dlv_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_via_dlv_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_basis_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_basis_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[bp_sls_basis_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_bp_sls_basis_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lg_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_hdr_not_lg_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lot_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_hdr_not_lot_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_sublot_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_hdr_not_sublot_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_usr_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_usr_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_dpt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ar_dpt_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[lnk_ar_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_lnk_ar_dpt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wg_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wg_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cur_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cur_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cur_amt_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_upri_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cur_upri_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_base_cur_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_base_cur_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_inpt_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_xrate_inpt_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_xrate_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_amt_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_base_cur_amt_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_upri_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_base_cur_upri_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ptax_cur_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ptax_cur_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_xrate_inpt_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ptax_xrate_inpt_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_amt_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ptax_cur_amt_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_upri_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ptax_cur_upri_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tdlv_req_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tdlv_req_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_cng_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_upri_cng_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_iv_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_iv_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_bill_crryovr_times]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_bill_crryovr_times_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_req_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_upri_req_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_schd_split_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ship_schd_split_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_amt_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_amt_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_tax_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_tax_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_xrate_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wtax_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wtax_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_qtn_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_rev]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_qtn_rev_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[prof_rate]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_prof_rate_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_assort_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_assort_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_adv_ship_ctrl_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_adv_ship_ctrl_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_po_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rev]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_po_rev_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_rcpt_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_rcpt_usr_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_rcpt_usr_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_acst_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_acst_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ar_dpt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ar_dpt_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_iv_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_num_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_iv_num_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trnspt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trnspt_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[vssl_flght]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_vssl_flght_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_load_port_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_load_port_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[etd_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_etd_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dschrg_port_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dschrg_port_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[eta_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_eta_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_via_port_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_via_port_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[via_schd_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_via_schd_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_cd1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_nm1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_rmrks1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_cd2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_nm2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_rmrks2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_cd3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_nm3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tterm_rmrks3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cst_po_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_intr_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sub_char1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sub_char2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sub_char3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_char1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_char2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_char3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char4]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_char4_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char5]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_char5_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_num1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_num1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_dt1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_edi_sub_dt1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_can_rsn_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_can_rsn_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_can_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_id]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_usr_id_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_usr_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_id]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_func_id_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_func_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_id]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_usr_id_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_usr_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_id]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_func_id_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_func_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_ts]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_ts_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_ts]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_ts_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_srv_req_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_upd_srv_req_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dlv_day_week_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dlv_day_week_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[abort_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_abort_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_sts_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_sts_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_sts_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_sts_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_d_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cst_itm_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cst_itm_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sundry_itm_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sundry_itm_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[iv_itm_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_iv_itm_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[stk_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_stk_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_asset_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_asset_mng_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_lot_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_no_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_lot_no_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sublot_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_no_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sublot_no_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno1_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno2_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno3_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_mng_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno4_mng_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_num_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno1_num_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_num_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno2_num_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_num_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno3_num_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_num_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno4_num_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno1_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_sno1_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno2_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_sno2_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno3_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_sno3_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno4_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_sno4_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[itm_bill_crryovr_times]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_itm_bill_crryovr_times_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dscnt_itm_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dscnt_itm_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_proc_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_proc_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cntry_org_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cntry_org_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[vmi_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_vmi_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_base_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_conv_base_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_conv_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_unit_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_cng_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_upri_cng_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ver_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ver_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[prof_rate]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_prof_rate_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[wtax_rate]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_wtax_rate_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[bill_crryovr_times]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_bill_crryovr_times_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_gd_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_gd_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sno_num_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sno_num_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[set_itm_grp_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_set_itm_grp_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dlv_day_week_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dlv_day_week_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_schd_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_schd_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[accpt_schd_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_accpt_schd_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_schd_split_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[not_dt_calc_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_not_dt_calc_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[prnt_lcl_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_prnt_lcl_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[tdlv_req_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_tdlv_req_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_cd1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_nm1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_cd2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_nm2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_cd3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_dest_nm3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_via_dlv_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_via_dlv_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cststk_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_cststk_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[def_proc_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_def_proc_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_proc_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_proc_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[def_ship_inst_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_def_ship_inst_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_inst_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_inst_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_schd_split_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_schd_split_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_scope_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_scope_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lg_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_not_lg_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_grp_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_alloc_grp_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_lg_grp_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_lg_grp_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_def_loc_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_def_loc_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_loc_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_loc_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_wg_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[str_ln_tgt_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_str_ln_tgt_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lot_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_not_lot_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[not_sublot_mix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_not_sublot_mix_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_rqst_to_loc_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_rqst_to_loc_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sppl_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sppl_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_maker_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_maker_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_rqst_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dlv_rqst_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_rqst_dlv_rqst_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_rqst_cnt_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_wg_rqst_cnt_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_term_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_term_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_block_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_block_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cnt_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_cnt_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cst_po_d_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_cst_po_d_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_rsn_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_rsn_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_acxfr_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_acxfr_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_bd_dpt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_bd_dpt_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_upri_req_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_upri_req_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_d_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_d_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_intr_rmrks_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sub_char1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sub_char2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sub_char3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_char1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_char2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_char3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char4]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_char4_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char5]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_char5_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_num1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_num1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_dt1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_edi_sub_d_dt1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_can_rsn_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_can_rsn_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_can_rmkrs]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_slo_d_can_rmkrs_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cmpl_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_ship_cmpl_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cmpl_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_sls_cmpl_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_base_unit_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_base_unit_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_base_unit_dec_place_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_rnd_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_base_unit_rnd_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[qtn_d_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_qtn_d_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[disp_seq]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_disp_seq_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * NotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param nc イベント対象のGUI部品
+	 * @param info イベント情報
+	 */
+	public void doNCEvent(MCNCBeans nc, MCEventInfo info) {
+		super.doNCEvent(nc, info);
+		if (nc == HdrTabTab) doHdrTab_NC(info);
+		else if (nc == DtlTable) doDtl_NC(info);
+		else if (nc == Cnd_ope_Group) doCnd_ope_NC(info);
+		else if (nc == Cnd_srch_tgt_typ) doCnd_srch_tgt_typ_NC(info);
+		else if (nc == Cnd_srch_tgt_typ_nm) doCnd_srch_tgt_typ_nm_NC(info);
+		else if (nc == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NC(info);
+		else if (nc == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NC(info);
+		else if (nc == Cnd_latest_flg) doCnd_latest_flg_NC(info);
+		else if (nc == Hdr_trd_cd) doHdr_trd_cd_NC(info);
+		else if (nc == Hdr_trd_nm) doHdr_trd_nm_NC(info);
+		else if (nc == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NC(info);
+		else if (nc == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NC(info);
+		else if (nc == Hdr_slo_no) doHdr_slo_no_NC(info);
+		else if (nc == Hdr_slo_rev) doHdr_slo_rev_NC(info);
+		else if (nc == Hdr_latest_flg) doHdr_latest_flg_NC(info);
+		else if (nc == Hdr_slo_dt) doHdr_slo_dt_NC(info);
+		else if (nc == Hdr_slo_typ) doHdr_slo_typ_NC(info);
+		else if (nc == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NC(info);
+		else if (nc == Hdr_aprv_flg) doHdr_aprv_flg_NC(info);
+		else if (nc == Hdr_aprv_back_flg) doHdr_aprv_back_flg_NC(info);
+		else if (nc == Hdr_aprv_no) doHdr_aprv_no_NC(info);
+		else if (nc == Hdr_aprv_sts_typ) doHdr_aprv_sts_typ_NC(info);
+		else if (nc == Hdr_aprv_sts_typ_nm) doHdr_aprv_sts_typ_nm_NC(info);
+		else if (nc == Hdr_aprv_upd_flg) doHdr_aprv_upd_flg_NC(info);
+		else if (nc == Hdr_aprv_can_flg) doHdr_aprv_can_flg_NC(info);
+		else if (nc == Hdr_edi_flg) doHdr_edi_flg_NC(info);
+		else if (nc == Hdr_def_cst_cd) doHdr_def_cst_cd_NC(info);
+		else if (nc == Hdr_prnt_lcl_cd) doHdr_prnt_lcl_cd_NC(info);
+		else if (nc == Hdr_dest_cd1) doHdr_dest_cd1_NC(info);
+		else if (nc == Hdr_dest_nm1) doHdr_dest_nm1_NC(info);
+		else if (nc == Hdr_dest_cd2) doHdr_dest_cd2_NC(info);
+		else if (nc == Hdr_dest_nm2) doHdr_dest_nm2_NC(info);
+		else if (nc == Hdr_dest_cd3) doHdr_dest_cd3_NC(info);
+		else if (nc == Hdr_dest_nm3) doHdr_dest_nm3_NC(info);
+		else if (nc == Hdr_via_dlv_typ) doHdr_via_dlv_typ_NC(info);
+		else if (nc == Hdr_via_dlv_typ_nm) doHdr_via_dlv_typ_nm_NC(info);
+		else if (nc == Hdr_cst_cd) doHdr_cst_cd_NC(info);
+		else if (nc == Hdr_cst_nm) doHdr_cst_nm_NC(info);
+		else if (nc == Hdr_sls_basis_typ) doHdr_sls_basis_typ_NC(info);
+		else if (nc == Hdr_sls_basis_typ_nm) doHdr_sls_basis_typ_nm_NC(info);
+		else if (nc == Hdr_bp_sls_basis_typ) doHdr_bp_sls_basis_typ_NC(info);
+		else if (nc == Hdr_hdr_not_lg_mix_flg) doHdr_hdr_not_lg_mix_flg_NC(info);
+		else if (nc == Hdr_hdr_not_lot_mix_flg) doHdr_hdr_not_lot_mix_flg_NC(info);
+		else if (nc == Hdr_hdr_not_sublot_mix_flg) doHdr_hdr_not_sublot_mix_flg_NC(info);
+		else if (nc == Hdr_cst_usr_cd) doHdr_cst_usr_cd_NC(info);
+		else if (nc == Hdr_cst_dpt_cd) doHdr_cst_dpt_cd_NC(info);
+		else if (nc == Hdr_ar_dpt_typ) doHdr_ar_dpt_typ_NC(info);
+		else if (nc == Hdr_lnk_ar_dpt_cd) doHdr_lnk_ar_dpt_cd_NC(info);
+		else if (nc == Hdr_wg_cd) doHdr_wg_cd_NC(info);
+		else if (nc == Hdr_wg_nm) doHdr_wg_nm_NC(info);
+		else if (nc == Hdr_trd_cur_cd) doHdr_trd_cur_cd_NC(info);
+		else if (nc == Hdr_trd_cur_nm) doHdr_trd_cur_nm_NC(info);
+		else if (nc == Hdr_trd_cur_amt_dec_place) doHdr_trd_cur_amt_dec_place_NC(info);
+		else if (nc == Hdr_trd_cur_upri_dec_place) doHdr_trd_cur_upri_dec_place_NC(info);
+		else if (nc == Hdr_base_cur_cd) doHdr_base_cur_cd_NC(info);
+		else if (nc == Hdr_base_cur_nm) doHdr_base_cur_nm_NC(info);
+		else if (nc == Hdr_xrate_inpt_flg) doHdr_xrate_inpt_flg_NC(info);
+		else if (nc == Hdr_xrate_cd) doHdr_xrate_cd_NC(info);
+		else if (nc == Hdr_base_cur_amt_dec_place) doHdr_base_cur_amt_dec_place_NC(info);
+		else if (nc == Hdr_base_cur_upri_dec_place) doHdr_base_cur_upri_dec_place_NC(info);
+		else if (nc == Hdr_ptax_cur_cd) doHdr_ptax_cur_cd_NC(info);
+		else if (nc == Hdr_ptax_cur_nm) doHdr_ptax_cur_nm_NC(info);
+		else if (nc == Hdr_ptax_xrate_inpt_flg) doHdr_ptax_xrate_inpt_flg_NC(info);
+		else if (nc == Hdr_ptax_cur_amt_dec_place) doHdr_ptax_cur_amt_dec_place_NC(info);
+		else if (nc == Hdr_ptax_cur_upri_dec_place) doHdr_ptax_cur_upri_dec_place_NC(info);
+		else if (nc == Hdr_tdlv_req_flg) doHdr_tdlv_req_flg_NC(info);
+		else if (nc == Hdr_sls_upri_cng_flg) doHdr_sls_upri_cng_flg_NC(info);
+		else if (nc == Hdr_cst_iv_flg) doHdr_cst_iv_flg_NC(info);
+		else if (nc == Hdr_cst_bill_crryovr_times) doHdr_cst_bill_crryovr_times_NC(info);
+		else if (nc == Hdr_sls_upri_req_typ) doHdr_sls_upri_req_typ_NC(info);
+		else if (nc == Hdr_ship_schd_split_typ) doHdr_ship_schd_split_typ_NC(info);
+		else if (nc == Hdr_sls_amt_rnd_typ) doHdr_sls_amt_rnd_typ_NC(info);
+		else if (nc == Hdr_sls_tax_rnd_typ) doHdr_sls_tax_rnd_typ_NC(info);
+		else if (nc == Hdr_xrate_rnd_typ) doHdr_xrate_rnd_typ_NC(info);
+		else if (nc == Hdr_wtax_rnd_typ) doHdr_wtax_rnd_typ_NC(info);
+		else if (nc == Hdr_qtn_no) doHdr_qtn_no_NC(info);
+		else if (nc == Hdr_qtn_rev) doHdr_qtn_rev_NC(info);
+		else if (nc == Hdr_prof_rate) doHdr_prof_rate_NC(info);
+		else if (nc == Hdr_assort_typ) doHdr_assort_typ_NC(info);
+		else if (nc == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NC(info);
+		else if (nc == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NC(info);
+		else if (nc == Hdr_adv_ship_ctrl_typ_nm) doHdr_adv_ship_ctrl_typ_nm_NC(info);
+		else if (nc == Hdr_cst_po_no) doHdr_cst_po_no_NC(info);
+		else if (nc == Hdr_cst_po_rev) doHdr_cst_po_rev_NC(info);
+		else if (nc == Hdr_rcpt_dt) doHdr_rcpt_dt_NC(info);
+		else if (nc == Hdr_rcpt_usr_cd) doHdr_rcpt_usr_cd_NC(info);
+		else if (nc == Hdr_rcpt_usr_nm) doHdr_rcpt_usr_nm_NC(info);
+		else if (nc == Hdr_acst_cd) doHdr_acst_cd_NC(info);
+		else if (nc == Hdr_acst_nm) doHdr_acst_nm_NC(info);
+		else if (nc == Hdr_ar_dpt_cd) doHdr_ar_dpt_cd_NC(info);
+		else if (nc == Hdr_ar_dpt_nm) doHdr_ar_dpt_nm_NC(info);
+		else if (nc == Hdr_iv_no) doHdr_iv_no_NC(info);
+		else if (nc == Hdr_iv_num_flg) doHdr_iv_num_flg_NC(info);
+		else if (nc == Hdr_trnspt_cd) doHdr_trnspt_cd_NC(info);
+		else if (nc == Hdr_trnspt_nm) doHdr_trnspt_nm_NC(info);
+		else if (nc == Hdr_vssl_flght) doHdr_vssl_flght_NC(info);
+		else if (nc == Hdr_load_port_cd) doHdr_load_port_cd_NC(info);
+		else if (nc == Hdr_load_port_nm) doHdr_load_port_nm_NC(info);
+		else if (nc == Hdr_etd_dt) doHdr_etd_dt_NC(info);
+		else if (nc == Hdr_dschrg_port_cd) doHdr_dschrg_port_cd_NC(info);
+		else if (nc == Hdr_dschrg_port_nm) doHdr_dschrg_port_nm_NC(info);
+		else if (nc == Hdr_eta_dt) doHdr_eta_dt_NC(info);
+		else if (nc == Hdr_via_port_cd) doHdr_via_port_cd_NC(info);
+		else if (nc == Hdr_via_port_nm) doHdr_via_port_nm_NC(info);
+		else if (nc == Hdr_via_schd_dt) doHdr_via_schd_dt_NC(info);
+		else if (nc == Hdr_tterm_cd1) doHdr_tterm_cd1_NC(info);
+		else if (nc == Hdr_tterm_nm1) doHdr_tterm_nm1_NC(info);
+		else if (nc == Hdr_tterm_rmrks1) doHdr_tterm_rmrks1_NC(info);
+		else if (nc == Hdr_tterm_cd2) doHdr_tterm_cd2_NC(info);
+		else if (nc == Hdr_tterm_nm2) doHdr_tterm_nm2_NC(info);
+		else if (nc == Hdr_tterm_rmrks2) doHdr_tterm_rmrks2_NC(info);
+		else if (nc == Hdr_tterm_cd3) doHdr_tterm_cd3_NC(info);
+		else if (nc == Hdr_tterm_nm3) doHdr_tterm_nm3_NC(info);
+		else if (nc == Hdr_tterm_rmrks3) doHdr_tterm_rmrks3_NC(info);
+		else if (nc == Hdr_cst_po_rmrks) doHdr_cst_po_rmrks_NC(info);
+		else if (nc == Hdr_trd_rmrks) doHdr_trd_rmrks_NC(info);
+		else if (nc == Hdr_intr_rmrks) doHdr_intr_rmrks_NC(info);
+		else if (nc == Hdr_sub_char1) doHdr_sub_char1_NC(info);
+		else if (nc == Hdr_sub_char2) doHdr_sub_char2_NC(info);
+		else if (nc == Hdr_sub_char3) doHdr_sub_char3_NC(info);
+		else if (nc == Hdr_edi_sub_char1) doHdr_edi_sub_char1_NC(info);
+		else if (nc == Hdr_edi_sub_char2) doHdr_edi_sub_char2_NC(info);
+		else if (nc == Hdr_edi_sub_char3) doHdr_edi_sub_char3_NC(info);
+		else if (nc == Hdr_edi_sub_char4) doHdr_edi_sub_char4_NC(info);
+		else if (nc == Hdr_edi_sub_char5) doHdr_edi_sub_char5_NC(info);
+		else if (nc == Hdr_edi_sub_num1) doHdr_edi_sub_num1_NC(info);
+		else if (nc == Hdr_edi_sub_dt1) doHdr_edi_sub_dt1_NC(info);
+		else if (nc == Hdr_can_rsn_cd) doHdr_can_rsn_cd_NC(info);
+		else if (nc == Hdr_can_rsn_nm) doHdr_can_rsn_nm_NC(info);
+		else if (nc == Hdr_can_rmrks) doHdr_can_rmrks_NC(info);
+		else if (nc == Hdr_ins_usr_id) doHdr_ins_usr_id_NC(info);
+		else if (nc == Hdr_ins_usr_nm) doHdr_ins_usr_nm_NC(info);
+		else if (nc == Hdr_ins_func_id) doHdr_ins_func_id_NC(info);
+		else if (nc == Hdr_ins_func_nm) doHdr_ins_func_nm_NC(info);
+		else if (nc == Hdr_upd_usr_id) doHdr_upd_usr_id_NC(info);
+		else if (nc == Hdr_upd_usr_nm) doHdr_upd_usr_nm_NC(info);
+		else if (nc == Hdr_upd_func_id) doHdr_upd_func_id_NC(info);
+		else if (nc == Hdr_upd_func_nm) doHdr_upd_func_nm_NC(info);
+		else if (nc == Hdr_ins_ts) doHdr_ins_ts_NC(info);
+		else if (nc == Hdr_upd_ts) doHdr_upd_ts_NC(info);
+		else if (nc == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NC(info);
+		else if (nc == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NC(info);
+		else if (nc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NC(info);
+		else if (nc == columnDtl_abort_flg) doDtl_abort_flg_NC(info);
+		else if (nc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NC(info);
+		else if (nc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NC(info);
+		else if (nc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_NC(info);
+		else if (nc == columnDtl_alloc_sts_typ_nm) doDtl_alloc_sts_typ_nm_NC(info);
+		else if (nc == columnDtl_slo_d_no) doDtl_slo_d_no_NC(info);
+		else if (nc == columnDtl_cst_itm_cd) doDtl_cst_itm_cd_NC(info);
+		else if (nc == columnDtl_cst_itm_nm) doDtl_cst_itm_nm_NC(info);
+		else if (nc == columnDtl_sundry_itm_flg) doDtl_sundry_itm_flg_NC(info);
+		else if (nc == columnDtl_iv_itm_nm) doDtl_iv_itm_nm_NC(info);
+		else if (nc == columnDtl_stk_mng_typ) doDtl_stk_mng_typ_NC(info);
+		else if (nc == columnDtl_asset_mng_typ) doDtl_asset_mng_typ_NC(info);
+		else if (nc == columnDtl_asset_mng_typ_nm) doDtl_asset_mng_typ_nm_NC(info);
+		else if (nc == columnDtl_lot_mng_typ) doDtl_lot_mng_typ_NC(info);
+		else if (nc == columnDtl_lot_no_typ) doDtl_lot_no_typ_NC(info);
+		else if (nc == columnDtl_sublot_mng_typ) doDtl_sublot_mng_typ_NC(info);
+		else if (nc == columnDtl_sublot_no_typ) doDtl_sublot_no_typ_NC(info);
+		else if (nc == columnDtl_sno1_mng_typ) doDtl_sno1_mng_typ_NC(info);
+		else if (nc == columnDtl_sno2_mng_typ) doDtl_sno2_mng_typ_NC(info);
+		else if (nc == columnDtl_sno3_mng_typ) doDtl_sno3_mng_typ_NC(info);
+		else if (nc == columnDtl_sno4_mng_typ) doDtl_sno4_mng_typ_NC(info);
+		else if (nc == columnDtl_sno1_num_typ) doDtl_sno1_num_typ_NC(info);
+		else if (nc == columnDtl_sno2_num_typ) doDtl_sno2_num_typ_NC(info);
+		else if (nc == columnDtl_sno3_num_typ) doDtl_sno3_num_typ_NC(info);
+		else if (nc == columnDtl_sno4_num_typ) doDtl_sno4_num_typ_NC(info);
+		else if (nc == columnDtl_slo_sno1_flg) doDtl_slo_sno1_flg_NC(info);
+		else if (nc == columnDtl_slo_sno2_flg) doDtl_slo_sno2_flg_NC(info);
+		else if (nc == columnDtl_slo_sno3_flg) doDtl_slo_sno3_flg_NC(info);
+		else if (nc == columnDtl_slo_sno4_flg) doDtl_slo_sno4_flg_NC(info);
+		else if (nc == columnDtl_itm_bill_crryovr_times) doDtl_itm_bill_crryovr_times_NC(info);
+		else if (nc == columnDtl_dscnt_itm_flg) doDtl_dscnt_itm_flg_NC(info);
+		else if (nc == columnDtl_slo_proc_flg) doDtl_slo_proc_flg_NC(info);
+		else if (nc == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NC(info);
+		else if (nc == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NC(info);
+		else if (nc == columnDtl_vmi_flg) doDtl_vmi_flg_NC(info);
+		else if (nc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NC(info);
+		else if (nc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NC(info);
+		else if (nc == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NC(info);
+		else if (nc == columnDtl_trd_unit_conv_base_qty) doDtl_trd_unit_conv_base_qty_NC(info);
+		else if (nc == columnDtl_trd_unit_conv_qty) doDtl_trd_unit_conv_qty_NC(info);
+		else if (nc == columnDtl_trd_unit_rnd_typ) doDtl_trd_unit_rnd_typ_NC(info);
+		else if (nc == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NC(info);
+		else if (nc == columnDtl_ver_flg) doDtl_ver_flg_NC(info);
+		else if (nc == columnDtl_prof_rate) doDtl_prof_rate_NC(info);
+		else if (nc == columnDtl_wtax_rate) doDtl_wtax_rate_NC(info);
+		else if (nc == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NC(info);
+		else if (nc == columnDtl_gd_cd) doDtl_gd_cd_NC(info);
+		else if (nc == columnDtl_gd_nm) doDtl_gd_nm_NC(info);
+		else if (nc == columnDtl_sno_num_flg) doDtl_sno_num_flg_NC(info);
+		else if (nc == columnDtl_set_itm_grp_no) doDtl_set_itm_grp_no_NC(info);
+		else if (nc == columnDtl_dlv_day_week_typ) doDtl_dlv_day_week_typ_NC(info);
+		else if (nc == columnDtl_dlv_day_week_typ_nm) doDtl_dlv_day_week_typ_nm_NC(info);
+		else if (nc == columnDtl_sls_schd_dt) doDtl_sls_schd_dt_NC(info);
+		else if (nc == columnDtl_accpt_schd_dt) doDtl_accpt_schd_dt_NC(info);
+		else if (nc == columnDtl_ship_schd_split_flg) doDtl_ship_schd_split_flg_NC(info);
+		else if (nc == columnDtl_not_dt_calc_flg) doDtl_not_dt_calc_flg_NC(info);
+		else if (nc == columnDtl_prnt_lcl_cd) doDtl_prnt_lcl_cd_NC(info);
+		else if (nc == columnDtl_tdlv_req_flg) doDtl_tdlv_req_flg_NC(info);
+		else if (nc == columnDtl_dest_cd1) doDtl_dest_cd1_NC(info);
+		else if (nc == columnDtl_dest_nm1) doDtl_dest_nm1_NC(info);
+		else if (nc == columnDtl_dest_cd2) doDtl_dest_cd2_NC(info);
+		else if (nc == columnDtl_dest_nm2) doDtl_dest_nm2_NC(info);
+		else if (nc == columnDtl_dest_cd3) doDtl_dest_cd3_NC(info);
+		else if (nc == columnDtl_dest_nm3) doDtl_dest_nm3_NC(info);
+		else if (nc == columnDtl_via_dlv_typ) doDtl_via_dlv_typ_NC(info);
+		else if (nc == columnDtl_via_dlv_typ_nm) doDtl_via_dlv_typ_nm_NC(info);
+		else if (nc == columnDtl_sls_cststk_flg) doDtl_sls_cststk_flg_NC(info);
+		else if (nc == columnDtl_def_proc_typ) doDtl_def_proc_typ_NC(info);
+		else if (nc == columnDtl_proc_typ) doDtl_proc_typ_NC(info);
+		else if (nc == columnDtl_proc_typ_nm) doDtl_proc_typ_nm_NC(info);
+		else if (nc == columnDtl_def_ship_inst_typ) doDtl_def_ship_inst_typ_NC(info);
+		else if (nc == columnDtl_ship_inst_typ) doDtl_ship_inst_typ_NC(info);
+		else if (nc == columnDtl_ship_inst_typ_nm) doDtl_ship_inst_typ_nm_NC(info);
+		else if (nc == columnDtl_ship_schd_split_typ) doDtl_ship_schd_split_typ_NC(info);
+		else if (nc == columnDtl_ship_schd_split_typ_nm) doDtl_ship_schd_split_typ_nm_NC(info);
+		else if (nc == columnDtl_alloc_scope_typ) doDtl_alloc_scope_typ_NC(info);
+		else if (nc == columnDtl_alloc_scope_typ_nm) doDtl_alloc_scope_typ_nm_NC(info);
+		else if (nc == columnDtl_not_lg_mix_flg) doDtl_not_lg_mix_flg_NC(info);
+		else if (nc == columnDtl_alloc_typ) doDtl_alloc_typ_NC(info);
+		else if (nc == columnDtl_alloc_typ_nm) doDtl_alloc_typ_nm_NC(info);
+		else if (nc == columnDtl_alloc_grp_cd) doDtl_alloc_grp_cd_NC(info);
+		else if (nc == columnDtl_alloc_grp_nm) doDtl_alloc_grp_nm_NC(info);
+		else if (nc == columnDtl_ship_lg_grp_cd) doDtl_ship_lg_grp_cd_NC(info);
+		else if (nc == columnDtl_ship_lg_grp_nm) doDtl_ship_lg_grp_nm_NC(info);
+		else if (nc == columnDtl_def_loc_cd) doDtl_def_loc_cd_NC(info);
+		else if (nc == columnDtl_def_loc_nm) doDtl_def_loc_nm_NC(info);
+		else if (nc == columnDtl_loc_cd) doDtl_loc_cd_NC(info);
+		else if (nc == columnDtl_loc_nm) doDtl_loc_nm_NC(info);
+		else if (nc == columnDtl_wg_cd) doDtl_wg_cd_NC(info);
+		else if (nc == columnDtl_str_ln_tgt_flg) doDtl_str_ln_tgt_flg_NC(info);
+		else if (nc == columnDtl_not_lot_mix_flg) doDtl_not_lot_mix_flg_NC(info);
+		else if (nc == columnDtl_not_sublot_mix_flg) doDtl_not_sublot_mix_flg_NC(info);
+		else if (nc == columnDtl_rqst_to_loc_cd) doDtl_rqst_to_loc_cd_NC(info);
+		else if (nc == columnDtl_rqst_to_loc_nm) doDtl_rqst_to_loc_nm_NC(info);
+		else if (nc == columnDtl_sppl_cd) doDtl_sppl_cd_NC(info);
+		else if (nc == columnDtl_sppl_nm) doDtl_sppl_nm_NC(info);
+		else if (nc == columnDtl_maker_cd) doDtl_maker_cd_NC(info);
+		else if (nc == columnDtl_maker_nm) doDtl_maker_nm_NC(info);
+		else if (nc == columnDtl_rqst_dt) doDtl_rqst_dt_NC(info);
+		else if (nc == columnDtl_rqst_dlv_rqst_dt) doDtl_rqst_dlv_rqst_dt_NC(info);
+		else if (nc == columnDtl_wg_rqst_cnt_rmrks) doDtl_wg_rqst_cnt_rmrks_NC(info);
+		else if (nc == columnDtl_ship_term_cd) doDtl_ship_term_cd_NC(info);
+		else if (nc == columnDtl_ship_term_nm) doDtl_ship_term_nm_NC(info);
+		else if (nc == columnDtl_ship_block_flg) doDtl_ship_block_flg_NC(info);
+		else if (nc == columnDtl_ship_cnt_rmrks) doDtl_ship_cnt_rmrks_NC(info);
+		else if (nc == columnDtl_cst_po_d_no) doDtl_cst_po_d_no_NC(info);
+		else if (nc == columnDtl_cst_po_d_rmrks) doDtl_cst_po_d_rmrks_NC(info);
+		else if (nc == columnDtl_sls_rsn_cd) doDtl_sls_rsn_cd_NC(info);
+		else if (nc == columnDtl_sls_rsn_nm) doDtl_sls_rsn_nm_NC(info);
+		else if (nc == columnDtl_sls_acxfr_flg) doDtl_sls_acxfr_flg_NC(info);
+		else if (nc == columnDtl_bd_dpt_cd) doDtl_bd_dpt_cd_NC(info);
+		else if (nc == columnDtl_bd_dpt_nm) doDtl_bd_dpt_nm_NC(info);
+		else if (nc == columnDtl_sls_upri_req_typ) doDtl_sls_upri_req_typ_NC(info);
+		else if (nc == columnDtl_sls_upri_req_typ_nm) doDtl_sls_upri_req_typ_nm_NC(info);
+		else if (nc == columnDtl_trd_d_rmrks) doDtl_trd_d_rmrks_NC(info);
+		else if (nc == columnDtl_intr_rmrks) doDtl_intr_rmrks_NC(info);
+		else if (nc == columnDtl_sub_char1) doDtl_sub_char1_NC(info);
+		else if (nc == columnDtl_sub_char2) doDtl_sub_char2_NC(info);
+		else if (nc == columnDtl_sub_char3) doDtl_sub_char3_NC(info);
+		else if (nc == columnDtl_edi_sub_d_char1) doDtl_edi_sub_d_char1_NC(info);
+		else if (nc == columnDtl_edi_sub_d_char2) doDtl_edi_sub_d_char2_NC(info);
+		else if (nc == columnDtl_edi_sub_d_char3) doDtl_edi_sub_d_char3_NC(info);
+		else if (nc == columnDtl_edi_sub_d_char4) doDtl_edi_sub_d_char4_NC(info);
+		else if (nc == columnDtl_edi_sub_d_char5) doDtl_edi_sub_d_char5_NC(info);
+		else if (nc == columnDtl_edi_sub_d_num1) doDtl_edi_sub_d_num1_NC(info);
+		else if (nc == columnDtl_edi_sub_d_dt1) doDtl_edi_sub_d_dt1_NC(info);
+		else if (nc == columnDtl_can_rsn_cd) doDtl_can_rsn_cd_NC(info);
+		else if (nc == columnDtl_can_rsn_nm) doDtl_can_rsn_nm_NC(info);
+		else if (nc == columnDtl_slo_d_can_rmkrs) doDtl_slo_d_can_rmkrs_NC(info);
+		else if (nc == columnDtl_ship_cmpl_flg) doDtl_ship_cmpl_flg_NC(info);
+		else if (nc == columnDtl_sls_cmpl_flg) doDtl_sls_cmpl_flg_NC(info);
+		else if (nc == columnDtl_base_unit_cd) doDtl_base_unit_cd_NC(info);
+		else if (nc == columnDtl_base_unit_nm) doDtl_base_unit_nm_NC(info);
+		else if (nc == columnDtl_base_unit_dec_place) doDtl_base_unit_dec_place_NC(info);
+		else if (nc == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NC(info);
+		else if (nc == columnDtl_qtn_d_no) doDtl_qtn_d_no_NC(info);
+		else if (nc == columnDtl_disp_seq) doDtl_disp_seq_NC(info);
+	}
+
+	/**
+	 * [HdrTab]Tabの選択Tabが変更された際のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdrTab_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]Tableの選択行が変更された際のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[ope]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_ope_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_rev_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[latest_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_latest_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_ptn_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_ptn_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[srch_tgt_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_srch_tgt_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_back_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_back_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_upd_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_upd_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_can_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_can_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[def_cst_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_def_cst_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prnt_lcl_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prnt_lcl_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[bp_sls_basis_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_bp_sls_basis_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lg_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lg_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lot_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lot_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_sublot_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_sublot_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_usr_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_usr_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_dpt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[lnk_ar_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_lnk_ar_dpt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_upri_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_upri_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_inpt_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_inpt_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_amt_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_amt_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_upri_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_upri_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_xrate_inpt_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_xrate_inpt_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_amt_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_amt_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_upri_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_upri_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tdlv_req_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tdlv_req_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_cng_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_cng_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_iv_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_iv_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_bill_crryovr_times]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_bill_crryovr_times_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_req_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_req_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_schd_split_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_schd_split_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_amt_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_amt_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_tax_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_tax_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wtax_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wtax_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_rev_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prof_rate]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prof_rate_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rev_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_num_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_num_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[vssl_flght]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_vssl_flght_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[etd_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_etd_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[eta_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_eta_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_schd_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_schd_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_intr_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char4]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char4_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char5]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char5_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_num1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_num1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_dt1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_dt1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_id]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_id_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_id]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_id_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_id]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_id_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_id]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_id_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_ts]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_ts_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_ts]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_ts_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_srv_req_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_srv_req_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[abort_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_abort_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sundry_itm_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sundry_itm_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[iv_itm_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_iv_itm_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[stk_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_stk_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_no_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_no_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_no_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_no_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_mng_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_mng_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_num_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_num_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_num_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_num_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_num_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_num_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_num_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_num_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno1_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno1_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno2_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno2_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno3_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno3_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno4_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno4_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[itm_bill_crryovr_times]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_itm_bill_crryovr_times_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dscnt_itm_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dscnt_itm_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_proc_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_proc_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[vmi_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_vmi_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_base_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_base_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_cng_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_cng_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ver_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ver_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prof_rate]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prof_rate_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wtax_rate]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wtax_rate_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bill_crryovr_times]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bill_crryovr_times_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno_num_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno_num_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[set_itm_grp_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_set_itm_grp_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_schd_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_schd_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[accpt_schd_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_accpt_schd_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_dt_calc_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_dt_calc_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prnt_lcl_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prnt_lcl_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[tdlv_req_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_tdlv_req_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cststk_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cststk_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_proc_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_proc_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_ship_inst_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_ship_inst_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lg_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lg_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[str_ln_tgt_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_str_ln_tgt_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lot_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lot_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_sublot_mix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_sublot_mix_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dlv_rqst_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dlv_rqst_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_rqst_cnt_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_rqst_cnt_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_block_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_block_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cnt_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cnt_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_acxfr_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_acxfr_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_d_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_d_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_intr_rmrks_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char4]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char4_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char5]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char5_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_num1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_num1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_dt1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_dt1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_can_rmkrs]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_can_rmkrs_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cmpl_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cmpl_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cmpl_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cmpl_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_dec_place_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_rnd_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_rnd_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[qtn_d_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_qtn_d_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[disp_seq]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_disp_seq_NC(MCEventInfo info){
+	}
+
+	/**
+	 * NotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param ne イベント対象のGUI部品
+	 * @param info イベント情報
+	 */
+	public void doNEEvent(MCNEBeans ne, MCEventInfo info) {
+		super.doNEEvent(ne, info);
+		if (ne == HdrTabTab) doHdrTab_NE(info);
+		else if (ne == DtlTable) doDtl_NE(info);
+		else if (ne == Cnd_ope_Group) doCnd_ope_NE(info);
+		else if (ne == Cnd_srch_tgt_typ) doCnd_srch_tgt_typ_NE(info);
+		else if (ne == Cnd_srch_tgt_typ_nm) doCnd_srch_tgt_typ_nm_NE(info);
+		else if (ne == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NE(info);
+		else if (ne == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NE(info);
+		else if (ne == Cnd_latest_flg) doCnd_latest_flg_NE(info);
+		else if (ne == Hdr_trd_cd) doHdr_trd_cd_NE(info);
+		else if (ne == Hdr_trd_nm) doHdr_trd_nm_NE(info);
+		else if (ne == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NE(info);
+		else if (ne == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NE(info);
+		else if (ne == Hdr_slo_no) doHdr_slo_no_NE(info);
+		else if (ne == Hdr_slo_rev) doHdr_slo_rev_NE(info);
+		else if (ne == Hdr_latest_flg) doHdr_latest_flg_NE(info);
+		else if (ne == Hdr_slo_dt) doHdr_slo_dt_NE(info);
+		else if (ne == Hdr_slo_typ) doHdr_slo_typ_NE(info);
+		else if (ne == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NE(info);
+		else if (ne == Hdr_aprv_flg) doHdr_aprv_flg_NE(info);
+		else if (ne == Hdr_aprv_back_flg) doHdr_aprv_back_flg_NE(info);
+		else if (ne == Hdr_aprv_no) doHdr_aprv_no_NE(info);
+		else if (ne == Hdr_aprv_sts_typ) doHdr_aprv_sts_typ_NE(info);
+		else if (ne == Hdr_aprv_sts_typ_nm) doHdr_aprv_sts_typ_nm_NE(info);
+		else if (ne == Hdr_aprv_upd_flg) doHdr_aprv_upd_flg_NE(info);
+		else if (ne == Hdr_aprv_can_flg) doHdr_aprv_can_flg_NE(info);
+		else if (ne == Hdr_edi_flg) doHdr_edi_flg_NE(info);
+		else if (ne == Hdr_def_cst_cd) doHdr_def_cst_cd_NE(info);
+		else if (ne == Hdr_prnt_lcl_cd) doHdr_prnt_lcl_cd_NE(info);
+		else if (ne == Hdr_dest_cd1) doHdr_dest_cd1_NE(info);
+		else if (ne == Hdr_dest_nm1) doHdr_dest_nm1_NE(info);
+		else if (ne == Hdr_dest_cd2) doHdr_dest_cd2_NE(info);
+		else if (ne == Hdr_dest_nm2) doHdr_dest_nm2_NE(info);
+		else if (ne == Hdr_dest_cd3) doHdr_dest_cd3_NE(info);
+		else if (ne == Hdr_dest_nm3) doHdr_dest_nm3_NE(info);
+		else if (ne == Hdr_via_dlv_typ) doHdr_via_dlv_typ_NE(info);
+		else if (ne == Hdr_via_dlv_typ_nm) doHdr_via_dlv_typ_nm_NE(info);
+		else if (ne == Hdr_cst_cd) doHdr_cst_cd_NE(info);
+		else if (ne == Hdr_cst_nm) doHdr_cst_nm_NE(info);
+		else if (ne == Hdr_sls_basis_typ) doHdr_sls_basis_typ_NE(info);
+		else if (ne == Hdr_sls_basis_typ_nm) doHdr_sls_basis_typ_nm_NE(info);
+		else if (ne == Hdr_bp_sls_basis_typ) doHdr_bp_sls_basis_typ_NE(info);
+		else if (ne == Hdr_hdr_not_lg_mix_flg) doHdr_hdr_not_lg_mix_flg_NE(info);
+		else if (ne == Hdr_hdr_not_lot_mix_flg) doHdr_hdr_not_lot_mix_flg_NE(info);
+		else if (ne == Hdr_hdr_not_sublot_mix_flg) doHdr_hdr_not_sublot_mix_flg_NE(info);
+		else if (ne == Hdr_cst_usr_cd) doHdr_cst_usr_cd_NE(info);
+		else if (ne == Hdr_cst_dpt_cd) doHdr_cst_dpt_cd_NE(info);
+		else if (ne == Hdr_ar_dpt_typ) doHdr_ar_dpt_typ_NE(info);
+		else if (ne == Hdr_lnk_ar_dpt_cd) doHdr_lnk_ar_dpt_cd_NE(info);
+		else if (ne == Hdr_wg_cd) doHdr_wg_cd_NE(info);
+		else if (ne == Hdr_wg_nm) doHdr_wg_nm_NE(info);
+		else if (ne == Hdr_trd_cur_cd) doHdr_trd_cur_cd_NE(info);
+		else if (ne == Hdr_trd_cur_nm) doHdr_trd_cur_nm_NE(info);
+		else if (ne == Hdr_trd_cur_amt_dec_place) doHdr_trd_cur_amt_dec_place_NE(info);
+		else if (ne == Hdr_trd_cur_upri_dec_place) doHdr_trd_cur_upri_dec_place_NE(info);
+		else if (ne == Hdr_base_cur_cd) doHdr_base_cur_cd_NE(info);
+		else if (ne == Hdr_base_cur_nm) doHdr_base_cur_nm_NE(info);
+		else if (ne == Hdr_xrate_inpt_flg) doHdr_xrate_inpt_flg_NE(info);
+		else if (ne == Hdr_xrate_cd) doHdr_xrate_cd_NE(info);
+		else if (ne == Hdr_base_cur_amt_dec_place) doHdr_base_cur_amt_dec_place_NE(info);
+		else if (ne == Hdr_base_cur_upri_dec_place) doHdr_base_cur_upri_dec_place_NE(info);
+		else if (ne == Hdr_ptax_cur_cd) doHdr_ptax_cur_cd_NE(info);
+		else if (ne == Hdr_ptax_cur_nm) doHdr_ptax_cur_nm_NE(info);
+		else if (ne == Hdr_ptax_xrate_inpt_flg) doHdr_ptax_xrate_inpt_flg_NE(info);
+		else if (ne == Hdr_ptax_cur_amt_dec_place) doHdr_ptax_cur_amt_dec_place_NE(info);
+		else if (ne == Hdr_ptax_cur_upri_dec_place) doHdr_ptax_cur_upri_dec_place_NE(info);
+		else if (ne == Hdr_tdlv_req_flg) doHdr_tdlv_req_flg_NE(info);
+		else if (ne == Hdr_sls_upri_cng_flg) doHdr_sls_upri_cng_flg_NE(info);
+		else if (ne == Hdr_cst_iv_flg) doHdr_cst_iv_flg_NE(info);
+		else if (ne == Hdr_cst_bill_crryovr_times) doHdr_cst_bill_crryovr_times_NE(info);
+		else if (ne == Hdr_sls_upri_req_typ) doHdr_sls_upri_req_typ_NE(info);
+		else if (ne == Hdr_ship_schd_split_typ) doHdr_ship_schd_split_typ_NE(info);
+		else if (ne == Hdr_sls_amt_rnd_typ) doHdr_sls_amt_rnd_typ_NE(info);
+		else if (ne == Hdr_sls_tax_rnd_typ) doHdr_sls_tax_rnd_typ_NE(info);
+		else if (ne == Hdr_xrate_rnd_typ) doHdr_xrate_rnd_typ_NE(info);
+		else if (ne == Hdr_wtax_rnd_typ) doHdr_wtax_rnd_typ_NE(info);
+		else if (ne == Hdr_qtn_no) doHdr_qtn_no_NE(info);
+		else if (ne == Hdr_qtn_rev) doHdr_qtn_rev_NE(info);
+		else if (ne == Hdr_prof_rate) doHdr_prof_rate_NE(info);
+		else if (ne == Hdr_assort_typ) doHdr_assort_typ_NE(info);
+		else if (ne == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NE(info);
+		else if (ne == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NE(info);
+		else if (ne == Hdr_adv_ship_ctrl_typ_nm) doHdr_adv_ship_ctrl_typ_nm_NE(info);
+		else if (ne == Hdr_cst_po_no) doHdr_cst_po_no_NE(info);
+		else if (ne == Hdr_cst_po_rev) doHdr_cst_po_rev_NE(info);
+		else if (ne == Hdr_rcpt_dt) doHdr_rcpt_dt_NE(info);
+		else if (ne == Hdr_rcpt_usr_cd) doHdr_rcpt_usr_cd_NE(info);
+		else if (ne == Hdr_rcpt_usr_nm) doHdr_rcpt_usr_nm_NE(info);
+		else if (ne == Hdr_acst_cd) doHdr_acst_cd_NE(info);
+		else if (ne == Hdr_acst_nm) doHdr_acst_nm_NE(info);
+		else if (ne == Hdr_ar_dpt_cd) doHdr_ar_dpt_cd_NE(info);
+		else if (ne == Hdr_ar_dpt_nm) doHdr_ar_dpt_nm_NE(info);
+		else if (ne == Hdr_iv_no) doHdr_iv_no_NE(info);
+		else if (ne == Hdr_iv_num_flg) doHdr_iv_num_flg_NE(info);
+		else if (ne == Hdr_trnspt_cd) doHdr_trnspt_cd_NE(info);
+		else if (ne == Hdr_trnspt_nm) doHdr_trnspt_nm_NE(info);
+		else if (ne == Hdr_vssl_flght) doHdr_vssl_flght_NE(info);
+		else if (ne == Hdr_load_port_cd) doHdr_load_port_cd_NE(info);
+		else if (ne == Hdr_load_port_nm) doHdr_load_port_nm_NE(info);
+		else if (ne == Hdr_etd_dt) doHdr_etd_dt_NE(info);
+		else if (ne == Hdr_dschrg_port_cd) doHdr_dschrg_port_cd_NE(info);
+		else if (ne == Hdr_dschrg_port_nm) doHdr_dschrg_port_nm_NE(info);
+		else if (ne == Hdr_eta_dt) doHdr_eta_dt_NE(info);
+		else if (ne == Hdr_via_port_cd) doHdr_via_port_cd_NE(info);
+		else if (ne == Hdr_via_port_nm) doHdr_via_port_nm_NE(info);
+		else if (ne == Hdr_via_schd_dt) doHdr_via_schd_dt_NE(info);
+		else if (ne == Hdr_tterm_cd1) doHdr_tterm_cd1_NE(info);
+		else if (ne == Hdr_tterm_nm1) doHdr_tterm_nm1_NE(info);
+		else if (ne == Hdr_tterm_rmrks1) doHdr_tterm_rmrks1_NE(info);
+		else if (ne == Hdr_tterm_cd2) doHdr_tterm_cd2_NE(info);
+		else if (ne == Hdr_tterm_nm2) doHdr_tterm_nm2_NE(info);
+		else if (ne == Hdr_tterm_rmrks2) doHdr_tterm_rmrks2_NE(info);
+		else if (ne == Hdr_tterm_cd3) doHdr_tterm_cd3_NE(info);
+		else if (ne == Hdr_tterm_nm3) doHdr_tterm_nm3_NE(info);
+		else if (ne == Hdr_tterm_rmrks3) doHdr_tterm_rmrks3_NE(info);
+		else if (ne == Hdr_cst_po_rmrks) doHdr_cst_po_rmrks_NE(info);
+		else if (ne == Hdr_trd_rmrks) doHdr_trd_rmrks_NE(info);
+		else if (ne == Hdr_intr_rmrks) doHdr_intr_rmrks_NE(info);
+		else if (ne == Hdr_sub_char1) doHdr_sub_char1_NE(info);
+		else if (ne == Hdr_sub_char2) doHdr_sub_char2_NE(info);
+		else if (ne == Hdr_sub_char3) doHdr_sub_char3_NE(info);
+		else if (ne == Hdr_edi_sub_char1) doHdr_edi_sub_char1_NE(info);
+		else if (ne == Hdr_edi_sub_char2) doHdr_edi_sub_char2_NE(info);
+		else if (ne == Hdr_edi_sub_char3) doHdr_edi_sub_char3_NE(info);
+		else if (ne == Hdr_edi_sub_char4) doHdr_edi_sub_char4_NE(info);
+		else if (ne == Hdr_edi_sub_char5) doHdr_edi_sub_char5_NE(info);
+		else if (ne == Hdr_edi_sub_num1) doHdr_edi_sub_num1_NE(info);
+		else if (ne == Hdr_edi_sub_dt1) doHdr_edi_sub_dt1_NE(info);
+		else if (ne == Hdr_can_rsn_cd) doHdr_can_rsn_cd_NE(info);
+		else if (ne == Hdr_can_rsn_nm) doHdr_can_rsn_nm_NE(info);
+		else if (ne == Hdr_can_rmrks) doHdr_can_rmrks_NE(info);
+		else if (ne == Hdr_ins_usr_id) doHdr_ins_usr_id_NE(info);
+		else if (ne == Hdr_ins_usr_nm) doHdr_ins_usr_nm_NE(info);
+		else if (ne == Hdr_ins_func_id) doHdr_ins_func_id_NE(info);
+		else if (ne == Hdr_ins_func_nm) doHdr_ins_func_nm_NE(info);
+		else if (ne == Hdr_upd_usr_id) doHdr_upd_usr_id_NE(info);
+		else if (ne == Hdr_upd_usr_nm) doHdr_upd_usr_nm_NE(info);
+		else if (ne == Hdr_upd_func_id) doHdr_upd_func_id_NE(info);
+		else if (ne == Hdr_upd_func_nm) doHdr_upd_func_nm_NE(info);
+		else if (ne == Hdr_ins_ts) doHdr_ins_ts_NE(info);
+		else if (ne == Hdr_upd_ts) doHdr_upd_ts_NE(info);
+		else if (ne == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NE(info);
+		else if (ne == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NE(info);
+		else if (ne == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NE(info);
+		else if (ne == columnDtl_abort_flg) doDtl_abort_flg_NE(info);
+		else if (ne == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NE(info);
+		else if (ne == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NE(info);
+		else if (ne == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_NE(info);
+		else if (ne == columnDtl_alloc_sts_typ_nm) doDtl_alloc_sts_typ_nm_NE(info);
+		else if (ne == columnDtl_slo_d_no) doDtl_slo_d_no_NE(info);
+		else if (ne == columnDtl_cst_itm_cd) doDtl_cst_itm_cd_NE(info);
+		else if (ne == columnDtl_cst_itm_nm) doDtl_cst_itm_nm_NE(info);
+		else if (ne == columnDtl_sundry_itm_flg) doDtl_sundry_itm_flg_NE(info);
+		else if (ne == columnDtl_iv_itm_nm) doDtl_iv_itm_nm_NE(info);
+		else if (ne == columnDtl_stk_mng_typ) doDtl_stk_mng_typ_NE(info);
+		else if (ne == columnDtl_asset_mng_typ) doDtl_asset_mng_typ_NE(info);
+		else if (ne == columnDtl_asset_mng_typ_nm) doDtl_asset_mng_typ_nm_NE(info);
+		else if (ne == columnDtl_lot_mng_typ) doDtl_lot_mng_typ_NE(info);
+		else if (ne == columnDtl_lot_no_typ) doDtl_lot_no_typ_NE(info);
+		else if (ne == columnDtl_sublot_mng_typ) doDtl_sublot_mng_typ_NE(info);
+		else if (ne == columnDtl_sublot_no_typ) doDtl_sublot_no_typ_NE(info);
+		else if (ne == columnDtl_sno1_mng_typ) doDtl_sno1_mng_typ_NE(info);
+		else if (ne == columnDtl_sno2_mng_typ) doDtl_sno2_mng_typ_NE(info);
+		else if (ne == columnDtl_sno3_mng_typ) doDtl_sno3_mng_typ_NE(info);
+		else if (ne == columnDtl_sno4_mng_typ) doDtl_sno4_mng_typ_NE(info);
+		else if (ne == columnDtl_sno1_num_typ) doDtl_sno1_num_typ_NE(info);
+		else if (ne == columnDtl_sno2_num_typ) doDtl_sno2_num_typ_NE(info);
+		else if (ne == columnDtl_sno3_num_typ) doDtl_sno3_num_typ_NE(info);
+		else if (ne == columnDtl_sno4_num_typ) doDtl_sno4_num_typ_NE(info);
+		else if (ne == columnDtl_slo_sno1_flg) doDtl_slo_sno1_flg_NE(info);
+		else if (ne == columnDtl_slo_sno2_flg) doDtl_slo_sno2_flg_NE(info);
+		else if (ne == columnDtl_slo_sno3_flg) doDtl_slo_sno3_flg_NE(info);
+		else if (ne == columnDtl_slo_sno4_flg) doDtl_slo_sno4_flg_NE(info);
+		else if (ne == columnDtl_itm_bill_crryovr_times) doDtl_itm_bill_crryovr_times_NE(info);
+		else if (ne == columnDtl_dscnt_itm_flg) doDtl_dscnt_itm_flg_NE(info);
+		else if (ne == columnDtl_slo_proc_flg) doDtl_slo_proc_flg_NE(info);
+		else if (ne == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NE(info);
+		else if (ne == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NE(info);
+		else if (ne == columnDtl_vmi_flg) doDtl_vmi_flg_NE(info);
+		else if (ne == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NE(info);
+		else if (ne == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NE(info);
+		else if (ne == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NE(info);
+		else if (ne == columnDtl_trd_unit_conv_base_qty) doDtl_trd_unit_conv_base_qty_NE(info);
+		else if (ne == columnDtl_trd_unit_conv_qty) doDtl_trd_unit_conv_qty_NE(info);
+		else if (ne == columnDtl_trd_unit_rnd_typ) doDtl_trd_unit_rnd_typ_NE(info);
+		else if (ne == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NE(info);
+		else if (ne == columnDtl_ver_flg) doDtl_ver_flg_NE(info);
+		else if (ne == columnDtl_prof_rate) doDtl_prof_rate_NE(info);
+		else if (ne == columnDtl_wtax_rate) doDtl_wtax_rate_NE(info);
+		else if (ne == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NE(info);
+		else if (ne == columnDtl_gd_cd) doDtl_gd_cd_NE(info);
+		else if (ne == columnDtl_gd_nm) doDtl_gd_nm_NE(info);
+		else if (ne == columnDtl_sno_num_flg) doDtl_sno_num_flg_NE(info);
+		else if (ne == columnDtl_set_itm_grp_no) doDtl_set_itm_grp_no_NE(info);
+		else if (ne == columnDtl_dlv_day_week_typ) doDtl_dlv_day_week_typ_NE(info);
+		else if (ne == columnDtl_dlv_day_week_typ_nm) doDtl_dlv_day_week_typ_nm_NE(info);
+		else if (ne == columnDtl_sls_schd_dt) doDtl_sls_schd_dt_NE(info);
+		else if (ne == columnDtl_accpt_schd_dt) doDtl_accpt_schd_dt_NE(info);
+		else if (ne == columnDtl_ship_schd_split_flg) doDtl_ship_schd_split_flg_NE(info);
+		else if (ne == columnDtl_not_dt_calc_flg) doDtl_not_dt_calc_flg_NE(info);
+		else if (ne == columnDtl_prnt_lcl_cd) doDtl_prnt_lcl_cd_NE(info);
+		else if (ne == columnDtl_tdlv_req_flg) doDtl_tdlv_req_flg_NE(info);
+		else if (ne == columnDtl_dest_cd1) doDtl_dest_cd1_NE(info);
+		else if (ne == columnDtl_dest_nm1) doDtl_dest_nm1_NE(info);
+		else if (ne == columnDtl_dest_cd2) doDtl_dest_cd2_NE(info);
+		else if (ne == columnDtl_dest_nm2) doDtl_dest_nm2_NE(info);
+		else if (ne == columnDtl_dest_cd3) doDtl_dest_cd3_NE(info);
+		else if (ne == columnDtl_dest_nm3) doDtl_dest_nm3_NE(info);
+		else if (ne == columnDtl_via_dlv_typ) doDtl_via_dlv_typ_NE(info);
+		else if (ne == columnDtl_via_dlv_typ_nm) doDtl_via_dlv_typ_nm_NE(info);
+		else if (ne == columnDtl_sls_cststk_flg) doDtl_sls_cststk_flg_NE(info);
+		else if (ne == columnDtl_def_proc_typ) doDtl_def_proc_typ_NE(info);
+		else if (ne == columnDtl_proc_typ) doDtl_proc_typ_NE(info);
+		else if (ne == columnDtl_proc_typ_nm) doDtl_proc_typ_nm_NE(info);
+		else if (ne == columnDtl_def_ship_inst_typ) doDtl_def_ship_inst_typ_NE(info);
+		else if (ne == columnDtl_ship_inst_typ) doDtl_ship_inst_typ_NE(info);
+		else if (ne == columnDtl_ship_inst_typ_nm) doDtl_ship_inst_typ_nm_NE(info);
+		else if (ne == columnDtl_ship_schd_split_typ) doDtl_ship_schd_split_typ_NE(info);
+		else if (ne == columnDtl_ship_schd_split_typ_nm) doDtl_ship_schd_split_typ_nm_NE(info);
+		else if (ne == columnDtl_alloc_scope_typ) doDtl_alloc_scope_typ_NE(info);
+		else if (ne == columnDtl_alloc_scope_typ_nm) doDtl_alloc_scope_typ_nm_NE(info);
+		else if (ne == columnDtl_not_lg_mix_flg) doDtl_not_lg_mix_flg_NE(info);
+		else if (ne == columnDtl_alloc_typ) doDtl_alloc_typ_NE(info);
+		else if (ne == columnDtl_alloc_typ_nm) doDtl_alloc_typ_nm_NE(info);
+		else if (ne == columnDtl_alloc_grp_cd) doDtl_alloc_grp_cd_NE(info);
+		else if (ne == columnDtl_alloc_grp_nm) doDtl_alloc_grp_nm_NE(info);
+		else if (ne == columnDtl_ship_lg_grp_cd) doDtl_ship_lg_grp_cd_NE(info);
+		else if (ne == columnDtl_ship_lg_grp_nm) doDtl_ship_lg_grp_nm_NE(info);
+		else if (ne == columnDtl_def_loc_cd) doDtl_def_loc_cd_NE(info);
+		else if (ne == columnDtl_def_loc_nm) doDtl_def_loc_nm_NE(info);
+		else if (ne == columnDtl_loc_cd) doDtl_loc_cd_NE(info);
+		else if (ne == columnDtl_loc_nm) doDtl_loc_nm_NE(info);
+		else if (ne == columnDtl_wg_cd) doDtl_wg_cd_NE(info);
+		else if (ne == columnDtl_str_ln_tgt_flg) doDtl_str_ln_tgt_flg_NE(info);
+		else if (ne == columnDtl_not_lot_mix_flg) doDtl_not_lot_mix_flg_NE(info);
+		else if (ne == columnDtl_not_sublot_mix_flg) doDtl_not_sublot_mix_flg_NE(info);
+		else if (ne == columnDtl_rqst_to_loc_cd) doDtl_rqst_to_loc_cd_NE(info);
+		else if (ne == columnDtl_rqst_to_loc_nm) doDtl_rqst_to_loc_nm_NE(info);
+		else if (ne == columnDtl_sppl_cd) doDtl_sppl_cd_NE(info);
+		else if (ne == columnDtl_sppl_nm) doDtl_sppl_nm_NE(info);
+		else if (ne == columnDtl_maker_cd) doDtl_maker_cd_NE(info);
+		else if (ne == columnDtl_maker_nm) doDtl_maker_nm_NE(info);
+		else if (ne == columnDtl_rqst_dt) doDtl_rqst_dt_NE(info);
+		else if (ne == columnDtl_rqst_dlv_rqst_dt) doDtl_rqst_dlv_rqst_dt_NE(info);
+		else if (ne == columnDtl_wg_rqst_cnt_rmrks) doDtl_wg_rqst_cnt_rmrks_NE(info);
+		else if (ne == columnDtl_ship_term_cd) doDtl_ship_term_cd_NE(info);
+		else if (ne == columnDtl_ship_term_nm) doDtl_ship_term_nm_NE(info);
+		else if (ne == columnDtl_ship_block_flg) doDtl_ship_block_flg_NE(info);
+		else if (ne == columnDtl_ship_cnt_rmrks) doDtl_ship_cnt_rmrks_NE(info);
+		else if (ne == columnDtl_cst_po_d_no) doDtl_cst_po_d_no_NE(info);
+		else if (ne == columnDtl_cst_po_d_rmrks) doDtl_cst_po_d_rmrks_NE(info);
+		else if (ne == columnDtl_sls_rsn_cd) doDtl_sls_rsn_cd_NE(info);
+		else if (ne == columnDtl_sls_rsn_nm) doDtl_sls_rsn_nm_NE(info);
+		else if (ne == columnDtl_sls_acxfr_flg) doDtl_sls_acxfr_flg_NE(info);
+		else if (ne == columnDtl_bd_dpt_cd) doDtl_bd_dpt_cd_NE(info);
+		else if (ne == columnDtl_bd_dpt_nm) doDtl_bd_dpt_nm_NE(info);
+		else if (ne == columnDtl_sls_upri_req_typ) doDtl_sls_upri_req_typ_NE(info);
+		else if (ne == columnDtl_sls_upri_req_typ_nm) doDtl_sls_upri_req_typ_nm_NE(info);
+		else if (ne == columnDtl_trd_d_rmrks) doDtl_trd_d_rmrks_NE(info);
+		else if (ne == columnDtl_intr_rmrks) doDtl_intr_rmrks_NE(info);
+		else if (ne == columnDtl_sub_char1) doDtl_sub_char1_NE(info);
+		else if (ne == columnDtl_sub_char2) doDtl_sub_char2_NE(info);
+		else if (ne == columnDtl_sub_char3) doDtl_sub_char3_NE(info);
+		else if (ne == columnDtl_edi_sub_d_char1) doDtl_edi_sub_d_char1_NE(info);
+		else if (ne == columnDtl_edi_sub_d_char2) doDtl_edi_sub_d_char2_NE(info);
+		else if (ne == columnDtl_edi_sub_d_char3) doDtl_edi_sub_d_char3_NE(info);
+		else if (ne == columnDtl_edi_sub_d_char4) doDtl_edi_sub_d_char4_NE(info);
+		else if (ne == columnDtl_edi_sub_d_char5) doDtl_edi_sub_d_char5_NE(info);
+		else if (ne == columnDtl_edi_sub_d_num1) doDtl_edi_sub_d_num1_NE(info);
+		else if (ne == columnDtl_edi_sub_d_dt1) doDtl_edi_sub_d_dt1_NE(info);
+		else if (ne == columnDtl_can_rsn_cd) doDtl_can_rsn_cd_NE(info);
+		else if (ne == columnDtl_can_rsn_nm) doDtl_can_rsn_nm_NE(info);
+		else if (ne == columnDtl_slo_d_can_rmkrs) doDtl_slo_d_can_rmkrs_NE(info);
+		else if (ne == columnDtl_ship_cmpl_flg) doDtl_ship_cmpl_flg_NE(info);
+		else if (ne == columnDtl_sls_cmpl_flg) doDtl_sls_cmpl_flg_NE(info);
+		else if (ne == columnDtl_base_unit_cd) doDtl_base_unit_cd_NE(info);
+		else if (ne == columnDtl_base_unit_nm) doDtl_base_unit_nm_NE(info);
+		else if (ne == columnDtl_base_unit_dec_place) doDtl_base_unit_dec_place_NE(info);
+		else if (ne == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NE(info);
+		else if (ne == columnDtl_qtn_d_no) doDtl_qtn_d_no_NE(info);
+		else if (ne == columnDtl_disp_seq) doDtl_disp_seq_NE(info);
+	}
+
+	/**
+	 * [HdrTab]TabのNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdrTab_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]TableのNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[ope]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_ope_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_rev_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[latest_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_latest_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_ptn_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_ptn_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[srch_tgt_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_srch_tgt_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_back_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_back_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_upd_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_upd_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_can_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_can_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[def_cst_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_def_cst_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prnt_lcl_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prnt_lcl_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[bp_sls_basis_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_bp_sls_basis_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lg_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lg_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lot_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lot_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_sublot_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_sublot_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_usr_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_usr_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_dpt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[lnk_ar_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_lnk_ar_dpt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_upri_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_upri_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_inpt_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_inpt_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_amt_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_amt_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_upri_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_upri_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_xrate_inpt_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_xrate_inpt_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_amt_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_amt_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_upri_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_upri_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tdlv_req_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tdlv_req_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_cng_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_cng_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_iv_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_iv_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_bill_crryovr_times]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_bill_crryovr_times_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_req_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_req_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_schd_split_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_schd_split_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_amt_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_amt_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_tax_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_tax_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wtax_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wtax_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_rev_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prof_rate]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prof_rate_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rev_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_num_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_num_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[vssl_flght]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_vssl_flght_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[etd_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_etd_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[eta_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_eta_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_schd_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_schd_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_intr_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char4]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char4_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char5]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char5_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_num1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_num1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_dt1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_dt1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_id]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_id_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_id]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_id_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_id]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_id_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_id]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_id_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_ts]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_ts_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_ts]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_ts_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_srv_req_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_srv_req_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[abort_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_abort_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sundry_itm_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sundry_itm_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[iv_itm_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_iv_itm_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[stk_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_stk_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_no_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_no_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_no_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_no_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_mng_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_mng_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_num_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_num_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_num_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_num_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_num_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_num_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_num_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_num_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno1_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno1_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno2_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno2_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno3_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno3_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno4_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno4_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[itm_bill_crryovr_times]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_itm_bill_crryovr_times_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dscnt_itm_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dscnt_itm_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_proc_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_proc_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[vmi_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_vmi_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_base_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_base_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_cng_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_cng_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ver_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ver_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prof_rate]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prof_rate_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wtax_rate]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wtax_rate_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bill_crryovr_times]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bill_crryovr_times_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno_num_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno_num_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[set_itm_grp_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_set_itm_grp_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_schd_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_schd_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[accpt_schd_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_accpt_schd_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_dt_calc_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_dt_calc_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prnt_lcl_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prnt_lcl_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[tdlv_req_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_tdlv_req_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cststk_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cststk_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_proc_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_proc_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_ship_inst_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_ship_inst_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lg_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lg_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[str_ln_tgt_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_str_ln_tgt_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lot_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lot_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_sublot_mix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_sublot_mix_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dlv_rqst_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dlv_rqst_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_rqst_cnt_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_rqst_cnt_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_block_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_block_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cnt_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cnt_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_acxfr_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_acxfr_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_d_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_d_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_intr_rmrks_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char4]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char4_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char5]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char5_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_num1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_num1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_dt1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_dt1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_can_rmkrs]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_can_rmkrs_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cmpl_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cmpl_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cmpl_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cmpl_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_dec_place_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_rnd_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_rnd_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[qtn_d_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_qtn_d_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[disp_seq]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_disp_seq_NE(MCEventInfo info){
+	}
+
+	/**
+	 * NotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param nx イベント対象のGUI部品
+	 * @param info イベント情報
+	 */
+	public void doNXEvent(MCNXBeans nx, MCEventInfo info) {
+		super.doNXEvent(nx, info);
+		if (nx == HdrTabTab) doHdrTab_NX(info);
+		else if (nx == DtlTable) doDtl_NX(info);
+		else if (nx == Cnd_ope_Group) doCnd_ope_NX(info);
+		else if (nx == Cnd_srch_tgt_typ) doCnd_srch_tgt_typ_NX(info);
+		else if (nx == Cnd_srch_tgt_typ_nm) doCnd_srch_tgt_typ_nm_NX(info);
+		else if (nx == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NX(info);
+		else if (nx == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NX(info);
+		else if (nx == Cnd_latest_flg) doCnd_latest_flg_NX(info);
+		else if (nx == Hdr_trd_cd) doHdr_trd_cd_NX(info);
+		else if (nx == Hdr_trd_nm) doHdr_trd_nm_NX(info);
+		else if (nx == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NX(info);
+		else if (nx == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NX(info);
+		else if (nx == Hdr_slo_no) doHdr_slo_no_NX(info);
+		else if (nx == Hdr_slo_rev) doHdr_slo_rev_NX(info);
+		else if (nx == Hdr_latest_flg) doHdr_latest_flg_NX(info);
+		else if (nx == Hdr_slo_dt) doHdr_slo_dt_NX(info);
+		else if (nx == Hdr_slo_typ) doHdr_slo_typ_NX(info);
+		else if (nx == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NX(info);
+		else if (nx == Hdr_aprv_flg) doHdr_aprv_flg_NX(info);
+		else if (nx == Hdr_aprv_back_flg) doHdr_aprv_back_flg_NX(info);
+		else if (nx == Hdr_aprv_no) doHdr_aprv_no_NX(info);
+		else if (nx == Hdr_aprv_sts_typ) doHdr_aprv_sts_typ_NX(info);
+		else if (nx == Hdr_aprv_sts_typ_nm) doHdr_aprv_sts_typ_nm_NX(info);
+		else if (nx == Hdr_aprv_upd_flg) doHdr_aprv_upd_flg_NX(info);
+		else if (nx == Hdr_aprv_can_flg) doHdr_aprv_can_flg_NX(info);
+		else if (nx == Hdr_edi_flg) doHdr_edi_flg_NX(info);
+		else if (nx == Hdr_def_cst_cd) doHdr_def_cst_cd_NX(info);
+		else if (nx == Hdr_prnt_lcl_cd) doHdr_prnt_lcl_cd_NX(info);
+		else if (nx == Hdr_dest_cd1) doHdr_dest_cd1_NX(info);
+		else if (nx == Hdr_dest_nm1) doHdr_dest_nm1_NX(info);
+		else if (nx == Hdr_dest_cd2) doHdr_dest_cd2_NX(info);
+		else if (nx == Hdr_dest_nm2) doHdr_dest_nm2_NX(info);
+		else if (nx == Hdr_dest_cd3) doHdr_dest_cd3_NX(info);
+		else if (nx == Hdr_dest_nm3) doHdr_dest_nm3_NX(info);
+		else if (nx == Hdr_via_dlv_typ) doHdr_via_dlv_typ_NX(info);
+		else if (nx == Hdr_via_dlv_typ_nm) doHdr_via_dlv_typ_nm_NX(info);
+		else if (nx == Hdr_cst_cd) doHdr_cst_cd_NX(info);
+		else if (nx == Hdr_cst_nm) doHdr_cst_nm_NX(info);
+		else if (nx == Hdr_sls_basis_typ) doHdr_sls_basis_typ_NX(info);
+		else if (nx == Hdr_sls_basis_typ_nm) doHdr_sls_basis_typ_nm_NX(info);
+		else if (nx == Hdr_bp_sls_basis_typ) doHdr_bp_sls_basis_typ_NX(info);
+		else if (nx == Hdr_hdr_not_lg_mix_flg) doHdr_hdr_not_lg_mix_flg_NX(info);
+		else if (nx == Hdr_hdr_not_lot_mix_flg) doHdr_hdr_not_lot_mix_flg_NX(info);
+		else if (nx == Hdr_hdr_not_sublot_mix_flg) doHdr_hdr_not_sublot_mix_flg_NX(info);
+		else if (nx == Hdr_cst_usr_cd) doHdr_cst_usr_cd_NX(info);
+		else if (nx == Hdr_cst_dpt_cd) doHdr_cst_dpt_cd_NX(info);
+		else if (nx == Hdr_ar_dpt_typ) doHdr_ar_dpt_typ_NX(info);
+		else if (nx == Hdr_lnk_ar_dpt_cd) doHdr_lnk_ar_dpt_cd_NX(info);
+		else if (nx == Hdr_wg_cd) doHdr_wg_cd_NX(info);
+		else if (nx == Hdr_wg_nm) doHdr_wg_nm_NX(info);
+		else if (nx == Hdr_trd_cur_cd) doHdr_trd_cur_cd_NX(info);
+		else if (nx == Hdr_trd_cur_nm) doHdr_trd_cur_nm_NX(info);
+		else if (nx == Hdr_trd_cur_amt_dec_place) doHdr_trd_cur_amt_dec_place_NX(info);
+		else if (nx == Hdr_trd_cur_upri_dec_place) doHdr_trd_cur_upri_dec_place_NX(info);
+		else if (nx == Hdr_base_cur_cd) doHdr_base_cur_cd_NX(info);
+		else if (nx == Hdr_base_cur_nm) doHdr_base_cur_nm_NX(info);
+		else if (nx == Hdr_xrate_inpt_flg) doHdr_xrate_inpt_flg_NX(info);
+		else if (nx == Hdr_xrate_cd) doHdr_xrate_cd_NX(info);
+		else if (nx == Hdr_base_cur_amt_dec_place) doHdr_base_cur_amt_dec_place_NX(info);
+		else if (nx == Hdr_base_cur_upri_dec_place) doHdr_base_cur_upri_dec_place_NX(info);
+		else if (nx == Hdr_ptax_cur_cd) doHdr_ptax_cur_cd_NX(info);
+		else if (nx == Hdr_ptax_cur_nm) doHdr_ptax_cur_nm_NX(info);
+		else if (nx == Hdr_ptax_xrate_inpt_flg) doHdr_ptax_xrate_inpt_flg_NX(info);
+		else if (nx == Hdr_ptax_cur_amt_dec_place) doHdr_ptax_cur_amt_dec_place_NX(info);
+		else if (nx == Hdr_ptax_cur_upri_dec_place) doHdr_ptax_cur_upri_dec_place_NX(info);
+		else if (nx == Hdr_tdlv_req_flg) doHdr_tdlv_req_flg_NX(info);
+		else if (nx == Hdr_sls_upri_cng_flg) doHdr_sls_upri_cng_flg_NX(info);
+		else if (nx == Hdr_cst_iv_flg) doHdr_cst_iv_flg_NX(info);
+		else if (nx == Hdr_cst_bill_crryovr_times) doHdr_cst_bill_crryovr_times_NX(info);
+		else if (nx == Hdr_sls_upri_req_typ) doHdr_sls_upri_req_typ_NX(info);
+		else if (nx == Hdr_ship_schd_split_typ) doHdr_ship_schd_split_typ_NX(info);
+		else if (nx == Hdr_sls_amt_rnd_typ) doHdr_sls_amt_rnd_typ_NX(info);
+		else if (nx == Hdr_sls_tax_rnd_typ) doHdr_sls_tax_rnd_typ_NX(info);
+		else if (nx == Hdr_xrate_rnd_typ) doHdr_xrate_rnd_typ_NX(info);
+		else if (nx == Hdr_wtax_rnd_typ) doHdr_wtax_rnd_typ_NX(info);
+		else if (nx == Hdr_qtn_no) doHdr_qtn_no_NX(info);
+		else if (nx == Hdr_qtn_rev) doHdr_qtn_rev_NX(info);
+		else if (nx == Hdr_prof_rate) doHdr_prof_rate_NX(info);
+		else if (nx == Hdr_assort_typ) doHdr_assort_typ_NX(info);
+		else if (nx == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NX(info);
+		else if (nx == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NX(info);
+		else if (nx == Hdr_adv_ship_ctrl_typ_nm) doHdr_adv_ship_ctrl_typ_nm_NX(info);
+		else if (nx == Hdr_cst_po_no) doHdr_cst_po_no_NX(info);
+		else if (nx == Hdr_cst_po_rev) doHdr_cst_po_rev_NX(info);
+		else if (nx == Hdr_rcpt_dt) doHdr_rcpt_dt_NX(info);
+		else if (nx == Hdr_rcpt_usr_cd) doHdr_rcpt_usr_cd_NX(info);
+		else if (nx == Hdr_rcpt_usr_nm) doHdr_rcpt_usr_nm_NX(info);
+		else if (nx == Hdr_acst_cd) doHdr_acst_cd_NX(info);
+		else if (nx == Hdr_acst_nm) doHdr_acst_nm_NX(info);
+		else if (nx == Hdr_ar_dpt_cd) doHdr_ar_dpt_cd_NX(info);
+		else if (nx == Hdr_ar_dpt_nm) doHdr_ar_dpt_nm_NX(info);
+		else if (nx == Hdr_iv_no) doHdr_iv_no_NX(info);
+		else if (nx == Hdr_iv_num_flg) doHdr_iv_num_flg_NX(info);
+		else if (nx == Hdr_trnspt_cd) doHdr_trnspt_cd_NX(info);
+		else if (nx == Hdr_trnspt_nm) doHdr_trnspt_nm_NX(info);
+		else if (nx == Hdr_vssl_flght) doHdr_vssl_flght_NX(info);
+		else if (nx == Hdr_load_port_cd) doHdr_load_port_cd_NX(info);
+		else if (nx == Hdr_load_port_nm) doHdr_load_port_nm_NX(info);
+		else if (nx == Hdr_etd_dt) doHdr_etd_dt_NX(info);
+		else if (nx == Hdr_dschrg_port_cd) doHdr_dschrg_port_cd_NX(info);
+		else if (nx == Hdr_dschrg_port_nm) doHdr_dschrg_port_nm_NX(info);
+		else if (nx == Hdr_eta_dt) doHdr_eta_dt_NX(info);
+		else if (nx == Hdr_via_port_cd) doHdr_via_port_cd_NX(info);
+		else if (nx == Hdr_via_port_nm) doHdr_via_port_nm_NX(info);
+		else if (nx == Hdr_via_schd_dt) doHdr_via_schd_dt_NX(info);
+		else if (nx == Hdr_tterm_cd1) doHdr_tterm_cd1_NX(info);
+		else if (nx == Hdr_tterm_nm1) doHdr_tterm_nm1_NX(info);
+		else if (nx == Hdr_tterm_rmrks1) doHdr_tterm_rmrks1_NX(info);
+		else if (nx == Hdr_tterm_cd2) doHdr_tterm_cd2_NX(info);
+		else if (nx == Hdr_tterm_nm2) doHdr_tterm_nm2_NX(info);
+		else if (nx == Hdr_tterm_rmrks2) doHdr_tterm_rmrks2_NX(info);
+		else if (nx == Hdr_tterm_cd3) doHdr_tterm_cd3_NX(info);
+		else if (nx == Hdr_tterm_nm3) doHdr_tterm_nm3_NX(info);
+		else if (nx == Hdr_tterm_rmrks3) doHdr_tterm_rmrks3_NX(info);
+		else if (nx == Hdr_cst_po_rmrks) doHdr_cst_po_rmrks_NX(info);
+		else if (nx == Hdr_trd_rmrks) doHdr_trd_rmrks_NX(info);
+		else if (nx == Hdr_intr_rmrks) doHdr_intr_rmrks_NX(info);
+		else if (nx == Hdr_sub_char1) doHdr_sub_char1_NX(info);
+		else if (nx == Hdr_sub_char2) doHdr_sub_char2_NX(info);
+		else if (nx == Hdr_sub_char3) doHdr_sub_char3_NX(info);
+		else if (nx == Hdr_edi_sub_char1) doHdr_edi_sub_char1_NX(info);
+		else if (nx == Hdr_edi_sub_char2) doHdr_edi_sub_char2_NX(info);
+		else if (nx == Hdr_edi_sub_char3) doHdr_edi_sub_char3_NX(info);
+		else if (nx == Hdr_edi_sub_char4) doHdr_edi_sub_char4_NX(info);
+		else if (nx == Hdr_edi_sub_char5) doHdr_edi_sub_char5_NX(info);
+		else if (nx == Hdr_edi_sub_num1) doHdr_edi_sub_num1_NX(info);
+		else if (nx == Hdr_edi_sub_dt1) doHdr_edi_sub_dt1_NX(info);
+		else if (nx == Hdr_can_rsn_cd) doHdr_can_rsn_cd_NX(info);
+		else if (nx == Hdr_can_rsn_nm) doHdr_can_rsn_nm_NX(info);
+		else if (nx == Hdr_can_rmrks) doHdr_can_rmrks_NX(info);
+		else if (nx == Hdr_ins_usr_id) doHdr_ins_usr_id_NX(info);
+		else if (nx == Hdr_ins_usr_nm) doHdr_ins_usr_nm_NX(info);
+		else if (nx == Hdr_ins_func_id) doHdr_ins_func_id_NX(info);
+		else if (nx == Hdr_ins_func_nm) doHdr_ins_func_nm_NX(info);
+		else if (nx == Hdr_upd_usr_id) doHdr_upd_usr_id_NX(info);
+		else if (nx == Hdr_upd_usr_nm) doHdr_upd_usr_nm_NX(info);
+		else if (nx == Hdr_upd_func_id) doHdr_upd_func_id_NX(info);
+		else if (nx == Hdr_upd_func_nm) doHdr_upd_func_nm_NX(info);
+		else if (nx == Hdr_ins_ts) doHdr_ins_ts_NX(info);
+		else if (nx == Hdr_upd_ts) doHdr_upd_ts_NX(info);
+		else if (nx == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NX(info);
+		else if (nx == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NX(info);
+		else if (nx == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NX(info);
+		else if (nx == columnDtl_abort_flg) doDtl_abort_flg_NX(info);
+		else if (nx == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NX(info);
+		else if (nx == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NX(info);
+		else if (nx == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_NX(info);
+		else if (nx == columnDtl_alloc_sts_typ_nm) doDtl_alloc_sts_typ_nm_NX(info);
+		else if (nx == columnDtl_slo_d_no) doDtl_slo_d_no_NX(info);
+		else if (nx == columnDtl_cst_itm_cd) doDtl_cst_itm_cd_NX(info);
+		else if (nx == columnDtl_cst_itm_nm) doDtl_cst_itm_nm_NX(info);
+		else if (nx == columnDtl_sundry_itm_flg) doDtl_sundry_itm_flg_NX(info);
+		else if (nx == columnDtl_iv_itm_nm) doDtl_iv_itm_nm_NX(info);
+		else if (nx == columnDtl_stk_mng_typ) doDtl_stk_mng_typ_NX(info);
+		else if (nx == columnDtl_asset_mng_typ) doDtl_asset_mng_typ_NX(info);
+		else if (nx == columnDtl_asset_mng_typ_nm) doDtl_asset_mng_typ_nm_NX(info);
+		else if (nx == columnDtl_lot_mng_typ) doDtl_lot_mng_typ_NX(info);
+		else if (nx == columnDtl_lot_no_typ) doDtl_lot_no_typ_NX(info);
+		else if (nx == columnDtl_sublot_mng_typ) doDtl_sublot_mng_typ_NX(info);
+		else if (nx == columnDtl_sublot_no_typ) doDtl_sublot_no_typ_NX(info);
+		else if (nx == columnDtl_sno1_mng_typ) doDtl_sno1_mng_typ_NX(info);
+		else if (nx == columnDtl_sno2_mng_typ) doDtl_sno2_mng_typ_NX(info);
+		else if (nx == columnDtl_sno3_mng_typ) doDtl_sno3_mng_typ_NX(info);
+		else if (nx == columnDtl_sno4_mng_typ) doDtl_sno4_mng_typ_NX(info);
+		else if (nx == columnDtl_sno1_num_typ) doDtl_sno1_num_typ_NX(info);
+		else if (nx == columnDtl_sno2_num_typ) doDtl_sno2_num_typ_NX(info);
+		else if (nx == columnDtl_sno3_num_typ) doDtl_sno3_num_typ_NX(info);
+		else if (nx == columnDtl_sno4_num_typ) doDtl_sno4_num_typ_NX(info);
+		else if (nx == columnDtl_slo_sno1_flg) doDtl_slo_sno1_flg_NX(info);
+		else if (nx == columnDtl_slo_sno2_flg) doDtl_slo_sno2_flg_NX(info);
+		else if (nx == columnDtl_slo_sno3_flg) doDtl_slo_sno3_flg_NX(info);
+		else if (nx == columnDtl_slo_sno4_flg) doDtl_slo_sno4_flg_NX(info);
+		else if (nx == columnDtl_itm_bill_crryovr_times) doDtl_itm_bill_crryovr_times_NX(info);
+		else if (nx == columnDtl_dscnt_itm_flg) doDtl_dscnt_itm_flg_NX(info);
+		else if (nx == columnDtl_slo_proc_flg) doDtl_slo_proc_flg_NX(info);
+		else if (nx == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NX(info);
+		else if (nx == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NX(info);
+		else if (nx == columnDtl_vmi_flg) doDtl_vmi_flg_NX(info);
+		else if (nx == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NX(info);
+		else if (nx == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NX(info);
+		else if (nx == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NX(info);
+		else if (nx == columnDtl_trd_unit_conv_base_qty) doDtl_trd_unit_conv_base_qty_NX(info);
+		else if (nx == columnDtl_trd_unit_conv_qty) doDtl_trd_unit_conv_qty_NX(info);
+		else if (nx == columnDtl_trd_unit_rnd_typ) doDtl_trd_unit_rnd_typ_NX(info);
+		else if (nx == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NX(info);
+		else if (nx == columnDtl_ver_flg) doDtl_ver_flg_NX(info);
+		else if (nx == columnDtl_prof_rate) doDtl_prof_rate_NX(info);
+		else if (nx == columnDtl_wtax_rate) doDtl_wtax_rate_NX(info);
+		else if (nx == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NX(info);
+		else if (nx == columnDtl_gd_cd) doDtl_gd_cd_NX(info);
+		else if (nx == columnDtl_gd_nm) doDtl_gd_nm_NX(info);
+		else if (nx == columnDtl_sno_num_flg) doDtl_sno_num_flg_NX(info);
+		else if (nx == columnDtl_set_itm_grp_no) doDtl_set_itm_grp_no_NX(info);
+		else if (nx == columnDtl_dlv_day_week_typ) doDtl_dlv_day_week_typ_NX(info);
+		else if (nx == columnDtl_dlv_day_week_typ_nm) doDtl_dlv_day_week_typ_nm_NX(info);
+		else if (nx == columnDtl_sls_schd_dt) doDtl_sls_schd_dt_NX(info);
+		else if (nx == columnDtl_accpt_schd_dt) doDtl_accpt_schd_dt_NX(info);
+		else if (nx == columnDtl_ship_schd_split_flg) doDtl_ship_schd_split_flg_NX(info);
+		else if (nx == columnDtl_not_dt_calc_flg) doDtl_not_dt_calc_flg_NX(info);
+		else if (nx == columnDtl_prnt_lcl_cd) doDtl_prnt_lcl_cd_NX(info);
+		else if (nx == columnDtl_tdlv_req_flg) doDtl_tdlv_req_flg_NX(info);
+		else if (nx == columnDtl_dest_cd1) doDtl_dest_cd1_NX(info);
+		else if (nx == columnDtl_dest_nm1) doDtl_dest_nm1_NX(info);
+		else if (nx == columnDtl_dest_cd2) doDtl_dest_cd2_NX(info);
+		else if (nx == columnDtl_dest_nm2) doDtl_dest_nm2_NX(info);
+		else if (nx == columnDtl_dest_cd3) doDtl_dest_cd3_NX(info);
+		else if (nx == columnDtl_dest_nm3) doDtl_dest_nm3_NX(info);
+		else if (nx == columnDtl_via_dlv_typ) doDtl_via_dlv_typ_NX(info);
+		else if (nx == columnDtl_via_dlv_typ_nm) doDtl_via_dlv_typ_nm_NX(info);
+		else if (nx == columnDtl_sls_cststk_flg) doDtl_sls_cststk_flg_NX(info);
+		else if (nx == columnDtl_def_proc_typ) doDtl_def_proc_typ_NX(info);
+		else if (nx == columnDtl_proc_typ) doDtl_proc_typ_NX(info);
+		else if (nx == columnDtl_proc_typ_nm) doDtl_proc_typ_nm_NX(info);
+		else if (nx == columnDtl_def_ship_inst_typ) doDtl_def_ship_inst_typ_NX(info);
+		else if (nx == columnDtl_ship_inst_typ) doDtl_ship_inst_typ_NX(info);
+		else if (nx == columnDtl_ship_inst_typ_nm) doDtl_ship_inst_typ_nm_NX(info);
+		else if (nx == columnDtl_ship_schd_split_typ) doDtl_ship_schd_split_typ_NX(info);
+		else if (nx == columnDtl_ship_schd_split_typ_nm) doDtl_ship_schd_split_typ_nm_NX(info);
+		else if (nx == columnDtl_alloc_scope_typ) doDtl_alloc_scope_typ_NX(info);
+		else if (nx == columnDtl_alloc_scope_typ_nm) doDtl_alloc_scope_typ_nm_NX(info);
+		else if (nx == columnDtl_not_lg_mix_flg) doDtl_not_lg_mix_flg_NX(info);
+		else if (nx == columnDtl_alloc_typ) doDtl_alloc_typ_NX(info);
+		else if (nx == columnDtl_alloc_typ_nm) doDtl_alloc_typ_nm_NX(info);
+		else if (nx == columnDtl_alloc_grp_cd) doDtl_alloc_grp_cd_NX(info);
+		else if (nx == columnDtl_alloc_grp_nm) doDtl_alloc_grp_nm_NX(info);
+		else if (nx == columnDtl_ship_lg_grp_cd) doDtl_ship_lg_grp_cd_NX(info);
+		else if (nx == columnDtl_ship_lg_grp_nm) doDtl_ship_lg_grp_nm_NX(info);
+		else if (nx == columnDtl_def_loc_cd) doDtl_def_loc_cd_NX(info);
+		else if (nx == columnDtl_def_loc_nm) doDtl_def_loc_nm_NX(info);
+		else if (nx == columnDtl_loc_cd) doDtl_loc_cd_NX(info);
+		else if (nx == columnDtl_loc_nm) doDtl_loc_nm_NX(info);
+		else if (nx == columnDtl_wg_cd) doDtl_wg_cd_NX(info);
+		else if (nx == columnDtl_str_ln_tgt_flg) doDtl_str_ln_tgt_flg_NX(info);
+		else if (nx == columnDtl_not_lot_mix_flg) doDtl_not_lot_mix_flg_NX(info);
+		else if (nx == columnDtl_not_sublot_mix_flg) doDtl_not_sublot_mix_flg_NX(info);
+		else if (nx == columnDtl_rqst_to_loc_cd) doDtl_rqst_to_loc_cd_NX(info);
+		else if (nx == columnDtl_rqst_to_loc_nm) doDtl_rqst_to_loc_nm_NX(info);
+		else if (nx == columnDtl_sppl_cd) doDtl_sppl_cd_NX(info);
+		else if (nx == columnDtl_sppl_nm) doDtl_sppl_nm_NX(info);
+		else if (nx == columnDtl_maker_cd) doDtl_maker_cd_NX(info);
+		else if (nx == columnDtl_maker_nm) doDtl_maker_nm_NX(info);
+		else if (nx == columnDtl_rqst_dt) doDtl_rqst_dt_NX(info);
+		else if (nx == columnDtl_rqst_dlv_rqst_dt) doDtl_rqst_dlv_rqst_dt_NX(info);
+		else if (nx == columnDtl_wg_rqst_cnt_rmrks) doDtl_wg_rqst_cnt_rmrks_NX(info);
+		else if (nx == columnDtl_ship_term_cd) doDtl_ship_term_cd_NX(info);
+		else if (nx == columnDtl_ship_term_nm) doDtl_ship_term_nm_NX(info);
+		else if (nx == columnDtl_ship_block_flg) doDtl_ship_block_flg_NX(info);
+		else if (nx == columnDtl_ship_cnt_rmrks) doDtl_ship_cnt_rmrks_NX(info);
+		else if (nx == columnDtl_cst_po_d_no) doDtl_cst_po_d_no_NX(info);
+		else if (nx == columnDtl_cst_po_d_rmrks) doDtl_cst_po_d_rmrks_NX(info);
+		else if (nx == columnDtl_sls_rsn_cd) doDtl_sls_rsn_cd_NX(info);
+		else if (nx == columnDtl_sls_rsn_nm) doDtl_sls_rsn_nm_NX(info);
+		else if (nx == columnDtl_sls_acxfr_flg) doDtl_sls_acxfr_flg_NX(info);
+		else if (nx == columnDtl_bd_dpt_cd) doDtl_bd_dpt_cd_NX(info);
+		else if (nx == columnDtl_bd_dpt_nm) doDtl_bd_dpt_nm_NX(info);
+		else if (nx == columnDtl_sls_upri_req_typ) doDtl_sls_upri_req_typ_NX(info);
+		else if (nx == columnDtl_sls_upri_req_typ_nm) doDtl_sls_upri_req_typ_nm_NX(info);
+		else if (nx == columnDtl_trd_d_rmrks) doDtl_trd_d_rmrks_NX(info);
+		else if (nx == columnDtl_intr_rmrks) doDtl_intr_rmrks_NX(info);
+		else if (nx == columnDtl_sub_char1) doDtl_sub_char1_NX(info);
+		else if (nx == columnDtl_sub_char2) doDtl_sub_char2_NX(info);
+		else if (nx == columnDtl_sub_char3) doDtl_sub_char3_NX(info);
+		else if (nx == columnDtl_edi_sub_d_char1) doDtl_edi_sub_d_char1_NX(info);
+		else if (nx == columnDtl_edi_sub_d_char2) doDtl_edi_sub_d_char2_NX(info);
+		else if (nx == columnDtl_edi_sub_d_char3) doDtl_edi_sub_d_char3_NX(info);
+		else if (nx == columnDtl_edi_sub_d_char4) doDtl_edi_sub_d_char4_NX(info);
+		else if (nx == columnDtl_edi_sub_d_char5) doDtl_edi_sub_d_char5_NX(info);
+		else if (nx == columnDtl_edi_sub_d_num1) doDtl_edi_sub_d_num1_NX(info);
+		else if (nx == columnDtl_edi_sub_d_dt1) doDtl_edi_sub_d_dt1_NX(info);
+		else if (nx == columnDtl_can_rsn_cd) doDtl_can_rsn_cd_NX(info);
+		else if (nx == columnDtl_can_rsn_nm) doDtl_can_rsn_nm_NX(info);
+		else if (nx == columnDtl_slo_d_can_rmkrs) doDtl_slo_d_can_rmkrs_NX(info);
+		else if (nx == columnDtl_ship_cmpl_flg) doDtl_ship_cmpl_flg_NX(info);
+		else if (nx == columnDtl_sls_cmpl_flg) doDtl_sls_cmpl_flg_NX(info);
+		else if (nx == columnDtl_base_unit_cd) doDtl_base_unit_cd_NX(info);
+		else if (nx == columnDtl_base_unit_nm) doDtl_base_unit_nm_NX(info);
+		else if (nx == columnDtl_base_unit_dec_place) doDtl_base_unit_dec_place_NX(info);
+		else if (nx == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NX(info);
+		else if (nx == columnDtl_qtn_d_no) doDtl_qtn_d_no_NX(info);
+		else if (nx == columnDtl_disp_seq) doDtl_disp_seq_NX(info);
+	}
+
+	/**
+	 * [HdrTab]TabのNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdrTab_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]TableのNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[ope]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_ope_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_rev]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_rev_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[latest_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_latest_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_ptn_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_ptn_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[srch_tgt_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_srch_tgt_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_back_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_back_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_upd_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_upd_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_can_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_can_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[def_cst_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_def_cst_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prnt_lcl_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prnt_lcl_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[bp_sls_basis_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_bp_sls_basis_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lg_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lg_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_lot_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_lot_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_not_sublot_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_not_sublot_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_usr_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_usr_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_dpt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[lnk_ar_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_lnk_ar_dpt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_upri_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_upri_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_inpt_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_inpt_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_amt_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_amt_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_upri_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_upri_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_xrate_inpt_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_xrate_inpt_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_amt_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_amt_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_upri_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_upri_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tdlv_req_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tdlv_req_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_cng_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_cng_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_iv_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_iv_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_bill_crryovr_times]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_bill_crryovr_times_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_req_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_req_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_schd_split_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_schd_split_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_amt_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_amt_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_tax_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_tax_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wtax_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wtax_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_rev]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_rev_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prof_rate]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prof_rate_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rev]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rev_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_num_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_num_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[vssl_flght]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_vssl_flght_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[etd_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_etd_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[eta_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_eta_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_schd_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_schd_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_intr_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char4]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char4_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char5]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char5_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_num1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_num1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_dt1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_dt1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_id]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_id_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_id]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_id_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_id]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_id_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_id]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_id_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_ts]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_ts_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_ts]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_ts_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_srv_req_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_srv_req_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[abort_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_abort_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sundry_itm_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sundry_itm_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[iv_itm_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_iv_itm_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[stk_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_stk_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_no_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_no_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_no_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_no_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_mng_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_mng_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_num_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_num_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_num_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_num_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_num_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_num_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_num_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_num_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno1_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno1_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno2_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno2_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno3_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno3_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_sno4_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_sno4_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[itm_bill_crryovr_times]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_itm_bill_crryovr_times_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dscnt_itm_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dscnt_itm_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_proc_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_proc_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[vmi_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_vmi_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_base_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_base_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_cng_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_cng_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ver_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ver_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prof_rate]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prof_rate_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wtax_rate]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wtax_rate_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bill_crryovr_times]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bill_crryovr_times_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno_num_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno_num_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[set_itm_grp_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_set_itm_grp_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_schd_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_schd_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[accpt_schd_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_accpt_schd_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_dt_calc_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_dt_calc_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prnt_lcl_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prnt_lcl_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[tdlv_req_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_tdlv_req_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cststk_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cststk_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_proc_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_proc_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_ship_inst_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_ship_inst_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lg_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lg_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[str_ln_tgt_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_str_ln_tgt_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_lot_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_lot_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[not_sublot_mix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_not_sublot_mix_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dlv_rqst_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dlv_rqst_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_rqst_cnt_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_rqst_cnt_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_block_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_block_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cnt_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cnt_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_acxfr_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_acxfr_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_d_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_d_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_intr_rmrks_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char4]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char4_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char5]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char5_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_num1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_num1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_dt1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_dt1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_can_rmkrs]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_can_rmkrs_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cmpl_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cmpl_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_cmpl_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_cmpl_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_dec_place_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_rnd_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_rnd_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[qtn_d_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_qtn_d_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[disp_seq]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_disp_seq_NX(MCEventInfo info){
+	}
+
+	/**
+	 * ListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param lc イベント対象のGUI部品
+	 * @param info イベント情報
+	 */
+	public void doLCEvent(MCLCBeans lc, MCEventInfo info) {
+		super.doLCEvent(lc, info);
+		if (lc == Cnd_srch_tgt_typ) doCnd_srch_tgt_typ_LC(info);
+		else if (lc == Cnd_srch_tgt_typ_nm) doCnd_srch_tgt_typ_nm_LC(info);
+		else if (lc == Cnd_srch_tgt_no) doCnd_srch_tgt_no_LC(info);
+		else if (lc == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_LC(info);
+		else if (lc == Hdr_trd_cd) doHdr_trd_cd_LC(info);
+		else if (lc == Hdr_trd_nm) doHdr_trd_nm_LC(info);
+		else if (lc == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_LC(info);
+		else if (lc == Hdr_srch_tgt_no) doHdr_srch_tgt_no_LC(info);
+		else if (lc == Hdr_slo_no) doHdr_slo_no_LC(info);
+		else if (lc == Hdr_slo_rev) doHdr_slo_rev_LC(info);
+		else if (lc == Hdr_slo_dt) doHdr_slo_dt_LC(info);
+		else if (lc == Hdr_slo_typ) doHdr_slo_typ_LC(info);
+		else if (lc == Hdr_slo_typ_nm) doHdr_slo_typ_nm_LC(info);
+		else if (lc == Hdr_aprv_no) doHdr_aprv_no_LC(info);
+		else if (lc == Hdr_aprv_sts_typ) doHdr_aprv_sts_typ_LC(info);
+		else if (lc == Hdr_aprv_sts_typ_nm) doHdr_aprv_sts_typ_nm_LC(info);
+		else if (lc == Hdr_def_cst_cd) doHdr_def_cst_cd_LC(info);
+		else if (lc == Hdr_prnt_lcl_cd) doHdr_prnt_lcl_cd_LC(info);
+		else if (lc == Hdr_dest_cd1) doHdr_dest_cd1_LC(info);
+		else if (lc == Hdr_dest_nm1) doHdr_dest_nm1_LC(info);
+		else if (lc == Hdr_dest_cd2) doHdr_dest_cd2_LC(info);
+		else if (lc == Hdr_dest_nm2) doHdr_dest_nm2_LC(info);
+		else if (lc == Hdr_dest_cd3) doHdr_dest_cd3_LC(info);
+		else if (lc == Hdr_dest_nm3) doHdr_dest_nm3_LC(info);
+		else if (lc == Hdr_via_dlv_typ) doHdr_via_dlv_typ_LC(info);
+		else if (lc == Hdr_via_dlv_typ_nm) doHdr_via_dlv_typ_nm_LC(info);
+		else if (lc == Hdr_cst_cd) doHdr_cst_cd_LC(info);
+		else if (lc == Hdr_cst_nm) doHdr_cst_nm_LC(info);
+		else if (lc == Hdr_sls_basis_typ) doHdr_sls_basis_typ_LC(info);
+		else if (lc == Hdr_sls_basis_typ_nm) doHdr_sls_basis_typ_nm_LC(info);
+		else if (lc == Hdr_bp_sls_basis_typ) doHdr_bp_sls_basis_typ_LC(info);
+		else if (lc == Hdr_cst_usr_cd) doHdr_cst_usr_cd_LC(info);
+		else if (lc == Hdr_cst_dpt_cd) doHdr_cst_dpt_cd_LC(info);
+		else if (lc == Hdr_ar_dpt_typ) doHdr_ar_dpt_typ_LC(info);
+		else if (lc == Hdr_lnk_ar_dpt_cd) doHdr_lnk_ar_dpt_cd_LC(info);
+		else if (lc == Hdr_wg_cd) doHdr_wg_cd_LC(info);
+		else if (lc == Hdr_wg_nm) doHdr_wg_nm_LC(info);
+		else if (lc == Hdr_trd_cur_cd) doHdr_trd_cur_cd_LC(info);
+		else if (lc == Hdr_trd_cur_nm) doHdr_trd_cur_nm_LC(info);
+		else if (lc == Hdr_trd_cur_amt_dec_place) doHdr_trd_cur_amt_dec_place_LC(info);
+		else if (lc == Hdr_trd_cur_upri_dec_place) doHdr_trd_cur_upri_dec_place_LC(info);
+		else if (lc == Hdr_base_cur_cd) doHdr_base_cur_cd_LC(info);
+		else if (lc == Hdr_base_cur_nm) doHdr_base_cur_nm_LC(info);
+		else if (lc == Hdr_xrate_cd) doHdr_xrate_cd_LC(info);
+		else if (lc == Hdr_base_cur_amt_dec_place) doHdr_base_cur_amt_dec_place_LC(info);
+		else if (lc == Hdr_base_cur_upri_dec_place) doHdr_base_cur_upri_dec_place_LC(info);
+		else if (lc == Hdr_ptax_cur_cd) doHdr_ptax_cur_cd_LC(info);
+		else if (lc == Hdr_ptax_cur_nm) doHdr_ptax_cur_nm_LC(info);
+		else if (lc == Hdr_ptax_cur_amt_dec_place) doHdr_ptax_cur_amt_dec_place_LC(info);
+		else if (lc == Hdr_ptax_cur_upri_dec_place) doHdr_ptax_cur_upri_dec_place_LC(info);
+		else if (lc == Hdr_cst_bill_crryovr_times) doHdr_cst_bill_crryovr_times_LC(info);
+		else if (lc == Hdr_sls_upri_req_typ) doHdr_sls_upri_req_typ_LC(info);
+		else if (lc == Hdr_ship_schd_split_typ) doHdr_ship_schd_split_typ_LC(info);
+		else if (lc == Hdr_sls_amt_rnd_typ) doHdr_sls_amt_rnd_typ_LC(info);
+		else if (lc == Hdr_sls_tax_rnd_typ) doHdr_sls_tax_rnd_typ_LC(info);
+		else if (lc == Hdr_xrate_rnd_typ) doHdr_xrate_rnd_typ_LC(info);
+		else if (lc == Hdr_wtax_rnd_typ) doHdr_wtax_rnd_typ_LC(info);
+		else if (lc == Hdr_qtn_no) doHdr_qtn_no_LC(info);
+		else if (lc == Hdr_qtn_rev) doHdr_qtn_rev_LC(info);
+		else if (lc == Hdr_prof_rate) doHdr_prof_rate_LC(info);
+		else if (lc == Hdr_assort_typ) doHdr_assort_typ_LC(info);
+		else if (lc == Hdr_assort_typ_nm) doHdr_assort_typ_nm_LC(info);
+		else if (lc == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_LC(info);
+		else if (lc == Hdr_adv_ship_ctrl_typ_nm) doHdr_adv_ship_ctrl_typ_nm_LC(info);
+		else if (lc == Hdr_cst_po_no) doHdr_cst_po_no_LC(info);
+		else if (lc == Hdr_cst_po_rev) doHdr_cst_po_rev_LC(info);
+		else if (lc == Hdr_rcpt_dt) doHdr_rcpt_dt_LC(info);
+		else if (lc == Hdr_rcpt_usr_cd) doHdr_rcpt_usr_cd_LC(info);
+		else if (lc == Hdr_rcpt_usr_nm) doHdr_rcpt_usr_nm_LC(info);
+		else if (lc == Hdr_acst_cd) doHdr_acst_cd_LC(info);
+		else if (lc == Hdr_acst_nm) doHdr_acst_nm_LC(info);
+		else if (lc == Hdr_ar_dpt_cd) doHdr_ar_dpt_cd_LC(info);
+		else if (lc == Hdr_ar_dpt_nm) doHdr_ar_dpt_nm_LC(info);
+		else if (lc == Hdr_iv_no) doHdr_iv_no_LC(info);
+		else if (lc == Hdr_trnspt_cd) doHdr_trnspt_cd_LC(info);
+		else if (lc == Hdr_trnspt_nm) doHdr_trnspt_nm_LC(info);
+		else if (lc == Hdr_vssl_flght) doHdr_vssl_flght_LC(info);
+		else if (lc == Hdr_load_port_cd) doHdr_load_port_cd_LC(info);
+		else if (lc == Hdr_load_port_nm) doHdr_load_port_nm_LC(info);
+		else if (lc == Hdr_etd_dt) doHdr_etd_dt_LC(info);
+		else if (lc == Hdr_dschrg_port_cd) doHdr_dschrg_port_cd_LC(info);
+		else if (lc == Hdr_dschrg_port_nm) doHdr_dschrg_port_nm_LC(info);
+		else if (lc == Hdr_eta_dt) doHdr_eta_dt_LC(info);
+		else if (lc == Hdr_via_port_cd) doHdr_via_port_cd_LC(info);
+		else if (lc == Hdr_via_port_nm) doHdr_via_port_nm_LC(info);
+		else if (lc == Hdr_via_schd_dt) doHdr_via_schd_dt_LC(info);
+		else if (lc == Hdr_tterm_cd1) doHdr_tterm_cd1_LC(info);
+		else if (lc == Hdr_tterm_nm1) doHdr_tterm_nm1_LC(info);
+		else if (lc == Hdr_tterm_rmrks1) doHdr_tterm_rmrks1_LC(info);
+		else if (lc == Hdr_tterm_cd2) doHdr_tterm_cd2_LC(info);
+		else if (lc == Hdr_tterm_nm2) doHdr_tterm_nm2_LC(info);
+		else if (lc == Hdr_tterm_rmrks2) doHdr_tterm_rmrks2_LC(info);
+		else if (lc == Hdr_tterm_cd3) doHdr_tterm_cd3_LC(info);
+		else if (lc == Hdr_tterm_nm3) doHdr_tterm_nm3_LC(info);
+		else if (lc == Hdr_tterm_rmrks3) doHdr_tterm_rmrks3_LC(info);
+		else if (lc == Hdr_cst_po_rmrks) doHdr_cst_po_rmrks_LC(info);
+		else if (lc == Hdr_trd_rmrks) doHdr_trd_rmrks_LC(info);
+		else if (lc == Hdr_intr_rmrks) doHdr_intr_rmrks_LC(info);
+		else if (lc == Hdr_sub_char1) doHdr_sub_char1_LC(info);
+		else if (lc == Hdr_sub_char2) doHdr_sub_char2_LC(info);
+		else if (lc == Hdr_sub_char3) doHdr_sub_char3_LC(info);
+		else if (lc == Hdr_edi_sub_char1) doHdr_edi_sub_char1_LC(info);
+		else if (lc == Hdr_edi_sub_char2) doHdr_edi_sub_char2_LC(info);
+		else if (lc == Hdr_edi_sub_char3) doHdr_edi_sub_char3_LC(info);
+		else if (lc == Hdr_edi_sub_char4) doHdr_edi_sub_char4_LC(info);
+		else if (lc == Hdr_edi_sub_char5) doHdr_edi_sub_char5_LC(info);
+		else if (lc == Hdr_edi_sub_num1) doHdr_edi_sub_num1_LC(info);
+		else if (lc == Hdr_edi_sub_dt1) doHdr_edi_sub_dt1_LC(info);
+		else if (lc == Hdr_can_rsn_cd) doHdr_can_rsn_cd_LC(info);
+		else if (lc == Hdr_can_rsn_nm) doHdr_can_rsn_nm_LC(info);
+		else if (lc == Hdr_can_rmrks) doHdr_can_rmrks_LC(info);
+		else if (lc == Hdr_ins_usr_id) doHdr_ins_usr_id_LC(info);
+		else if (lc == Hdr_ins_usr_nm) doHdr_ins_usr_nm_LC(info);
+		else if (lc == Hdr_ins_func_id) doHdr_ins_func_id_LC(info);
+		else if (lc == Hdr_ins_func_nm) doHdr_ins_func_nm_LC(info);
+		else if (lc == Hdr_upd_usr_id) doHdr_upd_usr_id_LC(info);
+		else if (lc == Hdr_upd_usr_nm) doHdr_upd_usr_nm_LC(info);
+		else if (lc == Hdr_upd_func_id) doHdr_upd_func_id_LC(info);
+		else if (lc == Hdr_upd_func_nm) doHdr_upd_func_nm_LC(info);
+		else if (lc == Hdr_ins_ts) doHdr_ins_ts_LC(info);
+		else if (lc == Hdr_upd_ts) doHdr_upd_ts_LC(info);
+		else if (lc == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_LC(info);
+		else if (lc == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_LC(info);
+		else if (lc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_LC(info);
+		else if (lc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_LC(info);
+		else if (lc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_LC(info);
+		else if (lc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_LC(info);
+		else if (lc == columnDtl_alloc_sts_typ_nm) doDtl_alloc_sts_typ_nm_LC(info);
+		else if (lc == columnDtl_slo_d_no) doDtl_slo_d_no_LC(info);
+		else if (lc == columnDtl_cst_itm_cd) doDtl_cst_itm_cd_LC(info);
+		else if (lc == columnDtl_cst_itm_nm) doDtl_cst_itm_nm_LC(info);
+		else if (lc == columnDtl_iv_itm_nm) doDtl_iv_itm_nm_LC(info);
+		else if (lc == columnDtl_stk_mng_typ) doDtl_stk_mng_typ_LC(info);
+		else if (lc == columnDtl_asset_mng_typ) doDtl_asset_mng_typ_LC(info);
+		else if (lc == columnDtl_asset_mng_typ_nm) doDtl_asset_mng_typ_nm_LC(info);
+		else if (lc == columnDtl_lot_mng_typ) doDtl_lot_mng_typ_LC(info);
+		else if (lc == columnDtl_lot_no_typ) doDtl_lot_no_typ_LC(info);
+		else if (lc == columnDtl_sublot_mng_typ) doDtl_sublot_mng_typ_LC(info);
+		else if (lc == columnDtl_sublot_no_typ) doDtl_sublot_no_typ_LC(info);
+		else if (lc == columnDtl_sno1_mng_typ) doDtl_sno1_mng_typ_LC(info);
+		else if (lc == columnDtl_sno2_mng_typ) doDtl_sno2_mng_typ_LC(info);
+		else if (lc == columnDtl_sno3_mng_typ) doDtl_sno3_mng_typ_LC(info);
+		else if (lc == columnDtl_sno4_mng_typ) doDtl_sno4_mng_typ_LC(info);
+		else if (lc == columnDtl_sno1_num_typ) doDtl_sno1_num_typ_LC(info);
+		else if (lc == columnDtl_sno2_num_typ) doDtl_sno2_num_typ_LC(info);
+		else if (lc == columnDtl_sno3_num_typ) doDtl_sno3_num_typ_LC(info);
+		else if (lc == columnDtl_sno4_num_typ) doDtl_sno4_num_typ_LC(info);
+		else if (lc == columnDtl_itm_bill_crryovr_times) doDtl_itm_bill_crryovr_times_LC(info);
+		else if (lc == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_LC(info);
+		else if (lc == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_LC(info);
+		else if (lc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_LC(info);
+		else if (lc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_LC(info);
+		else if (lc == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_LC(info);
+		else if (lc == columnDtl_trd_unit_conv_base_qty) doDtl_trd_unit_conv_base_qty_LC(info);
+		else if (lc == columnDtl_trd_unit_conv_qty) doDtl_trd_unit_conv_qty_LC(info);
+		else if (lc == columnDtl_trd_unit_rnd_typ) doDtl_trd_unit_rnd_typ_LC(info);
+		else if (lc == columnDtl_prof_rate) doDtl_prof_rate_LC(info);
+		else if (lc == columnDtl_wtax_rate) doDtl_wtax_rate_LC(info);
+		else if (lc == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_LC(info);
+		else if (lc == columnDtl_gd_cd) doDtl_gd_cd_LC(info);
+		else if (lc == columnDtl_gd_nm) doDtl_gd_nm_LC(info);
+		else if (lc == columnDtl_set_itm_grp_no) doDtl_set_itm_grp_no_LC(info);
+		else if (lc == columnDtl_dlv_day_week_typ) doDtl_dlv_day_week_typ_LC(info);
+		else if (lc == columnDtl_dlv_day_week_typ_nm) doDtl_dlv_day_week_typ_nm_LC(info);
+		else if (lc == columnDtl_sls_schd_dt) doDtl_sls_schd_dt_LC(info);
+		else if (lc == columnDtl_accpt_schd_dt) doDtl_accpt_schd_dt_LC(info);
+		else if (lc == columnDtl_prnt_lcl_cd) doDtl_prnt_lcl_cd_LC(info);
+		else if (lc == columnDtl_dest_cd1) doDtl_dest_cd1_LC(info);
+		else if (lc == columnDtl_dest_nm1) doDtl_dest_nm1_LC(info);
+		else if (lc == columnDtl_dest_cd2) doDtl_dest_cd2_LC(info);
+		else if (lc == columnDtl_dest_nm2) doDtl_dest_nm2_LC(info);
+		else if (lc == columnDtl_dest_cd3) doDtl_dest_cd3_LC(info);
+		else if (lc == columnDtl_dest_nm3) doDtl_dest_nm3_LC(info);
+		else if (lc == columnDtl_via_dlv_typ) doDtl_via_dlv_typ_LC(info);
+		else if (lc == columnDtl_via_dlv_typ_nm) doDtl_via_dlv_typ_nm_LC(info);
+		else if (lc == columnDtl_def_proc_typ) doDtl_def_proc_typ_LC(info);
+		else if (lc == columnDtl_proc_typ) doDtl_proc_typ_LC(info);
+		else if (lc == columnDtl_proc_typ_nm) doDtl_proc_typ_nm_LC(info);
+		else if (lc == columnDtl_def_ship_inst_typ) doDtl_def_ship_inst_typ_LC(info);
+		else if (lc == columnDtl_ship_inst_typ) doDtl_ship_inst_typ_LC(info);
+		else if (lc == columnDtl_ship_inst_typ_nm) doDtl_ship_inst_typ_nm_LC(info);
+		else if (lc == columnDtl_ship_schd_split_typ) doDtl_ship_schd_split_typ_LC(info);
+		else if (lc == columnDtl_ship_schd_split_typ_nm) doDtl_ship_schd_split_typ_nm_LC(info);
+		else if (lc == columnDtl_alloc_scope_typ) doDtl_alloc_scope_typ_LC(info);
+		else if (lc == columnDtl_alloc_scope_typ_nm) doDtl_alloc_scope_typ_nm_LC(info);
+		else if (lc == columnDtl_alloc_typ) doDtl_alloc_typ_LC(info);
+		else if (lc == columnDtl_alloc_typ_nm) doDtl_alloc_typ_nm_LC(info);
+		else if (lc == columnDtl_alloc_grp_cd) doDtl_alloc_grp_cd_LC(info);
+		else if (lc == columnDtl_alloc_grp_nm) doDtl_alloc_grp_nm_LC(info);
+		else if (lc == columnDtl_ship_lg_grp_cd) doDtl_ship_lg_grp_cd_LC(info);
+		else if (lc == columnDtl_ship_lg_grp_nm) doDtl_ship_lg_grp_nm_LC(info);
+		else if (lc == columnDtl_def_loc_cd) doDtl_def_loc_cd_LC(info);
+		else if (lc == columnDtl_def_loc_nm) doDtl_def_loc_nm_LC(info);
+		else if (lc == columnDtl_loc_cd) doDtl_loc_cd_LC(info);
+		else if (lc == columnDtl_loc_nm) doDtl_loc_nm_LC(info);
+		else if (lc == columnDtl_wg_cd) doDtl_wg_cd_LC(info);
+		else if (lc == columnDtl_rqst_to_loc_cd) doDtl_rqst_to_loc_cd_LC(info);
+		else if (lc == columnDtl_rqst_to_loc_nm) doDtl_rqst_to_loc_nm_LC(info);
+		else if (lc == columnDtl_sppl_cd) doDtl_sppl_cd_LC(info);
+		else if (lc == columnDtl_sppl_nm) doDtl_sppl_nm_LC(info);
+		else if (lc == columnDtl_maker_cd) doDtl_maker_cd_LC(info);
+		else if (lc == columnDtl_maker_nm) doDtl_maker_nm_LC(info);
+		else if (lc == columnDtl_rqst_dt) doDtl_rqst_dt_LC(info);
+		else if (lc == columnDtl_rqst_dlv_rqst_dt) doDtl_rqst_dlv_rqst_dt_LC(info);
+		else if (lc == columnDtl_wg_rqst_cnt_rmrks) doDtl_wg_rqst_cnt_rmrks_LC(info);
+		else if (lc == columnDtl_ship_term_cd) doDtl_ship_term_cd_LC(info);
+		else if (lc == columnDtl_ship_term_nm) doDtl_ship_term_nm_LC(info);
+		else if (lc == columnDtl_ship_cnt_rmrks) doDtl_ship_cnt_rmrks_LC(info);
+		else if (lc == columnDtl_cst_po_d_no) doDtl_cst_po_d_no_LC(info);
+		else if (lc == columnDtl_cst_po_d_rmrks) doDtl_cst_po_d_rmrks_LC(info);
+		else if (lc == columnDtl_sls_rsn_cd) doDtl_sls_rsn_cd_LC(info);
+		else if (lc == columnDtl_sls_rsn_nm) doDtl_sls_rsn_nm_LC(info);
+		else if (lc == columnDtl_bd_dpt_cd) doDtl_bd_dpt_cd_LC(info);
+		else if (lc == columnDtl_bd_dpt_nm) doDtl_bd_dpt_nm_LC(info);
+		else if (lc == columnDtl_sls_upri_req_typ) doDtl_sls_upri_req_typ_LC(info);
+		else if (lc == columnDtl_sls_upri_req_typ_nm) doDtl_sls_upri_req_typ_nm_LC(info);
+		else if (lc == columnDtl_trd_d_rmrks) doDtl_trd_d_rmrks_LC(info);
+		else if (lc == columnDtl_intr_rmrks) doDtl_intr_rmrks_LC(info);
+		else if (lc == columnDtl_sub_char1) doDtl_sub_char1_LC(info);
+		else if (lc == columnDtl_sub_char2) doDtl_sub_char2_LC(info);
+		else if (lc == columnDtl_sub_char3) doDtl_sub_char3_LC(info);
+		else if (lc == columnDtl_edi_sub_d_char1) doDtl_edi_sub_d_char1_LC(info);
+		else if (lc == columnDtl_edi_sub_d_char2) doDtl_edi_sub_d_char2_LC(info);
+		else if (lc == columnDtl_edi_sub_d_char3) doDtl_edi_sub_d_char3_LC(info);
+		else if (lc == columnDtl_edi_sub_d_char4) doDtl_edi_sub_d_char4_LC(info);
+		else if (lc == columnDtl_edi_sub_d_char5) doDtl_edi_sub_d_char5_LC(info);
+		else if (lc == columnDtl_edi_sub_d_num1) doDtl_edi_sub_d_num1_LC(info);
+		else if (lc == columnDtl_edi_sub_d_dt1) doDtl_edi_sub_d_dt1_LC(info);
+		else if (lc == columnDtl_can_rsn_cd) doDtl_can_rsn_cd_LC(info);
+		else if (lc == columnDtl_can_rsn_nm) doDtl_can_rsn_nm_LC(info);
+		else if (lc == columnDtl_slo_d_can_rmkrs) doDtl_slo_d_can_rmkrs_LC(info);
+		else if (lc == columnDtl_base_unit_cd) doDtl_base_unit_cd_LC(info);
+		else if (lc == columnDtl_base_unit_nm) doDtl_base_unit_nm_LC(info);
+		else if (lc == columnDtl_base_unit_dec_place) doDtl_base_unit_dec_place_LC(info);
+		else if (lc == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_LC(info);
+		else if (lc == columnDtl_qtn_d_no) doDtl_qtn_d_no_LC(info);
+		else if (lc == columnDtl_disp_seq) doDtl_disp_seq_LC(info);
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[srch_tgt_rev]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_srch_tgt_rev_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_ptn_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_ptn_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[srch_tgt_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_srch_tgt_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_sts_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_sts_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[def_cst_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_def_cst_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prnt_lcl_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prnt_lcl_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_cd3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_cd3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dest_nm3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dest_nm3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_dlv_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_dlv_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_basis_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_basis_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[bp_sls_basis_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_bp_sls_basis_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_usr_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_usr_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_dpt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[lnk_ar_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_lnk_ar_dpt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wg_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wg_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_upri_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_upri_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_amt_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_amt_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[base_cur_upri_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_base_cur_upri_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_amt_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_amt_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ptax_cur_upri_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ptax_cur_upri_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_bill_crryovr_times]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_bill_crryovr_times_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_upri_req_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_upri_req_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_schd_split_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_schd_split_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_amt_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_amt_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_tax_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_tax_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[xrate_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_xrate_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wtax_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wtax_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[qtn_rev]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_qtn_rev_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[prof_rate]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_prof_rate_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[assort_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_assort_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[adv_ship_ctrl_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_adv_ship_ctrl_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rev]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rev_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_usr_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_usr_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[acst_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_acst_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ar_dpt_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ar_dpt_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[iv_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_iv_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trnspt_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trnspt_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[vssl_flght]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_vssl_flght_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[load_port_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_load_port_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[etd_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_etd_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dschrg_port_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dschrg_port_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[eta_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_eta_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_port_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_port_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[via_schd_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_via_schd_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_cd3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_cd3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_nm3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_nm3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tterm_rmrks3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tterm_rmrks3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cst_po_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cst_po_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_intr_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sub_char3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sub_char3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char4]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char4_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_char5]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_char5_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_num1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_num1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[edi_sub_dt1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_edi_sub_dt1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rsn_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rsn_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[can_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_can_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_id]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_id_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_usr_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_usr_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_id]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_id_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_func_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_func_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_id]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_id_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_usr_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_usr_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_id]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_id_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_func_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_func_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_ts]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_ts_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_ts]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_ts_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[upd_srv_req_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_upd_srv_req_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_day_week_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_day_week_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_sts_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_sts_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_sts_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_sts_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_itm_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_itm_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[iv_itm_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_iv_itm_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[stk_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_stk_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[asset_mng_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_asset_mng_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[lot_no_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_lot_no_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sublot_no_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sublot_no_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_mng_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_mng_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno1_num_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno1_num_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno2_num_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno2_num_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno3_num_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno3_num_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sno4_num_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sno4_num_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[itm_bill_crryovr_times]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_itm_bill_crryovr_times_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cntry_org_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cntry_org_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_base_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_base_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_conv_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_conv_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_unit_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_unit_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prof_rate]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prof_rate_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wtax_rate]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wtax_rate_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bill_crryovr_times]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bill_crryovr_times_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[gd_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_gd_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[set_itm_grp_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_set_itm_grp_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dlv_day_week_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dlv_day_week_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_schd_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_schd_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[accpt_schd_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_accpt_schd_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[prnt_lcl_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_prnt_lcl_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_cd3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_cd3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[dest_nm3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_dest_nm3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[via_dlv_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_via_dlv_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_proc_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_proc_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[proc_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_proc_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_ship_inst_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_ship_inst_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_inst_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_inst_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_schd_split_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_schd_split_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_scope_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_scope_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[alloc_grp_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_alloc_grp_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_lg_grp_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_lg_grp_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[def_loc_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_def_loc_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[loc_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_loc_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_to_loc_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_to_loc_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sppl_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sppl_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[maker_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_maker_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[rqst_dlv_rqst_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_rqst_dlv_rqst_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wg_rqst_cnt_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wg_rqst_cnt_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_term_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_term_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[ship_cnt_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_ship_cnt_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[cst_po_d_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_cst_po_d_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_rsn_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_rsn_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[bd_dpt_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_bd_dpt_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sls_upri_req_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sls_upri_req_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_d_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_d_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_intr_rmrks_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[sub_char3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_sub_char3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char4]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char4_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_char5]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_char5_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_num1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_num1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[edi_sub_d_dt1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_edi_sub_d_dt1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[can_rsn_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_can_rsn_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[slo_d_can_rmkrs]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_slo_d_can_rmkrs_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_dec_place]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_dec_place_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[base_unit_rnd_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_base_unit_rnd_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[qtn_d_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_qtn_d_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[disp_seq]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_disp_seq_LC(MCEventInfo info){
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_srch_tgt_typ_nm]の作成メソッド
+	 */
+	public MCList getCnd_srch_tgt_typ_nm(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSlsSrchTgtTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_trd_cd]の作成メソッド
+	 */
+	public MCList getHdr_trd_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getTrd(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_slo_typ]の作成メソッド
+	 */
+	public MCList getHdr_slo_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSloTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dlv_p_PPanel_Dlv_bp_cd]の作成メソッド
+	 */
+	public MCList getHdr_dlv_p_PPanel_Dlv_bp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dest_cd1]の作成メソッド
+	 */
+	public MCList getHdr_dest_cd1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dest_cd2]の作成メソッド
+	 */
+	public MCList getHdr_dest_cd2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dest_cd3]の作成メソッド
+	 */
+	public MCList getHdr_dest_cd3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_tdlv_p_PPanel_Dlv_bp_cd]の作成メソッド
+	 */
+	public MCList getHdr_tdlv_p_PPanel_Dlv_bp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_via_dlv_typ]の作成メソッド
+	 */
+	public MCList getHdr_via_dlv_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getViaDlvTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_cst_cd]の作成メソッド
+	 */
+	public MCList getHdr_cst_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_sls_basis_typ]の作成メソッド
+	 */
+	public MCList getHdr_sls_basis_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSlsBasisTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd]の作成メソッド
+	 */
+	public MCList getHdr_usr_dpt_p_PPanel_UsrDpt_dpt_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDpt(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_trd_cur_cd]の作成メソッド
+	 */
+	public MCList getHdr_trd_cur_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getCur(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_assort_typ]の作成メソッド
+	 */
+	public MCList getHdr_assort_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getShipAssortTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_adv_ship_ctrl_typ]の作成メソッド
+	 */
+	public MCList getHdr_adv_ship_ctrl_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getAdvShipCtrlTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_rcpt_usr_cd]の作成メソッド
+	 */
+	public MCList getHdr_rcpt_usr_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getUsr(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_ar_dpt_cd]の作成メソッド
+	 */
+	public MCList getHdr_ar_dpt_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDpt(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_trnspt_cd]の作成メソッド
+	 */
+	public MCList getHdr_trnspt_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getTrnspt(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_load_port_cd]の作成メソッド
+	 */
+	public MCList getHdr_load_port_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getEximPort(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dschrg_port_cd]の作成メソッド
+	 */
+	public MCList getHdr_dschrg_port_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getEximPort(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_via_port_cd]の作成メソッド
+	 */
+	public MCList getHdr_via_port_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getEximPort(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_tterm_cd1]の作成メソッド
+	 */
+	public MCList getHdr_tterm_cd1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getTterm1(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_tterm_cd2]の作成メソッド
+	 */
+	public MCList getHdr_tterm_cd2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getTterm2(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_tterm_cd3]の作成メソッド
+	 */
+	public MCList getHdr_tterm_cd3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getTterm3(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_can_rsn_cd]の作成メソッド
+	 */
+	public MCList getHdr_can_rsn_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloCanRsn(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_dlv_day_week_typ_nm]の作成メソッド
+	 */
+	public MCList getHdr_dlv_day_week_typ_nm(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDayWeekTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_cst_itm_cd]の作成メソッド
+	 */
+	public MCList getDtl_cst_itm_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getCstItm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_itm_p_PPanel_columnItm_itm_cd]の作成メソッド
+	 */
+	public MCList getDtl_itm_p_PPanel_columnItm_itm_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloItm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_itm_p_PPanel_columnItm_itm_sub1]の作成メソッド
+	 */
+	public MCList getDtl_itm_p_PPanel_columnItm_itm_sub1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloItmSub1(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_itm_p_PPanel_columnItm_itm_sub2]の作成メソッド
+	 */
+	public MCList getDtl_itm_p_PPanel_columnItm_itm_sub2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloItmSub2(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_itm_p_PPanel_columnItm_itm_sub3]の作成メソッド
+	 */
+	public MCList getDtl_itm_p_PPanel_columnItm_itm_sub3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloItmSub3(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_cntry_org_cd]の作成メソッド
+	 */
+	public MCList getDtl_cntry_org_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getCntry(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_trd_unit_cd]の作成メソッド
+	 */
+	public MCList getDtl_trd_unit_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmUnit(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd]の作成メソッド
+	 */
+	public MCList getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_tax_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSlsTax(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd]の作成メソッド
+	 */
+	public MCList getDtl_trd_cur_upri_amt_p_PPanel_columnTrdUpriAmt_dscnt_rsn_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSlsDscntBizRsn(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_gd_cd]の作成メソッド
+	 */
+	public MCList getDtl_gd_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getCstSloStkGd(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_dlv_day_week_typ_nm]の作成メソッド
+	 */
+	public MCList getDtl_dlv_day_week_typ_nm(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDayWeekTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_dlv_p_PPanel_columnDlv_bp_cd]の作成メソッド
+	 */
+	public MCList getDtl_dlv_p_PPanel_columnDlv_bp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_dest_cd1]の作成メソッド
+	 */
+	public MCList getDtl_dest_cd1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_dest_cd2]の作成メソッド
+	 */
+	public MCList getDtl_dest_cd2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_dest_cd3]の作成メソッド
+	 */
+	public MCList getDtl_dest_cd3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Dtl_tdlv_p_PPanel_columnDlv_bp_cd]の作成メソッド
+	 */
+	public MCList getDtl_tdlv_p_PPanel_columnDlv_bp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_via_dlv_typ]の作成メソッド
+	 */
+	public MCList getDtl_via_dlv_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getViaDlvTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_proc_typ]の作成メソッド
+	 */
+	public MCList getDtl_proc_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSloProcTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_ship_inst_typ]の作成メソッド
+	 */
+	public MCList getDtl_ship_inst_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getShipInstTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_ship_schd_split_typ]の作成メソッド
+	 */
+	public MCList getDtl_ship_schd_split_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getShipSchdSplitTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_alloc_scope_typ]の作成メソッド
+	 */
+	public MCList getDtl_alloc_scope_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getAllocScopeTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_alloc_typ]の作成メソッド
+	 */
+	public MCList getDtl_alloc_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getAllocTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_alloc_grp_cd]の作成メソッド
+	 */
+	public MCList getDtl_alloc_grp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloAllocGrp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_ship_lg_grp_cd]の作成メソッド
+	 */
+	public MCList getDtl_ship_lg_grp_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloLgGrp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_loc_cd]の作成メソッド
+	 */
+	public MCList getDtl_loc_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloLoc(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_rqst_to_loc_cd]の作成メソッド
+	 */
+	public MCList getDtl_rqst_to_loc_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0040.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0040.MSUAP_List", this)).getItmDtlRqstLoc(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_sppl_cd]の作成メソッド
+	 */
+	public MCList getDtl_sppl_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0040.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0040.MSUAP_List", this)).getItmDtlSppl(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_maker_cd]の作成メソッド
+	 */
+	public MCList getDtl_maker_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0040.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0040.MSUAP_List", this)).getItmDtlMaker(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_ship_term_cd]の作成メソッド
+	 */
+	public MCList getDtl_ship_term_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getShipTerm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_sls_rsn_cd]の作成メソッド
+	 */
+	public MCList getDtl_sls_rsn_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSlsBizRsn(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_bd_dpt_cd]の作成メソッド
+	 */
+	public MCList getDtl_bd_dpt_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDpt(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_sls_upri_req_typ]の作成メソッド
+	 */
+	public MCList getDtl_sls_upri_req_typ(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getSlsUpriReqTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[columnDtl_can_rsn_cd]の作成メソッド
+	 */
+	public MCList getDtl_can_rsn_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloCanRsn(row, info);
+	}
+
+	@Override
+	public MCCallerPanelBridge createBridge(String id) {
+		if (id.equals("MS.MSBBL1210.Srch01")) {
+			return new MS_MSBBL1210_Srch01Bridge();
+		}
+		if (id.equals("MS.MSBBL1210.Srch02")) {
+			return new MS_MSBBL1210_Srch02Bridge();
+		}
+		if (id.equals("MS.MSBBL1210.Ins01")) {
+			return new MS_MSBBL1210_Ins01Bridge();
+		}
+		if (id.equals("MS.MSBBL1210.Upd01")) {
+			return new MS_MSBBL1210_Upd01Bridge();
+		}
+		if (id.equals("MS.MSBBL1210.Del01")) {
+			return new MS_MSBBL1210_Del01Bridge();
+		}
+		if (id.equals("MS.MSBBL1210.Sprt01")) {
+			return new MS_MSBBL1210_Sprt01Bridge();
+		}
+		return super.createBridge(id);
+	}
+	/**
+	 * [MS_MSBBL1210_Srch01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Srch01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Srch01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Srch01Bridge() {
+			p_MS_MSBBL1210_Srch01 = new MCParam(PDef.MS_MSBBL1210_Srch01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Srch01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.CndR.create());
+			// Down
+			param.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlCompR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlSpecR.class));
+
+			p_MS_MSBBL1210_Srch01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Srch01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Srch01.addUpBlock(getCndR());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Srch01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Srch01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.CndR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.CndR)up(0);
+		}
+
+		protected mcframe.clientMSBB.MSBBP1210.HdrR down0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)down(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)down(1);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> down2() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR>)down(2);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> down3() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR>)down(3);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_Srch01.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			p_MS_MSBBL1210_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			p_MS_MSBBL1210_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlCompR.class));
+			p_MS_MSBBL1210_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlSpecR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Srch01;
+		}
+
+		protected void show() {
+			setHdrR((mcframe.clientMSBB.MSBBP1210.HdrR)p_MS_MSBBL1210_Srch01.getContainerParam().getDownBlock(0));
+			setDtlL((MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)p_MS_MSBBL1210_Srch01.getContainerParam().getDownBlock(1));
+			setDtlCompL((MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR>)p_MS_MSBBL1210_Srch01.getContainerParam().getDownBlock(2));
+			setDtlSpecL((MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR>)p_MS_MSBBL1210_Srch01.getContainerParam().getDownBlock(3));
+		}
+
+		protected void clear() {
+			getHdrR().clear();
+			getDtlL().clear();
+			getDtlCompL().clear();
+			getDtlSpecL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getCndR());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			result.add(getDtlCompL());
+			result.add(getDtlSpecL());
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_Srch02]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Srch02Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Srch02;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Srch02Bridge() {
+			p_MS_MSBBL1210_Srch02 = new MCParam(PDef.MS_MSBBL1210_Srch02_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Srch02_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.CndR.create());
+			// Down
+			param.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlCompR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlSpecR.class));
+
+			p_MS_MSBBL1210_Srch02 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Srch02.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Srch02.addUpBlock(getCndR());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Srch02.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Srch02.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.CndR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.CndR)up(0);
+		}
+
+		protected mcframe.clientMSBB.MSBBP1210.HdrR down0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)down(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)down(1);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR> down2() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR>)down(2);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> down3() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR>)down(3);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_Srch02.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			p_MS_MSBBL1210_Srch02.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			p_MS_MSBBL1210_Srch02.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlCompR.class));
+			p_MS_MSBBL1210_Srch02.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlSpecR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Srch02;
+		}
+
+		protected void show() {
+			setHdrR((mcframe.clientMSBB.MSBBP1210.HdrR)p_MS_MSBBL1210_Srch02.getContainerParam().getDownBlock(0));
+			setDtlL((MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)p_MS_MSBBL1210_Srch02.getContainerParam().getDownBlock(1));
+			setDtlCompL((MCList<mcframe.clientMSBB.MSBBP1210.DtlCompR>)p_MS_MSBBL1210_Srch02.getContainerParam().getDownBlock(2));
+			setDtlSpecL((MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR>)p_MS_MSBBL1210_Srch02.getContainerParam().getDownBlock(3));
+		}
+
+		protected void clear() {
+			getHdrR().clear();
+			getDtlL().clear();
+			getDtlCompL().clear();
+			getDtlSpecL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getCndR());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			result.add(getDtlCompL());
+			result.add(getDtlSpecL());
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_Ins01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Ins01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Ins01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Ins01Bridge() {
+			p_MS_MSBBL1210_Ins01 = new MCParam(PDef.MS_MSBBL1210_Ins01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Ins01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addUpBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			// Down
+			param.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+
+			p_MS_MSBBL1210_Ins01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Ins01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Ins01.addUpBlock(getHdrR());
+			p_MS_MSBBL1210_Ins01.addUpBlock(getDtlL().shallowClone());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Ins01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Ins01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.HdrR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)up(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> up1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)up(1);
+		}
+
+		protected mcframe.clientMSBB.MSBBP1210.HdrR down0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)down(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)down(1);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_Ins01.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			p_MS_MSBBL1210_Ins01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Ins01;
+		}
+
+		protected void show() {
+			setHdrR((mcframe.clientMSBB.MSBBP1210.HdrR)p_MS_MSBBL1210_Ins01.getContainerParam().getDownBlock(0));
+			setDtlL((MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)p_MS_MSBBL1210_Ins01.getContainerParam().getDownBlock(1));
+		}
+
+		protected void clear() {
+			getHdrR().clear();
+			getDtlL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_Upd01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Upd01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Upd01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Upd01Bridge() {
+			p_MS_MSBBL1210_Upd01 = new MCParam(PDef.MS_MSBBL1210_Upd01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Upd01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addUpBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			// Down
+			param.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+
+			p_MS_MSBBL1210_Upd01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Upd01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Upd01.addUpBlock(getHdrR());
+			p_MS_MSBBL1210_Upd01.addUpBlock(getDtlL().shallowClone());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Upd01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Upd01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.HdrR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)up(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> up1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)up(1);
+		}
+
+		protected mcframe.clientMSBB.MSBBP1210.HdrR down0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)down(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)down(1);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_Upd01.addDownBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			p_MS_MSBBL1210_Upd01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Upd01;
+		}
+
+		protected void show() {
+			setHdrR((mcframe.clientMSBB.MSBBP1210.HdrR)p_MS_MSBBL1210_Upd01.getContainerParam().getDownBlock(0));
+			setDtlL((MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)p_MS_MSBBL1210_Upd01.getContainerParam().getDownBlock(1));
+		}
+
+		protected void clear() {
+			getHdrR().clear();
+			getDtlL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_Del01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Del01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Del01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Del01Bridge() {
+			p_MS_MSBBL1210_Del01 = new MCParam(PDef.MS_MSBBL1210_Del01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Del01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			param.addUpBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.DtlR.class));
+			// Down
+
+			p_MS_MSBBL1210_Del01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Del01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Del01.addUpBlock(getHdrR());
+			p_MS_MSBBL1210_Del01.addUpBlock(getDtlL().shallowClone());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Del01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Del01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.HdrR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)up(0);
+		}
+		protected MCList<mcframe.clientMSBB.MSBBP1210.DtlR> up1() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.DtlR>)up(1);
+		}
+
+
+		protected void setupDownParam() {
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Del01;
+		}
+
+		protected void show() {
+		}
+
+		protected void clear() {
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			result.add(getDtlL());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_Sprt01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Sprt01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_Sprt01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_Sprt01Bridge() {
+			p_MS_MSBBL1210_Sprt01 = new MCParam(PDef.MS_MSBBL1210_Sprt01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_Sprt01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.UpriSrchR.class));
+			// Down
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.UpriSrchR.class));
+
+			p_MS_MSBBL1210_Sprt01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_Sprt01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_Sprt01.addUpBlock(getUpriSrchL().shallowClone());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_Sprt01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_Sprt01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> up0() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR>)up(0);
+		}
+
+		protected MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> down0() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR>)down(0);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_Sprt01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.UpriSrchR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_Sprt01;
+		}
+
+		protected void show() {
+			setUpriSrchL((MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR>)p_MS_MSBBL1210_Sprt01.getContainerParam().getDownBlock(0));
+		}
+
+		protected void clear() {
+			getUpriSrchL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getUpriSrchL());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getUpriSrchL());
+			return result;
+		}
+	}
+}

@@ -1,0 +1,113 @@
+\encoding UTF-8
+
+CREATE TABLE mst_acxfr_inst_d_all
+(acxfr_inst_d_no varchar (15) NOT NULL,
+co_cd varchar (10) NOT NULL,
+acxfr_inst_no varchar (15) NOT NULL,
+pr_sts_typ varchar (4) NOT NULL,
+acxfr_schd_no varchar (15) NULL,
+acxfr_schd_dt timestamp(0)  NOT NULL,
+rsn_cd varchar (10) NOT NULL,
+bd_dpt_cd varchar (20) NOT NULL,
+itm_cd varchar (40) NOT NULL,
+itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+str_ln_cd varchar (10) DEFAULT '*' NOT NULL,
+stk_arrv_bp_cd varchar (20) DEFAULT '*' NOT NULL,
+no_lot_fix_flg char (1) DEFAULT '0' NOT NULL,
+lot_no varchar (15) NULL,
+sublot_no varchar (15) NULL,
+sno1 varchar (15) DEFAULT '*' NOT NULL,
+sno2 varchar (15) DEFAULT '*' NOT NULL,
+sno3 varchar (15) DEFAULT '*' NOT NULL,
+sno4 varchar (15) DEFAULT '*' NOT NULL,
+ver_no varchar (10) NULL,
+alloc_flg char (1) DEFAULT '0' NOT NULL,
+fix_no_typ varchar (1) NOT NULL,
+fix_no varchar (15) DEFAULT '*' NOT NULL,
+gd_cd varchar (2) NOT NULL,
+in_xfr_typ varchar (1) NOT NULL,
+quality_typ varchar (1) NOT NULL,
+stk_insp_typ varchar (1) NOT NULL,
+stk_id_typ varchar (1) NULL,
+stk_bp_cd varchar (20) NULL,
+trd_unit_qty numeric (21,8) NOT NULL,
+trd_unit_cd varchar (5) NOT NULL,
+base_unit_qty numeric (21,8) DEFAULT 0 NOT NULL,
+base_unit_cd varchar (5) NULL,
+bd_loc_cd varchar (20) NULL,
+bd_ctg_cd varchar (20) NULL,
+bd_oper_cd varchar (10) NULL,
+bd_bp_cd varchar (20) NULL,
+bd_itm_cd varchar (40) NULL,
+bd_itm_sub1 varchar (5) NULL,
+bd_itm_sub2 varchar (5) NULL,
+bd_itm_sub3 varchar (5) NULL,
+bd_lot_no varchar (15) NULL,
+bd_sublot_no varchar (15) NULL,
+bd_sno1 varchar (15) NULL,
+bd_sno2 varchar (15) NULL,
+bd_sno3 varchar (15) NULL,
+bd_sno4 varchar (15) NULL,
+io_schd_pr_no varchar (15) NULL,
+dspsl_no varchar (15) NULL,
+abort_flg char (1) DEFAULT '0' NOT NULL,
+aprv_flg char (1) DEFAULT '0' NOT NULL,
+aprv_no varchar (15) NULL,
+aprv_sts_typ varchar (1) NULL,
+intr_d_rmrks varchar (100) NULL,
+trd_d_rmrks varchar (100) NULL,
+inst_d_rmrks varchar (100) NULL,
+disp_seq numeric (5,0) NOT NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+ALTER TABLE mst_acxfr_inst_d_all
+ADD CONSTRAINT mst_acxfr_inst_d_all_pk PRIMARY KEY(acxfr_inst_d_no,co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie01
+ON mst_acxfr_inst_d_all USING BTREE (acxfr_inst_no, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie02
+ON mst_acxfr_inst_d_all USING BTREE (acxfr_schd_no, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie03
+ON mst_acxfr_inst_d_all USING BTREE (acxfr_schd_dt, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie04
+ON mst_acxfr_inst_d_all USING BTREE (itm_cd, itm_sub1, itm_sub2, itm_sub3, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie05
+ON mst_acxfr_inst_d_all USING BTREE (lot_no, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie06
+ON mst_acxfr_inst_d_all USING BTREE (io_schd_pr_no, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie07
+ON mst_acxfr_inst_d_all USING BTREE (dspsl_no, co_cd);
+
+
+CREATE INDEX mst_acxfr_inst_d_all_ie08
+ON mst_acxfr_inst_d_all USING BTREE (aprv_no, co_cd);
+

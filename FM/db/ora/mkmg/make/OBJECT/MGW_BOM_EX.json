@@ -1,0 +1,486 @@
+{
+"version" : "1.0.0",
+"scriptComment" : "コメントを記入",
+"mcddlList" : [
+	{
+		"mcddl" : "CREATE_TEMPORARY_TABLE",
+		"dropType" : "*gtd",
+		"tableName" : "MGW_BOM_EX",
+		"jpName" : "原価ＢＯＭ展開ワーク",
+		"comment" : [],
+		"isPkWkTable" : false,
+		"columnList" : [
+			{
+			"isKey" : false,
+			"name" : "BOM_LVL",
+			"dataType" : "N",
+			"length" : "3,0",
+			"integerLength" : "3",
+			"decimalLength" : "0",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "ＢＯＭ階層",
+			"fullName" : "BOM hierarchy"
+			},
+			{
+			"isKey" : false,
+			"name" : "SORT_NO",
+			"dataType" : "C",
+			"length" : "3000",
+			"integerLength" : "3000",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "ソート順",
+			"fullName" : "Sort order"
+			},
+			{
+			"isKey" : false,
+			"name" : "WG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "ワーキンググループＣＤ",
+			"fullName" : "WG cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "ITM_CD",
+			"dataType" : "C",
+			"length" : "40",
+			"integerLength" : "40",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "品目ＣＤ",
+			"fullName" : "Item cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "ITM_SUB1",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "枝番１",
+			"fullName" : "Branch No. 1"
+			},
+			{
+			"isKey" : false,
+			"name" : "ITM_SUB2",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "枝番２",
+			"fullName" : "Branch No. 2"
+			},
+			{
+			"isKey" : false,
+			"name" : "ITM_SUB3",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "枝番３",
+			"fullName" : "Branch No. 3"
+			},
+			{
+			"isKey" : false,
+			"name" : "BOM_PTN",
+			"dataType" : "C",
+			"length" : "40",
+			"integerLength" : "40",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "構成パタン",
+			"fullName" : "BOM pattern"
+			},
+			{
+			"isKey" : false,
+			"name" : "OPER_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程ＣＤ",
+			"fullName" : "Operation cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "OPER_SEQ",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程連番",
+			"fullName" : "Operation sequence number"
+			},
+			{
+			"isKey" : false,
+			"name" : "ALT_GRP_CD",
+			"dataType" : "C",
+			"length" : "40",
+			"integerLength" : "40",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "代替グループＣＤ",
+			"fullName" : "Alternative group cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "EXPNS_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "費目ＣＤ",
+			"fullName" : "Cost element cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_RQMT_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親必要数量",
+			"fullName" : "Parent required qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "CHD_RQMT_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "子必要数量",
+			"fullName" : "Child required qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "CHD_BASE_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "子投入数量",
+			"fullName" : "Child input qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "FXD_CHD_RQMT_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "子固定必要数量",
+			"fullName" : "Child fixed required qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "CHD_MIN_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "子最小必要数量",
+			"fullName" : "Child min. required qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "CHD_BATCH_QTY",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "子刻み必要数量",
+			"fullName" : "Increments of child required qty."
+			},
+			{
+			"isKey" : false,
+			"name" : "ALT_ITM_RATIO",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "代替品目比率",
+			"fullName" : "Alternative item ratio"
+			},
+			{
+			"isKey" : false,
+			"name" : "DISP_SEQ",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "表示順",
+			"fullName" : "Display order"
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_WG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親ワーキンググループＣＤ",
+			"fullName" : "Parent WG cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_ITM_CD",
+			"dataType" : "C",
+			"length" : "40",
+			"integerLength" : "40",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親品目ＣＤ",
+			"fullName" : "Parent item cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_ITM_SUB1",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親枝番１",
+			"fullName" : "Parent branch No. 1"
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_ITM_SUB2",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親枝番２",
+			"fullName" : "Parent branch No. 2"
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_ITM_SUB3",
+			"dataType" : "C",
+			"length" : "5",
+			"integerLength" : "5",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親枝番３",
+			"fullName" : "Parent branch No. 3"
+			},
+			{
+			"isKey" : false,
+			"name" : "PAR_SORT_NO",
+			"dataType" : "C",
+			"length" : "3000",
+			"integerLength" : "3000",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "親ソート順",
+			"fullName" : "Parent sort order"
+			},
+			{
+			"isKey" : false,
+			"name" : "BOM_WG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "ＢＯＭワーキンググループＣＤ",
+			"fullName" : "BOM WG cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "計算カテゴリＣＤ",
+			"fullName" : "Calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "ITM_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "品目計算カテゴリＣＤ",
+			"fullName" : "Item calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "DTL_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "詳細計算カテゴリＣＤ",
+			"fullName" : "Details calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PURC_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "購買計算カテゴリＣＤ",
+			"fullName" : "Purchase calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PROC_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "加工計算カテゴリＣＤ",
+			"fullName" : "Subcontracting calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PROV_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "支給計算カテゴリＣＤ",
+			"fullName" : "Supply calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "SLS_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "販売計算カテゴリＣＤ",
+			"fullName" : "Sales calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "FIX_CALC_CTG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "指値計算カテゴリＣＤ",
+			"fullName" : "Limit unit price calculation category cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "BOTTOM_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "最下位ＦＬＧ",
+			"fullName" : "Bottom flg."
+			},
+			{
+			"isKey" : false,
+			"name" : "LOOP_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "ループＦＬＧ",
+			"fullName" : "Loop flg."
+			}
+		],
+		"indexList": [
+			{
+			"name" : "MGW_BOM_EX_IE01",
+			"items" : "BOM_LVL"
+			},
+			{
+			"name" : "MGW_BOM_EX_IE02",
+			"items" : "PAR_SORT_NO"
+			},
+			{
+			"name" : "MGW_BOM_EX_IE03",
+			"items" : "ITM_CD, ITM_SUB1,ITM_SUB2, ITM_SUB3"
+			}
+		],
+		"checkList": [
+			{
+			"item" : "BOTTOM_FLG",
+			"name" : "MGW_BOM_EX_CK01",
+			"value" : [0, 1]
+			},
+			{
+			"item" : "LOOP_FLG",
+			"name" : "MGW_BOM_EX_CK02",
+			"value" : [0, 1]
+			}
+		]
+	}
+]
+}

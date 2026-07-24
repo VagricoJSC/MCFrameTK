@@ -1,0 +1,24 @@
+package mcframe.commonPFBA.PFBAR5190;
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "PFBAR_BacAcPrnt"帳票クラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class PFBAR_BacAcPrnt_MC extends PFBAR_BacAcPrnt_MC_A{
+//FMCB CUSTOM_METHOD START
+	/**
+	 *
+	 * コンストラクタ
+	 *
+	 */
+	protected PFBAR_BacAcPrnt_MC() {
+		super();
+	}
+
+}

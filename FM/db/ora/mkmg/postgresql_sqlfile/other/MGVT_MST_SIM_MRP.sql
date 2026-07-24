@@ -1,0 +1,58 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgvt_mst_sim_mrp(
+sim_mrp_no,
+wg_cd,
+sim_mrp_typ,
+sim_usr_cd,
+dly_rqmt_flg,
+stk_flg,
+gr_flg,
+gi_flg,
+ship_flg,
+tree_lvl,
+mrp_proc_dt,
+intr_rmrks,
+sub_char1,
+sub_char2,
+sub_char3,
+ins_usr_id,
+ins_usr_nm,
+ins_ts,
+ins_func_id,
+upd_cntr,
+upd_usr_id,
+upd_usr_nm,
+upd_ts,
+upd_func_id,
+upd_srv_req_no
+)
+AS
+SELECT
+	null::varchar (15) AS sim_mrp_no,
+	null::varchar (10) AS wg_cd,
+	null::varchar (1) AS sim_mrp_typ,
+	null::varchar (500) AS sim_usr_cd,
+	null::char (1) AS dly_rqmt_flg,
+	null::char (1) AS stk_flg,
+	null::char (1) AS gr_flg,
+	null::char (1) AS gi_flg,
+	null::char (1) AS ship_flg,
+	null::numeric (3) AS tree_lvl,
+	null::timestamp(0) AS mrp_proc_dt,
+	null::varchar (100) AS intr_rmrks,
+	null::varchar (20) AS sub_char1,
+	null::varchar (20) AS sub_char2,
+	null::varchar (20) AS sub_char3,
+	null::varchar (500) AS ins_usr_id,
+	null::varchar (100) AS ins_usr_nm,
+	null::timestamp(3) AS ins_ts,
+	null::varchar (50) AS ins_func_id,
+	null::numeric (9,0) AS upd_cntr,
+	null::varchar (500) AS upd_usr_id,
+	null::varchar (100) AS upd_usr_nm,
+	null::timestamp(3) AS upd_ts,
+	null::varchar (50) AS upd_func_id,
+	null::varchar (50) AS upd_srv_req_no
+;;
+

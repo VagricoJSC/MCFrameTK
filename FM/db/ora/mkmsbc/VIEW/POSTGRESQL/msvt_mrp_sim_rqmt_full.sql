@@ -1,0 +1,52 @@
+SELECT
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.rqmt_no,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.itm_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.itm_sub1,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.itm_sub2,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.itm_sub3,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.strg_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.mfg_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sppl_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.rqst_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.due_dt,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.rqmt_qty,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno1,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno1_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno2,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno2_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno3,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno3_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno4,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sno4_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.wg_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.rqmt_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1.sim_mrp_no
+FROM
+	msvt_mrp_sim_rqmt msvt_mrp_sim_rqmt_full_msvt_mrp_sim_rqmt_t1
+UNION ALL
+SELECT
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.rqmt_no,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.itm_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.itm_sub1,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.itm_sub2,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.itm_sub3,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.strg_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.mfg_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sppl_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.rqst_loc_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.due_dt,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.rqmt_qty,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno1,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno1_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno2,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno2_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno3,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno3_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno4,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.sno4_typ,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.wg_cd,
+	msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1.rqmt_typ,
+	NULL AS sim_mrp_no
+FROM
+	msvt_mrp_rqmt msvt_mrp_sim_rqmt_full_msvt_mrp_rqmt_t1
+;

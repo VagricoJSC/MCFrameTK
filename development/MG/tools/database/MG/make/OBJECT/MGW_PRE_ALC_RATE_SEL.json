@@ -1,0 +1,121 @@
+{
+"version" : "1.0.0",
+"scriptComment" : "コメントを記入",
+"mcddlList" : [
+	{
+		"mcddl" : "CREATE_TEMPORARY_TABLE",
+		"dropType" : "*gtd",
+		"tableName" : "MGW_PRE_ALC_RATE_SEL",
+		"jpName" : "計算対象一次配賦基準選択ワーク",
+		"comment" : [],
+		"isPkWkTable" : false,
+		"columnList" : [
+			{
+			"isKey" : true,
+			"name" : "WG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "ワーキンググループＣＤ",
+			"fullName" : "WG cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "ALC_AC_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "配賦科目ＣＤ",
+			"fullName" : "Allocation account cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "DPT_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'*'",
+			"jpName" : "部門ＣＤ",
+			"fullName" : "Dept. cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PRE_ALC_RATE_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "一次配賦基準ＣＤ",
+			"fullName" : "Departmental alloc. basis cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "TRD_ALC_AC_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "振替配賦科目ＣＤ",
+			"fullName" : "Transfer allocation account cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "TRD_WG_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "振替ワーキンググループＣＤ",
+			"fullName" : "Transfer WG cd."
+			},
+			{
+			"isKey" : false,
+			"name" : "PRE_ALC_DPT_PTN",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "配賦先部門パタン",
+			"fullName" : "Allocation destination department pattern"
+			},
+			{
+			"isKey" : false,
+			"name" : "FIN_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "終了ＦＬＧ",
+			"fullName" : "Terminate flg."
+			}
+		],
+		"indexList": [
+		],
+		"checkList": [
+			{
+			"item" : "FIN_FLG",
+			"name" : "MGW_PRE_ALC_RATE_SEL_CK01",
+			"value" : [0, 1]
+			}
+		]
+	}
+]
+}

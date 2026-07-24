@@ -1,0 +1,12 @@
+SET ESCCHAR @
+
+@".\OBJECT\MBT_APRV_ALL.sql"
+
+@".\OBJECT\MBW_APRV_KEY.sql"
+
+@".\OBJECT\MBT_APRV_D_ALL.sql"
+
+@".\OBJECT\MBW_APRV_D_KEY.sql"
+
+@".\OBJECT\MBW_APRV.sql"
+

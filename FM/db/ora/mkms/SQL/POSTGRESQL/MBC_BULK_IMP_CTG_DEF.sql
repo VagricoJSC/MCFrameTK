@@ -1,0 +1,3 @@
+insert into MBC_BULK_IMP_CTG_DEF (TABLE_CTG,TABLE_CTG_NM,TABLE_CTG_SEQ) values ('SLS_DSCNT','売上値引','10');
+insert into MBC_BULK_IMP_CTG_DEF (TABLE_CTG,TABLE_CTG_NM,TABLE_CTG_SEQ) values ('PURC_DSCNT','仕入値引','10');
+insert into MBC_BULK_IMP_CTG_DEF (TABLE_CTG,TABLE_CTG_NM,TABLE_CTG_SEQ) values ('SLO','受注','10');

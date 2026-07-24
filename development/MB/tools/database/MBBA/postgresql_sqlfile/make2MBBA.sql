@@ -1,0 +1,14 @@
+\encoding UTF-8
+
+\i ./CHECK/MBT_APRV_ALL_CK01.sql
+
+\i ./CHECK/MBT_APRV_ALL_CK02.sql
+
+\i ./CHECK/MBT_APRV_ALL_CK03.sql
+
+\i ./CHECK/MBT_APRV_ALL_CK04.sql
+
+\i ./CHECK/MBT_APRV_D_ALL_CK01.sql
+
+\i ./CHECK/MBT_APRV_D_ALL_CK02.sql
+

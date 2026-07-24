@@ -1,0 +1,9 @@
+\encoding UTF-8
+
+CREATE SEQUENCE mgs_pln_alc_if_data_lno
+	INCREMENT 1
+	START 0
+	MAXVALUE 999999999999999
+	MINVALUE 0
+	NO CYCLE;
+

@@ -1,0 +1,91 @@
+\encoding UTF-8
+
+DO $$
+BEGIN
+CREATE OR REPLACE VIEW mgvt_mst_arr_pr
+AS
+SELECT
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_pr_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.trd_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.trd_ptn_typ,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.po_d_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sls_ret_schd_d_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_slip_d_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.iv_d_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.rqst_dpt_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.rqst_wg_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.rqst_usr_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.cst_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sret_fr_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sppl_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ret_dlv_slip_d_no,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ret_stk_arrv_bp_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_rqst_tm,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_rcpt_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_dlv_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_refl_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_prms_rcpt_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_prms_refl_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_schd_tm,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_tm,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_dt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.trd_unit_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.trd_unit_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.pack_unit_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.pack_unit_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.base_unit_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.base_unit_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_rcpt_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_refl_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_prms_rcpt_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_inst_prms_refl_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.re_arr_schd_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.rcpt_iv_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sls_ret_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.abort_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_schd_abort_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_schd_abort_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sls_ret_schd_abort_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.accpt_dfct_qty,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.std_purc_lt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.act_purc_lt,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.rsn_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.bd_dpt_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.bd_wg_cd,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_ddlv_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_sts_typ,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.prms_dlv_dt_overdue_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.dlv_rqst_dt_overdue_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_schd_split_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_schd_refl_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_cmpl_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.purc_cmpl_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sls_ret_cmpl_flg,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.arr_cnt_rmrks,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sub_char1,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sub_char2,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.sub_char3,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ins_usr_id,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ins_usr_nm,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ins_ts,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.ins_func_id,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_cntr,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_usr_id,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_usr_nm,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_ts,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_func_id,
+	mgvt_mst_arr_pr_org_mst_arr_pr_t1.upd_srv_req_no
+FROM 
+	mst_arr_pr mgvt_mst_arr_pr_org_mst_arr_pr_t1
+;
+EXCEPTION WHEN OTHERS THEN
+	null;
+END
+$$
+;
+
+

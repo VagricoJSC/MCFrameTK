@@ -1,0 +1,168 @@
+package mcframe.serverMABC.MABCL0090;
+
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.container.MCList.SortType;
+import mcframe.commonCore.notice.*;
+import mcframe.serverCore.logic.*;
+import mcframe.serverCore.notice.MCMessagePool;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cl;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import mcframe.commonMA.constant.*;
+import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMAUC.MAUCL0060.ElmArgsR;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.serverMAUC.MAUCL0010.MAUCL_MCDataUtil.*;
+import static mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil.*;
+import static mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys.*;
+import static mcframe.serverMAUC.MAUCL0030.MAUCL_Dac.*;
+import static mcframe.serverMAUC.MAUCL0060.MAUCL_Num.*;
+
+import static mcframe.serverFXUC.FXUCL0160.FXUCL_DateUtil.*;
+import static mcframe.serverFXUC.FXUCL0170.FXUCL_ValidaterUtil.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+import mcframe.serverMABC.MABCL0090.*;	// このimportはFrameManagerの自動生成で追加されました。
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "MABCL_UnitConvReg"ロジッククラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class MABCL_UnitConvReg_MC extends MABCL_UnitConvReg_MC_A{
+	//FMCB CUSTOM START
+
+	/**
+	 * UnitConv_UpdChk01オペレーション.<p>
+	 *
+	 * 単位換算マスタの登録前のチェックを行います。<br>
+	 */
+	public class UnitConv_UpdChk01 extends MABCL_UnitConvReg_MC_A.UnitConv_UpdChk01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected MCMessageList doServerCheckSub(MCList<? extends MCConstRow> up) {
+			MCMessageList msgList = super.doServerCheckSub(up);
+			for (MCConstRow row : up) {
+				if (!(row instanceof UnitConv_UpdChk01_DtlR)) {
+					break;
+				}
+				UnitConv_UpdChk01_DtlR r = (UnitConv_UpdChk01_DtlR) row;
+
+				if (r.del_flg()) {
+					continue ;
+				}
+
+				if (isSame(r.unit_cd(), r.base_unit_cd())) {
+					msgList.add(new MCMessage(r, null, MABCL0006, toDispGUIIndex(row)));
+				}
+
+				msgList.addAll(checkDecPlace(r, UnitConv_UpdChk01_DtlR.$unit_dec_place, UnitConv_UpdChk01_DtlR.$qty));
+				msgList.addAll(checkDecPlace(r, UnitConv_UpdChk01_DtlR.$base_unit_dec_place, UnitConv_UpdChk01_DtlR.$conv_qty));
+			}
+			
+			return msgList;
+		}
+	}
+	/**
+	 * UnitConv_Upd01オペレーション.<p>
+	 *
+	 * 単位換算マスタの登録を行います。<br>
+	 */
+	public class UnitConv_Upd01 extends MABCL_UnitConvReg_MC_A.UnitConv_Upd01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * UnitConv_DelChk01オペレーション.<p>
+	 *
+	 * 単位換算マスタの削除前のチェックを行います。<br>
+	 */
+	public class UnitConv_DelChk01 extends MABCL_UnitConvReg_MC_A.UnitConv_DelChk01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * UnitConv_Del01オペレーション.<p>
+	 *
+	 * 単位換算マスタの削除を行います。<br>
+	 */
+	public class UnitConv_Del01 extends MABCL_UnitConvReg_MC_A.UnitConv_Del01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * Srch01オペレーション.<p>
+	 *
+	 * 単位換算マスタの検索を行います。<br>
+	 */
+	public class Srch01 extends MABCL_UnitConvReg_MC_A.Srch01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected <R extends MCDBContainer> void dbcCustomize(MCQueryApiBuilder builder,
+				MCList<R> rslt) {
+			super.dbcCustomize(builder, rslt);
+			if (builder.getBaseDbc() instanceof MAM_UNIT_CONV_R) {
+				dbcCustomizeSub(builder);
+			}
+		}
+
+		protected void dbcCustomizeSub(MCQueryApiBuilder builder) {
+			MAM_UNIT_R unit1 = MAM_UNIT_R.create(MAM_UNIT_CONV_R.$UNIT1);
+			MAM_UNIT_R unit2 = MAM_UNIT_R.create(MAM_UNIT_CONV_R.$UNIT2);
+			
+			builder.addSelect(unit1.dec_place.as("unit_dec_place"));
+			builder.addSelect(unit2.dec_place.as("base_unit_dec_place"));
+		}
+	}
+	/**
+	 * Upd01オペレーション.<p>
+	 *
+	 * 単位換算マスタの登録を行います。（マスタ画面用）<br>
+	 */
+	public class Upd01 extends MABCL_UnitConvReg_MC_A.Upd01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+	/**
+	 * Del01オペレーション.<p>
+	 *
+	 * 単位換算マスタの削除を行います。<br>
+	 */
+	public class Del01 extends MABCL_UnitConvReg_MC_A.Del01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+	}
+
+	//FMCB CUSTOM END
+}

@@ -1,0 +1,26 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--会計理由ＣＤ
+	T1.AC_RSN_CD,
+	--会計理由名
+	T1.AC_RSN_NM,
+	--会計理由名（ロケール１）
+	T1.AC_RSN_NM_LCL1,
+	--会計理由名（ロケール２） 
+	T1.AC_RSN_NM_LCL2,
+	--会計理由名（ロケール３） 
+	T1.AC_RSN_NM_LCL3,	
+	--会計理由名（ロケール４） 
+	T1.AC_RSN_NM_LCL4,	
+	--会計理由名（ロケール５） 
+	T1.AC_RSN_NM_LCL5,
+	T1.AR_TYP,
+	T1.AP_TYP,
+	T1.AC_INVALID_FLG,
+	T1.COST_INVALID_FLG,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_AC_RSN_MST T1 
+/

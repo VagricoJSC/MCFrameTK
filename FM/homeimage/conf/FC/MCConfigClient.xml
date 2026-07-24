@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mcframe Environment Configuration for Client-->
+<mcframe>
+
+<!-- Framework Default Value -->
+
+<!-- Look And Feel -->
+<lookandfeel>
+	<!--
+		<class>com.sun.java.swing.plaf.windows.WindowsLookAndFeel</class>
+		<class>com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel</class>
+		<class>com.sun.java.swing.plaf.motif.MotifLookAndFeel</class>
+		<class>com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel</class>
+	-->		
+	<class>mcframe.clientCore.beans.plaf.metal.MCMetalLookAndFeel</class>
+</lookandfeel>
+
+<!-- Network -->
+<net>
+	<servlet>
+		<order></order>
+	</servlet>
+	<download>
+		<url></url>
+		<dir>{USERHOME}/dl</dir>
+	</download>
+	<push>
+		<url></url>
+	</push>
+
+	<response>
+		<limitSize>-1</limitSize>
+		<!-- JRW-5-058-11412 2012/11/30 miyake -->
+		<limitByte></limitByte>
+	</response>
+	<request>
+		<limitSize>-1</limitSize>
+		<retry>-1</retry>
+		<receive_timeout>600000</receive_timeout>
+		<type>java</type>
+		<java>
+			<ignoreCertification>false</ignoreCertification>
+		</java>
+	</request>
+
+</net>
+
+
+<!-- Cleanup -->
+<cleanup>
+	<period></period>
+	<dir>
+		{cleanup.dir.common},
+		{cleanup.dir.user}
+	</dir>
+</cleanup>
+<!-- Cleanup (for before 6.1.0) -->
+<cleanup>
+	<dir>
+		<common></common>
+		<user>
+			{net.download.dir},
+			{report.DataDir},
+			{report.ifDataDir}
+		</user>
+	</dir>
+</cleanup>
+
+
+<!-- Beans -->
+<beans>
+	<filechooser>
+	<!-- ファイル選択ダイアログの初期ディレクトリ-->
+		<initdir></initdir>
+	</filechooser>
+</beans>
+
+
+<!-- Startup -->
+<startup>
+	<single>
+		<mode>port</mode>
+		<param>{contact.openurl.port}</param>
+		<port>
+			<encode>{contact.openurl.encode}</encode>
+			<cors>
+				<allow-origin>*</allow-origin><!-- 複数の場合半角空白区切り  -->
+				<allow-methods></allow-methods>
+				<allow-headers></allow-headers>
+				<max-age></max-age>
+			</cors>
+		</port>
+	</single>
+	<screen>
+		<moduleid></moduleid>
+		<screenid></screenid>
+		<mode></mode>
+	</screen>
+
+	<hybrid>
+		<client></client>
+	</hybrid>
+</startup>
+
+
+<!-- Report -->
+<report>
+	<printCommand></printCommand>
+	<DataDir>{USERHOME}/rpt/data</DataDir>
+	<ifDataDir>{USERHOME}/rpt/if</ifDataDir>
+	<FormDir>{MCF_HOME}/rpt/frm</FormDir>
+	<Excel>
+		<printCommand>{MCF_HOME}/mc-excel/ExcelReport.xlsm</printCommand>
+	</Excel>
+	<ExcelIF>
+		<printCommand>{MCF_HOME}/mc-excel/ExcelIF.xlsm</printCommand>
+		<confirm>false</confirm>
+		<preview>true</preview>
+	</ExcelIF>
+	<SVFPDF>
+		<preview>true</preview>
+	</SVFPDF>
+</report>
+
+</mcframe>

@@ -1,0 +1,22 @@
+SELECT
+	--会社ＣＤ
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.co_cd,
+	--配賦科目ＣＤ
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_cd,
+	--配賦科目名
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm,
+	--配賦科目名（ロケール１）
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm_lcl1,
+	--配賦科目名（ロケール２）
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm_lcl2,
+	--配賦科目名（ロケール３）
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm_lcl3,
+	--配賦科目名（ロケール４）
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm_lcl4,
+	--配賦科目名（ロケール５）
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.alc_ac_nm_lcl5,
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.memo1,
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.memo2,
+	mavm_alc_ac_if_all_mavm_alc_ac_mst_t1.memo3
+FROM mavm_alc_ac_mst mavm_alc_ac_if_all_mavm_alc_ac_mst_t1
+;

@@ -1,0 +1,14 @@
+\encoding UTF-8
+
+\i ./OBJECT/MST_CLOSE_ALL.sql
+
+\i ./OBJECT/MSW_CLOSE_KEY.sql
+
+\i ./OBJECT/MST_AR_PRE_CLOSE_ALL.sql
+
+\i ./OBJECT/MSW_AR_PRE_CLOSE_KEY.sql
+
+\i ./OBJECT/MST_AP_PRE_CLOSE_ALL.sql
+
+\i ./OBJECT/MSW_AP_PRE_CLOSE_KEY.sql
+

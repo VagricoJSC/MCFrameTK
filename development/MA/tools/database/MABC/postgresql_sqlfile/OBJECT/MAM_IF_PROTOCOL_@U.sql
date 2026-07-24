@@ -1,0 +1,57 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mam_if_protocol_$u(
+	ext_sys_cd,
+	if_proc_typ,
+	if_ctl_typ,
+	var_str,
+	var_num,
+	memo1,
+	memo2,
+	memo3,
+	del_flg,
+	del_usr_id,
+	del_usr_nm,
+	del_ts,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mam_if_protocol_$u_mam_if_protocol_all_org.ext_sys_cd,
+	mam_if_protocol_$u_mam_if_protocol_all_org.if_proc_typ,
+	mam_if_protocol_$u_mam_if_protocol_all_org.if_ctl_typ,
+	mam_if_protocol_$u_mam_if_protocol_all_org.var_str,
+	mam_if_protocol_$u_mam_if_protocol_all_org.var_num,
+	mam_if_protocol_$u_mam_if_protocol_all_org.memo1,
+	mam_if_protocol_$u_mam_if_protocol_all_org.memo2,
+	mam_if_protocol_$u_mam_if_protocol_all_org.memo3,
+	mam_if_protocol_$u_mam_if_protocol_all_org.del_flg,
+	mam_if_protocol_$u_mam_if_protocol_all_org.del_usr_id,
+	mam_if_protocol_$u_mam_if_protocol_all_org.del_usr_nm,
+	mam_if_protocol_$u_mam_if_protocol_all_org.del_ts,
+	mam_if_protocol_$u_mam_if_protocol_all_org.ins_usr_id,
+	mam_if_protocol_$u_mam_if_protocol_all_org.ins_usr_nm,
+	mam_if_protocol_$u_mam_if_protocol_all_org.ins_ts,
+	mam_if_protocol_$u_mam_if_protocol_all_org.ins_func_id,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_cntr,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_usr_id,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_usr_nm,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_ts,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_func_id,
+	mam_if_protocol_$u_mam_if_protocol_all_org.upd_srv_req_no
+FROM
+	mam_if_protocol_all mam_if_protocol_$u_mam_if_protocol_all_org
+WHERE
+	0 = 0
+	AND mam_if_protocol_$u_mam_if_protocol_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

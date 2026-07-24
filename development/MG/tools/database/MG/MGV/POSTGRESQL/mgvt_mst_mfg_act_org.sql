@@ -1,0 +1,53 @@
+DO $$
+BEGIN
+CREATE OR REPLACE VIEW mgvt_mst_mfg_act
+AS
+SELECT
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.mfg_act_no,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.mfg_inst_no,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.div_seq,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.itm_mfg_inst_no,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.trd_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.st_act_tm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.end_act_tm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.base_unit_yield_qty,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.base_unit_dfct_qty,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.base_unit_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.st_ac_dt,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.end_ac_dt,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.itm_yield,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.mfg_aprv_sts_typ,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.aprv_dt,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.aprv_dpt_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.aprv_usr_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.aprv_tm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.aprv_rsn,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.act_prnt_flg,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.act_prnt_tm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.seq,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.act_dpt_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.act_usr_cd,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.arr_purc_auto_reg_flg,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.intr_rmrks,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.act_rpt_rmrks,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.sub_char1,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.sub_char2,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.sub_char3,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.ins_usr_id,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.ins_usr_nm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.ins_ts,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.ins_func_id,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_cntr,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_usr_id,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_usr_nm,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_ts,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_func_id,
+	mgvt_mst_mfg_act_org_mst_mfg_act_t1.upd_srv_req_no
+FROM 
+	mst_mfg_act mgvt_mst_mfg_act_org_mst_mfg_act_t1
+;
+EXCEPTION WHEN OTHERS THEN
+	null;
+END
+$$
+;

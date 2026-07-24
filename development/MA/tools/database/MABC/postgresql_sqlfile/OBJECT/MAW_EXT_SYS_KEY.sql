@@ -1,0 +1,76 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION maw_ext_sys_key()
+RETURNS TABLE (
+	ext_sys_cd varchar
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('maw_ext_sys_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE maw_ext_sys_key$temp(
+				ext_sys_cd varchar (10) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX maw_ext_sys_key_pk_ie ON maw_ext_sys_key$temp
+				USING BTREE (ext_sys_cd);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('maw_ext_sys_key$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM maw_ext_sys_key$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW maw_ext_sys_key
+AS
+SELECT *
+FROM maw_ext_sys_key();
+
+CREATE OR REPLACE FUNCTION maw_ext_sys_key$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('maw_ext_sys_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE maw_ext_sys_key$temp(
+				ext_sys_cd varchar (10) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX maw_ext_sys_key_pk_ie ON maw_ext_sys_key$temp
+				USING BTREE (ext_sys_cd);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('maw_ext_sys_key$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO maw_ext_sys_key$temp(
+			ext_sys_cd
+		)VALUES (
+			NEW.ext_sys_cd
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE maw_ext_sys_key$temp
+		SET 
+			ext_sys_cd = NEW.ext_sys_cd
+		WHERE 0=0
+		AND (ext_sys_cd = OLD.ext_sys_cd OR ext_sys_cd IS NULL AND OLD.ext_sys_cd IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM maw_ext_sys_key$temp
+		WHERE 0=0
+		AND (ext_sys_cd = OLD.ext_sys_cd OR ext_sys_cd IS NULL AND OLD.ext_sys_cd IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER maw_ext_sys_key$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON maw_ext_sys_key
+FOR EACH ROW
+EXECUTE PROCEDURE maw_ext_sys_key$func();
+;
+

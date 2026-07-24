@@ -1,0 +1,58 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE VIEW MGVT_MST_SPLN_SUM_ITM_NEW(
+	DPT_CD,
+	CST_CD,
+	WRK_NO,
+	SPLN_ITM_CD,
+	ITM_CD,
+	ITM_SUB1,
+	ITM_SUB2,
+	ITM_SUB3,
+	CUR_CD,
+	SPLN_YM,
+	SPLN_QTY,
+	SPLN_AMT,
+	YM,
+	SPLN_VERS,
+	INS_USR_ID,
+	INS_USR_NM,
+	INS_TS,
+	INS_FUNC_ID,
+	UPD_CNTR,
+	UPD_USR_ID,
+	UPD_USR_NM,
+	UPD_TS,
+	UPD_FUNC_ID,
+	UPD_SRV_REQ_NO
+)
+AS
+SELECT
+	null DPT_CD,
+	null CST_CD,
+	null WRK_NO,
+	null SPLN_ITM_CD,
+	null ITM_CD,
+	null ITM_SUB1,
+	null ITM_SUB2,
+	null ITM_SUB3,
+	null CUR_CD,
+	TO_DATE(null) SPLN_YM,
+	null SPLN_QTY,
+	null SPLN_AMT,
+	TO_DATE(null) YM,
+	null SPLN_VERS,
+	null INS_USR_ID,
+	null INS_USR_NM,
+	null INS_TS,
+	null INS_FUNC_ID,
+	null UPD_CNTR,
+	null UPD_USR_ID,
+	null UPD_USR_NM,
+	null UPD_TS,
+	null UPD_FUNC_ID,
+	null UPD_SRV_REQ_NO
+FROM 
+	DUAL
+;
+

@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SPEC>
+    <ID>PFBBR5200</ID>
+    <COLUMN ID="MODULE_ID" TYPE="STRING">PF</COLUMN>
+    <COLUMN ID="SUBMODULE_ID" TYPE="STRING">PFBB</COLUMN>
+    <COLUMN ID="CLASS" TYPE="STRING">PFBBR_AccountPrnt</COLUMN>
+    <COLUMN ID="NAME" TYPE="STRING">勘定科目マスタ情報</COLUMN>
+    <COLUMN ID="CLASS_SUFFIX" TYPE="STRING">MC</COLUMN>
+    <COLUMN ID="SUPER_ID" TYPE="STRING">$def$</COLUMN>
+    <COLUMN ID="SUPER_CLASS" TYPE="STRING"/>
+    <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+    <COLUMN ID="GENE_TYPE" TYPE="STRING">ALL</COLUMN>
+    <COLUMN ID="MEMO" TYPE="STRING"/>
+    <COLUMN ID="PACKAGE_FORM" TYPE="STRING"/>
+    <COLUMN ID="MODIFIER" TYPE="STRING"/>
+    <COLUMN ID="OPT1" TYPE="STRING"/>
+    <COLUMN ID="IMPLE_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="SUPER_INTERFACE" TYPE="STRING"/>
+    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+    <COLUMN ID="GENE_DETAIL" TYPE="STRING"/>
+    <COLUMN ID="VERSION" TYPE="STRING">000000</COLUMN>
+    <blocks>
+        <BLOCK>
+            <ID>Dtl</ID>
+            <COLUMN ID="TYPE" TYPE="STRING">L</COLUMN>
+            <COLUMN ID="DEPEND_TYPE" TYPE="STRING"/>
+            <COLUMN ID="DEPEND" TYPE="STRING"/>
+            <COLUMN ID="MEMO" TYPE="STRING"/>
+            <COLUMN ID="CLASS" TYPE="STRING">Dtl</COLUMN>
+            <COLUMN ID="MODULE_ID" TYPE="STRING"/>
+            <COLUMN ID="CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_CLASS_SUFFIX" TYPE="STRING"/>
+            <COLUMN ID="SUPER_LIST_CLASS" TYPE="STRING">MCConstList</COLUMN>
+            <COLUMN ID="SUPER_ROW_CLASS" TYPE="STRING">MCConstRow</COLUMN>
+            <COLUMN ID="MODIFIER" TYPE="STRING">public</COLUMN>
+            <COLUMN ID="OPT1" TYPE="STRING"/>
+            <COLUMN ID="GENE_MODE" TYPE="STRING">*</COLUMN>
+            <COLUMN ID="GENE_MODE_LAYER" TYPE="NUMBER">2</COLUMN>
+            <bNum>10</bNum>
+            <items>
+                <ITEM>
+                    <ID>rectype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">レコード区分</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>precode</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目コード</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>name</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">100</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目名称</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">100</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>activeflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">活動</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>extension</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">2</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">拡張ﾌﾗｸﾞ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">2</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>searchcharacter</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">検索</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>accounttype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">4</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目区分</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">4</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>sp_accounttype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">3</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">特別科目区分</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">3</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>currencycode</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">通貨コード</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>ratetypecode</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">ﾚｰﾄﾀｲﾌﾟ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>reval_ratetypecode</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">外貨評価換算ﾚｰﾄﾀｲﾌﾟ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>cnsr_ratetype1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">2</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">連結ﾚｰﾄﾀｲﾌﾟ1</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">2</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>cnsr_ratetype2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">2</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">連結ﾚｰﾄﾀｲﾌﾟ2</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">2</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>subincludeflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">補助科目あり</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>appraisalconvflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">評価換算対象</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>vat_flag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">付加価値税対象</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>reversingflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">洗替対象</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>aparappraisalflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">債権債務外貨評価換算対象</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>aparreversingflag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">債権債務洗替対象</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>tax_ac_flag</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">税科目</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>taxablecode</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">課税区分</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>taxtype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">内税/外税区分</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>taxabletype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">2</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">課税分類</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">2</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>openup_ar</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">債権科目</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>openup_ap</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">債務科目</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>openup_acc</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">債権債務科目に限定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>correspondentset</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-取引先-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>descriptcontrol</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-明細摘要-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster1control</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ1-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster2control</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ2-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster3control</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ3-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster4control</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ4-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster5control</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ5-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usercodecontrol</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞｺｰﾄﾞ-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usertextcontrol</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾃｷｽﾄ-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>userdatecontrol</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞ日付-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>userqtycontrol</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞ数量-入力制御設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>correspondentsummary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-取引先-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster1summary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ1-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster2summary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ2-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster3summary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ3-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster4summary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ4-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>usermaster5summary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞﾏｽﾀ5-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>userdatesummary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞ日付-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>userqtysummary</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">科目属性-ﾕｰｻﾞ数量-年次/月次集計設定</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_ratetype1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨1ﾚｰﾄﾀｲﾌﾟ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_exchangetype1</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨1換算基準</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_ratetype2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨2ﾚｰﾄﾀｲﾌﾟ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_exchangetype2</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨2換算基準</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_ratetype3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨3ﾚｰﾄﾀｲﾌﾟ</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>pc_exchangetype3</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">表示通貨3換算基準</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>safetybalancefc</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">17</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">安全残高</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">17</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>fstype</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">C</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">20</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">財務諸表項目</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">20</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+                <ITEM>
+                    <ID>beginend</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">N</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING">1</COLUMN>
+                    <COLUMN ID="MEMO" TYPE="STRING">期首期末識別</COLUMN>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER">1</COLUMN>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER">0</COLUMN>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                </ITEM>
+            </items>
+        </BLOCK>
+    </blocks>
+</SPEC>

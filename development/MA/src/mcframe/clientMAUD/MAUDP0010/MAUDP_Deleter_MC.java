@@ -1,0 +1,200 @@
+package mcframe.clientMAUD.MAUDP0010;
+
+import java.awt.Component;
+
+import mcframe.clientCore.beans.*;
+import mcframe.clientCore.beans.message.MCDialogButton;
+import mcframe.clientCore.beans.table.MCTable;
+import mcframe.clientFXBA.FXBAP0010.FXBAP_Deleter;
+import mcframe.commonCore.container.MCConstRow;
+import mcframe.commonCore.container.MCContainer;
+import mcframe.commonCore.container.MCList;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.notice.*;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.commonFX.notice.FX_Msg.*;
+import mcframe.commonCore.notice.MCMessageList;
+
+
+public class MAUDP_Deleter_MC<P extends MAUDP_PanelBase, O extends MCCallerPanelBridge> extends FXBAP_Deleter<P, O> {
+	/**
+	 * コンストラクタです。
+	 *
+	 * @param panel 画面
+	 * @param operation オペレーション
+	 */
+	public MAUDP_Deleter_MC(P panel, O operation) {
+		super(panel, operation);
+	}
+
+	// マルチメッセージの確認ダイアログ（入力値チェック）（ここから）
+	protected boolean confirmForCall() {
+		MCMessageList msgList = new MCMessageList();
+		confirmForCallStack(msgList);
+		if (msgList.size() == 0) {
+			return true;
+		}
+
+		if (confirm(msgList) == MCMessageBox.YES_OPTION) {
+			return true;
+		}
+		return false;
+	}
+
+	public int confirm(MCMessageList msgList) {
+		MCMessage h_msg = msgConfirmHeader();
+		MCDialogButton btn = panel.getConfirmFocus(h_msg);
+		if (btn == null) {
+			btn = panel.getConfirmFocus(FXBAP_Deleter);
+		}
+		MCMessageList newMsgList = new MCMessageList();
+		newMsgList.add(h_msg);
+		panel.sortMessageList(msgList);
+		newMsgList.addAll(msgList);
+		return panel.confirm(btn, newMsgList);
+	}
+
+	/**
+	 * {@link #confirm(MCMessageList)}で使用する、メッセージリストの先頭に
+	 * 追加するメッセージ。
+	 *
+	 */
+	protected MCMessage msgConfirmHeader() {
+		MCMessage h_msg = new MCMessage(MAUDP0093);
+		return h_msg;
+	}
+
+	protected void confirmForCallStack(MCMessageList msgList) {
+	}
+	// マルチメッセージの確認ダイアログ（入力値チェック）（ここまで）
+
+	public MCMessageList getParamMessage() {
+		return bridge.getParamMessage();
+	}
+
+	// ///////////////////////////////////////////////
+	// 一覧登録画面の実装（ここから）
+	// ///////////////////////////////////////////////
+	@Override
+	protected void setupUpParam() {
+		if (panel instanceof IfListRegPanel) {
+			IfListRegPanel p = (IfListRegPanel)panel;
+			for (MCContainer c : getUpBlocks()) {
+				if (c == p.getListRegTable().getList()) {
+					param().addUpBlock(getCheckedRows(p));
+					continue;
+				}
+				if (c instanceof MCList) {
+					param().addUpBlock(panel.exceptEmpty((MCList<?>) c));
+				}
+				else {
+					param().addUpBlock(c);
+				}
+			}
+		}
+		else {
+			for (MCContainer c : getUpBlocks()) {
+				if (c instanceof MCList) {
+					param().addUpBlock(panel.exceptEmpty((MCList) c));
+				}
+				else {
+					param().addUpBlock(c);
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void afterCall() {
+		setGUIIndexAtDownParam();
+		super.afterCall();
+	}
+
+	@Override
+	protected boolean checkForCall() {
+		if (panel instanceof IfListRegPanel) {
+			IfListRegPanel p = (IfListRegPanel)panel;
+			if (!checkCheckedRowSize(p)) {
+				return false;
+			}
+		}
+
+		if (!super.checkForCall()) {
+			return false;
+		}
+		return confirmForCall();
+	}
+
+	/**
+	 * 対象データ存在チェック。対象が無ければエラーメッセージを表示。
+	 */
+	protected boolean checkCheckedRowSize(IfListRegPanel p) {
+		if (getCheckedRows(p).isEmpty()) {
+			panel.dialog(new MCMessage(FXBAP0038));
+			return false;
+		}
+		return true;
+	}
+
+	protected MCList getCheckedRows(IfListRegPanel p) {
+		return p.getListRegTable().getList().subList(p.getCheckColumn(), true);
+	}
+
+	@Override
+	public MCMessage msgDeletedWithMessages() {
+		if (panel instanceof IfListRegPanel) {
+			return new MCMessage(FXBAP0032);
+		}
+		return super.msgDeletedWithMessages();
+	}
+
+	@Override
+	protected void merge(MCRow dest, MCRow src, String... cols) {
+		// 一覧登録訂正画面では、エラー行の処理結果区分以外の処理結果（サーバで発版されたＮＯなど）をマージしない
+		// M7からは更新後にエラーのあった行のみ編集可能にしており、マージするとクライアントの入力制御などがおかしくなるため
+		if (panel instanceof IfListRegPanel) {
+			if (src.contains("rtn_sts_typ")
+					&& mcframe.commonMA.constant.MAC_RTN_STS_TYP.isERR(src.getString("rtn_sts_typ"))) {
+				super.merge(dest, src, getMergeColsWhenRtnStsErr(src));
+			}
+			else {
+				super.merge(dest, src, cols);
+			}
+		}
+		else {
+			super.merge(dest, src, cols);
+		}
+	}
+	
+	/**
+	 * 処理結果状況区分がエラーのときにマージするカラムの配列を返します。
+	 * 
+	 * @return 処理結果状況区分がエラーのときにマージするカラムの配列
+	 */
+	protected String[] getMergeColsWhenRtnStsErr(MCRow src) {
+		String realCol = src.getRealColumnPath("rtn_sts_typ");
+		String baseCol = realCol.substring(0, realCol.lastIndexOf("."));
+		
+		return new String[]{"rtn_sts_typ", baseCol + ".rtn_sts_typ_nm", baseCol + ".msg_id", baseCol + ".msg"};
+	}
+
+	// ///////////////////////////////////////////////
+	// 一覧登録画面の実装（ここまで）
+	// ///////////////////////////////////////////////
+
+	// ///////////////////////////////////////////////
+	// 操作種別画面の実装（ここから）
+	// ///////////////////////////////////////////////
+	@Override
+	protected void setMode() {
+		super.setMode();
+		if (panel instanceof IfOpePanel) {
+			((IfOpePanel)panel).setFIX_DStatus();
+		}
+	}
+
+	// ///////////////////////////////////////////////
+	// 操作種別画面の実装（ここまで）
+	// ///////////////////////////////////////////////
+}
+

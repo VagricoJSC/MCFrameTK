@@ -1,0 +1,12 @@
+
+COMMENT ON TABLE FCT_SRV_REQUEST_FILE IS 'サーバリクエストファイル // Server request file';
+
+
+COMMENT ON COLUMN FCT_SRV_REQUEST_FILE.SRV_REQ_NO IS 'サーバリクエストＮＯ // #FC.SRV_REQ_NO // Server request No.';
+
+
+COMMENT ON COLUMN FCT_SRV_REQUEST_FILE.FILE_BIN IS 'ファイル // #FC.BIN // File';
+
+
+COMMENT ON COLUMN FCT_SRV_REQUEST_FILE.FILE_NAME IS 'ファイル名 // #FC.SRV_FILE_NAME // File name';
+

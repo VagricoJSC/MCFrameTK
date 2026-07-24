@@ -1,0 +1,6 @@
+SET ESCCHAR @
+
+@".\HST_TR\MBT_APRV_ALL_TR_R.sql"
+
+@".\HST_TR\MBT_APRV_D_ALL_TR_R.sql"
+

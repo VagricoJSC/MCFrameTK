@@ -1,0 +1,96 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW msvt_mrp_io_schd_gi_ship(
+io_schd_no,
+io_schd_typ,
+io_schd_sts_typ,
+itm_ord_no,
+itm_cd,
+itm_sub1,
+itm_sub2,
+itm_sub3,
+ver_no,
+loc_cd,
+base_unit_qty,
+schd_dt,
+alt_grp_cd,
+alt_grp_seq,
+oper_inst_no,
+oper_ord_no,
+alt_itm_typ,
+alt_itm_ratio,
+alt_alloc_prio,
+oper_ptn,
+oper_cd,
+oper_seq,
+lot_no,
+sublot_no,
+sno1,
+sno_typ1,
+sno2,
+sno_typ2,
+sno3,
+sno_typ3,
+sno4,
+sno_typ4,
+ex_sno1,
+ex_sno2,
+ex_sno3,
+ex_sno4,
+gd_cd,
+inpt_ctl_typ,
+alloc_flg,
+wg_cd
+)
+AS
+SELECT
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.io_schd_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.io_schd_typ,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.io_schd_sts_typ,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.itm_ord_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.itm_cd,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.itm_sub1,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.itm_sub2,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.itm_sub3,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.ver_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.loc_cd,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.base_unit_qty,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.schd_dt,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alt_grp_cd,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alt_grp_seq,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.oper_inst_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.oper_ord_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alt_itm_typ,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alt_itm_ratio,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alt_alloc_prio,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.oper_ptn,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.oper_cd,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.oper_seq,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.lot_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sublot_no,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno1,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno_typ1,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno2,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno_typ2,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno3,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno_typ3,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno4,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.sno_typ4,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.ex_sno1,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.ex_sno2,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.ex_sno3,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.ex_sno4,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.gd_cd,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.inpt_ctl_typ,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.alloc_flg,
+	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.wg_cd
+FROM
+	msvt_mrp_io_schd_gi msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1
+WHERE 0=0
+AND	msvt_mrp_io_schd_gi_ship_msvt_mrp_io_schd_gi_t1.io_schd_typ IN 
+	(
+	fcpa_const$get_const_val('MSC_IO_SCHD_TYP','SHIP_OUT'),	/* 出荷 */
+	fcpa_const$get_const_val('MSC_IO_SCHD_TYP','SHIP_OUT_EX')	/* 出荷（輸出） */
+	)
+;;
+

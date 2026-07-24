@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMG.dbc.MGT_ACC_SML_COST3_IF</dbc>
+
+	<cond>
+		<cols>
+			data_lno,data_no,data_crud_typ,exe_sts_typ,sdrv_sts_typ,ext_sys_cd,batch_log_no,log_sub_key1,log_sub_key2,
+			ins_ts,upd_ts,
+			calc_no,calc_grp_cd,fix_flg,ym,calc_rec_typ,calc_rec_typ_nm,itm_cd,itm_sub1,itm_sub2,itm_sub3
+		</cols>
+	</cond>
+	<list>
+		<sdrv_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getSdrvStsTyp</logic>
+			<link>sdrv_sts_typ_nm</link>
+			<use>both</use>
+		</sdrv_sts_typ>
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+		<data_crud_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getDataCrudTyp</logic>
+			<link>data_crud_typ_nm</link>
+			<use>both</use>
+		</data_crud_typ>
+		<calc_rec_typ>
+			<logic>mcframe.clientMGUA.MGUAP0010.MGUAP_List.getCalcRecTyp</logic>
+			<link>calc_rec_typ_nm</link>
+			<use>both</use>
+		</calc_rec_typ>
+	</list>
+
+	<format>
+		<term>YMD</term>
+		<ym>YMD</ym>
+		<ac_dt>YMD</ac_dt>
+	</format>
+
+	<app>
+		<ref>true</ref>
+		<dtl>
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+				
+				<col2>data_crud_typ_nm</col2>
+				<lbl2>データ更新区分名</lbl2>
+				<msg2>データ更新区分名</msg2>
+				
+				<col3>sdrv_sts_typ_nm</col3>
+				<lbl3>送受信状況区分名</lbl3>
+				<msg3>送受信状況区分名</msg3>
+				
+				<col4>calc_rec_typ_nm</col4>
+				<lbl4>計算レコード区分名</lbl4>
+				<msg4>計算レコード区分名</msg4>
+			</label>
+			<move>
+				<col1>sdrv_sts_typ</col1>
+				<pos1>5</pos1>
+				<col2>sdrv_sts_typ_nm</col2>
+				<pos2>6</pos2>
+			</move>
+		</dtl>
+		<trans>
+		</trans>
+		<addSql>
+			<orderBy>
+				<col1>data_no,data_lno</col1>
+			</orderBy>
+		</addSql>
+	</app>
+</mcframe>

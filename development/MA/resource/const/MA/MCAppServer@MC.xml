@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCAppServer Constant-->
+<mcframe>
+	<cache_size>1000000</cache_size>
+	<!-- cache_size の説明 -->
+	<!--
+		キャッシュ機能を使用する場合のキャッシュサイズを指定できます。
+			mid : 疎連携呼び出しされたモジュールＩＤ
+			lid : 疎連携呼び出しされたロジックＩＤ
+			oid : 疎連携呼び出しされたオペレーションＩＤ
+			tableName : DBCのテーブル名
+		としたとき
+		以下の順にキーを探索し最初に合致した物の値を採用する
+			cache_size.[mid].[lid].[oid].[tableName]
+			cache_size.[mid].[lid].[oid]
+			cache_size.[mid].[lid]
+			cache_size.[mid]
+			cache_size
+		
+		例：
+		<cache_size>
+			<G><GBL0130><Srch02><CM_CALC_GRP>
+				1000
+			</CM_CALC_GRP></Srch02></GBL0130></G>
+			<G><GBL0130>
+				70
+			</GBL0130></G>
+		</cache_size>
+
+		GBL0130 の Srch02 の CM_CALC_GRP の
+		キャッシュのみ 1000件キャッシュし、
+		それ以外の GBL0130 の Srch02 のキャッシュは 
+		70件になる
+	-->
+	
+	<chk_err_upper_limit>100</chk_err_upper_limit>
+	<div_size>
+		<getItmSub3>100</getItmSub3>
+	</div_size>
+</mcframe>

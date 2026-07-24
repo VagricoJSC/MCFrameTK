@@ -1,0 +1,4 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location2.System.MG.MGBGP0120.%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MG.MGBGP0120.table_list.item0','MGBGP0120,Rslt,Rslt.table,Rslt.sub_char1,false,sub_char1'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MG.MGBGP0120.table_list.item1','MGBGP0120,Rslt,Rslt.table,Rslt.sub_char2,false,sub_char2'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MG.MGBGP0120.table_list.item2','MGBGP0120,Rslt,Rslt.table,Rslt.sub_char3,false,sub_char3'); 

@@ -1,0 +1,9 @@
+SET DEFINE OFF
+SET ESCCHAR @
+
+@".\FC7032#016.sql"
+
+SET DEFINE ON
+
+quit
+

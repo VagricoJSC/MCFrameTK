@@ -1,0 +1,214 @@
+\encoding UTF-8
+
+COMMENT ON VIEW mbt_ac_stk IS '会計在庫情報 // Accounting inventory info.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.data_no IS 'データＮＯ // #MA.IT_DAT_NO // Data No.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.wg_cd IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ac_ym IS '計上年月 // #MA.YM // Recording month';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ac_dt IS '計上日 // #MA.DT // Recording date';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_cd IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_sub1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_sub2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_sub3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_nm IS '品名 // #MA.ITM_NM // Item name';
+
+
+COMMENT ON COLUMN mbt_ac_stk.lot_no IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sublot_no IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sno1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sno2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sno3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sno4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN mbt_ac_stk.gd_cd IS '格付ＣＤ // #MA.STK_GD_CD // Grading cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.quality_typ IS '良品区分 // #MA.QUALITY_TYP // Conforming type';
+
+
+COMMENT ON COLUMN mbt_ac_stk.asst_typ IS '資産区分 // #MA.ASST_TYP // Asset type';
+
+
+COMMENT ON COLUMN mbt_ac_stk.loc_cd IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.str_ln_cd IS '棚・ラインＣＤ // #MA.STR_LN_CD // Rack/Line cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.dpt_cd IS '部門ＣＤ // #MA.AC_DPT_CD // Dept. cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.inv_com_cd IS '在庫保管先ＣＤ // #MA.BP_CD // Inventory storage destination cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.base_unit_qty IS '基準単位数量 // #MA.QTY // Base unit qty.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.base_unit_cd IS '基準単位ＣＤ // #MA.UNIT_CD // Base unit cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ac_slip_typ IS '会計伝票区分 // #MA.AC_SLIP_TYP // Accounting slip type';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ac_itm_grp_cd IS '会計品目分類ＣＤ // #MA.AC_ITM_GRP_CD // Accounting item classification cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.itm_jnl_cd IS '品目仕訳ＣＤ // #MA.ITM_JNL_CD // Item journal cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.area_cd IS '地域ＣＤ // #MA.AREA_CD // Region cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.cntry_cd IS '国ＣＤ // #MA.CNTRY_CD // Country cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.usr_cd IS '担当者ＣＤ // #MA.USR_CD // PIC cd.';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dpt_cd1 IS '予備部門ＣＤ１ // #MA.AC_DPT_CD // Spare dept. cd. 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dpt_cd2 IS '予備部門ＣＤ２ // #MA.AC_DPT_CD // Spare dept. cd. 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dpt_cd3 IS '予備部門ＣＤ３ // #MA.AC_DPT_CD // Spare dept. cd. 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key1 IS '仕訳キー項目１ // #MA.JNL_KEY1 // Journal key column 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key2 IS '仕訳キー項目２ // #MA.JNL_KEY2 // Journal key column 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key3 IS '仕訳キー項目３ // #MA.JNL_KEY3 // Journal key column 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key4 IS '仕訳キー項目４ // #MA.JNL_KEY4 // Journal key column 4';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key5 IS '仕訳キー項目５ // #MA.JNL_KEY5 // Journal key column 5';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key6 IS '仕訳キー項目６ // #MA.JNL_KEY6 // Journal key column 6';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key7 IS '仕訳キー項目７ // #MA.JNL_KEY7 // Journal key column 7';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key8 IS '仕訳キー項目８ // #MA.JNL_KEY8 // Journal key column 8';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key9 IS '仕訳キー項目９ // #MA.JNL_KEY9 // Journal key column 9';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_key10 IS '仕訳キー項目１０ // #MA.JNL_KEY10 // Journal key column 10';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char1 IS '予備ＣＨＡＲ項目１ // #MA.SUB_CHAR1 // Spare CHAR column 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char2 IS '予備ＣＨＡＲ項目２ // #MA.SUB_CHAR2 // Spare CHAR column 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char3 IS '予備ＣＨＡＲ項目３ // #MA.SUB_CHAR3 // Spare CHAR column 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char4 IS '予備ＣＨＡＲ項目４ // #MA.SUB_CHAR4 // Spare CHAR column 4';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char5 IS '予備ＣＨＡＲ項目５ // #MA.SUB_CHAR5 // Spare CHAR column 5';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char6 IS '予備ＣＨＡＲ項目６ // #MA.SUB_CHAR6 // Spare CHAR column 6';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char7 IS '予備ＣＨＡＲ項目７ // #MA.SUB_CHAR7 // Spare CHAR column 7';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char8 IS '予備ＣＨＡＲ項目８ // #MA.SUB_CHAR8 // Spare CHAR column 8';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char9 IS '予備ＣＨＡＲ項目９ // #MA.SUB_CHAR9 // Spare CHAR column 9';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_char10 IS '予備ＣＨＡＲ項目１０ // #MA.SUB_CHAR10 // Spare CHAR column 10';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_num1 IS '予備ＮＵＭ項目１ // #MA.SUB_NUM1 // Spare NUM column 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_num2 IS '予備ＮＵＭ項目２ // #MA.SUB_NUM2 // Spare NUM column 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_num3 IS '予備ＮＵＭ項目３ // #MA.SUB_NUM3 // Spare NUM column 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dt1 IS '予備ＤＡＴＥ項目１ // #MA.DT // Spare DATE column 1';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dt2 IS '予備ＤＡＴＥ項目２ // #MA.DT // Spare DATE column 2';
+
+
+COMMENT ON COLUMN mbt_ac_stk.sub_dt3 IS '予備ＤＡＴＥ項目３ // #MA.DT // Spare DATE column 3';
+
+
+COMMENT ON COLUMN mbt_ac_stk.jnl_fin_cnt IS '仕訳実行回数 // #MA.JNL_FIN_CNT // Number of journalizing';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ins_usr_id IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ins_usr_nm IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ins_ts IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN mbt_ac_stk.ins_func_id IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_cntr IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_usr_id IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_usr_nm IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_ts IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_func_id IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN mbt_ac_stk.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

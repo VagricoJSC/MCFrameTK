@@ -1,0 +1,83 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mam_gp_lcl(
+	gp_grp_cd,
+	key1,
+	key2,
+	key3,
+	key4,
+	key5,
+	key6,
+	key7,
+	key8,
+	key9,
+	key10,
+	char1,
+	char2,
+	char3,
+	char4,
+	char5,
+	char6,
+	char7,
+	char8,
+	char9,
+	char10,
+	memo1,
+	memo2,
+	memo3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no,
+	lcl_cd
+	)
+AS
+SELECT
+	mam_gp_lcl_mam_gp_lcl_all_org.gp_grp_cd,
+	mam_gp_lcl_mam_gp_lcl_all_org.key1,
+	mam_gp_lcl_mam_gp_lcl_all_org.key2,
+	mam_gp_lcl_mam_gp_lcl_all_org.key3,
+	mam_gp_lcl_mam_gp_lcl_all_org.key4,
+	mam_gp_lcl_mam_gp_lcl_all_org.key5,
+	mam_gp_lcl_mam_gp_lcl_all_org.key6,
+	mam_gp_lcl_mam_gp_lcl_all_org.key7,
+	mam_gp_lcl_mam_gp_lcl_all_org.key8,
+	mam_gp_lcl_mam_gp_lcl_all_org.key9,
+	mam_gp_lcl_mam_gp_lcl_all_org.key10,
+	mam_gp_lcl_mam_gp_lcl_all_org.char1,
+	mam_gp_lcl_mam_gp_lcl_all_org.char2,
+	mam_gp_lcl_mam_gp_lcl_all_org.char3,
+	mam_gp_lcl_mam_gp_lcl_all_org.char4,
+	mam_gp_lcl_mam_gp_lcl_all_org.char5,
+	mam_gp_lcl_mam_gp_lcl_all_org.char6,
+	mam_gp_lcl_mam_gp_lcl_all_org.char7,
+	mam_gp_lcl_mam_gp_lcl_all_org.char8,
+	mam_gp_lcl_mam_gp_lcl_all_org.char9,
+	mam_gp_lcl_mam_gp_lcl_all_org.char10,
+	mam_gp_lcl_mam_gp_lcl_all_org.memo1,
+	mam_gp_lcl_mam_gp_lcl_all_org.memo2,
+	mam_gp_lcl_mam_gp_lcl_all_org.memo3,
+	mam_gp_lcl_mam_gp_lcl_all_org.ins_usr_id,
+	mam_gp_lcl_mam_gp_lcl_all_org.ins_usr_nm,
+	mam_gp_lcl_mam_gp_lcl_all_org.ins_ts,
+	mam_gp_lcl_mam_gp_lcl_all_org.ins_func_id,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_cntr,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_usr_id,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_usr_nm,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_ts,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_func_id,
+	mam_gp_lcl_mam_gp_lcl_all_org.upd_srv_req_no,
+	mam_gp_lcl_mam_gp_lcl_all_org.lcl_cd
+FROM
+	mam_gp_lcl_all mam_gp_lcl_mam_gp_lcl_all_org
+WHERE
+	0 = 0
+	AND mam_gp_lcl_mam_gp_lcl_all_org.co_cd = (SELECT co_cd FROM fct_context mam_gp_lcl_fct_context WHERE pid = pg_backend_pid())
+;
+

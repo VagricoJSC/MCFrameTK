@@ -1,0 +1,113 @@
+package mcframe.serverMSBB.MSBBL1320;
+
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.annotation.EI;
+
+/**
+ * ブロック"Chk03_SlsActDtl"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>alias</th>
+ *  	<th>項目名</th>
+ *  	<th>フルネーム</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>INNERROW/COLUMNPATH</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sad</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.serverMS.dbc.MST_SLS_ACT_D_R}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>tax_rate</td>
+ *  	<td>Tax rate</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#TAX_RATE TAX_RATE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>tax_typ</td>
+ *  	<td>Tax type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#TAX_TYP TAX_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inc_tax_flg</td>
+ *  	<td>Tax inclusive</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>data_crud_typ</td>
+ *  	<td>Data update type</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DATA_CRUD_TYP DATA_CRUD_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>abort_flg</td>
+ *  	<td>Cancel remaining</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dscnt_itm_flg</td>
+ *  	<td>Discount item</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。
+ */
+@EI
+public class Chk03_SlsActDtlR extends Chk03_SlsActDtlR_MC_A {
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static Chk03_SlsActDtlR create() {
+		Chk03_SlsActDtlR row = new Chk03_SlsActDtlR(constMetas);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> Chk03_SlsActDtlR createByName(T proto) {
+		Chk03_SlsActDtlR row = Chk03_SlsActDtlR.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	public Chk03_SlsActDtlR(ConstMetaList<? extends Chk03_SlsActDtlR> metas) {
+		super(metas);
+	}
+}

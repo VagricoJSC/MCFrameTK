@@ -1,0 +1,1883 @@
+package mcframe.serverMS.dbc;
+
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCNumberPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCDatePermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCTimestampPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCBooleanPermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "受注納期回答ヘッダ // Sales order promising header"DBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>slo_prms_h_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>受注納期回答ヘッダＮＯ</td>
+ *  	<td>Order promising header No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_prms_rev</td>
+ *  	<td>N</td>
+ *  	<td>4,0</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>受注納期回答改訂番号</td>
+ *  	<td>Sales order promising Rev. No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>last_prms_rev</td>
+ *  	<td>N</td>
+ *  	<td>4,0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>納期回答書改訂番号</td>
+ *  	<td>Order promising note rev. number</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_d_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>受注明細ＮＯ</td>
+ *  	<td>Sales order details No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>edi_prms_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ＥＤＩ納期回答ＦＬＧ</td>
+ *  	<td>EDI order promising flg.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>prms_prnt_tm</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>納期回答書発行日時</td>
+ *  	<td>Order promising note issue date and time</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_prms_prnt_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>受注納期回答書発行済ＦＬＧ</td>
+ *  	<td>Sales order promising note issued flg.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>can_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>取消ＦＬＧ</td>
+ *  	<td>Cancel flg.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char1</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備１</td>
+ *  	<td>Spare 1</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char2</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備２</td>
+ *  	<td>Spare 2</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char3</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備３</td>
+ *  	<td>Spare 3</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ins_usr_id</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録ユーザＩＤ</td>
+ *  	<td>Entry user ID</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ins_usr_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録ユーザ名</td>
+ *  	<td>Entry user name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ins_ts</td>
+ *  	<td>TS</td>
+ *  	<td>0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録日時</td>
+ *  	<td>Entry date and time</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ins_func_id</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録機能ＩＤ</td>
+ *  	<td>Entry function ID</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_cntr</td>
+ *  	<td>N</td>
+ *  	<td>9,0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新カウンタ</td>
+ *  	<td>Update counter</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_usr_id</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新ユーザＩＤ</td>
+ *  	<td>Update user ID</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_usr_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新ユーザ名</td>
+ *  	<td>Update user name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_ts</td>
+ *  	<td>TS</td>
+ *  	<td>0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新日時</td>
+ *  	<td>Update date and time</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_func_id</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新機能ＩＤ</td>
+ *  	<td>Update function ID</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_srv_req_no</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新リクエストＮＯ</td>
+ *  	<td>Update request No.</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MST_SLO_PRMS_H_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.CO_VIEW;
+
+	public static final String TABLE_NAME = "MST_SLO_PRMS_H";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * 受注納期回答ヘッダＮＯ. Order promising header No..<p>
+	 *
+	 */
+	public static final String $slo_prms_h_no = "slo_prms_h_no";
+	private static final MCPermColumnInfo _slo_prms_h_no = createColumnInfo("slo_prms_h_no");
+	public final MCStringPermColumn slo_prms_h_no = createStringColumn(_slo_prms_h_no);
+	
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public static final String $slo_prms_rev = "slo_prms_rev";
+	private static final MCPermColumnInfo _slo_prms_rev = createColumnInfo("slo_prms_rev");
+	public final MCNumberPermColumn slo_prms_rev = createNumberColumn(_slo_prms_rev);
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public static final String $last_prms_rev = "last_prms_rev";
+	private static final MCPermColumnInfo _last_prms_rev = createColumnInfo("last_prms_rev");
+	public final MCNumberPermColumn last_prms_rev = createNumberColumn(_last_prms_rev);
+	
+	/**
+	 * 受注明細ＮＯ. Sales order details No..<p>
+	 *
+	 */
+	public static final String $slo_d_no = "slo_d_no";
+	private static final MCPermColumnInfo _slo_d_no = createColumnInfo("slo_d_no");
+	public final MCStringPermColumn slo_d_no = createStringColumn(_slo_d_no);
+	
+	/**
+	 * ＥＤＩ納期回答ＦＬＧ. EDI order promising flg..<p>
+	 *
+	 */
+	public static final String $edi_prms_flg = "edi_prms_flg";
+	private static final MCPermColumnInfo _edi_prms_flg = createColumnInfo("edi_prms_flg");
+	public final MCBooleanPermColumn edi_prms_flg = createBooleanColumn(_edi_prms_flg);
+	
+	/**
+	 * 納期回答書発行日時. Order promising note issue date and time.<p>
+	 *
+	 */
+	public static final String $prms_prnt_tm = "prms_prnt_tm";
+	private static final MCPermColumnInfo _prms_prnt_tm = createColumnInfo("prms_prnt_tm");
+	public final MCDatePermColumn prms_prnt_tm = createDateColumn(_prms_prnt_tm);
+	
+	/**
+	 * 受注納期回答書発行済ＦＬＧ. Sales order promising note issued flg..<p>
+	 *
+	 */
+	public static final String $slo_prms_prnt_flg = "slo_prms_prnt_flg";
+	private static final MCPermColumnInfo _slo_prms_prnt_flg = createColumnInfo("slo_prms_prnt_flg");
+	public final MCBooleanPermColumn slo_prms_prnt_flg = createBooleanColumn(_slo_prms_prnt_flg);
+	
+	/**
+	 * 取消ＦＬＧ. Cancel flg..<p>
+	 *
+	 */
+	public static final String $can_flg = "can_flg";
+	private static final MCPermColumnInfo _can_flg = createColumnInfo("can_flg");
+	public final MCBooleanPermColumn can_flg = createBooleanColumn(_can_flg);
+	
+	/**
+	 * 予備１. Spare 1.<p>
+	 *
+	 */
+	public static final String $sub_char1 = "sub_char1";
+	private static final MCPermColumnInfo _sub_char1 = createColumnInfo("sub_char1");
+	public final MCStringPermColumn sub_char1 = createStringColumn(_sub_char1);
+	
+	/**
+	 * 予備２. Spare 2.<p>
+	 *
+	 */
+	public static final String $sub_char2 = "sub_char2";
+	private static final MCPermColumnInfo _sub_char2 = createColumnInfo("sub_char2");
+	public final MCStringPermColumn sub_char2 = createStringColumn(_sub_char2);
+	
+	/**
+	 * 予備３. Spare 3.<p>
+	 *
+	 */
+	public static final String $sub_char3 = "sub_char3";
+	private static final MCPermColumnInfo _sub_char3 = createColumnInfo("sub_char3");
+	public final MCStringPermColumn sub_char3 = createStringColumn(_sub_char3);
+	
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public static final String $ins_usr_id = "ins_usr_id";
+	private static final MCPermColumnInfo _ins_usr_id = createColumnInfo("ins_usr_id");
+	public final MCStringPermColumn ins_usr_id = createStringColumn(_ins_usr_id);
+	
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public static final String $ins_usr_nm = "ins_usr_nm";
+	private static final MCPermColumnInfo _ins_usr_nm = createColumnInfo("ins_usr_nm");
+	public final MCStringPermColumn ins_usr_nm = createStringColumn(_ins_usr_nm);
+	
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public static final String $ins_ts = "ins_ts";
+	private static final MCPermColumnInfo _ins_ts = createColumnInfo("ins_ts");
+	public final MCTimestampPermColumn ins_ts = createTimestampColumn(_ins_ts);
+	
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public static final String $ins_func_id = "ins_func_id";
+	private static final MCPermColumnInfo _ins_func_id = createColumnInfo("ins_func_id");
+	public final MCStringPermColumn ins_func_id = createStringColumn(_ins_func_id);
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public static final String $upd_cntr = "upd_cntr";
+	private static final MCPermColumnInfo _upd_cntr = createColumnInfo("upd_cntr");
+	public final MCNumberPermColumn upd_cntr = createNumberColumn(_upd_cntr);
+	
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public static final String $upd_usr_id = "upd_usr_id";
+	private static final MCPermColumnInfo _upd_usr_id = createColumnInfo("upd_usr_id");
+	public final MCStringPermColumn upd_usr_id = createStringColumn(_upd_usr_id);
+	
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public static final String $upd_usr_nm = "upd_usr_nm";
+	private static final MCPermColumnInfo _upd_usr_nm = createColumnInfo("upd_usr_nm");
+	public final MCStringPermColumn upd_usr_nm = createStringColumn(_upd_usr_nm);
+	
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public static final String $upd_ts = "upd_ts";
+	private static final MCPermColumnInfo _upd_ts = createColumnInfo("upd_ts");
+	public final MCTimestampPermColumn upd_ts = createTimestampColumn(_upd_ts);
+	
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public static final String $upd_func_id = "upd_func_id";
+	private static final MCPermColumnInfo _upd_func_id = createColumnInfo("upd_func_id");
+	public final MCStringPermColumn upd_func_id = createStringColumn(_upd_func_id);
+	
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public static final String $upd_srv_req_no = "upd_srv_req_no";
+	private static final MCPermColumnInfo _upd_srv_req_no = createColumnInfo("upd_srv_req_no");
+	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
+	
+	public static final MCMeta slo_prms_h_no_META = createCommonMeta($slo_prms_h_no, mcframe.commonMA.meta.MA_META.SLO_PRMS_H_NO);
+	public static final MCMeta slo_prms_rev_META = createCommonMeta($slo_prms_rev, mcframe.commonMA.meta.MA_META.SLIP_REV);
+	public static final MCMeta last_prms_rev_META = createCommonMeta($last_prms_rev, mcframe.commonMA.meta.MA_META.SLIP_REV);
+	public static final MCMeta slo_d_no_META = createCommonMeta($slo_d_no, mcframe.commonMA.meta.MA_META.SLO_D_NO);
+	public static final MCMeta edi_prms_flg_META = createCommonMeta($edi_prms_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta prms_prnt_tm_META = createCommonMeta($prms_prnt_tm, mcframe.commonMA.meta.MA_META.TM);
+	public static final MCMeta slo_prms_prnt_flg_META = createCommonMeta($slo_prms_prnt_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta can_flg_META = createCommonMeta($can_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta sub_char1_META = createCommonMeta($sub_char1, mcframe.commonMS.meta.MS_META.SLO_PRMS_H_SUB_CHAR1);
+	public static final MCMeta sub_char2_META = createCommonMeta($sub_char2, mcframe.commonMS.meta.MS_META.SLO_PRMS_H_SUB_CHAR2);
+	public static final MCMeta sub_char3_META = createCommonMeta($sub_char3, mcframe.commonMS.meta.MS_META.SLO_PRMS_H_SUB_CHAR3);
+	public static final MCMeta ins_usr_id_META = createCommonMeta($ins_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta ins_usr_nm_META = createCommonMeta($ins_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta ins_ts_META = createCommonMeta($ins_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta ins_func_id_META = createCommonMeta($ins_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta upd_cntr_META = createCommonMeta($upd_cntr, mcframe.commonMA.meta.MA_META.UPD_CNT);
+	public static final MCMeta upd_usr_id_META = createCommonMeta($upd_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta upd_usr_nm_META = createCommonMeta($upd_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	static {
+	}
+	
+	protected static final ConstMetaList<MST_SLO_PRMS_H_R> constMetas = new ConstMetaList<MST_SLO_PRMS_H_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			slo_prms_h_no_META,
+			slo_prms_rev_META,
+			last_prms_rev_META,
+			slo_d_no_META,
+			edi_prms_flg_META,
+			prms_prnt_tm_META,
+			slo_prms_prnt_flg_META,
+			can_flg_META,
+			sub_char1_META,
+			sub_char2_META,
+			sub_char3_META,
+			ins_usr_id_META,
+			ins_usr_nm_META,
+			ins_ts_META,
+			ins_func_id_META,
+			upd_cntr_META,
+			upd_usr_id_META,
+			upd_usr_nm_META,
+			upd_ts_META,
+			upd_func_id_META,
+			upd_srv_req_no_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MST_SLO_PRMS_H_R(ConstMetaList<? extends MST_SLO_PRMS_H_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MST_SLO_PRMS_H_R(ConstMetaList<? extends MST_SLO_PRMS_H_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$slo_prms_h_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$slo_prms_h_no,
+				"slo_prms_h_no",
+				slo_prms_h_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$slo_prms_rev,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_PRMS_H_R.$slo_prms_rev,
+				"slo_prms_rev",
+				slo_prms_rev,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$last_prms_rev,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_PRMS_H_R.$last_prms_rev,
+				"last_prms_rev",
+				last_prms_rev,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$slo_d_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$slo_d_no,
+				"slo_d_no",
+				slo_d_no,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$edi_prms_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_PRMS_H_R.$edi_prms_flg,
+				"edi_prms_flg",
+				edi_prms_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$prms_prnt_tm,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_PRMS_H_R.$prms_prnt_tm,
+				"prms_prnt_tm",
+				prms_prnt_tm,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$slo_prms_prnt_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_PRMS_H_R.$slo_prms_prnt_flg,
+				"slo_prms_prnt_flg",
+				slo_prms_prnt_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$can_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_PRMS_H_R.$can_flg,
+				"can_flg",
+				can_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$sub_char1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$sub_char1,
+				"sub_char1",
+				sub_char1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$sub_char2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$sub_char2,
+				"sub_char2",
+				sub_char2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$sub_char3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$sub_char3,
+				"sub_char3",
+				sub_char3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$ins_usr_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$ins_usr_id,
+				"ins_usr_id",
+				ins_usr_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$ins_usr_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$ins_usr_nm,
+				"ins_usr_nm",
+				ins_usr_nm,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$ins_ts,
+			new MCDBContainerColulmnInfo<MCTimestampPermColumn>(
+				MCDataType.TIMESTAMP,
+				MST_SLO_PRMS_H_R.$ins_ts,
+				"ins_ts",
+				ins_ts,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$ins_func_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$ins_func_id,
+				"ins_func_id",
+				ins_func_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_cntr,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_PRMS_H_R.$upd_cntr,
+				"upd_cntr",
+				upd_cntr,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_usr_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$upd_usr_id,
+				"upd_usr_id",
+				upd_usr_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_usr_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$upd_usr_nm,
+				"upd_usr_nm",
+				upd_usr_nm,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_ts,
+			new MCDBContainerColulmnInfo<MCTimestampPermColumn>(
+				MCDataType.TIMESTAMP,
+				MST_SLO_PRMS_H_R.$upd_ts,
+				"upd_ts",
+				upd_ts,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_func_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$upd_func_id,
+				"upd_func_id",
+				upd_func_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_PRMS_H_R.$upd_srv_req_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_PRMS_H_R.$upd_srv_req_no,
+				"upd_srv_req_no",
+				upd_srv_req_no,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MST_SLO_PRMS_H_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MST_SLO_PRMS_H_R create(String alias) {
+		MST_SLO_PRMS_H_R row = new MST_SLO_PRMS_H_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MST_SLO_PRMS_H_R createByName(T proto) {
+		MST_SLO_PRMS_H_R row = MST_SLO_PRMS_H_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MST_SLO_PRMS_H_R clone() {
+		return (MST_SLO_PRMS_H_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MST_SLO_PRMS_H_R createInstance() {
+		return (MST_SLO_PRMS_H_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MST_SLO_PRMS_H_R getValues(String... names) {
+		return (MST_SLO_PRMS_H_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return true;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MSW_SLO_PRMS_H_KEY_R getPkWorkDbc(String alias) {
+	 	return MSW_SLO_PRMS_H_KEY_R.create(alias);
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MSW_SLO_PRMS_H_KEY_R getPkWorkDbc() {
+	 	return getPkWorkDbc(MSW_SLO_PRMS_H_KEY_R.TABLE_NAME);
+	 }
+
+	/**
+	 * 受注納期回答ヘッダＮＯ. Order promising header No..<p>
+	 *
+	 */
+	public String slo_prms_h_no() {
+		return getConstString(offset + 0, $slo_prms_h_no);
+	}
+
+	/**
+	 * 受注納期回答ヘッダＮＯ. Order promising header No..<p>
+	 *
+	 */
+	public void slo_prms_h_no(String value) {
+		setConstString(offset + 0, $slo_prms_h_no, value);
+	}
+
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public MCNumber slo_prms_rev() {
+		return getConstNumber(offset + 1, $slo_prms_rev);
+	}
+
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public void slo_prms_rev(MCNumber value) {
+		setConstNumber(offset + 1, $slo_prms_rev, value);
+	}
+	
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public void slo_prms_rev(int value) {
+		setConstNumber(offset + 1, $slo_prms_rev, value);
+	}
+	
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public void slo_prms_rev(long value) {
+		setConstNumber(offset + 1, $slo_prms_rev, value);
+	}
+	
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public void slo_prms_rev(float value) {
+		setConstNumber(offset + 1, $slo_prms_rev, value);
+	}
+	
+	/**
+	 * 受注納期回答改訂番号. Sales order promising Rev. No..<p>
+	 *
+	 */
+	public void slo_prms_rev(double value) {
+		setConstNumber(offset + 1, $slo_prms_rev, value);
+	}
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public MCNumber last_prms_rev() {
+		return getConstNumber(offset + 2, $last_prms_rev);
+	}
+
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public void last_prms_rev(MCNumber value) {
+		setConstNumber(offset + 2, $last_prms_rev, value);
+	}
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public void last_prms_rev(int value) {
+		setConstNumber(offset + 2, $last_prms_rev, value);
+	}
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public void last_prms_rev(long value) {
+		setConstNumber(offset + 2, $last_prms_rev, value);
+	}
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public void last_prms_rev(float value) {
+		setConstNumber(offset + 2, $last_prms_rev, value);
+	}
+	
+	/**
+	 * 納期回答書改訂番号. Order promising note rev. number.<p>
+	 *
+	 */
+	public void last_prms_rev(double value) {
+		setConstNumber(offset + 2, $last_prms_rev, value);
+	}
+	
+	/**
+	 * 受注明細ＮＯ. Sales order details No..<p>
+	 *
+	 */
+	public String slo_d_no() {
+		return getConstString(offset + 3, $slo_d_no);
+	}
+
+	/**
+	 * 受注明細ＮＯ. Sales order details No..<p>
+	 *
+	 */
+	public void slo_d_no(String value) {
+		setConstString(offset + 3, $slo_d_no, value);
+	}
+
+	/**
+	 * ＥＤＩ納期回答ＦＬＧ. EDI order promising flg..<p>
+	 *
+	 */
+	public boolean edi_prms_flg() {
+		return getConstBoolean(offset + 4, $edi_prms_flg);
+	}
+
+	/**
+	 * ＥＤＩ納期回答ＦＬＧ. EDI order promising flg..<p>
+	 *
+	 */
+	public void edi_prms_flg(boolean value) {
+		setConstBoolean(offset + 4, $edi_prms_flg, value);
+	}
+
+	/**
+	 * 納期回答書発行日時. Order promising note issue date and time.<p>
+	 *
+	 */
+	public MCDate prms_prnt_tm() {
+		return getConstDate(offset + 5, $prms_prnt_tm);
+	}
+
+	/**
+	 * 納期回答書発行日時. Order promising note issue date and time.<p>
+	 *
+	 */
+	public void prms_prnt_tm(MCDate value) {
+		setConstDate(offset + 5, $prms_prnt_tm, value);
+	}
+
+	/**
+	 * 受注納期回答書発行済ＦＬＧ. Sales order promising note issued flg..<p>
+	 *
+	 */
+	public boolean slo_prms_prnt_flg() {
+		return getConstBoolean(offset + 6, $slo_prms_prnt_flg);
+	}
+
+	/**
+	 * 受注納期回答書発行済ＦＬＧ. Sales order promising note issued flg..<p>
+	 *
+	 */
+	public void slo_prms_prnt_flg(boolean value) {
+		setConstBoolean(offset + 6, $slo_prms_prnt_flg, value);
+	}
+
+	/**
+	 * 取消ＦＬＧ. Cancel flg..<p>
+	 *
+	 */
+	public boolean can_flg() {
+		return getConstBoolean(offset + 7, $can_flg);
+	}
+
+	/**
+	 * 取消ＦＬＧ. Cancel flg..<p>
+	 *
+	 */
+	public void can_flg(boolean value) {
+		setConstBoolean(offset + 7, $can_flg, value);
+	}
+
+	/**
+	 * 予備１. Spare 1.<p>
+	 *
+	 */
+	public String sub_char1() {
+		return getConstString(offset + 8, $sub_char1);
+	}
+
+	/**
+	 * 予備１. Spare 1.<p>
+	 *
+	 */
+	public void sub_char1(String value) {
+		setConstString(offset + 8, $sub_char1, value);
+	}
+
+	/**
+	 * 予備２. Spare 2.<p>
+	 *
+	 */
+	public String sub_char2() {
+		return getConstString(offset + 9, $sub_char2);
+	}
+
+	/**
+	 * 予備２. Spare 2.<p>
+	 *
+	 */
+	public void sub_char2(String value) {
+		setConstString(offset + 9, $sub_char2, value);
+	}
+
+	/**
+	 * 予備３. Spare 3.<p>
+	 *
+	 */
+	public String sub_char3() {
+		return getConstString(offset + 10, $sub_char3);
+	}
+
+	/**
+	 * 予備３. Spare 3.<p>
+	 *
+	 */
+	public void sub_char3(String value) {
+		setConstString(offset + 10, $sub_char3, value);
+	}
+
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public String ins_usr_id() {
+		return getConstString(offset + 11, $ins_usr_id);
+	}
+
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public void ins_usr_id(String value) {
+		setConstString(offset + 11, $ins_usr_id, value);
+	}
+
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public String ins_usr_nm() {
+		return getConstString(offset + 12, $ins_usr_nm);
+	}
+
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public void ins_usr_nm(String value) {
+		setConstString(offset + 12, $ins_usr_nm, value);
+	}
+
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public MCTimestamp ins_ts() {
+		return getConstTimestamp(offset + 13, $ins_ts);
+	}
+
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public void ins_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 13, $ins_ts, value);
+	}
+
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public String ins_func_id() {
+		return getConstString(offset + 14, $ins_func_id);
+	}
+
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public void ins_func_id(String value) {
+		setConstString(offset + 14, $ins_func_id, value);
+	}
+
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public MCNumber upd_cntr() {
+		return getConstNumber(offset + 15, $upd_cntr);
+	}
+
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(MCNumber value) {
+		setConstNumber(offset + 15, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(int value) {
+		setConstNumber(offset + 15, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(long value) {
+		setConstNumber(offset + 15, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(float value) {
+		setConstNumber(offset + 15, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(double value) {
+		setConstNumber(offset + 15, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public String upd_usr_id() {
+		return getConstString(offset + 16, $upd_usr_id);
+	}
+
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public void upd_usr_id(String value) {
+		setConstString(offset + 16, $upd_usr_id, value);
+	}
+
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public String upd_usr_nm() {
+		return getConstString(offset + 17, $upd_usr_nm);
+	}
+
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public void upd_usr_nm(String value) {
+		setConstString(offset + 17, $upd_usr_nm, value);
+	}
+
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public MCTimestamp upd_ts() {
+		return getConstTimestamp(offset + 18, $upd_ts);
+	}
+
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public void upd_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 18, $upd_ts, value);
+	}
+
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public String upd_func_id() {
+		return getConstString(offset + 19, $upd_func_id);
+	}
+
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public void upd_func_id(String value) {
+		setConstString(offset + 19, $upd_func_id, value);
+	}
+
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public String upd_srv_req_no() {
+		return getConstString(offset + 20, $upd_srv_req_no);
+	}
+
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public void upd_srv_req_no(String value) {
+		setConstString(offset + 20, $upd_srv_req_no, value);
+	}
+
+	public String getString(String name) {
+		if ($slo_prms_h_no.equalsIgnoreCase(name)) {
+			return slo_prms_h_no();
+		}
+		if ($slo_d_no.equalsIgnoreCase(name)) {
+			return slo_d_no();
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			return sub_char1();
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			return sub_char2();
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			return sub_char3();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		return super.getString(name);
+	}
+
+	public MCNumber getNumber(String name) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			return slo_prms_rev();
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			return last_prms_rev();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumber(name);
+	}
+
+	public MCDate getDate(String name) {
+		if ($prms_prnt_tm.equalsIgnoreCase(name)) {
+			return prms_prnt_tm();
+		}
+		return super.getDate(name);
+	}
+
+	public MCTimestamp getTimestamp(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		return super.getTimestamp(name);
+	}
+
+	public boolean getBoolean(String name) {
+		if ($edi_prms_flg.equalsIgnoreCase(name)) {
+			return edi_prms_flg();
+		}
+		if ($slo_prms_prnt_flg.equalsIgnoreCase(name)) {
+			return slo_prms_prnt_flg();
+		}
+		if ($can_flg.equalsIgnoreCase(name)) {
+			return can_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($slo_prms_h_no.equalsIgnoreCase(name)) {
+			return slo_prms_h_no();
+		}
+		if ($slo_d_no.equalsIgnoreCase(name)) {
+			return slo_d_no();
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			return sub_char1();
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			return sub_char2();
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			return sub_char3();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		return super.getStringNE(name);
+	}
+
+	public MCNumber getNumberNE(String name) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			return slo_prms_rev();
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			return last_prms_rev();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumberNE(name);
+	}
+
+	public MCDate getDateNE(String name) {
+		if ($prms_prnt_tm.equalsIgnoreCase(name)) {
+			return prms_prnt_tm();
+		}
+		return super.getDateNE(name);
+	}
+
+	public MCTimestamp getTimestampNE(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		return super.getTimestampNE(name);
+	}
+
+	public boolean getBooleanNE(String name) {
+		if ($edi_prms_flg.equalsIgnoreCase(name)) {
+			return edi_prms_flg();
+		}
+		if ($slo_prms_prnt_flg.equalsIgnoreCase(name)) {
+			return slo_prms_prnt_flg();
+		}
+		if ($can_flg.equalsIgnoreCase(name)) {
+			return can_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($slo_prms_h_no.equalsIgnoreCase(name)) {
+			slo_prms_h_no(value);
+			return;
+		}
+		if ($slo_d_no.equalsIgnoreCase(name)) {
+			slo_d_no(value);
+			return;
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			sub_char1(value);
+			return;
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			sub_char2(value);
+			return;
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			sub_char3(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setNumber(String name, MCNumber value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, int value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, long value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, float value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, double value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setDate(String name, MCDate value) {
+		if ($prms_prnt_tm.equalsIgnoreCase(name)) {
+			prms_prnt_tm(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+
+	public void setTimestamp(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		super.setTimestamp(name, value);
+	}
+
+	public void setBoolean(String name, boolean value) {
+		if ($edi_prms_flg.equalsIgnoreCase(name)) {
+			edi_prms_flg(value);
+			return;
+		}
+		if ($slo_prms_prnt_flg.equalsIgnoreCase(name)) {
+			slo_prms_prnt_flg(value);
+			return;
+		}
+		if ($can_flg.equalsIgnoreCase(name)) {
+			can_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($slo_prms_h_no.equalsIgnoreCase(name)) {
+			slo_prms_h_no(value);
+			return;
+		}
+		if ($slo_d_no.equalsIgnoreCase(name)) {
+			slo_d_no(value);
+			return;
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			sub_char1(value);
+			return;
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			sub_char2(value);
+			return;
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			sub_char3(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setNumberNE(String name, MCNumber value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, int value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, long value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, float value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, double value) {
+		if ($slo_prms_rev.equalsIgnoreCase(name)) {
+			slo_prms_rev(value);
+			return;
+		}
+		if ($last_prms_rev.equalsIgnoreCase(name)) {
+			last_prms_rev(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setDateNE(String name, MCDate value) {
+		if ($prms_prnt_tm.equalsIgnoreCase(name)) {
+			prms_prnt_tm(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+
+	public void setTimestampNE(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		super.setTimestampNE(name, value);
+	}
+
+	public void setBooleanNE(String name, boolean value) {
+		if ($edi_prms_flg.equalsIgnoreCase(name)) {
+			edi_prms_flg(value);
+			return;
+		}
+		if ($slo_prms_prnt_flg.equalsIgnoreCase(name)) {
+			slo_prms_prnt_flg(value);
+			return;
+		}
+		if ($can_flg.equalsIgnoreCase(name)) {
+			can_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+}

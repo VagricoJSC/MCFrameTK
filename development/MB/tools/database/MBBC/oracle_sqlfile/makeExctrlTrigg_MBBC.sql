@@ -1,0 +1,4 @@
+SET ESCCHAR @
+
+@".\U_TR\MBT_ATTACHMENT_ALL_TR_U.sql"
+

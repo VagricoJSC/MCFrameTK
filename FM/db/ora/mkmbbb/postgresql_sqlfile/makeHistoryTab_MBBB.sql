@@ -1,0 +1,68 @@
+\encoding UTF-8
+
+\i ./HST_TAB/deleteHistoryTab_MBBB1.sql
+
+\i ./HST_TAB/deleteHistoryTab_MBBB2.sql
+
+\i ./HST_TAB/deleteHistoryTab_MBBB3.sql
+
+\i ./HST_TAB/deleteHistoryTab_MBBB4.sql
+
+\i ./HST_TAB/MBT_AC_IO_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_STK_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_COST_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_RCV_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_NOTE_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_PAY_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_SCHD_PAY_ALL_R.sql
+
+\i ./HST_TAB/MBT_JOURNAL_ALL_R.sql
+
+\i ./HST_TAB/MBT_JNL_HISTORY_ALL_R.sql
+
+\i ./HST_TAB/MBT_JNL_HISTORYD_ALL_R.sql
+
+\i ./HST_TAB/MBT_JNL_NO_CTL_ALL_R.sql
+
+\i ./HST_TAB/MBT_JNL_GRP_NO_CTL_ALL_R.sql
+
+\i ./HST_TAB/MBT_NOTE_HISTORY_ALL_R.sql
+
+\i ./HST_TAB/MBT_ACCOUNT_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_SUB_ACCOUNT_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_DPT_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BANK_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BANK_BRANCH_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BANK_AC_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_CUR_XRATE_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_AC_TAX_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BAC_AC_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_JOURNAL_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_NOTE_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BP_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_SCHD_PAY_HISTORY_ALL_R.sql
+
+\i ./HST_TAB/MBT_SCHD_PAY_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_SLS_SLIP_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_PURC_SLIP_SND_IF_ALL_R.sql
+

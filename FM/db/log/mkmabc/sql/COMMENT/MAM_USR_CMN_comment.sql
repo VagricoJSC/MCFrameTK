@@ -1,0 +1,165 @@
+
+COMMENT ON TABLE MAM_USR_CMN IS '担当者マスタ_（共通）_ // PIC master_(Common)_';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_CD IS '担当者ＣＤ // #MA.USR_CD // PIC cd.';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_NM IS '担当者名 // #MA.USR_NM // PIC name';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_ALT_NM1 IS '担当者別名１ // #MA.USR_LNM1 // PIC alias name 1';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_ALT_NM2 IS '担当者別名２ // #MA.USR_LNM2 // PIC alias name 2';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_ALT_NM3 IS '担当者別名３ // #MA.USR_LNM3 // PIC alias name 3';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_ALT_NM4 IS '担当者別名４ // #MA.USR_LNM4 // PIC alias name 4';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.FULL_DA_FLG IS 'フルデータアクセスＦＬＧ // #MA.FLG // Full data access';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.EMAIL1 IS 'Ｅ－ｍａｉｌ１ // #MA.EMAIL // E-mail 1';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.EMAIL2 IS 'Ｅ－ｍａｉｌ２ // #MA.EMAIL // E-mail 2';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.EMAIL3 IS 'Ｅ－ｍａｉｌ３ // #MA.EMAIL // E-mail 3';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.TEL1 IS 'ＴＥＬ１ // #MA.TEL // TEL 1';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.TEL2 IS 'ＴＥＬ２ // #MA.TEL // TEL 2';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.TEL3 IS 'ＴＥＬ３ // #MA.TEL // TEL 3';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.TH_IMAGE IS 'サムネイル画像 // #MA.BIN // Thumbnail image';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_COM_TYP IS '社員区分 // #MA.USR_COM_TYP // Employee type';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_COM IS '所属会社 // #MA.USR_COM // Affiliation company';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.WK_COST_CD IS '工数管理ＣＤ // #MA.WK_COST_CD // Work element cd.';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO1 IS '担当者情報１ // #MA.USR_INFO1 // PIC info. 1';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO2 IS '担当者情報２ // #MA.USR_INFO2 // PIC info. 2';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO3 IS '担当者情報３ // #MA.USR_INFO3 // PIC info. 3';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO4 IS '担当者情報４ // #MA.USR_INFO4 // PIC info. 4';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO5 IS '担当者情報５ // #MA.USR_INFO5 // PIC info. 5';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO6 IS '担当者情報６ // #MA.USR_INFO6 // PIC info. 6';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO7 IS '担当者情報７ // #MA.USR_INFO7 // PIC info. 7';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO8 IS '担当者情報８ // #MA.USR_INFO8 // PIC info. 8';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO9 IS '担当者情報９ // #MA.USR_INFO9 // PIC info. 9';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO10 IS '担当者情報１０ // #MA.USR_INFO10 // PIC info. 10';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO11 IS '担当者情報１１ // #MA.USR_INFO11 // PIC info. 11';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO12 IS '担当者情報１２ // #MA.USR_INFO12 // PIC info. 12';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO13 IS '担当者情報１３ // #MA.USR_INFO13 // PIC info. 13';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO14 IS '担当者情報１４ // #MA.USR_INFO14 // PIC info. 14';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO15 IS '担当者情報１５ // #MA.USR_INFO15 // PIC info. 15';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO16 IS '担当者情報１６ // #MA.USR_INFO16 // PIC info. 16';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO17 IS '担当者情報１７ // #MA.USR_INFO17 // PIC info. 17';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO18 IS '担当者情報１８ // #MA.USR_INFO18 // PIC info. 18';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO19 IS '担当者情報１９ // #MA.USR_INFO19 // PIC info. 19';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.USR_INFO20 IS '担当者情報２０ // #MA.USR_INFO20 // PIC info. 20';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.MEMO1 IS 'メモ１ // #MA.MST_MEMO1 // Memo 1';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.MEMO2 IS 'メモ２ // #MA.MST_MEMO2 // Memo 2';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.MEMO3 IS 'メモ３ // #MA.MST_MEMO3 // Memo 3';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.DEL_FLG IS '論理削除ＦＬＧ // #MA.FLG // Logical delete flg.';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.DEL_USR_ID IS '論理削除ユーザＩＤ // #MA.FCM_USR_ID // Logical delete user ID';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.DEL_USR_NM IS '論理削除ユーザ名 // #MA.FCM_USR_NM // Logical delete user name';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.DEL_TS IS '論理削除日時 // #MA.SYS_TS // Logical delete date and time';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MAM_USR_CMN.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

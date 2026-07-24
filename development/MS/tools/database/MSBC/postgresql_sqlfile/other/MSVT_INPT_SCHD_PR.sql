@@ -1,0 +1,54 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW msvt_inpt_schd_pr(
+inpt_schd_no,
+mfg_sts_typ,
+mfg_inst_no,
+itm_mfg_inst_no,
+oper_inst_no,
+base_unit_inpt_qty,
+base_unit_rqmt_qty,
+base_unit_fxd_rqmt_qty,
+base_unit_inpt_rem_qty,
+base_unit_rqmt_rem_qty,
+base_unit_fxd_rqmt_rem_qty,
+base_unit_inpt_abort_qty,
+cont_inpt_qty,
+cont_rqmt_qty,
+cont_fxd_rqmt_qty,
+cont_inpt_rem_qty,
+cont_rqmt_rem_qty,
+cont_fxd_rqmt_rem_qty,
+sub_char1,
+sub_char2,
+sub_char3
+)
+AS
+SELECT
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.inpt_schd_no,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.mfg_sts_typ,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.mfg_inst_no,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.itm_mfg_inst_no,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.oper_inst_no,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_inpt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_rqmt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_fxd_rqmt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_inpt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_rqmt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_fxd_rqmt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.base_unit_inpt_abort_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_inpt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_rqmt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_fxd_rqmt_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_inpt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_rqmt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.cont_fxd_rqmt_rem_qty,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.sub_char1,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.sub_char2,
+	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.sub_char3
+FROM
+	mst_inpt_act_rem msvt_inpt_schd_pr_mst_inpt_act_rem_t1
+WHERE 0=0
+AND	msvt_inpt_schd_pr_mst_inpt_act_rem_t1.div_seq = 0
+;;
+

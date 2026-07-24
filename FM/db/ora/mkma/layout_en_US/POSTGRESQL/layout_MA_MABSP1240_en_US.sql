@@ -1,0 +1,5 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location3.System.MA.MABSP1240.en_US%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MA.MABSP1240.en_US.list.item0','Cnd.dt_p,Tab1,StEndDt.dt,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MA.MABSP1240.en_US.list.item1','MABSP1240,Tab1,Cnd.if_proc_typ_nm,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MA.MABSP1240.en_US.list.item2','MABSP1240,Tab1,Cnd.lg_grp_nm,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MA.MABSP1240.en_US.list.item3','MABSP1240,Tab1,Cnd.memo3,true,false,'); 

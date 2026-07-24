@@ -1,0 +1,6 @@
+SET ESCCHAR @
+
+@".\SEQ\MBS_ATTACHMENT.sql"
+
+@".\SEQ\MBS_FILENM_SEQ.sql"
+

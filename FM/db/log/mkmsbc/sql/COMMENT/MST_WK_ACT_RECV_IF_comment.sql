@@ -1,0 +1,381 @@
+
+COMMENT ON TABLE MST_WK_ACT_RECV_IF IS '工数実績受信ＩＦ // Man-hour result import IF';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DATA_LNO IS 'データ行ＮＯ // #MA.IF_DATA_LNO // Data row No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DATA_NO IS 'データＮＯ // #MA.IF_DATA_NO // Data No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXE_STS_TYP IS 'ＰＧ実行状況区分 // #MA.EXE_STS_TYP // PG execution status type';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DATA_CRUD_TYP IS 'データ更新区分 // #MA.DATA_CRUD_TYP // Data update type';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_SYS_CD IS '外部システムＣＤ // #MA.EXT_SYS_CD // External system cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_DATA_NO IS '外部システムデータＮＯ // #MA.IF_EXT_DATA_NO // External system data No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_DATA_LNO IS '外部システムデータ行ＮＯ // #MA.IF_EXT_DATA_LNO // External system data row No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DATA_MAKE_DT IS '送信元レコード作成日時 // #MA.YMDHMS // Creation date and time of source record';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IMP_FLG IS '取込対象ＦＬＧ // #MA.FLG // To import flg.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.RECV_DT IS '受信日 // #MA.DT // Receiving date';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_SCHD_NO IS '工数予定ＮＯ // #MA.WK_SCHD_NO // Man-hour schedule No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.OPER_INST_NO IS '工程指図ＮＯ // #MA.OPER_INST_NO // Operation order No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.MFG_INST_NO IS '製造指図ＮＯ // #MA.MFG_INST_NO // Mfg. order No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.MFG_INST_REV IS '製造指図改訂番号 // #MA.SLIP_REV // Mfg. order rev. number';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DIV_SEQ IS '分割連番 // #MS.DIV_SEQ // Split sequence number';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.OPER_CD IS '工程ＣＤ // #MA.OPER_CD // Operation cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_OPER_CD IS 'ＩＦ工程ＣＤ // #MA.IF_EXT_SYS_CD // IF operation cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_OPER_NM IS 'ＩＦ工程名 // #MA.IF_EXT_SYS_NM // IF operation name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.OPER_SEQ IS '工程連番 // #MA.OPER_SEQ // Operation sequence number';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_COST_CD IS '工数管理ＣＤ // #MA.WK_COST_CD // Work element cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_COST_CD IS 'ＩＦ工数管理ＣＤ // #MA.IF_EXT_SYS_CD // IF work element cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_COST_NM IS 'ＩＦ工数管理名 // #MA.IF_EXT_SYS_NM // IF work element name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_COST IS '工数 // #MA.WK_COST_QTY // Man-hour';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ST_HM IS '着手時刻 // #MA.TM // Start time';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.END_HM IS '終了時刻 // #MA.TM // End time';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.BRK_PD IS '中断時間 // #MA.INT4 // Downtime';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.AC_DT IS '計上日 // #MA.DT // Recording date';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_RSN_CD IS '工数理由ＣＤ // #MA.WK_RSN_CD // Man-hour reason cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_RSN_CD IS 'ＩＦ工数理由ＣＤ // #MA.IF_EXT_SYS_CD // IF man-hour reason cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_RSN_NM IS 'ＩＦ工数理由名 // #MA.IF_EXT_SYS_NM // IF man-hour reason name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_COST_CALC_UPD_FLG IS '自動工数計算更新許可ＦＬＧ // #MA.FLG // Auto man-hour calculation update permission flg.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_DAY_CD IS '勤務種類ＣＤ // #MA.WK_DAY_CD // Work type cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_DAY_CD IS 'ＩＦ勤務種類ＣＤ // #MA.IF_EXT_SYS_CD // IF work classification cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_DAY_NM IS 'ＩＦ勤務種類名 // #MA.IF_EXT_SYS_NM // IF work classification type name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_USR_CD IS '作業者ＣＤ // #MA.USR_CD // Worker cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_USR_CD IS 'ＩＦ作業者ＣＤ // #MA.IF_EXT_SYS_CD // IF worker cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_USR_NM IS 'ＩＦ作業者名 // #MA.IF_EXT_SYS_NM // IF worker name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.WK_USR_DPT_CD IS '作業者部門ＣＤ // #MA.DPT_CD // Worker dept. cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_USR_DPT_CD IS 'ＩＦ作業者部門ＣＤ // #MA.IF_EXT_SYS_CD // IF worker dept. cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_WK_USR_DPT_NM IS 'ＩＦ作業者部門名 // #MA.IF_EXT_SYS_NM // IF worker dept. name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.FCLTY IS '設備 // #MA.FCLTY // Equipment';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ABORT_FLG IS '打切ＦＬＧ // #MA.FLG // Cancel remaining flg.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.INTR_RMRKS IS '内部備考 // #MS.WK_ACT_INTR_RMRKS // Internal remarks';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_OPER_ACT_NO IS '外部工程実績ＮＯ // #MA.EXT_OPER_ACT_NO // External operation result No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_WK_ACT_NO IS '外部工数実績ＮＯ // #MA.EXT_WK_ACT_NO // External man-hour result No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.EXT_YIELD_ACT_NO IS '外部出来高実績ＮＯ // #MA.EXT_YIELD_ACT_NO // External output result No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.DPT_CD IS '部門ＣＤ // #MA.DPT_CD // Dept. cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_DPT_CD IS 'ＩＦ部門ＣＤ // #MA.IF_EXT_SYS_CD // IF dept. cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_DPT_NM IS 'ＩＦ部門名 // #MA.IF_EXT_SYS_NM // IF dept. name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_LOC_CD IS 'ＩＦ場所ＣＤ // #MA.IF_EXT_SYS_CD // IF location cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_LOC_NM IS 'ＩＦ場所名 // #MA.IF_EXT_SYS_NM // IF location name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.STR_LN_CD IS '棚・ラインＣＤ // #MA.STR_LN_CD // Rack/Line cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_STR_LN_CD IS 'ＩＦ棚・ラインＣＤ // #MA.IF_EXT_SYS_CD // IF rack/line cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_STR_LN_NM IS 'ＩＦ棚・ライン名 // #MA.IF_EXT_SYS_NM // IF rack/line name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_ITM_CD IS 'ＩＦ品目ＣＤ // #MA.IF_EXT_SYS_CD // IF item cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_ITM_SUB1 IS 'ＩＦ枝番１ // #MA.ITM_SUB1 // IF branch No. 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_ITM_SUB2 IS 'ＩＦ枝番２ // #MA.ITM_SUB2 // IF branch No. 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_ITM_SUB3 IS 'ＩＦ枝番３ // #MA.ITM_SUB3 // IF branch No. 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_ITM_NM IS 'ＩＦ品名 // #MA.IF_EXT_SYS_NM // IF item name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.LOT_NO IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUBLOT_NO IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_CO_CD IS 'ＩＦ会社ＣＤ // #MA.IF_EXT_SYS_CD // IF company cd.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.IF_CO_NM IS 'ＩＦ会社名 // #MA.IF_EXT_SYS_NM // IF company name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.REQ_NO IS 'サーバリクエストＮＯ // #MA.SRV_REQ_NO // Server request No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR1 IS '予備ＣＨＡＲ項目１ // #MA.IF_SUB_CHAR1 // Spare CHAR column 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR2 IS '予備ＣＨＡＲ項目２ // #MA.IF_SUB_CHAR2 // Spare CHAR column 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR3 IS '予備ＣＨＡＲ項目３ // #MA.IF_SUB_CHAR3 // Spare CHAR column 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR4 IS '予備ＣＨＡＲ項目４ // #MA.IF_SUB_CHAR4 // Spare CHAR column 4';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR5 IS '予備ＣＨＡＲ項目５ // #MA.IF_SUB_CHAR5 // Spare CHAR column 5';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR6 IS '予備ＣＨＡＲ項目６ // #MA.IF_SUB_CHAR6 // Spare CHAR column 6';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR7 IS '予備ＣＨＡＲ項目７ // #MA.IF_SUB_CHAR7 // Spare CHAR column 7';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR8 IS '予備ＣＨＡＲ項目８ // #MA.IF_SUB_CHAR8 // Spare CHAR column 8';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR9 IS '予備ＣＨＡＲ項目９ // #MA.IF_SUB_CHAR9 // Spare CHAR column 9';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR10 IS '予備ＣＨＡＲ項目１０ // #MA.IF_SUB_CHAR10 // Spare CHAR column 10';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR11 IS '予備ＣＨＡＲ項目１１ // #MA.IF_SUB_CHAR11 // Spare CHAR column 11';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR12 IS '予備ＣＨＡＲ項目１２ // #MA.IF_SUB_CHAR12 // Spare CHAR column 12';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR13 IS '予備ＣＨＡＲ項目１３ // #MA.IF_SUB_CHAR13 // Spare CHAR column 13';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR14 IS '予備ＣＨＡＲ項目１４ // #MA.IF_SUB_CHAR14 // Spare CHAR column 14';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR15 IS '予備ＣＨＡＲ項目１５ // #MA.IF_SUB_CHAR15 // Spare CHAR column 15';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR16 IS '予備ＣＨＡＲ項目１６ // #MA.IF_SUB_CHAR16 // Spare CHAR column 16';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR17 IS '予備ＣＨＡＲ項目１７ // #MA.IF_SUB_CHAR17 // Spare CHAR column 17';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR18 IS '予備ＣＨＡＲ項目１８ // #MA.IF_SUB_CHAR18 // Spare CHAR column 18';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR19 IS '予備ＣＨＡＲ項目１９ // #MA.IF_SUB_CHAR19 // Spare CHAR column 19';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR20 IS '予備ＣＨＡＲ項目２０ // #MA.IF_SUB_CHAR20 // Spare CHAR column 20';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR21 IS '予備ＣＨＡＲ項目２１ // #MA.IF_SUB_CHAR21 // Spare CHAR column 21';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR22 IS '予備ＣＨＡＲ項目２２ // #MA.IF_SUB_CHAR22 // Spare CHAR column 22';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR23 IS '予備ＣＨＡＲ項目２３ // #MA.IF_SUB_CHAR23 // Spare CHAR column 23';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR24 IS '予備ＣＨＡＲ項目２４ // #MA.IF_SUB_CHAR24 // Spare CHAR column 24';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR25 IS '予備ＣＨＡＲ項目２５ // #MA.IF_SUB_CHAR25 // Spare CHAR column 25';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR26 IS '予備ＣＨＡＲ項目２６ // #MA.IF_SUB_CHAR26 // Spare CHAR column 26';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR27 IS '予備ＣＨＡＲ項目２７ // #MA.IF_SUB_CHAR27 // Spare CHAR column 27';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR28 IS '予備ＣＨＡＲ項目２８ // #MA.IF_SUB_CHAR28 // Spare CHAR column 28';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR29 IS '予備ＣＨＡＲ項目２９ // #MA.IF_SUB_CHAR29 // Spare CHAR column 29';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_CHAR30 IS '予備ＣＨＡＲ項目３０ // #MA.IF_SUB_CHAR30 // Spare CHAR column 30';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_NUM1 IS '予備ＮＵＭ項目１ // #MA.IF_SUB_NUM1 // Spare NUM column 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_NUM2 IS '予備ＮＵＭ項目２ // #MA.IF_SUB_NUM2 // Spare NUM column 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_NUM3 IS '予備ＮＵＭ項目３ // #MA.IF_SUB_NUM3 // Spare NUM column 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_NUM4 IS '予備ＮＵＭ項目４ // #MA.IF_SUB_NUM4 // Spare NUM column 4';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_NUM5 IS '予備ＮＵＭ項目５ // #MA.IF_SUB_NUM5 // Spare NUM column 5';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_DT1 IS '予備ＤＡＴＥ項目１ // #MA.DT // Spare DATE column 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_DT2 IS '予備ＤＡＴＥ項目２ // #MA.DT // Spare DATE column 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_DT3 IS '予備ＤＡＴＥ項目３ // #MA.DT // Spare DATE column 3';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_DT4 IS '予備ＤＡＴＥ項目４ // #MA.DT // Spare DATE column 4';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.SUB_DT5 IS '予備ＤＡＴＥ項目５ // #MA.DT // Spare DATE column 5';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.BATCH_LOG_NO IS 'ログＮＯ // #MA.BATCH_LOG_NO // Log No.';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.LOG_SUB_KEY1 IS 'ログサブキー１ // #MA.BATCH_LOG_SUB_KEY1 // Log sub key 1';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.LOG_SUB_KEY2 IS 'ログサブキー２ // #MA.BATCH_LOG_SUB_KEY2 // Log sub key 2';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MST_WK_ACT_RECV_IF.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

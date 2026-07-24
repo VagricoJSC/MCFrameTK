@@ -1,0 +1,2363 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE PACKAGE MGPA_IMP_PLN
+/************************************************************************
+<SYNOPSIS>
+	計画データを取込む
+<REMARKS>
+
+<ARGUMENTS>
+<HISTORY>
+*************************************************************************/
+IS
+PROCEDURE P_SLS (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR			IN	MAPA_META.YM%TYPE,
+	I_YM_TO			IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE
+);
+/*********************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		売上計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<HISTORY>
+**********************************************************/
+
+PROCEDURE P_RQMT (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR			IN	MAPA_META.YM%TYPE,
+	I_YM_TO			IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.RQMT_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+);
+/*********************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		月次計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**********************************************************/
+
+PROCEDURE P_MFG (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR			IN	MAPA_META.YM%TYPE,
+	I_YM_TO			IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.MFG_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+);
+/*********************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		製造計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**********************************************************/
+
+PROCEDURE P_PURC (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR			IN	MAPA_META.YM%TYPE,
+	I_YM_TO			IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.PURC_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+);
+/*********************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		購入計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**********************************************************/
+
+END MGPA_IMP_PLN;
+
+/
+show errors;
+
+
+CREATE OR REPLACE PACKAGE BODY MGPA_IMP_PLN
+IS
+	C_OFF		CONSTANT MAPA_META.FLG%TYPE := '0' ;
+	C_ON		CONSTANT MAPA_META.FLG%TYPE := '1' ;
+	C_NULL_VAL	CONSTANT MAPA_META.STR20%TYPE := MAC_STR.NULL_VAL ;
+
+	C_SLS_SEQ	CONSTANT MAPA_META.ORA_OBJ_NM%TYPE := MGC_NUM_SYS_TYP.PLN_SLS_KEY ;
+	C_RQMT_SEQ	CONSTANT MAPA_META.ORA_OBJ_NM%TYPE := MGC_NUM_SYS_TYP.PLN_RQMT_KEY ;
+	C_MFG_SEQ	CONSTANT MAPA_META.ORA_OBJ_NM%TYPE := MGC_NUM_SYS_TYP.PLN_MFG_KEY ;
+	C_PURC_SEQ	CONSTANT MAPA_META.ORA_OBJ_NM%TYPE := MGC_NUM_SYS_TYP.PLN_PURC_KEY ;
+
+	C_ASST_SLS	CONSTANT MAPA_META.ASST_TYP%TYPE := MAC_ASST_TYP.CO_SLS ;	 --自社(販売)
+	C_ASST_MFG	CONSTANT MAPA_META.ASST_TYP%TYPE := MAC_ASST_TYP.CO_PROD ;	 --自社(生産)
+
+	C_ACT_SET_NON	CONSTANT MAPA_META.ACT_SET_TYP%TYPE := MAC_ACT_SET_TYP.NON ;		--対象外
+	C_ACT_SET_ALL	CONSTANT MAPA_META.ACT_SET_TYP%TYPE := MAC_ACT_SET_TYP.ALL_SET ;	--設定
+	C_ACT_SET_IN	CONSTANT MAPA_META.ACT_SET_TYP%TYPE := MAC_ACT_SET_TYP.IN_SET ;		--受入のみ設定
+
+	C_PS_USE_MFGSLS	CONSTANT MAPA_META.PS_USE_TYP%TYPE := MAC_PS_USE_TYP.PRODSLS ;	--生産・販売データで使用する
+	C_PS_USE_SLS	CONSTANT MAPA_META.PS_USE_TYP%TYPE := MAC_PS_USE_TYP.SLS ;	--販売データのみ使用する
+
+	C_ASSET_MNG_MNG	CONSTANT MAPA_META.ASSET_MNG_TYP%TYPE := MAC_ASSET_MNG_TYP.MNG ;	--資産管理する
+
+	C_SIM_MRP_TYP_GP_SIM	CONSTANT MAPA_META.STR20%TYPE := '1' ;	--汎用シミュレーション
+
+	C_ITM_ORD_TYP_MFG	CONSTANT MAPA_META.STR20%TYPE := '1' ;	--製造
+	C_ITM_ORD_TYP_PURC	CONSTANT MAPA_META.STR20%TYPE := '2' ;	--購買
+	C_ITM_ORD_TYP_OUTSRC	CONSTANT MAPA_META.STR20%TYPE := '3' ;	--外注
+
+	C_ORD_GNRT_TYP_UPLND	CONSTANT MAPA_META.STR20%TYPE := '5' ;	--計画外
+
+	C_ITM_ORD_STS_TYP_OPN	CONSTANT MAPA_META.STR20%TYPE := '1' ;	--未確定
+
+	C_MAX_CNT	CONSTANT INTEGER := 50000 ; --バルクインサートでの最大レコード数
+
+	G_MSG		FCPA_ERR.MSG_BINDER ;
+	G_USR		MAPA_META.FCM_USR_ID%TYPE ;
+	G_PARM_ITM_SUB_TYP		MAPA_META.PARM_VAL%TYPE ;
+	G_CO_PARM	MAM_CO_PARM%ROWTYPE ;
+	G_FIX_DPT	MAPA_META.COST_DPT_CD%TYPE ;
+	G_BCUR_CD	MAPA_META.CUR_CD%TYPE ;
+	G_SNO1_USE_TYP	MAPA_META.PS_USE_TYP%TYPE ;
+	G_SNO2_USE_TYP	MAPA_META.PS_USE_TYP%TYPE ;
+	G_SNO3_USE_TYP	MAPA_META.PS_USE_TYP%TYPE ;
+	G_SNO4_USE_TYP	MAPA_META.PS_USE_TYP%TYPE ;
+
+   	G_LOG_NO		MAPA_META.BATCH_LOG_NO%TYPE ;
+	G_LOG_SUB_KEY1	MAPA_META.BATCH_LOG_SUB_KEY1%TYPE ;
+	G_LOG_SUB_KEY2	MAPA_META.BATCH_LOG_SUB_KEY2%TYPE ;
+
+PROCEDURE P_GET_PARM
+/**************************************************************************
+<SYNOPSIS>
+		原価会社パラメータマスタなどからパラメータを取得する
+<REMARKS>
+		原価会社パラメータマスタなどからパラメータを取得する
+<ARGUMENTS>
+<HISTORY>
+**************************************************************************/
+IS
+BEGIN
+	--パラメータの取得
+	G_USR := NVL(FCPA_CONTEXT.F_GET_USERID, FCPA_CONTEXT.F_GET_OS_USR) ;
+	G_PARM_ITM_SUB_TYP := MAPA_COMM.F_GET_PARM('ITM_SUB_TYP') ;
+	G_BCUR_CD := MAPA_XCHNG.F_GET_BASE_CUR_CD ;
+
+	G_CO_PARM := MGPA_CO_PARM.F_GET_REC ;
+	G_FIX_DPT := G_CO_PARM.FIX_DPT_CD ;
+	G_SNO1_USE_TYP := NVL(G_CO_PARM.SNO1_USE_TYP, C_PS_USE_MFGSLS) ;
+	G_SNO2_USE_TYP := NVL(G_CO_PARM.SNO2_USE_TYP, C_PS_USE_MFGSLS) ;
+	G_SNO3_USE_TYP := NVL(G_CO_PARM.SNO3_USE_TYP, C_PS_USE_MFGSLS) ;
+	G_SNO4_USE_TYP := NVL(G_CO_PARM.SNO4_USE_TYP, C_PS_USE_MFGSLS) ;
+
+END P_GET_PARM ;
+
+PROCEDURE P_SIM_CHK (
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+	シミュレーションＮＯの存在チェック
+<REMARKS>
+
+<ARGUMENTS>
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	L_CNT	NUMBER ;
+	L_BIND	FCPA_ERR.MSG_BINDER ;
+BEGIN
+	SELECT	COUNT(*)
+	INTO	L_CNT
+	FROM	MGVT_MST_SIM_MRP t
+	WHERE	0=0
+	AND	t.SIM_MRP_NO = I_SIM_MRP_NO
+	AND	t.SIM_MRP_TYP = C_SIM_MRP_TYP_GP_SIM
+	;
+
+	IF L_CNT = 0 THEN
+		L_BIND := FCPA_ERR.MSG_BINDER(I_SIM_MRP_NO) ;
+		FCPA_ERR.RAISE_APP_ERR('MGBAD0001', L_BIND) ;
+	END IF ;
+
+END P_SIM_CHK ;
+
+PROCEDURE P_INS_MGW_SLS (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		売上計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<HISTORY>
+**************************************************************************/
+IS
+	REC_DPT		MGPA_COST_IF.LIST_DPT ;
+
+	L_TMP_YM		DATE ;
+	L_DPT_CD		MAM_COST_DPT.DPT_CD%TYPE ;
+	L_SLS_DPT_CD	MAM_COST_DPT.DPT_CD%TYPE ;
+
+	TYPE LIST_SLS IS TABLE OF MGW_IMP_PLN_SLS%ROWTYPE INDEX BY BINARY_INTEGER ;
+	REC_w		LIST_SLS ;
+	w			INTEGER := 0 ;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_INS_MGW_SLS') ;
+
+	DELETE	MGW_IMP_PLN_SLS t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	REC_DPT.DELETE ;
+	L_TMP_YM := NULL ;
+	w := 0 ;
+
+	FOR x IN (
+		SELECT
+			t.YM,
+			m2.WG_CD,
+			t.DPT_CD,
+			t.ITM_CD,
+			t.ITM_SUB1,
+			t.ITM_SUB2,
+			t.ITM_SUB3,
+			t.CST_CD,
+			t.SLS_DPT_CD,
+			t.SLS_USR_CD,
+			t.CUR_CD,
+			m1.UNIT_CD,
+			SUM(t.QTY)	QTY,
+			SUM(t.AMT)	AMT
+		FROM	(
+			SELECT
+				t.SPLN_YM	YM,
+				t.DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.CST_CD,
+				t.DPT_CD	SLS_DPT_CD,
+				NULL	SLS_USR_CD,
+				t.SPLN_QTY QTY,
+				t.CUR_CD,
+				t.SPLN_AMT AMT
+			FROM	MGVT_MST_SPLN_SUM_ITM_NEW t
+			WHERE	0=0
+			AND	t.SPLN_YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.SPLN_QTY <> 0
+			AND	I_PLN_IMP_TYP = MAC_SLS_PLN_IMP_TYP.MLY_SPLN_AMT
+			UNION ALL
+			SELECT
+				t.SPLN_YM	YM,
+				t.DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.CST_CD,
+				t.DPT_CD	SLS_DPT_CD,
+				NULL	SLS_USR_CD,
+				t.SPLN_QTY QTY,
+				NULL	CUR_CD,
+				NULL	AMT
+			FROM	MGVT_MST_SPLN_SUM_ITM_NEW t
+			WHERE	0=0
+			AND	t.SPLN_YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.SPLN_QTY <> 0
+			AND	I_PLN_IMP_TYP = MAC_SLS_PLN_IMP_TYP.MLY_SPLN
+			) t,
+			MAM_ITM m1, MAM_DPT m2
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD
+		AND	t.ITM_SUB1 = m1.ITM_SUB1
+		AND	t.ITM_SUB2 = m1.ITM_SUB2
+		AND	t.ITM_SUB3 = m1.ITM_SUB3
+		AND	t.DPT_CD = m2.DPT_CD
+		AND t.YM BETWEEN m2.ST_DT AND m2.END_DT
+		AND	m2.DEL_FLG = C_OFF
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGW_WG w
+				WHERE	0=0
+				AND	m2.WG_CD = w.WG_CD
+			)
+		GROUP BY t.YM, m2.WG_CD,
+			t.DPT_CD,
+			t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+			t.CST_CD, t.SLS_DPT_CD, t.SLS_USR_CD, t.CUR_CD,
+			m1.UNIT_CD
+		ORDER BY t.YM
+		)
+	LOOP
+		--部門の変換
+		IF L_TMP_YM IS NULL OR L_TMP_YM <> x.YM THEN
+			REC_DPT.DELETE ;
+			L_TMP_YM := x.YM ;
+		END IF ;
+
+		MGPA_COST_IF.P_GET_DPT(x.DPT_CD, G_FIX_DPT, x.YM, REC_DPT, L_DPT_CD, C_OFF) ;
+		IF L_DPT_CD IS NULL THEN
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.SLS_DPT_CD IS NOT NULL THEN
+			MGPA_COST_IF.P_GET_DPT(x.SLS_DPT_CD, NULL, x.YM, REC_DPT, L_SLS_DPT_CD, C_OFF) ;
+			IF L_SLS_DPT_CD IS NULL THEN
+				GOTO NEXT_LOOP_ERR ;
+			END IF ;
+		END IF ;
+
+		w := w + 1 ;
+
+		REC_w(w).CALC_CTG_CD	:= I_CALC_CTG_CD ;
+		REC_w(w).WG_CD	:= x.WG_CD ;
+		REC_w(w).YM		:= x.YM ;
+		REC_w(w).MNG_DPT_CD	:= L_DPT_CD ;
+		REC_w(w).ITM_CD		:= x.ITM_CD ;
+		REC_w(w).ITM_SUB1	:= x.ITM_SUB1 ;
+		REC_w(w).ITM_SUB2	:= x.ITM_SUB2 ;
+		REC_w(w).ITM_SUB3	:= x.ITM_SUB3 ;
+		REC_w(w).LOT_NO		:= C_NULL_VAL ;
+		REC_w(w).SUBLOT_NO	:= C_NULL_VAL ;
+		REC_w(w).SNO1		:= C_NULL_VAL ;
+		REC_w(w).SNO2		:= C_NULL_VAL ;
+		REC_w(w).SNO3		:= C_NULL_VAL ;
+		REC_w(w).SNO4		:= C_NULL_VAL ;
+		REC_w(w).ASST_TYP	:= C_ASST_SLS ;
+
+		IF x.CST_CD = C_NULL_VAL THEN
+			REC_w(w).CST_CD		:= NULL ;
+		ELSE
+			REC_w(w).CST_CD		:= x.CST_CD ;
+		END IF ;
+
+		REC_w(w).DLV_CD		:= NULL ;
+		REC_w(w).SLS_DPT_CD	:= L_SLS_DPT_CD ;
+		REC_w(w).SLS_USR_CD	:= x.SLS_USR_CD ;
+		REC_w(w).ALC_DPT_CD	:= L_SLS_DPT_CD ;
+		REC_w(w).DEST_CD1	:= NULL ;
+		REC_w(w).DEST_CD2	:= NULL ;
+		REC_w(w).DEST_CD3	:= NULL ;
+		REC_w(w).COST_SLS_CD1	:= NULL ;
+		REC_w(w).COST_SLS_CD2	:= NULL ;
+		REC_w(w).COST_SLS_CD3	:= NULL ;
+		REC_w(w).COST_SLS_CD4	:= NULL ;
+		REC_w(w).COST_SLS_CD5	:= NULL ;
+		REC_w(w).UNIT_CD	:= x.UNIT_CD ;
+		REC_w(w).QTY		:= x.QTY ;
+		REC_w(w).CUR_CD		:= x.CUR_CD ;
+		REC_w(w).AMT		:= x.AMT ;
+		REC_w(w).RMRKS		:= NULL ;
+		REC_w(w).SUB_CHAR1	:= NULL ;
+		REC_w(w).SUB_CHAR2	:= NULL ;
+		REC_w(w).SUB_CHAR3	:= NULL ;
+		REC_w(w).IMP_ERR_FLG	:= C_OFF ;
+		REC_w(w).IMP_FLG	:= C_ON ;
+
+		IF w > C_MAX_CNT THEN
+			FORALL t IN 1..w
+				INSERT INTO MGW_IMP_PLN_SLS VALUES REC_w(t) ;
+			REC_w.DELETE ;
+			w := 0 ;
+		END IF ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+	END LOOP ;
+
+	IF w > 0 THEN
+		FORALL t IN 1..w
+			INSERT INTO MGW_IMP_PLN_SLS VALUES REC_w(t) ;
+		REC_w.DELETE ;
+		w := 0 ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_INS_MGW_SLS') ;
+
+END P_INS_MGW_SLS ;
+
+PROCEDURE P_INS_MGW_RQMT (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		月次計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	REC_DPT		MGPA_COST_IF.LIST_DPT ;
+
+	L_TMP_DT		DATE ;
+	L_DPT_CD		MAM_COST_DPT.DPT_CD%TYPE ;
+	L_SLS_DPT_CD	MAM_COST_DPT.DPT_CD%TYPE ;
+
+	L_YM_TO		MAPA_META.YM%TYPE ;
+
+	TYPE LIST_RQMT IS TABLE OF MGW_IMP_PLN_RQMT%ROWTYPE INDEX BY BINARY_INTEGER ;
+	REC_w		LIST_RQMT ;
+	w			INTEGER := 0 ;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_INS_MGW_RQMT') ;
+
+	IF I_PLN_IMP_TYP = MAC_RQMT_PLN_IMP_TYP.SIM_RQMT THEN
+		P_SIM_CHK(I_SIM_MRP_NO) ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_RQMT t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	REC_DPT.DELETE ;
+	L_YM_TO := ADD_MONTHS(I_YM_TO, 1) ;
+	L_TMP_DT := NULL ;
+	w := 0 ;
+
+	FOR x IN (
+		SELECT
+			t.WG_CD,
+			t.YM,
+			t.ITM_CD,
+			t.ITM_SUB1,
+			t.ITM_SUB2,
+			t.ITM_SUB3,
+			t.DPT_CD,
+			t.SNO1,
+			t.SNO2,
+			t.SNO3,
+			t.SNO4,
+			SUM(t.QTY)	QTY,
+			m1.UNIT_CD,
+			NVL(m2.SNO1_ACT_TYP, C_ACT_SET_NON)	SNO1_ACT_TYP,
+			NVL(m2.SNO2_ACT_TYP, C_ACT_SET_NON)	SNO2_ACT_TYP,
+			NVL(m2.SNO3_ACT_TYP, C_ACT_SET_NON)	SNO3_ACT_TYP,
+			NVL(m2.SNO4_ACT_TYP, C_ACT_SET_NON)	SNO4_ACT_TYP
+		FROM	(
+			SELECT
+				t.WG_CD,
+				t.PROD_YM	YM,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				MAPA_LOC.F_GET_ASST_DPT_CD_NE(t.STRG_LOC_CD, PROD_YM, C_ON)	DPT_CD,
+				C_NULL_VAL	SNO1,
+				C_NULL_VAL	SNO2,
+				C_NULL_VAL	SNO3,
+				C_NULL_VAL	SNO4,
+				t.QTY
+			FROM	MGVT_MST_MLY_RQMT t
+			WHERE	0=0
+			AND	t.YM = (
+				SELECT	MAX(x.YM)
+				FROM	MGVT_MST_MLY_RQMT x
+				WHERE	0=0
+				AND	t.PROD_YM = x.PROD_YM
+				AND	t.ITM_CD = x.ITM_CD
+				AND	t.ITM_SUB1 = x.ITM_SUB1
+				AND	t.ITM_SUB2 = x.ITM_SUB2
+				AND	t.ITM_SUB3 = x.ITM_SUB3
+				AND	t.STRG_LOC_CD = x.STRG_LOC_CD
+				)
+			AND	t.PROD_YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.QTY <> 0
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_RQMT_PLN_IMP_TYP.MLY_RQMT
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.DUE_DT, 'MM')	YM,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				MAPA_LOC.F_GET_ASST_DPT_CD_NE(t.STRG_LOC_CD, DUE_DT, C_ON)	DPT_CD,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.RQMT_QTY QTY
+			FROM	MGVT_MST_RQMT t
+			WHERE	0=0
+			AND	t.DUE_DT >= I_YM_FR
+			AND	t.DUE_DT < L_YM_TO
+			AND	t.RQMT_QTY <> 0
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP IN (MAC_RQMT_PLN_IMP_TYP.RQMT, MAC_RQMT_PLN_IMP_TYP.DMND_RQMT, MAC_RQMT_PLN_IMP_TYP.PRCD_RQMT)
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.DMND_DT, 'MM')	YM,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				MAPA_LOC.F_GET_ASST_DPT_CD_NE(t.DMND_LOC_CD, DMND_DT, C_ON)	DPT_CD,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.DMND_QTY QTY
+			FROM	MGVT_MST_DLY_DMND t, MAVM_ITM_WG m
+			WHERE	0=0
+			AND t.ITM_CD = m.ITM_CD(+)
+			AND t.ITM_SUB1 = m.ITM_SUB1(+)
+			AND t.ITM_SUB2 = m.ITM_SUB2(+)
+			AND t.ITM_SUB3 = m.ITM_SUB3(+)
+			AND t.WG_CD = m.WG_CD(+)
+			AND	t.DMND_DT >= I_YM_FR
+			AND	t.DMND_DT < L_YM_TO
+			AND	t.DMND_QTY <> 0
+			AND m.PROD_PLN_TYP = MAC_PROD_PLN_TYP.DMND_USE
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP IN (MAC_RQMT_PLN_IMP_TYP.DMND, MAC_RQMT_PLN_IMP_TYP.DMND_RQMT)
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.DUE_DT, 'MM')	YM,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				MAPA_LOC.F_GET_ASST_DPT_CD_NE(t.STRG_LOC_CD, DUE_DT, C_ON)	DPT_CD,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.RQMT_QTY QTY
+			FROM	MGVT_MST_PRCD_RQMT t
+			WHERE	0=0
+			AND	t.DUE_DT >= I_YM_FR
+			AND	t.DUE_DT < L_YM_TO
+			AND	t.RQMT_QTY <> 0
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_RQMT_PLN_IMP_TYP.PRCD_RQMT
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.DUE_DT, 'MM')	YM,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				MAPA_LOC.F_GET_ASST_DPT_CD_NE(t.STRG_LOC_CD, DUE_DT, C_ON)	DPT_CD,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.RQMT_QTY QTY
+			FROM	MGVT_MST_SIM_RQMT t
+			WHERE	0=0
+			AND	t.DUE_DT >= I_YM_FR
+			AND	t.DUE_DT < L_YM_TO
+			AND	t.SIM_MRP_NO = I_SIM_MRP_NO
+			AND	t.RQMT_QTY <> 0
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_RQMT_PLN_IMP_TYP.SIM_RQMT
+			) t,
+			MAM_ITM m1, MAM_CALC_PTN m2
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD
+		AND	t.ITM_SUB1 = m1.ITM_SUB1
+		AND	t.ITM_SUB2 = m1.ITM_SUB2
+		AND	t.ITM_SUB3 = m1.ITM_SUB3
+		AND	m1.CALC_PTN_CD = m2.CALC_PTN_CD(+)
+		AND	t.DPT_CD IS NOT NULL
+		AND	m2.DEL_FLG(+) = C_OFF
+		GROUP BY t.WG_CD, t.YM, t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3, t.DPT_CD,
+			t.SNO1, t.SNO2, t.SNO3, t.SNO4, m1.UNIT_CD,
+			m2.SNO1_ACT_TYP, m2.SNO2_ACT_TYP, m2.SNO3_ACT_TYP, m2.SNO4_ACT_TYP
+		ORDER BY t.YM
+		)
+	LOOP
+		--部門の変換
+		IF L_TMP_DT IS NULL OR L_TMP_DT <> x.YM THEN
+			REC_DPT.DELETE ;
+			L_TMP_DT := x.YM ;
+		END IF ;
+
+		MGPA_COST_IF.P_GET_DPT(x.DPT_CD, G_FIX_DPT, x.YM, REC_DPT, L_DPT_CD, C_OFF) ;
+		IF L_DPT_CD IS NULL THEN
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		w := w + 1 ;
+
+		REC_w(w).CALC_CTG_CD	:= I_CALC_CTG_CD ;
+		REC_w(w).WG_CD	:= x.WG_CD ;
+		REC_w(w).YM		:= x.YM ;
+		REC_w(w).MNG_DPT_CD	:= L_DPT_CD ;
+		REC_w(w).ITM_CD := x.ITM_CD ;
+		REC_w(w).ITM_SUB1 := x.ITM_SUB1 ;
+		REC_w(w).ITM_SUB2 := x.ITM_SUB2 ;
+		REC_w(w).ITM_SUB3 := x.ITM_SUB3 ;
+		REC_w(w).LOT_NO := C_NULL_VAL ;
+		REC_w(w).SUBLOT_NO := C_NULL_VAL ;
+
+		REC_w(w).SNO1 := C_NULL_VAL ;
+		IF G_SNO1_USE_TYP <> C_PS_USE_SLS AND x.SNO1_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO1 := x.SNO1 ;
+		END IF ;
+
+		REC_w(w).SNO2 := C_NULL_VAL ;
+		IF G_SNO2_USE_TYP <> C_PS_USE_SLS AND x.SNO2_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO2 := x.SNO2 ;
+		END IF ;
+
+		REC_w(w).SNO3 := C_NULL_VAL ;
+		IF G_SNO3_USE_TYP <> C_PS_USE_SLS AND x.SNO3_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO3 := x.SNO3 ;
+		END IF ;
+
+		REC_w(w).SNO4 := C_NULL_VAL ;
+		IF G_SNO4_USE_TYP <> C_PS_USE_SLS AND x.SNO4_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO4 := x.SNO4 ;
+		END IF ;
+
+		REC_w(w).ASST_TYP := C_ASST_MFG ;
+		REC_w(w).UNIT_CD := x.UNIT_CD ;
+		REC_w(w).QTY := x.QTY ;
+		REC_w(w).RMRKS		:= NULL ;
+		REC_w(w).SUB_CHAR1	:= NULL ;
+		REC_w(w).SUB_CHAR2	:= NULL ;
+		REC_w(w).SUB_CHAR3	:= NULL ;
+		REC_w(w).IMP_ERR_FLG := C_OFF ;
+		REC_w(w).IMP_FLG := C_ON ;
+
+		IF w > C_MAX_CNT THEN
+			FORALL t IN 1..w
+				INSERT INTO MGW_IMP_PLN_RQMT VALUES REC_w(t) ;
+			REC_w.DELETE ;
+			w := 0 ;
+		END IF ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+	END LOOP ;
+
+	IF w > 0 THEN
+		FORALL t IN 1..w
+			INSERT INTO MGW_IMP_PLN_RQMT VALUES REC_w(t) ;
+		REC_w.DELETE ;
+		w := 0 ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_INS_MGW_RQMT') ;
+
+END P_INS_MGW_RQMT ;
+
+PROCEDURE P_INS_MGW_MFG (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		製造計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	REC_DPT		MGPA_COST_IF.LIST_DPT ;
+
+	L_TMP_DT		DATE ;
+	L_DPT_CD		MAM_COST_DPT.DPT_CD%TYPE ;
+	L_SLS_DPT_CD	MAM_COST_DPT.DPT_CD%TYPE ;
+
+	L_YM_TO		MAPA_META.YM%TYPE ;
+
+	TYPE LIST_MFG IS TABLE OF MGW_IMP_PLN_MFG%ROWTYPE INDEX BY BINARY_INTEGER ;
+	REC_w		LIST_MFG ;
+	w			INTEGER := 0 ;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_INS_MGW_MFG') ;
+
+	IF I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.SIM_ITM_ORDER THEN
+		P_SIM_CHK(I_SIM_MRP_NO) ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_MFG t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	REC_DPT.DELETE ;
+	L_YM_TO := ADD_MONTHS(I_YM_TO, 1) ;
+	L_TMP_DT := NULL ;
+	w := 0 ;
+
+	FOR x IN (
+		SELECT
+			t.WG_CD,
+			t.YM,
+			t.DT,
+			t.DPT_CD,
+			t.ITM_CD,
+			t.ITM_SUB1,
+			t.ITM_SUB2,
+			t.ITM_SUB3,
+			t.SNO1,
+			t.SNO2,
+			t.SNO3,
+			t.SNO4,
+			t.LOC_CD,
+			SUM(t.QTY)	QTY,
+			m1.UNIT_CD,
+			NVL(m2.SNO1_ACT_TYP, C_ACT_SET_NON)	SNO1_ACT_TYP,
+			NVL(m2.SNO2_ACT_TYP, C_ACT_SET_NON)	SNO2_ACT_TYP,
+			NVL(m2.SNO3_ACT_TYP, C_ACT_SET_NON)	SNO3_ACT_TYP,
+			NVL(m2.SNO4_ACT_TYP, C_ACT_SET_NON)	SNO4_ACT_TYP
+		FROM	(
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.MFG_LOC_CD	LOC_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_ITM_ORDER t, MAM_LOC m
+			WHERE	0=0
+			AND	t.MFG_LOC_CD = m.LOC_CD
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP IN (C_ITM_ORD_TYP_MFG, C_ITM_ORD_TYP_OUTSRC)
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	m.DEL_FLG = C_OFF
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	(
+				I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.ITM_ORDER
+				OR
+				I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.PRCD_ITM_ORDER
+				)
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m1.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.MFG_LOC_CD	LOC_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_PRCD_ITM_ORDER t, MAM_LOC m1, MAM_ITM_DTL m2
+			WHERE	0=0
+			AND	t.MFG_LOC_CD = m1.LOC_CD
+			AND	t.WG_CD = m2.WG_CD
+			AND	t.ITM_CD = m2.ITM_CD
+			AND	t.ITM_SUB1 = m2.ITM_SUB1
+			AND	t.ITM_SUB2 = m2.ITM_SUB2
+			AND	t.ITM_SUB3 = m2.ITM_SUB3
+			AND	t.MFG_LOC_CD = m2.MFG_LOC_CD
+			AND	t.MASTER_DT >= m2.ST_DT
+			AND	t.MASTER_DT <= m2.END_DT
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP IN (C_ITM_ORD_TYP_MFG, C_ITM_ORD_TYP_OUTSRC)
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	m2.PRE_PO_TGT_FLG = C_ON
+			AND	m1.DEL_FLG = C_OFF
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.PRCD_ITM_ORDER
+			AND	t.ITM_ORD_STS_TYP = C_ITM_ORD_STS_TYP_OPN
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.MFG_LOC_CD	LOC_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_SIM_ITM_ORDER t, MAM_LOC m
+			WHERE	0=0
+			AND	t.MFG_LOC_CD = m.LOC_CD
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP IN (C_ITM_ORD_TYP_MFG, C_ITM_ORD_TYP_OUTSRC)
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.SIM_MRP_NO = I_SIM_MRP_NO
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	m.DEL_FLG = C_OFF
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.SIM_ITM_ORDER
+			) t,
+			MAM_ITM m1, MAM_CALC_PTN m2
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD
+		AND	t.ITM_SUB1 = m1.ITM_SUB1
+		AND	t.ITM_SUB2 = m1.ITM_SUB2
+		AND	t.ITM_SUB3 = m1.ITM_SUB3
+		AND	m1.CALC_PTN_CD = m2.CALC_PTN_CD(+)
+		AND	t.DPT_CD IS NOT NULL
+		AND	m2.DEL_FLG(+) = C_OFF
+		GROUP BY t.WG_CD, t.YM, t.DT, t.DPT_CD, t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+			t.SNO1, t.SNO2, t.SNO3, t.SNO4, t.LOC_CD, m1.UNIT_CD,
+			m2.SNO1_ACT_TYP, m2.SNO2_ACT_TYP, m2.SNO3_ACT_TYP, m2.SNO4_ACT_TYP
+		ORDER BY t.DT
+		)
+	LOOP
+		--部門の変換
+		IF L_TMP_DT IS NULL OR L_TMP_DT <> x.DT THEN
+			REC_DPT.DELETE ;
+			L_TMP_DT := x.DT ;
+		END IF ;
+
+		MGPA_COST_IF.P_GET_DPT(x.DPT_CD, G_FIX_DPT, x.YM, REC_DPT, L_DPT_CD, C_OFF) ;
+		IF L_DPT_CD IS NULL THEN
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		w := w + 1 ;
+
+		REC_w(w).CALC_CTG_CD	:= I_CALC_CTG_CD ;
+		REC_w(w).WG_CD	:= x.WG_CD ;
+		REC_w(w).YM		:= x.YM ;
+		REC_w(w).MNG_DPT_CD	:= L_DPT_CD ;
+		REC_w(w).ITM_CD := x.ITM_CD ;
+		REC_w(w).ITM_SUB1 := x.ITM_SUB1 ;
+		REC_w(w).ITM_SUB2 := x.ITM_SUB2 ;
+		REC_w(w).ITM_SUB3 := x.ITM_SUB3 ;
+		REC_w(w).LOT_NO := C_NULL_VAL ;
+		REC_w(w).SUBLOT_NO := C_NULL_VAL ;
+
+		REC_w(w).SNO1 := C_NULL_VAL ;
+		IF G_SNO1_USE_TYP <> C_PS_USE_SLS AND x.SNO1_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO1 := x.SNO1 ;
+		END IF ;
+
+		REC_w(w).SNO2 := C_NULL_VAL ;
+		IF G_SNO2_USE_TYP <> C_PS_USE_SLS AND x.SNO2_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO2 := x.SNO2 ;
+		END IF ;
+
+		REC_w(w).SNO3 := C_NULL_VAL ;
+		IF G_SNO3_USE_TYP <> C_PS_USE_SLS AND x.SNO3_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO3 := x.SNO3 ;
+		END IF ;
+
+		REC_w(w).SNO4 := C_NULL_VAL ;
+		IF G_SNO4_USE_TYP <> C_PS_USE_SLS AND x.SNO4_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO4 := x.SNO4 ;
+		END IF ;
+
+		REC_w(w).LOC_CD	 := x.LOC_CD ;
+		REC_w(w).STR_LN_CD := C_NULL_VAL ;
+		REC_w(w).ASST_TYP := C_ASST_MFG ;
+		REC_w(w).UNIT_CD := x.UNIT_CD ;
+		REC_w(w).QTY := x.QTY ;
+		REC_w(w).CUR_CD := NULL ;
+		REC_w(w).AMT := NULL ;
+		REC_w(w).RMRKS		:= NULL ;
+		REC_w(w).SUB_CHAR1	:= NULL ;
+		REC_w(w).SUB_CHAR2	:= NULL ;
+		REC_w(w).SUB_CHAR3	:= NULL ;
+		REC_w(w).IMP_ERR_FLG := C_OFF ;
+		REC_w(w).IMP_FLG := C_ON ;
+
+		IF w > C_MAX_CNT THEN
+			FORALL t IN 1..w
+				INSERT INTO MGW_IMP_PLN_MFG VALUES REC_w(t) ;
+			REC_w.DELETE ;
+			w := 0 ;
+		END IF ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+	END LOOP ;
+
+	IF w > 0 THEN
+		FORALL t IN 1..w
+			INSERT INTO MGW_IMP_PLN_MFG VALUES REC_w(t) ;
+		REC_w.DELETE ;
+		w := 0 ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_INS_MGW_MFG') ;
+
+END P_INS_MGW_MFG ;
+
+PROCEDURE P_INS_MGW_PURC (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		購買計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	REC_DPT		MGPA_COST_IF.LIST_DPT ;
+
+	L_TMP_DT		DATE ;
+	L_DPT_CD		MAM_COST_DPT.DPT_CD%TYPE ;
+	L_ALC_DPT_CD	MAM_COST_DPT.DPT_CD%TYPE ;
+
+	L_YM_TO		MAPA_META.YM%TYPE ;
+
+	TYPE LIST_PURC IS TABLE OF MGW_IMP_PLN_PURC%ROWTYPE INDEX BY BINARY_INTEGER ;
+	REC_w		LIST_PURC ;
+	w			INTEGER := 0 ;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_INS_MGW_PURC') ;
+
+	IF I_PLN_IMP_TYP = MAC_MFG_PLN_IMP_TYP.SIM_ITM_ORDER THEN
+		P_SIM_CHK(I_SIM_MRP_NO) ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_PURC t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	REC_DPT.DELETE ;
+	L_YM_TO := ADD_MONTHS(I_YM_TO, 1) ;
+	L_TMP_DT := NULL ;
+	w := 0 ;
+
+	FOR x IN (
+		SELECT
+			t.WG_CD,
+			t.YM,
+			t.DT,
+			t.DPT_CD,
+			t.ITM_CD,
+			t.ITM_SUB1,
+			t.ITM_SUB2,
+			t.ITM_SUB3,
+			t.SNO1,
+			t.SNO2,
+			t.SNO3,
+			t.SNO4,
+			t.SPPL_CD,
+			t.ALC_DPT_CD,
+			SUM(t.QTY)	QTY,
+			m1.UNIT_CD,
+			NVL(m2.SNO1_ACT_TYP, C_ACT_SET_NON)	SNO1_ACT_TYP,
+			NVL(m2.SNO2_ACT_TYP, C_ACT_SET_NON)	SNO2_ACT_TYP,
+			NVL(m2.SNO3_ACT_TYP, C_ACT_SET_NON)	SNO3_ACT_TYP,
+			NVL(m2.SNO4_ACT_TYP, C_ACT_SET_NON)	SNO4_ACT_TYP
+		FROM	(
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.SPPL_CD,
+				NULL	ALC_DPT_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_ITM_ORDER t, MAM_LOC m
+			WHERE	0=0
+			AND	t.STRG_LOC_CD = m.LOC_CD
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP = C_ITM_ORD_TYP_PURC
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	m.DEL_FLG = C_OFF
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	(
+				I_PLN_IMP_TYP = MAC_PURC_PLN_IMP_TYP.ITM_ORDER
+				OR
+				I_PLN_IMP_TYP = MAC_PURC_PLN_IMP_TYP.PRCD_ITM_ORDER
+				)
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m1.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.SPPL_CD,
+				NULL	ALC_DPT_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_PRCD_ITM_ORDER t, MAM_LOC m1, MAM_ITM_DTL m2
+			WHERE	0=0
+			AND	t.STRG_LOC_CD = m1.LOC_CD
+			AND	t.WG_CD = m2.WG_CD
+			AND	t.ITM_CD = m2.ITM_CD
+			AND	t.ITM_SUB1 = m2.ITM_SUB1
+			AND	t.ITM_SUB2 = m2.ITM_SUB2
+			AND	t.ITM_SUB3 = m2.ITM_SUB3
+			AND	t.SPPL_CD = m2.SPPL_CD
+			AND	t.MASTER_DT >= m2.ST_DT
+			AND	t.MASTER_DT <= m2.END_DT
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP = C_ITM_ORD_TYP_PURC
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	m2.PRE_PO_TGT_FLG = C_ON
+			AND	m1.DEL_FLG = C_OFF
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_PURC_PLN_IMP_TYP.PRCD_ITM_ORDER
+			AND	t.ITM_ORD_STS_TYP = C_ITM_ORD_STS_TYP_OPN
+			UNION ALL
+			SELECT
+				t.WG_CD,
+				TRUNC(t.STRG_SCHD_DT, 'MM')	YM,
+				t.STRG_SCHD_DT	DT,
+				m.ASST_DPT_CD	DPT_CD,
+				t.ITM_CD,
+				t.ITM_SUB1,
+				t.ITM_SUB2,
+				t.ITM_SUB3,
+				t.SNO1,
+				t.SNO2,
+				t.SNO3,
+				t.SNO4,
+				t.SPPL_CD,
+				NULL	ALC_DPT_CD,
+				t.INST_QTY	QTY
+			FROM	MGVT_MST_SIM_ITM_ORDER t, MAM_LOC m
+			WHERE	0=0
+			AND	t.STRG_LOC_CD = m.LOC_CD
+			AND	t.STRG_SCHD_DT >= I_YM_FR
+			AND	t.STRG_SCHD_DT < L_YM_TO
+			AND	t.ITM_ORD_TYP = C_ITM_ORD_TYP_PURC
+			AND	t.ORD_GNRT_TYP NOT IN (C_ORD_GNRT_TYP_UPLND)
+			AND	t.YIELD_SCHD_QTY <> 0
+			AND	t.SIM_MRP_NO = I_SIM_MRP_NO
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			AND	I_PLN_IMP_TYP = MAC_PURC_PLN_IMP_TYP.SIM_ITM_ORDER
+			) t,
+			MAM_ITM m1, MAM_CALC_PTN m2
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD
+		AND	t.ITM_SUB1 = m1.ITM_SUB1
+		AND	t.ITM_SUB2 = m1.ITM_SUB2
+		AND	t.ITM_SUB3 = m1.ITM_SUB3
+		AND	m1.CALC_PTN_CD = m2.CALC_PTN_CD(+)
+		AND	t.DPT_CD IS NOT NULL
+		AND	m2.DEL_FLG(+) = C_OFF
+		GROUP BY t.WG_CD, t.YM, t.DT, t.DPT_CD, t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+			t.SNO1, t.SNO2, t.SNO3, t.SNO4, t.SPPL_CD, t.ALC_DPT_CD, m1.UNIT_CD,
+			m2.SNO1_ACT_TYP, m2.SNO2_ACT_TYP, m2.SNO3_ACT_TYP, m2.SNO4_ACT_TYP
+		ORDER BY t.DT
+		)
+	LOOP
+		--部門の変換
+		IF L_TMP_DT IS NULL OR L_TMP_DT <> x.DT THEN
+			REC_DPT.DELETE ;
+			L_TMP_DT := x.DT ;
+		END IF ;
+
+		MGPA_COST_IF.P_GET_DPT(x.DPT_CD, G_FIX_DPT, x.YM, REC_DPT, L_DPT_CD, C_OFF) ;
+		IF L_DPT_CD IS NULL THEN
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ALC_DPT_CD IS NOT NULL THEN
+			MGPA_COST_IF.P_GET_DPT(x.ALC_DPT_CD, NULL, x.YM, REC_DPT, L_ALC_DPT_CD, C_OFF) ;
+			IF L_ALC_DPT_CD IS NULL THEN
+				GOTO NEXT_LOOP_ERR ;
+			END IF ;
+		END IF ;
+
+		w := w + 1 ;
+
+		REC_w(w).CALC_CTG_CD	:= I_CALC_CTG_CD ;
+		REC_w(w).WG_CD	:= x.WG_CD ;
+		REC_w(w).YM		:= x.YM ;
+		REC_w(w).MNG_DPT_CD	:= L_DPT_CD ;
+		REC_w(w).ITM_CD := x.ITM_CD ;
+		REC_w(w).ITM_SUB1 := x.ITM_SUB1 ;
+		REC_w(w).ITM_SUB2 := x.ITM_SUB2 ;
+		REC_w(w).ITM_SUB3 := x.ITM_SUB3 ;
+		REC_w(w).LOT_NO := C_NULL_VAL ;
+		REC_w(w).SUBLOT_NO := C_NULL_VAL ;
+
+		REC_w(w).SNO1 := C_NULL_VAL ;
+		IF G_SNO1_USE_TYP <> C_PS_USE_SLS AND x.SNO1_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO1 := x.SNO1 ;
+		END IF ;
+
+		REC_w(w).SNO2 := C_NULL_VAL ;
+		IF G_SNO2_USE_TYP <> C_PS_USE_SLS AND x.SNO2_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO2 := x.SNO2 ;
+		END IF ;
+
+		REC_w(w).SNO3 := C_NULL_VAL ;
+		IF G_SNO3_USE_TYP <> C_PS_USE_SLS AND x.SNO3_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO3 := x.SNO3 ;
+		END IF ;
+
+		REC_w(w).SNO4 := C_NULL_VAL ;
+		IF G_SNO4_USE_TYP <> C_PS_USE_SLS AND x.SNO4_ACT_TYP <> C_ACT_SET_NON THEN
+			REC_w(w).SNO4 := x.SNO4 ;
+		END IF ;
+
+		REC_w(w).SPPL_CD	:= x.SPPL_CD ;
+		REC_w(w).ASST_TYP	:= C_ASST_MFG ;
+		REC_w(w).UNIT_CD	:= x.UNIT_CD ;
+		REC_w(w).QTY		:= x.QTY ;
+		REC_w(w).CUR_CD		:= NULL ;
+		REC_w(w).AMT		:= NULL ;
+		REC_w(w).RMRKS		:= NULL ;
+		REC_w(w).SUB_CHAR1	:= NULL ;
+		REC_w(w).SUB_CHAR2	:= NULL ;
+		REC_w(w).SUB_CHAR3	:= NULL ;
+		REC_w(w).IMP_ERR_FLG	:= C_OFF ;
+		REC_w(w).IMP_FLG	:= C_ON ;
+
+		IF w > C_MAX_CNT THEN
+			FORALL t IN 1..w
+				INSERT INTO MGW_IMP_PLN_PURC VALUES REC_w(t) ;
+			REC_w.DELETE ;
+			w := 0 ;
+		END IF ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+	END LOOP ;
+
+	IF w > 0 THEN
+		FORALL t IN 1..w
+			INSERT INTO MGW_IMP_PLN_PURC VALUES REC_w(t) ;
+		REC_w.DELETE ;
+		w := 0 ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_INS_MGW_PURC') ;
+
+END P_INS_MGW_PURC ;
+
+PROCEDURE P_SLS (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.SLS_PLN_IMP_TYP%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		売上計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<HISTORY>
+**************************************************************************/
+IS
+	LOCK_ERROR     EXCEPTION ;
+	PRAGMA EXCEPTION_INIT(LOCK_ERROR, -54) ;
+
+	TYPE LIST_SLS IS TABLE OF MGT_PLN_SLS%ROWTYPE INDEX BY BINARY_INTEGER ;
+	rec	LIST_SLS ;
+	i	INTEGER := 0 ;
+
+	L_ERR	MAPA_META.FLG%TYPE ;
+	L_TERM		MAPA_META.YM%TYPE ;
+
+	CURSOR LOCK_PLN_SLS
+	IS
+		SELECT	t.PLN_SLS_KEY
+		FROM	MGT_PLN_SLS t
+		WHERE	0=0
+		AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+		AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGW_WG w
+				WHERE	0=0
+				AND	t.WG_CD = w.WG_CD
+			)
+		FOR UPDATE NOWAIT
+	;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_SLS') ;
+
+	--パラメータの取得
+	P_GET_PARM ;
+
+	BEGIN
+		OPEN LOCK_PLN_SLS ;
+		CLOSE LOCK_PLN_SLS ;
+	EXCEPTION
+	WHEN LOCK_ERROR THEN
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0029') ;
+	END ;
+
+	--販売管理から計画データをコピー
+	P_INS_MGW_SLS(I_CALC_CTG_CD, I_YM_FR, I_YM_TO, I_PLN_IMP_TYP) ;
+
+	DELETE	MGT_PLN_SLS t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	L_ERR := C_OFF ;
+	FOR x IN (
+		SELECT	t.*,
+			m1.ITM_CD	M_ITM,
+			m3.DPT_CD	M_MNG_DPT,
+			m4.BP_CD	M_CST,
+			m5.BP_CD	M_DLV,
+			m6.DPT_CD	M_SLS_DPT,
+			m7.DPT_CD	M_ALC_DPT,
+			m8.BP_CD	M_DEST1,
+			m9.BP_CD	M_DEST2,
+			m10.BP_CD	M_DEST3
+		FROM	(
+			SELECT	t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4, t.ASST_TYP,
+				t.CST_CD, t.DLV_CD,
+				t.SLS_DPT_CD, t.SLS_USR_CD, t.ALC_DPT_CD,
+				t.DEST_CD1, t.DEST_CD2, t.DEST_CD3,
+				t.COST_SLS_CD1, t.COST_SLS_CD2, t.COST_SLS_CD3, t.COST_SLS_CD4, t.COST_SLS_CD5,
+				t.UNIT_CD, SUM(t.QTY) QTY,
+				t.CUR_CD, SUM(t.AMT) AMT
+			FROM	MGW_IMP_PLN_SLS t
+			WHERE	0=0
+			AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+			AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.IMP_FLG = C_ON
+			AND	t.UPD_USR_ID = G_USR
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			GROUP BY t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.ASST_TYP,
+				t.CST_CD, t.DLV_CD,
+				t.SLS_DPT_CD, t.SLS_USR_CD, t.ALC_DPT_CD,
+				t.DEST_CD1, t.DEST_CD2, t.DEST_CD3,
+				t.COST_SLS_CD1, t.COST_SLS_CD2, t.COST_SLS_CD3, t.COST_SLS_CD4, t.COST_SLS_CD5,
+				t.UNIT_CD, t.CUR_CD
+			) t,
+			MAM_ITM m1, MAM_TERM m2, MAM_COST_DPT m3, MAM_BP m4, MAM_BP m5,
+			MAM_COST_DPT m6, MAM_COST_DPT m7,
+			MAM_BP m8, MAM_BP m9, MAM_BP m10
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD(+)
+		AND	t.ITM_SUB1 = m1.ITM_SUB1(+)
+		AND	t.ITM_SUB2 = m1.ITM_SUB2(+)
+		AND	t.ITM_SUB3 = m1.ITM_SUB3(+)
+		AND	t.YM >= m2.TERM(+)
+		AND t.YM < m2.TERM_END_YM(+)
+		AND	t.MNG_DPT_CD = m3.DPT_CD(+)
+		AND	m2.TERM = m3.TERM(+)
+		AND	t.CST_CD = m4.BP_CD(+)
+		AND	t.DLV_CD = m5.BP_CD(+)
+		AND	t.SLS_DPT_CD = m6.DPT_CD(+)
+		AND	m2.TERM = m6.TERM(+)
+		AND	t.ALC_DPT_CD = m7.DPT_CD(+)
+		AND	m2.TERM = m7.TERM(+)
+		AND	t.DEST_CD1 = m8.BP_CD(+)
+		AND	t.DEST_CD2 = m9.BP_CD(+)
+		AND	t.DEST_CD3 = m10.BP_CD(+)
+		AND	m2.DEL_FLG(+) = C_OFF
+		AND	m3.DEL_FLG(+) = C_OFF
+		AND	m4.DEL_FLG(+) = C_OFF
+		AND	m5.DEL_FLG(+) = C_OFF
+		AND	m6.DEL_FLG(+) = C_OFF
+		AND	m7.DEL_FLG(+) = C_OFF
+		AND	m8.DEL_FLG(+) = C_OFF
+		AND	m9.DEL_FLG(+) = C_OFF
+		AND	m10.DEL_FLG(+) = C_OFF
+		)
+	LOOP
+		IF x.M_ITM IS NULL THEN
+			--品目マスタに有効な品目として登録されていません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0002', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_MNG_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.MNG_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.CST_CD IS NOT NULL AND x.M_CST IS NULL THEN
+			--取引先マスタに有効な取引先として登録されていません。得意先ＣＤ：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0006', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.CST_CD) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.DLV_CD IS NOT NULL AND x.M_DLV = C_OFF THEN
+			--取引先マスタに有効な取引先として登録されていません。納品先ＣＤ：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0007', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.DLV_CD) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ALC_DPT_CD IS NOT NULL AND x.M_ALC_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.ALC_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.SLS_DPT_CD IS NOT NULL AND x.M_SLS_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.SLS_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.DEST_CD1 IS NOT NULL AND x.M_DEST1 IS NULL THEN
+			--取引先マスタに有効な取引先として登録されていません。仕向先ＣＤ１：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0008', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.DEST_CD1) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.DEST_CD2 IS NOT NULL AND x.M_DEST3 IS NULL THEN
+			--取引先マスタに有効な取引先として登録されていません。仕向先ＣＤ２：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0009', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.DEST_CD2) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.DEST_CD3 IS NOT NULL AND x.M_DEST3 IS NULL THEN
+			--取引先マスタに有効な取引先として登録されていません。仕向先ＣＤ３：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0010', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.DEST_CD3) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		i := i + 1 ;
+
+		rec(i).PLN_SLS_KEY := MAPA_NUM.F_GET_SEQ(C_SLS_SEQ) ;
+		rec(i).CALC_CTG_CD := x.CALC_CTG_CD ;
+		rec(i).WG_CD := x.WG_CD ;
+		rec(i).YM	:= x.YM ;
+		rec(i).MNG_DPT_CD := x.MNG_DPT_CD ;
+		rec(i).ITM_CD	:= x.ITM_CD ;
+		rec(i).ITM_SUB1	:= x.ITM_SUB1 ;
+		rec(i).ITM_SUB2	:= x.ITM_SUB2 ;
+		rec(i).ITM_SUB3	:= x.ITM_SUB3 ;
+		rec(i).LOT_NO	:= x.LOT_NO ;
+		rec(i).SUBLOT_NO	:= x.SUBLOT_NO ;
+		rec(i).SNO1	:= x.SNO1 ;
+		rec(i).SNO2	:= x.SNO2 ;
+		rec(i).SNO3	:= x.SNO3 ;
+		rec(i).SNO4	:= x.SNO4 ;
+
+		IF G_CO_PARM.ASST_FLG = C_ON THEN
+			rec(i).ASST_TYP	:= C_ASST_MFG ;
+		ELSE
+			rec(i).ASST_TYP	:= x.ASST_TYP ;
+		END IF ;
+
+		rec(i).CST_CD	:= x.CST_CD ;
+		rec(i).DLV_CD	:= x.DLV_CD ;
+		rec(i).SLS_DPT_CD := x.SLS_DPT_CD ;
+		rec(i).SLS_USR_CD := x.SLS_USR_CD ;
+		rec(i).ALC_DPT_CD := x.ALC_DPT_CD ;
+		rec(i).DEST_CD1	:= x.DEST_CD1 ;
+		rec(i).DEST_CD2	:= x.DEST_CD2 ;
+		rec(i).DEST_CD3	:= x.DEST_CD3 ;
+		rec(i).COST_SLS_CD1 := x.COST_SLS_CD1 ;
+		rec(i).COST_SLS_CD2 := x.COST_SLS_CD2 ;
+		rec(i).COST_SLS_CD3 := x.COST_SLS_CD3 ;
+		rec(i).COST_SLS_CD4 := x.COST_SLS_CD4 ;
+		rec(i).COST_SLS_CD5 := x.COST_SLS_CD5 ;
+		rec(i).UNIT_CD	:= x.UNIT_CD ;
+		rec(i).QTY		:= x.QTY ;
+		rec(i).CUR_CD	:= x.CUR_CD ;
+		rec(i).AMT		:= x.AMT ;
+
+		IF i > C_MAX_CNT THEN
+			FORALL t IN 1..i
+				INSERT INTO MGT_PLN_SLS VALUES rec(t) ;
+			rec.DELETE ;
+			i := 0 ;
+		END IF ;
+
+		GOTO NEXT_LOOP ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+
+		L_ERR := C_ON ;
+
+		<<NEXT_LOOP>>
+			NULL ;
+	END LOOP ;
+
+	IF i > 0 THEN
+		FORALL t IN 1..i
+			INSERT INTO MGT_PLN_SLS VALUES rec(t) ;
+		rec.DELETE ;
+		i := 0 ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_SLS w
+	WHERE	0=0
+	AND	w.IMP_FLG = C_ON
+	AND	w.IMP_ERR_FLG = C_OFF
+	AND	w.UPD_USR_ID = G_USR
+	;
+
+	IF L_ERR = C_ON THEN
+		COMMIT ; --正常データは取込済みにするため
+		G_MSG := FCPA_ERR.MSG_BINDER('MGPA_IMP_PLN.P_SLS') ;
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0037', G_MSG) ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_SLS') ;
+
+END P_SLS ;
+
+PROCEDURE P_RQMT (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.RQMT_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		月次計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	LOCK_ERROR     EXCEPTION ;
+	PRAGMA EXCEPTION_INIT(LOCK_ERROR, -54) ;
+
+	TYPE LIST_RQMT IS TABLE OF MGT_PLN_RQMT%ROWTYPE INDEX BY BINARY_INTEGER ;
+	rec	LIST_RQMT ;
+	i	INTEGER := 0 ;
+
+	L_ERR	MAPA_META.FLG%TYPE ;
+
+	CURSOR LOCK_PLN_RQMT
+	IS
+		SELECT	t.PLN_RQMT_KEY
+		FROM	MGT_PLN_RQMT t
+		WHERE	0=0
+		AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+		AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGW_WG w
+				WHERE	0=0
+				AND	t.WG_CD = w.WG_CD
+			)
+		FOR UPDATE NOWAIT
+	;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_RQMT') ;
+
+	--パラメータの取得
+	P_GET_PARM ;
+
+	BEGIN
+		OPEN LOCK_PLN_RQMT ;
+		CLOSE LOCK_PLN_RQMT ;
+	EXCEPTION
+	WHEN LOCK_ERROR THEN
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0029') ;
+	END ;
+
+	--生産管理から計画データをコピー
+	P_INS_MGW_RQMT(I_CALC_CTG_CD, I_YM_FR, I_YM_TO, I_PLN_IMP_TYP, I_SIM_MRP_NO) ;
+
+	DELETE	MGT_PLN_RQMT t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	L_ERR := C_OFF ;
+	FOR x IN (
+		SELECT	t.*,
+			m1.ITM_CD	M_ITM,
+			m1.ASSET_MNG_TYP,
+			m3.DPT_CD	M_MNG_DPT
+		FROM	(
+			SELECT	t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.ASST_TYP,
+				t.UNIT_CD, SUM(t.QTY) QTY
+			FROM	MGW_IMP_PLN_RQMT t
+			WHERE	0=0
+			AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+			AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.IMP_FLG = C_ON
+			AND	t.UPD_USR_ID = G_USR
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			GROUP BY t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.ASST_TYP,
+				t.UNIT_CD
+			) t,
+			MAM_ITM m1, MAM_TERM m2, MAM_COST_DPT m3
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD(+)
+		AND	t.ITM_SUB1 = m1.ITM_SUB1(+)
+		AND	t.ITM_SUB2 = m1.ITM_SUB2(+)
+		AND	t.ITM_SUB3 = m1.ITM_SUB3(+)
+		AND	t.YM >= m2.TERM(+)
+		AND t.YM < m2.TERM_END_YM(+)
+		AND	t.MNG_DPT_CD = m3.DPT_CD(+)
+		AND m2.TERM = m3.TERM(+)
+		AND	m2.DEL_FLG(+) = C_OFF
+		AND	m3.DEL_FLG(+) = C_OFF
+		)
+	LOOP
+		IF x.M_ITM IS NULL THEN
+			--品目マスタに有効な品目として登録されていません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0002', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ASSET_MNG_TYP IS NULL OR x.ASSET_MNG_TYP <> C_ASSET_MNG_MNG THEN
+			-- 品目マスタに資産管理可能な品目として登録されていません。取込の対象にはなりません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0003', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_MNG_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.MNG_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		i := i + 1 ;
+
+		rec(i).PLN_RQMT_KEY := MAPA_NUM.F_GET_SEQ(C_RQMT_SEQ) ;
+		rec(i).CALC_CTG_CD := x.CALC_CTG_CD ;
+		rec(i).WG_CD := x.WG_CD ;
+		rec(i).YM	:= x.YM ;
+		rec(i).MNG_DPT_CD := x.MNG_DPT_CD ;
+		rec(i).ITM_CD	:= x.ITM_CD ;
+		rec(i).ITM_SUB1	:= x.ITM_SUB1 ;
+		rec(i).ITM_SUB2	:= x.ITM_SUB2 ;
+		rec(i).ITM_SUB3	:= x.ITM_SUB3 ;
+		rec(i).LOT_NO	:= x.LOT_NO ;
+		rec(i).SUBLOT_NO	:= x.SUBLOT_NO ;
+		rec(i).SNO1	:= x.SNO1 ;
+		rec(i).SNO2	:= x.SNO2 ;
+		rec(i).SNO3	:= x.SNO3 ;
+		rec(i).SNO4	:= x.SNO4 ;
+		rec(i).ASST_TYP	:= x.ASST_TYP ;
+		rec(i).UNIT_CD	:= x.UNIT_CD ;
+		rec(i).QTY	:= x.QTY ;
+
+		IF i > C_MAX_CNT THEN
+			FORALL t IN 1..i
+				INSERT INTO MGT_PLN_RQMT VALUES rec(t) ;
+			rec.DELETE ;
+			i := 0 ;
+		END IF ;
+
+		GOTO NEXT_LOOP ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+
+		L_ERR := C_ON ;
+
+		<<NEXT_LOOP>>
+			NULL ;
+	END LOOP ;
+
+	IF i > 0 THEN
+		FORALL t IN 1..i
+			INSERT INTO MGT_PLN_RQMT VALUES rec(t) ;
+		rec.DELETE ;
+		i := 0 ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_RQMT w
+	WHERE	0=0
+	AND	w.IMP_FLG = C_ON
+	AND	w.IMP_ERR_FLG = C_OFF
+	AND	w.UPD_USR_ID = G_USR
+	;
+
+	IF L_ERR = C_ON THEN
+		COMMIT ; --正常データは取込済みにするため
+		G_MSG := FCPA_ERR.MSG_BINDER('MGPA_IMP_PLN.P_RQMT') ;
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0037', G_MSG) ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_RQMT') ;
+
+END P_RQMT ;
+
+PROCEDURE P_MFG (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.MFG_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		製造計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	LOCK_ERROR     EXCEPTION ;
+	PRAGMA EXCEPTION_INIT(LOCK_ERROR, -54) ;
+
+	TYPE LIST_MFG IS TABLE OF MGT_PLN_MFG%ROWTYPE INDEX BY BINARY_INTEGER ;
+	rec	LIST_MFG ;
+	i	INTEGER := 0 ;
+
+	L_ERR	MAPA_META.FLG%TYPE ;
+
+	CURSOR LOCK_PLN_MFG
+	IS
+		SELECT	t.PLN_MFG_KEY
+		FROM	MGT_PLN_MFG t
+		WHERE	0=0
+		AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+		AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGW_WG w
+				WHERE	0=0
+				AND	t.WG_CD = w.WG_CD
+			)
+		FOR UPDATE NOWAIT
+	;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_MFG') ;
+
+	--パラメータの取得
+	P_GET_PARM ;
+
+	BEGIN
+		OPEN LOCK_PLN_MFG ;
+		CLOSE LOCK_PLN_MFG ;
+	EXCEPTION
+	WHEN LOCK_ERROR THEN
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0029') ;
+	END ;
+
+	--生産管理から計画データをコピー
+	P_INS_MGW_MFG(I_CALC_CTG_CD, I_YM_FR, I_YM_TO, I_PLN_IMP_TYP, I_SIM_MRP_NO) ;
+
+	DELETE	MGT_PLN_MFG t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	L_ERR := C_OFF ;
+	FOR x IN (
+		SELECT	t.*,
+			m1.ITM_CD	M_ITM,
+			m1.ASSET_MNG_TYP,
+			m3.DPT_CD	M_MNG_DPT,
+			m4.LOC_CD	M_LOC,
+			NVL(m4.STKTK_TGT_FLG, C_OFF)	STKTK_TGT_FLG
+		FROM	(
+			SELECT t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.LOC_CD, t.STR_LN_CD,
+				t.ASST_TYP,
+				t.UNIT_CD, SUM(t.QTY) QTY,
+				t.CUR_CD, SUM(t.AMT) AMT
+			FROM	MGW_IMP_PLN_MFG t
+			WHERE	0=0
+			AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+			AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.IMP_FLG = C_ON
+			AND	t.UPD_USR_ID = G_USR
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			GROUP BY t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.LOC_CD, t.STR_LN_CD,
+				t.ASST_TYP,
+				t.UNIT_CD, t.CUR_CD
+			) t,
+			MAM_ITM m1, MAM_TERM m2, MAM_COST_DPT m3, MAM_LOC m4
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD(+)
+		AND	t.ITM_SUB1 = m1.ITM_SUB1(+)
+		AND	t.ITM_SUB2 = m1.ITM_SUB2(+)
+		AND	t.ITM_SUB3 = m1.ITM_SUB3(+)
+		AND	t.YM >= m2.TERM(+)
+		AND t.YM < m2.TERM_END_YM(+)
+		AND m2.TERM = m3.TERM(+)
+		AND	t.MNG_DPT_CD = m3.DPT_CD(+)
+		AND	t.LOC_CD = m4.LOC_CD(+)
+		AND	m2.DEL_FLG(+) = C_OFF
+		AND	m3.DEL_FLG(+) = C_OFF
+		AND	m4.DEL_FLG(+) = C_OFF
+		)
+	LOOP
+		IF x.M_ITM IS NULL THEN
+			--品目マスタに有効な品目として登録されていません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0002', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ASSET_MNG_TYP IS NULL OR x.ASSET_MNG_TYP <> C_ASSET_MNG_MNG THEN
+			-- 品目マスタに資産管理可能な品目として登録されていません。取込の対象にはなりません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0003', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_MNG_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.MNG_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_LOC IS NULL THEN
+			--場所マスタに有効な場所として登録されていません。場所ＣＤ：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0004', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.LOC_CD) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		i := i + 1 ;
+
+		rec(i).PLN_MFG_KEY := MAPA_NUM.F_GET_SEQ(C_MFG_SEQ) ;
+		rec(i).CALC_CTG_CD := x.CALC_CTG_CD ;
+		rec(i).WG_CD := x.WG_CD ;
+		rec(i).YM	:= x.YM ;
+		rec(i).MNG_DPT_CD := x.MNG_DPT_CD ;
+		rec(i).ITM_CD	:= x.ITM_CD ;
+		rec(i).ITM_SUB1	:= x.ITM_SUB1 ;
+		rec(i).ITM_SUB2	:= x.ITM_SUB2 ;
+		rec(i).ITM_SUB3	:= x.ITM_SUB3 ;
+		rec(i).LOT_NO	:= x.LOT_NO ;
+		rec(i).SUBLOT_NO	:= x.SUBLOT_NO ;
+		rec(i).SNO1	:= x.SNO1 ;
+		rec(i).SNO2	:= x.SNO2 ;
+		rec(i).SNO3	:= x.SNO3 ;
+		rec(i).SNO4	:= x.SNO4 ;
+		rec(i).LOC_CD	:= x.LOC_CD ;
+
+		IF x.STKTK_TGT_FLG = C_ON THEN
+			rec(i).STR_LN_CD := x.STR_LN_CD ;
+		ELSE
+			rec(i).STR_LN_CD := C_NULL_VAL ;
+		END IF ;
+
+		rec(i).ASST_TYP	:= x.ASST_TYP ;
+		rec(i).UNIT_CD	:= x.UNIT_CD ;
+		rec(i).QTY	:= x.QTY ;
+		rec(i).CUR_CD	:= x.CUR_CD ;
+		rec(i).AMT	:= x.AMT ;
+
+		IF i > C_MAX_CNT THEN
+			FORALL t IN 1..i
+				INSERT INTO MGT_PLN_MFG VALUES rec(t) ;
+			rec.DELETE ;
+			i := 0 ;
+		END IF ;
+
+		GOTO NEXT_LOOP ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+
+		L_ERR := C_ON ;
+
+		<<NEXT_LOOP>>
+			NULL ;
+	END LOOP ;
+
+	IF i > 0 THEN
+		FORALL t IN 1..i
+			INSERT INTO MGT_PLN_MFG VALUES rec(t) ;
+		rec.DELETE ;
+		i := 0 ;
+	END IF ;
+
+	DELETE	MGW_IMP_PLN_MFG w
+	WHERE	0=0
+	AND	w.IMP_FLG = C_ON
+	AND	w.IMP_ERR_FLG = C_OFF
+	AND	w.UPD_USR_ID = G_USR
+	;
+
+	IF L_ERR = C_ON THEN
+		COMMIT ; --正常データは取込済みにするため
+		G_MSG := FCPA_ERR.MSG_BINDER('MGPA_IMP_PLN.P_MFG') ;
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0037', G_MSG) ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_MFG') ;
+
+END P_MFG ;
+
+PROCEDURE P_PURC (
+	I_CALC_CTG_CD	IN	MAPA_META.CALC_CTG_CD%TYPE,
+	I_YM_FR		IN	MAPA_META.YM%TYPE,
+	I_YM_TO		IN	MAPA_META.YM%TYPE,
+	I_PLN_IMP_TYP	IN	MAPA_META.PURC_PLN_IMP_TYP%TYPE,
+	I_SIM_MRP_NO	IN	MAPA_META.SIM_MRP_NO%TYPE
+)
+/**************************************************************************
+<SYNOPSIS>
+		計画データを取込む
+<REMARKS>
+		購入計画用
+<ARGUMENTS>
+<IN>	I_CALC_CTG_CD
+		計算カテゴリＣＤ
+<IN>	I_YM_FR
+		対象年月ＦＲＯＭ
+<IN>	I_YM_TO
+		対象年月ＴＯ
+<IN>	I_PLN_IMP_TYP
+		計画取込区分
+<IN>	I_SIM_MRP_NO
+		シミュレーションＮＯ
+<HISTORY>
+**************************************************************************/
+IS
+	LOCK_ERROR     EXCEPTION ;
+	PRAGMA EXCEPTION_INIT(LOCK_ERROR, -54) ;
+
+	TYPE LIST_PURC IS TABLE OF MGT_PLN_PURC%ROWTYPE INDEX BY BINARY_INTEGER ;
+	rec	LIST_PURC ;
+	i	INTEGER := 0 ;
+
+	L_ERR	MAPA_META.FLG%TYPE ;
+
+	CURSOR LOCK_PLN_PURC
+	IS
+		SELECT	t.PLN_PURC_KEY
+		FROM	MGT_PLN_PURC t
+		WHERE	0=0
+		AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+		AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+		AND	EXISTS (
+				SELECT	'X'
+				FROM	MGW_WG w
+				WHERE	0=0
+				AND	t.WG_CD = w.WG_CD
+			)
+		FOR UPDATE NOWAIT
+	;
+
+BEGIN
+	--処理を開始しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0001', 'MGPA_IMP_PLN.P_PURC') ;
+
+	--パラメータの取得
+	P_GET_PARM ;
+
+	BEGIN
+		OPEN LOCK_PLN_PURC ;
+		CLOSE LOCK_PLN_PURC ;
+	EXCEPTION
+	WHEN LOCK_ERROR THEN
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0029') ;
+	END ;
+
+	--生産管理から計画データをコピー
+	P_INS_MGW_PURC(I_CALC_CTG_CD, I_YM_FR, I_YM_TO, I_PLN_IMP_TYP, I_SIM_MRP_NO) ;
+
+	DELETE	MGT_PLN_PURC t
+	WHERE	0=0
+	AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+	AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+	AND	EXISTS (
+			SELECT	'X'
+			FROM	MGW_WG w
+			WHERE	0=0
+			AND	t.WG_CD = w.WG_CD
+		)
+	;
+
+	L_ERR := C_OFF ;
+	FOR x IN (
+		SELECT	t.*,
+			m1.ITM_CD	M_ITM,
+			m1.ASSET_MNG_TYP,
+			m3.DPT_CD	M_MNG_DPT,
+			m4.BP_CD	M_BP,
+			m5.DPT_NM	M_ALC_DPT
+		FROM	(
+			SELECT	t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.SPPL_CD,
+				t.ALC_DPT_CD,
+				t.ASST_TYP,
+				t.UNIT_CD, SUM(t.QTY) QTY,
+				t.CUR_CD, SUM(t.AMT) AMT
+			FROM	MGW_IMP_PLN_PURC t
+			WHERE	0=0
+			AND	t.CALC_CTG_CD = I_CALC_CTG_CD
+			AND	t.YM BETWEEN I_YM_FR AND I_YM_TO
+			AND	t.IMP_FLG = C_ON
+			AND	t.UPD_USR_ID = G_USR
+			AND	EXISTS (
+					SELECT	'X'
+					FROM	MGW_WG w
+					WHERE	0=0
+					AND	t.WG_CD = w.WG_CD
+				)
+			GROUP BY t.CALC_CTG_CD, t.WG_CD,
+				t.YM, t.MNG_DPT_CD,
+				t.ITM_CD, t.ITM_SUB1, t.ITM_SUB2, t.ITM_SUB3,
+				t.LOT_NO, t.SUBLOT_NO,
+				t.SNO1, t.SNO2, t.SNO3, t.SNO4,
+				t.SPPL_CD,
+				t.ALC_DPT_CD,
+				t.ASST_TYP,
+				t.UNIT_CD, t.CUR_CD
+			) t,
+			MAM_ITM m1, MAM_TERM m2, MAM_COST_DPT m3, MAM_BP m4, MAM_COST_DPT m5
+		WHERE	0=0
+		AND	t.ITM_CD = m1.ITM_CD(+)
+		AND	t.ITM_SUB1 = m1.ITM_SUB1(+)
+		AND	t.ITM_SUB2 = m1.ITM_SUB2(+)
+		AND	t.ITM_SUB3 = m1.ITM_SUB3(+)
+		AND	t.YM >= m2.TERM(+)
+		AND t.YM < m2.TERM_END_YM(+)
+		AND m2.TERM = m3.TERM(+)
+		AND	t.MNG_DPT_CD = m3.DPT_CD(+)
+		AND	t.SPPL_CD = m4.BP_CD(+)
+		AND m2.TERM = m5.TERM(+)
+		AND	t.ALC_DPT_CD = m5.DPT_CD(+)
+		AND	m2.DEL_FLG(+) = C_OFF
+		AND	m3.DEL_FLG(+) = C_OFF
+		AND	m4.DEL_FLG(+) = C_OFF
+		AND	m5.DEL_FLG(+) = C_OFF
+		)
+	LOOP
+		IF x.M_ITM IS NULL THEN
+			--品目マスタに登録されていません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0002', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ASSET_MNG_TYP IS NULL OR x.ASSET_MNG_TYP <> C_ASSET_MNG_MNG THEN
+			-- 品目マスタに資産管理可能な品目として登録されていません。取込の対象にはなりません。品目：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0003', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					MAPA_COMM.F_TO_DISP_ITM(x.ITM_CD, x.ITM_SUB1, x.ITM_SUB2, x.ITM_SUB3, G_PARM_ITM_SUB_TYP)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_MNG_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.MNG_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.M_BP IS NULL THEN
+			--取引先マスタに有効な取引先として登録されていません。発注先ＣＤ：{1}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBAD0005', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2, x.SPPL_CD) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		IF x.ALC_DPT_CD IS NOT NULL AND x.M_ALC_DPT IS NULL THEN
+			--原価部門マスタに登録されていません。部門ＣＤ：{1} 期：{2}
+			FCPA_BATCH_LOG.P_DATA_LOG('MGBXD0041', G_LOG_NO, G_LOG_SUB_KEY1, G_LOG_SUB_KEY2,
+					x.ALC_DPT_CD, FCPA_DATE_UTIL.F_TO_CHAR(x.YM, FCPA_DATE_UTIL.Y4M)) ;
+			GOTO NEXT_LOOP_ERR ;
+		END IF ;
+
+		i := i + 1 ;
+
+		rec(i).PLN_PURC_KEY := MAPA_NUM.F_GET_SEQ(C_PURC_SEQ) ;
+		rec(i).CALC_CTG_CD := x.CALC_CTG_CD ;
+		rec(i).WG_CD := x.WG_CD ;
+		rec(i).YM	:= x.YM ;
+		rec(i).MNG_DPT_CD := x.MNG_DPT_CD ;
+		rec(i).ITM_CD	:= x.ITM_CD ;
+		rec(i).ITM_SUB1	:= x.ITM_SUB1 ;
+		rec(i).ITM_SUB2	:= x.ITM_SUB2 ;
+		rec(i).ITM_SUB3	:= x.ITM_SUB3 ;
+		rec(i).LOT_NO	:= x.LOT_NO ;
+		rec(i).SUBLOT_NO	:= x.SUBLOT_NO ;
+		rec(i).SNO1	:= x.SNO1 ;
+		rec(i).SNO2	:= x.SNO2 ;
+		rec(i).SNO3	:= x.SNO3 ;
+		rec(i).SNO4	:= x.SNO4 ;
+		rec(i).SPPL_CD	:= x.SPPL_CD ;
+		rec(i).ALC_DPT_CD := x.ALC_DPT_CD ;
+		rec(i).ASST_TYP	:= x.ASST_TYP ;
+		rec(i).UNIT_CD	:= x.UNIT_CD ;
+		rec(i).QTY	:= x.QTY ;
+		rec(i).CUR_CD	:= x.CUR_CD ;
+		rec(i).AMT	:= x.AMT ;
+
+		IF i > C_MAX_CNT THEN
+			FORALL t IN 1..i
+				INSERT INTO MGT_PLN_PURC VALUES rec(t) ;
+			rec.DELETE ;
+			i := 0 ;
+		END IF ;
+
+		GOTO NEXT_LOOP ;
+
+		<<NEXT_LOOP_ERR>>
+			NULL ;
+
+		L_ERR := C_ON ;
+
+		<<NEXT_LOOP>>
+			NULL ;
+	END LOOP ;
+
+	IF i > 0 THEN
+		FORALL t IN 1..i
+			INSERT INTO MGT_PLN_PURC VALUES rec(t) ;
+		rec.DELETE ;
+		i := 0 ;
+	END IF ;
+
+
+	DELETE	MGW_IMP_PLN_PURC w
+	WHERE	0=0
+	AND	w.IMP_FLG = C_ON
+	AND	w.IMP_ERR_FLG = C_OFF
+	AND	w.UPD_USR_ID = G_USR
+	;
+
+	IF L_ERR = C_ON THEN
+		COMMIT ; --正常データは取込済みにするため
+		G_MSG := FCPA_ERR.MSG_BINDER('MGPA_IMP_PLN.P_PURC') ;
+		FCPA_ERR.RAISE_APP_ERR('MGBXD0037', G_MSG) ;
+	END IF ;
+
+	--処理が終了しました。{1}
+	FCPA_BATCH_LOG.P_PROC_LOG('MGBXD0002', 'MGPA_IMP_PLN.P_PURC') ;
+
+END P_PURC ;
+
+END MGPA_IMP_PLN ;
+
+/
+show errors;
+
+

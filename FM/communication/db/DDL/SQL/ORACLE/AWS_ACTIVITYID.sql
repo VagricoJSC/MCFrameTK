@@ -1,0 +1,6 @@
+CREATE SEQUENCE AWS_ACTIVITYID
+start with 1
+minvalue 1
+maxvalue 999999999999999999999999
+cycle
+ORDER;

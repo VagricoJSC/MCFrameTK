@@ -1,0 +1,15 @@
+
+COMMENT ON TABLE FCT_CONTEXT IS 'ＤＢコンテキスト情報 // DB context info.';
+
+
+COMMENT ON COLUMN FCT_CONTEXT.PID IS 'プロセス ID // #FC.POSTGRESQL_PID // PID';
+
+
+COMMENT ON COLUMN FCT_CONTEXT.CO_CD IS '会社ＣＤ // #FC.CO_CD // Company cd.';
+
+
+COMMENT ON COLUMN FCT_CONTEXT.USER_ID IS 'ユーザＩＤ // #FC.USR_ID // User ID';
+
+
+COMMENT ON COLUMN FCT_CONTEXT.LCL_CD IS 'ロケールＣＤ // #FC.LOCALE_CD // Locale cd.';
+

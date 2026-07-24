@@ -1,0 +1,83 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_prcd_alloc_pln(
+	rqmt_no,
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	ver_no,
+	lot_no,
+	sublot_no,
+	loc_cd,
+	io_schd_pr_no,
+	schd_alloc_qty,
+	gi_schd_dt,
+	sno1,
+	sno2,
+	sno3,
+	sno4,
+	alloc_avl_dt,
+	avl_qty,
+	lmt_dt,
+	wg_cd,
+	sim_mrp_no,
+	intr_rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.rqmt_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.itm_cd,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.itm_sub1,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.itm_sub2,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.itm_sub3,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.ver_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.lot_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sublot_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.loc_cd,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.io_schd_pr_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.schd_alloc_qty,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.gi_schd_dt,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sno1,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sno2,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sno3,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sno4,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.alloc_avl_dt,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.avl_qty,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.lmt_dt,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.wg_cd,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sim_mrp_no,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.intr_rmrks,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sub_char1,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sub_char2,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.sub_char3,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.ins_usr_id,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.ins_usr_nm,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.ins_ts,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.ins_func_id,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_cntr,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_usr_id,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_usr_nm,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_ts,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_func_id,
+	mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.upd_srv_req_no
+FROM
+	mst_prcd_alloc_pln_all mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org
+WHERE
+	0 = 0
+	AND mst_prcd_alloc_pln_mst_prcd_alloc_pln_all_org.co_cd = (SELECT co_cd FROM fct_context mst_prcd_alloc_pln_fct_context WHERE pid = pg_backend_pid())
+;
+

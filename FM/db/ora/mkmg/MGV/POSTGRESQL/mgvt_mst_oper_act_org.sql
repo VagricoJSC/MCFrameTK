@@ -1,0 +1,52 @@
+DO $$
+BEGIN
+CREATE OR REPLACE VIEW mgvt_mst_oper_act
+AS
+SELECT
+mgvt_mst_oper_act_org_mst_oper_act_t1.oper_act_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.mfg_act_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.itm_mfg_inst_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.oper_inst_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.div_seq,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.arr_act_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.purc_act_io_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.disp_seq,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.st_act_tm,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.end_act_tm,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.base_unit_qty,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.base_unit_cd,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.oper_unit_qty,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.oper_unit_cd,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.bkf_ctl_flg,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.wk_cost_calc_ctl_flg,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.oper_yield,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.bkf_not_ref_flg,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.data_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.mes_id,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.mes_flg,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ext_sys_cd,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ext_oper_act_no,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.if_auto_reg_flg,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.intr_rmrks,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.act_rpt_rmrks,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.sub_char1,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.sub_char2,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.sub_char3,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ins_usr_id,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ins_usr_nm,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ins_ts,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.ins_func_id,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_cntr,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_usr_id,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_usr_nm,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_ts,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_func_id,
+	mgvt_mst_oper_act_org_mst_oper_act_t1.upd_srv_req_no
+FROM 
+	mst_oper_act mgvt_mst_oper_act_org_mst_oper_act_t1
+;
+EXCEPTION WHEN OTHERS THEN
+	null;
+END
+$$
+;

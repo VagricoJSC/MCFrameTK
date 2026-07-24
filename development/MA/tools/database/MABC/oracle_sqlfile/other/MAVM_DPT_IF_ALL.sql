@@ -1,0 +1,96 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE VIEW MAVM_DPT_IF_ALL(
+	CO_CD,
+	DPT_CD,
+	ST_DT,
+	END_DT,
+	DPT_NM,
+	DPT_NM_LCL1,
+	DPT_NM_LCL2,
+	DPT_NM_LCL3,
+	DPT_NM_LCL4,
+	DPT_NM_LCL5,
+	WG_NM,
+	WG_NM_LCL1,
+	WG_NM_LCL2,
+	WG_NM_LCL3,
+	WG_NM_LCL4,
+	WG_NM_LCL5,
+	MEMO1,
+	MEMO2,
+	MEMO3
+)
+AS
+WITH MAVM_WG_MST_W AS (
+	SELECT * FROM MAVM_WG_MST
+)
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--部門ＣＤ
+	T1.DPT_CD,
+	--適用開始日
+	T1.ST_DT,
+	--適用終了日
+	T1.END_DT,
+	--部門名
+	T1.DPT_NM,
+	--部門名（ロケール１）
+	T1.DPT_NM_LCL1,
+	--部門名（ロケール２）
+	T1.DPT_NM_LCL2,
+	--部門名（ロケール３）
+	T1.DPT_NM_LCL3,
+	--部門名（ロケール４）
+	T1.DPT_NM_LCL4,
+	--部門名（ロケール５）
+	T1.DPT_NM_LCL5,
+	--ワーキンググループ名
+	(SELECT T.WG_NM
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM,
+	--ワーキンググループ名（ロケール１）
+	(SELECT T.WG_NM_LCL1
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM_LCL1,
+	--ワーキンググループ名（ロケール２）
+	(SELECT T.WG_NM_LCL2
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM_LCL2,
+	--ワーキンググループ名（ロケール３）
+	(SELECT T.WG_NM_LCL3
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM_LCL3,
+	--ワーキンググループ名（ロケール４）
+	(SELECT T.WG_NM_LCL4
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM_LCL4,
+	--ワーキンググループ名（ロケール５）
+	(SELECT T.WG_NM_LCL5
+		FROM MAVM_WG_MST_W T
+		WHERE 0 = 0
+		AND	T.WG_CD = T1.WG_CD
+		AND T.CO_CD = T1.CO_CD
+	)	WG_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_DPT_MST T1
+;
+

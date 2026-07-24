@@ -1,0 +1,120 @@
+
+COMMENT ON TABLE MSVT_MRP_SIM_IO_SCHD_GI IS 'シミュレーション(納期回答)用入庫予定情報 // Receipt schedule info. for simulation (Order promising)';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.IO_SCHD_NO IS '受払予定ＮＯ // #MA.IO_SCHD_NO // GR/GI schedule No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.IO_SCHD_TYP IS '受払予定区分 // #MS.IO_SCHD_TYP // GR/GI schedule type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.IO_SCHD_STS_TYP IS '受払予定状況区分 // #MS.IO_SCHD_STS_TYP // GR/GI schedule status type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ITM_ORD_NO IS '品目オーダＮＯ // #MA.ITM_ORD_NO // Item order No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.VER_NO IS '版ＮＯ // #MA.VER_NO // Version No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.BASE_UNIT_QTY IS '基準単位数量 // #MA.QTY // Base unit qty.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SCHD_DT IS '予定日付 // #MA.DT // Scheduled date';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ALT_GRP_CD IS '代替グループＣＤ // #MA.ALT_GRP_CD // Alternative group cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ALT_GRP_SEQ IS '代替グループ連番 // #MA.INT // Alternative group sequence number';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.OPER_INST_NO IS '工程指図ＮＯ // #MA.OPER_INST_NO // Operation order No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.OPER_ORD_NO IS '工程オーダＮＯ // #MA.OPER_ORD_NO // Operation order No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ALT_ITM_TYP IS '代替品目選択区分 // #MA.ALT_ITM_TYP // Alternative item selection type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ALT_ITM_RATIO IS '代替品目比率 // #MA.ALT_ITM_RATIO // Alternative item ratio';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.ALT_ALLOC_PRIO IS '代替品目引当優先順 // #MA.INT // Alternative item allocation order of priority';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.OPER_PTN IS '工程パタン // #MA.OPER_PTN // Operation pattern';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.OPER_CD IS '工程ＣＤ // #MA.OPER_CD // Operation cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.OPER_SEQ IS '工程連番 // #MA.OPER_SEQ // Operation sequence number';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.LOT_NO IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SUBLOT_NO IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO_TYP1 IS '手配ＮＯ１区分 // #MA.SNO_TYP // SEIBAN No. 1 type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO_TYP2 IS '手配ＮＯ２区分 // #MA.SNO_TYP // SEIBAN No. 2 type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO_TYP3 IS '手配ＮＯ３区分 // #MA.SNO_TYP // SEIBAN No. 3 type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.SNO_TYP4 IS '手配ＮＯ４区分 // #MA.SNO_TYP // SEIBAN No. 4 type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.EX_SNO1 IS 'オーダ生成用手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1 for order generation';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.EX_SNO2 IS 'オーダ生成用手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2 for order generation';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.EX_SNO3 IS 'オーダ生成用手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3 for order generation';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.EX_SNO4 IS 'オーダ生成用手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4 for order generation';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.GD_CD IS '格付ＣＤ // #MA.STK_GD_CD // Grading cd.';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.INPT_CTL_TYP IS '投入制御区分 // #MA.INPT_CTL_TYP // Input control type';
+
+
+COMMENT ON COLUMN MSVT_MRP_SIM_IO_SCHD_GI.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+

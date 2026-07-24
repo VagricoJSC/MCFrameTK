@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgt_calc_ptn_$s(
+	calc_no,
+	calc_grp_cd,
+	calc_ptn_cd,
+	mfg_purc_typ,
+	eval_typ,
+	dpt_typ,
+	lot_typ,
+	sublot_typ,
+	sno1_typ,
+	sno2_typ,
+	sno3_typ,
+	sno4_typ,
+	lot_exp_typ,
+	sublot_exp_typ,
+	sno1_exp_typ,
+	sno2_exp_typ,
+	sno3_exp_typ,
+	sno4_exp_typ,
+	std_rnd_typ,
+	std_dec_place,
+	amt_rnd_typ,
+	amt_dec_place,
+	ave_rnd_typ,
+	ave_dec_place,
+	adj_typ,
+	wip_typ,
+	bd_agg_typ,
+	mrgn_expns_cd,
+	purc_expns_cd,
+	out_expns_cd,
+	inpt_expns_cd,
+	ss_expns_cd,
+	prov_expns_cd,
+	exp_alloc_typ
+	)
+AS
+SELECT
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.calc_no,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.calc_grp_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.calc_ptn_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.mfg_purc_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.eval_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.dpt_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.lot_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sublot_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno1_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno2_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno3_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno4_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.lot_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sublot_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno1_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno2_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno3_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.sno4_exp_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.std_rnd_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.std_dec_place,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.amt_rnd_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.amt_dec_place,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.ave_rnd_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.ave_dec_place,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.adj_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.wip_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.bd_agg_typ,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.mrgn_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.purc_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.out_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.inpt_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.ss_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.prov_expns_cd,
+	mgt_calc_ptn_$s_mgt_calc_ptn_all_org.exp_alloc_typ
+FROM
+	mgt_calc_ptn_all mgt_calc_ptn_$s_mgt_calc_ptn_all_org
+WHERE
+	0 = 0
+	AND mgt_calc_ptn_$s_mgt_calc_ptn_all_org.co_cd = (SELECT co_cd FROM fct_context mgt_calc_ptn_$s_fct_context WHERE pid = pg_backend_pid())
+;
+

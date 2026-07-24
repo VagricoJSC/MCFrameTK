@@ -1,0 +1,111 @@
+\encoding UTF-8
+
+CREATE TABLE mst_inpt_schd_all
+(inpt_schd_no varchar (15) NOT NULL,
+co_cd varchar (10) NOT NULL,
+mfg_inst_no varchar (15) NULL,
+itm_mfg_inst_no varchar (15) NOT NULL,
+oper_inst_no varchar (15) NOT NULL,
+schd_tm timestamp(0)  NOT NULL,
+alt_grp_cd varchar (40) NULL,
+alt_grp_seq numeric (9,0) NULL,
+itm_cd varchar (40) NOT NULL,
+itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+ver_no varchar (10) NULL,
+base_unit_inpt_qty numeric (21,8) NOT NULL,
+base_unit_rqmt_qty numeric (21,8) NOT NULL,
+base_unit_fxd_rqmt_qty numeric (21,8) NOT NULL,
+base_unit_cd varchar (5) NOT NULL,
+inpt_loc_cd varchar (20) NOT NULL,
+inpt_str_ln_cd varchar (10) DEFAULT '*' NOT NULL,
+gd_cd varchar (2) NOT NULL,
+lot_no varchar (15) NULL,
+sublot_no varchar (15) NULL,
+sno1 varchar (15) DEFAULT '*' NOT NULL,
+sno1_null_flg char (1) DEFAULT '0' NOT NULL,
+sno2 varchar (15) DEFAULT '*' NOT NULL,
+sno2_null_flg char (1) DEFAULT '0' NOT NULL,
+sno3 varchar (15) DEFAULT '*' NOT NULL,
+sno3_null_flg char (1) DEFAULT '0' NOT NULL,
+sno4 varchar (15) DEFAULT '*' NOT NULL,
+sno4_null_flg char (1) DEFAULT '0' NOT NULL,
+alloc_sno1 varchar (15) DEFAULT '*' NULL,
+alloc_sno2 varchar (15) DEFAULT '*' NULL,
+alloc_sno3 varchar (15) DEFAULT '*' NULL,
+alloc_sno4 varchar (15) DEFAULT '*' NULL,
+bkf_typ varchar (1) NOT NULL,
+cont_inpt_qty numeric (21,8) NULL,
+cont_rqmt_qty numeric (21,8) NULL,
+cont_fxd_rqmt_qty numeric (21,8) NULL,
+cont_fctr_unit_cd varchar (5) NULL,
+std_cont_fctr numeric (21,8) NULL,
+act_cont_fctr numeric (21,8) NULL,
+prov_typ varchar (1) NULL,
+inpt_rsn_cd varchar (10) NULL,
+par_inst_qty numeric (21,8) NULL,
+chd_inpt_qty numeric (21,8) NULL,
+chd_rqmt_qty numeric (21,8) NULL,
+fxd_chd_rqmt_qty numeric (21,8) NULL,
+main_itm_flg char (1) DEFAULT '0' NOT NULL,
+inst_lot_fix_flg char (1) DEFAULT '0' NOT NULL,
+disp_seq numeric (9,0) NOT NULL,
+lot_mix_flg char (1) DEFAULT '0' NOT NULL,
+sublot_mix_flg char (1) DEFAULT '0' NOT NULL,
+bom_memo1 varchar (100) NULL,
+bom_memo2 varchar (100) NULL,
+bom_memo3 varchar (100) NULL,
+yield_calc_flg char (1) DEFAULT '0' NOT NULL,
+alloc_flg char (1) DEFAULT '0' NOT NULL,
+base_unit_alt_qty numeric (21,8) NULL,
+alt_itm_fix_flg char (1) DEFAULT '0' NOT NULL,
+alt_itm_typ varchar (1) NULL,
+alt_alloc_prio numeric (9,0) NULL,
+alt_itm_ratio numeric (9,0) NULL,
+alloc_ctl_typ varchar (1) NOT NULL,
+inpt_ctl_typ varchar (1) NOT NULL,
+in_offst_typ varchar (1) NULL,
+in_offst numeric (9,0) NULL,
+bom_id_no numeric (9,0) NULL,
+chd_itm_seq numeric (9,0) NULL,
+recalc_grp numeric (9,0) NOT NULL,
+recalc_grp_seq numeric (9,0) NOT NULL,
+can_flg char (1) DEFAULT '0' NOT NULL,
+intr_rmrks varchar (100) NULL,
+inst_rpt_rmrks varchar (100) NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+ALTER TABLE mst_inpt_schd_all
+ADD CONSTRAINT mst_inpt_schd_all_pk PRIMARY KEY(inpt_schd_no,co_cd);
+
+
+CREATE INDEX mst_inpt_schd_all_ie01
+ON mst_inpt_schd_all USING BTREE (mfg_inst_no,can_flg,co_cd);
+
+
+CREATE INDEX mst_inpt_schd_all_ie02
+ON mst_inpt_schd_all USING BTREE (oper_inst_no,can_flg,co_cd);
+
+
+CREATE INDEX mst_inpt_schd_all_ie03
+ON mst_inpt_schd_all USING BTREE (itm_mfg_inst_no,can_flg,co_cd);
+
+
+CREATE INDEX mst_inpt_schd_all_ie04
+ON mst_inpt_schd_all USING BTREE (itm_cd,itm_sub1,itm_sub2,itm_sub3,ver_no,co_cd);
+

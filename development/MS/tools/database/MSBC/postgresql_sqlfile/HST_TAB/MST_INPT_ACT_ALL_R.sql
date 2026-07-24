@@ -1,0 +1,82 @@
+\encoding UTF-8
+
+CREATE TABLE mst_inpt_act_all_r
+(
+hst_id numeric(24,0) DEFAULT 0 NOT NULL,
+hst_type varchar(2) NOT NULL,
+inpt_act_no varchar (15) NULL,
+co_cd varchar (10) NULL,
+itm_cd varchar (40) NULL,
+itm_sub1 varchar (5) DEFAULT '*' NULL,
+itm_sub2 varchar (5) DEFAULT '*' NULL,
+itm_sub3 varchar (5) DEFAULT '*' NULL,
+ver_no varchar (10) NULL,
+mfg_act_no varchar (15) NULL,
+itm_mfg_inst_no varchar (15) NULL,
+oper_act_no varchar (15) NULL,
+inpt_schd_no varchar (15) NULL,
+div_seq numeric (3,0) NULL,
+inpt_loc_cd varchar (20) NULL,
+inpt_str_ln_cd varchar (10) DEFAULT '*' NULL,
+quality_typ varchar (1) NULL,
+stk_insp_typ varchar (1) NULL,
+stk_id_typ varchar (1) NULL,
+stk_bp_cd varchar (20) DEFAULT '*' NULL,
+stk_arrv_bp_cd varchar (20) DEFAULT '*' NULL,
+gd_cd varchar (2) NULL,
+lot_no varchar (15) DEFAULT '*' NULL,
+sublot_no varchar (15) DEFAULT '*' NULL,
+sno1 varchar (15) DEFAULT '*' NULL,
+sno2 varchar (15) DEFAULT '*' NULL,
+sno3 varchar (15) DEFAULT '*' NULL,
+sno4 varchar (15) DEFAULT '*' NULL,
+base_unit_inpt_qty numeric (21,8) NULL,
+base_unit_loss_qty numeric (21,8) NULL,
+base_unit_fxd_loss_qty numeric (21,8) NULL,
+base_unit_cd varchar (5) NULL,
+act_tm timestamp(0)  NULL,
+ac_dt timestamp(0)  NULL,
+bkf_ctl_flg char (1) DEFAULT '0' NULL,
+base_unit_std_qty numeric (21,8) NULL,
+cont_qty numeric (21,8) NULL,
+cont_loss_qty numeric (21,8) NULL,
+cont_fxd_loss_qty numeric (21,8) NULL,
+cont_fctr_unit_cd varchar (5) NULL,
+act_cont_fctr numeric (21,8) NULL,
+acxfr_qty numeric (21,8) NULL,
+acxfr_rsn_cd varchar (10) NULL,
+acxfr_bd_dpt_cd varchar (20) NULL,
+inpt_rsn_cd varchar (10) NULL,
+add_flg char (1) DEFAULT '0' NULL,
+data_no numeric (15,0) NULL,
+mes_id varchar (3) NULL,
+mes_flg char (1) DEFAULT '0' NULL,
+ext_sys_cd varchar (10) NULL,
+ext_inpt_act_no varchar (300) NULL,
+if_auto_reg_flg char (1) DEFAULT '0' NULL,
+intr_rmrks varchar (100) NULL,
+act_rpt_rmrks varchar (100) NULL,
+trd_rmrks varchar (100) NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+
+ALTER TABLE mst_inpt_act_all_r ADD CONSTRAINT mst_inpt_act_all_r_pk PRIMARY KEY(hst_id);
+
+
+INSERT INTO fcm_history_table (history_table_name, table_name, trigger_name)
+VALUES ('mst_inpt_act_all_r', 'mst_inpt_act_all', 'mst_inpt_act_all_tr_r');
+

@@ -1,0 +1,24 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--期
+	T1.TERM,
+	--期終了年月
+	T1.TERM_END_YM,
+	--期名称
+	T1.TERM_NM,
+	--期名称（ロケール１）
+	T1.TERM_NM_LCL1,
+	--期名称（ロケール２）
+	T1.TERM_NM_LCL2,
+	--期名称（ロケール３）
+	T1.TERM_NM_LCL3,
+	--期名称（ロケール４）
+	T1.TERM_NM_LCL4,
+	--期名称（ロケール５）
+	T1.TERM_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_TERM_MST T1
+/

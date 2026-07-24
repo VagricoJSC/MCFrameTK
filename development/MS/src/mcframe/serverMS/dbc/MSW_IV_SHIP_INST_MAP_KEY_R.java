@@ -1,0 +1,561 @@
+package mcframe.serverMS.dbc;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCBooleanPermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "インボイス出荷指図マップ // Invoice shipping order map"PKワークテーブルDBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>iv_d_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>インボイス明細ＮＯ</td>
+ *  	<td>Invoice details No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>ship_inst_d_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>出荷指図明細ＮＯ</td>
+ *  	<td>Shipping order details No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>ship_schd_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>出荷予定ＮＯ</td>
+ *  	<td>Shipping schedule No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>ship_alloc_sts_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>出荷引当状況ＮＯ</td>
+ *  	<td>Shipping allocation status No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>ship_inst_fix_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>出荷指図指定ＦＬＧ</td>
+ *  	<td>Shipping order specification flg.</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MSW_IV_SHIP_INST_MAP_KEY_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.TEMP_TABLE_ON_COMMIT_DELETE_ROWS;
+
+	public static final String TABLE_NAME = "MSW_IV_SHIP_INST_MAP_KEY";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * インボイス明細ＮＯ. Invoice details No..<p>
+	 *
+	 */
+	public static final String $iv_d_no = "iv_d_no";
+	private static final MCPermColumnInfo _iv_d_no = createColumnInfo("iv_d_no");
+	public final MCStringPermColumn iv_d_no = createStringColumn(_iv_d_no);
+	
+	/**
+	 * 出荷指図明細ＮＯ. Shipping order details No..<p>
+	 *
+	 */
+	public static final String $ship_inst_d_no = "ship_inst_d_no";
+	private static final MCPermColumnInfo _ship_inst_d_no = createColumnInfo("ship_inst_d_no");
+	public final MCStringPermColumn ship_inst_d_no = createStringColumn(_ship_inst_d_no);
+	
+	/**
+	 * 出荷予定ＮＯ. Shipping schedule No..<p>
+	 *
+	 */
+	public static final String $ship_schd_no = "ship_schd_no";
+	private static final MCPermColumnInfo _ship_schd_no = createColumnInfo("ship_schd_no");
+	public final MCStringPermColumn ship_schd_no = createStringColumn(_ship_schd_no);
+	
+	/**
+	 * 出荷引当状況ＮＯ. Shipping allocation status No..<p>
+	 *
+	 */
+	public static final String $ship_alloc_sts_no = "ship_alloc_sts_no";
+	private static final MCPermColumnInfo _ship_alloc_sts_no = createColumnInfo("ship_alloc_sts_no");
+	public final MCStringPermColumn ship_alloc_sts_no = createStringColumn(_ship_alloc_sts_no);
+	
+	/**
+	 * 出荷指図指定ＦＬＧ. Shipping order specification flg..<p>
+	 *
+	 */
+	public static final String $ship_inst_fix_flg = "ship_inst_fix_flg";
+	private static final MCPermColumnInfo _ship_inst_fix_flg = createColumnInfo("ship_inst_fix_flg");
+	public final MCBooleanPermColumn ship_inst_fix_flg = createBooleanColumn(_ship_inst_fix_flg);
+	
+	public static final MCMeta iv_d_no_META = createCommonMeta($iv_d_no, mcframe.commonMA.meta.MA_META.IV_D_NO);
+	public static final MCMeta ship_inst_d_no_META = createCommonMeta($ship_inst_d_no, mcframe.commonMA.meta.MA_META.SHIP_INST_D_NO);
+	public static final MCMeta ship_schd_no_META = createCommonMeta($ship_schd_no, mcframe.commonMA.meta.MA_META.SHIP_SCHD_NO);
+	public static final MCMeta ship_alloc_sts_no_META = createCommonMeta($ship_alloc_sts_no, mcframe.commonMA.meta.MA_META.SHIP_ALLOC_STS_NO);
+	public static final MCMeta ship_inst_fix_flg_META = createCommonMeta($ship_inst_fix_flg, mcframe.commonMA.meta.MA_META.FLG);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	
+	protected static final ConstMetaList<MSW_IV_SHIP_INST_MAP_KEY_R> constMetas = new ConstMetaList<MSW_IV_SHIP_INST_MAP_KEY_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			iv_d_no_META,
+			ship_inst_d_no_META,
+			ship_schd_no_META,
+			ship_alloc_sts_no_META,
+			ship_inst_fix_flg_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MSW_IV_SHIP_INST_MAP_KEY_R(ConstMetaList<? extends MSW_IV_SHIP_INST_MAP_KEY_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MSW_IV_SHIP_INST_MAP_KEY_R(ConstMetaList<? extends MSW_IV_SHIP_INST_MAP_KEY_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MSW_IV_SHIP_INST_MAP_KEY_R.$iv_d_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MSW_IV_SHIP_INST_MAP_KEY_R.$iv_d_no,
+				"iv_d_no",
+				iv_d_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MSW_IV_SHIP_INST_MAP_KEY_R.$ship_inst_d_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MSW_IV_SHIP_INST_MAP_KEY_R.$ship_inst_d_no,
+				"ship_inst_d_no",
+				ship_inst_d_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MSW_IV_SHIP_INST_MAP_KEY_R.$ship_schd_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MSW_IV_SHIP_INST_MAP_KEY_R.$ship_schd_no,
+				"ship_schd_no",
+				ship_schd_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MSW_IV_SHIP_INST_MAP_KEY_R.$ship_alloc_sts_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MSW_IV_SHIP_INST_MAP_KEY_R.$ship_alloc_sts_no,
+				"ship_alloc_sts_no",
+				ship_alloc_sts_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MSW_IV_SHIP_INST_MAP_KEY_R.$ship_inst_fix_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MSW_IV_SHIP_INST_MAP_KEY_R.$ship_inst_fix_flg,
+				"ship_inst_fix_flg",
+				ship_inst_fix_flg,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MSW_IV_SHIP_INST_MAP_KEY_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MSW_IV_SHIP_INST_MAP_KEY_R create(String alias) {
+		MSW_IV_SHIP_INST_MAP_KEY_R row = new MSW_IV_SHIP_INST_MAP_KEY_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MSW_IV_SHIP_INST_MAP_KEY_R createByName(T proto) {
+		MSW_IV_SHIP_INST_MAP_KEY_R row = MSW_IV_SHIP_INST_MAP_KEY_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MSW_IV_SHIP_INST_MAP_KEY_R clone() {
+		return (MSW_IV_SHIP_INST_MAP_KEY_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MSW_IV_SHIP_INST_MAP_KEY_R createInstance() {
+		return (MSW_IV_SHIP_INST_MAP_KEY_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MSW_IV_SHIP_INST_MAP_KEY_R getValues(String... names) {
+		return (MSW_IV_SHIP_INST_MAP_KEY_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc(String alias) {
+	 	return null;
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc() {
+	 	return null;
+	 }
+
+	/**
+	 * インボイス明細ＮＯ. Invoice details No..<p>
+	 *
+	 */
+	public String iv_d_no() {
+		return getConstString(offset + 0, $iv_d_no);
+	}
+
+	/**
+	 * インボイス明細ＮＯ. Invoice details No..<p>
+	 *
+	 */
+	public void iv_d_no(String value) {
+		setConstString(offset + 0, $iv_d_no, value);
+	}
+
+	/**
+	 * 出荷指図明細ＮＯ. Shipping order details No..<p>
+	 *
+	 */
+	public String ship_inst_d_no() {
+		return getConstString(offset + 1, $ship_inst_d_no);
+	}
+
+	/**
+	 * 出荷指図明細ＮＯ. Shipping order details No..<p>
+	 *
+	 */
+	public void ship_inst_d_no(String value) {
+		setConstString(offset + 1, $ship_inst_d_no, value);
+	}
+
+	/**
+	 * 出荷予定ＮＯ. Shipping schedule No..<p>
+	 *
+	 */
+	public String ship_schd_no() {
+		return getConstString(offset + 2, $ship_schd_no);
+	}
+
+	/**
+	 * 出荷予定ＮＯ. Shipping schedule No..<p>
+	 *
+	 */
+	public void ship_schd_no(String value) {
+		setConstString(offset + 2, $ship_schd_no, value);
+	}
+
+	/**
+	 * 出荷引当状況ＮＯ. Shipping allocation status No..<p>
+	 *
+	 */
+	public String ship_alloc_sts_no() {
+		return getConstString(offset + 3, $ship_alloc_sts_no);
+	}
+
+	/**
+	 * 出荷引当状況ＮＯ. Shipping allocation status No..<p>
+	 *
+	 */
+	public void ship_alloc_sts_no(String value) {
+		setConstString(offset + 3, $ship_alloc_sts_no, value);
+	}
+
+	/**
+	 * 出荷指図指定ＦＬＧ. Shipping order specification flg..<p>
+	 *
+	 */
+	public boolean ship_inst_fix_flg() {
+		return getConstBoolean(offset + 4, $ship_inst_fix_flg);
+	}
+
+	/**
+	 * 出荷指図指定ＦＬＧ. Shipping order specification flg..<p>
+	 *
+	 */
+	public void ship_inst_fix_flg(boolean value) {
+		setConstBoolean(offset + 4, $ship_inst_fix_flg, value);
+	}
+
+	public String getString(String name) {
+		if ($iv_d_no.equalsIgnoreCase(name)) {
+			return iv_d_no();
+		}
+		if ($ship_inst_d_no.equalsIgnoreCase(name)) {
+			return ship_inst_d_no();
+		}
+		if ($ship_schd_no.equalsIgnoreCase(name)) {
+			return ship_schd_no();
+		}
+		if ($ship_alloc_sts_no.equalsIgnoreCase(name)) {
+			return ship_alloc_sts_no();
+		}
+		return super.getString(name);
+	}
+
+	public boolean getBoolean(String name) {
+		if ($ship_inst_fix_flg.equalsIgnoreCase(name)) {
+			return ship_inst_fix_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($iv_d_no.equalsIgnoreCase(name)) {
+			return iv_d_no();
+		}
+		if ($ship_inst_d_no.equalsIgnoreCase(name)) {
+			return ship_inst_d_no();
+		}
+		if ($ship_schd_no.equalsIgnoreCase(name)) {
+			return ship_schd_no();
+		}
+		if ($ship_alloc_sts_no.equalsIgnoreCase(name)) {
+			return ship_alloc_sts_no();
+		}
+		return super.getStringNE(name);
+	}
+
+	public boolean getBooleanNE(String name) {
+		if ($ship_inst_fix_flg.equalsIgnoreCase(name)) {
+			return ship_inst_fix_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($iv_d_no.equalsIgnoreCase(name)) {
+			iv_d_no(value);
+			return;
+		}
+		if ($ship_inst_d_no.equalsIgnoreCase(name)) {
+			ship_inst_d_no(value);
+			return;
+		}
+		if ($ship_schd_no.equalsIgnoreCase(name)) {
+			ship_schd_no(value);
+			return;
+		}
+		if ($ship_alloc_sts_no.equalsIgnoreCase(name)) {
+			ship_alloc_sts_no(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setBoolean(String name, boolean value) {
+		if ($ship_inst_fix_flg.equalsIgnoreCase(name)) {
+			ship_inst_fix_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($iv_d_no.equalsIgnoreCase(name)) {
+			iv_d_no(value);
+			return;
+		}
+		if ($ship_inst_d_no.equalsIgnoreCase(name)) {
+			ship_inst_d_no(value);
+			return;
+		}
+		if ($ship_schd_no.equalsIgnoreCase(name)) {
+			ship_schd_no(value);
+			return;
+		}
+		if ($ship_alloc_sts_no.equalsIgnoreCase(name)) {
+			ship_alloc_sts_no(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setBooleanNE(String name, boolean value) {
+		if ($ship_inst_fix_flg.equalsIgnoreCase(name)) {
+			ship_inst_fix_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+}

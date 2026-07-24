@@ -1,0 +1,188 @@
+\encoding UTF-8
+
+\i ./HST_TAB/deleteHistoryTab_MSBE1.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE2.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE3.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE4.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE5.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE6.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE7.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE8.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE9.sql
+
+\i ./HST_TAB/deleteHistoryTab_MSBE10.sql
+
+\i ./HST_TAB/MST_IO_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_IO_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_STK_ALL_R.sql
+
+\i ./HST_TAB/MST_MLY_STK_DTL_ALL_R.sql
+
+\i ./HST_TAB/MST_NON_MOV_STK_ALL_R.sql
+
+\i ./HST_TAB/MST_IO_ACT_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_IO_SCHD_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_MLY_STK_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_NON_MOV_STK_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_ALLOC_STS_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_ALLOC_STS_SV_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_INST_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_INST_D_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_ACT_D_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_INST_SEND_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_XFR_ACT_RECV_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_PROV_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_PROV_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_INST_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_INST_D_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_ACT_P_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_ACT_D_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_ACT_D_P_ALL_R.sql
+
+\i ./HST_TAB/MST_STK_XFR_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_STK_XFR_ACT_D_ALL_R.sql
+
+\i ./HST_TAB/MST_ACXFR_ACT_RECV_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_ALLOC_LOCK_ALL_R.sql
+
+\i ./HST_TAB/MST_ALLOC_STOP_LOT_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_PR_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_MAP_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_SCHD_SEND_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_ACT_RECV_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_ESHIP_ACT_RECV_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_ARR_PR_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_PR_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_SCHD_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ALLOC_STS_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ALLOC_STS_P_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ALLOC_STS_SV_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_INST_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_INST_P_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_INST_D_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_INST_D_P_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ACT_P_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ACT_D_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ACT_D_P_ALL_R.sql
+
+\i ./HST_TAB/MST_DLV_SLIP_ALL_R.sql
+
+\i ./HST_TAB/MST_DLV_SLIP_D_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_LOT_EX_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_LOT_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_STK_RPL_LOCK_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_STK_RPL_LST_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_INST_SEND_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_ACT_RECV_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_ESHIP_ACT_SEND_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_SHIP_PR_IF_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_P_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_D_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_D_P_ALL_R.sql
+
+\i ./HST_TAB/MST_PL_D_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_MAP_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_SHIP_INST_MAP_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_SHIP_ACT_MAP_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_NO_ALL_R.sql
+
+\i ./HST_TAB/MST_IV_SHIP_ACT_D_ALL_R.sql
+
+\i ./HST_TAB/MST_RCPT_IV_ALL_R.sql
+
+\i ./HST_TAB/MST_RCPT_IV_P_ALL_R.sql
+
+\i ./HST_TAB/MST_RCPT_IV_D_ALL_R.sql
+
+\i ./HST_TAB/MST_RCPT_IV_D_P_ALL_R.sql
+
+\i ./HST_TAB/MST_RCPT_IV_MAP_ALL_R.sql
+
+\i ./HST_TAB/MST_STKTK_ALL_R.sql
+
+\i ./HST_TAB/MST_STKTK_ACT_ALL_R.sql
+
+\i ./HST_TAB/MST_PRE_STKTK_ALL_R.sql
+
+\i ./HST_TAB/MST_INPT_STK_RPL_LOCK_ALL_R.sql
+
+\i ./HST_TAB/MST_INPT_STK_RPL_LST_ALL_R.sql
+

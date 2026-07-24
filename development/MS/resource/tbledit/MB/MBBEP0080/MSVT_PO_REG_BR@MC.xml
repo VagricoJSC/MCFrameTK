@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MSVT_PO_REG_BR</dbc>
+
+	<cond>
+		<cols>
+			batch_data_no,exe_sts_typ,batch_log_no,log_sub_key1,log_sub_key2,
+			ins_ts,upd_ts,
+			po_schd_dt,po_schd_no
+		</cols>
+	</cond>
+
+	<list>
+		<!-- ＰＧ実行状況区分 -->
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+	</list>
+
+	<format>
+		<po_schd_dt>YMD</po_schd_dt>
+		<dlv_rqst_tm>YMDHM</dlv_rqst_tm>
+	</format>
+
+	<app>
+		<ref>true</ref>
+
+		<dtl>
+			<move>
+				<col1>wg_nm</col1>
+				<pos1>9</pos1>
+				
+				<col2>sppl_nm</col2>
+				<pos2>11</pos2>
+			</move>
+
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+				
+				<col2>wg_nm</col2>
+				<lbl2>ＷＧ名</lbl2>
+				<msg2>ＷＧ名</msg2>
+				
+				<col3>sppl_nm</col3>
+				<lbl3>発注先名</lbl3>
+				<msg3>発注先名</msg3>
+			</label>
+		</dtl>
+
+		<trans>
+			<mid>MS</mid>
+			<scrn>MSBDP0030</scrn>
+			<cndBlk>Cnd</cndBlk>
+			<do_srch>true</do_srch>
+
+			<toCol1>ope</toCol1>
+			<typ1>C</typ1>
+			<val1>3</val1>
+
+			<toCol2>po_schd_no</toCol2>
+			<frCol2>po_schd_no</frCol2>
+		</trans>
+	</app>
+</mcframe>

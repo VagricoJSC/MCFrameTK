@@ -1,0 +1,4 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location3.System.MS.MSBCP1130.en_US%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBCP1130.en_US.list.item0','MSBCP1130,Cnd,Cnd.ext_oper_act_no,true,false,'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBCP1130.en_US.list.item1','MSBCP1130,Cnd,Cnd.oper_inst_rpt_rmrks,false,false,780'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location3.System.MS.MSBCP1130.en_US.list.item2','MSBCP1130,Cnd,Cnd.oper_act_rpt_rmrks,false,false,780'); 

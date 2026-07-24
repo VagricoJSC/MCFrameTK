@@ -1,0 +1,78 @@
+
+COMMENT ON TABLE MGW_PRE_RATE_TERM IS '計算対象一次配賦期間比率ワーク // (Calculation) Departmental alloc. fixed ratio work';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.PRE_ALC_RATE_CD IS '一次配賦基準ＣＤ // #MA.PRE_ALC_RATE_CD // Departmental alloc. basis cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.DPT_CD IS '部門ＣＤ // #MA.COST_DPT_CD // Dept. cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.OPER_CD IS '工程ＣＤ // #MA.OPER_CD // Operation cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.BP_CD IS '取引先ＣＤ // #MA.BP_CD // BP cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.CTG_CD IS '品群ＣＤ // #MA.COST_CTG_CD // Item category cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.LOT_NO IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SUBLOT_NO IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ITM_MFG_INST_NO IS '品目製造指図ＮＯ // #MA.ITM_MFG_INST_NO // Item mfg. order No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.IV_NO IS 'インボイスＮＯ // #MA.IV_NO // Invoice No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.PO_NO IS '発注ＮＯ // #MA.PO_NO // PO No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.SLO_NO IS '受注ＮＯ // #MA.SLO_NO // Sales order No.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ALC_AC_CD IS '配賦科目ＣＤ // #MA.ALC_AC_CD // Allocation account cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.TRD_WG_CD IS '振替ワーキンググループＣＤ // #MA.WG_CD // Transfer WG cd.';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.PRE_ALC_RATE IS '比率 // #MG.PRE_ALC_RATE // Ratio';
+
+
+COMMENT ON COLUMN MGW_PRE_RATE_TERM.ADJ_FLG IS '差額調整ＦＬＧ // #MA.FLG // Difference adjustment flg.';
+

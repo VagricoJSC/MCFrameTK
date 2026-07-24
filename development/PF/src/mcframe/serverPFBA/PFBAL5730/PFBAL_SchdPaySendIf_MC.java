@@ -1,0 +1,202 @@
+package mcframe.serverPFBA.PFBAL5730;
+
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.container.MCList.SortType;
+import mcframe.commonCore.notice.*;
+import mcframe.serverCore.logic.*;
+import mcframe.serverCore.notice.MCMessagePool;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cl;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import mcframe.commonMA.constant.*;
+import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMAUC.MAUCL0060.ElmArgsR;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.serverMAUC.MAUCL0010.MAUCL_MCDataUtil.*;
+import static mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys.*;
+import static mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil.*;
+import static mcframe.serverMAUC.MAUCL0030.MAUCL_Dac.*;
+import static mcframe.serverMAUC.MAUCL0060.MAUCL_Num.*;
+import mcframe.commonMB.constant.*;
+import mcframe.serverMB.dbc.*;
+import static mcframe.commonMB.notice.MB_Msg.*;
+import static mcframe.serverMBUC.MBUCL0010.MBUCL_MCDataUtil.*;
+import mcframe.serverPF.dbc.*;
+import static mcframe.commonPF.notice.PF_Msg.*;
+
+import static mcframe.serverFXUC.FXUCL0160.FXUCL_DateUtil.*;
+import static mcframe.serverFXUC.FXUCL0170.FXUCL_ValidaterUtil.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+import static mcframe.serverMB.dbc.MBBAFunction.*;
+import static mcframe.serverMB.dbc.MBBBFunction.*;
+import static mcframe.serverMB.dbc.MBBCFunction.*;
+import static mcframe.serverMB.dbc.MBBEFunction.*;
+import static mcframe.serverPF.dbc.PFFunction.*;
+
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+import mcframe.serverPFBZ.PFBZL9020.*;
+import mcframe.commonPFBA.PFBAR5730.*;
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "PFBAL_SchdPaySendIf"ロジッククラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class PFBAL_SchdPaySendIf_MC extends PFBAL_SchdPaySendIf_MC_A{
+	//FMCB CUSTOM START
+
+	/**
+	 * SchdPayIf_Conv01オペレーション.<p>
+	 *
+	 */
+	public class SchdPayIf_Conv01 extends PFBAL_SchdPaySendIf_MC_A.SchdPayIf_Conv01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		/**
+		 * 送受信IFのレポートセットのインスタンスを生成します
+		 * 
+		 */
+		@Override
+		@SuppressWarnings("unchecked")
+		protected void crtRptSet() {
+			_IfRptSet = PFBZL_FileOutput.createIfSendReportSet(
+					DtlR.class, MBT_SCHD_PAY_SND_IF_R.class);
+			_IfRptSet.setReportSet(PFBAR_SchdPayPrnt.create());
+			_IfRptSet.setRowMapper(new DtlR_MBT_SCHD_PAY_SND_IF_R());
+		}
+
+		public class DtlR_MBT_SCHD_PAY_SND_IF_R<D extends DtlR, S extends MBT_SCHD_PAY_SND_IF_R>
+				extends MCRowMapper<D, S> {
+			@Override
+			protected void setupColumnPathMap() {
+				addColumnPathMap(DtlR.$proc_no, MBT_SCHD_PAY_SND_IF_R.$proc_no);
+				addColumnPathMap(DtlR.$ac_ym, MBT_SCHD_PAY_SND_IF_R.$ac_ym);
+				addColumnPathMap(DtlR.$ac_dt, MBT_SCHD_PAY_SND_IF_R.$ac_dt);
+				addColumnPathMap(DtlR.$pay_ap_typ, MBT_SCHD_PAY_SND_IF_R.$pay_ap_typ);
+				addColumnPathMap(DtlR.$ap_appl_schd_no, MBT_SCHD_PAY_SND_IF_R.$ap_appl_schd_no);
+				addColumnPathMap(DtlR.$slip_cnt_id, MBT_SCHD_PAY_SND_IF_R.$slip_cnt_id);
+				addColumnPathMap(DtlR.$pay_chk_no, MBT_SCHD_PAY_SND_IF_R.$pay_chk_no);
+				addColumnPathMap(DtlR.$pay_dpt_cd, MBT_SCHD_PAY_SND_IF_R.$pay_dpt_cd);
+				addColumnPathMap(DtlR.$bsppl_dpt_cd, MBT_SCHD_PAY_SND_IF_R.$bsppl_dpt_cd);
+				addColumnPathMap(DtlR.$ap_dpt_cd, MBT_SCHD_PAY_SND_IF_R.$ap_dpt_cd);
+				addColumnPathMap(DtlR.$sub_dpt_cd1, MBT_SCHD_PAY_SND_IF_R.$sub_dpt_cd1);
+				addColumnPathMap(DtlR.$sub_dpt_cd2, MBT_SCHD_PAY_SND_IF_R.$sub_dpt_cd2);
+				addColumnPathMap(DtlR.$sub_dpt_cd3, MBT_SCHD_PAY_SND_IF_R.$sub_dpt_cd3);
+				addColumnPathMap(DtlR.$asppl_cd, MBT_SCHD_PAY_SND_IF_R.$asppl_cd);
+				addColumnPathMap(DtlR.$bsppl_cd, MBT_SCHD_PAY_SND_IF_R.$bsppl_cd);
+				addColumnPathMap(DtlR.$psppl_cd, MBT_SCHD_PAY_SND_IF_R.$psppl_cd);
+				addColumnPathMap(DtlR.$ac_cd, MBT_SCHD_PAY_SND_IF_R.$ac_cd);
+				addColumnPathMap(DtlR.$sub_ac_cd, MBT_SCHD_PAY_SND_IF_R.$sub_ac_cd);
+				addColumnPathMap(DtlR.$project_cd, MBT_SCHD_PAY_SND_IF_R.$project_cd);
+				addColumnPathMap(DtlR.$summary_cd0, MBT_SCHD_PAY_SND_IF_R.$summary_cd0);
+				addColumnPathMap(DtlR.$summary_cd1, MBT_SCHD_PAY_SND_IF_R.$summary_cd1);
+				addColumnPathMap(DtlR.$summary_cd2, MBT_SCHD_PAY_SND_IF_R.$summary_cd2);
+				addColumnPathMap(DtlR.$summary_cd3, MBT_SCHD_PAY_SND_IF_R.$summary_cd3);
+				addColumnPathMap(DtlR.$summary_cd4, MBT_SCHD_PAY_SND_IF_R.$summary_cd4);
+				addColumnPathMap(DtlR.$summary_cd5, MBT_SCHD_PAY_SND_IF_R.$summary_cd5);
+				addColumnPathMap(DtlR.$base_cur_cd, MBT_SCHD_PAY_SND_IF_R.$base_cur_cd);
+				addColumnPathMap(DtlR.$base_cur_amt, MBT_SCHD_PAY_SND_IF_R.$base_cur_amt);
+				addColumnPathMap(DtlR.$trd_cur_cd, MBT_SCHD_PAY_SND_IF_R.$trd_cur_cd);
+				addColumnPathMap(DtlR.$trd_cur_amt, MBT_SCHD_PAY_SND_IF_R.$trd_cur_amt);
+				addColumnPathMap(DtlR.$xrate_cd, MBT_SCHD_PAY_SND_IF_R.$xrate_cd);
+				addColumnPathMap(DtlR.$xrate, MBT_SCHD_PAY_SND_IF_R.$xrate);
+				addColumnPathMap(DtlR.$pay_spot_flg, MBT_SCHD_PAY_SND_IF_R.$pay_spot_flg);
+				addColumnPathMap(DtlR.$pay_schd_dt, MBT_SCHD_PAY_SND_IF_R.$pay_schd_dt);
+				addColumnPathMap(DtlR.$sttl_cd, MBT_SCHD_PAY_SND_IF_R.$sttl_cd);
+				addColumnPathMap(DtlR.$ap_sttl_typ, MBT_SCHD_PAY_SND_IF_R.$ap_sttl_typ);
+				addColumnPathMap(DtlR.$ap_typ, MBT_SCHD_PAY_SND_IF_R.$ap_typ);
+				addColumnPathMap(DtlR.$bank_ac_cd, MBT_SCHD_PAY_SND_IF_R.$bank_ac_cd);
+				addColumnPathMap(DtlR.$pay_bank_ac_cd, MBT_SCHD_PAY_SND_IF_R.$pay_bank_ac_cd);
+				addColumnPathMap(DtlR.$drawer_nm, MBT_SCHD_PAY_SND_IF_R.$drawer_nm);
+				addColumnPathMap(DtlR.$note_no, MBT_SCHD_PAY_SND_IF_R.$note_no);
+				addColumnPathMap(DtlR.$due_dt, MBT_SCHD_PAY_SND_IF_R.$due_dt);
+				addColumnPathMap(DtlR.$draw_dt, MBT_SCHD_PAY_SND_IF_R.$draw_dt);
+				addColumnPathMap(DtlR.$rcv_bill_no, MBT_SCHD_PAY_SND_IF_R.$rcv_bill_no);
+				addColumnPathMap(DtlR.$usr_cd, MBT_SCHD_PAY_SND_IF_R.$usr_cd);
+				addColumnPathMap(DtlR.$iv_no, MBT_SCHD_PAY_SND_IF_R.$iv_no);
+				addColumnPathMap(DtlR.$wrk_no, MBT_SCHD_PAY_SND_IF_R.$wrk_no);
+				addColumnPathMap(DtlR.$abstract1, MBT_SCHD_PAY_SND_IF_R.$abstract1);
+				addColumnPathMap(DtlR.$abstract2, MBT_SCHD_PAY_SND_IF_R.$abstract2);
+				addColumnPathMap(DtlR.$sub_char1, MBT_SCHD_PAY_SND_IF_R.$sub_char1);
+				addColumnPathMap(DtlR.$sub_char2, MBT_SCHD_PAY_SND_IF_R.$sub_char2);
+				addColumnPathMap(DtlR.$sub_char3, MBT_SCHD_PAY_SND_IF_R.$sub_char3);
+				addColumnPathMap(DtlR.$sub_char4, MBT_SCHD_PAY_SND_IF_R.$sub_char4);
+				addColumnPathMap(DtlR.$sub_char5, MBT_SCHD_PAY_SND_IF_R.$sub_char5);
+				addColumnPathMap(DtlR.$sub_char6, MBT_SCHD_PAY_SND_IF_R.$sub_char6);
+				addColumnPathMap(DtlR.$sub_char7, MBT_SCHD_PAY_SND_IF_R.$sub_char7);
+				addColumnPathMap(DtlR.$sub_char8, MBT_SCHD_PAY_SND_IF_R.$sub_char8);
+				addColumnPathMap(DtlR.$sub_char9, MBT_SCHD_PAY_SND_IF_R.$sub_char9);
+				addColumnPathMap(DtlR.$sub_char10, MBT_SCHD_PAY_SND_IF_R.$sub_char10);
+				addColumnPathMap(DtlR.$sub_num1, MBT_SCHD_PAY_SND_IF_R.$sub_num1);
+				addColumnPathMap(DtlR.$sub_num2, MBT_SCHD_PAY_SND_IF_R.$sub_num2);
+				addColumnPathMap(DtlR.$sub_num3, MBT_SCHD_PAY_SND_IF_R.$sub_num3);
+				addColumnPathMap(DtlR.$sub_dt1, MBT_SCHD_PAY_SND_IF_R.$sub_dt1);
+				addColumnPathMap(DtlR.$sub_dt2, MBT_SCHD_PAY_SND_IF_R.$sub_dt2);
+				addColumnPathMap(DtlR.$sub_dt3, MBT_SCHD_PAY_SND_IF_R.$sub_dt3);
+				addColumnPathMap(DtlR.$if_sub_char1, MBT_SCHD_PAY_SND_IF_R.$if_sub_char1);
+				addColumnPathMap(DtlR.$if_sub_char2, MBT_SCHD_PAY_SND_IF_R.$if_sub_char2);
+				addColumnPathMap(DtlR.$if_sub_char3, MBT_SCHD_PAY_SND_IF_R.$if_sub_char3);
+				addColumnPathMap(DtlR.$if_sub_char4, MBT_SCHD_PAY_SND_IF_R.$if_sub_char4);
+				addColumnPathMap(DtlR.$if_sub_char5, MBT_SCHD_PAY_SND_IF_R.$if_sub_char5);
+				addColumnPathMap(DtlR.$if_sub_char6, MBT_SCHD_PAY_SND_IF_R.$if_sub_char6);
+				addColumnPathMap(DtlR.$if_sub_char7, MBT_SCHD_PAY_SND_IF_R.$if_sub_char7);
+				addColumnPathMap(DtlR.$if_sub_char8, MBT_SCHD_PAY_SND_IF_R.$if_sub_char8);
+				addColumnPathMap(DtlR.$if_sub_char9, MBT_SCHD_PAY_SND_IF_R.$if_sub_char9);
+				addColumnPathMap(DtlR.$if_sub_char10, MBT_SCHD_PAY_SND_IF_R.$if_sub_char10);
+				addColumnPathMap(DtlR.$if_sub_char11, MBT_SCHD_PAY_SND_IF_R.$if_sub_char11);
+				addColumnPathMap(DtlR.$if_sub_char12, MBT_SCHD_PAY_SND_IF_R.$if_sub_char12);
+				addColumnPathMap(DtlR.$if_sub_char13, MBT_SCHD_PAY_SND_IF_R.$if_sub_char13);
+				addColumnPathMap(DtlR.$if_sub_char14, MBT_SCHD_PAY_SND_IF_R.$if_sub_char14);
+				addColumnPathMap(DtlR.$if_sub_char15, MBT_SCHD_PAY_SND_IF_R.$if_sub_char15);
+				addColumnPathMap(DtlR.$if_sub_char16, MBT_SCHD_PAY_SND_IF_R.$if_sub_char16);
+				addColumnPathMap(DtlR.$if_sub_char17, MBT_SCHD_PAY_SND_IF_R.$if_sub_char17);
+				addColumnPathMap(DtlR.$if_sub_char18, MBT_SCHD_PAY_SND_IF_R.$if_sub_char18);
+				addColumnPathMap(DtlR.$if_sub_char19, MBT_SCHD_PAY_SND_IF_R.$if_sub_char19);
+				addColumnPathMap(DtlR.$if_sub_char20, MBT_SCHD_PAY_SND_IF_R.$if_sub_char20);
+				addColumnPathMap(DtlR.$if_sub_char21, MBT_SCHD_PAY_SND_IF_R.$if_sub_char21);
+				addColumnPathMap(DtlR.$if_sub_char22, MBT_SCHD_PAY_SND_IF_R.$if_sub_char22);
+				addColumnPathMap(DtlR.$if_sub_char23, MBT_SCHD_PAY_SND_IF_R.$if_sub_char23);
+				addColumnPathMap(DtlR.$if_sub_char24, MBT_SCHD_PAY_SND_IF_R.$if_sub_char24);
+				addColumnPathMap(DtlR.$if_sub_char25, MBT_SCHD_PAY_SND_IF_R.$if_sub_char25);
+				addColumnPathMap(DtlR.$if_sub_char26, MBT_SCHD_PAY_SND_IF_R.$if_sub_char26);
+				addColumnPathMap(DtlR.$if_sub_char27, MBT_SCHD_PAY_SND_IF_R.$if_sub_char27);
+				addColumnPathMap(DtlR.$if_sub_char28, MBT_SCHD_PAY_SND_IF_R.$if_sub_char28);
+				addColumnPathMap(DtlR.$if_sub_char29, MBT_SCHD_PAY_SND_IF_R.$if_sub_char29);
+				addColumnPathMap(DtlR.$if_sub_char30, MBT_SCHD_PAY_SND_IF_R.$if_sub_char30);
+				addColumnPathMap(DtlR.$if_sub_num1, MBT_SCHD_PAY_SND_IF_R.$if_sub_num1);
+				addColumnPathMap(DtlR.$if_sub_num2, MBT_SCHD_PAY_SND_IF_R.$if_sub_num2);
+				addColumnPathMap(DtlR.$if_sub_num3, MBT_SCHD_PAY_SND_IF_R.$if_sub_num3);
+				addColumnPathMap(DtlR.$if_sub_num4, MBT_SCHD_PAY_SND_IF_R.$if_sub_num4);
+				addColumnPathMap(DtlR.$if_sub_num5, MBT_SCHD_PAY_SND_IF_R.$if_sub_num5);
+				addColumnPathMap(DtlR.$if_sub_dt1, MBT_SCHD_PAY_SND_IF_R.$if_sub_dt1);
+				addColumnPathMap(DtlR.$if_sub_dt2, MBT_SCHD_PAY_SND_IF_R.$if_sub_dt2);
+				addColumnPathMap(DtlR.$if_sub_dt3, MBT_SCHD_PAY_SND_IF_R.$if_sub_dt3);
+				addColumnPathMap(DtlR.$if_sub_dt4, MBT_SCHD_PAY_SND_IF_R.$if_sub_dt4);
+				addColumnPathMap(DtlR.$if_sub_dt5, MBT_SCHD_PAY_SND_IF_R.$if_sub_dt5);
+			}
+
+			@Override
+			protected void valueCopy(D dest, S src) {
+				super.valueCopy(dest, src);
+				dest.co_cd(getCo().co_cd());
+			}
+		}
+	}
+
+	//FMCB CUSTOM END
+}

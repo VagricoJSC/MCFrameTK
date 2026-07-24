@@ -1,0 +1,45 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mavm_str_ln_if_all(
+co_cd,
+loc_cd,
+str_ln_cd,
+str_ln_nm,
+str_ln_nm_lcl1,
+str_ln_nm_lcl2,
+str_ln_nm_lcl3,
+str_ln_nm_lcl4,
+str_ln_nm_lcl5,
+ln_flg,
+memo1,
+memo2,
+memo3
+)
+AS
+SELECT
+	--会社ＣＤ
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.co_cd,
+	--場所ＣＤ
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.loc_cd,
+	--棚・ラインＣＤ
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_cd,
+	--棚・ライン名
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm,
+	--棚・ライン名（ロケール１）
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm_lcl1,
+	--棚・ライン名（ロケール２）
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm_lcl2,
+	--棚・ライン名（ロケール３）
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm_lcl3,
+	--棚・ライン名（ロケール４）
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm_lcl4,
+	--棚・ライン名（ロケール５）
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.str_ln_nm_lcl5,
+	--ラインｆｌｇ
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.ln_flg,
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.memo1,
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.memo2,
+	mavm_str_ln_if_all_mavm_str_ln_mst_t1.memo3
+FROM mavm_str_ln_mst mavm_str_ln_if_all_mavm_str_ln_mst_t1
+;;
+

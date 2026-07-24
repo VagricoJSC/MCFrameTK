@@ -1,0 +1,50 @@
+\encoding UTF-8
+
+\i ./SEQ/MBS_AC_IO.sql
+
+\i ./SEQ/MBS_AC_STK.sql
+
+\i ./SEQ/MBS_AC_RCV.sql
+
+\i ./SEQ/MBS_AC_NOTE.sql
+
+\i ./SEQ/MBS_AC_COST.sql
+
+\i ./SEQ/MBS_JOURNAL_SND_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_NOTE_SND_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_BP_SND_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_ACCOUNT_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_SUB_ACCOUNT_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_AC_DPT_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_BANK_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_BANK_BRANCH_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_BANK_AC_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_CUR_XRATE_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_AC_TAX_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_BAC_AC_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_SCHD_PAY_SND_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_AC_SCHD_PAY.sql
+
+\i ./SEQ/MBS_AC_PAY.sql
+
+\i ./SEQ/MBS_SLS_SLIP.sql
+
+\i ./SEQ/MBS_PURC_SLIP.sql
+
+\i ./SEQ/MBS_SLS_SLIP_SND_IF_DATA_LNO.sql
+
+\i ./SEQ/MBS_PURC_SLIP_SND_IF_DATA_LNO.sql
+

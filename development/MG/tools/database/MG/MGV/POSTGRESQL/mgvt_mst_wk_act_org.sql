@@ -1,0 +1,63 @@
+DO $$
+BEGIN
+CREATE OR REPLACE VIEW mgvt_mst_wk_act
+AS
+SELECT
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_act_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.mfg_act_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.itm_mfg_inst_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.oper_act_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_schd_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.div_seq,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_cost_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_cost,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.st_tm,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.end_tm,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.brk_pd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ac_dt,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_rsn_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_cost_calc_ctl_flg,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_day_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.dpt_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.loc_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.str_ln_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_usr_dpt_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.wk_usr_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.oper_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sno1,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sno2,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sno3,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sno4,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.itm_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.itm_sub1,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.itm_sub2,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.itm_sub3,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.lot_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sublot_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.dpt_wg_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.loc_wg_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.mes_flg,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ext_sys_cd,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ext_wk_act_no,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.intr_rmrks,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sub_char1,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sub_char2,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.sub_char3,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ins_usr_id,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ins_usr_nm,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ins_ts,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.ins_func_id,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_cntr,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_usr_id,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_usr_nm,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_ts,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_func_id,
+	mgvt_mst_wk_act_org_mst_wk_act_t1.upd_srv_req_no
+FROM 
+	mst_wk_act mgvt_mst_wk_act_org_mst_wk_act_t1
+;
+EXCEPTION WHEN OTHERS THEN
+	null;
+END
+$$
+;

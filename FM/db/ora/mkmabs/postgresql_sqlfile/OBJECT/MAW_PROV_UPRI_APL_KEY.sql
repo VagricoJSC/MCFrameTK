@@ -1,0 +1,144 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION maw_prov_upri_apl_key()
+RETURNS TABLE (
+	itm_cd varchar,
+	itm_sub1 varchar,
+	itm_sub2 varchar,
+	itm_sub3 varchar,
+	prsppl_cd varchar,
+	cur_cd varchar,
+	wg_cd varchar,
+	st_dt timestamp(0),
+	apl_no varchar
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('maw_prov_upri_apl_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE maw_prov_upri_apl_key$temp(
+				itm_cd varchar (40) NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NULL,
+				prsppl_cd varchar (20) NULL,
+				cur_cd varchar (3) NULL,
+				wg_cd varchar (10) DEFAULT '*' NULL,
+				st_dt timestamp(0)  NULL,
+				apl_no varchar (15) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX maw_prov_upri_apl_key_pk_ie ON maw_prov_upri_apl_key$temp
+				USING BTREE (itm_cd,itm_sub1,itm_sub2,itm_sub3,prsppl_cd,cur_cd,wg_cd,st_dt,apl_no);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('maw_prov_upri_apl_key$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM maw_prov_upri_apl_key$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW maw_prov_upri_apl_key
+AS
+SELECT *
+FROM maw_prov_upri_apl_key();
+ALTER VIEW maw_prov_upri_apl_key ALTER COLUMN itm_sub1 SET DEFAULT '*';
+ALTER VIEW maw_prov_upri_apl_key ALTER COLUMN itm_sub2 SET DEFAULT '*';
+ALTER VIEW maw_prov_upri_apl_key ALTER COLUMN itm_sub3 SET DEFAULT '*';
+ALTER VIEW maw_prov_upri_apl_key ALTER COLUMN wg_cd SET DEFAULT '*';
+
+CREATE OR REPLACE FUNCTION maw_prov_upri_apl_key$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('maw_prov_upri_apl_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE maw_prov_upri_apl_key$temp(
+				itm_cd varchar (40) NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NULL,
+				prsppl_cd varchar (20) NULL,
+				cur_cd varchar (3) NULL,
+				wg_cd varchar (10) DEFAULT '*' NULL,
+				st_dt timestamp(0)  NULL,
+				apl_no varchar (15) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX maw_prov_upri_apl_key_pk_ie ON maw_prov_upri_apl_key$temp
+				USING BTREE (itm_cd,itm_sub1,itm_sub2,itm_sub3,prsppl_cd,cur_cd,wg_cd,st_dt,apl_no);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('maw_prov_upri_apl_key$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO maw_prov_upri_apl_key$temp(
+			itm_cd,
+			itm_sub1,
+			itm_sub2,
+			itm_sub3,
+			prsppl_cd,
+			cur_cd,
+			wg_cd,
+			st_dt,
+			apl_no
+		)VALUES (
+			NEW.itm_cd,
+			NEW.itm_sub1,
+			NEW.itm_sub2,
+			NEW.itm_sub3,
+			NEW.prsppl_cd,
+			NEW.cur_cd,
+			NEW.wg_cd,
+			NEW.st_dt,
+			NEW.apl_no
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE maw_prov_upri_apl_key$temp
+		SET 
+			itm_cd = NEW.itm_cd,
+			itm_sub1 = NEW.itm_sub1,
+			itm_sub2 = NEW.itm_sub2,
+			itm_sub3 = NEW.itm_sub3,
+			prsppl_cd = NEW.prsppl_cd,
+			cur_cd = NEW.cur_cd,
+			wg_cd = NEW.wg_cd,
+			st_dt = NEW.st_dt,
+			apl_no = NEW.apl_no
+		WHERE 0=0
+		AND (itm_cd = OLD.itm_cd OR itm_cd IS NULL AND OLD.itm_cd IS NULL)
+		AND (itm_sub1 = OLD.itm_sub1 OR itm_sub1 IS NULL AND OLD.itm_sub1 IS NULL)
+		AND (itm_sub2 = OLD.itm_sub2 OR itm_sub2 IS NULL AND OLD.itm_sub2 IS NULL)
+		AND (itm_sub3 = OLD.itm_sub3 OR itm_sub3 IS NULL AND OLD.itm_sub3 IS NULL)
+		AND (prsppl_cd = OLD.prsppl_cd OR prsppl_cd IS NULL AND OLD.prsppl_cd IS NULL)
+		AND (cur_cd = OLD.cur_cd OR cur_cd IS NULL AND OLD.cur_cd IS NULL)
+		AND (wg_cd = OLD.wg_cd OR wg_cd IS NULL AND OLD.wg_cd IS NULL)
+		AND (st_dt = OLD.st_dt OR st_dt IS NULL AND OLD.st_dt IS NULL)
+		AND (apl_no = OLD.apl_no OR apl_no IS NULL AND OLD.apl_no IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM maw_prov_upri_apl_key$temp
+		WHERE 0=0
+		AND (itm_cd = OLD.itm_cd OR itm_cd IS NULL AND OLD.itm_cd IS NULL)
+		AND (itm_sub1 = OLD.itm_sub1 OR itm_sub1 IS NULL AND OLD.itm_sub1 IS NULL)
+		AND (itm_sub2 = OLD.itm_sub2 OR itm_sub2 IS NULL AND OLD.itm_sub2 IS NULL)
+		AND (itm_sub3 = OLD.itm_sub3 OR itm_sub3 IS NULL AND OLD.itm_sub3 IS NULL)
+		AND (prsppl_cd = OLD.prsppl_cd OR prsppl_cd IS NULL AND OLD.prsppl_cd IS NULL)
+		AND (cur_cd = OLD.cur_cd OR cur_cd IS NULL AND OLD.cur_cd IS NULL)
+		AND (wg_cd = OLD.wg_cd OR wg_cd IS NULL AND OLD.wg_cd IS NULL)
+		AND (st_dt = OLD.st_dt OR st_dt IS NULL AND OLD.st_dt IS NULL)
+		AND (apl_no = OLD.apl_no OR apl_no IS NULL AND OLD.apl_no IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER maw_prov_upri_apl_key$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON maw_prov_upri_apl_key
+FOR EACH ROW
+EXECUTE PROCEDURE maw_prov_upri_apl_key$func();
+;
+

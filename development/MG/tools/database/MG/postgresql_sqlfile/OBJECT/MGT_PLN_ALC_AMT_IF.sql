@@ -1,0 +1,83 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgt_pln_alc_amt_if(
+	data_lno,
+	calc_ctg_cd,
+	wg_cd,
+	ym,
+	alc_ac_cd,
+	dpt_cd,
+	loc_cd,
+	oper_cd,
+	bp_cd,
+	ctg_cd,
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	lot_no,
+	sublot_no,
+	sno1,
+	sno2,
+	sno3,
+	sno4,
+	amt,
+	rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.data_lno,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.calc_ctg_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.wg_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ym,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.alc_ac_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.dpt_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.loc_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.oper_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.bp_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ctg_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.itm_cd,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.itm_sub1,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.itm_sub2,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.itm_sub3,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.lot_no,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sublot_no,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sno1,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sno2,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sno3,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sno4,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.amt,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.rmrks,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sub_char1,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sub_char2,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.sub_char3,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ins_usr_id,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ins_usr_nm,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ins_ts,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.ins_func_id,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_cntr,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_usr_id,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_usr_nm,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_ts,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_func_id,
+	mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.upd_srv_req_no
+FROM
+	mgt_pln_alc_amt_if_all mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org
+WHERE
+	0 = 0
+	AND mgt_pln_alc_amt_if_mgt_pln_alc_amt_if_all_org.co_cd = (SELECT co_cd FROM fct_context mgt_pln_alc_amt_if_fct_context WHERE pid = pg_backend_pid())
+;
+

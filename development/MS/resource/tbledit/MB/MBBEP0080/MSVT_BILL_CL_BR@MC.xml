@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MSVT_BILL_CL_BR</dbc>
+	
+	<cond>
+		<cols>
+			batch_data_no,bcst_cd,bill_dpt_cd,iv_no,trd_cur_cd,wrk_no,bill_cl_dt,exe_sts_typ,batch_log_no,log_sub_key1,log_sub_key2,
+			ins_ts,upd_ts
+		</cols>
+	</cond>
+	
+	<list>
+		<!-- ＰＧ実行状況区分 -->	
+		<exe_sts_typ>	
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>	
+	</list>
+	
+	<format>
+		<bill_cl_dt>YMD</bill_cl_dt>
+	</format>
+	
+	<app>
+		<ref>true</ref>
+		
+		<dtl>
+			<move>
+				<col1>bcst_nm</col1>
+				<pos1>3</pos1>
+				
+				<col2>trd_cur_nm</col2>
+				<pos2>8</pos2>
+				
+				<col3>wrk_nm</col3>
+				<pos3>10</pos3>
+			</move>
+		
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+				
+				<col2>bcst_nm</col2>
+				<lbl2>請求先名</lbl2>
+				<msg2>請求先名</msg2>
+
+				<col3>trd_cur_nm</col3>
+				<lbl3>取引通貨名</lbl3>
+				<msg3>取引通貨名</msg3>
+
+				<col4>wrk_nm</col4>
+				<lbl4>案件名</lbl4>
+				<msg4>案件名</msg4>
+				
+			</label>
+		</dtl>
+		<addSql>
+			<orderBy>
+				<col1>batch_log_no</col1>
+				<desc1>true</desc1>
+				<col2>bcst_cd,bill_dpt_cd,trd_cur_cd,wrk_no</col2>
+			</orderBy>
+		</addSql>	
+		
+	</app>
+</mcframe>

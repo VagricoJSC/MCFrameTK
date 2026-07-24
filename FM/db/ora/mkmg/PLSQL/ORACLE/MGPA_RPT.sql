@@ -1,0 +1,48 @@
+CREATE OR REPLACE PACKAGE MGPA_RPT
+/**************************************************************************
+<SYNOPSIS>
+	原価レポート情報を作成する
+<REMARKS>
+
+<ARGUMENTS>
+<HISTORY>
+**************************************************************************/
+IS
+
+PROCEDURE P_MAIN (
+	I_CALC_GRP_CD	IN MAPA_META.CALC_GRP_CD%TYPE,
+	I_CALC_NO	IN MAPA_META.CALC_NO%TYPE,
+	I_RPT_PTN_CD	IN MAPA_META.RPT_PTN_CD%TYPE,
+	I_RPT_KEY_CD	IN MAPA_META.RPT_KEY_CD%TYPE,
+	I_LOCK_FLG 	IN MAPA_META.FLG%TYPE DEFAULT '1'
+	, I_DPT_CD	IN	MAPA_META.COST_DPT_CD%TYPE DEFAULT NULL
+	, I_WG_CD	IN	MAPA_META.WG_CD%TYPE DEFAULT NULL
+	, I_ITM_CD	IN	MAPA_META.ITM_CD%TYPE DEFAULT NULL
+	, I_ITM_SUB1	IN	MAPA_META.ITM_SUB1%TYPE DEFAULT NULL
+	, I_ITM_SUB2	IN	MAPA_META.ITM_SUB2%TYPE DEFAULT NULL
+	, I_ITM_SUB3	IN	MAPA_META.ITM_SUB3%TYPE DEFAULT NULL
+	, I_ITM_JNL_CD	IN	MAPA_META.ITM_JNL_CD%TYPE DEFAULT NULL
+	, I_ITM_GRP_TYP	IN	MAPA_META.ITM_GRP_TYP%TYPE DEFAULT NULL
+	, I_ITM_GRP_CD	IN	MAPA_META.ITM_GRP_CD%TYPE DEFAULT NULL
+) ;
+/*********************************************************
+<SYNOPSIS>
+	原価レポート作成処理
+<REMARKS>
+
+<ARGUMENTS>
+<IN>	I_CALC_GRP_CD
+		計算グループＣＤ
+<IN>	I_CALC_NO
+		原価計算ＮＯ
+<IN>	I_RPT_PTN_CD
+		レポートパタンＣＤ
+<IN>	I_RPT_KEY_CD
+		レポートキーＣＤ
+<IN>	I_LOCK_FLG
+		ロックＦＬＧ
+<HISTORY>
+**********************************************************/
+
+END MGPA_RPT ;
+/

@@ -1,0 +1,48 @@
+
+COMMENT ON TABLE MGT_CALC_ITM IS '計算対象品目情報 // (Calculation) Item';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.CALC_NO IS '原価計算ＮＯ // #MA.CALC_NO // Calculation No.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.CALC_GRP_CD IS '計算グループＣＤ // #MA.CALC_GRP_CD // Calculation group cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.ITM_EXT IS '品目拡張 // #MG.ITM_EXT // Item extension';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.CALC_PTN_CD IS '計算パタンＣＤ // #MA.CALC_PTN_CD // Calculation pattern cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.STD_QTY IS '基準数量 // #MA.QTY // Base qty.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.CALC_CTG_CD IS '計算カテゴリＣＤ // #MA.CALC_CTG_CD // Calculation category cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.RMRKS IS '備考 // #MG.CALC_ITM_RMRKS // Remarks';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.SUB_CHAR1 IS '予備１ // #MG.CALC_ITM_SUB_CHAR1 // Spare 1';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.SUB_CHAR2 IS '予備２ // #MG.CALC_ITM_SUB_CHAR2 // Spare 2';
+
+
+COMMENT ON COLUMN MGT_CALC_ITM.SUB_CHAR3 IS '予備３ // #MG.CALC_ITM_SUB_CHAR3 // Spare 3';
+

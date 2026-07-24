@@ -1,0 +1,57 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mam_com_paid_$u(
+	cur_cd,
+	min_amt,
+	max_amt,
+	rcst_cd,
+	com_paid,
+	memo1,
+	memo2,
+	memo3,
+	del_flg,
+	del_usr_id,
+	del_usr_nm,
+	del_ts,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mam_com_paid_$u_mam_com_paid_all_org.cur_cd,
+	mam_com_paid_$u_mam_com_paid_all_org.min_amt,
+	mam_com_paid_$u_mam_com_paid_all_org.max_amt,
+	mam_com_paid_$u_mam_com_paid_all_org.rcst_cd,
+	mam_com_paid_$u_mam_com_paid_all_org.com_paid,
+	mam_com_paid_$u_mam_com_paid_all_org.memo1,
+	mam_com_paid_$u_mam_com_paid_all_org.memo2,
+	mam_com_paid_$u_mam_com_paid_all_org.memo3,
+	mam_com_paid_$u_mam_com_paid_all_org.del_flg,
+	mam_com_paid_$u_mam_com_paid_all_org.del_usr_id,
+	mam_com_paid_$u_mam_com_paid_all_org.del_usr_nm,
+	mam_com_paid_$u_mam_com_paid_all_org.del_ts,
+	mam_com_paid_$u_mam_com_paid_all_org.ins_usr_id,
+	mam_com_paid_$u_mam_com_paid_all_org.ins_usr_nm,
+	mam_com_paid_$u_mam_com_paid_all_org.ins_ts,
+	mam_com_paid_$u_mam_com_paid_all_org.ins_func_id,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_cntr,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_usr_id,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_usr_nm,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_ts,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_func_id,
+	mam_com_paid_$u_mam_com_paid_all_org.upd_srv_req_no
+FROM
+	mam_com_paid_all mam_com_paid_$u_mam_com_paid_all_org
+WHERE
+	0 = 0
+	AND mam_com_paid_$u_mam_com_paid_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

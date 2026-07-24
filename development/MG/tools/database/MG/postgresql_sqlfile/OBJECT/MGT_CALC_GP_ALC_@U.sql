@@ -1,0 +1,79 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgt_calc_gp_alc_$u(
+	calc_no,
+	calc_grp_cd,
+	wg_cd,
+	ym,
+	mng_dpt_cd,
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	itm_ext,
+	lot_no,
+	sublot_no,
+	sno1,
+	sno2,
+	sno3,
+	sno4,
+	loc_cd,
+	oper_cd,
+	bp_cd,
+	alc_dpt_cd,
+	itm_mfg_inst_no,
+	iv_no,
+	po_no,
+	slo_no,
+	asst_typ,
+	gp_alc_cd,
+	qty,
+	amt,
+	alc_val1,
+	alc_val2,
+	alc_val3,
+	alc_val4,
+	alc_val5
+	)
+AS
+SELECT
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.calc_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.calc_grp_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.wg_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.ym,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.mng_dpt_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_sub1,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_sub2,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_sub3,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_ext,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.lot_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.sublot_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.sno1,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.sno2,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.sno3,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.sno4,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.loc_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.oper_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.bp_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_dpt_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.itm_mfg_inst_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.iv_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.po_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.slo_no,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.asst_typ,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.gp_alc_cd,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.qty,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.amt,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_val1,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_val2,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_val3,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_val4,
+	mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.alc_val5
+FROM
+	mgt_calc_gp_alc_all mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org
+WHERE
+	0 = 0
+	AND mgt_calc_gp_alc_$u_mgt_calc_gp_alc_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

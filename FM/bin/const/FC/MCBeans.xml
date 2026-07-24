@@ -1,0 +1,4755 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MCBeans Constant-->
+<mcframe>
+	<!-- ルール
+	大文字で記述されているタグはアプリケーションで追加することができます。
+	例）モードを追加する
+	<mode>
+		<CUSTOM>
+			<status>1</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{label.fg}</labfg>
+		</CUSTOM>
+	</mode>
+
+	<CUSTOM>モードを追加することができます。
+	<CUSTOM>タグの中のタグは増やせません。
+-->
+
+	<!-- 色定義 -->
+
+	<include>_incColor</include>
+	<!-- 共通設定 -->
+
+	<!-- フォント -->
+
+	<font>Meiryo UI,PLAIN,12</font>
+	<font_bold>Meiryo UI,BOLD,12</font_bold>
+	<field_font>Meiryo UI,PLAIN,12</field_font>
+	<!-- プロポーショナルフォント優先ＦＬＧ -->
+
+	<font_prefer_proportional>true</font_prefer_proportional>
+	<!-- 色 -->
+
+	<!-- 文字の色  -->
+
+	<!-- 文字の色はモードごとの設定が優先される -->
+
+	<fg>{color.BLACK}</fg>
+	<!-- 背景色 -->
+
+	<!-- 背景色はモードごとの設定が優先される -->
+
+	<bg>{color.WHITE}</bg>
+	<!-- キャレットの色 -->
+
+	<caretcolor>{color.BLACK}</caretcolor>
+	<!-- 選択領域の文字の色 -->
+
+	<selfg>{color.WHITE}</selfg>
+	<!-- 選択領域の背景色  -->
+
+	<selbg>{color.BLUE}</selbg>
+	<!-- 最大文字数入力時のフォーカス自動移動の可否 -->
+
+	<autofocus>true</autofocus>
+	<!-- フォーカスイン時の全選択の可否(textarea以外の一律設定) -->
+
+	<selectall>true</selectall>
+	<!-- 文字列のトリムパターン -->
+
+	<!-- BOTH,HEAD,TAIL,NONE -->
+
+	<trim>BOTH</trim>
+	<!-- ボーダ（枠線）の設定 -->
+
+	<border>
+		<innerpaint>false</innerpaint>
+		<!-- ボーダ（枠線）の色 -->
+		<color>200,200,200
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/>
+		</color>
+		<!-- <color>{color.LIGHTSILVER}</color> -->
+		<!-- 入力補助項目のボーダの色 -->
+
+		<is>
+			<color>{border.color}
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/>
+			</color>
+		</is>
+		<!-- 複数条件指定項目のボーダの色 -->
+
+		<plural_value>
+			<color>{border.color}
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/>
+			</color>
+		</plural_value>
+	</border>
+	<!-- スクロールペインの共通設定 -->
+
+	<scrollpane>
+		<opaque>false</opaque>
+		<bg>{color.MCBgColor}</bg>
+	</scrollpane>
+	<!-- Scrollbar　の設定 -->
+
+	<scrollbar>
+
+		<width>13</width>
+
+		<!-- スクロールバーのボタン押下時の移動幅 -->
+		<!-- ホイールマウス操作時も影響する -->
+		<unitincrement>25</unitincrement>
+
+		<!-- 縦スクロールバーの幅 -->
+		<vertical>{scrollbar.width}</vertical>
+		<!-- 横スクロールバーの高さ -->
+		<horizontal>{scrollbar.width}</horizontal>
+
+		<bg>{rootpanel.bg}</bg>
+		<highlight>{rootpanel.bg}</highlight>
+		<shadow>{rootpanel.bg}</shadow>
+		<darkshadow>{rootpanel.bg}</darkshadow>
+		<thumb>
+			<bg>{panel.bg2}</bg>
+			<shadow>{rootpanel.bg}</shadow>
+			<highlight>{rootpanel.bg}</highlight>
+			<gradientf1>0</gradientf1>
+			<gradientf2>0</gradientf2>
+			<gradient1>{panel.bg2}</gradient1>
+			<gradient2>{panel.bg2}</gradient2>
+			<gradient3>{panel.bg2}</gradient3>
+		</thumb>
+	</scrollbar>
+	<viewport>
+		<opaque>false</opaque>
+		<!-- テーブルの場合強制的にopaqe=trueになり、bgの色が使用される -->
+		<bg>{color.WHITE}</bg>
+	</viewport>
+	<!-- マウス操作 -->
+
+	<mouse>
+		<!-- ドラッグスクロール -->
+
+		<drag_move>
+			<!-- ドラッグをやめた時にGUIが移動する加速度(pix/ms/ms) -->
+
+			<acceleration>-0.1</acceleration>
+		</drag_move>
+	</mouse>
+	<tooltip>
+		<bg>{color.WHITE}</bg>
+		<fg>{color.BLACK}</fg>
+		<initialdelay>400</initialdelay>
+	</tooltip>
+	<!-- JTextField(MCComboField以外)の設定 -->
+
+	<field>
+		<border>
+			<color>{border.color}
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/>
+			</color>
+			<focus><color>{color.GRAY}</color></focus>
+			<insets>3,3,1,2</insets>
+		</border>
+		<mode>
+		<REQUIRED>
+			<mark>
+					<use>false</use>
+					<topleft>true</topleft>
+					<leftbottom>false</leftbottom>
+					<bottomright>false</bottomright>
+					<righttop>false</righttop>
+					<color>216,0,60,100</color>
+					<width>8</width>
+			</mark>
+			<line>
+				<use>true</use>
+				<color>216,0,60,80</color>
+			</line>
+		</REQUIRED>
+		</mode>
+		<is>
+			<icon>
+				<location>LEFT</location>
+				<img>/mcframe/clientCore/icon/mat_icon/field/srch2.png</img>
+			</icon>
+			<border>
+				<color>{field.border.color}
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/></color>
+			</border>
+		</is>
+		<plural_value>
+			<icon>
+				<location>NONE</location>
+				<img></img>
+			</icon>
+			<border>
+				<color>{field.border.color}
+				<ot/>
+				<ol/>
+				<ob/>
+				<or/>
+				<it/>
+				<il/>
+				<ib/>
+				<ir/></color>
+			</border>
+		</plural_value>
+		<calendar>
+			<icon>
+				<location>RIGHT</location>
+				<img>/mcframe/clientCore/icon/mat_icon/field/calendar.png</img>
+			</icon>
+		</calendar>
+	</field>
+	<!-- 設定箇所定義 -->
+
+	<parts>
+		<PanelBg>{color.MCBgColor}</PanelBg>
+		<field>
+			<REQUIRED>
+				<bg>{color.WHITE}</bg>
+				<fg>{color.BLACK}</fg>
+				<labfg>{color.BLACK}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{color.WHITE}</bg>
+				<fg>{color.BLACK}</fg>
+				<labfg>{color.BLACK}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>245,245,245</bg>
+				<fg>{color.BLACK}</fg>
+				<labfg>{color.BLACK}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{color.GAINSBORO}</bg>
+				<fg>{color.WHITE}</fg>
+				<labfg>{color.GAINSBORO}</labfg>
+			</DISABLE>
+		</field>
+		<table>
+			<scrollpane>
+			</scrollpane>
+			<REQUIRED>
+				<bg>
+					<odd>227,250,212</odd>
+					<even>227,245,210</even>
+				</bg>
+				<fg>
+					<odd>{color.BLACK}</odd>
+					<even>{color.BLACK}</even>
+				</fg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>
+					<odd>{parts.table.REQUIRED.bg.odd}</odd>
+					<even>{parts.table.REQUIRED.bg.even}</even>
+				</bg>
+				<fg>
+					<odd>{color.BLACK}</odd>
+					<even>{color.BLACK}</even>
+				</fg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>
+					<odd>250,250,250</odd>
+					<even>240,240,240</even>
+				</bg>
+				<fg>
+					<odd>{color.BLACK}</odd>
+					<even>{color.BLACK}</even>
+				</fg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>
+					<odd>{color.SUPERLIGHTGRAY}</odd>
+					<even>{color.GAINSBORO}</even>
+				</bg>
+				<fg>
+					<odd>{color.GRAY}</odd>
+					<even>{color.GRAY}</even>
+				</fg>
+			</DISABLE>
+			<editable>
+				<selected>
+					<fg>{color.WHITE}</fg>
+					<bg>{color.CORNFLOWERBLUE}</bg>
+					<nofocus>
+						<fg>{color.WHITE}</fg>
+						<bg>{color.DODGERBLUE}</bg>
+					</nofocus>
+				</selected>
+			</editable>
+			<non-editable>
+				<selected>
+					<fg>{color.WHITE}</fg>
+					<bg>{color.ROYALBLUE}</bg>
+					<nofocus>
+						<fg>{color.WHITE}</fg>
+						<bg>{color.DODGERBLUE}</bg>
+					</nofocus>
+				</selected>
+			</non-editable>
+		</table>
+		<column>
+			<REQUIRED>
+				<labfg>{color.BLACK}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<labfg>{color.BLACK}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<labfg>{color.BLACK}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<labfg>{color.DISABLE}</labfg>
+			</DISABLE>
+		</column>
+	</parts>
+
+	<!-- フレームの設定 -->
+
+	<frame>
+		<!-- 左上のアイコン -->
+		<mark>/mcframe/clientCore/icon/mclogo.png</mark>
+	</frame>
+
+	<!-- 画面の設定 -->
+
+	<rootpanel>
+		<opaque>true</opaque>
+		<parts><opaque>false</opaque></parts>
+		<bg>{color.MCBgColor2}</bg>
+		<fg>{fg}</fg>
+		<!-- フォント比率 -->
+
+		<ratio>
+			<!-- 最小値（％） -->
+
+			<min>10</min>
+			<!-- 最大値（％） -->
+
+			<!-- 高解像度対応
+			<max>400</max>
+			 -->
+			<max>999</max>
+		</ratio>
+		<!-- 画面のスクロール設定 -->
+
+		<scrollbar>
+			<vertical>{scrollbar.vertical}</vertical>
+			<horizontal>{scrollbar.horizontal}</horizontal>
+			<unitincrement>{scrollbar.unitincrement}</unitincrement>
+		</scrollbar>
+		<!-- ファイル出力の設定 -->
+
+		<beanswriter>
+			<display>{beanswriter.display}</display>
+			<adjustwidth>{beanswriter.adjustwidth}</adjustwidth>
+			<cutnewline>{beanswriter.cutnewline}</cutnewline>
+			<adjustwidthRow>{beanswriter.adjustwidthRow}</adjustwidthRow>
+		</beanswriter>
+	</rootpanel>
+	<!-- パネル（枠）の設定 -->
+
+	<panel>
+		<opaque>false</opaque>
+		<fg>{fg}</fg>
+		<bg><!-- opaque true の場合の色 -->{color.MCBgColor}</bg>
+		<bg2><!-- 枠内の色 -->{color.MCBgColor}</bg2>
+		<!-- タイトル枠内 -->
+
+		<font>{font}</font>
+		<layouter>
+			<root>
+				<!--
+				rootpanelと内部コンポーネントとのマージンを表す。
+				マージン（MCGeneralLayout使用時に有効）
+				 -->
+
+				<margin>
+					<top>0</top>
+					<left>15</left>
+					<bottom>0</bottom>
+					<right>15</right>
+					<color>{rootpanel.bg}</color>
+				</margin>
+			</root>
+			<rootsub>
+				<opaque>false</opaque>
+				<!-- マージン内の色 -->
+
+				<bg>{color.WHITE}</bg>
+				<!-- マージン内の枠色 -->
+
+				<border>
+					<color/>
+				</border>
+			</rootsub>
+		</layouter>
+		<!-- ファイル出力の設定 -->
+
+		<beanswriter>
+			<display>{beanswriter.display}</display>
+			<adjustwidth>{beanswriter.adjustwidth}</adjustwidth>
+			<cutnewline>{beanswriter.cutnewline}</cutnewline>
+			<adjustwidthRow>{beanswriter.adjustwidthRow}</adjustwidthRow>
+		</beanswriter>
+	</panel>
+	<!-- ボーダラインの設定 -->
+
+	<line>
+		<fg>{fg}</fg>
+		<font>{font}</font>
+	</line>
+	<!-- ヘッダーバーの設定 -->
+	<headerbar>
+		<fg>{color.WHITE}</fg>
+		<bg>{color.MCThemeBar}</bg>
+		<user><fonts_minus>1</fonts_minus></user>
+	</headerbar>
+	<!-- ツールバーの設定 -->
+
+	<toolbar>
+		<hide>true</hide>
+		<!-- 背景 -->
+
+		<bg>{color.MCThemeBar}</bg>
+		<!-- <bg2>{color.WHITE}</bg2> -->
+		<!-- 未記入の場合はbgと同じ -->
+
+		<!-- docking背景(未使用) -->
+
+		<dbg>{color.BLACK}</dbg>
+		<!-- floating背景(未使用) -->
+
+		<fbg>{color.GREEN}</fbg>
+		<!-- 前景 (未使用) -->
+
+		<fg>{color.WHITE}</fg>
+		<!-- docking前景(未使用) -->
+
+		<dfg>{color.WHITE}</dfg>
+		<!-- floating前景(未使用) -->
+
+		<ffg>{color.WHITE}</ffg>
+		<border>
+				<insets>0,0,0,0</insets>
+				<color>{toolbar.bg}
+					<ot/>
+					<ol/>
+					<ob/>
+					<or/>
+					<it/>
+					<il/>
+					<ib/>
+					<ir/>
+			</color>
+		</border>
+	</toolbar>
+	<statusbar>
+		<bg>{color.SUPERLIGHTGRAY}</bg>
+	</statusbar>
+	<!-- タブペインの設定 -->
+
+	<tabbedpane>
+		<font>{font}</font>
+		<tabinsets>2,9,1,9</tabinsets>
+		<tabareainsets>4,2,0,6</tabareainsets>
+		<!-- タブ背景 -->
+
+		<defbg>{color.MCThemeColor3}</defbg>
+		<defbg2>{color.MCThemeColor3}</defbg2>
+		<!-- 未記入の場合はdefbgと同じ -->
+
+		<!-- 選択時タブエリア背景 -->
+
+		<selected>{panel.bg2}</selected>
+
+		<!-- 選択時タブ背景 -->
+		<selected1></selected1>
+		<selected2></selected2>
+
+		<!-- マウスオーバー時タブ背景 -->
+		<rollover>{color.MCThemeColor2}</rollover>
+		<rollover2/>
+
+		<left>
+			<bg>{color.MCThemeBar}</bg>
+			<bg2/>
+			<rev_sel_icon>false</rev_sel_icon>
+			<selectedfg>{tabbedpane.deffg}</selectedfg>
+			<selected>{color.CORNFLOWERBLUE}</selected>
+			<selected2>{color.CORNFLOWERBLUE}</selected2>
+			<!-- マウスオーバー時タブ背景 -->
+			<rollover>{color.GRAY}</rollover>
+			<rollover2/>
+		</left>
+
+		<!-- 未記入の場合はselectedと同じ -->
+
+		<!-- コンテンツ領域背景 -->
+
+		<contentareacolor>{tabbedpane.selected}</contentareacolor>
+		<!-- ボーダー左上 -->
+
+		<light>{tabbedpane.selected}</light>
+		<!-- 選択時ボーダー左上 -->
+
+		<selecthighlight>{rootpanel.bg}</selecthighlight>
+		<!-- 選択時ボーダー左上外部 -->
+
+		<borderhightlightcolor>{tabbedpane.selected}</borderhightlightcolor>
+		<!-- ボーダー上右下外部-->
+
+		<darkshadow>{tabbedpane.selected}</darkshadow>
+		<!-- 文字色 -->
+
+		<deffg>{color.WHITE}</deffg>
+		<!-- 選択時文字色 -->
+
+		<selectedfg>{color.BLACK}</selectedfg>
+		<!-- selectIndicator -->
+
+		<selectedindicator>{color.LIGHTSILVER}</selectedindicator>
+
+		<focusindicator>{color.LIGHTSILVER}</focusindicator>
+
+		<!-- ScrollableTabButtonの矢印の色 -->
+		<arrowcolor>{color.MCThemeColor1}</arrowcolor>
+
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{tabbedpane.bg}</bg>
+				<fg>{tabbedpane.fg}</fg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{tabbedpane.bg}</bg>
+				<fg>{tabbedpane.fg}</fg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{tabbedpane.bg}</bg>
+				<fg>{tabbedpane.fg}</fg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{tabbedpane.bg}</bg>
+				<fg>{tabbedpane.fg}</fg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg/>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg/>
+		<font>{font}</font>
+		<!-- ファイル出力の設定 -->
+
+		<beanswriter>
+			<display>{beanswriter.display}</display>
+			<adjustwidth>{beanswriter.adjustwidth}</adjustwidth>
+			<cutnewline>{beanswriter.cutnewline}</cutnewline>
+			<adjustwidthRow>{beanswriter.adjustwidthRow}</adjustwidthRow>
+		</beanswriter>
+	</tabbedpane>
+	<!-- テキストフィールドの設定 -->
+
+	<text>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<trim>{trim}</trim>
+		<font>{field_font}</font>
+	</text>
+	<!-- 日付フィールドの設定 -->
+
+	<date>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+		<!-- カレンダポップアップの表示可否 -->
+
+		<!-- 日付を表示しないフォーマットの場合は無効 -->
+
+		<calendar>true
+			<showifmousefocus>true</showifmousefocus>
+			<showiffocus>false</showiffocus>
+		</calendar>
+	</date>
+	<!-- 数値フィールドの設定 -->
+
+	<number>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+	</number>
+	<!-- チェックボックスの設定 -->
+
+	<check>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<!-- チェックボックスは常に必須になってしまうのでENABLEと色を敢えて変えない -->
+
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.labfg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<font>{font}</font>
+
+		<!-- チェックボックスアイコンの設定 -->
+
+		<icon>
+			<!-- デフォルトアイコン -->
+
+			<default/>
+			<!-- 選択時のアイコン -->
+
+			<selected/>
+			<!-- 押下時のアイコン -->
+
+			<pressed/>
+			<!-- 無効時のアイコン -->
+
+			<disabled/>
+			<!-- 無効かつ選択時のアイコン -->
+
+			<disabled-selected/>
+		</icon>
+	</check>
+	<!-- ラジオボタンの設定 -->
+
+	<radio>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<!-- ラジオボタンは常に必須になってしまうのでENABLEと色を敢えて変えない -->
+
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.labfg}</fg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<!-- ラジオボタンでDISABLEは何が選択されているかわからないようにする -->
+
+				<fg>{parts.field.DISABLE.bg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<font>{font}</font>
+	</radio>
+	<!-- コンボボックスの設定 -->
+
+	<combo>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+		<trim>{trim}</trim>
+		<!-- コンボリストの設定 -->
+
+		<list>
+			<!-- コンボリストの表示項目の区切り文字 -->
+
+			<!-- システム一律 -->
+
+			<!-- 両端の@は除外される -->
+
+			<delimiter>@ : @</delimiter>
+			<!-- コンボリストのスクロール設定 -->
+
+			<scrollbar>
+				<vertical>{scrollbar.vertical}</vertical>
+				<horizontal>{scrollbar.horizontal}</horizontal>
+				<unitincrement>{scrollbar.unitincrement}</unitincrement>
+			</scrollbar>
+			<!-- コンボリストの背景色（選択行以外） -->
+
+			<bg/>
+			<!-- コンボリストの文字の色（選択行以外） -->
+
+			<fg/>
+			<!-- コンボリストの背景色（選択行） -->
+
+			<selbg/>
+			<!-- コンボリストの文字の色（選択行） -->
+
+			<selfg/>
+		</list>
+	</combo>
+	<combo-date>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+		<trim>{trim}</trim>
+		<!-- コンボリストの設定 -->
+
+		<list>
+			<!-- コンボリストの表示項目の区切り文字 -->
+
+			<!-- システム一律 -->
+
+			<delimiter>{combo.list.delimiter}</delimiter>
+			<!-- コンボリストのスクロール設定 -->
+
+			<scrollbar>
+				<vertical>{scrollbar.vertical}</vertical>
+				<horizontal>{scrollbar.horizontal}</horizontal>
+				<unitincrement>{scrollbar.unitincrement}</unitincrement>
+			</scrollbar>
+			<!-- コンボリストの背景色（選択行以外） -->
+
+			<bg>{combo.list.bg}</bg>
+			<!-- コンボリストの文字の色（選択行以外） -->
+
+			<fg>{combo.list.fg}</fg>
+			<!-- コンボリストの背景色（選択行） -->
+
+			<selbg>{combo.list.selbg}</selbg>
+			<!-- コンボリストの文字の色（選択行） -->
+
+			<selfg>{combo.list.selfg}</selfg>
+		</list>
+	</combo-date>
+	<combo-number>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+		<trim>{trim}</trim>
+		<!-- コンボリストの設定 -->
+
+		<list>
+			<!-- コンボリストの表示項目の区切り文字 -->
+
+			<!-- システム一律 -->
+
+			<delimiter>{combo.list.delimiter}</delimiter>
+			<!-- コンボリストのスクロール設定 -->
+
+			<scrollbar>
+				<vertical>{scrollbar.vertical}</vertical>
+				<horizontal>{scrollbar.horizontal}</horizontal>
+				<unitincrement>{scrollbar.unitincrement}</unitincrement>
+			</scrollbar>
+			<!-- コンボリストの背景色（選択行以外） -->
+
+			<bg>{combo.list.bg}</bg>
+			<!-- コンボリストの文字の色（選択行以外） -->
+
+			<fg>{combo.list.fg}</fg>
+			<!-- コンボリストの背景色（選択行） -->
+
+			<selbg>{combo.list.selbg}</selbg>
+			<!-- コンボリストの文字の色（選択行） -->
+
+			<selfg>{combo.list.selfg}</selfg>
+		</list>
+	</combo-number>
+	<!-- テキストエリアの設定 -->
+
+	<textarea>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>false</selectall>
+		<font>{field_font}</font>
+		<trim>NONE</trim>
+		<!-- テキストエリアのスクロール設定 -->
+
+		<scrollbar>
+			<vertical>{scrollbar.vertical}</vertical>
+			<horizontal>{scrollbar.horizontal}</horizontal>
+			<unitincrement>{scrollbar.unitincrement}</unitincrement>
+		</scrollbar>
+		<!-- タブの長さ -->
+
+		<tabsize>4</tabsize>
+	</textarea>
+	<!-- パスワードフィールドの設定 -->
+
+	<password>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<caretcolor>{caretcolor}</caretcolor>
+		<selbg>{selbg}</selbg>
+		<selfg>{selfg}</selfg>
+		<autofocus>{autofocus}</autofocus>
+		<selectall>{selectall}</selectall>
+		<font>{field_font}</font>
+		<trim>{trim}</trim>
+		<!-- パスワードのエコー文字 -->
+
+		<echo>*</echo>
+	</password>
+	<!-- ボタンの設定 -->
+	<combo_button>
+		<bg>0,0,0,0</bg>
+		<bg2>0,0,0,0</bg2>
+		<border>
+			<color>{border.color}</color>
+			<color2></color2>
+		</border>
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</combo_button>
+	<button>
+		<border>
+			<!-- 太さ -->
+
+			<tickness>1</tickness>
+			<!-- 角丸め -->
+
+			<rounded_corners>true</rounded_corners>
+			<halfarc>false</halfarc>
+			<!-- 2が外枠 -->
+			<color>{color.MCButtonColor}</color>
+			<color2>{color.MCButtonColor}</color2>
+			<color>160,160,160</color>
+			<color2>234,234,234</color2>
+			<rollover>{color.GRAY}</rollover>
+			<rollover2/>
+		</border>
+		<underline/>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{color.MCButtonColor2}</bg>
+		<bg2>{color.MCButtonColor2}</bg2>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{color.BLACK}</fg>
+		<font>{font}</font>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<fg>{button.fg}</fg>
+				<bg>{button.bg}</bg>
+				<bg2>{button.bg}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button.fg}</fg>
+				<bg>{button.bg}</bg>
+				<bg2>{button.bg}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.WHITE}</fg>
+				<bg>{button.bg}</bg>
+				<bg2>{button.bg}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.WHITE}</fg>
+				<bg>{button.bg}</bg>
+				<bg2>{button.bg}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.WHITE}</fg>
+				<bg>{button.bg}</bg>
+				<bg2>{button.bg}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<!--  フォーカスのあるボタン -->
+
+		<!--  モードよりも優先される  -->
+
+		<focused>
+			<line>
+				<use>true</use>
+				<color>{color.GRAY}</color>
+			</line>
+			<mark>
+				<use>true</use>
+				<topleft>true</topleft>
+				<leftbottom>true</leftbottom>
+				<bottomright>true</bottomright>
+				<righttop>true</righttop>
+				<color>128,0,0</color>
+				<width>4</width>
+			</mark>
+		</focused>
+		<id>
+			<mark>
+					<use>false</use>
+					<topleft>true</topleft>
+					<leftbottom>false</leftbottom>
+					<bottomright>false</bottomright>
+					<righttop>false</righttop>
+					<color>{color.MCThemeColor2}</color>
+					<width>8</width>
+			</mark>
+		</id>
+
+	</button>
+	<!-- 印刷ボタン"prnt"の色設定 -->
+
+	<button_prnt>
+		<line>255,110,203</line>
+		<focused>
+			<line>255,192,203</line>
+		</focused>
+	</button_prnt>
+	<!-- 画面遷移ボタン"open"の色設定 -->
+
+	<button_open>
+		<line>35,198,200</line>
+		<focused>
+			<line>95,210,200</line>
+		</focused>
+	</button_open>
+	<!--検索ボタン"green"の色設定 -->
+	<!--リソースでgreen<srchという参照関係にしているため、greenにタグを追加、削除したらsrchも修正すること -->
+
+	<button_green>
+		<bg>{color.MCThemeColor2}</bg>
+		<bg2>{button_green.bg}</bg2>
+		<fg>{color.WHITE}</fg>
+		<rollover>{color.MCThemeColor3}</rollover>
+		<rollover2>{color.MCThemeColor3}</rollover2>
+		<border>
+			<tickness>2</tickness>
+			<rounded_corners>true</rounded_corners>
+			<color>{button_green.bg}</color>
+			<color2>{button_green.bg}</color2>
+			<rollover>{button_green.rollover}</rollover>
+			<rollover2>{button_green.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_green>
+	<!--検索ボタン"srch"の色設定 -->
+
+	<button_srch>
+		<bg>{button_green.bg}</bg>
+		<bg2>{button_green.bg2}</bg2>
+		<fg>{button_green.fg}</fg>
+		<rollover>{button_green.rollover}</rollover>
+		<rollover2>{button_green.rollover2}</rollover2>
+		<border>
+			<tickness>{button_green.border.tickness}</tickness>
+			<rounded_corners>{button_green.border.rounded_corners}</rounded_corners>
+			<color>{button_green.border.color}</color>
+			<color2>{button_green.border.color2}</color2>
+			<rollover>{button_green.border.rollover}</rollover>
+			<rollover2>{button_green.border.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{button_green.fg}</fg>
+				<bg>{button_green.bg}</bg>
+				<bg2>{button_green.bg}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+
+		<id>
+			<mark>
+				<use>{button_green.id.mark.use}</use>
+			</mark>
+		</id>
+	</button_srch>
+	<!--登録ボタン"black"の色設定 -->
+	<!--リソースでblack<upd,delという参照関係にしているため、blackにタグを追加、削除したらupd,delも修正すること -->
+
+	<button_black>
+		<bg>248,172,89</bg>
+		<bg2>{button_black.bg}</bg2>
+		<fg>{color.WHITE}</fg>
+		<rollover>255,192,109</rollover>
+		<rollover2>255,192,109</rollover2>
+		<border>
+			<tickness>1</tickness>
+			<rounded_corners>{button.border.rounded_corners}</rounded_corners>
+			<color>{button_black.bg}</color>
+			<color2>{button_black.bg}</color2>
+			<rollover>{button_black.rollover}</rollover>
+			<rollover2>{button_black.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_black.fg}</fg>
+				<bg>{button_black.bg}</bg>
+				<bg2>{button_black.bg}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_black.fg}</fg>
+				<bg>{button_black.bg}</bg>
+				<bg2>{button_black.bg}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_black.bg}</bg>
+				<bg2>{button_black.bg}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_black.bg}</bg>
+				<bg2>{button_black.bg}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_black.bg}</bg>
+				<bg2>{button_black.bg}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<bg>{button_black.rollover}</bg>
+			<mark>
+				<color>255,255,0</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_black>
+
+	<!--登録ボタン"upd"の色設定 -->
+
+	<button_upd>
+		<bg>{button_black.bg}</bg>
+		<bg2>{button_black.bg2}</bg2>
+		<fg>{button_black.fg}</fg>
+		<rollover>{button_black.rollover}</rollover>
+		<rollover2>{button_black.rollover2}</rollover2>
+		<border>
+			<tickness>{button_black.border.tickness}</tickness>
+			<rounded_corners>true</rounded_corners>
+			<color>{button_black.border.color}</color>
+			<color2>{button_black.border.color2}</color2>
+			<rollover>{button_black.border.rollover}</rollover>
+			<rollover2>{button_black.border.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_black.mode.REQUIRED.fg}</fg>
+				<bg>{button_black.mode.REQUIRED.bg}</bg>
+				<bg2>{button_black.mode.REQUIRED.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_black.mode.ENABLE.fg}</fg>
+				<bg>{button_black.mode.ENABLE.bg}</bg>
+				<bg2>{button_black.mode.ENABLE.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{button_black.mode.READ_ONLY.fg}</fg>
+				<bg>{button_black.mode.READ_ONLY.bg}</bg>
+				<bg2>{button_black.mode.READ_ONLY.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{button_black.mode.DISABLE.fg}</fg>
+				<bg>{button_black.mode.DISABLE.bg}</bg>
+				<bg2>{button_black.mode.DISABLE.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{button_black.mode.UNAUTHORIZED.fg}</fg>
+				<bg>{button_black.mode.UNAUTHORIZED.bg}</bg>
+				<bg2>{button_black.mode.UNAUTHORIZED.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<bg>{button_black.focused.bg}</bg>
+			<mark>
+				<color>{button_black.focused.mark.color}</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>{button_black.id.mark.use}</use>
+			</mark>
+		</id>
+	</button_upd>
+	<!--登録ボタン"del"の色設定 -->
+
+	<button_del>
+		<bg>{button_black.bg}</bg>
+		<bg2>{button_black.bg2}</bg2>
+		<fg>{button_black.fg}</fg>
+		<rollover>{button_black.rollover}</rollover>
+		<rollover2>{button_black.rollover2}</rollover2>
+		<border>
+			<tickness>{button_black.border.tickness}</tickness>
+			<rounded_corners>{button_black.border.rounded_corners}</rounded_corners>
+			<color>{button_black.border.color}</color>
+			<color2>{button_black.border.color2}</color2>
+			<rollover>{button_black.border.rollover}</rollover>
+			<rollover2>{button_black.border.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_black.mode.REQUIRED.fg}</fg>
+				<bg>{button_black.mode.REQUIRED.bg}</bg>
+				<bg2>{button_black.mode.REQUIRED.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_black.mode.ENABLE.fg}</fg>
+				<bg>{button_black.mode.ENABLE.bg}</bg>
+				<bg2>{button_black.mode.ENABLE.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{button_black.mode.READ_ONLY.fg}</fg>
+				<bg>{button_black.mode.READ_ONLY.bg}</bg>
+				<bg2>{button_black.mode.READ_ONLY.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{button_black.mode.DISABLE.fg}</fg>
+				<bg>{button_black.mode.DISABLE.bg}</bg>
+				<bg2>{button_black.mode.DISABLE.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{button_black.mode.UNAUTHORIZED.fg}</fg>
+				<bg>{button_black.mode.UNAUTHORIZED.bg}</bg>
+				<bg2>{button_black.mode.UNAUTHORIZED.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<bg>{button_black.focused.bg}</bg>
+			<mark>
+				<color>{button_black.focused.mark.color}</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>{button_black.id.mark.use}</use>
+			</mark>
+		</id>
+	</button_del>
+
+	<!--取り消しボタン"cancel"の色設定 -->
+
+	<button_cancel>
+		<bg>{button_black.bg}</bg>
+		<bg2>{button_black.bg2}</bg2>
+		<fg>{button_black.fg}</fg>
+		<rollover>{button_black.rollover}</rollover>
+		<rollover2>{button_black.rollover2}</rollover2>
+		<border>
+			<tickness>{button_black.border.tickness}</tickness>
+			<rounded_corners>true</rounded_corners>
+			<color>{button_black.border.color}</color>
+			<color2>{button_black.border.color2}</color2>
+			<rollover>{button_black.border.rollover}</rollover>
+			<rollover2>{button_black.border.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_black.mode.REQUIRED.fg}</fg>
+				<bg>{button_black.mode.REQUIRED.bg}</bg>
+				<bg2>{button_black.mode.REQUIRED.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_black.mode.ENABLE.fg}</fg>
+				<bg>{button_black.mode.ENABLE.bg}</bg>
+				<bg2>{button_black.mode.ENABLE.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{button_black.mode.READ_ONLY.fg}</fg>
+				<bg>{button_black.mode.READ_ONLY.bg}</bg>
+				<bg2>{button_black.mode.READ_ONLY.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{button_black.mode.DISABLE.fg}</fg>
+				<bg>{button_black.mode.DISABLE.bg}</bg>
+				<bg2>{button_black.mode.DISABLE.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{button_black.mode.UNAUTHORIZED.fg}</fg>
+				<bg>{button_black.mode.UNAUTHORIZED.bg}</bg>
+				<bg2>{button_black.mode.UNAUTHORIZED.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<bg>{button_black.focused.bg}</bg>
+			<mark>
+				<color>{button_black.focused.mark.color}</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>{button_black.id.mark.use}</use>
+			</mark>
+		</id>
+	</button_cancel>
+
+	<!--ダウンロードボタン"dwnld"の色設定 -->
+
+	<button_dwnld>
+		<bg>{button_black.bg}</bg>
+		<bg2>{button_black.bg2}</bg2>
+		<fg>{button_black.fg}</fg>
+		<rollover>{button_black.rollover}</rollover>
+		<rollover2>{button_black.rollover2}</rollover2>
+		<border>
+			<tickness>{button_black.border.tickness}</tickness>
+			<rounded_corners>true</rounded_corners>
+			<color>{button_black.border.color}</color>
+			<color2>{button_black.border.color2}</color2>
+			<rollover>{button_black.border.rollover}</rollover>
+			<rollover2>{button_black.border.rollover2}</rollover2>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_black.mode.REQUIRED.fg}</fg>
+				<bg>{button_black.mode.REQUIRED.bg}</bg>
+				<bg2>{button_black.mode.REQUIRED.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_black.mode.ENABLE.fg}</fg>
+				<bg>{button_black.mode.ENABLE.bg}</bg>
+				<bg2>{button_black.mode.ENABLE.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{button_black.mode.READ_ONLY.fg}</fg>
+				<bg>{button_black.mode.READ_ONLY.bg}</bg>
+				<bg2>{button_black.mode.READ_ONLY.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{button_black.mode.DISABLE.fg}</fg>
+				<bg>{button_black.mode.DISABLE.bg}</bg>
+				<bg2>{button_black.mode.DISABLE.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{button_black.mode.UNAUTHORIZED.fg}</fg>
+				<bg>{button_black.mode.UNAUTHORIZED.bg}</bg>
+				<bg2>{button_black.mode.UNAUTHORIZED.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<bg>{button_black.focused.bg}</bg>
+			<mark>
+				<color>{button_black.focused.mark.color}</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>{button_black.id.mark.use}</use>
+			</mark>
+		</id>
+	</button_dwnld>
+	<!--ツールバーボタン"toolbar"の色設定 -->
+
+	<button_toolbar>
+
+		<bg>150,150,150</bg>
+		<bg2>{button_toolbar.bg}</bg2>
+		<fg>{color.WHITE}</fg>
+		<font>{font_bold}</font>
+		<rollover>180,180,180</rollover>
+		<rollover2>180,180,180</rollover2>
+		<border>
+			<tickness>2</tickness>
+			<rounded_corners>false</rounded_corners>
+			<halfarc>false</halfarc>
+			<color>{toolbar.bg}</color>
+			<color2>{button_toolbar.border.color}</color2>
+			<!--
+			<rollover/>
+			<rollover2>{color.GRAY}</rollover2> -->
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_toolbar.fg}</fg>
+				<bg>{button_toolbar.bg}</bg>
+				<bg2>{button_toolbar.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_toolbar.fg}</fg>
+				<bg>{button_toolbar.bg}</bg>
+				<bg2>{button_toolbar.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_toolbar.bg}</bg>
+				<bg2>{button_toolbar.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_toolbar.bg}</bg>
+				<bg2>{button_toolbar.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_toolbar.bg}</bg>
+				<bg2>{button_toolbar.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<mark>
+				<color>230,230,230</color>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_toolbar>
+		<!--ツールバーボタン"toolbar"の色設定 -->
+
+	<!--ボーダーなしボタン"no_border"の色設定 -->
+
+	<button_no_border>
+		<border>
+			<rounded_corners>false</rounded_corners>
+			<tickness>2</tickness>
+			<color>0,0,0,0</color>
+			<color2>0,0,0,0</color2>
+		</border>
+		<underline/>
+		<bg>0,0,0,0</bg>
+		<bg2>0,0,0,0</bg2>
+		<fg>{button.fg}</fg>
+		<font>{button.font}</font>
+		<mode>
+			<REQUIRED>
+				<fg>{button_no_border.fg}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_no_border.fg}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_no_border>
+
+
+	<button_headerbar>
+		<border>
+			<rounded_corners>false</rounded_corners>
+			<tickness>2</tickness>
+			<color>0,0,0,0</color>
+			<color2>0,0,0,0</color2>
+		</border>
+		<underline/>
+		<bg>0,0,0,0</bg>
+		<bg2>0,0,0,0</bg2>
+		<fg>{color.WHITE}</fg>
+		<font>{button.font}</font>
+		<mode>
+			<REQUIRED>
+				<fg>{button_headerbar.fg}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_headerbar.fg}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.GRAY}</fg>
+				<bg>{button_no_border.bg}</bg>
+				<bg2>{button_no_border.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_headerbar>
+	<!--カレンダー月移動ボタン"calender_arrow"の色設定 -->
+
+	<button_calender_arrow>
+		<bg>{button_green.bg}</bg>
+		<bg2>{button_green.bg2}</bg2>
+		<fg>{color.WHITE}</fg>
+		<border>
+			<tickness>2</tickness>
+			<color>{color.WHITE}</color>
+		</border>
+		<mode>
+			<REQUIRED>
+				<fg>{button_calender_arrow.fg}</fg>
+				<bg>{button_calender_arrow.bg}</bg>
+				<bg2>{button_calender_arrow.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_calender_arrow.fg}</fg>
+				<bg>{button_calender_arrow.bg}</bg>
+				<bg2>{button_calender_arrow.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_arrow.bg}</bg>
+				<bg2>{button_calender_arrow.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_arrow.bg}</bg>
+				<bg2>{button_calender_arrow.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_arrow.bg}</bg>
+				<bg2>{button_calender_arrow.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<mark>
+				<use>false</use>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_calender_arrow>
+
+	<!--カレンダー日付ボタン"calender_date"の色設定 -->
+
+	<button_calender_date>
+
+		<bg>{button.bg}</bg>
+		<bg2>{button.bg2}</bg2>
+		<fg>{button.fg}</fg>
+		<mode>
+			<REQUIRED>
+				<fg>{button_calender_date.fg}</fg>
+				<bg>{button_calender_date.bg}</bg>
+				<bg2>{button_calender_date.bg2}</bg2>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{button_calender_date.fg}</fg>
+				<bg>{button_calender_date.bg}</bg>
+				<bg2>{button_calender_date.bg2}</bg2>
+			</ENABLE>
+			<READ_ONLY>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_date.bg}</bg>
+				<bg2>{button_calender_date.bg2}</bg2>
+			</READ_ONLY>
+			<DISABLE>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_date.bg}</bg>
+				<bg2>{button_calender_date.bg2}</bg2>
+			</DISABLE>
+			<UNAUTHORIZED>
+				<fg>{color.WHITE}</fg>
+				<bg>{button_calender_date.bg}</bg>
+				<bg2>{button_calender_date.bg2}</bg2>
+			</UNAUTHORIZED>
+		</mode>
+		<focused>
+			<mark>
+				<use>false</use>
+			</mark>
+		</focused>
+
+		<id>
+			<mark>
+				<use>false</use>
+			</mark>
+		</id>
+	</button_calender_date>
+	<!-- ラベルの設定 -->
+
+	<label>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<bg>{parts.field.REQUIRED.bg}</bg>
+				<fg>{parts.field.REQUIRED.fg}</fg>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<bg>{parts.field.ENABLE.bg}</bg>
+				<fg>{parts.field.ENABLE.fg}</fg>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<bg>{parts.field.READ_ONLY.bg}</bg>
+				<fg>{parts.field.READ_ONLY.fg}</fg>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<bg>{parts.field.DISABLE.bg}</bg>
+				<fg>{parts.field.DISABLE.fg}</fg>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+		<!-- 背景色はモードごとの設定が優先される -->
+
+		<bg>{bg}</bg>
+		<!-- 文字の色はモードごとの設定が優先される -->
+
+		<fg>{fg}</fg>
+		<font>{font}</font>
+	</label>
+	<!-- イメージビューの設定 -->
+
+	<imageview>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<labfg>{parts.field.REQUIRED.labfg}</labfg>
+			</REQUIRED>
+			<ENABLE>
+				<labfg>{parts.field.ENABLE.labfg}</labfg>
+			</ENABLE>
+			<READ_ONLY>
+				<labfg>{parts.field.READ_ONLY.labfg}</labfg>
+			</READ_ONLY>
+			<DISABLE>
+				<labfg>{parts.field.DISABLE.labfg}</labfg>
+			</DISABLE>
+		</mode>
+	</imageview>
+	<!-- タイトルボーダの設定 -->
+
+	<titledborder>
+		<color>{rootpanel.bg}</color>
+	</titledborder>
+	<!-- テーブルの設定 -->
+
+	<table>
+		<gridcolor>{color.MCBgColor}</gridcolor>
+		<!-- マウス -->
+
+		<mouse>
+			<!-- ドラッグ時動作 -->
+
+			<!-- DRAG_MOVE：ドラッグ移動 -->
+
+			<!-- それ以外：未指定 -->
+
+			<dragmode>DRAG_MOVE</dragmode>
+		</mouse>
+		<!-- テーブルヘッダの設定 -->
+
+		<header>
+			<font>{font}</font>
+			<insets>1,1,1,1</insets>
+			<fg/>
+			<bg>{panel.bg2}</bg>
+			<bg2>{panel.bg2}</bg2>
+			<!-- 未記入の場合はbgと同じ -->
+			<border>
+				<insets>1,1,1,1</insets>
+				<color>
+					<ot>{table.header.bg}</ot>
+					<ol>{table.header.bg}</ol>
+					<ob>{border.color}</ob>
+					<or>{border.color}</or>
+					<it/>
+					<il/>
+					<ib/>
+					<ir/>
+				</color>
+			</border>
+			<selected>
+				<fg/>
+				<bg>255,213,141</bg>
+				<!-- like a Excel2003 -->
+
+			</selected>
+			<filtered>
+				<fg>{color.BLUE}</fg>
+				<bg/>
+			</filtered>
+		</header>
+		<!-- モードごとの設定 -->
+
+		<mode>
+			<REQUIRED>
+				<odd>
+					<bg>{parts.table.REQUIRED.bg.odd}</bg>
+					<fg>{parts.table.REQUIRED.fg.odd}</fg>
+				</odd>
+				<even>
+					<bg>{parts.table.REQUIRED.bg.even}</bg>
+					<fg>{parts.table.REQUIRED.fg.even}</fg>
+				</even>
+				<fg>{fg}</fg>
+				<bg>{color.MCBgColor}</bg>
+			</REQUIRED>
+			<ENABLE>
+				<fg>{fg}</fg>
+				<bg>{color.MCBgColor}</bg>
+			</ENABLE>
+			<DISABLE>
+				<fg>{fg}</fg>
+				<bg>{color.MCBgColor}</bg>
+			</DISABLE>
+			<READ_ONLY>
+				<odd>
+					<bg>{parts.table.READ_ONLY.bg.odd}</bg>
+					<fg>{parts.table.READ_ONLY.fg.odd}</fg>
+				</odd>
+				<even>
+					<bg>{parts.table.READ_ONLY.bg.even}</bg>
+					<fg>{parts.table.READ_ONLY.fg.even}</fg>
+				</even>
+				<fg>{fg}</fg>
+				<bg>{rootpanel.bg}</bg>
+			</READ_ONLY>
+			<UNAUTHORIZED>
+				<odd>
+					<fg>{color.WHITE}</fg>
+					<bg>{parts.PanelBg}</bg>
+				</odd>
+				<even>
+					<fg>{color.WHITE}</fg>
+					<bg>{parts.PanelBg}</bg>
+				</even>
+			</UNAUTHORIZED>
+		</mode>
+		<!-- テーブルのスクロール設定 -->
+
+		<scrollbar>
+			<vertical>{scrollbar.vertical}</vertical>
+			<horizontal>{scrollbar.horizontal}</horizontal>
+			<unitincrement>{scrollbar.unitincrement}</unitincrement>
+		</scrollbar>
+		<!-- ホイールマウスの設定 -->
+
+		<wheel>
+			<!-- Ctrl+ホイールマウス操作時のテーブル拡大・縮小率（％） -->
+
+			<ratio>2</ratio>
+		</wheel>
+		<!-- 行番号カラム -->
+
+		<rownumber>
+			<type>plain</type>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<filtered>
+				<fg>{color.BLUE}</fg>
+				<bg>{bg}</bg>
+			</filtered>
+			<font>{table.column.field_font}</font>
+		</rownumber>
+		<!-- ステータスカラム -->
+
+		<status>
+			<!-- 新規ステータス -->
+
+			<ins>
+				<mark>I</mark>
+				<bg>73,168,186</bg>
+				<fg>{color.WHITE}</fg>
+			</ins>
+			<!-- 更新ステータス -->
+
+			<upd>
+				<mark>U</mark>
+				<bg>36,140,1</bg>
+				<fg>{color.WHITE}</fg>
+			</upd>
+			<!-- 削除ステータス -->
+
+			<del>
+				<mark>D</mark>
+				<bg>254,167,62</bg>
+				<fg>{color.WHITE}</fg>
+			</del>
+			<!-- ステータスなし -->
+
+			<none>
+				<mark/>
+				<bg>{bg}</bg>
+				<fg>{fg}</fg>
+			</none>
+			<font>{table.column.field_font}</font>
+		</status>
+		<!-- シグナルカラム -->
+
+		<rowsignal>
+			<!-- 危険レベル -->
+
+			<danger>
+				<icon>/mcframe/clientCore/icon/mat_icon/mc_info/e.png</icon>
+			</danger>
+			<!-- 注意レベル -->
+
+			<caution>
+				<icon>/mcframe/clientCore/icon/mat_icon/mc_info/w.png</icon>
+			</caution>
+			<!-- 安全レベル -->
+
+			<safety>
+				<icon>/mcframe/clientCore/icon/mat_icon/mc_info/o.png</icon>
+			</safety>
+		</rowsignal>
+		<!-- 入力可能なセル -->
+
+		<!-- カラムごとの設定の方が優先される -->
+
+		<editable>
+			<!-- 選択行 -->
+
+			<selected>
+				<bg>0.8,0.9,1.0</bg>
+				<fg>1.0,1.0,1.0</fg>
+				<!-- フォーカスがテーブルまたはテーブルのセルにない場合 -->
+
+				<nofocus>
+					<bg>0.9,0.9,1.0</bg>
+					<fg>1.0,1.0,1.0</fg>
+				</nofocus>
+			</selected>
+			<!-- フォーカスのあるセル -->
+
+			<focused>
+				<fg>{color.WHITE}</fg>
+				<bg>{color.BLUE}</bg>
+			</focused>
+			<!-- 奇数行 -->
+
+			<odd>
+				<bg>{parts.table.ENABLE.bg.odd}</bg>
+				<fg>{parts.table.ENABLE.fg.odd}</fg>
+			</odd>
+			<!-- 偶数行 -->
+
+			<even>
+				<bg>{parts.table.ENABLE.bg.even}</bg>
+				<fg>{parts.table.ENABLE.fg.even}</fg>
+			</even>
+		</editable>
+		<!-- 入力不可能なセル -->
+
+		<!-- カラムごとの設定の方が優先される -->
+
+		<non-editable>
+			<!-- 選択行 -->
+
+			<selected>
+				<bg>0.8,0.9,1.0</bg>
+				<fg>1.0,1.0,1.0</fg>
+				<!-- フォーカスがテーブルまたはテーブルのセルにない場合 -->
+
+				<nofocus>
+					<bg>0.9,0.9,1.0</bg>
+					<fg>1.0,1.0,1.0</fg>
+				</nofocus>
+			</selected>
+			<!-- 削除行 -->
+
+			<deleted>
+				<fg>{color.WHITE}</fg>
+				<bg>{color.GRAY}</bg>
+			</deleted>
+			<!-- フォーカスのあるセル -->
+
+			<focused>
+				<fg>{table.editable.focused.fg}</fg>
+				<bg>{table.editable.focused.bg}</bg>
+			</focused>
+			<!-- 奇数行 -->
+
+			<odd>
+				<bg>{parts.table.DISABLE.bg.odd}</bg>
+				<fg>{parts.table.DISABLE.fg.odd}</fg>
+			</odd>
+			<!-- 偶数行 -->
+
+			<even>
+				<bg>{parts.table.DISABLE.bg.even}</bg>
+				<fg>{parts.table.DISABLE.fg.even}</fg>
+			</even>
+		</non-editable>
+		<!-- フォーカスの設定 -->
+
+		<!-- システム一律 -->
+
+		<focuslastcell>false</focuslastcell>
+		<!-- カラム幅自動調整フラグ -->
+
+		<!-- システム一律 -->
+
+		<adjustwidth>
+			<!-- 表示領域のみを幅調整するかどうか -->
+
+			<!-- カラムの幅調整機能を実行するときに使用します。
+		　　　　MCTableのメソッドを利用してカラム幅調整をするときに使用します。
+		　　　　MCColumnConfigのメソッドを利用してカラム幅調整をするときには使用しません。
+		　　　　具体的には、行番号カラムのヘッダをクリックした場合や、
+		　　　　検索処理後に実行されるカラム幅調整で使用します。
+		　　　　アプリケーションカラムのヘッダの右端をクリックした場合には使用しません。
+		-->
+
+			<!-- 表示領域が評価されるのは行のみです。-->
+
+			<!-- 表示領域外のカラムも幅調整されます。 -->
+
+			<!-- カラムが幅調整の対象外の場合は、この設定に関係なく幅調整されません。 -->
+
+			<visiblerow>true</visiblerow>
+			<!-- 幅調整時に幅を考慮する行数 -->
+
+			<!-- [table.adjustwidth.visiblerow] が false の場合のみ有効です。 -->
+
+			<!-- 先頭行から指定した行までを考慮します。 -->
+
+			<!-- -1 を指定した場合は全行を考慮します。 -->
+
+			<!-- カラムが幅調整の対象外の場合は、この設定に関係なく幅調整されません。 -->
+
+			<rowcount>-1</rowcount>
+		</adjustwidth>
+		<!-- カラムの設定 -->
+
+		<column>
+			<!-- モードごとの設定 -->
+
+			<mode>
+				<REQUIRED>
+					<labfg>{parts.column.REQUIRED.labfg}</labfg>
+				</REQUIRED>
+				<ENABLE>
+					<labfg>{parts.column.REQUIRED.labfg}</labfg>
+				</ENABLE>
+				<READ_ONLY>
+					<labfg>{parts.column.REQUIRED.labfg}</labfg>
+				</READ_ONLY>
+				<DISABLE>
+					<labfg>{parts.column.REQUIRED.labfg}</labfg>
+				</DISABLE>
+			</mode>
+			<!-- 背景色はモードごとの設定が優先される -->
+
+			<bg>{bg}</bg>
+			<!-- 文字の色はモードごとの設定が優先される -->
+
+			<fg>{fg}</fg>
+			<caretcolor>{caretcolor}</caretcolor>
+			<selbg>{selbg}</selbg>
+			<selfg>{selfg}</selfg>
+			<font>{font}</font>
+			<field_font>{field_font}</field_font>
+			<turntext>false</turntext>
+			<trim>{trim}</trim>
+			<!-- カラム幅自動調整フラグ -->
+
+			<!-- システム一律 -->
+
+			<adjustwidth>
+				<!-- [table.column.adjustwidth] というキーもあります -->
+
+				<!-- [table.column.adjustwidth] はプログラムよりも優先されます -->
+
+				<!-- 表示領域のみを幅調整するかどうか -->
+
+				<!-- カラムの幅調整機能を実行するときに使用します。
+			　　　　MCColumnConfigのメソッドを利用してカラム幅調整をするときに使用します。
+			　　　　MCTableのメソッドを利用してカラム幅調整をするときには使用しません。
+			　　　　具体的には、アプリケーションカラムのヘッダの右端をクリックした場合に使用します。
+			　　　　行番号カラムのヘッダをクリックした場合や、
+			　　　　検索処理後に実行されるカラム幅調整では使用しません。
+			-->
+
+				<!-- 表示領域が評価されるのは行のみです。-->
+
+				<!-- 表示領域外のカラムも幅調整されます。 -->
+
+				<!-- カラムが幅調整の対象外の場合は、この設定に関係なく幅調整されません。 -->
+
+				<visiblerow>false</visiblerow>
+				<!-- 幅調整時に幅を考慮する行数 -->
+
+				<!-- [table.column.adjustwidth.visiblerow] が false の場合のみ有効です。 -->
+
+				<!-- 先頭行から指定した行までを考慮します。 -->
+
+				<!-- -1 を指定した場合は全行を考慮します。 -->
+
+				<!-- カラムが幅調整の対象外の場合は、この設定に関係なく幅調整されません。 -->
+
+				<rowcount>-1</rowcount>
+			</adjustwidth>
+			<!-- カラムヘッダクリックソートの設定 -->
+
+			<!-- システム一律 -->
+
+			<!-- カラムがソート不可に設定されている場合は、この設定に関係なく、ソートされない -->
+
+			<click-sort>
+				<enabled>true</enabled>
+				<!--
+				1:シングルクリック
+				2:ダブルクリック
+				その他：シングルクリック
+			 -->
+
+				<count>1</count>
+			</click-sort>
+			<!-- テキストフィールドカラムの設定 -->
+
+			<text>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<font>{table.column.field_font}</font>
+			</text>
+			<!-- 日付フィールドカラムの設定 -->
+
+			<date>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<calendar>{date.calender}</calendar>
+				<font>{table.column.field_font}</font>
+			</date>
+			<!-- 数値フィールドカラムの設定 -->
+
+			<number>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<font>{table.column.field_font}</font>
+			</number>
+			<!-- コンボボックスカラムの設定 -->
+
+			<combo>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<font>{table.column.field_font}</font>
+				<!-- コンボボックスカラムのコンボリストの設定 -->
+
+				<list>
+					<delimiter>{combo.list.delimiter}</delimiter>
+					<scrollbar>
+						<vertical>{scrollbar.vertical}</vertical>
+						<horizontal>{scrollbar.horizontal}</horizontal>
+						<unitincrement>{scrollbar.unitincrement}</unitincrement>
+					</scrollbar>
+					<!-- コンボリストの背景色（選択行以外） -->
+
+					<bg>{combo.list.bg}</bg>
+					<!-- コンボリストの文字の色（選択行以外） -->
+
+					<fg>{combo.list.fg}</fg>
+					<!-- コンボリストの背景色（選択行） -->
+
+					<selbg>{combo.list.selbg}</selbg>
+					<!-- コンボリストの文字の色（選択行） -->
+
+					<selfg>{combo.list.selfg}</selfg>
+				</list>
+			</combo>
+			<combo-number>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<font>{table.column.field_font}</font>
+				<!-- コンボボックスカラムのコンボリストの設定 -->
+
+				<list>
+					<delimiter>{combo-number.list.delimiter}</delimiter>
+					<scrollbar>
+						<vertical>{scrollbar.vertical}</vertical>
+						<horizontal>{scrollbar.horizontal}</horizontal>
+						<unitincrement>{scrollbar.unitincrement}</unitincrement>
+					</scrollbar>
+					<!-- コンボリストの背景色（選択行以外） -->
+
+					<bg>{combo-number.list.bg}</bg>
+					<!-- コンボリストの文字の色（選択行以外） -->
+
+					<fg>{combo-number.list.fg}</fg>
+					<!-- コンボリストの背景色（選択行） -->
+
+					<selbg>{combo-number.list.selbg}</selbg>
+					<!-- コンボリストの文字の色（選択行） -->
+
+					<selfg>{combo-number.list.selfg}</selfg>
+				</list>
+			</combo-number>
+			<combo-date>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<font>{table.column.field_font}</font>
+				<!-- コンボボックスカラムのコンボリストの設定 -->
+
+				<list>
+					<delimiter>{combo-date.list.delimiter}</delimiter>
+					<scrollbar>
+						<vertical>{scrollbar.vertical}</vertical>
+						<horizontal>{scrollbar.horizontal}</horizontal>
+						<unitincrement>{scrollbar.unitincrement}</unitincrement>
+					</scrollbar>
+					<!-- コンボリストの背景色（選択行以外） -->
+
+					<bg>{combo-date.list.bg}</bg>
+					<!-- コンボリストの文字の色（選択行以外） -->
+
+					<fg>{combo-date.list.fg}</fg>
+					<!-- コンボリストの背景色（選択行） -->
+
+					<selbg>{combo-date.list.selbg}</selbg>
+					<!-- コンボリストの文字の色（選択行） -->
+
+					<selfg>{combo-date.list.selfg}</selfg>
+				</list>
+			</combo-date>
+			<!-- チェックボックスカラムの設定 -->
+
+			<check>
+				<!-- 選択可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 選択不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<font>{table.column.font}</font>
+				<!-- チェックボックスカラムのアイコンの設定 -->
+
+				<icon>
+					<default/>
+					<selected/>
+					<pressed/>
+					<disabled/>
+					<disabled-selected/>
+				</icon>
+			</check>
+			<!-- パスワードフィールドカラムの設定 -->
+
+			<password>
+				<!-- 入力可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 入力不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<autofocus>{autofocus}</autofocus>
+				<selectall>{selectall}</selectall>
+				<echo>{password.echo}</echo>
+				<font>{table.column.field_font}</font>
+			</password>
+			<!-- イメージビューカラムの設定 -->
+
+			<imageview>
+				<!-- 選択可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.editable.odd.fg}</fg>
+						<bg>{table.editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.editable.even.fg}</fg>
+						<bg>{table.editable.even.bg}</bg>
+					</even>
+				</editable>
+				<!-- 選択不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{table.non-editable.odd.fg}</fg>
+						<bg>{table.non-editable.odd.bg}</bg>
+					</odd>
+					<even>
+						<fg>{table.non-editable.even.fg}</fg>
+						<bg>{table.non-editable.even.bg}</bg>
+					</even>
+				</non-editable>
+				<font>{table.column.font}</font>
+			</imageview>
+			<!-- ボタンカラムの設定 -->
+
+			<button>
+				<!-- 選択可能なセル -->
+
+				<editable>
+					<selected>
+						<fg>{table.editable.selected.fg}</fg>
+						<bg>{table.editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.editable.selected.nofocus.fg}</fg>
+							<bg>{table.editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<focused>
+						<fg>{table.editable.focused.fg}</fg>
+						<bg>{table.editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{button.mode.ENABLE.fg}</fg>
+						<bg>{button.mode.ENABLE.bg}</bg>
+					</odd>
+					<even>
+						<fg>{button.mode.ENABLE.fg}</fg>
+						<bg>{button.mode.ENABLE.bg}</bg>
+					</even>
+				</editable>
+				<!-- 選択不可能なセル -->
+
+				<non-editable>
+					<selected>
+						<fg>{table.non-editable.selected.fg}</fg>
+						<bg>{table.non-editable.selected.bg}</bg>
+						<nofocus>
+							<fg>{table.non-editable.selected.nofocus.fg}</fg>
+							<bg>{table.non-editable.selected.nofocus.bg}</bg>
+						</nofocus>
+					</selected>
+					<deleted>
+						<fg>{table.non-editable.deleted.fg}</fg>
+						<bg>{table.non-editable.deleted.bg}</bg>
+					</deleted>
+					<focused>
+						<fg>{table.non-editable.focused.fg}</fg>
+						<bg>{table.non-editable.focused.bg}</bg>
+					</focused>
+					<odd>
+						<fg>{button.mode.DISABLE.fg}</fg>
+						<bg>{button.mode.DISABLE.bg}</bg>
+					</odd>
+					<even>
+						<fg>{button.mode.DISABLE.fg}</fg>
+						<bg>{button.mode.DISABLE.bg}</bg>
+					</even>
+				</non-editable>
+				<font>{table.column.font}</font>
+			</button>
+		</column>
+		<!-- ファイル出力の設定 -->
+
+		<beanswriter>
+			<display>{beanswriter.display}</display>
+			<adjustwidth>{beanswriter.adjustwidth}</adjustwidth>
+			<cutnewline>{beanswriter.cutnewline}</cutnewline>
+			<adjustwidthRow>{beanswriter.adjustwidthRow}</adjustwidthRow>
+		</beanswriter>
+	</table>
+	<!-- MCTree の設定 -->
+
+	<tree>
+		<!-- マウス -->
+
+		<mouse>
+			<!-- ドラッグ時動作 -->
+
+			<!-- DRAG_MOVE：ドラッグ移動 -->
+
+			<!-- それ以外：未指定 -->
+
+			<dragmode>DRAG_MOVE</dragmode>
+		</mouse>
+		<font>{font}</font>
+		<paintlines>false</paintlines>
+		<non-editable>
+			<!-- 選択行 -->
+
+			<selected>
+				<fg>{color.WHITE}</fg>
+				<bg>0,0,180</bg>
+				<nofocus>
+					<fg>{parts.table.editable.selected.fg}</fg>
+					<bg>{parts.table.editable.selected.bg}</bg>
+				</nofocus>
+			</selected>
+			<!-- 削除行 -->
+
+			<deleted>
+				<fg>{color.WHITE}</fg>
+				<bg>{color.GRAY}</bg>
+			</deleted>
+		</non-editable>
+		<!-- ツリーのスクロール設定 -->
+
+		<scrollbar>
+			<vertical>{scrollbar.vertical}</vertical>
+			<horizontal>{scrollbar.horizontal}</horizontal>
+			<unitincrement>{scrollbar.unitincrement}</unitincrement>
+		</scrollbar>
+		<!-- ステータス -->
+
+		<status>
+			<!-- 新規ステータス -->
+
+			<ins>
+				<mark>{table.status.ins.mark}</mark>
+				<bg>{table.status.ins.bg}</bg>
+				<fg>{table.status.ins.fg}</fg>
+			</ins>
+			<!-- 更新ステータス -->
+
+			<upd>
+				<mark>{table.status.upd.mark}</mark>
+				<bg>{table.status.upd.bg}</bg>
+				<fg>{table.status.upd.fg}</fg>
+			</upd>
+			<!-- 削除ステータス -->
+
+			<del>
+				<mark>{table.status.del.mark}</mark>
+				<bg>{table.status.del.bg}</bg>
+				<fg>{table.status.del.fg}</fg>
+			</del>
+			<!-- ステータスなし -->
+
+			<none>
+				<mark/>
+				<bg>{bg}</bg>
+				<fg>{fg}</fg>
+			</none>
+		</status>
+		<icon>
+			<open>/mcframe/clientCore/icon/open.png</open>
+			<closed>/mcframe/clientCore/icon/closed.png</closed>
+			<leaf>/mcframe/clientCore/icon/file.png</leaf>
+			<expanded>/mcframe/clientCore/icon/expanded.png</expanded>
+			<collapsed>/mcframe/clientCore/icon/collapsed.png</collapsed>
+		</icon>
+		<mouse>
+			<_ignore>
+				<stacktrace>
+					<declareingclass>javax.swing.plaf.basic.BasicTreeUI$Handler</declareingclass>
+					<methodname>handleSelection</methodname>
+				</stacktrace>
+			</_ignore>
+		</mouse>
+	</tree>
+
+	<!-- MCSplitPane の設定 -->
+
+	<splitpane>
+		<opaque>false</opaque>
+		<bg>245,245,245</bg>
+		<highlight>{splitpane.bg}</highlight>
+		<darkshadow>{splitpane.bg}</darkshadow>
+		<arrowcolor>{color.MCThemeColor1}</arrowcolor>
+		<centervarrow>true</centervarrow>
+		<centerharrow>false</centerharrow>
+		<divider>
+			<opaque>true</opaque>
+			<bg>245,245,245</bg>
+			<!-- ディバイダのサイズ -->
+
+			<size>6</size>
+		</divider>
+	</splitpane>
+	<!-- MCSplitPane の設定 -->
+
+	<dashboard>
+		<bg>{panel.bg2}</bg>
+		<format>
+			<key><![CDATA[XA%1$04d]]></key>
+		</format>
+		<divider>
+			<size>12</size>
+		</divider>
+		<gadget>
+			<title>
+				<font>{font_bold}</font>
+				<fg>{color.WHITE}</fg>
+				<bg>{color.MCThemeBlue}</bg>
+			</title>
+			<content>
+				<bg>{color.WHITE}</bg>
+			</content>
+			<error>
+				<fg>{color.MCThemeRed}</fg>
+				<bg>{color.WHITE}</bg>
+			</error>
+			<icon>
+				<screen>/mcframe/clientCore/icon/mat_icon/pc.png</screen>
+			</icon>
+			<chart>
+				<threshould>
+					<bg>{color.RED}</bg>
+				</threshould>
+			</chart>
+		</gadget>
+		<list>
+			<w>300</w>
+			<icon>
+				<table>/mcframe/clientCore/icon/mat_icon/gadgets/g_table.png</table>
+				<chart>/mcframe/clientCore/icon/mat_icon/gadgets/g_chart.png</chart>
+				<label>/mcframe/clientCore/icon/mat_icon/gadgets/g_text.png</label>
+				<iconlabel>/mcframe/clientCore/icon/mat_icon/gadgets/g_signal.png</iconlabel>
+				<mining>
+					<user>/mcframe/clientCore/icon/mat_icon/gadgets/g_private.png</user>
+					<share>/mcframe/clientCore/icon/mat_icon/gadgets/g_share.png</share>
+					<system>/mcframe/clientCore/icon/mat_icon/gadgets/g_system.png</system>
+				</mining>
+				<default>/mcframe/clientCore/icon/mat_icon/gadgets/g_text.png</default>
+			</icon>
+			<!-- マウスホイールのスクロール増分値を指定 -->
+			<scrollbar>
+				<unitincrement>{scrollbar.unitincrement}</unitincrement>
+			</scrollbar>
+		</list>
+		<trash>
+			<bg>255,255,127</bg>
+			<icon>/mcframe/clientCore/icon/mat_icon/gadgets/g_delete.png</icon>
+		</trash>
+		<autoscroll>
+			<area>50</area>
+			<amount>20</amount>
+		</autoscroll>
+		<thread>3</thread>
+		<scrollunit>10</scrollunit>
+	</dashboard>
+	<!-- モードの設定 -->
+
+	<!-- status ･･･ ステータス(1:入力可能,2:入力不可能,3:非表示) -->
+
+	<!-- fg     ･･･ 文字の色 -->
+
+	<!-- bg     ･･･ 背景色 -->
+
+	<!-- labfg  ･･･ ラベルの文字の色 -->
+
+	<mode>
+		<REQUIRED>
+			<status>1</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{color.RED}</labfg>
+		</REQUIRED>
+		<ENABLE>
+			<status>1</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{label.fg}</labfg>
+		</ENABLE>
+		<READ_ONLY>
+			<status>2</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{label.fg}</labfg>
+		</READ_ONLY>
+		<DISABLE>
+			<status>2</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{color.SILVER}</labfg>
+		</DISABLE>
+		<INVISIBLE>
+			<status>3</status>
+			<fg>{fg}</fg>
+			<bg>{bg}</bg>
+			<labfg>{label.fg}</labfg>
+		</INVISIBLE>
+		<!-- 権限がないときのモード
+	     このモードをプログラムから設定しないでください
+	     このモードは<labfg>は評価されません
+	-->
+
+		<UNAUTHORIZED>
+			<status>2</status>
+			<fg>{color.WHITE}</fg>
+			<bg>102,102,102</bg>
+		</UNAUTHORIZED>
+	</mode>
+	<!-- アイコンの設定 -->
+
+	<icon>
+		<!-- アイコンサイズ調整の可否 -->
+
+		<adjustSize>true</adjustSize>
+		<button>
+			<adjustSize>false</adjustSize>
+		</button>
+
+		<!-- for comboButton -->
+		<COMBOARROW>/mcframe/clientCore/icon/comboarrow.png</COMBOARROW>
+
+		<!-- for radioButton -->
+		<RADIO>/mcframe/clientCore/icon/mat_icon/d_button/radio.png</RADIO>
+		<RADIO_DOT>/mcframe/clientCore/icon/mat_icon/d_button/radio_dot.png</RADIO_DOT>
+		<!-- for login -->
+		<CO>/mcframe/clientCore/icon/mat_icon/login/login_co.png</CO>
+		<LOCALE>/mcframe/clientCore/icon/mat_icon/login/login_locale.png</LOCALE>
+		<USER>/mcframe/clientCore/icon/mat_icon/login/login_user.png</USER>
+		<PASSWORD>/mcframe/clientCore/icon/mat_icon/login/login_password.png</PASSWORD>
+
+		<!-- for button -->
+		<SEARCH>/mcframe/clientCore/icon/mat_icon/d_button/srch.png</SEARCH>
+		<REGISTER>/mcframe/clientCore/icon/mat_icon/d_button/record.png</REGISTER>
+		<CANCEL>/mcframe/clientCore/icon/mat_icon/d_button/cancel.png</CANCEL>
+		<DWNLD>/mcframe/clientCore/icon/mat_icon/d_button/dwnld.png</DWNLD>
+		<DELETE>/mcframe/clientCore/icon/mat_icon/d_button/del.png</DELETE>
+		<PRINT>/mcframe/clientCore/icon/mat_icon/d_button/print.png</PRINT>
+
+
+		<!-- for button dtl edit -->
+		<INSERT_RECORD>/mcframe/clientCore/icon/radd.png</INSERT_RECORD>
+		<DELETE_RECORD>/mcframe/clientCore/icon/rdel.png</DELETE_RECORD>
+		<SELECT_ALL>/mcframe/clientCore/icon/checked.png</SELECT_ALL>
+		<DESELECT_ALL>/mcframe/clientCore/icon/nocheck.png</DESELECT_ALL>
+		<CLEAR>/mcframe/clientCore/icon/clear.png</CLEAR>
+		<EXCEL>/mcframe/clientCore/icon/excel.png</EXCEL>
+		<RELOAD>/mcframe/clientCore/icon/reload.png</RELOAD>
+		<COPY_RECORD>/mcframe/clientCore/icon/rcopy.png</COPY_RECORD>
+		<NEXT>/mcframe/clientCore/icon/arrow_right2.png</NEXT>
+		<PREV>/mcframe/clientCore/icon/arrow_left2.png</PREV>
+		<MOVE_UP>/mcframe/clientCore/icon/arrow_up1.png</MOVE_UP>
+		<MOVE_DOWN>/mcframe/clientCore/icon/arrow_down1.png</MOVE_DOWN>
+		<MOVE_TOP>/mcframe/clientCore/icon/arrow_up2.png</MOVE_TOP>
+		<MOVE_BOTTOM>/mcframe/clientCore/icon/arrow_down2.png</MOVE_BOTTOM>
+		<MOVE_RIGHT>/mcframe/clientCore/icon/arrow_right1_.png</MOVE_RIGHT>
+		<MOVE_LEFT>/mcframe/clientCore/icon/arrow_left1_.png</MOVE_LEFT>
+		<TBL_CLEAR>/mcframe/clientCore/icon/table_clear.png</TBL_CLEAR>
+		<TBL_ZOOM>/mcframe/clientCore/icon/table_zoom.png</TBL_ZOOM>
+		<SCREEN_CLEAR>/mcframe/clientCore/icon/clear.png</SCREEN_CLEAR>
+		<MCF>/mcframe/clientCore/icon/mcframe.png</MCF>
+		<FOLDER>/mcframe/clientCore/icon/folder.png</FOLDER>
+		<FILE>/mcframe/clientCore/icon/file.png</FILE>
+		<MEMO>/mcframe/clientCore/icon/memo.png</MEMO>
+		<SYNCHRONIZE>/mcframe/clientCore/icon/reload.png</SYNCHRONIZE>
+		<IMAGE>/mcframe/clientCore/icon/image.png</IMAGE>
+		<EXCEL_IN>/mcframe/clientCore/icon/excel_in.png</EXCEL_IN>
+		<EXCEL_OUT>/mcframe/clientCore/icon/excel_out.png</EXCEL_OUT>
+		<LOGROTATION>/mcframe/clientCore/icon/logrotation.png</LOGROTATION>
+
+		<!-- for button calender -->
+		<ADD_MONTH>/mcframe/clientCore/icon/mat_icon/calender/arrow_right1.png</ADD_MONTH>
+		<SUB_MONTH>/mcframe/clientCore/icon/mat_icon/calender/arrow_left1.png</SUB_MONTH>
+
+		<!-- for button search condition -->
+		<DIV_UP>/mcframe/clientCore/icon/div_up.png</DIV_UP>
+		<DIV_DOWN>/mcframe/clientCore/icon/div_down.png</DIV_DOWN>
+
+		<!-- for toolbar -->
+		<BOOKMARK>/mcframe/clientCore/icon/mat_icon/tbar_bookmark.png</BOOKMARK>
+		<EXCEL_T>/mcframe/clientCore/icon/mat_icon/tbar_excel.png</EXCEL_T>
+		<SCREEN_CLEAR_T>/mcframe/clientCore/icon/mat_icon/tbar_screen_clear.png</SCREEN_CLEAR_T>
+		<TBL_ZOOM_T>/mcframe/clientCore/icon/mat_icon/tbar_table_zoom.png</TBL_ZOOM_T>
+		<MEMO_T>/mcframe/clientCore/icon/mat_icon/tbar_memo.png</MEMO_T>
+		<WEB>/mcframe/clientCore/icon/mat_icon/tbar_network.png</WEB>
+		<DISP_INVISIBLE>/mcframe/clientCore/icon/mat_icon/tbar_disp_invisible.png</DISP_INVISIBLE>
+		<ANALYZE_PANEL>/mcframe/clientCore/icon/mat_icon/tbar_analyze_panel.png</ANALYZE_PANEL>
+		<HELP>/mcframe/clientCore/icon/mat_icon/tbar_help.png</HELP>
+		<PAINT_PANEL>/mcframe/clientCore/icon/mat_icon/tbar_paint_panel.png</PAINT_PANEL>
+		<SCREEN_FILE>/mcframe/clientCore/icon/mat_icon/tbar_screen_to_file.png</SCREEN_FILE>
+		<SCREEN_CLIP>/mcframe/clientCore/icon/mat_icon/tbar_screen_clip.png</SCREEN_CLIP>
+		<B_FLOW>/mcframe/clientCore/icon/mat_icon/tbar_flow.png</B_FLOW>
+		<BARCODE>/mcframe/clientCore/icon/mat_icon/tbar_barcode.png</BARCODE>
+		<GRAPH>/mcframe/clientCore/icon/mat_icon/tbar_graph.png</GRAPH>
+		<MOVE_XY>/mcframe/clientCore/icon/mat_icon/tbar_movexy.png</MOVE_XY>
+		<MOVE_XY2>/mcframe/clientCore/icon/mat_icon/tbar_movexy2.png</MOVE_XY2>
+		<S_SWITCH>/mcframe/clientCore/icon/mat_icon/tbar_pgroup.png</S_SWITCH>
+		<PLAY_S_LIST>/mcframe/clientCore/icon/mat_icon/tbar_playlist.png</PLAY_S_LIST>
+		<R_PLAY>/mcframe/clientCore/icon/mat_icon/robot/play.png</R_PLAY>
+		<R_REC>/mcframe/clientCore/icon/mat_icon/robot/record.png</R_REC>
+		<R_STOP>/mcframe/clientCore/icon/mat_icon/robot/stop.png</R_STOP>
+
+		<!-- for headerbar -->
+		<HBAR_PRODUCT>/mcframe/clientCore/icon/mat_icon/hbar_xa.png</HBAR_PRODUCT>
+		<HBAR_TBAROPEN>/mcframe/clientCore/icon/mat_icon/hbar_tbaropen.png</HBAR_TBAROPEN>
+		<HBAR_CONF>/mcframe/clientCore/icon/mat_icon/hbar_conf.png</HBAR_CONF>
+		<HBAR_USER>/mcframe/clientCore/icon/mat_icon/hbar_user.png</HBAR_USER>
+		<HBAR_PLAYING1>/mcframe/clientCore/icon/mat_icon/robot/play1.png</HBAR_PLAYING1>
+		<HBAR_PAUSE>/mcframe/clientCore/icon/mat_icon/robot/pause.png</HBAR_PAUSE>
+		<!-- for menutab -->
+		<MENU_DEF>/mcframe/clientCore/icon/mat_icon/menu_def.png</MENU_DEF>
+		<MENU_RIGHT>/mcframe/clientCore/icon/mat_icon/menu_arrow.png</MENU_RIGHT>
+		<!-- for canvas -->
+
+		<EDIT_VERTICAL_TOP>/mcframe/clientCore/icon/mat_icon/canvas/vt.png</EDIT_VERTICAL_TOP>
+		<EDIT_VERTICAL_CENTER>/mcframe/clientCore/icon/mat_icon/canvas/vc.png</EDIT_VERTICAL_CENTER>
+		<EDIT_VERTICAL_BOTTOM>/mcframe/clientCore/icon/mat_icon/canvas/vb.png</EDIT_VERTICAL_BOTTOM>
+		<EDIT_HORIZONTAL_LEFT>/mcframe/clientCore/icon/mat_icon/canvas/hl.png</EDIT_HORIZONTAL_LEFT>
+		<EDIT_HORIZONTAL_CENTER>/mcframe/clientCore/icon/mat_icon/canvas/hc.png</EDIT_HORIZONTAL_CENTER>
+		<EDIT_HORIZONTAL_RIGHT>/mcframe/clientCore/icon/mat_icon/canvas/hr.png</EDIT_HORIZONTAL_RIGHT>
+		<EDIT_VERTICAL_SPAN>/mcframe/clientCore/icon/mat_icon/canvas/vs.png</EDIT_VERTICAL_SPAN>
+		<EDIT_HORIZONTAL_SPAN>/mcframe/clientCore/icon/mat_icon/canvas/hs.png</EDIT_HORIZONTAL_SPAN>
+		<!-- for push -->
+
+		<PUSH_READ>/mcframe/clientCore/icon/mat_icon/mc_info/read.png</PUSH_READ>
+		<PUSH_UNREAD>/mcframe/clientCore/icon/mat_icon/mc_info/unread.png</PUSH_UNREAD>
+		<PUSH_IMPORTANCE>/mcframe/clientCore/icon/mat_icon/mc_info/importance.png</PUSH_IMPORTANCE>
+		<PUSH_OLD>/mcframe/clientCore/icon/new_blank.png</PUSH_OLD>
+		<PUSH_CLOSE>/mcframe/clientCore/icon/push_close.png</PUSH_CLOSE>
+		<PUSH_SCREEN>/mcframe/clientCore/icon/mat_icon/pc.png</PUSH_SCREEN>
+
+		<PUSH_E>/mcframe/clientCore/icon/mat_icon/mc_info/importance.png</PUSH_E>
+		<PUSH_I>/mcframe/clientCore/icon/mat_icon/mc_info/unimportance.png</PUSH_I>
+
+		<!-- notice level -->
+		<NOTICE_OK>/mcframe/clientCore/icon/mat_icon/mc_info/o.png</NOTICE_OK>
+		<NOTICE_ERROR>/mcframe/clientCore/icon/mat_icon/mc_info/e.png</NOTICE_ERROR>
+		<NOTICE_WARN>/mcframe/clientCore/icon/mat_icon/mc_info/w.png</NOTICE_WARN>
+		<NOTICE_INFO>/mcframe/clientCore/icon/mat_icon/mc_info/i.png</NOTICE_INFO>
+		<NOTICE_QUESTION>/mcframe/clientCore/icon/mat_icon/mc_info/q.png</NOTICE_QUESTION>
+		<!-- for popup -->
+
+		<POPUP_SELECT>/mcframe/clientCore/icon/check.png</POPUP_SELECT>
+		
+		<!-- for barcode -->
+		<HBAR_BARCODE_ENTRY>/mcframe/clientCore/icon/mat_icon/barcode/bar.png</HBAR_BARCODE_ENTRY>
+		<HBAR_BARCODE_PROCESSING>/mcframe/clientCore/icon/mat_icon/barcode/processing.png</HBAR_BARCODE_PROCESSING>
+		<HBAR_BARCODE_USER>/mcframe/clientCore/icon/mat_icon/barcode/user.png</HBAR_BARCODE_USER>
+	</icon>
+	<!-- 入力エラー時の設定 -->
+
+	<!-- システム一律 -->
+
+	<error>
+		<!-- ビープ音出力可否 -->
+
+		<beep>true</beep>
+		<!-- マウスカーソル -->
+
+		<cursor>
+
+			<!-- カーソルを変更する時間（ミリ秒） -->
+
+			<millisecond>500</millisecond>
+		</cursor>
+	</error>
+	<!-- ポップアップメニューの設定 -->
+
+	<popup>
+		<!-- 共通設定情報 -->
+
+		<!-- バインド変数として使用する -->
+
+		<fg>{fg}</fg>
+		<bg>{bg}</bg>
+		<font>{font}</font>
+		<EXCEL_OUT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</EXCEL_OUT>
+		<EXCEL_IN>
+			<visible>false</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</EXCEL_IN>
+		<EXCEL_OPEN>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</EXCEL_OPEN>
+		<CSV_OUT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</CSV_OUT>
+		<CSV_IN>
+			<visible>false</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</CSV_IN>
+		<CUT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</CUT>
+		<COPY>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</COPY>
+		<PASTE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</PASTE>
+        <OPEN>
+            <visible>true</visible>
+            <fg>{popup.fg}</fg>
+            <bg>{popup.bg}</bg>
+        </OPEN>
+        <OPEN_EDITOR>
+            <visible>true</visible>
+            <fg>{popup.fg}</fg>
+            <bg>{popup.bg}</bg>
+        </OPEN_EDITOR>
+		<FONT_RATIO_CHANGE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</FONT_RATIO_CHANGE>
+		<SAVE_SCREEN_SIZE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</SAVE_SCREEN_SIZE>
+		<MEMO>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</MEMO>
+		<TABLE_SIZE_CHANGE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</TABLE_SIZE_CHANGE>
+		<TABLE_SIZE_DEFAULT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</TABLE_SIZE_DEFAULT>
+		<TABLE_FONT_RATIO_DEFAULT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</TABLE_FONT_RATIO_DEFAULT>
+		<ROW_COPY>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_COPY>
+		<BOOKMARK>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</BOOKMARK>
+		<SORT_ORDER>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</SORT_ORDER>
+		<SORT_ORDER_PANEL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</SORT_ORDER_PANEL>
+		<SORT_ORDER_INIT_CND>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</SORT_ORDER_INIT_CND>
+		<TABLE_SORT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</TABLE_SORT>
+		<COLUMN_WIDTH>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</COLUMN_WIDTH>
+		<COLUMN_WIDTH_PANEL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</COLUMN_WIDTH_PANEL>
+		<COLUMN_WIDTH_INIT_CND>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</COLUMN_WIDTH_INIT_CND>
+		<ROW_FILTER>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_FILTER>
+		<ROW_FILTER_PANEL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_FILTER_PANEL>
+		<ROW_FILTER_SETTING>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_FILTER_SETTING>
+		<ROW_FILTER_RELEASE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_FILTER_RELEASE>
+		<SUM_INFO_PANEL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</SUM_INFO_PANEL>
+		<POPUP_GRAPH>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</POPUP_GRAPH>
+		<POPUP_GRAPH_OUT>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</POPUP_GRAPH_OUT>
+		<POPUP_GRAPH_GADGET>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</POPUP_GRAPH_GADGET>
+		<ROW_SIGNAL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_SIGNAL>
+		<ROW_SIGNAL_PANEL>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_SIGNAL_PANEL>
+		<ROW_SIGNAL_SETTING>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_SIGNAL_SETTING>
+		<ROW_SIGNAL_RELEASE>
+			<visible>true</visible>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+		</ROW_SIGNAL_RELEASE>
+
+		<!-- カラムヘッダのポップアップ 7013-1209 -->
+		<table-header>
+			<POPUP_COLUMN_INVISIBLE_SETTINGS>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_COLUMN_INVISIBLE_SETTINGS>
+			<POPUP_COLUMN_INVISIBLE>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_COLUMN_INVISIBLE>
+		</table-header>
+
+		<!-- 画面のポップアップメニュー -->
+
+		<rootpanel>
+			<POPUP_FILE_IO>
+				<order>1</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_FILE_IO>
+			<POPUP_OPERATION>
+				<order>2</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_OPERATION>
+			<POPUP_EXCEL_OUT>
+				<order>1</order>
+				<visible>{popup.EXCEL_OUT.visible}</visible>
+				<fg>{popup.EXCEL_OUT.fg}</fg>
+				<bg>{popup.EXCEL_OUT.bg}</bg>
+			</POPUP_EXCEL_OUT>
+			<POPUP_EXCEL_OUT_VISIBLE>
+				<order>2</order>
+				<visible>{popup.EXCEL_OUT.visible}</visible>
+				<fg>{popup.EXCEL_OUT.fg}</fg>
+				<bg>{popup.EXCEL_OUT.bg}</bg>
+			</POPUP_EXCEL_OUT_VISIBLE>
+			<POPUP_EXCEL_IN>
+				<order>3</order>
+				<visible>{popup.EXCEL_IN.visible}</visible>
+				<fg>{popup.EXCEL_IN.fg}</fg>
+				<bg>{popup.EXCEL_IN.bg}</bg>
+			</POPUP_EXCEL_IN>
+			<POPUP_EXCEL_OPEN>
+				<order>4</order>
+				<visible>{popup.EXCEL_OPEN.visible}</visible>
+				<fg>{popup.EXCEL_OPEN.fg}</fg>
+				<bg>{popup.EXCEL_OPEN.bg}</bg>
+			</POPUP_EXCEL_OPEN>
+			<POPUP_EXCEL_OPEN_VISIBLE>
+				<order>5</order>
+				<visible>{popup.EXCEL_OPEN.visible}</visible>
+				<fg>{popup.EXCEL_OPEN.fg}</fg>
+				<bg>{popup.EXCEL_OPEN.bg}</bg>
+			</POPUP_EXCEL_OPEN_VISIBLE>
+			<POPUP_CSV_OUT>
+				<order>6</order>
+				<visible>{popup.CSV_OUT.visible}</visible>
+				<fg>{popup.CSV_OUT.fg}</fg>
+				<bg>{popup.CSV_OUT.bg}</bg>
+			</POPUP_CSV_OUT>
+			<POPUP_CSV_OUT_VISIBLE>
+				<order>7</order>
+				<visible>{popup.CSV_OUT.visible}</visible>
+				<fg>{popup.CSV_OUT.fg}</fg>
+				<bg>{popup.CSV_OUT.bg}</bg>
+			</POPUP_CSV_OUT_VISIBLE>
+			<POPUP_CSV_IN>
+				<order>8</order>
+				<visible>{popup.CSV_IN.visible}</visible>
+				<fg>{popup.CSV_IN.fg}</fg>
+				<bg>{popup.CSV_IN.bg}</bg>
+			</POPUP_CSV_IN>
+			<POPUP_FONT_RATIO_CHANGE>
+				<order>2</order>
+				<visible>{popup.FONT_RATIO_CHANGE.visible}</visible>
+				<fg>{popup.FONT_RATIO_CHANGE.fg}</fg>
+				<bg>{popup.FONT_RATIO_CHANGE.bg}</bg>
+			</POPUP_FONT_RATIO_CHANGE>
+			<POPUP_SAVE_SCREEN_SIZE>
+				<order>1</order>
+				<visible>{popup.SAVE_SCREEN_SIZE.visible}</visible>
+				<fg>{popup.SAVE_SCREEN_SIZE.fg}</fg>
+				<bg>{popup.SAVE_SCREEN_SIZE.bg}</bg>
+			</POPUP_SAVE_SCREEN_SIZE>
+			<POPUP_TABLE_SIZE_CHANGE>
+				<order>1</order>
+				<visible>{popup.TABLE_SIZE_CHANGE.visible}</visible>
+				<fg>{popup.TABLE_SIZE_CHANGE.fg}</fg>
+				<bg>{popup.TABLE_SIZE_CHANGE.bg}</bg>
+			</POPUP_TABLE_SIZE_CHANGE>
+			<POPUP_TABLE_SIZE_DEFAULT>
+				<order>2</order>
+				<visible>{popup.TABLE_SIZE_DEFAULT.visible}</visible>
+				<fg>{popup.TABLE_SIZE_DEFAULT.fg}</fg>
+				<bg>{popup.TABLE_SIZE_DEFAULT.bg}</bg>
+			</POPUP_TABLE_SIZE_DEFAULT>
+			<POPUP_MEMO>
+				<order>3</order>
+				<visible>{popup.MEMO.visible}</visible>
+				<fg>{popup.MEMO.fg}</fg>
+				<bg>{popup.MEMO.bg}</bg>
+			</POPUP_MEMO>
+			<POPUP_BOOKMARK>
+				<order>4</order>
+				<visible>{popup.BOOKMARK.visible}</visible>
+				<fg>{popup.BOOKMARK.fg}</fg>
+				<bg>{popup.BOOKMARK.bg}</bg>
+			</POPUP_BOOKMARK>
+		</rootpanel>
+		<!--  テキストフィールドのポップアップメニュー -->
+
+		<text>
+            <POPUP_OPEN>
+                <order>1</order>
+                <visible>{popup.OPEN.visible}</visible>
+                <fg>{popup.OPEN.fg}</fg>
+                <bg>{popup.OPEN.bg}</bg>
+            </POPUP_OPEN>
+			<POPUP_CUT>
+				<order>2</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>3</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>4</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</text>
+		<!-- 日付フィールドのポップアップメニュー -->
+
+		<date>
+			<POPUP_CUT>
+				<order>1</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>2</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>3</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</date>
+		<!-- 数値フィールドのポップアップメニュー -->
+
+		<number>
+			<POPUP_CUT>
+				<order>1</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>2</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>3</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</number>
+		<!-- コンボボックスのポップアップメニュー -->
+
+		<combo>
+			<POPUP_CUT>
+				<order>1</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>2</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>3</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</combo>
+		<!-- 数値コンボボックスのポップアップメニュー -->
+
+		<combo-number>
+			<POPUP_CUT>
+				<order>1</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>2</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>3</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</combo-number>
+		<!-- 日付コンボボックスのポップアップメニュー -->
+
+		<combo-date>
+			<POPUP_CUT>
+				<order>1</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>2</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>3</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</combo-date>
+		<!-- テキストエリアのポップアップメニュー -->
+
+		<textarea>
+            <POPUP_OPEN>
+                <order>1</order>
+                <visible>{popup.OPEN.visible}</visible>
+                <fg>{popup.OPEN.fg}</fg>
+                <bg>{popup.OPEN.bg}</bg>
+            </POPUP_OPEN>
+			<POPUP_CUT>
+				<order>2</order>
+				<visible>{popup.CUT.visible}</visible>
+				<fg>{popup.CUT.fg}</fg>
+				<bg>{popup.CUT.bg}</bg>
+			</POPUP_CUT>
+			<POPUP_COPY>
+				<order>3</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_PASTE>
+				<order>4</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+            <POPUP_OPEN_EDITOR>
+                <order>5</order>
+                <visible>{popup.OPEN_EDITOR.visible}</visible>
+                <fg>{popup.OPEN_EDITOR.fg}</fg>
+                <bg>{popup.OPEN_EDITOR.bg}</bg>
+            </POPUP_OPEN_EDITOR>
+		</textarea>
+		<!-- パスワードフィールドのポップアップメニュー -->
+
+		<password>
+			<POPUP_PASTE>
+				<order>1</order>
+				<visible>{popup.PASTE.visible}</visible>
+				<fg>{popup.PASTE.fg}</fg>
+				<bg>{popup.PASTE.bg}</bg>
+			</POPUP_PASTE>
+		</password>
+		<!-- テーブルのポップアップメニュー -->
+
+		<table>
+			<fg>{popup.fg}</fg>
+			<bg>{popup.bg}</bg>
+			<POPUP_FILE_IO>
+				<order>1</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_FILE_IO>
+			<POPUP_OPERATION>
+				<order>2</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_OPERATION>
+			<POPUP_COLUMN_WIDTH>
+				<order>3</order>
+				<visible>{popup.COLUMN_WIDTH.visible}</visible>
+				<fg>{popup.COLUMN_WIDTH.fg}</fg>
+				<bg>{popup.COLUMN_WIDTH.bg}</bg>
+			</POPUP_COLUMN_WIDTH>
+			<POPUP_SORT_ORDER>
+				<order>4</order>
+				<visible>{popup.SORT_ORDER.visible}</visible>
+				<fg>{popup.SORT_ORDER.fg}</fg>
+				<bg>{popup.SORT_ORDER.bg}</bg>
+			</POPUP_SORT_ORDER>
+			<POPUP_ROW_FILTER>
+				<order>5</order>
+				<visible>{popup.ROW_FILTER.visible}</visible>
+				<fg>{popup.ROW_FILTER.fg}</fg>
+				<bg>{popup.ROW_FILTER.bg}</bg>
+			</POPUP_ROW_FILTER>
+			<POPUP_COPY>
+				<order>7</order>
+				<visible>{popup.COPY.visible}</visible>
+				<fg>{popup.COPY.fg}</fg>
+				<bg>{popup.COPY.bg}</bg>
+			</POPUP_COPY>
+			<POPUP_ROW_COPY>
+				<order>8</order>
+				<visible>{popup.ROW_COPY.visible}</visible>
+				<fg>{popup.ROW_COPY.fg}</fg>
+				<bg>{popup.ROW_COPY.bg}</bg>
+			</POPUP_ROW_COPY>
+			<POPUP_SUM_INFO_PANEL>
+				<order>9</order>
+				<visible>{popup.SUM_INFO_PANEL.visible}</visible>
+				<fg>{popup.SUM_INFO_PANEL.fg}</fg>
+				<bg>{popup.SUM_INFO_PANEL.bg}</bg>
+			</POPUP_SUM_INFO_PANEL>
+			<POPUP_DRAG>
+				<order>10</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_DRAG>
+			<POPUP_DRAG_MOVE>
+				<order>1</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_DRAG_MOVE>
+			<POPUP_DRAG_NO_SELECT>
+				<order>2</order>
+				<visible>true</visible>
+				<fg>{popup.fg}</fg>
+				<bg>{popup.bg}</bg>
+			</POPUP_DRAG_NO_SELECT>
+			<POPUP_EXCEL_OUT>
+				<order>1</order>
+				<visible>{popup.EXCEL_OUT.visible}</visible>
+				<fg>{popup.EXCEL_OUT.fg}</fg>
+				<bg>{popup.EXCEL_OUT.bg}</bg>
+			</POPUP_EXCEL_OUT>
+			<POPUP_EXCEL_OUT_VISIBLE>
+				<order>2</order>
+				<visible>{popup.EXCEL_OUT.visible}</visible>
+				<fg>{popup.EXCEL_OUT.fg}</fg>
+				<bg>{popup.EXCEL_OUT.bg}</bg>
+			</POPUP_EXCEL_OUT_VISIBLE>
+			<POPUP_EXCEL_OUT_SELECT>
+				<order>3</order>
+				<visible>{popup.EXCEL_OUT.visible}</visible>
+				<fg>{popup.EXCEL_OUT.fg}</fg>
+				<bg>{popup.EXCEL_OUT.bg}</bg>
+			</POPUP_EXCEL_OUT_SELECT>
+			<POPUP_EXCEL_IN>
+				<order>4</order>
+				<visible>{popup.EXCEL_IN.visible}</visible>
+				<fg>{popup.EXCEL_IN.fg}</fg>
+				<bg>{popup.EXCEL_IN.bg}</bg>
+			</POPUP_EXCEL_IN>
+			<POPUP_EXCEL_OPEN>
+				<order>5</order>
+				<visible>{popup.EXCEL_OPEN.visible}</visible>
+				<fg>{popup.EXCEL_OPEN.fg}</fg>
+				<bg>{popup.EXCEL_OPEN.bg}</bg>
+			</POPUP_EXCEL_OPEN>
+			<POPUP_EXCEL_OPEN_VISIBLE>
+				<order>6</order>
+				<visible>{popup.EXCEL_OPEN.visible}</visible>
+				<fg>{popup.EXCEL_OPEN.fg}</fg>
+				<bg>{popup.EXCEL_OPEN.bg}</bg>
+			</POPUP_EXCEL_OPEN_VISIBLE>
+			<POPUP_EXCEL_OPEN_SELECT>
+				<order>7</order>
+				<visible>{popup.EXCEL_OPEN.visible}</visible>
+				<fg>{popup.EXCEL_OPEN.fg}</fg>
+				<bg>{popup.EXCEL_OPEN.bg}</bg>
+			</POPUP_EXCEL_OPEN_SELECT>
+			<POPUP_CSV_OUT>
+				<order>8</order>
+				<visible>{popup.CSV_OUT.visible}</visible>
+				<fg>{popup.CSV_OUT.fg}</fg>
+				<bg>{popup.CSV_OUT.bg}</bg>
+			</POPUP_CSV_OUT>
+			<POPUP_CSV_OUT_VISIBLE>
+				<order>9</order>
+				<visible>{popup.CSV_OUT.visible}</visible>
+				<fg>{popup.CSV_OUT.fg}</fg>
+				<bg>{popup.CSV_OUT.bg}</bg>
+			</POPUP_CSV_OUT_VISIBLE>
+			<POPUP_CSV_OUT_SELECT>
+				<order>10</order>
+				<visible>{popup.CSV_OUT.visible}</visible>
+				<fg>{popup.CSV_OUT.fg}</fg>
+				<bg>{popup.CSV_OUT.bg}</bg>
+			</POPUP_CSV_OUT_SELECT>
+			<POPUP_CSV_IN>
+				<order>11</order>
+				<visible>{popup.CSV_IN.visible}</visible>
+				<fg>{popup.CSV_IN.fg}</fg>
+				<bg>{popup.CSV_IN.bg}</bg>
+			</POPUP_CSV_IN>
+			<POPUP_SIZE_CHANGE>
+				<order>1</order>
+				<visible>{popup.TABLE_SIZE_CHANGE.visible}</visible>
+				<fg>{popup.TABLE_SIZE_CHANGE.fg}</fg>
+				<bg>{popup.TABLE_SIZE_CHANGE.bg}</bg>
+			</POPUP_SIZE_CHANGE>
+			<POPUP_TABLE_SIZE_DEFAULT>
+				<order>2</order>
+				<visible>{popup.TABLE_SIZE_DEFAULT.visible}</visible>
+				<fg>{popup.TABLE_SIZE_DEFAULT.fg}</fg>
+				<bg>{popup.TABLE_SIZE_DEFAULT.bg}</bg>
+			</POPUP_TABLE_SIZE_DEFAULT>
+			<POPUP_FONT_RATIO_DEFAULT>
+				<order>3</order>
+				<visible>{popup.TABLE_FONT_RATIO_DEFAULT.visible}</visible>
+				<fg>{popup.TABLE_FONT_RATIO_DEFAULT.fg}</fg>
+				<bg>{popup.TABLE_FONT_RATIO_DEFAULT.bg}</bg>
+			</POPUP_FONT_RATIO_DEFAULT>
+			<POPUP_SORT_ORDER_PANEL>
+				<order>1</order>
+				<visible>{popup.SORT_ORDER_PANEL.visible}</visible>
+				<fg>{popup.SORT_ORDER_PANEL.fg}</fg>
+				<bg>{popup.SORT_ORDER_PANEL.bg}</bg>
+			</POPUP_SORT_ORDER_PANEL>
+			<POPUP_SORT_ORDER_INIT_CND>
+				<order>2</order>
+				<visible>{popup.SORT_ORDER_INIT_CND.visible}</visible>
+				<fg>{popup.SORT_ORDER_INIT_CND.fg}</fg>
+				<bg>{popup.SORT_ORDER_INIT_CND.bg}</bg>
+			</POPUP_SORT_ORDER_INIT_CND>
+			<POPUP_TABLE_SORT>
+				<order>3</order>
+				<visible>{popup.TABLE_SORT.visible}</visible>
+				<fg>{popup.TABLE_SORT.fg}</fg>
+				<bg>{popup.TABLE_SORT.bg}</bg>
+			</POPUP_TABLE_SORT>
+			<POPUP_SORT_ORDER_SEPARATOR>
+				<order>4</order>
+				<visible>true</visible>
+			</POPUP_SORT_ORDER_SEPARATOR>
+			<POPUP_COLUMN_WIDTH_PANEL>
+				<order>1</order>
+				<visible>{popup.COLUMN_WIDTH_PANEL.visible}</visible>
+				<fg>{popup.COLUMN_WIDTH_PANEL.fg}</fg>
+				<bg>{popup.COLUMN_WIDTH_PANEL.bg}</bg>
+			</POPUP_COLUMN_WIDTH_PANEL>
+			<POPUP_COLUMN_WIDTH_INIT_CND>
+				<order>2</order>
+				<visible>{popup.COLUMN_WIDTH_INIT_CND.visible}</visible>
+				<fg>{popup.COLUMN_WIDTH_INIT_CND.fg}</fg>
+				<bg>{popup.COLUMN_WIDTH_INIT_CND.bg}</bg>
+			</POPUP_COLUMN_WIDTH_INIT_CND>
+			<POPUP_COLUMN_WIDTH_SEPARATOR>
+				<order>3</order>
+				<visible>true</visible>
+			</POPUP_COLUMN_WIDTH_SEPARATOR>
+			<POPUP_ROW_FILTER_PANEL>
+				<order>1</order>
+				<visible>{popup.ROW_FILTER_PANEL.visible}</visible>
+				<fg>{popup.ROW_FILTER_PANEL.fg}</fg>
+				<bg>{popup.ROW_FILTER_PANEL.bg}</bg>
+			</POPUP_ROW_FILTER_PANEL>
+			<POPUP_ROW_FILTER_SETTING>
+				<order>3</order>
+				<visible>{popup.ROW_FILTER_SETTING.visible}</visible>
+				<fg>{popup.ROW_FILTER_SETTING.fg}</fg>
+				<bg>{popup.ROW_FILTER_SETTING.bg}</bg>
+			</POPUP_ROW_FILTER_SETTING>
+			<POPUP_ROW_FILTER_RELEASE>
+				<order>2</order>
+				<visible>{popup.ROW_FILTER_RELEASE.visible}</visible>
+				<fg>{popup.ROW_FILTER_RELEASE.fg}</fg>
+				<bg>{popup.ROW_FILTER_RELEASE.bg}</bg>
+			</POPUP_ROW_FILTER_RELEASE>
+			<POPUP_ROW_FILTER_SEPARATOR>
+				<order>4</order>
+				<visible>true</visible>
+			</POPUP_ROW_FILTER_SEPARATOR>
+			<POPUP_GRAPH>
+				<order>12</order>
+				<visible>{popup.POPUP_GRAPH.visible}</visible>
+				<fg>{popup.POPUP_GRAPH.fg}</fg>
+				<bg>{popup.POPUP_GRAPH.bg}</bg>
+			</POPUP_GRAPH>
+			<POPUP_GRAPH_OUT>
+				<order>1</order>
+				<visible>{popup.POPUP_GRAPH_OUT.visible}</visible>
+				<fg>{popup.POPUP_GRAPH_OUT.fg}</fg>
+				<bg>{popup.POPUP_GRAPH_OUT.bg}</bg>
+			</POPUP_GRAPH_OUT>
+			<POPUP_GRAPH_GADGET>
+				<order>1</order>
+				<visible>{popup.POPUP_GRAPH_GADGET.visible}</visible>
+				<fg>{popup.POPUP_GRAPH_GADGET.fg}</fg>
+				<bg>{popup.POPUP_GRAPH_GADGET.bg}</bg>
+			</POPUP_GRAPH_GADGET>
+			<POPUP_ROW_SIGNAL>
+				<order>1</order>
+				<visible>{popup.ROW_SIGNAL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL.bg}</bg>
+			</POPUP_ROW_SIGNAL>
+			<POPUP_ROW_SIGNAL_PANEL>
+				<order>1</order>
+				<visible>{popup.ROW_SIGNAL_PANEL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL_PANEL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL_PANEL.bg}</bg>
+			</POPUP_ROW_SIGNAL_PANEL>
+			<POPUP_ROW_SIGNAL_SETTING>
+				<order>3</order>
+				<visible>{popup.ROW_SIGNAL_SETTING.visible}</visible>
+				<fg>{popup.ROW_SIGNAL_SETTING.fg}</fg>
+				<bg>{popup.ROW_SIGNAL_SETTING.bg}</bg>
+			</POPUP_ROW_SIGNAL_SETTING>
+			<POPUP_ROW_SIGNAL_RELEASE>
+				<order>2</order>
+				<visible>{popup.ROW_SIGNAL_RELEASE.visible}</visible>
+				<fg>{popup.ROW_SIGNAL_RELEASE.fg}</fg>
+				<bg>{popup.ROW_SIGNAL_RELEASE.bg}</bg>
+			</POPUP_ROW_SIGNAL_RELEASE>
+			<POPUP_ROW_SIGNAL_SEPARATOR>
+				<order>110</order>
+				<visible>true</visible>
+			</POPUP_ROW_SIGNAL_SEPARATOR>
+			<POPUP_ROW_SIGNAL_DANGER>
+				<order>101</order>
+				<visible>{popup.ROW_SIGNAL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL.bg}</bg>
+			</POPUP_ROW_SIGNAL_DANGER>
+			<POPUP_ROW_SIGNAL_CAUTION>
+				<order>102</order>
+				<visible>{popup.ROW_SIGNAL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL.bg}</bg>
+			</POPUP_ROW_SIGNAL_CAUTION>
+			<POPUP_ROW_SIGNAL_SAFETY>
+				<order>103</order>
+				<visible>{popup.ROW_SIGNAL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL.bg}</bg>
+			</POPUP_ROW_SIGNAL_SAFETY>
+			<POPUP_ROW_SIGNAL_NONE>
+				<order>104</order>
+				<visible>{popup.ROW_SIGNAL.visible}</visible>
+				<fg>{popup.ROW_SIGNAL.fg}</fg>
+				<bg>{popup.ROW_SIGNAL.bg}</bg>
+			</POPUP_ROW_SIGNAL_NONE>
+
+			<!-- カラムヘッダのポップアップ 7013-1209 -->
+			<table-header>
+				<POPUP_COLUMN_VISIBLE>
+					<visible>true</visible>
+					<fg>{popup.fg}</fg>
+					<bg>{popup.bg}</bg>
+				</POPUP_COLUMN_VISIBLE>
+				<POPUP_COLUMN_INVISIBLE>
+					<visible>true</visible>
+					<fg>{popup.fg}</fg>
+					<bg>{popup.bg}</bg>
+				</POPUP_COLUMN_INVISIBLE>
+				<POPUP_COLUMN_ALL_INVISIBLE>
+					<visible>true</visible>
+					<fg>{popup.fg}</fg>
+					<bg>{popup.bg}</bg>
+				</POPUP_COLUMN_ALL_INVISIBLE>
+			</table-header>
+
+			<!-- テーブルセルのポップアップメニュー -->
+
+			<column>
+				<!-- テキストフィールドセルのポップアップメニュー -->
+
+				<text>
+		            <POPUP_OPEN>
+		                <order>1</order>
+		                <visible>{popup.OPEN.visible}</visible>
+		                <fg>{popup.OPEN.fg}</fg>
+		                <bg>{popup.OPEN.bg}</bg>
+		            </POPUP_OPEN>
+					<POPUP_CUT>
+						<order>2</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>3</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>4</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</text>
+				<!-- 日付フィールドセルのポップアップメニュー -->
+
+				<date>
+					<POPUP_CUT>
+						<order>1</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>2</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>3</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</date>
+				<!-- 数値フィールドセルのポップアップメニュー -->
+
+				<number>
+					<POPUP_CUT>
+						<order>1</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>2</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>3</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</number>
+				<!-- コンボボックスセルのポップアップ メニュー-->
+
+				<combo>
+					<POPUP_CUT>
+						<order>1</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>2</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>3</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</combo>
+				<!-- 数値コンボボックスセルのポップアップ メニュー-->
+
+				<combo-number>
+					<POPUP_CUT>
+						<order>1</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>2</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>3</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</combo-number>
+				<!-- 日付コンボボックスセルのポップアップ メニュー-->
+
+				<combo-date>
+					<POPUP_CUT>
+						<order>1</order>
+						<visible>{popup.CUT.visible}</visible>
+						<fg>{popup.CUT.fg}</fg>
+						<bg>{popup.CUT.bg}</bg>
+					</POPUP_CUT>
+					<POPUP_COPY>
+						<order>2</order>
+						<visible>{popup.COPY.visible}</visible>
+						<fg>{popup.COPY.fg}</fg>
+						<bg>{popup.COPY.bg}</bg>
+					</POPUP_COPY>
+					<POPUP_PASTE>
+						<order>3</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</combo-date>
+				<!-- パスワードフィールドセルのポップアップメニュー -->
+
+				<password>
+					<POPUP_PASTE>
+						<order>1</order>
+						<visible>{popup.PASTE.visible}</visible>
+						<fg>{popup.PASTE.fg}</fg>
+						<bg>{popup.PASTE.bg}</bg>
+					</POPUP_PASTE>
+				</password>
+			</column>
+		</table>
+	</popup>
+	<!-- ファイル選択ダイアログのファイルフィルタ -->
+
+	<!-- システム一律 -->
+
+	<filechooser>
+		<ALL>
+			<extension/>
+		</ALL>
+		<TXT>
+			<extension>.txt</extension>
+		</TXT>
+		<CSV>
+			<extension>.csv</extension>
+		</CSV>
+		<INI>
+			<extension>.ini</extension>
+		</INI>
+		<XML>
+			<extension>.xml</extension>
+		</XML>
+		<PDF>
+			<extension>.pdf</extension>
+		</PDF>
+		<XLS>
+			<extension>.xls</extension>
+		</XLS>
+		<XLSM>
+			<extension>.xlsm</extension>
+		</XLSM>
+		<XLSX>
+			<extension>.xlsx</extension>
+		</XLSX>
+		<GIF>
+			<extension>.gif</extension>
+		</GIF>
+		<JPG>
+			<extension>.jpg</extension>
+		</JPG>
+		<PNG>
+			<extension>.png</extension>
+		</PNG>
+		<SQLITE>
+			<extension>.sqlite</extension>
+		</SQLITE>
+		<!-- ファイル形式 -->
+
+		<!-- ファイル選択ダイアログで指定できるファイル形式です。
+		　カンマ区切りで指定してください。
+	-->
+
+		<filetype>
+			<csv_out>ALL,CSV</csv_out>
+			<csv_in>ALL,CSV</csv_in>
+			<excel_out>XLS,XLSX</excel_out>
+			<excel_in>ALL,XLS,XLSX</excel_in>
+			<excel_m_out>XLS,XLSM</excel_m_out>
+			<excel_m_in>ALL,XLS,XLSM</excel_m_in>
+		</filetype>
+	</filechooser>
+	<!-- ダイアログのアイコン -->
+
+	<!-- システム一律 -->
+
+	<messagebox>
+		<!-- JRW-5-058-11545
+		<fatal>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Error.gif</icon>
+		</fatal>
+		<error>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Error.gif</icon>
+		</error>
+		<problem>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Error.gif</icon>
+		</problem>
+		<warn>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Warn.gif</icon>
+		</warn>
+		<info>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Inform.gif</icon>
+		</info>
+		<debug>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Inform.gif</icon>
+		</debug>
+		<trace>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Inform.gif</icon>
+		</trace>
+		<question>
+			<icon>/com/sun/java/swing/plaf/windows/icons/Question.gif</icon>
+		</question>
+		-->
+</messagebox>
+	<!-- ファンクションキーの表示文字列 -->
+
+	<!-- システム一律 -->
+
+	<function>
+		<text>
+			<f1/>
+			<f2/>
+			<f3/>
+			<f4/>
+			<f5/>
+			<f6/>
+			<f7/>
+			<f8/>
+			<f9/>
+			<f11/>
+			<f12/>
+			<f13/>
+			<f14/>
+			<f15/>
+			<f16/>
+			<f17/>
+			<f18/>
+			<f19/>
+			<f20/>
+			<f21/>
+			<f23/>
+			<f24/>
+		</text>
+		<tooltip>
+			<f1>(F1)</f1>
+			<f2>(F2)</f2>
+			<f3>(F3)</f3>
+			<f4>(F4)</f4>
+			<f5>(F5)</f5>
+			<f6>(F6)</f6>
+			<f7>(F7)</f7>
+			<f8>(F8)</f8>
+			<f9>(F9)</f9>
+			<f11>(F11)</f11>
+			<f12>(F12)</f12>
+			<f13>(SHIFT+F1)</f13>
+			<f14>(SHIFT+F2)</f14>
+			<f15>(SHIFT+F3)</f15>
+			<f16>(SHIFT+F4)</f16>
+			<f17>(SHIFT+F5)</f17>
+			<f18>(SHIFT+F6)</f18>
+			<f19>(SHIFT+F7)</f19>
+			<f20>(SHIFT+F8)</f20>
+			<f21>(SHIFT+F9)</f21>
+			<f23>(SHIFT+F11)</f23>
+			<f24>(SHIFT+F12)</f24>
+		</tooltip>
+	</function>
+
+	<!-- JRW-640F-00013 BEGIN -->
+	<beans_info_tooltip>
+		<text>
+			<length>length:{1}</length>
+		</text>
+		<number>
+			<length>length:{1}, scale:{2}</length>
+		</number>
+		<function_key>
+			<!-- ファンクションキーの略称 -->
+			<!--
+				ボタン上にツールチップとしてファンクションキーを表示するときに使用します。
+				ボタン上に表示されるツールチップの表示文字列になりますので、文字数を
+				多くすると、ボタンが隣り合っている場合などに、ツールチップが重なって表示
+				されてしまいますので、注意してください。
+			-->
+			<abbreviation>
+				<f1>F1</f1>
+				<f2>F2</f2>
+				<f3>F3</f3>
+				<f4>F4</f4>
+				<f5>F5</f5>
+				<f6>F6</f6>
+				<f7>F7</f7>
+				<f8>F8</f8>
+				<f9>F9</f9>
+				<f11>F11</f11>
+				<f12>F12</f12>
+				<f13>SF1</f13>
+				<f14>SF2</f14>
+				<f15>SF3</f15>
+				<f16>SF4</f16>
+				<f17>SF5</f17>
+				<f18>SF6</f18>
+				<f19>SF7</f19>
+				<f20>SF8</f20>
+				<f21>SF9</f21>
+				<f23>SF11</f23>
+				<f24>SF12</f24>
+			</abbreviation>
+		</function_key>
+		<!-- ツールチップの表示時間（ミリ秒） -->
+		<millisecond>2000</millisecond>
+	</beans_info_tooltip>
+	<!-- JRW-640F-00013 END -->
+
+	<!-- パスワード入力ダイアログクラス -->
+
+	<pswddialog>
+		<moduleID>FS</moduleID>
+		<screenID>FSBHP0050</screenID>
+	</pswddialog>
+	<!-- ファイル出力設定 -->
+
+	<beanswriter>
+		<!-- CSV出力のエンコード -->
+
+		<encode>UTF-8</encode>
+		<!-- CSV出力の区切り文字 -->
+
+		<delimiter>COMMA</delimiter>
+		<!-- Excel出力後に表示するか -->
+
+		<display>false</display>
+		<!-- タイトルの出力方法 -->
+
+		<titleType>MESSAGE</titleType>
+		<!-- 項目名を出力するかどうか -->
+
+		<nameOut>true</nameOut>
+		<!-- タイトル行を出力するかどうか -->
+
+		<titleOut>true</titleOut>
+		<!-- Excel出力の項目名を非表示にするかどうか -->
+
+		<nameHide>true</nameHide>
+		<!-- 列幅自動調整するかどうか -->
+
+		<adjustwidth>true</adjustwidth>
+		<!-- 列幅自動調整対象の行数 -->
+
+		<adjustwidthrow>1000</adjustwidthrow>
+		<!-- 改行を除去するかどうか -->
+
+		<cutnewline>false</cutnewline>
+		<!-- booleanの出力方法 -->
+
+		<booleanType>1</booleanType>
+		<!-- 数値を文字列として出力するかどうか -->
+
+		<numToStr>false</numToStr>
+		<!-- ダブルクォートで囲むかどうか -->
+
+		<DQ>true</DQ>
+	</beanswriter>
+	<!-- ファイル入力設定 -->
+
+	<beansreader>
+		<!-- CSVのエンコード -->
+
+		<encode>{beanswriter.encode}</encode>
+		<!-- CSVの区切り文字 -->
+
+		<delimiter>{beanswriter.delimiter}</delimiter>
+		<!-- 項目行が存在するかどうか -->
+
+		<isName>{beanswriter.nameOut}</isName>
+		<!-- タイトル行が存在するかどうか -->
+
+		<isTitle>{beanswriter.titleOut}</isTitle>
+		<!-- booleanの入力方法 -->
+
+		<booleanType>{beanswriter.booleanType}</booleanType>
+		<!-- ダブルクォートで囲むかどうか -->
+
+		<DQ>{beanswriter.DQ}</DQ>
+	</beansreader>
+
+	<!-- Caps Lock に関する設定 -->
+
+	<!-- システム一律 -->
+
+	<capslock>
+		<!-- Caps Lock がオンになっていることを通知するツールチップの設定 -->
+
+		<tooltip>
+			<!-- ツールチップの表示時間（ミリ秒） -->
+
+			<!-- 0 以下の場合はツールチップを表示しない -->
+
+			<millisecond>4000</millisecond>
+		</tooltip>
+	</capslock>
+	<!-- ActionIgnoreTime -->
+
+	<__action>
+		<ignoretimemillis>150</ignoretimemillis>
+	</__action>
+
+	<!-- autoLayout のための定数設定 -->
+
+	<SCR_COMP>
+		<GRID_SPAN>20</GRID_SPAN>
+		<ROW_HEAD_TEXT_COMPONENT_X>65</ROW_HEAD_TEXT_COMPONENT_X>
+		<CHAR>
+			<X_PER_ICON>16</X_PER_ICON>
+		</CHAR>
+		<BEANS>
+			<X_MARGIN>5</X_MARGIN>
+			<Y_MARGIN>3</Y_MARGIN>
+		</BEANS>
+		<BUTTON>
+			<X_PER_BYTE>8</X_PER_BYTE>
+			<X_MARGIN>4</X_MARGIN>
+			<X_MARGIN_L>16</X_MARGIN_L>
+			<F_KEY_DESCRIPTION_BYTE>0</F_KEY_DESCRIPTION_BYTE>
+			<!-- FunctionKey表示（ex."(F10)"など）をする場合には、"5"を設定する。 -->
+
+			<X_STATIC>98</X_STATIC>
+			<X_STATIC_ICON_BUTTON>21</X_STATIC_ICON_BUTTON>
+		</BUTTON>
+	</SCR_COMP>
+	<resource_setting_unit>
+		<delimiter>@ : @</delimiter>
+	</resource_setting_unit>
+	<list_cache>
+		<!-- ファイル入力時にマップを複製する場合true -->
+		<useclonedmap>true</useclonedmap>
+		<!-- 不要なエントリーの削除を実行する間隔（分） -->
+		<unwntdrmvmin>0</unwntdrmvmin>
+	</list_cache>
+	<listlogictype>2</listlogictype>
+	<!-- bug回避 -->
+	<__bug7177373>false</__bug7177373>
+
+	<drag_and_drop>
+		<drop_enable>
+			<all>true</all>
+			<rootpanel>{drag_and_drop.drop_enable.all}</rootpanel>
+			<table>{drag_and_drop.drop_enable.all}</table>
+			<button>{drag_and_drop.drop_enable.all}</button>
+			<imageview>{drag_and_drop.drop_enable.all}</imageview>
+			<text>{drag_and_drop.drop_enable.all}</text>
+			<textarea>{drag_and_drop.drop_enable.all}</textarea>
+			<table>
+				<column>
+					<text>{drag_and_drop.drop_enable.all}</text>
+				</column>
+			</table>
+		</drop_enable>
+		<drop_setting>
+			<table>table.POPUP_CSV_IN,csv_in,;table.POPUP_EXCEL_IN,excel_in,</table>
+			<rootpanel>rootpanel.POPUP_CSV_IN,csv_in,;rootpanel.POPUP_EXCEL_IN,excel_in,</rootpanel>
+		</drop_setting>
+	</drag_and_drop>
+
+	<level_icon>
+		<system>false</system>
+	</level_icon>
+
+	<!-- FXChart -->
+	<fxchart>
+		<useAnimation>true</useAnimation>
+		<defaultColor>006400,228b22,3cb371,66cdaa,7fffd4,98fb98,00ff7f,7cfc00</defaultColor>
+		<defaultColorForPie>f3622d,fba71b,57b757,41a9c9,4258c9,9a42c8,c84164,888888</defaultColorForPie>
+
+		<color0>f3622d,fba71b,57b757,41a9c9,4258c9,9a42c8,c84164,888888</color0>
+		<color1>63A537,6E9621,DEECCE,EFF6E8,66cdaa,8fbc8f,7fffd4,98fb98</color1>
+		<color2>ffbcff,ddbcff,bcbcff,bcddff,bcffff,bcffdd,bcffbc,ddffbc</color2>
+		<color3>1e90ff,6495ed,00bfff,87cefa,87ceeb,add8e6,b0e0e6,afeeee</color3>
+		<color4>faf0e6,faebd7,ffefd5,ffebcd,ffe4c4,ffe4b5,ffdead,ffdab9</color4>
+		<color5>90ee90,00ff7f,00fa9a,7cfc00,7fff00,adff2f,00ff00,32cd32</color5>
+		<color6>daa520,cd853f,b8860b,d2691e,a0522d,8b4513,800000,8b0000</color6>
+		<color7>ff00ff,ff00ff,ee82ee,dda0dd,da70d6,ba55d3,9932cc,9400d3</color7>
+
+	</fxchart>
+
+	<push>
+		<tray>
+			<icon>
+				<connected>{icon.MCF}</connected>
+				<disconnected>{icon.PUSH_CLOSE}</disconnected>
+			</icon>
+		</tray>
+	</push>
+
+	<!-- 701-02451 -->
+	<personalize>
+		<undispcausemsg>FCBHC0011,FCBHC0020,FCBHC0024,FCBHC0027,FCBGC0091</undispcausemsg>
+	</personalize>
+
+	<!-- 7.0.1.3 高解像度対応 ここから -->
+	<high_resolution>
+
+		<!-- 高解像度対応機能を使用するかどうか 7.0.1.3 -->
+		<enable>true</enable>
+
+		<!-- グラフのマウスホイールを使うかどうか 7.0.1.3 -->
+		<useGraphWheel>true</useGraphWheel>
+
+		<!-- WebViewでzoomを使うかどうか 7.0.1.3 -->
+		<useWebViewZoom>true</useWebViewZoom>
+
+		<!-- 7.0.1.3
+			modeで自動と手動に分ける
+			dpi : dpi指定モード
+			dot : フォント比率固定モード
+			resolution : 解像度でフォント比率可変モード
+		 -->
+		<mode>dpi</mode>
+
+		<resolution_table>
+			<default>100</default>
+			<max_resolution>400</max_resolution> <!-- 範囲外解像度の場合 -->
+			<resolution1>1280,100</resolution1> <!-- WXGA -->
+			<resolution2>1920,150</resolution2> <!-- 1080p -->
+			<resolution3>2560,150</resolution3> <!-- WQXGA -->
+			<resolution4>3840,200</resolution4> <!-- 4K -->
+			<resolution5>5120,300</resolution5> <!-- 5K -->
+			<resolution6>7680,400</resolution6> <!-- 8K -->
+		</resolution_table>
+
+		<!-- フォント比率100の時の基準のdpi (実際のdpi/設定値×画面サイズ)  7.0.1.3  -->
+		<dpi>72</dpi>
+
+		<!-- mode=dotの場合のフォント比率 7.0.1.3 -->
+		<default_fontratio>100</default_fontratio>
+
+		<!-- 72では小さすぎるための補正値 -->
+		<dpi_scale>1.5</dpi_scale>
+		<!-- 標準ディスプレイサイズ -->
+		<display_size>15.0</display_size>
+		<!-- 最小解像度 この解像度より小さい場合は100のまま-->
+		<min_resolution>1920,1080</min_resolution>
+
+		<!-- ツールチップ設定 7.0.1.3 -->
+		<tooltip>
+			<!-- UIManagerでフォントファミリ指定する場合はtrue 7.0.1.3 -->
+			<use-uimanager>true</use-uimanager>
+
+			<!-- UIManagerで設定するフォント 7.0.1.3 -->
+			<font>{font}</font>
+
+			<!-- font-family,font-styleはuse-uimanager=falseの時に有効 -->
+			<font-family>sans-serif</font-family>
+			<font-style>normal</font-style>
+			<!-- fontよりも優先されるサイズ-->
+			<!-- <font-size>24</font-size>	-->
+			<font-color>black</font-color>
+		</tooltip>
+
+		<!-- スクロールバーの太さを固定にする 高解像度 7.0.1.3 -->
+		<!--
+		<scrollbar>
+			<width>32</width>
+		</scrollbar>
+		-->
+
+	</high_resolution>
+	<filereader>
+		<value>
+			<replace>true</replace>
+		</value>
+	</filereader>
+</mcframe>

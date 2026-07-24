@@ -1,0 +1,2859 @@
+package mcframe.serverMG.dbc;
+
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCNumberPermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "原価計算品目詳細ビュー // Cost calculation item details view"DBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>品目ＣＤ</td>
+ *  	<td>Item cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>itm_sub1</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番１</td>
+ *  	<td>Branch No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_sub2</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番２</td>
+ *  	<td>Branch No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>itm_sub3</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番３</td>
+ *  	<td>Branch No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>loc_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>場所ＣＤ</td>
+ *  	<td>Location cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>sppl_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>発注先ＣＤ</td>
+ *  	<td>Supplier cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>rqst_wg_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>依頼先ワーキンググループＣＤ</td>
+ *  	<td>Requested WG cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>wg_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ワーキンググループＣＤ</td>
+ *  	<td>WG cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>cost_ratio</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>原価比率</td>
+ *  	<td>Cost ratio</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>oper_ptn</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>工程パタン</td>
+ *  	<td>Operation pattern</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>bom_ptn</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>構成パタン</td>
+ *  	<td>BOM pattern</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>min_lot_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>最小ロット数量</td>
+ *  	<td>Min. lot qty.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>batch_lot_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>刻みロット数量</td>
+ *  	<td>Increments lot qty.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>fxd_lot_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>固定基準ロット数量</td>
+ *  	<td>Constant reference lot qty.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>fxd_yield_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>固定歩留数量</td>
+ *  	<td>Constant yield qty.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>nmr_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>歩留製造数量</td>
+ *  	<td>Yield mfg. qty.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>dnm_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>理論製造数量</td>
+ *  	<td>Ideal mfg. qty.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>alc_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦部門ＣＤ</td>
+ *  	<td>Allocation dept. cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>exp_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>展開部門ＣＤ</td>
+ *  	<td>Exploded dept. cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>exp_prio</td>
+ *  	<td>N</td>
+ *  	<td>9,0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>展開優先順位</td>
+ *  	<td>Explosion priority</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>max_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>月次最大数量</td>
+ *  	<td>Monthly max. qty.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>alc_val1</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦基準値１</td>
+ *  	<td>Allocation value 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>alc_val2</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦基準値２</td>
+ *  	<td>Allocation value 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>alc_val3</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦基準値３</td>
+ *  	<td>Allocation value 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>alc_val4</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦基準値４</td>
+ *  	<td>Allocation value 4</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>alc_val5</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦基準値５</td>
+ *  	<td>Allocation value 5</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MGVM_ITM_DTL_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.VIEW;
+
+	public static final String TABLE_NAME = "MGVM_ITM_DTL";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public static final String $itm_cd = "itm_cd";
+	private static final MCPermColumnInfo _itm_cd = createColumnInfo("itm_cd");
+	public final MCStringPermColumn itm_cd = createStringColumn(_itm_cd);
+	
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public static final String $itm_sub1 = "itm_sub1";
+	private static final MCPermColumnInfo _itm_sub1 = createColumnInfo("itm_sub1");
+	public final MCStringPermColumn itm_sub1 = createStringColumn(_itm_sub1);
+	
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public static final String $itm_sub2 = "itm_sub2";
+	private static final MCPermColumnInfo _itm_sub2 = createColumnInfo("itm_sub2");
+	public final MCStringPermColumn itm_sub2 = createStringColumn(_itm_sub2);
+	
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public static final String $itm_sub3 = "itm_sub3";
+	private static final MCPermColumnInfo _itm_sub3 = createColumnInfo("itm_sub3");
+	public final MCStringPermColumn itm_sub3 = createStringColumn(_itm_sub3);
+	
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public static final String $loc_cd = "loc_cd";
+	private static final MCPermColumnInfo _loc_cd = createColumnInfo("loc_cd");
+	public final MCStringPermColumn loc_cd = createStringColumn(_loc_cd);
+	
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public static final String $sppl_cd = "sppl_cd";
+	private static final MCPermColumnInfo _sppl_cd = createColumnInfo("sppl_cd");
+	public final MCStringPermColumn sppl_cd = createStringColumn(_sppl_cd);
+	
+	/**
+	 * 依頼先ワーキンググループＣＤ. Requested WG cd..<p>
+	 *
+	 */
+	public static final String $rqst_wg_cd = "rqst_wg_cd";
+	private static final MCPermColumnInfo _rqst_wg_cd = createColumnInfo("rqst_wg_cd");
+	public final MCStringPermColumn rqst_wg_cd = createStringColumn(_rqst_wg_cd);
+	
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public static final String $wg_cd = "wg_cd";
+	private static final MCPermColumnInfo _wg_cd = createColumnInfo("wg_cd");
+	public final MCStringPermColumn wg_cd = createStringColumn(_wg_cd);
+	
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public static final String $cost_ratio = "cost_ratio";
+	private static final MCPermColumnInfo _cost_ratio = createColumnInfo("cost_ratio");
+	public final MCNumberPermColumn cost_ratio = createNumberColumn(_cost_ratio);
+	
+	/**
+	 * 工程パタン. Operation pattern.<p>
+	 *
+	 */
+	public static final String $oper_ptn = "oper_ptn";
+	private static final MCPermColumnInfo _oper_ptn = createColumnInfo("oper_ptn");
+	public final MCStringPermColumn oper_ptn = createStringColumn(_oper_ptn);
+	
+	/**
+	 * 構成パタン. BOM pattern.<p>
+	 *
+	 */
+	public static final String $bom_ptn = "bom_ptn";
+	private static final MCPermColumnInfo _bom_ptn = createColumnInfo("bom_ptn");
+	public final MCStringPermColumn bom_ptn = createStringColumn(_bom_ptn);
+	
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public static final String $min_lot_qty = "min_lot_qty";
+	private static final MCPermColumnInfo _min_lot_qty = createColumnInfo("min_lot_qty");
+	public final MCNumberPermColumn min_lot_qty = createNumberColumn(_min_lot_qty);
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public static final String $batch_lot_qty = "batch_lot_qty";
+	private static final MCPermColumnInfo _batch_lot_qty = createColumnInfo("batch_lot_qty");
+	public final MCNumberPermColumn batch_lot_qty = createNumberColumn(_batch_lot_qty);
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public static final String $fxd_lot_qty = "fxd_lot_qty";
+	private static final MCPermColumnInfo _fxd_lot_qty = createColumnInfo("fxd_lot_qty");
+	public final MCNumberPermColumn fxd_lot_qty = createNumberColumn(_fxd_lot_qty);
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public static final String $fxd_yield_qty = "fxd_yield_qty";
+	private static final MCPermColumnInfo _fxd_yield_qty = createColumnInfo("fxd_yield_qty");
+	public final MCNumberPermColumn fxd_yield_qty = createNumberColumn(_fxd_yield_qty);
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public static final String $nmr_qty = "nmr_qty";
+	private static final MCPermColumnInfo _nmr_qty = createColumnInfo("nmr_qty");
+	public final MCNumberPermColumn nmr_qty = createNumberColumn(_nmr_qty);
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public static final String $dnm_qty = "dnm_qty";
+	private static final MCPermColumnInfo _dnm_qty = createColumnInfo("dnm_qty");
+	public final MCNumberPermColumn dnm_qty = createNumberColumn(_dnm_qty);
+	
+	/**
+	 * 配賦部門ＣＤ. Allocation dept. cd..<p>
+	 *
+	 */
+	public static final String $alc_dpt_cd = "alc_dpt_cd";
+	private static final MCPermColumnInfo _alc_dpt_cd = createColumnInfo("alc_dpt_cd");
+	public final MCStringPermColumn alc_dpt_cd = createStringColumn(_alc_dpt_cd);
+	
+	/**
+	 * 展開部門ＣＤ. Exploded dept. cd..<p>
+	 *
+	 */
+	public static final String $exp_dpt_cd = "exp_dpt_cd";
+	private static final MCPermColumnInfo _exp_dpt_cd = createColumnInfo("exp_dpt_cd");
+	public final MCStringPermColumn exp_dpt_cd = createStringColumn(_exp_dpt_cd);
+	
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public static final String $exp_prio = "exp_prio";
+	private static final MCPermColumnInfo _exp_prio = createColumnInfo("exp_prio");
+	public final MCNumberPermColumn exp_prio = createNumberColumn(_exp_prio);
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public static final String $max_qty = "max_qty";
+	private static final MCPermColumnInfo _max_qty = createColumnInfo("max_qty");
+	public final MCNumberPermColumn max_qty = createNumberColumn(_max_qty);
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public static final String $alc_val1 = "alc_val1";
+	private static final MCPermColumnInfo _alc_val1 = createColumnInfo("alc_val1");
+	public final MCNumberPermColumn alc_val1 = createNumberColumn(_alc_val1);
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public static final String $alc_val2 = "alc_val2";
+	private static final MCPermColumnInfo _alc_val2 = createColumnInfo("alc_val2");
+	public final MCNumberPermColumn alc_val2 = createNumberColumn(_alc_val2);
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public static final String $alc_val3 = "alc_val3";
+	private static final MCPermColumnInfo _alc_val3 = createColumnInfo("alc_val3");
+	public final MCNumberPermColumn alc_val3 = createNumberColumn(_alc_val3);
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public static final String $alc_val4 = "alc_val4";
+	private static final MCPermColumnInfo _alc_val4 = createColumnInfo("alc_val4");
+	public final MCNumberPermColumn alc_val4 = createNumberColumn(_alc_val4);
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public static final String $alc_val5 = "alc_val5";
+	private static final MCPermColumnInfo _alc_val5 = createColumnInfo("alc_val5");
+	public final MCNumberPermColumn alc_val5 = createNumberColumn(_alc_val5);
+	
+	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta itm_sub1_META = createCommonMeta($itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta itm_sub3_META = createCommonMeta($itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta loc_cd_META = createCommonMeta($loc_cd, mcframe.commonMA.meta.MA_META.LOC_CD);
+	public static final MCMeta sppl_cd_META = createCommonMeta($sppl_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta rqst_wg_cd_META = createCommonMeta($rqst_wg_cd, mcframe.commonMA.meta.MA_META.WG_CD);
+	public static final MCMeta wg_cd_META = createCommonMeta($wg_cd, mcframe.commonMA.meta.MA_META.WG_CD);
+	public static final MCMeta cost_ratio_META = createCommonMeta($cost_ratio, mcframe.commonMA.meta.MA_META.COST_RATIO);
+	public static final MCMeta oper_ptn_META = createCommonMeta($oper_ptn, mcframe.commonMA.meta.MA_META.OPER_PTN);
+	public static final MCMeta bom_ptn_META = createCommonMeta($bom_ptn, mcframe.commonMA.meta.MA_META.BOM_PTN);
+	public static final MCMeta min_lot_qty_META = createCommonMeta($min_lot_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta batch_lot_qty_META = createCommonMeta($batch_lot_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta fxd_lot_qty_META = createCommonMeta($fxd_lot_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta fxd_yield_qty_META = createCommonMeta($fxd_yield_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta nmr_qty_META = createCommonMeta($nmr_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta dnm_qty_META = createCommonMeta($dnm_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta alc_dpt_cd_META = createCommonMeta($alc_dpt_cd, mcframe.commonMA.meta.MA_META.COST_DPT_CD);
+	public static final MCMeta exp_dpt_cd_META = createCommonMeta($exp_dpt_cd, mcframe.commonMA.meta.MA_META.COST_DPT_CD);
+	public static final MCMeta exp_prio_META = createCommonMeta($exp_prio, mcframe.commonMG.meta.MG_META.EXP_PRIO);
+	public static final MCMeta max_qty_META = createCommonMeta($max_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta alc_val1_META = createCommonMeta($alc_val1, mcframe.commonMA.meta.MA_META.ALC_VAL1);
+	public static final MCMeta alc_val2_META = createCommonMeta($alc_val2, mcframe.commonMA.meta.MA_META.ALC_VAL2);
+	public static final MCMeta alc_val3_META = createCommonMeta($alc_val3, mcframe.commonMA.meta.MA_META.ALC_VAL3);
+	public static final MCMeta alc_val4_META = createCommonMeta($alc_val4, mcframe.commonMA.meta.MA_META.ALC_VAL4);
+	public static final MCMeta alc_val5_META = createCommonMeta($alc_val5, mcframe.commonMA.meta.MA_META.ALC_VAL5);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	static {
+	}
+	
+	protected static final ConstMetaList<MGVM_ITM_DTL_R> constMetas = new ConstMetaList<MGVM_ITM_DTL_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			itm_cd_META,
+			itm_sub1_META,
+			itm_sub2_META,
+			itm_sub3_META,
+			loc_cd_META,
+			sppl_cd_META,
+			rqst_wg_cd_META,
+			wg_cd_META,
+			cost_ratio_META,
+			oper_ptn_META,
+			bom_ptn_META,
+			min_lot_qty_META,
+			batch_lot_qty_META,
+			fxd_lot_qty_META,
+			fxd_yield_qty_META,
+			nmr_qty_META,
+			dnm_qty_META,
+			alc_dpt_cd_META,
+			exp_dpt_cd_META,
+			exp_prio_META,
+			max_qty_META,
+			alc_val1_META,
+			alc_val2_META,
+			alc_val3_META,
+			alc_val4_META,
+			alc_val5_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MGVM_ITM_DTL_R(ConstMetaList<? extends MGVM_ITM_DTL_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MGVM_ITM_DTL_R(ConstMetaList<? extends MGVM_ITM_DTL_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$itm_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$itm_cd,
+				"itm_cd",
+				itm_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$itm_sub1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$itm_sub1,
+				"itm_sub1",
+				itm_sub1,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$itm_sub2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$itm_sub2,
+				"itm_sub2",
+				itm_sub2,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$itm_sub3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$itm_sub3,
+				"itm_sub3",
+				itm_sub3,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$loc_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$loc_cd,
+				"loc_cd",
+				loc_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$sppl_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$sppl_cd,
+				"sppl_cd",
+				sppl_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$rqst_wg_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$rqst_wg_cd,
+				"rqst_wg_cd",
+				rqst_wg_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$wg_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$wg_cd,
+				"wg_cd",
+				wg_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$cost_ratio,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$cost_ratio,
+				"cost_ratio",
+				cost_ratio,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$oper_ptn,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$oper_ptn,
+				"oper_ptn",
+				oper_ptn,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$bom_ptn,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$bom_ptn,
+				"bom_ptn",
+				bom_ptn,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$min_lot_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$min_lot_qty,
+				"min_lot_qty",
+				min_lot_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$batch_lot_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$batch_lot_qty,
+				"batch_lot_qty",
+				batch_lot_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$fxd_lot_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$fxd_lot_qty,
+				"fxd_lot_qty",
+				fxd_lot_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$fxd_yield_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$fxd_yield_qty,
+				"fxd_yield_qty",
+				fxd_yield_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$nmr_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$nmr_qty,
+				"nmr_qty",
+				nmr_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$dnm_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$dnm_qty,
+				"dnm_qty",
+				dnm_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$alc_dpt_cd,
+				"alc_dpt_cd",
+				alc_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$exp_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGVM_ITM_DTL_R.$exp_dpt_cd,
+				"exp_dpt_cd",
+				exp_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$exp_prio,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$exp_prio,
+				"exp_prio",
+				exp_prio,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$max_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$max_qty,
+				"max_qty",
+				max_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_val1,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$alc_val1,
+				"alc_val1",
+				alc_val1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_val2,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$alc_val2,
+				"alc_val2",
+				alc_val2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_val3,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$alc_val3,
+				"alc_val3",
+				alc_val3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_val4,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$alc_val4,
+				"alc_val4",
+				alc_val4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGVM_ITM_DTL_R.$alc_val5,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MGVM_ITM_DTL_R.$alc_val5,
+				"alc_val5",
+				alc_val5,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MGVM_ITM_DTL_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MGVM_ITM_DTL_R create(String alias) {
+		MGVM_ITM_DTL_R row = new MGVM_ITM_DTL_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MGVM_ITM_DTL_R createByName(T proto) {
+		MGVM_ITM_DTL_R row = MGVM_ITM_DTL_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGVM_ITM_DTL_R clone() {
+		return (MGVM_ITM_DTL_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGVM_ITM_DTL_R createInstance() {
+		return (MGVM_ITM_DTL_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGVM_ITM_DTL_R getValues(String... names) {
+		return (MGVM_ITM_DTL_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc(String alias) {
+	 	return null;
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc() {
+	 	return null;
+	 }
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public String itm_cd() {
+		return getConstString(offset + 0, $itm_cd);
+	}
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public void itm_cd(String value) {
+		setConstString(offset + 0, $itm_cd, value);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public String itm_sub1() {
+		return getConstString(offset + 1, $itm_sub1);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public void itm_sub1(String value) {
+		setConstString(offset + 1, $itm_sub1, value);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public String itm_sub2() {
+		return getConstString(offset + 2, $itm_sub2);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public void itm_sub2(String value) {
+		setConstString(offset + 2, $itm_sub2, value);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public String itm_sub3() {
+		return getConstString(offset + 3, $itm_sub3);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public void itm_sub3(String value) {
+		setConstString(offset + 3, $itm_sub3, value);
+	}
+
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public String loc_cd() {
+		return getConstString(offset + 4, $loc_cd);
+	}
+
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public void loc_cd(String value) {
+		setConstString(offset + 4, $loc_cd, value);
+	}
+
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public String sppl_cd() {
+		return getConstString(offset + 5, $sppl_cd);
+	}
+
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public void sppl_cd(String value) {
+		setConstString(offset + 5, $sppl_cd, value);
+	}
+
+	/**
+	 * 依頼先ワーキンググループＣＤ. Requested WG cd..<p>
+	 *
+	 */
+	public String rqst_wg_cd() {
+		return getConstString(offset + 6, $rqst_wg_cd);
+	}
+
+	/**
+	 * 依頼先ワーキンググループＣＤ. Requested WG cd..<p>
+	 *
+	 */
+	public void rqst_wg_cd(String value) {
+		setConstString(offset + 6, $rqst_wg_cd, value);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public String wg_cd() {
+		return getConstString(offset + 7, $wg_cd);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public void wg_cd(String value) {
+		setConstString(offset + 7, $wg_cd, value);
+	}
+
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public MCNumber cost_ratio() {
+		return getConstNumber(offset + 8, $cost_ratio);
+	}
+
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public void cost_ratio(MCNumber value) {
+		setConstNumber(offset + 8, $cost_ratio, value);
+	}
+	
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public void cost_ratio(int value) {
+		setConstNumber(offset + 8, $cost_ratio, value);
+	}
+	
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public void cost_ratio(long value) {
+		setConstNumber(offset + 8, $cost_ratio, value);
+	}
+	
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public void cost_ratio(float value) {
+		setConstNumber(offset + 8, $cost_ratio, value);
+	}
+	
+	/**
+	 * 原価比率. Cost ratio.<p>
+	 *
+	 */
+	public void cost_ratio(double value) {
+		setConstNumber(offset + 8, $cost_ratio, value);
+	}
+	
+	/**
+	 * 工程パタン. Operation pattern.<p>
+	 *
+	 */
+	public String oper_ptn() {
+		return getConstString(offset + 9, $oper_ptn);
+	}
+
+	/**
+	 * 工程パタン. Operation pattern.<p>
+	 *
+	 */
+	public void oper_ptn(String value) {
+		setConstString(offset + 9, $oper_ptn, value);
+	}
+
+	/**
+	 * 構成パタン. BOM pattern.<p>
+	 *
+	 */
+	public String bom_ptn() {
+		return getConstString(offset + 10, $bom_ptn);
+	}
+
+	/**
+	 * 構成パタン. BOM pattern.<p>
+	 *
+	 */
+	public void bom_ptn(String value) {
+		setConstString(offset + 10, $bom_ptn, value);
+	}
+
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public MCNumber min_lot_qty() {
+		return getConstNumber(offset + 11, $min_lot_qty);
+	}
+
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public void min_lot_qty(MCNumber value) {
+		setConstNumber(offset + 11, $min_lot_qty, value);
+	}
+	
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public void min_lot_qty(int value) {
+		setConstNumber(offset + 11, $min_lot_qty, value);
+	}
+	
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public void min_lot_qty(long value) {
+		setConstNumber(offset + 11, $min_lot_qty, value);
+	}
+	
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public void min_lot_qty(float value) {
+		setConstNumber(offset + 11, $min_lot_qty, value);
+	}
+	
+	/**
+	 * 最小ロット数量. Min. lot qty..<p>
+	 *
+	 */
+	public void min_lot_qty(double value) {
+		setConstNumber(offset + 11, $min_lot_qty, value);
+	}
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public MCNumber batch_lot_qty() {
+		return getConstNumber(offset + 12, $batch_lot_qty);
+	}
+
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public void batch_lot_qty(MCNumber value) {
+		setConstNumber(offset + 12, $batch_lot_qty, value);
+	}
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public void batch_lot_qty(int value) {
+		setConstNumber(offset + 12, $batch_lot_qty, value);
+	}
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public void batch_lot_qty(long value) {
+		setConstNumber(offset + 12, $batch_lot_qty, value);
+	}
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public void batch_lot_qty(float value) {
+		setConstNumber(offset + 12, $batch_lot_qty, value);
+	}
+	
+	/**
+	 * 刻みロット数量. Increments lot qty..<p>
+	 *
+	 */
+	public void batch_lot_qty(double value) {
+		setConstNumber(offset + 12, $batch_lot_qty, value);
+	}
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public MCNumber fxd_lot_qty() {
+		return getConstNumber(offset + 13, $fxd_lot_qty);
+	}
+
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public void fxd_lot_qty(MCNumber value) {
+		setConstNumber(offset + 13, $fxd_lot_qty, value);
+	}
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public void fxd_lot_qty(int value) {
+		setConstNumber(offset + 13, $fxd_lot_qty, value);
+	}
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public void fxd_lot_qty(long value) {
+		setConstNumber(offset + 13, $fxd_lot_qty, value);
+	}
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public void fxd_lot_qty(float value) {
+		setConstNumber(offset + 13, $fxd_lot_qty, value);
+	}
+	
+	/**
+	 * 固定基準ロット数量. Constant reference lot qty..<p>
+	 *
+	 */
+	public void fxd_lot_qty(double value) {
+		setConstNumber(offset + 13, $fxd_lot_qty, value);
+	}
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public MCNumber fxd_yield_qty() {
+		return getConstNumber(offset + 14, $fxd_yield_qty);
+	}
+
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public void fxd_yield_qty(MCNumber value) {
+		setConstNumber(offset + 14, $fxd_yield_qty, value);
+	}
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public void fxd_yield_qty(int value) {
+		setConstNumber(offset + 14, $fxd_yield_qty, value);
+	}
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public void fxd_yield_qty(long value) {
+		setConstNumber(offset + 14, $fxd_yield_qty, value);
+	}
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public void fxd_yield_qty(float value) {
+		setConstNumber(offset + 14, $fxd_yield_qty, value);
+	}
+	
+	/**
+	 * 固定歩留数量. Constant yield qty..<p>
+	 *
+	 */
+	public void fxd_yield_qty(double value) {
+		setConstNumber(offset + 14, $fxd_yield_qty, value);
+	}
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public MCNumber nmr_qty() {
+		return getConstNumber(offset + 15, $nmr_qty);
+	}
+
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public void nmr_qty(MCNumber value) {
+		setConstNumber(offset + 15, $nmr_qty, value);
+	}
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public void nmr_qty(int value) {
+		setConstNumber(offset + 15, $nmr_qty, value);
+	}
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public void nmr_qty(long value) {
+		setConstNumber(offset + 15, $nmr_qty, value);
+	}
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public void nmr_qty(float value) {
+		setConstNumber(offset + 15, $nmr_qty, value);
+	}
+	
+	/**
+	 * 歩留製造数量. Yield mfg. qty..<p>
+	 *
+	 */
+	public void nmr_qty(double value) {
+		setConstNumber(offset + 15, $nmr_qty, value);
+	}
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public MCNumber dnm_qty() {
+		return getConstNumber(offset + 16, $dnm_qty);
+	}
+
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public void dnm_qty(MCNumber value) {
+		setConstNumber(offset + 16, $dnm_qty, value);
+	}
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public void dnm_qty(int value) {
+		setConstNumber(offset + 16, $dnm_qty, value);
+	}
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public void dnm_qty(long value) {
+		setConstNumber(offset + 16, $dnm_qty, value);
+	}
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public void dnm_qty(float value) {
+		setConstNumber(offset + 16, $dnm_qty, value);
+	}
+	
+	/**
+	 * 理論製造数量. Ideal mfg. qty..<p>
+	 *
+	 */
+	public void dnm_qty(double value) {
+		setConstNumber(offset + 16, $dnm_qty, value);
+	}
+	
+	/**
+	 * 配賦部門ＣＤ. Allocation dept. cd..<p>
+	 *
+	 */
+	public String alc_dpt_cd() {
+		return getConstString(offset + 17, $alc_dpt_cd);
+	}
+
+	/**
+	 * 配賦部門ＣＤ. Allocation dept. cd..<p>
+	 *
+	 */
+	public void alc_dpt_cd(String value) {
+		setConstString(offset + 17, $alc_dpt_cd, value);
+	}
+
+	/**
+	 * 展開部門ＣＤ. Exploded dept. cd..<p>
+	 *
+	 */
+	public String exp_dpt_cd() {
+		return getConstString(offset + 18, $exp_dpt_cd);
+	}
+
+	/**
+	 * 展開部門ＣＤ. Exploded dept. cd..<p>
+	 *
+	 */
+	public void exp_dpt_cd(String value) {
+		setConstString(offset + 18, $exp_dpt_cd, value);
+	}
+
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public MCNumber exp_prio() {
+		return getConstNumber(offset + 19, $exp_prio);
+	}
+
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public void exp_prio(MCNumber value) {
+		setConstNumber(offset + 19, $exp_prio, value);
+	}
+	
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public void exp_prio(int value) {
+		setConstNumber(offset + 19, $exp_prio, value);
+	}
+	
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public void exp_prio(long value) {
+		setConstNumber(offset + 19, $exp_prio, value);
+	}
+	
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public void exp_prio(float value) {
+		setConstNumber(offset + 19, $exp_prio, value);
+	}
+	
+	/**
+	 * 展開優先順位. Explosion priority.<p>
+	 *
+	 */
+	public void exp_prio(double value) {
+		setConstNumber(offset + 19, $exp_prio, value);
+	}
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public MCNumber max_qty() {
+		return getConstNumber(offset + 20, $max_qty);
+	}
+
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public void max_qty(MCNumber value) {
+		setConstNumber(offset + 20, $max_qty, value);
+	}
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public void max_qty(int value) {
+		setConstNumber(offset + 20, $max_qty, value);
+	}
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public void max_qty(long value) {
+		setConstNumber(offset + 20, $max_qty, value);
+	}
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public void max_qty(float value) {
+		setConstNumber(offset + 20, $max_qty, value);
+	}
+	
+	/**
+	 * 月次最大数量. Monthly max. qty..<p>
+	 *
+	 */
+	public void max_qty(double value) {
+		setConstNumber(offset + 20, $max_qty, value);
+	}
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public MCNumber alc_val1() {
+		return getConstNumber(offset + 21, $alc_val1);
+	}
+
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public void alc_val1(MCNumber value) {
+		setConstNumber(offset + 21, $alc_val1, value);
+	}
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public void alc_val1(int value) {
+		setConstNumber(offset + 21, $alc_val1, value);
+	}
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public void alc_val1(long value) {
+		setConstNumber(offset + 21, $alc_val1, value);
+	}
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public void alc_val1(float value) {
+		setConstNumber(offset + 21, $alc_val1, value);
+	}
+	
+	/**
+	 * 配賦基準値１. Allocation value 1.<p>
+	 *
+	 */
+	public void alc_val1(double value) {
+		setConstNumber(offset + 21, $alc_val1, value);
+	}
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public MCNumber alc_val2() {
+		return getConstNumber(offset + 22, $alc_val2);
+	}
+
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public void alc_val2(MCNumber value) {
+		setConstNumber(offset + 22, $alc_val2, value);
+	}
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public void alc_val2(int value) {
+		setConstNumber(offset + 22, $alc_val2, value);
+	}
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public void alc_val2(long value) {
+		setConstNumber(offset + 22, $alc_val2, value);
+	}
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public void alc_val2(float value) {
+		setConstNumber(offset + 22, $alc_val2, value);
+	}
+	
+	/**
+	 * 配賦基準値２. Allocation value 2.<p>
+	 *
+	 */
+	public void alc_val2(double value) {
+		setConstNumber(offset + 22, $alc_val2, value);
+	}
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public MCNumber alc_val3() {
+		return getConstNumber(offset + 23, $alc_val3);
+	}
+
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public void alc_val3(MCNumber value) {
+		setConstNumber(offset + 23, $alc_val3, value);
+	}
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public void alc_val3(int value) {
+		setConstNumber(offset + 23, $alc_val3, value);
+	}
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public void alc_val3(long value) {
+		setConstNumber(offset + 23, $alc_val3, value);
+	}
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public void alc_val3(float value) {
+		setConstNumber(offset + 23, $alc_val3, value);
+	}
+	
+	/**
+	 * 配賦基準値３. Allocation value 3.<p>
+	 *
+	 */
+	public void alc_val3(double value) {
+		setConstNumber(offset + 23, $alc_val3, value);
+	}
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public MCNumber alc_val4() {
+		return getConstNumber(offset + 24, $alc_val4);
+	}
+
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public void alc_val4(MCNumber value) {
+		setConstNumber(offset + 24, $alc_val4, value);
+	}
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public void alc_val4(int value) {
+		setConstNumber(offset + 24, $alc_val4, value);
+	}
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public void alc_val4(long value) {
+		setConstNumber(offset + 24, $alc_val4, value);
+	}
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public void alc_val4(float value) {
+		setConstNumber(offset + 24, $alc_val4, value);
+	}
+	
+	/**
+	 * 配賦基準値４. Allocation value 4.<p>
+	 *
+	 */
+	public void alc_val4(double value) {
+		setConstNumber(offset + 24, $alc_val4, value);
+	}
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public MCNumber alc_val5() {
+		return getConstNumber(offset + 25, $alc_val5);
+	}
+
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public void alc_val5(MCNumber value) {
+		setConstNumber(offset + 25, $alc_val5, value);
+	}
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public void alc_val5(int value) {
+		setConstNumber(offset + 25, $alc_val5, value);
+	}
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public void alc_val5(long value) {
+		setConstNumber(offset + 25, $alc_val5, value);
+	}
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public void alc_val5(float value) {
+		setConstNumber(offset + 25, $alc_val5, value);
+	}
+	
+	/**
+	 * 配賦基準値５. Allocation value 5.<p>
+	 *
+	 */
+	public void alc_val5(double value) {
+		setConstNumber(offset + 25, $alc_val5, value);
+	}
+	
+	public String getString(String name) {
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			return loc_cd();
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			return sppl_cd();
+		}
+		if ($rqst_wg_cd.equalsIgnoreCase(name)) {
+			return rqst_wg_cd();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($oper_ptn.equalsIgnoreCase(name)) {
+			return oper_ptn();
+		}
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			return bom_ptn();
+		}
+		if ($alc_dpt_cd.equalsIgnoreCase(name)) {
+			return alc_dpt_cd();
+		}
+		if ($exp_dpt_cd.equalsIgnoreCase(name)) {
+			return exp_dpt_cd();
+		}
+		return super.getString(name);
+	}
+
+	public MCNumber getNumber(String name) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			return cost_ratio();
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			return min_lot_qty();
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			return batch_lot_qty();
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			return fxd_lot_qty();
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			return fxd_yield_qty();
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			return nmr_qty();
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			return dnm_qty();
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			return exp_prio();
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			return max_qty();
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			return alc_val1();
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			return alc_val2();
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			return alc_val3();
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			return alc_val4();
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			return alc_val5();
+		}
+		return super.getNumber(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			return loc_cd();
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			return sppl_cd();
+		}
+		if ($rqst_wg_cd.equalsIgnoreCase(name)) {
+			return rqst_wg_cd();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($oper_ptn.equalsIgnoreCase(name)) {
+			return oper_ptn();
+		}
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			return bom_ptn();
+		}
+		if ($alc_dpt_cd.equalsIgnoreCase(name)) {
+			return alc_dpt_cd();
+		}
+		if ($exp_dpt_cd.equalsIgnoreCase(name)) {
+			return exp_dpt_cd();
+		}
+		return super.getStringNE(name);
+	}
+
+	public MCNumber getNumberNE(String name) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			return cost_ratio();
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			return min_lot_qty();
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			return batch_lot_qty();
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			return fxd_lot_qty();
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			return fxd_yield_qty();
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			return nmr_qty();
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			return dnm_qty();
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			return exp_prio();
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			return max_qty();
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			return alc_val1();
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			return alc_val2();
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			return alc_val3();
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			return alc_val4();
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			return alc_val5();
+		}
+		return super.getNumberNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			loc_cd(value);
+			return;
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			sppl_cd(value);
+			return;
+		}
+		if ($rqst_wg_cd.equalsIgnoreCase(name)) {
+			rqst_wg_cd(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($oper_ptn.equalsIgnoreCase(name)) {
+			oper_ptn(value);
+			return;
+		}
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			bom_ptn(value);
+			return;
+		}
+		if ($alc_dpt_cd.equalsIgnoreCase(name)) {
+			alc_dpt_cd(value);
+			return;
+		}
+		if ($exp_dpt_cd.equalsIgnoreCase(name)) {
+			exp_dpt_cd(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setNumber(String name, MCNumber value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, int value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, long value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, float value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, double value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			loc_cd(value);
+			return;
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			sppl_cd(value);
+			return;
+		}
+		if ($rqst_wg_cd.equalsIgnoreCase(name)) {
+			rqst_wg_cd(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($oper_ptn.equalsIgnoreCase(name)) {
+			oper_ptn(value);
+			return;
+		}
+		if ($bom_ptn.equalsIgnoreCase(name)) {
+			bom_ptn(value);
+			return;
+		}
+		if ($alc_dpt_cd.equalsIgnoreCase(name)) {
+			alc_dpt_cd(value);
+			return;
+		}
+		if ($exp_dpt_cd.equalsIgnoreCase(name)) {
+			exp_dpt_cd(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setNumberNE(String name, MCNumber value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, int value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, long value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, float value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, double value) {
+		if ($cost_ratio.equalsIgnoreCase(name)) {
+			cost_ratio(value);
+			return;
+		}
+		if ($min_lot_qty.equalsIgnoreCase(name)) {
+			min_lot_qty(value);
+			return;
+		}
+		if ($batch_lot_qty.equalsIgnoreCase(name)) {
+			batch_lot_qty(value);
+			return;
+		}
+		if ($fxd_lot_qty.equalsIgnoreCase(name)) {
+			fxd_lot_qty(value);
+			return;
+		}
+		if ($fxd_yield_qty.equalsIgnoreCase(name)) {
+			fxd_yield_qty(value);
+			return;
+		}
+		if ($nmr_qty.equalsIgnoreCase(name)) {
+			nmr_qty(value);
+			return;
+		}
+		if ($dnm_qty.equalsIgnoreCase(name)) {
+			dnm_qty(value);
+			return;
+		}
+		if ($exp_prio.equalsIgnoreCase(name)) {
+			exp_prio(value);
+			return;
+		}
+		if ($max_qty.equalsIgnoreCase(name)) {
+			max_qty(value);
+			return;
+		}
+		if ($alc_val1.equalsIgnoreCase(name)) {
+			alc_val1(value);
+			return;
+		}
+		if ($alc_val2.equalsIgnoreCase(name)) {
+			alc_val2(value);
+			return;
+		}
+		if ($alc_val3.equalsIgnoreCase(name)) {
+			alc_val3(value);
+			return;
+		}
+		if ($alc_val4.equalsIgnoreCase(name)) {
+			alc_val4(value);
+			return;
+		}
+		if ($alc_val5.equalsIgnoreCase(name)) {
+			alc_val5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+}

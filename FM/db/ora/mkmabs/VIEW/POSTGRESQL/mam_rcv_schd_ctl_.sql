@@ -1,0 +1,41 @@
+SELECT 
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.bcst_cd,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.cur_cd,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.min_amt,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.sttl_cd,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.wg_cd,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rate,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.crryovr_mons_typ,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_day1,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_day2,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_day3,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_day4,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_day5,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_crryovr_mons1,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_crryovr_mons2,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_crryovr_mons3,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_crryovr_mons4,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.rcv_crryovr_mons5,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.memo1,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.memo2,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.memo3,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.del_flg,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.del_usr_id,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.del_usr_nm,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.del_ts,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.ins_usr_id,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.ins_usr_nm,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.ins_ts,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.ins_func_id,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_cntr,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_usr_id,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_usr_nm,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_ts,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_func_id,
+	mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.upd_srv_req_no
+FROM 
+	mam_rcv_schd_ctl_all mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org
+WHERE 
+	0 = 0
+	AND mam_rcv_schd_ctl__mam_rcv_schd_ctl_all_org.co_cd = fcpa_context$f_get_co_cd()
+;

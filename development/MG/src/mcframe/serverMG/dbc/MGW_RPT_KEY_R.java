@@ -1,0 +1,1212 @@
+package mcframe.serverMG.dbc;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCDatePermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "原価レポート // Cost report"PKワークテーブルDBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>calc_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>原価計算ＮＯ</td>
+ *  	<td>Calculation No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>calc_grp_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>計算グループＣＤ</td>
+ *  	<td>Calculation group cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>ym</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>年月</td>
+ *  	<td>Year month</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>rpt_ptn_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>レポートパタンＣＤ</td>
+ *  	<td>Report pattern cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>rpt_key_cd</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>レポートキーＣＤ</td>
+ *  	<td>Report key cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>rpt_row_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>レポート行ＣＤ</td>
+ *  	<td>Report row cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>wg_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ワーキンググループＣＤ</td>
+ *  	<td>WG cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>管理部門ＣＤ</td>
+ *  	<td>Management dept. cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>品目ＣＤ</td>
+ *  	<td>Item cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>itm_sub1</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>枝番１</td>
+ *  	<td>Branch No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_sub2</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>枝番２</td>
+ *  	<td>Branch No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>itm_sub3</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>枝番３</td>
+ *  	<td>Branch No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_jnl_cd</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>品目仕訳ＣＤ</td>
+ *  	<td>Item journal cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>itm_grp_typ</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>品目分類区分</td>
+ *  	<td>Item classification type</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>itm_grp_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>品目分類ＣＤ</td>
+ *  	<td>Item classification cd.</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MGW_RPT_KEY_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.TEMP_TABLE_ON_COMMIT_DELETE_ROWS;
+
+	public static final String TABLE_NAME = "MGW_RPT_KEY";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public static final String $calc_no = "calc_no";
+	private static final MCPermColumnInfo _calc_no = createColumnInfo("calc_no");
+	public final MCStringPermColumn calc_no = createStringColumn(_calc_no);
+	
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public static final String $calc_grp_cd = "calc_grp_cd";
+	private static final MCPermColumnInfo _calc_grp_cd = createColumnInfo("calc_grp_cd");
+	public final MCStringPermColumn calc_grp_cd = createStringColumn(_calc_grp_cd);
+	
+	/**
+	 * 年月. Year month.<p>
+	 *
+	 */
+	public static final String $ym = "ym";
+	private static final MCPermColumnInfo _ym = createColumnInfo("ym");
+	public final MCDatePermColumn ym = createDateColumn(_ym);
+	
+	/**
+	 * レポートパタンＣＤ. Report pattern cd..<p>
+	 *
+	 */
+	public static final String $rpt_ptn_cd = "rpt_ptn_cd";
+	private static final MCPermColumnInfo _rpt_ptn_cd = createColumnInfo("rpt_ptn_cd");
+	public final MCStringPermColumn rpt_ptn_cd = createStringColumn(_rpt_ptn_cd);
+	
+	/**
+	 * レポートキーＣＤ. Report key cd..<p>
+	 *
+	 */
+	public static final String $rpt_key_cd = "rpt_key_cd";
+	private static final MCPermColumnInfo _rpt_key_cd = createColumnInfo("rpt_key_cd");
+	public final MCStringPermColumn rpt_key_cd = createStringColumn(_rpt_key_cd);
+	
+	/**
+	 * レポート行ＣＤ. Report row cd..<p>
+	 *
+	 */
+	public static final String $rpt_row_cd = "rpt_row_cd";
+	private static final MCPermColumnInfo _rpt_row_cd = createColumnInfo("rpt_row_cd");
+	public final MCStringPermColumn rpt_row_cd = createStringColumn(_rpt_row_cd);
+	
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public static final String $wg_cd = "wg_cd";
+	private static final MCPermColumnInfo _wg_cd = createColumnInfo("wg_cd");
+	public final MCStringPermColumn wg_cd = createStringColumn(_wg_cd);
+	
+	/**
+	 * 管理部門ＣＤ. Management dept. cd..<p>
+	 *
+	 */
+	public static final String $dpt_cd = "dpt_cd";
+	private static final MCPermColumnInfo _dpt_cd = createColumnInfo("dpt_cd");
+	public final MCStringPermColumn dpt_cd = createStringColumn(_dpt_cd);
+	
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public static final String $itm_cd = "itm_cd";
+	private static final MCPermColumnInfo _itm_cd = createColumnInfo("itm_cd");
+	public final MCStringPermColumn itm_cd = createStringColumn(_itm_cd);
+	
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public static final String $itm_sub1 = "itm_sub1";
+	private static final MCPermColumnInfo _itm_sub1 = createColumnInfo("itm_sub1");
+	public final MCStringPermColumn itm_sub1 = createStringColumn(_itm_sub1);
+	
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public static final String $itm_sub2 = "itm_sub2";
+	private static final MCPermColumnInfo _itm_sub2 = createColumnInfo("itm_sub2");
+	public final MCStringPermColumn itm_sub2 = createStringColumn(_itm_sub2);
+	
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public static final String $itm_sub3 = "itm_sub3";
+	private static final MCPermColumnInfo _itm_sub3 = createColumnInfo("itm_sub3");
+	public final MCStringPermColumn itm_sub3 = createStringColumn(_itm_sub3);
+	
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public static final String $itm_jnl_cd = "itm_jnl_cd";
+	private static final MCPermColumnInfo _itm_jnl_cd = createColumnInfo("itm_jnl_cd");
+	public final MCStringPermColumn itm_jnl_cd = createStringColumn(_itm_jnl_cd);
+	
+	/**
+	 * 品目分類区分. Item classification type.<p>
+	 *
+	 */
+	public static final String $itm_grp_typ = "itm_grp_typ";
+	private static final MCPermColumnInfo _itm_grp_typ = createColumnInfo("itm_grp_typ");
+	public final MCStringPermColumn itm_grp_typ = createStringColumn(_itm_grp_typ);
+	
+	/**
+	 * 品目分類ＣＤ. Item classification cd..<p>
+	 *
+	 */
+	public static final String $itm_grp_cd = "itm_grp_cd";
+	private static final MCPermColumnInfo _itm_grp_cd = createColumnInfo("itm_grp_cd");
+	public final MCStringPermColumn itm_grp_cd = createStringColumn(_itm_grp_cd);
+	
+	public static final MCMeta calc_no_META = createCommonMeta($calc_no, mcframe.commonMA.meta.MA_META.CALC_NO);
+	public static final MCMeta calc_grp_cd_META = createCommonMeta($calc_grp_cd, mcframe.commonMA.meta.MA_META.CALC_GRP_CD);
+	public static final MCMeta ym_META = createCommonMeta($ym, mcframe.commonMA.meta.MA_META.YM);
+	public static final MCMeta rpt_ptn_cd_META = createCommonMeta($rpt_ptn_cd, mcframe.commonMA.meta.MA_META.RPT_PTN_CD);
+	public static final MCMeta rpt_key_cd_META = createCommonMeta($rpt_key_cd, mcframe.commonMA.meta.MA_META.RPT_KEY_CD);
+	public static final MCMeta rpt_row_cd_META = createCommonMeta($rpt_row_cd, mcframe.commonMA.meta.MA_META.RPT_ROW_CD);
+	public static final MCMeta wg_cd_META = createCommonMeta($wg_cd, mcframe.commonMA.meta.MA_META.WG_CD);
+	public static final MCMeta dpt_cd_META = createCommonMeta($dpt_cd, mcframe.commonMA.meta.MA_META.COST_DPT_CD);
+	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta itm_sub1_META = createCommonMeta($itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta itm_sub3_META = createCommonMeta($itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta itm_jnl_cd_META = createCommonMeta($itm_jnl_cd, mcframe.commonMA.meta.MA_META.ITM_JNL_CD);
+	public static final MCMeta itm_grp_typ_META = createCommonMeta($itm_grp_typ, mcframe.commonMA.meta.MA_META.ITM_GRP_TYP);
+	public static final MCMeta itm_grp_cd_META = createCommonMeta($itm_grp_cd, mcframe.commonMA.meta.MA_META.ITM_GRP_CD);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	
+	protected static final ConstMetaList<MGW_RPT_KEY_R> constMetas = new ConstMetaList<MGW_RPT_KEY_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			calc_no_META,
+			calc_grp_cd_META,
+			ym_META,
+			rpt_ptn_cd_META,
+			rpt_key_cd_META,
+			rpt_row_cd_META,
+			wg_cd_META,
+			dpt_cd_META,
+			itm_cd_META,
+			itm_sub1_META,
+			itm_sub2_META,
+			itm_sub3_META,
+			itm_jnl_cd_META,
+			itm_grp_typ_META,
+			itm_grp_cd_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MGW_RPT_KEY_R(ConstMetaList<? extends MGW_RPT_KEY_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MGW_RPT_KEY_R(ConstMetaList<? extends MGW_RPT_KEY_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$calc_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$calc_no,
+				"calc_no",
+				calc_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$calc_grp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$calc_grp_cd,
+				"calc_grp_cd",
+				calc_grp_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$ym,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MGW_RPT_KEY_R.$ym,
+				"ym",
+				ym,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$rpt_ptn_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$rpt_ptn_cd,
+				"rpt_ptn_cd",
+				rpt_ptn_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$rpt_key_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$rpt_key_cd,
+				"rpt_key_cd",
+				rpt_key_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$rpt_row_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$rpt_row_cd,
+				"rpt_row_cd",
+				rpt_row_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$wg_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$wg_cd,
+				"wg_cd",
+				wg_cd,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$dpt_cd,
+				"dpt_cd",
+				dpt_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_cd,
+				"itm_cd",
+				itm_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_sub1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_sub1,
+				"itm_sub1",
+				itm_sub1,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_sub2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_sub2,
+				"itm_sub2",
+				itm_sub2,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_sub3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_sub3,
+				"itm_sub3",
+				itm_sub3,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_jnl_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_jnl_cd,
+				"itm_jnl_cd",
+				itm_jnl_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_grp_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_grp_typ,
+				"itm_grp_typ",
+				itm_grp_typ,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MGW_RPT_KEY_R.$itm_grp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MGW_RPT_KEY_R.$itm_grp_cd,
+				"itm_grp_cd",
+				itm_grp_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MGW_RPT_KEY_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MGW_RPT_KEY_R create(String alias) {
+		MGW_RPT_KEY_R row = new MGW_RPT_KEY_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MGW_RPT_KEY_R createByName(T proto) {
+		MGW_RPT_KEY_R row = MGW_RPT_KEY_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGW_RPT_KEY_R clone() {
+		return (MGW_RPT_KEY_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGW_RPT_KEY_R createInstance() {
+		return (MGW_RPT_KEY_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MGW_RPT_KEY_R getValues(String... names) {
+		return (MGW_RPT_KEY_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc(String alias) {
+	 	return null;
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc() {
+	 	return null;
+	 }
+
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public String calc_no() {
+		return getConstString(offset + 0, $calc_no);
+	}
+
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public void calc_no(String value) {
+		setConstString(offset + 0, $calc_no, value);
+	}
+
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public String calc_grp_cd() {
+		return getConstString(offset + 1, $calc_grp_cd);
+	}
+
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public void calc_grp_cd(String value) {
+		setConstString(offset + 1, $calc_grp_cd, value);
+	}
+
+	/**
+	 * 年月. Year month.<p>
+	 *
+	 */
+	public MCDate ym() {
+		return getConstDate(offset + 2, $ym);
+	}
+
+	/**
+	 * 年月. Year month.<p>
+	 *
+	 */
+	public void ym(MCDate value) {
+		setConstDate(offset + 2, $ym, value);
+	}
+
+	/**
+	 * レポートパタンＣＤ. Report pattern cd..<p>
+	 *
+	 */
+	public String rpt_ptn_cd() {
+		return getConstString(offset + 3, $rpt_ptn_cd);
+	}
+
+	/**
+	 * レポートパタンＣＤ. Report pattern cd..<p>
+	 *
+	 */
+	public void rpt_ptn_cd(String value) {
+		setConstString(offset + 3, $rpt_ptn_cd, value);
+	}
+
+	/**
+	 * レポートキーＣＤ. Report key cd..<p>
+	 *
+	 */
+	public String rpt_key_cd() {
+		return getConstString(offset + 4, $rpt_key_cd);
+	}
+
+	/**
+	 * レポートキーＣＤ. Report key cd..<p>
+	 *
+	 */
+	public void rpt_key_cd(String value) {
+		setConstString(offset + 4, $rpt_key_cd, value);
+	}
+
+	/**
+	 * レポート行ＣＤ. Report row cd..<p>
+	 *
+	 */
+	public String rpt_row_cd() {
+		return getConstString(offset + 5, $rpt_row_cd);
+	}
+
+	/**
+	 * レポート行ＣＤ. Report row cd..<p>
+	 *
+	 */
+	public void rpt_row_cd(String value) {
+		setConstString(offset + 5, $rpt_row_cd, value);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public String wg_cd() {
+		return getConstString(offset + 6, $wg_cd);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public void wg_cd(String value) {
+		setConstString(offset + 6, $wg_cd, value);
+	}
+
+	/**
+	 * 管理部門ＣＤ. Management dept. cd..<p>
+	 *
+	 */
+	public String dpt_cd() {
+		return getConstString(offset + 7, $dpt_cd);
+	}
+
+	/**
+	 * 管理部門ＣＤ. Management dept. cd..<p>
+	 *
+	 */
+	public void dpt_cd(String value) {
+		setConstString(offset + 7, $dpt_cd, value);
+	}
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public String itm_cd() {
+		return getConstString(offset + 8, $itm_cd);
+	}
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public void itm_cd(String value) {
+		setConstString(offset + 8, $itm_cd, value);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public String itm_sub1() {
+		return getConstString(offset + 9, $itm_sub1);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public void itm_sub1(String value) {
+		setConstString(offset + 9, $itm_sub1, value);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public String itm_sub2() {
+		return getConstString(offset + 10, $itm_sub2);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public void itm_sub2(String value) {
+		setConstString(offset + 10, $itm_sub2, value);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public String itm_sub3() {
+		return getConstString(offset + 11, $itm_sub3);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public void itm_sub3(String value) {
+		setConstString(offset + 11, $itm_sub3, value);
+	}
+
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public String itm_jnl_cd() {
+		return getConstString(offset + 12, $itm_jnl_cd);
+	}
+
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public void itm_jnl_cd(String value) {
+		setConstString(offset + 12, $itm_jnl_cd, value);
+	}
+
+	/**
+	 * 品目分類区分. Item classification type.<p>
+	 *
+	 */
+	public String itm_grp_typ() {
+		return getConstString(offset + 13, $itm_grp_typ);
+	}
+
+	/**
+	 * 品目分類区分. Item classification type.<p>
+	 *
+	 */
+	public void itm_grp_typ(String value) {
+		setConstString(offset + 13, $itm_grp_typ, value);
+	}
+
+	/**
+	 * 品目分類ＣＤ. Item classification cd..<p>
+	 *
+	 */
+	public String itm_grp_cd() {
+		return getConstString(offset + 14, $itm_grp_cd);
+	}
+
+	/**
+	 * 品目分類ＣＤ. Item classification cd..<p>
+	 *
+	 */
+	public void itm_grp_cd(String value) {
+		setConstString(offset + 14, $itm_grp_cd, value);
+	}
+
+	public String getString(String name) {
+		if ($calc_no.equalsIgnoreCase(name)) {
+			return calc_no();
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			return calc_grp_cd();
+		}
+		if ($rpt_ptn_cd.equalsIgnoreCase(name)) {
+			return rpt_ptn_cd();
+		}
+		if ($rpt_key_cd.equalsIgnoreCase(name)) {
+			return rpt_key_cd();
+		}
+		if ($rpt_row_cd.equalsIgnoreCase(name)) {
+			return rpt_row_cd();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($dpt_cd.equalsIgnoreCase(name)) {
+			return dpt_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			return itm_jnl_cd();
+		}
+		if ($itm_grp_typ.equalsIgnoreCase(name)) {
+			return itm_grp_typ();
+		}
+		if ($itm_grp_cd.equalsIgnoreCase(name)) {
+			return itm_grp_cd();
+		}
+		return super.getString(name);
+	}
+
+	public MCDate getDate(String name) {
+		if ($ym.equalsIgnoreCase(name)) {
+			return ym();
+		}
+		return super.getDate(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($calc_no.equalsIgnoreCase(name)) {
+			return calc_no();
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			return calc_grp_cd();
+		}
+		if ($rpt_ptn_cd.equalsIgnoreCase(name)) {
+			return rpt_ptn_cd();
+		}
+		if ($rpt_key_cd.equalsIgnoreCase(name)) {
+			return rpt_key_cd();
+		}
+		if ($rpt_row_cd.equalsIgnoreCase(name)) {
+			return rpt_row_cd();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($dpt_cd.equalsIgnoreCase(name)) {
+			return dpt_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			return itm_jnl_cd();
+		}
+		if ($itm_grp_typ.equalsIgnoreCase(name)) {
+			return itm_grp_typ();
+		}
+		if ($itm_grp_cd.equalsIgnoreCase(name)) {
+			return itm_grp_cd();
+		}
+		return super.getStringNE(name);
+	}
+
+	public MCDate getDateNE(String name) {
+		if ($ym.equalsIgnoreCase(name)) {
+			return ym();
+		}
+		return super.getDateNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($calc_no.equalsIgnoreCase(name)) {
+			calc_no(value);
+			return;
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			calc_grp_cd(value);
+			return;
+		}
+		if ($rpt_ptn_cd.equalsIgnoreCase(name)) {
+			rpt_ptn_cd(value);
+			return;
+		}
+		if ($rpt_key_cd.equalsIgnoreCase(name)) {
+			rpt_key_cd(value);
+			return;
+		}
+		if ($rpt_row_cd.equalsIgnoreCase(name)) {
+			rpt_row_cd(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($dpt_cd.equalsIgnoreCase(name)) {
+			dpt_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			itm_jnl_cd(value);
+			return;
+		}
+		if ($itm_grp_typ.equalsIgnoreCase(name)) {
+			itm_grp_typ(value);
+			return;
+		}
+		if ($itm_grp_cd.equalsIgnoreCase(name)) {
+			itm_grp_cd(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setDate(String name, MCDate value) {
+		if ($ym.equalsIgnoreCase(name)) {
+			ym(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($calc_no.equalsIgnoreCase(name)) {
+			calc_no(value);
+			return;
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			calc_grp_cd(value);
+			return;
+		}
+		if ($rpt_ptn_cd.equalsIgnoreCase(name)) {
+			rpt_ptn_cd(value);
+			return;
+		}
+		if ($rpt_key_cd.equalsIgnoreCase(name)) {
+			rpt_key_cd(value);
+			return;
+		}
+		if ($rpt_row_cd.equalsIgnoreCase(name)) {
+			rpt_row_cd(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($dpt_cd.equalsIgnoreCase(name)) {
+			dpt_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			itm_jnl_cd(value);
+			return;
+		}
+		if ($itm_grp_typ.equalsIgnoreCase(name)) {
+			itm_grp_typ(value);
+			return;
+		}
+		if ($itm_grp_cd.equalsIgnoreCase(name)) {
+			itm_grp_cd(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setDateNE(String name, MCDate value) {
+		if ($ym.equalsIgnoreCase(name)) {
+			ym(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+
+}

@@ -1,0 +1,6 @@
+SET DEFINE OFF
+SET ESCCHAR @
+
+@".\makeAll_PJ.sql"
+
+SET DEFINE ON

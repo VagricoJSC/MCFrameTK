@@ -1,0 +1,848 @@
+CREATE OR REPLACE PACKAGE BODY MSPA_FRCST_SLO_SUM
+IS
+	G_NULL_VAL	CONSTANT VARCHAR2(1) := MAC_STR.NULL_VAL ;
+
+	PROCEDURE P_INS_WK (
+		I_SUM_ST_YM				IN MAPA_META.YM%TYPE,
+		I_SLS_DPT_CD			IN MAPA_META.DPT_CD%TYPE
+	)
+	/**************************************************************************
+	<SYNOPSIS>
+		顧客内示・受注集計テーブルを更新するためのワークテーブルを登録する
+	<REMARKS>
+
+	<ARGUMENTS>
+	<IN>
+		I_SLS_ST_YM
+			集計開始年月
+	<IN>
+		I_SLS_DPT_CD
+			売上部門ＣＤ	<HISTORY>
+	**************************************************************************/
+	IS
+		L_CO		MAM_CO%ROWTYPE;
+		L_SUM_ST_DT	MAPA_META.DT%TYPE ;
+	BEGIN
+
+			L_CO := MAPA_CO.F_GET_CO_REC;
+			L_SUM_ST_DT := MAPA_DT.F_GET_YM_ST_DT_NE(I_SUM_ST_YM, L_CO.AC_CL_DAY, L_CO.AC_CL_MON_BASE);
+
+			INSERT INTO MSW_FRCST_SLO_SUM (
+				YM
+				,SLS_DPT_CD
+				,SLS_USR_CD
+				,CST_CD
+				,WRK_NO
+				,ITM_CD
+				,ITM_SUB1
+				,ITM_SUB2
+				,ITM_SUB3
+				,TRD_CUR_CD
+				,SPLN_ITM_CD
+				,SLS_ITM_GRP_CD
+				,BASE_UNIT_SLO_QTY
+				,TRD_CUR_SLO_AMT
+				,SLO_COST_AMT
+				,BASE_UNIT_PRE_SLO_QTY
+				,TRD_CUR_PRE_SLO_AMT
+				,PRE_SLO_COST_AMT
+				,CST_FRCST_QTY
+				,TRD_CUR_CST_FRCST_AMT
+				,USR_CST_CD
+				,USR_WRK_NO
+				,SUM_CST_CD
+				,SUM_WRK_NO
+				,DT
+				,UPRI_UNIT_CD
+				,LOT_QTY
+			)
+			SELECT
+				V.YM
+				,V.SLS_DPT_CD
+				,V.SLS_USR_CD
+				,V.CST_CD
+				,NVL(V.WRK_NO, G_NULL_VAL) WRK_NO
+				,V.ITM_CD
+				,V.ITM_SUB1
+				,V.ITM_SUB2
+				,V.ITM_SUB3
+				,V.TRD_CUR_CD
+				,M1.SPLN_ITM_CD
+				,MAPA_ITM.F_GET_SLS_ITM_GRP_CD(V.ITM_CD, V.ITM_SUB1, V.ITM_SUB2, V.ITM_SUB3, V.YM) SLS_ITM_GRP
+				,V.BASE_UNIT_SLO_QTY
+				,V.TRD_CUR_SLO_AMT
+				,V.SLO_COST_AMT
+				,V.BASE_UNIT_PRE_SLO_QTY
+				,V.TRD_CUR_PRE_SLO_AMT
+				,V.PRE_SLO_COST_AMT
+				,V.CST_FRCST_QTY
+				,0 TRD_CUR_CST_FRCST_AMT -- 顧客期間内示の金額は別途計算する
+				,G_NULL_VAL
+				,G_NULL_VAL
+				,G_NULL_VAL
+				,G_NULL_VAL
+				,V.DT
+				,M1.UPRI_UNIT_CD
+				,M1.LOT_QTY
+			FROM
+				(-- 受注金額
+				SELECT
+					MAPA_DT.F_GET_AC_YM(NVL(T2.SLO_SUM_BASE_DT, NVL(T2.DLV_RQST_TM, T1.SLO_DT))) YM
+					,T1.SLS_DPT_CD
+					,T1.SLS_USR_CD
+					,T1.CST_CD
+					,T1.WRK_NO
+					,T2.ITM_CD
+					,T2.ITM_SUB1
+					,T2.ITM_SUB2
+					,T2.ITM_SUB3
+					,T1.TRD_CUR_CD
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN T2.BASE_UNIT_QTY
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END BASE_UNIT_SLO_QTY
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN T2.TRD_CUR_AMT
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END TRD_CUR_SLO_AMT
+ 					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN NVL(T2.COST_AMT, 0)
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END SLO_COST_AMT
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN T2.BASE_UNIT_QTY
+					 END BASE_UNIT_PRE_SLO_QTY
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN T2.TRD_CUR_AMT
+					 END TRD_CUR_PRE_SLO_AMT
+ 					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN NVL(T2.COST_AMT, 0)
+					 END PRE_SLO_COST_AMT
+					,0 CST_FRCST_QTY
+					,NULL DT
+				FROM
+					MST_SLO T1
+					JOIN MST_SLO_D T2 ON (T1.SLO_NO = T2.SLO_NO)
+				WHERE
+					0 = 0
+				AND T1.CAN_FLG = '0'
+				AND T1.TRD_PTN_TYP = MAC_TRD_PTN_TYP.SLS
+				AND T2.VMI_FLG = '0'
+				AND T2.CAN_FLG = '0'
+				AND T2.ABORT_FLG = '0' -- 受注明細の打切は、取消と同様に扱う(出荷予定の打切はカウントする）
+				AND T2.BD_DPT_CD IS NULL
+				AND T2.SLO_SUM_BASE_DT >= L_SUM_ST_DT
+				AND (T1.SLS_DPT_CD = I_SLS_DPT_CD OR I_SLS_DPT_CD IS NULL)
+                UNION ALL
+				-- 受注金額(残数打ち切り)
+                SELECT
+					MAPA_DT.F_GET_AC_YM(NVL(T2.SLO_SUM_BASE_DT, NVL(T2.DLV_RQST_TM, T1.SLO_DT))) YM
+					,T1.SLS_DPT_CD
+					,T1.SLS_USR_CD
+					,T1.CST_CD
+					,T1.WRK_NO
+					,T2.ITM_CD
+					,T2.ITM_SUB1
+					,T2.ITM_SUB2
+					,T2.ITM_SUB3
+					,T1.TRD_CUR_CD
+                    ,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 
+                            CASE T3.SHIP_INST_TYP
+        						WHEN MAC_SHIP_INST_TYP.PICK THEN T4.SHIP_INST_QTY
+        						WHEN MAC_SHIP_INST_TYP.NON THEN T4.SHIP_ACT_QTY
+                                ELSE T2.BASE_UNIT_QTY
+        					END
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END BASE_UNIT_SLO_QTY
+					,CASE T1.SLO_TYP
+                        WHEN MSC_SLO_TYP.SLO THEN 
+                            CASE T3.SHIP_INST_TYP
+        						WHEN MAC_SHIP_INST_TYP.PICK THEN 
+                                    MAPA_AMT.F_GET_EXC_TAX_AMT (
+										T2.TRD_CUR_UPRI,
+										MAPA_CALC.F_RND_NE((T4.SHIP_INST_QTY * M1.CONV_BASE_QTY) / M1.CONV_QTY, M1.DEC_PLACE, M1.RND_TYP),
+										M3.SLS_AMT_RND_TYP,
+										M3.SLS_TAX_RND_TYP,
+										M4.AMT_DEC_PLACE,
+										M2.INC_TAX_FLG,
+										M2.TAX_RATE,
+                						MAPA_CALC.F_RND_NE(T2.TRD_CUR_DSCNT_AMT * MAPA_CALC.F_RND_NE((T4.SHIP_INST_QTY * M1.CONV_BASE_QTY) / M1.CONV_QTY, M1.DEC_PLACE, M1.RND_TYP) / T2.BASE_UNIT_QTY, M4.AMT_DEC_PLACE, M3.SLS_AMT_RND_TYP)
+            						)
+        						WHEN MAC_SHIP_INST_TYP.NON THEN 
+                                    MAPA_AMT.F_GET_EXC_TAX_AMT (
+										T2.TRD_CUR_UPRI,
+										MAPA_CALC.F_RND((T4.SHIP_ACT_QTY * M1.CONV_BASE_QTY) / M1.CONV_QTY, M1.DEC_PLACE, M1.RND_TYP),
+										M3.SLS_AMT_RND_TYP,
+										M3.SLS_TAX_RND_TYP,
+										M4.AMT_DEC_PLACE,
+										M2.INC_TAX_FLG,
+										M2.TAX_RATE,
+                						MAPA_CALC.F_RND_NE(T2.TRD_CUR_DSCNT_AMT * MAPA_CALC.F_RND_NE((T4.SHIP_ACT_QTY * M1.CONV_BASE_QTY) / M1.CONV_QTY, M1.DEC_PLACE, M1.RND_TYP) / T2.BASE_UNIT_QTY, M4.AMT_DEC_PLACE, M3.SLS_AMT_RND_TYP)
+            						)
+                                ELSE T2.TRD_CUR_AMT
+        					END
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END TRD_CUR_SLO_AMT
+					,CASE T1.SLO_TYP
+                        WHEN MSC_SLO_TYP.SLO THEN 
+                            CASE T3.SHIP_INST_TYP
+        						WHEN MAC_SHIP_INST_TYP.PICK THEN 
+                                    MAPA_CALC.F_RND (
+										NVL(T2.COST_UPRI, 0) * T4.SHIP_INST_QTY,
+										M6.AMT_DEC_PLACE,
+										MAC_RND_TYP.RNDOFF
+            						)
+        						WHEN MAC_SHIP_INST_TYP.NON THEN 
+                                    MAPA_CALC.F_RND (
+										NVL(T2.COST_UPRI, 0) * T4.SHIP_ACT_QTY,
+										M6.AMT_DEC_PLACE,
+										MAC_RND_TYP.RNDOFF
+            						)
+                                ELSE NVL(T2.COST_AMT, 0)
+        					END
+						WHEN MSC_SLO_TYP.PRE_SLO THEN 0
+					 END SLO_COST_AMT
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN T2.BASE_UNIT_QTY
+					 END BASE_UNIT_PRE_SLO_QTY
+					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN T2.TRD_CUR_AMT
+					 END TRD_CUR_PRE_SLO_AMT
+ 					,CASE T1.SLO_TYP
+						WHEN MSC_SLO_TYP.SLO THEN 0
+						WHEN MSC_SLO_TYP.PRE_SLO THEN NVL(T2.COST_AMT, 0)
+					 END PRE_SLO_COST_AMT
+					,0 CST_FRCST_QTY
+					,NULL DT
+				FROM
+					MST_SLO T1
+					JOIN MST_SLO_D T2 ON (T1.SLO_NO = T2.SLO_NO)
+                    JOIN MST_SHIP_PR T3 ON (T2.SLO_D_NO = T3.SLO_D_NO)
+                    JOIN MST_SHIP_SCHD T4 ON (T3.SHIP_PR_NO = T4.SHIP_PR_NO)
+                    LEFT JOIN MAVM_ITM_UNIT M1 ON (T4.ITM_CD = M1.ITM_CD AND T4.ITM_SUB1 = M1.ITM_SUB1 AND T4.ITM_SUB2 = M1.ITM_SUB2 AND T4.ITM_SUB3 = M1.ITM_SUB3 AND T4.TRD_UNIT_CD = M1.UNIT_CD)
+                    LEFT JOIN MAM_TAX M2 ON (T2.tax_cd = M2.tax_cd)
+                    LEFT JOIN MAM_BP M3 ON (T1.cst_cd = M3.bp_cd)
+                    LEFT JOIN MAM_CUR M4 ON (T1.trd_cur_cd = M4.cur_cd)
+                    CROSS JOIN MAM_CO M5
+                    LEFT JOIN MAM_CUR M6 ON (M5.base_cur_cd = M6.cur_cd)
+				WHERE
+					0 = 0
+				AND T1.CAN_FLG = '0'
+				AND T1.TRD_PTN_TYP = MAC_TRD_PTN_TYP.SLS
+				AND T2.VMI_FLG = '0'
+				AND T2.CAN_FLG = '0'
+    			AND T2.ABORT_FLG = '1' -- 受注明細打切
+                AND T4.ABORT_FLG = '0' -- 出荷予定の打切は対象外
+				AND T2.BD_DPT_CD IS NULL
+				AND T2.SLO_SUM_BASE_DT >= L_SUM_ST_DT
+				AND (T1.SLS_DPT_CD = I_SLS_DPT_CD OR I_SLS_DPT_CD IS NULL)
+				UNION ALL
+				-- インボイス登録で行追加したインボイス明細
+				-- 受注金額として集計する。どの受注に対応するかは特定できないので、本受注として集計する
+				SELECT
+					MAPA_DT.F_GET_AC_YM(NVL(T1.TRD_SCHD_DT, T1.IV_DT)) YM
+					,T2.SLS_DPT_CD
+					,T2.SLS_USR_CD
+					,T1.SHIP_RQST_ID_CD CST_CD
+					,T3.WRK_NO
+					,T2.ITM_CD
+					,T2.ITM_SUB1
+					,T2.ITM_SUB2
+					,T2.ITM_SUB3
+					,T1.TRD_CUR_CD
+					,T2.BASE_UNIT_QTY BASE_UNIT_SLO_QTY
+					,T2.TRD_CUR_AMT TRD_CUR_SLO_AMT
+					,MAPA_STD_COST.F_GET_STD_AMT(T2.ITM_CD, T2.ITM_SUB1, T2.ITM_SUB2, T2.ITM_SUB3,
+						T1.IV_DT, M1.WG_CD, T2.BASE_UNIT_QTY, M2.GM_STD_UPRI_TYP) SLO_COST_AMT
+					,0 BASE_UNIT_PRE_SLO_QTY
+					,0 TRD_CUR_PRE_SLO_AMT
+					,0 PRE_SLO_COST_AMT
+					,0 CST_FRCST_QTY
+					,NULL DT
+				FROM
+					MST_IV T1
+					JOIN MST_IV_D T2 ON (T1.IV_MNG_NO = T2.IV_MNG_NO)
+					LEFT JOIN MSVT_WRK_SNO T3 ON (T2.SNO1 = T3.SNO1)
+					LEFT JOIN MAM_DPT M1 ON (T2.SLS_DPT_CD = M1.DPT_CD AND T1.IV_DT BETWEEN M1.ST_DT AND M1.END_DT)
+					CROSS JOIN MAM_CO M2
+				WHERE
+					0 = 0
+				AND T2.MANUAL_ADD_FLG = '1'
+				AND T1.TRD_SCHD_DT >= L_SUM_ST_DT
+				AND (T2.SLS_DPT_CD = I_SLS_DPT_CD OR I_SLS_DPT_CD IS NULL)
+				AND T1.TRD_PTN_TYP = MAC_TRD_PTN_TYP.SLS
+				UNION ALL
+				-- 顧客期間内示
+				SELECT
+					T1.YM
+					,T1.SLS_DPT_CD
+					,T1.SLS_USR_CD
+					,T1.CST_CD
+					,T1.WRK_NO
+					,T1.ITM_CD
+					,T1.ITM_SUB1
+					,T1.ITM_SUB2
+					,T1.ITM_SUB3
+					,NULL TRD_CUD_CD -- ワークテーブル登録後に算出する
+					,0 BASE_UNIT_SLO_QTY
+					,0 TRD_CUR_SLO_AMT
+					,0 SLO_COST_AMT
+					,0 BASE_UNIT_PRE_SLO_QTY
+					,0 TRD_CUR_PRE_SLO_AMT
+					,0 PRE_SLO_COST_AMT
+					,T1.CST_FRCST_QTY
+					,MAPA_DT.F_GET_YM_ST_DT_NE(T1.YM, L_CO.AC_CL_DAY, L_CO.AC_CL_MON_BASE) DT
+				FROM
+					MST_FRCST_SUM T1
+				WHERE
+					0 = 0
+				AND T1.YM >= I_SUM_ST_YM
+				AND (T1.SLS_DPT_CD = I_SLS_DPT_CD OR I_SLS_DPT_CD IS NULL)
+				) V
+				LEFT JOIN MAM_SPLN_ITM_CONF M1 ON
+					(0 = 0
+					AND V.ITM_CD = M1.ITM_CD
+					AND V.ITM_SUB1 = M1.ITM_SUB1
+					AND V.ITM_SUB2 = M1.ITM_SUB2
+					AND V.ITM_SUB3 = M1.ITM_SUB3
+					AND V.SLS_DPT_CD = DECODE(M1.DPT_CD, G_NULL_VAL, V.SLS_DPT_CD, M1.DPT_CD)
+					AND V.YM BETWEEN M1.ST_YM AND M1.END_YM
+					AND M1.DEL_FLG = '0'
+					)
+			;
+
+	END P_INS_WK ;
+
+	PROCEDURE P_UPD_WK_SPLN
+	/**************************************************************************
+	<SYNOPSIS>
+		ワークテーブルに、販売計画で必要な情報を更新する
+	<REMARKS>
+
+	<ARGUMENTS>
+	<HISTORY>
+	**************************************************************************/
+	IS
+
+	BEGIN
+			-- 1:USR:X,A->X,A
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.USR_CST_CD = T.CST_CD
+			  ,T.USR_WRK_NO = T.WRK_NO
+			WHERE 0=0
+			AND T.USR_CST_CD = G_NULL_VAL
+			AND T.USR_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+						AND X.CST_CD = T.CST_CD
+						AND X.WRK_NO = T.WRK_NO
+						AND X.CST_CD <> G_NULL_VAL
+						AND X.WRK_NO <> G_NULL_VAL
+						)
+			;
+
+			-- 2:USR:Y,A->*,A
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.USR_WRK_NO = T.WRK_NO
+			WHERE 0=0
+			AND T.USR_CST_CD = G_NULL_VAL
+			AND T.USR_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+			            AND X.WRK_NO = T.WRK_NO
+			            AND X.CST_CD = G_NULL_VAL
+			            AND X.WRK_NO <> G_NULL_VAL
+			            )
+			;
+
+			-- 3:USR:X,B->X,*
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.USR_CST_CD = T.CST_CD
+			WHERE 0=0
+			AND T.USR_CST_CD = G_NULL_VAL
+			AND T.USR_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+			            AND X.CST_CD = T.CST_CD
+			            AND X.CST_CD <> G_NULL_VAL
+			            AND X.WRK_NO = G_NULL_VAL
+			            )
+			;
+
+			-- 4:SUM:X,A->X,A
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.SUM_CST_CD = T.USR_CST_CD
+			  ,T.SUM_WRK_NO = T.USR_WRK_NO
+			WHERE 0=0
+			AND T.SUM_CST_CD = G_NULL_VAL
+			AND T.SUM_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+			            AND X.CST_CD = T.USR_CST_CD
+			            AND X.WRK_NO = T.USR_WRK_NO
+			            AND X.CST_CD_UNIT_FLG = '1'
+			            AND X.WRK_NO_UNIT_FLG = '1'
+			            )
+			;
+
+			-- 5:SUM:X,A->*,A
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.SUM_CST_CD = G_NULL_VAL
+			  ,T.SUM_WRK_NO = T.USR_WRK_NO
+			WHERE 0=0
+			AND T.SUM_CST_CD = G_NULL_VAL
+			AND T.SUM_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+			            AND X.CST_CD = T.USR_CST_CD
+			            AND X.WRK_NO = T.USR_WRK_NO
+			            AND X.CST_CD_UNIT_FLG = '0'
+			            AND X.WRK_NO_UNIT_FLG = '1'
+			            )
+			;
+
+			-- 6:SUM:X,A->X,*
+			UPDATE MSW_FRCST_SLO_SUM T
+			SET
+			   T.SUM_CST_CD = T.USR_CST_CD
+			  ,T.SUM_WRK_NO = G_NULL_VAL
+			WHERE 0=0
+			AND T.SUM_CST_CD = G_NULL_VAL
+			AND T.SUM_WRK_NO = G_NULL_VAL
+			AND EXISTS (SELECT 'X'
+						FROM MST_SPLN_FMT X
+							LEFT OUTER JOIN MAM_SPLN_ITM_CONF M ON
+								(0=0
+								AND M.SPLN_ITM_CD = X.SPLN_ITM_CD
+								AND DECODE(M.DPT_CD, G_NULL_VAL, X.DPT_CD, M.DPT_CD) = X.DPT_CD
+								AND M.ST_YM <= X.END_YM
+								AND M.END_YM >= X.ST_YM
+								AND M.DEL_FLG = '0'
+								)
+						WHERE 0=0
+						AND X.DPT_CD = T.SLS_DPT_CD
+						AND X.SPLN_ITM_CD  = T.SPLN_ITM_CD
+						AND (
+								X.SPLN_ITM_CD <> G_NULL_VAL
+							AND M.ITM_CD = T.ITM_CD AND M.ITM_SUB1 = T.ITM_SUB1 AND M.ITM_SUB2 = T.ITM_SUB2 AND M.ITM_SUB3 = T.ITM_SUB3
+							OR
+								X.SPLN_ITM_CD  = G_NULL_VAL
+							AND X.ITM_CD = T.ITM_CD AND X.ITM_SUB1 = X.ITM_SUB1 AND X.ITM_SUB2 = T.ITM_SUB2 AND X.ITM_SUB3 = T.ITM_SUB3
+						)
+						AND GREATEST(X.ST_YM, NVL(M.ST_YM, X.ST_YM)) <= T.YM
+						AND LEAST(X.END_YM, NVL(M.END_YM, X.END_YM)) >= T.YM
+			            AND X.CST_CD = T.USR_CST_CD
+			            AND X.WRK_NO = T.USR_WRK_NO
+			            AND X.CST_CD_UNIT_FLG = '1'
+			            AND X.WRK_NO_UNIT_FLG = '0'
+			            )
+			;
+
+	END P_UPD_WK_SPLN;
+
+	PROCEDURE P_UPD_WK_FRCST
+	/**************************************************************************
+	<SYNOPSIS>
+		ワークテーブルの顧客期間内示情報の金額を計算する
+	<REMARKS>
+
+	<ARGUMENTS>
+	<HISTORY>
+	**************************************************************************/
+	IS
+		CURSOR
+			CUR_FRCST
+		IS
+			SELECT
+				W.ROWID
+				,W.*
+				,M1.SLS_AMT_RND_TYP
+				,M1.SLS_TAX_RND_TYP
+				,M2.AMT_DEC_PLACE
+				,M3.UNIT_CD
+				,M4.WG_CD
+			FROM
+				MSW_FRCST_SLO_SUM W
+				LEFT JOIN MAM_BP M1 ON (W.CST_CD = M1.BP_CD)
+				LEFT JOIN MAM_CUR M2 ON (W.TRD_CUR_CD = M2.CUR_CD)
+				LEFT JOIN MAM_ITM M3 ON (W.ITM_CD = M3.ITM_CD AND W.ITM_SUB1 = M3.ITM_SUB1 AND W.ITM_SUB2 = M3.ITM_SUB2 AND W.ITM_SUB3 = M3.ITM_SUB3)
+				LEFT JOIN MAM_DPT M4 ON (W.SLS_DPT_CD = M4.DPT_CD AND W.DT BETWEEN M4.ST_DT AND M4.END_DT)
+			WHERE
+			    0 = 0
+			AND W.CST_FRCST_QTY > 0
+			;
+
+		L_UPRI MAPA_META.MONEY%TYPE;
+		L_AMT  MAPA_META.MONEY%TYPE;
+		L_INC_TAX_FLG MAPA_META.FLG%TYPE;
+		L_TAX_RATE MAPA_META.TAX_RATE%TYPE;
+		L_CONV_BASE_QTY MAPA_META.QTY%TYPE;
+		L_CONV_QTY MAPA_META.QTY%TYPE;
+
+	BEGIN
+		-- 取引通貨を設定（販売計画から通貨を取得する）
+		UPDATE MSW_FRCST_SLO_SUM W SET
+			W.TRD_CUR_CD = (SELECT
+								S.CUR_CD
+							FROM
+								MST_SPLN_FMT S
+							WHERE
+								0 = 0
+								AND W.SLS_DPT_CD = S.DPT_CD
+								AND W.USR_CST_CD = S.CST_CD
+								AND W.WRK_NO = S.WRK_NO
+								AND
+									(	W.SPLN_ITM_CD = G_NULL_VAL
+									AND W.SPLN_ITM_CD = S.SPLN_ITM_CD
+									AND W.ITM_CD   = S.ITM_CD
+									AND W.ITM_SUB1 = S.ITM_SUB1
+									AND W.ITM_SUB2 = S.ITM_SUB2
+									AND W.ITM_SUB3 = S.ITM_SUB3
+									OR
+										W.SPLN_ITM_CD <> G_NULL_VAL
+									AND W.SPLN_ITM_CD = S.SPLN_ITM_CD
+									)
+								AND W.YM BETWEEN S.ST_YM AND S.END_YM)
+		WHERE
+			0 = 0
+			AND CST_FRCST_QTY > 0
+		;
+		-- 販売計画から通貨が取得できなければ、取引先マスタの取引通貨とする
+		UPDATE MSW_FRCST_SLO_SUM W SET
+			W.TRD_CUR_CD = (SELECT CUR_CD FROM MAM_BP M WHERE W.CST_CD = M.BP_CD)
+		WHERE
+			0 = 0
+			AND CST_FRCST_QTY > 0
+			AND TRD_CUR_CD IS NULL
+		;
+
+		FOR L_FRCST IN CUR_FRCST LOOP
+
+			-- 単価の取得
+			DELETE MAW_SLS_UPRI_SRV;
+
+			INSERT INTO MAW_SLS_UPRI_SRV (
+				PEG_NO
+				,ITM_CD
+				,ITM_SUB1
+				,ITM_SUB2
+				,ITM_SUB3
+				,CST_CD
+				,UNIT_CD
+				,QTY
+				,CUR_CD
+				,WG_CD
+				,DT
+				,GRP_NO
+				,SLS_UPRI_FLG
+			) VALUES (
+				1
+				,L_FRCST.ITM_CD
+				,L_FRCST.ITM_SUB1
+				,L_FRCST.ITM_SUB2
+				,L_FRCST.ITM_SUB3
+				,L_FRCST.CST_CD
+				,NVL(L_FRCST.UPRI_UNIT_CD, L_FRCST.UNIT_CD)
+				,NVL(L_FRCST.LOT_QTY, 9999999999.99999999)
+				,L_FRCST.TRD_CUR_CD
+				,L_FRCST.WG_CD
+				,L_FRCST.DT
+				,'1'
+				,'1'
+			);
+
+			MAPA_SLS_UPRI.P_SET_SLS_UPRI_WK;
+
+			SELECT NVL(SLS_UPRI, 0) INTO L_UPRI FROM MAW_SLS_UPRI_SRV;
+
+			DELETE MAW_SLS_UPRI_SRV;
+
+			-- 金額計算
+			IF L_UPRI <> 0 THEN
+				SELECT
+					INC_TAX_FLG, TAX_RATE
+				INTO
+					L_INC_TAX_FLG, L_TAX_RATE
+				FROM
+					MAM_TAX
+				WHERE
+					0 = 0
+				AND TAX_CD = MAPA_TAX.F_GET_SLS_TAX_CD(L_FRCST.ITM_CD, L_FRCST.ITM_SUB1, L_FRCST.ITM_SUB2, L_FRCST.ITM_SUB3, L_FRCST.CST_CD, L_FRCST.DT)
+				;
+
+				IF L_FRCST.UPRI_UNIT_CD IS NULL THEN
+					L_AMT := MAPA_AMT.F_GET_EXC_TAX_AMT(L_UPRI, L_FRCST.CST_FRCST_QTY, L_FRCST.SLS_AMT_RND_TYP, L_FRCST.SLS_TAX_RND_TYP, L_FRCST.AMT_DEC_PLACE, L_INC_TAX_FLG, L_TAX_RATE);
+				ELSE
+					SELECT
+						CONV_BASE_QTY, CONV_QTY
+					INTO
+						L_CONV_BASE_QTY, L_CONV_QTY
+					FROM
+						MAVM_ITM_UNIT
+					WHERE
+						0 = 0
+					AND ITM_CD = L_FRCST.ITM_CD
+					AND ITM_SUB1 = L_FRCST.ITM_SUB1
+					AND ITM_SUB2 = L_FRCST.ITM_SUB2
+					AND ITM_SUB3 = L_FRCST.ITM_SUB3
+					AND UNIT_CD = L_FRCST.UPRI_UNIT_CD
+					;
+
+					L_AMT := MAPA_AMT.F_GET_EXC_TAX_AMT(L_UPRI, L_FRCST.CST_FRCST_QTY * L_CONV_BASE_QTY / L_CONV_QTY, L_FRCST.SLS_AMT_RND_TYP, L_FRCST.SLS_TAX_RND_TYP, L_FRCST.AMT_DEC_PLACE, L_INC_TAX_FLG, L_TAX_RATE);
+				END IF;
+
+				-- 金額の更新
+				UPDATE MSW_FRCST_SLO_SUM SET TRD_CUR_CST_FRCST_AMT = L_AMT WHERE ROWID = L_FRCST.ROWID;
+			END IF;
+
+		END LOOP;
+
+	END P_UPD_WK_FRCST;
+
+	PROCEDURE P_INS_TRN
+	/**************************************************************************
+	<SYNOPSIS>
+		ワークテーブルを集計し、MST_FRCST_SLO_SUMにレコードを追加する
+	<REMARKS>
+
+	<ARGUMENTS>
+	<HISTORY>
+	**************************************************************************/
+	IS
+
+	BEGIN
+		INSERT INTO MST_FRCST_SLO_SUM (
+			YM
+			,SLS_DPT_CD
+			,SLS_USR_CD
+			,CST_CD
+			,WRK_NO
+			,ITM_CD
+			,ITM_SUB1
+			,ITM_SUB2
+			,ITM_SUB3
+			,TRD_CUR_CD
+			,SPLN_ITM_CD
+			,SLS_ITM_GRP_CD
+			,BASE_UNIT_SLO_QTY
+			,TRD_CUR_SLO_AMT
+			,SLO_COST_AMT
+			,BASE_UNIT_PRE_SLO_QTY
+			,TRD_CUR_PRE_SLO_AMT
+			,PRE_SLO_COST_AMT
+			,CST_FRCST_QTY
+			,TRD_CUR_CST_FRCST_AMT
+			,USR_CST_CD
+			,USR_WRK_NO
+			,SUM_CST_CD
+			,SUM_WRK_NO
+		)
+		SELECT
+			YM
+			,SLS_DPT_CD
+			,SLS_USR_CD
+			,CST_CD
+			,WRK_NO
+			,ITM_CD
+			,ITM_SUB1
+			,ITM_SUB2
+			,ITM_SUB3
+			,TRD_CUR_CD
+			,SPLN_ITM_CD
+			,SLS_ITM_GRP_CD
+			,SUM(BASE_UNIT_SLO_QTY)
+			,SUM(TRD_CUR_SLO_AMT)
+			,SUM(SLO_COST_AMT)
+			,SUM(BASE_UNIT_PRE_SLO_QTY)
+			,SUM(TRD_CUR_PRE_SLO_AMT)
+			,SUM(PRE_SLO_COST_AMT)
+			,SUM(CST_FRCST_QTY)
+			,SUM(TRD_CUR_CST_FRCST_AMT)
+			,USR_CST_CD
+			,USR_WRK_NO
+			,SUM_CST_CD
+			,SUM_WRK_NO
+		FROM
+			MSW_FRCST_SLO_SUM
+		GROUP BY
+			YM
+			,SLS_DPT_CD
+			,SLS_USR_CD
+			,CST_CD
+			,WRK_NO
+			,ITM_CD
+			,ITM_SUB1
+			,ITM_SUB2
+			,ITM_SUB3
+			,TRD_CUR_CD
+			,SPLN_ITM_CD
+			,SLS_ITM_GRP_CD
+			,USR_CST_CD
+			,USR_WRK_NO
+			,SUM_CST_CD
+			,SUM_WRK_NO
+	;
+
+	END P_INS_TRN;
+
+	PROCEDURE P_FRCST_SLO_SUM_MAIN (
+		I_SUM_ST_YM				IN MAPA_META.YM%TYPE,
+		I_SLS_DPT_CD			IN MAPA_META.DPT_CD%TYPE
+	)
+	/**************************************************************************
+	<SYNOPSIS>
+		顧客内示・受注集計テーブルを更新する（メイン処理）
+	<REMARKS>
+
+	<ARGUMENTS>
+	<IN>
+		I_SLS_ST_YM
+			集計開始年月
+	<IN>
+		I_SLS_DPT_CD
+			売上部門ＣＤ
+	<HISTORY>
+	**************************************************************************/
+	IS
+
+	BEGIN
+
+		-- 集計条件に従ってMST_FRCST_SLO_SUMを削除する
+		DELETE
+			MST_FRCST_SLO_SUM T
+		WHERE
+			0 = 0
+			AND T.YM >= I_SUM_ST_YM
+			AND (T.SLS_DPT_CD = I_SLS_DPT_CD OR I_SLS_DPT_CD IS NULL)
+		;
+
+		-- ワークテーブルにレコードを追加
+		P_INS_WK(I_SUM_ST_YM, I_SLS_DPT_CD);
+
+		-- ワークテーブルに販売計画に必要な項目を設定する
+		P_UPD_WK_SPLN;
+
+		-- ワークテーブルの顧客期間内示のデータを更新する
+		P_UPD_WK_FRCST;
+
+		-- ワークテーブルを集計して、MST_FRCST_SLO_SUMに書き込む
+		P_INS_TRN;
+
+		-- ワークテーブルを削除する
+		DELETE MSW_FRCST_SLO_SUM;
+
+	END P_FRCST_SLO_SUM_MAIN;
+
+END MSPA_FRCST_SLO_SUM ;
+/

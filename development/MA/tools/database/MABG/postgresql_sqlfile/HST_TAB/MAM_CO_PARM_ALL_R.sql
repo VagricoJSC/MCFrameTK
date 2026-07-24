@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE TABLE mam_co_parm_all_r
+(
+hst_id numeric(24,0) DEFAULT 0 NOT NULL,
+hst_type varchar(2) NOT NULL,
+co_cd varchar (10) NULL,
+std_rnd_typ varchar (1) NULL,
+std_dec_place numeric (2,0) NULL,
+amt_rnd_typ varchar (1) NULL,
+amt_dec_place numeric (2,0) NULL,
+ave_rnd_typ varchar (1) NULL,
+ave_dec_place numeric (2,0) NULL,
+adj_typ varchar (1) NULL,
+mrgn_expns_cd varchar (20) NULL,
+purc_expns_cd varchar (20) NULL,
+out_expns_cd varchar (20) NULL,
+inpt_expns_cd varchar (20) NULL,
+ss_expns_cd varchar (20) NULL,
+prov_expns_cd varchar (20) NULL,
+pre_alc_max_lvl numeric (3,0) NULL,
+pre_alc_max_rec numeric (9,0) NULL,
+diff_use_typ varchar (1) NULL,
+def_calc_ctg_cd varchar (10) NULL,
+fix_dpt_cd varchar (20) NULL,
+lot_use_typ varchar (1) NULL,
+sublot_use_typ varchar (1) NULL,
+sno1_use_typ varchar (1) NULL,
+sno2_use_typ varchar (1) NULL,
+sno3_use_typ varchar (1) NULL,
+sno4_use_typ varchar (1) NULL,
+trd_ratio_flg char (1) DEFAULT '0' NULL,
+stop_slip_flg char (1) DEFAULT '0' NULL,
+non_prod_flg char (1) DEFAULT '0' NULL,
+oper_sum_flg char (1) DEFAULT '0' NULL,
+non_sls_flg char (1) DEFAULT '0' NULL,
+asst_flg char (1) DEFAULT '0' NULL,
+stk_bp_flg char (1) DEFAULT '0' NULL,
+non_transit_flg char (1) DEFAULT '0' NULL,
+wg_non_mov_flg char (1) DEFAULT '0' NULL,
+lot_non_mov_flg char (1) DEFAULT '0' NULL,
+sublot_non_mov_flg char (1) DEFAULT '0' NULL,
+sno1_non_mov_flg char (1) DEFAULT '0' NULL,
+sno2_non_mov_flg char (1) DEFAULT '0' NULL,
+sno3_non_mov_flg char (1) DEFAULT '0' NULL,
+sno4_non_mov_flg char (1) DEFAULT '0' NULL,
+tmp_dpt_cd varchar (20) NULL,
+act_trd_calc_ctg_cd varchar (10) NULL,
+chk_mst_flg char (1) DEFAULT '0' NULL,
+stktk_sum_flg char (1) DEFAULT '0' NULL,
+oth_ccn_sum_flg char (1) DEFAULT '0' NULL,
+amt_disp_digit numeric (1,0) NULL,
+unit_disp_digit numeric (1,0) NULL,
+std_disp_digit numeric (1,0) NULL,
+rate_disp_digit numeric (1,0) NULL,
+excel_pln_flg char (1) DEFAULT '0' NULL,
+excel_act_flg char (1) DEFAULT '0' NULL,
+excel_alc_flg char (1) DEFAULT '0' NULL,
+memo1 varchar (100) NULL,
+memo2 varchar (100) NULL,
+memo3 varchar (100) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+
+ALTER TABLE mam_co_parm_all_r ADD CONSTRAINT mam_co_parm_all_r_pk PRIMARY KEY(hst_id);
+
+
+INSERT INTO fcm_history_table (history_table_name, table_name, trigger_name)
+VALUES ('mam_co_parm_all_r', 'mam_co_parm_all', 'mam_co_parm_all_tr_r');
+

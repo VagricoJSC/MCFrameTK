@@ -1,0 +1,63 @@
+
+COMMENT ON TABLE MST_IV_SHIP_ACT_MAP IS 'インボイス出荷実績マップ // Invoice shipping result map';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.IV_D_NO IS 'インボイス明細ＮＯ // #MA.IV_D_NO // Invoice details No.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SHIP_ACT_D_NO IS '出荷実績明細ＮＯ // #MA.SHIP_ACT_D_NO // Shipping result details No.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SHIP_SCHD_NO IS '出荷予定ＮＯ // #MA.SHIP_SCHD_NO // Shipping schedule No.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SHIP_ALLOC_STS_NO IS '出荷引当状況ＮＯ // #MA.SHIP_ALLOC_STS_NO // Shipping allocation status No.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.BASE_UNIT_QTY IS '基準単位数量 // #MA.QTY // Base unit qty.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.FIX_FLG IS '確定ＦＬＧ // #MA.FLG // Firm flg.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SHIP_ACT_FIX_FLG IS '出荷実績指定ＦＬＧ // #MA.FLG // Shipping result specification flg.';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SUB_CHAR1 IS '予備１ // #MS.IV_MAP_SUB_CHAR1 // Spare 1';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SUB_CHAR2 IS '予備２ // #MS.IV_MAP_SUB_CHAR2 // Spare 2';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.SUB_CHAR3 IS '予備３ // #MS.IV_MAP_SUB_CHAR3 // Spare 3';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MST_IV_SHIP_ACT_MAP.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

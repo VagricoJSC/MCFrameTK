@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCAppClient Constant-->
+<mcframe>
+	<CHARSET>
+		<FTL_CHARSET_NAME>MS932</FTL_CHARSET_NAME>
+		<SPEC_CSV_CHARSET_NAME>MS932</SPEC_CSV_CHARSET_NAME>
+		<SRC_OUT_CHARSET_NAME>UTF-8</SRC_OUT_CHARSET_NAME>
+		<PLSQL_OUT_CHARSET_NAME>UTF-8</PLSQL_OUT_CHARSET_NAME>
+	</CHARSET>
+	<SPEC_CSV_SEPARATOR_CODE>COMMA</SPEC_CSV_SEPARATOR_CODE><!-- TAB / COMMA -->
+	
+	<!-- 環境（Windows）のシステムロケールの影響を受けないようにするために   -->
+	<!-- Builder自動生成のデータの変遷  「SpecExcel → CSV → 自動生成ソース」　のうちの   -->
+	<!-- CSV(中間CSVファイル）は、"UNICODE TEXT"形式としている。   -->
+	<!-- ■ 中間CSVファイルを"UNICODE TEXT"形式（TAB区切り）とする設定（default）   -->
+	<!--    CHARSET.SPEC_CSV_CHARSET_NAME=UTF-16    -->
+	<!--    SPEC_CSV_SEPARATOR_CODE=TAB    -->
+	<!--    EX2CSV.FILE_FORMAT=42    -->
+	<!-- ■ 中間CSVファイルを"ローカルコード(日本ではSJIS)CSV"形式とする設定    -->
+	<!--    CHARSET.SPEC_CSV_CHARSET_NAME=MS932   -->
+	<!--    SPEC_CSV_SEPARATOR_CODE=COMMA    -->
+	<!--    EX2CSV.FILE_FORMAT=6    -->
+	
+	<DEFAULT>
+		<PJ>MC</PJ>
+		<PACKAGE>
+			<COMMON>mcframe.common{{SUBMODULE_ID}.{{ID}</COMMON>
+			<SERVER>mcframe.server{{SUBMODULE_ID}.{{ID}</SERVER>
+			<IC_PKG_SERVER>mcframe.server{{SUBMODULE_ID}.If{{ID}</IC_PKG_SERVER>
+			<CLIENT>mcframe.client{{SUBMODULE_ID}.{{ID}</CLIENT>
+			<META>mcframe.common{{MODULE_ID}.meta</META>
+			<DBC>mcframe.server{{MODULE_ID}.dbc</DBC>
+		</PACKAGE>
+	</DEFAULT>
+	<!-- XMLの要素名として「全角文字」は処理系によっては問題が発生する可能性があるので -->
+	<!-- 使用を推奨しない。しかし過去のXAプロジェクトのアプリ設計の互換性を考慮し -->
+	<!-- リスクがあっても「全角文字」を使用したい場合にはこの設定を"false"とし -->
+	<!-- アプリ設計のＩＤ等の箇所に「全角文字」があっても「警告」を発生しないようにできる。 -->
+	<XmlFullCharValidation>true</XmlFullCharValidation>
+	<ProjectPath>RT,MC,FW</ProjectPath>
+	<!-- ProjectPathFile を指定する仕様も実装予定 -->
+	<!-- SB,OB,RB の実装仕様書ブロック定義のBカラムに"*"と記述されていた場合のコンテナ構造設定。 -->
+	<!-- "3"の場合にはブロック定義Bカラムに"*"とあると3階層構造で生成する。 -->
+	<!-- "2"の場合にはブロック定義Bカラムに"*"とあると2階層構造で生成する。 -->
+	<BLOCK_DEFAULT_GENE_MODE>2</BLOCK_DEFAULT_GENE_MODE>
+	
+	<LIST_GENE_630>false</LIST_GENE_630>
+	
+	<!-- 統計用情報ファイル（リポジトリとセット）を書き出すかどうか -->
+	<OUTPUT_STATISTICS_FILE>false</OUTPUT_STATISTICS_FILE>
+	
+	<RP>
+		<WITH_PJ_LAYER>true</WITH_PJ_LAYER>
+		<LOAD_FORMAT_VERSION>NEW</LOAD_FORMAT_VERSION>
+	</RP>
+	<MB>
+		<DEFAULT_SUPER_CLASS></DEFAULT_SUPER_CLASS>
+		<RES_OUT_WITH_MODULE>true</RES_OUT_WITH_MODULE>
+		<RESOURCE_SUFFIX>_A</RESOURCE_SUFFIX>
+		<!-- 桁指定が"$free$"の文字列項目の場合のDB項目定義の文字列長  -->
+		<FREE_VARCHAR2_DEF_LEN>1000</FREE_VARCHAR2_DEF_LEN>
+	</MB>
+	<OB>
+		<DEFAULT_SUPER_CLASS>MCOperation</DEFAULT_SUPER_CLASS>
+		<DEFAULT_SUPER_INTERFACE>IfMCOperation</DEFAULT_SUPER_INTERFACE>
+		<DEFAULT_SUPER_LOGIC_CLASS>mcframe.serverCore.logic.MCLogicBase</DEFAULT_SUPER_LOGIC_CLASS>
+		<RES_OUT_WITH_MODULE>true</RES_OUT_WITH_MODULE>
+		<!-- 自動生成の際に -->
+		<!-- 自動生成Operationと同じxls（＝PjID,ModuleID,LogicIDが同じ）の -->
+		<!-- OperationがRepositoryのTopDirに存在している場合、削除する。-->
+		<DEL_DISCON_OPE_REPOSITORY>true</DEL_DISCON_OPE_REPOSITORY>
+		<DEFAULT_ACTYPE>exec</DEFAULT_ACTYPE>
+		<RESOURCE_SUFFIX>_A</RESOURCE_SUFFIX>
+		<KEYWORD>
+			<!-- OB の Item KEYWORD は、-->
+			<!-- mcframe.commonCore.container.MCConstRow （とそのSuperClass） -->
+			<!-- のメソッド文字列とする。-->
+			<!-- mcframe.fm.util.FMJavaWord METHOD mcframe.commonCore.container.MCConstRow -->
+			<!-- で文字列抽出できます。-->
+			<ITEM_ID>
+clear,clearAll,clone,constSize,
+create,createInstance,createTmpColList,finalize,
+getAliasArray,getClass,getColumnPathArray,getConstColumnPathArray,
+getConstMetaArray,getConstNameArray,getExtGroups,getGUIIndex,
+getMetaArray,getNameArray,getParamIndex,getParamRowIndex,
+getParentRow,getParentRowColumn,getParentRowColumnPath,getRefTime,
+getRelationKey,getRootRow,getRootRowColumnPath,getRootRowColumnPathArray,
+getStatus,getTempMetaArray,getTempNameArray,getUpdTime,
+hashCode,init,initAttributes,isEmpty,
+isGUICreated,isGUIDeleted,isGUIModified,isGUIVisible,
+isStatusCreate,isStatusDelete,isStatusGUICreate,isStatusModify,
+isStatusNone,msgBindClassName,notify,notifyAll,
+pb,registerNatives,removeTempColumn,ri,
+setGUINone,setStatusByGUIFlug,size,tempSize,
+tmpColList,toRowString,toString,wait
+		</ITEM_ID>
+		</KEYWORD>
+	</OB>
+	<SB>
+		<DEFAULT_SUPER_CLASS>MCRootPanel</DEFAULT_SUPER_CLASS>
+		<RES_OUT_WITH_MODULE>true</RES_OUT_WITH_MODULE>
+		<RESOURCE_SUFFIX>_A</RESOURCE_SUFFIX>
+		<DATE_DEFAULT_FORMAT>YMD</DATE_DEFAULT_FORMAT>
+		<TIMESTAMP_DEFAULT_FORMAT>YMD</TIMESTAMP_DEFAULT_FORMAT>
+		<DEFAULT_ACTYPE>show</DEFAULT_ACTYPE>
+		<MCLayout>
+			<!-- 第2階層：MESSAGE -->
+			<!--     [枠数不一致エラーID],[枠種類不一致エラーID],[Table,Tree枠にButtonが配置されている場合のエラーID] -->
+			<RLB>RowListButton
+			<BLOCKS>N,TBL,N</BLOCKS>
+				<MESSAGES>WFC00340,WFC00350,WFC00360</MESSAGES>
+				<TABLE_CHECK>true</TABLE_CHECK>
+			</RLB>
+			<RLBR>RowListButtonRow
+			<BLOCKS>N,TBL,N,N</BLOCKS>
+				<MESSAGES>WFC00341,WFC00351,WFC00360</MESSAGES>
+				<TABLE_CHECK>true</TABLE_CHECK>
+			</RLBR>
+			<G>GeneralLayout
+			<MESSAGES>,,WFC00360</MESSAGES>
+				<TABLE_CHECK>true</TABLE_CHECK>
+			</G>
+			<S>SimpleLayuot
+			<MESSAGES>,,WFC00360</MESSAGES>
+				<TABLE_CHECK>true</TABLE_CHECK>
+			</S>
+		</MCLayout>
+		<METHOD_CHECK>
+			<!-- ボタンの記述のチェックの設定 -->
+			<!-- 第1階層：[ボタンMETHOD記述] -->
+			<!-- 第2階層：[記述項目（IN or OUT）] -->
+			<!--     （2009/12現在は"IN"のみ対応）-->
+			<!-- 第3階層：COMPONENT -->
+			<!--     INもしくはOUTに記述されるブロックの種別 -->
+			<!-- 第3階層：MESSAGE -->
+			<!--     [ブロックが存在しなかった場合のエラーID],[ブロック種別が一致しなかった場合のエラーID] -->
+			<CLEAR>
+				<IN>
+					<COMPONENT>N,TBL,TRE,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01270</MESSAGE>
+				</IN>
+			</CLEAR>
+			<INSERT_RECORD>
+				<IN>
+					<COMPONENT>TBL,TRE,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01280</MESSAGE>
+				</IN>
+			</INSERT_RECORD>
+			<DELETE_RECORD>
+				<IN>
+					<COMPONENT>TBL,TRE,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01290</MESSAGE>
+				</IN>
+			</DELETE_RECORD>
+			<DELETE_RECORDS>
+				<IN>
+					<COMPONENT>TBL,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01300</MESSAGE>
+				</IN>
+			</DELETE_RECORDS>
+			<COPY_RECORD>
+				<IN>
+					<COMPONENT>TBL,TRE,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01310</MESSAGE>
+				</IN>
+			</COPY_RECORD>
+			<SELECT_ALL>
+				<IN>
+					<COMPONENT>TBL,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01320</MESSAGE>
+				</IN>
+			</SELECT_ALL>
+			<DESELECT_ALL>
+				<IN>
+					<COMPONENT>TBL,CGT,TBL2,LYT</COMPONENT>
+					<MESSAGE>WFC01260,WFC01330</MESSAGE>
+				</IN>
+			</DESELECT_ALL>
+		</METHOD_CHECK>
+		<TRIGGER>
+			<FUNCTION>F1,F2,F3,F4,F5,F6,F7,F8,F9,F11,F12,F13,F14,F15,F16,F17,F18,F19,F20,F21,F23,F24</FUNCTION>
+			<RESERVED>F2</RESERVED>
+		</TRIGGER>
+		<OPT1><!-- OPT1セルに記述できる項目候補。候補にない項目を記述したらエラーとする。-->
+			<!--<SPEC></SPEC>-->
+			<BLOCK>
+				<N></N>
+				<TBL>
+					<list>RowNumberColumn,StatusColumn</list>
+					<RowNumberColumn>true,false</RowNumberColumn>
+					<StatusColumn>true,false</StatusColumn>
+				</TBL>
+				<TRE>
+					<list>RootVisible,ScrollsOnExpand,DragAndDrop</list>
+					<RootVisible>ture,false</RootVisible>
+					<ScrollsOnExpand>true,false</ScrollsOnExpand>
+					<DragAndDrop>true,false</DragAndDrop>
+				</TRE>
+				<TAB>
+					<list>TabLayoutPolicy,TabPlacement</list>
+					<TabLayoutPolicy>WRAP_TAB_LAYOUT,SCROLL_TAB_LAYOUT</TabLayoutPolicy>
+					<TabPlacement>TOP,BOTTOM,LEFT,RIGHT</TabPlacement>
+				</TAB>
+			</BLOCK>
+			<!--<ITEM></ITEM>-->
+		</OPT1>
+		<LAYOUT_BUTTON_OVERLAP>true</LAYOUT_BUTTON_OVERLAP>
+		<PACK_LABEL_WIDTH>true</PACK_LABEL_WIDTH>
+		<PACK_LABEL_RIGHT_MARGIN>10</PACK_LABEL_RIGHT_MARGIN>
+		<MAX_LABEL_WIDTH_MONOSPACED_DIALOG>true</MAX_LABEL_WIDTH_MONOSPACED_DIALOG>
+		<IGNORE_SUPER_SCREENS_FOR_LAYOUT>
+			H.HXP0000,S.SXP0000,C.CPP0010
+		</IGNORE_SUPER_SCREENS_FOR_LAYOUT>
+		<!-- GUI部品配置の際の改行ルールをiSeriesのものにするフラグ -->
+		<!-- iSeriesルールでは表示名称を持つGUI部品で改行する仕様 -->
+		<!-- （適当なGUI部品がない場合には改行せずに画面をはみ出して配置する。）-->
+		<I_NEW_LINE_RULE>true</I_NEW_LINE_RULE>
+		<!-- 自動生成の詳細設定 -->
+		<!-- 複数の初期設定を[,]でつなげて設定する。-->
+		<!-- layout.xmlに親画面の枠部品・GUI部品を書き出すかどうかの設定 -->
+		<!-- LYT_ALL / LYT_DIFF -->
+		<!-- "LYT_ALL"の場合には親画面の部品もすべて書き出す。-->
+		<!-- 自画面で定義したGUI部品しか書き出さない場合には"LYT_DIFF"と記述する。-->
+		<GENE_DETAIL>LYT_DIFF</GENE_DETAIL>
+		<!-- 画面ステータス定義のある埋め込み画面（カラム）を利用している画面で、-->
+		<!-- その項目(SC,CM）のモードが未記述の場合には警告を出す機能オプション -->
+		<NON_DESCRIPTION_PARTS_STATUS_WARN>false</NON_DESCRIPTION_PARTS_STATUS_WARN>
+		<!-- 枠からGUI項目がはみ出しているかどうかの判断計算とBlockの$fit$による幅調整の計算にズレがあるため -->
+		<!-- 幅880の枠に収まる（GUI項目がはみ出さず改行もされない）と判断された枠で -->
+		<!-- Blockの$fit$により880以上の幅に調整されてしまう不具合がある。 -->
+		<!-- 上記計算のズレの修正は影響が大きいため特定条件下でのみ幅が拡大するBlockの$fit$を許す仕様とした。 -->
+		<!-- 以下は「特定条件下でのみ幅が拡大するBlockの$fit$を許す仕様」のスイッチ -->
+		<!-- trueの場合に「特定条件下でのみ幅が拡大するBlockの$fit$を許す」とする。 -->
+		<RESTRICT_EXPANDABLE_BLOCK_FIT>true</RESTRICT_EXPANDABLE_BLOCK_FIT>
+		<KEYWORD>
+			<!-- SB の Status KEYWORD は、-->
+			<!-- mcframe.clientCore.beans.MCRootPanel （とそのSuperClass） -->
+			<!-- のフィールド文字列とする。-->
+			<!-- mcframe.fm.util.FMJavaWord FIELD mcframe.clientCore.beans.MCRootPanel -->
+			<!-- で文字列抽出できます。-->
+			<STATUS_ID>
+ACTIONMAP_CREATED,ALREADY_DISPLAY,ANCESTOR_INPUTMAP_CREATED,ANCESTOR_USING_BUFFER,
+AUTOSCROLLS_SET,BOTTOM_ALIGNMENT,CENTER_ALIGNMENT,CHART_SETTING_PANEL,
+COLUMN_WIDTH_PANEL,COMPLETELY_OBSCURED,CREATED_DOUBLE_BUFFER,DEBUG_GRAPHICS_LOADED,
+EMPTY_ARRAY,FAILD,FOCUS_INPUTMAP_CREATED,FOCUS_TRAVERSABLE_DEFAULT,
+FOCUS_TRAVERSABLE_SET,FOCUS_TRAVERSABLE_UNKNOWN,FOCUS_TRAVERSAL_KEYS_BACKWARD_SET,FOCUS_TRAVERSAL_KEYS_FORWARD_SET,
+INCLUDE_SELF,INHERITS_POPUP_MENU,INPUT_VERIFIER_SOURCE_KEY,IS_DOUBLE_BUFFERED,
+IS_OPAQUE,IS_PAINTING_TILE,IS_PRINTING,IS_PRINTING_ALL,
+IS_REPAINTING,KEYBOARD_BINDINGS_KEY,KEY_EVENTS_ENABLED,LEFT_ALIGNMENT,
+LOCK,MODELESS,MULTI,NEXT_FOCUS,
+NOT_OBSCURED,OPAQUE_SET,PARTIALLY_OBSCURED,REQUEST_FOCUS_DISABLED,
+RESERVED_1,RESERVED_2,RESERVED_3,RESERVED_4,
+RESERVED_5,RESERVED_6,RESOURCE_SETTING_PANEL,RIGHT_ALIGNMENT,
+ROW_FILTER_PANEL,ROW_SIGNAL_PANEL,SCREEN_LOCKED,SCREEN_MODAL,
+SCREEN_SINGLE,SEARCH_HEAVYWEIGHTS,SINGLE,SORT_ORDER_PANEL,
+SUM_INFO_PANEL,SYSTEM_MODAL,TASK_SETTING_PANEL,TOOL_TIP_TEXT_KEY,
+TOP_ALIGNMENT,UNDEFINED_CONDITION,WHEN_ANCESTOR_OF_FOCUSED_COMPONENT,WHEN_FOCUSED,
+WHEN_IN_FOCUSED_WINDOW,WHEN_IN_FOCUSED_WINDOW_BINDINGS,WIF_INPUTMAP_CREATED,WRITE_OBJ_COUNTER_FIRST,
+WRITE_OBJ_COUNTER_LAST,_ap_que,_beans_factory,_beans_info_tooltip_list,
+_beans_info_tooltip_millisecond,_beans_reader,_beans_writer,_cache_type,
+_child_panels,_client_operation,_confirm_msgid,_created,
+_def_pref_size,_default_bg,_default_bounds,_default_font,
+_default_ratio_bounds,_delegate,_do_hide_beans_info_tooltip,_drop_enable,
+_dropped_file,_error_handler,_event_info,_event_list,
+_focusOwnerForOpen,_focus_reservation_list,_font_ratio_io,_function_list,
+_init_focus_later_end,_initialized,_layout,_layout_map,
+_max_ratio,_message_name,_min_ratio,_module_and_screen_id,
+_mwl,_new_focus_owner,_old_focus_owner,_panel_bounds_io,
+_panel_cache,_param,_parent_panel,_parts_flag,
+_parts_panels,_personalize_load_error,_popup_config,_popup_delegate,
+_popup_listener,_process_key_binding_end_time,_process_key_binding_start_time,_property_cache,
+_ratio,_serial,_so,_sys_info_map,
+_tab_list_created,_under_panel,_value_check,_wheel_ratio,
+_z_order,aaTextInfo,acc,accessibleContext,
+actionListenerK,actionMap,adjustmentListenerK,alignmentX,
+alignmentY,ancestorInputMap,appContext,autoFocusTransferOnDisposal,
+autoscrolls,background,backgroundEraseDisabled,beansFactory,
+border,boundsOp,bufferStrategy,changeSupport,
+clientProperties,coalesceEventsParams,coalesceMap,coalescingEnabled,
+component,componentListener,componentListenerK,componentObtainingGraphicsFrom,
+componentObtainingGraphicsFromLock,componentOrientation,componentSerializedDataVersion,compoundShape,
+containerListener,containerListenerK,containerSerializedDataVersion,cursor,
+defaultLocale,descendUnconditionallyWhenValidating,descendantsCount,dispatcher,
+dropTarget,enablePersonalizeLocation,enabled,eventCache,
+eventLog,eventMask,flags,focusController,
+focusCycleRoot,focusInputMap,focusListener,focusListenerK,
+focusLog,focusTraversalKeyPropertyNames,focusTraversalKeys,focusTraversalKeysEnabled,
+focusTraversalPolicy,focusTraversalPolicyProvider,focusable,font,
+foreground,graphicsConfig,height,hierarchyBoundsListener,
+hierarchyBoundsListenerK,hierarchyListener,hierarchyListenerK,ignoreRepaint,
+incRate,inputMethodListener,inputMethodListenerK,inputVerifier,
+isAddNotifyComplete,isAlignmentXSet,isAlignmentYSet,isFocusTraversableOverridden,
+isInc,isJavaAwtSmartInvalidate,isPacked,itemListenerK,
+keyListener,keyListenerK,layoutMgr,listenerList,
+listeningBoundsChildren,listeningChildren,locale,log,
+managingFocusBackwardTraversalKeys,managingFocusForwardTraversalKeys,maxSize,maxSizeSet,
+minSize,minSizeSet,mixingCutoutRegion,mixingLog,
+modalAppContext,modalComp,mouseListener,mouseListenerK,
+mouseMotionListener,mouseMotionListenerK,mouseWheelListener,mouseWheelListenerK,
+name,nameExplicitlySet,newEventsOnly,numOfHWComponents,
+numOfLWComponents,objectLock,ownedWindowK,paintingChild,
+parent,peer,peerFont,popupMenu,
+popups,prefSize,prefSizeSet,preserveBackgroundColor,
+printing,printingThreads,readObjectCallbacks,requestFocusController,
+revalidateRunnableScheduled,serialPersistentFields,serialVersionUID,status_status_map,
+tempRectangles,textListenerK,ui,uiClassID,
+valid,verifyInputWhenFocusTarget,vetoableChangeSupport,visible,
+width,windowClosingException,windowFocusListenerK,windowInputMap,
+windowListenerK,windowStateListenerK,x,y
+		</STATUS_ID>
+			<!-- SB の Item KEYWORD は、-->
+			<!-- mcframe.clientCore.container.MCConstRow （とそのSuperClass） -->
+			<!-- のメソッド文字列とする。-->
+			<!-- mcframe.fm.util.FMJavaWord METHOD mcframe.clientCore.container.MCConstRow -->
+			<!-- で文字列抽出できます。-->
+			<ITEM_ID>
+clear,clearAll,clone,constSize,
+create,createInstance,createTmpColList,finalize,
+getAliasArray,getClass,getColumnPathArray,getConstColumnPathArray,
+getConstMetaArray,getConstNameArray,getExtGroups,getGUIIndex,
+getMetaArray,getNameArray,getParamIndex,getParamRowIndex,
+getParentRow,getParentRowColumn,getParentRowColumnPath,getRefTime,
+getRelationKey,getRootRow,getRootRowColumnPath,getRootRowColumnPathArray,
+getStatus,getTempMetaArray,getTempNameArray,getUpdTime,
+hashCode,init,initAttributes,isEmpty,
+isGUICreated,isGUIDeleted,isGUIModified,isGUIVisible,
+isStatusCreate,isStatusDelete,isStatusGUICreate,isStatusModify,
+isStatusNone,msgBindClassName,notify,notifyAll,
+pb,registerNatives,removeTempColumn,ri,
+setGUINone,setStatusByGUIFlug,size,tempSize,
+tmpColList,toRowString,toString,wait
+		</ITEM_ID>
+		</KEYWORD>
+	</SB>
+	<RB>
+		<DEFAULT_SUPER_CLASS>MCReportSet</DEFAULT_SUPER_CLASS>
+		<RES_OUT_WITH_MODULE>true</RES_OUT_WITH_MODULE>
+		<RESOURCE_SUFFIX>_A</RESOURCE_SUFFIX>
+		<KEYWORD>
+			<!-- RB の Item KEYWORD は、-->
+			<!-- mcframe.commonCore.container.MCConstRow （とそのSuperClass） -->
+			<!-- のメソッド文字列とする。-->
+			<!-- mcframe.fm.util.FMJavaWord METHOD mcframe.commonCore.container.MCConstRow -->
+			<!-- で文字列抽出できます。-->
+			<ITEM_ID>
+			{OB.KEYWORD.ITEM_ID}
+		</ITEM_ID>
+		</KEYWORD>
+		<ITEM_DUPLICATION_CHECK>true</ITEM_DUPLICATION_CHECK>
+	</RB>
+	<DB>
+		<UPD_TS>UPD_TS</UPD_TS>
+		<KEYWORD>
+			<!-- DB の Item KEYWORD は、-->
+			<!-- mcframe.serverCore.database.container.MCDBRow （とそのSuperClass） -->
+			<!-- のメソッド文字列とする。-->
+			<!-- mcframe.fm.util.FMJavaWord METHOD mcframe.serverCore.database.container.MCDBRow -->
+			<!-- で文字列抽出できます。-->
+			<ITEM_ID>
+allWhere,clear,clearAll,clone,
+constSize,create,createCurList,createDMLAgent,
+createInstance,createTmpColList,curToDs,dbCloseCur,
+dbCount_Core,dbDeleteKey,dbInsert,dbNext,
+dbOpenCur,dbOpenCurForUpdate,dbOpenCurForUpdateNoWait,dbRowLock,
+dbSelect,dbSelectForUpdate,dbSelectForUpdateNoFetch,dbSelectForUpdateNoWait,
+dbSelectForUpdateNoWaitNoFetch,dbUpdate,dbUpdateKey,dbWkDelete,
+dbWkInsert,defaultWhere,finalize,getAliasArray,
+getClass,getColumnPathArray,getConstColumnPathArray,getConstMetaArray,
+getConstNameArray,getDMLAgent,getDeleteKeySql,getDeleteSql,
+getExtGroups,getForeignInfoList,getGUIIndex,getInsertSql,
+getKeyColumn,getLastUpdateCnt,getMetaArray,getNameArray,
+getParamIndex,getParamRowIndex,getParentRow,getParentRowColumn,
+getParentRowColumnPath,getRefTime,getRelationKey,getRootRow,
+getRootRowColumnPath,getRootRowColumnPathArray,getSelectCountSql,getSelectKeySql,
+getSelectSql,getSkipColumn,getStatus,getTempMetaArray,
+getTempNameArray,getUpdTime,getUpdTimestampColumnName,getUpdateKeySql,
+getUpdateSql,hasKey,hashCode,init,
+initAll,initAttributes,initDML,isEmpty,
+isExCtrl,isGUICreated,isGUIDeleted,isGUIModified,
+isGUIVisible,isStatusCreate,isStatusDelete,isStatusGUICreate,
+isStatusModify,isStatusNone,msgBindClassName,notExistForeignMsgId,
+notify,notifyAll,pb,registerNatives,
+removeSelectAll,removeSetAll,removeTempColumn,removeValuesAll,
+ri,setGUINone,setSelectAll,setStatusByGUIFlug,
+size,tableAlias,tableName,tempSize,
+tmpColList,toRowString,toString,wait
+		</ITEM_ID>
+		</KEYWORD>
+		<DEFAULT_GENE_MODE>1</DEFAULT_GENE_MODE>
+		<DBC_GENE_630>true</DBC_GENE_630>
+	</DB>
+	<WB>
+		<BINARY_ITEM_ERROR>true</BINARY_ITEM_ERROR>
+	</WB>
+	<EX2CSV>
+		<FILE_FORMAT>6</FILE_FORMAT>
+		<!-- fileFormat xlCSV = 6 xlUnicodeText = 42 -->
+		<TIMESTAMP_CSV_FNAME>true</TIMESTAMP_CSV_FNAME>
+	</EX2CSV>
+	<SCR_COMP>
+		<FONT_PREFER_PROPORTIONAL>true</FONT_PREFER_PROPORTIONAL>
+		<LABEL_FONT>
+			<FONT>Meiryo UI</FONT>
+			<SIZE>12</SIZE>
+		</LABEL_FONT>
+		<TEXT_FONT><!--この設定はもはや意味を成していないかもしれない。-->
+			<FONT>Meiryo UI</FONT>
+			<SIZE>12</SIZE>
+		</TEXT_FONT>
+		<GRID_SPAN>20</GRID_SPAN><!-- ScreenBuilderは画面をGridに見立てて、１つのサイズを20としている。 -->
+		<ROW_HEAD_TEXT_COMPONENT_X>65</ROW_HEAD_TEXT_COMPONENT_X><!-- ただし、各行の１GRID目は65サイズにしている。 -->
+		<CHAR>
+			<X_PER_BYTE>10</X_PER_BYTE>
+			<X_PER_BYTE_FOR_NUMBER_ETC>8</X_PER_BYTE_FOR_NUMBER_ETC>
+			<X_PER_BYTE_FOR_COMMA>2</X_PER_BYTE_FOR_COMMA>
+			<X_PER_ICON>16</X_PER_ICON>
+		</CHAR>
+		<ROOTPANEL>
+			<X>980</X>
+			<Y>600</Y>
+			<MIN_X>20</MIN_X>
+			<MIN_Y>20</MIN_Y>
+			<MAX_X>9999</MAX_X>
+			<MAX_Y>9999</MAX_Y>
+		</ROOTPANEL>
+		<PANEL>
+			<X_MARGIN>10</X_MARGIN><!-- Left ForNormal & WithBorder -->
+			<RIGHT_X_MARGIN>7</RIGHT_X_MARGIN><!-- Right ForNormal & WithBorder -->
+			<X_MARGIN_FTT>5</X_MARGIN_FTT><!-- For Table/Tree & WithBorder -->
+			<X_MARGIN_WOTB>7</X_MARGIN_WOTB><!-- 10 --><!-- Left WithOuT Border -->
+			<RIGHT_X_MARGIN_WOTB>3</RIGHT_X_MARGIN_WOTB><!-- Right WithOuT Border -->
+			<X_MARGIN_FTT_WOTB>0</X_MARGIN_FTT_WOTB><!-- For Table/Tree & WithOuTBorder -->
+			<TOP_Y_MARGIN>18</TOP_Y_MARGIN><!-- ForNormal & WithBorder -->
+			<BOTTOM_Y_MARGIN>10<!--13--></BOTTOM_Y_MARGIN><!-- ForNormal & WithBorder -->
+			<TOP_Y_MARGIN_FTT>18</TOP_Y_MARGIN_FTT><!-- For Table/Tree & WithBorder-->
+			<BOTTOM_Y_MARGIN_FTT>5</BOTTOM_Y_MARGIN_FTT><!-- For Table/Tree & WithBorder-->
+			<Y_MARGIN_WOTB>2<!--5--></Y_MARGIN_WOTB><!-- WithOuT Border -->
+			<Y_MARGIN_FTT_WOTB>0</Y_MARGIN_FTT_WOTB><!-- For Table/Tree & WithOuTBorder-->
+		</PANEL>
+		<TABBEDPANEL>
+			<MIN_Y>{SCR_COMP.TABLEPANEL.MIN_Y}</MIN_Y>
+			<Y_UPEER_MARGIN>30</Y_UPEER_MARGIN>
+			<X_SIDE_MARGIN>3</X_SIDE_MARGIN>
+		</TABBEDPANEL>
+		<TABLEPANEL>
+			<MIN_Y>100</MIN_Y>
+		</TABLEPANEL>
+		<TREEPANEL>
+			<MIN_Y>{SCR_COMP.TABLEPANEL.MIN_Y}</MIN_Y>
+		</TREEPANEL>
+		<BEANS>
+			<X_MARGIN>5</X_MARGIN>
+			<Y_MARGIN>3</Y_MARGIN>
+		</BEANS>
+		<EMBEDDEDPANEL>
+			<W>200</W>
+			<H>50</H>
+		</EMBEDDEDPANEL>
+		<LABEL>
+			<Y>21</Y>
+		</LABEL>
+		<FIELD>
+			<Y>21</Y>
+			<X_PER_BYTE>{SCR_COMP.CHAR.X_PER_BYTE}</X_PER_BYTE>
+			<X_PER_BYTE_FOR_NUMBER_ETC>{SCR_COMP.CHAR.X_PER_BYTE_FOR_NUMBER_ETC}</X_PER_BYTE_FOR_NUMBER_ETC>
+			<X_MARGIN>5</X_MARGIN>
+			<COMMA_INCLUDE>true</COMMA_INCLUDE>
+			<DATE_DIGIT>
+				<Y>4</Y>
+				<YMD>11</YMD>
+				<YM>8</YM>
+				<MD>6</MD>
+				<YMDHM>16</YMDHM>
+				<YMDHMS>18</YMDHMS><!-- 19-1 -->
+				<YMDHMSS>22</YMDHMSS><!-- 23-1 -->
+				<Y2MD>9</Y2MD>
+				<Y2M>6</Y2M>
+				<HM>5</HM>
+				<Y2MDHM>14</Y2MDHM>
+				<Y2MDHMS>16</Y2MDHMS><!-- 17-1 -->
+				<Y2MDHMSS>20</Y2MDHMSS>
+				<YMDE>15</YMDE>
+				<Y2MDE>13</Y2MDE>
+			</DATE_DIGIT>
+		</FIELD>
+		<COMBO>
+			<Y>21</Y>
+			<X_PER_BYTE>{SCR_COMP.CHAR.X_PER_BYTE}</X_PER_BYTE>
+			<BUTTON_X>21</BUTTON_X>
+		</COMBO>
+		<RADIO>
+			<Y>21</Y>
+			<X_MARGIN>5</X_MARGIN>
+			<Y_MARGIN>5</Y_MARGIN>
+			<W_ADJUST>3</W_ADJUST>
+		</RADIO>
+		<CHECK>
+			<Y>21</Y>
+		</CHECK>
+		<BUTTON>
+			<X_PER_BYTE>8</X_PER_BYTE>
+			<X_MARGIN>4</X_MARGIN>
+			<F_KEY_DESCRIPTION_BYTE>0</F_KEY_DESCRIPTION_BYTE>
+			<!-- FunctionKey表示（ex."(F10)"など）をする場合には、"5"を設定する。 -->
+			<Y>21</Y>
+			<X_STATIC>98</X_STATIC>
+			<X_STATIC_ICON_BUTTON>21</X_STATIC_ICON_BUTTON>
+			<!--BUTTON_X_STATIC,BUTTON_X_STATIC_ICON_STATICに"0"以上を設定すると、ScreenBuilderのボタン幅は、-->
+			<!--BUTTON_X_STATIC,BUTTON_X_STATIC_ICON_STATICに固定される。-->
+		</BUTTON>
+		<BORDERLINE>
+			<Y>30</Y>
+			<X>100</X>
+		</BORDERLINE>
+		<IMAGELABEL>
+			<Y>30</Y>
+			<X>100</X>
+		</IMAGELABEL>
+		<TEXTAREA>
+			<Y>24</Y>
+			<X_PER_BYTE>{SCR_COMP.CHAR.X_PER_BYTE}</X_PER_BYTE>
+			<X_MAX_BYTE>20</X_MAX_BYTE>
+		</TEXTAREA>
+	</SCR_COMP>
+	<FTL>
+		<SUPPRESSWARNINGS>true</SUPPRESSWARNINGS>
+		<EXT>/ext</EXT>
+		<!-- FreeMarkerの仕様により絶対パス指定は不可。 -->
+		<CUSTOM_JAVA_COMMENT>{FTL.EXT}/JavaFileComment_{{MODULE_ID}.ftl</CUSTOM_JAVA_COMMENT>
+		<CUSTOM_XML_COMMENT>{FTL.EXT}/XmlFileComment_{{MODULE_ID}.ftl</CUSTOM_XML_COMMENT>
+		<CUSTOM_SQL_COMMENT>{FTL.EXT}/SqlFileComment_{{MODULE_ID}.ftl</CUSTOM_SQL_COMMENT>
+		<ROW>
+			<AUTO_BODY>/container/RowAutoBody.ftl</AUTO_BODY>
+			<AUTO>/container/RowAuto.ftl</AUTO>
+			<!--<INTERFACE>/container/IfRow.ftl</INTERFACE>-->
+			<AUTO_DAO>/container/RowAutoDao.ftl</AUTO_DAO>
+			<CUSTOM>/container/RowCustom.ftl</CUSTOM>
+			<EI>/container/RowEi.ftl</EI>
+			<ALL>/container/RowAll.ftl</ALL>
+			<ACCESSOR_TYPE>/container/RowAccessorType.ftl</ACCESSOR_TYPE>
+			<IMPORT>/container/RowImport.ftl</IMPORT>
+			<META_DEFINE>/container/RowMetaDefine.ftl</META_DEFINE>
+			<DBC_COMMENT>/container/DBContainerComment.ftl</DBC_COMMENT>
+			<C_COMMENT>/container/ContainerComment.ftl</C_COMMENT>
+		</ROW>
+		<DATASET>
+			<AUTO_BODY>/container/DatasetAutoBody.ftl</AUTO_BODY>
+			<AUTO>/container/DatasetAuto.ftl</AUTO>
+			<!--<INTERFACE>/container/IfDataset.ftl</INTERFACE>-->
+			<AUTO_DAO>/container/DatasetAutoDao.ftl</AUTO_DAO>
+			<CUSTOM>/container/DatasetCustom.ftl</CUSTOM>
+			<EI>/container/DatasetEi.ftl</EI>
+			<ALL>/container/DatasetAll.ftl</ALL>
+		</DATASET>
+		<LOGIC>
+			<AUTO>/logic/LogicAuto.ftl</AUTO>
+			<AUTO2>/logic/LogicAuto2.ftl</AUTO2>
+			<AUTO2_WOOP>/logic/LogicAuto2WithoutOpe.ftl</AUTO2_WOOP>
+			<AUTO_CNTL>/logic/LogicAutoController.ftl</AUTO_CNTL>
+			<INTERFACE_CNTL>/logic/IfController.ftl</INTERFACE_CNTL>
+			<CUSTOM>/logic/LogicCustom.ftl</CUSTOM>
+			<EI>/logic/LogicEi.ftl</EI>
+			<ACTYPE_XML>/logic/AcTypeXml.ftl</ACTYPE_XML>
+			<PKG_RESOURCE_XML>/logic/ConstXml.ftl</PKG_RESOURCE_XML>
+			<!--<PKG_RESOURCE_XML>/logic/AcTypeXml2.ftl</PKG_RESOURCE_XML>-->
+			<!-- パッケージと共通(root/const)のリソースをXAFM620からの新仕様（統合仕様）で生成するスイッチ -->
+			<!-- パッケージと共通(root/const)のそれぞれについて -->
+			<!-- PACKAGE_RESOURCE_620=true の場合に、XAFM620新仕様で生成する。 -->
+			<PACKAGE_RESOURCE_620>true</PACKAGE_RESOURCE_620>
+			<OPE_XML>/logic/OperationXml.ftl</OPE_XML>
+			<OPE_LABEL_XML>/logic/OperationLabelXml.ftl</OPE_LABEL_XML>
+			<CUSTOM_ROW_IMPORT>{FTL.EXT}/LgcRowImport_{{MODULE_ID}.ftl</CUSTOM_ROW_IMPORT>
+			<CUSTOM_LIST_IMPORT>{FTL.EXT}/LgcListImport_{{MODULE_ID}.ftl</CUSTOM_LIST_IMPORT>
+			<CUSTOM_LOGIC_IMPORT>{FTL.EXT}/LgcImport_{{MODULE_ID}.ftl</CUSTOM_LOGIC_IMPORT>
+		</LOGIC>
+		<SCREEN>
+			<AUTO>/screen/PanelAuto.ftl</AUTO>
+			<AUTO2>/screen/PanelAuto2.ftl</AUTO2>
+			<AUTO_PANEL_FIELD>/screen/PanelAutoPanelField.ftl</AUTO_PANEL_FIELD>
+			<AUTO_BEAN_FIELD>/screen/PanelAutoBeanField.ftl</AUTO_BEAN_FIELD>
+			<AUTO_CONTAINER_GETSET>/screen/PanelAutoContainerSetGet.ftl</AUTO_CONTAINER_GETSET>
+			<AUTO_PANEL_JBINIT>/screen/PanelAutoPanelJbinit.ftl</AUTO_PANEL_JBINIT>
+			<AUTO_PANEL_FIELD_JBINIT>/screen/PanelAutoPanelFieldJbinit.ftl</AUTO_PANEL_FIELD_JBINIT>
+			<AUTO_BEAN_JBINIT>/screen/PanelAutoBeanJbinit.ftl</AUTO_BEAN_JBINIT>
+			<AUTO_BEAN_FIELD_JBINIT>/screen/PanelAutoBeanFieldJbinit.ftl</AUTO_BEAN_FIELD_JBINIT>
+			<AUTO_PANEL_MCINIT>/screen/PanelAutoPanelMCInit.ftl</AUTO_PANEL_MCINIT>
+			<AUTO_BEAN_MCINIT>/screen/PanelAutoBeanMCInit.ftl</AUTO_BEAN_MCINIT>
+			<AUTO_TABLE_CONFIG>/screen/PanelAutoTableConfig.ftl</AUTO_TABLE_CONFIG>
+			<AUTO_GANTT_CONFIG>/screen/PanelAutoGanttConfig.ftl</AUTO_GANTT_CONFIG>
+			<AUTO_MODE_CLASS>/screen/PanelAutoModeClass.ftl</AUTO_MODE_CLASS><!-- 080507 削除予定 -->
+			<AUTO_MODE_INIT>/screen/PanelAutoModeInit.ftl</AUTO_MODE_INIT>
+			<AUTO_PROC_CLASS>/screen/PanelAutoProcClass.ftl</AUTO_PROC_CLASS>
+			<AUTO_EXPAND_AND_CONTRACT_PANEL>/screen/PanelAutoExpandAndContractPanel.ftl</AUTO_EXPAND_AND_CONTRACT_PANEL>
+			<CUSTOM>/screen/PanelCustom.ftl</CUSTOM>
+			<CUSTOM_PANEL_JBINIT>/screen/PanelCustomPanelJbinit.ftl</CUSTOM_PANEL_JBINIT>
+			<CUSTOM_BEAN_JBINIT>/screen/PanelCustomBeanJbinit.ftl</CUSTOM_BEAN_JBINIT>
+			<EI>/screen/PanelEi.ftl</EI>
+			<LAYOUT_XML>/screen/LayoutXml.ftl</LAYOUT_XML>
+			<LABEL_XML>/screen/LabelXml.ftl</LABEL_XML>
+			<ACTYPE_XML>/screen/ACTypeXml.ftl</ACTYPE_XML>
+			<PKG_RESOURCE_XML>/screen/LlaXml.ftl</PKG_RESOURCE_XML>
+			<CUSTOM_PKG_RESOURCE_XML_OMGT9N>/screen/LlaXmlCustom_omgT9n.ftl</CUSTOM_PKG_RESOURCE_XML_OMGT9N>
+			<!-- パッケージと共通(root/const)のリソースをXAFM620からの新仕様（統合仕様）で生成するスイッチ -->
+			<!-- パッケージと共通(root/const)のそれぞれについて -->
+			<!-- PACKAGE_RESOURCE_620=true の場合に、XAFM620新仕様で生成する。 -->
+			<PACKAGE_RESOURCE_620>true</PACKAGE_RESOURCE_620>
+			<ACTYPE_XML_GENERAL>/screen/ACTypeXmlGeneral.ftl</ACTYPE_XML_GENERAL>
+			<SCR_XML>/screen/ScreenXml.ftl</SCR_XML>
+			<SCR_LABEL_XML>/screen/ScreenLabelXml.ftl</SCR_LABEL_XML>
+			<CUSTOM_ROW_IMPORT>{FTL.EXT}/ScrRowImport_{{MODULE_ID}.ftl</CUSTOM_ROW_IMPORT>
+			<CUSTOM_LIST_IMPORT>{FTL.EXT}/ScrListImport_{{MODULE_ID}.ftl</CUSTOM_LIST_IMPORT>
+			<CUSTOM_SCREEN_IMPORT>{FTL.EXT}/ScrImport_{{MODULE_ID}.ftl</CUSTOM_SCREEN_IMPORT>
+		</SCREEN>
+		<DEF>
+			<AUTO>/param/DefAuto.ftl</AUTO>
+			<EI>/param/DefEi.ftl</EI>
+		</DEF>
+		<META>
+			<AUTO>/meta/MetaAuto.ftl</AUTO>
+			<EI>/meta/MetaEi.ftl</EI>
+			<SQL>/meta/MetaSql.ftl</SQL>
+			<SQLBODY>/meta/MetaSqlBody.ftl</SQLBODY>
+			<LAYOUT_XML>/meta/LayoutXml.ftl</LAYOUT_XML>
+		</META>
+		<DML>
+			<AUTO_BODY>/dml/DmlAutoBody.ftl</AUTO_BODY>
+			<AUTO>/dml/DmlAuto.ftl</AUTO>
+			<CUSTOM>/dml/DmlCustom.ftl</CUSTOM>
+			<EI>/dml/DmlEi.ftl</EI>
+			<ALL>/dml/DmlAll.ftl</ALL>
+		</DML>
+		<REPORT>
+			<AUTO>/report/PrintsetAuto.ftl</AUTO>
+			<CUSTOM>/report/PrintsetCustom.ftl</CUSTOM>
+			<EI>/report/PrintsetEi.ftl</EI>
+			<PKG_RESOURCE_XML>/report/LlaXml.ftl</PKG_RESOURCE_XML>
+			<REP_XML>/report/ReportXml.ftl</REP_XML>
+			<REP_LABEL_XML>/report/ReportLabelXml.ftl</REP_LABEL_XML>
+			<CUSTOM_ROW_IMPORT>{FTL.EXT}/RptRowImport_{{MODULE_ID}.ftl</CUSTOM_ROW_IMPORT>
+			<CUSTOM_LIST_IMPORT>{FTL.EXT}/RptListImport_{{MODULE_ID}.ftl</CUSTOM_LIST_IMPORT>
+			<CUSTOM_PRINTSET_IMPORT>{FTL.EXT}/RptPrtsetImport_{{MODULE_ID}.ftl</CUSTOM_PRINTSET_IMPORT>
+		</REPORT>
+		<QUERY>
+			<CLIENT_AUTO>/query/ClientQueryAuto.ftl</CLIENT_AUTO>
+			<CLIENT_CUSTOM>/query/ClientQueryCustom.ftl</CLIENT_CUSTOM>
+			<CLIENT_EI>/query/ClientQueryEi.ftl</CLIENT_EI>
+			<SERVER_AUTO>/query/ServerQueryAuto.ftl</SERVER_AUTO>
+			<SERVER_CUSTOM>/query/ServerQueryCustom.ftl</SERVER_CUSTOM>
+			<SERVER_EI>/query/ServerQueryEi.ftl</SERVER_EI>
+		</QUERY>
+		<REPO>
+			<OPE_PRG_LIST>/repository/PrgList.ftl</OPE_PRG_LIST>
+			<OPE_PRG_LIST_HTML>/repository/PrgListHtml.ftl</OPE_PRG_LIST_HTML>
+			<SCR_PRG_LIST>/repository/ScrPrgList.ftl</SCR_PRG_LIST>
+			<SCR_PRG_LIST_HTML>/repository/ScrPrgListHtml.ftl</SCR_PRG_LIST_HTML>
+			<ERR_PART>/repository/ErrPart.ftl</ERR_PART>
+			<ERR_PART_HTML>/repository/ErrPartHtml.ftl</ERR_PART_HTML>
+		</REPO>
+		<SQL>
+			<RESOURCE>/sql/SqlResource.ftl</RESOURCE>
+		</SQL>
+		<WS>
+			<ROW>/ws/WsRow.ftl</ROW>
+			<SD_ROW>/ws/SdsRow.ftl</SD_ROW>
+			<CONTAINER>/ws/WsContainer.ftl</CONTAINER>
+			<MAPPER>/ws/WsMapper.ftl</MAPPER>
+			<SD_MAPPER>/ws/SdsMapper.ftl</SD_MAPPER>
+			<HANDLER>/ws/WsHandler.ftl</HANDLER>
+			<FAULTBEAN>/ws/WsFaultBean.ftl</FAULTBEAN>
+			<SD_FAULTBEAN>/ws/SdsFaultBean.ftl</SD_FAULTBEAN>
+			<UP_PARAM>/ws/WsUpParam.ftl</UP_PARAM>
+			<DOWN_PARAM>/ws/WsDownParam.ftl</DOWN_PARAM>
+			<SD_UP_PARAM>/ws/SdsUpParam.ftl</SD_UP_PARAM>
+			<SD_DOWN_PARAM>/ws/SdsDownParam.ftl</SD_DOWN_PARAM>
+			<WSDL>/ws/WsWsdl.ftl</WSDL>
+			<SD_WSDL>/ws/SdsWsdl.ftl</SD_WSDL>
+			<SD_WSDL_UD_DEF>/ws/SdsWsdlUdDef.ftl</SD_WSDL_UD_DEF>
+		</WS>
+	</FTL>
+	<Wizard>
+		<basename>_</basename>
+		<OpeSpec>
+			<default>
+				<class>mcframe.fm.wizard.FMOpeSpecCreater</class>
+			</default>
+			<RL>
+				<class>mcframe.fm.wizard.FMOpeSpecRL</class>
+				<search>
+					<id>Srch01</id>
+					<name>検索</name>
+					<body>"mcframe.serverXP.XPL0050.XPL_RLSearcher"</body>
+					<outline><![CDATA[=J4&"の検索を行います。"]]></outline>
+					<block>
+						<cnd>
+							<name>Srch01_Cnd</name>
+							<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+							<add></add>
+						</cnd>
+						<rslt>
+							<name>Srch01_Rslt</name>
+							<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+							<add>RLRslt</add>
+						</rslt>
+					</block>
+				</search>
+				<update>
+					<id>Upd01</id>
+					<name>更新</name>
+					<body>"mcframe.serverXP.XPL0050.XPL_RLUpdater"</body>
+					<outline><![CDATA[=J4&"の登録を行います。"]]></outline>
+					<block>
+						<dtl>
+							<name>Upd01_Dtl</name>
+							<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+							<add></add>
+						</dtl>
+					</block>
+					<keylabel>_[変更前]</keylabel>
+					<other>true</other>
+				</update>
+			</RL>
+			<IS>
+				<class>mcframe.fm.wizard.FMOpeSpecIS</class>
+				<search>
+					<id>Srch01</id>
+					<name>検索</name>
+					<body>"mcframe.serverXP.XPL0050.XPL_ISSearcher"</body>
+					<outline><![CDATA[=J4&"の検索を行います。"]]></outline>
+					<block>
+						<cnd>
+							<name>Srch01_Cnd</name>
+							<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+							<add></add>
+						</cnd>
+						<rslt>
+							<name>Srch01_Rslt</name>
+							<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+							<add></add>
+						</rslt>
+					</block>
+					<keylabel>（入力値）</keylabel>
+				</search>
+			</IS>
+			<MG>
+				<class>mcframe.fm.wizard.FMOpeSpecMerger</class>
+			</MG>
+		</OpeSpec>
+		<ScrSpec>
+			<method>"mcframe.clientWL.WLP0010.WLP_List.get"</method>
+			<default>
+				<class>mcframe.fm.wizard.FMScrSpecCreater</class>
+			</default>
+			<RL>
+				<class>mcframe.fm.wizard.FMScrSpecRL</class>
+				<outline><![CDATA[=K4&"の検索、更新を行います。"]]></outline>
+				<keylabel>_[変更前]</keylabel>
+				<block>
+					<cnd>
+						<name>Cnd</name>
+						<label>検索</label>
+						<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+						<add></add>
+					</cnd>
+					<dtl>
+						<label></label>
+						<remove>ins_usr_cd,ins_usr_nm,ins_ts,upd_cntr,upd_usr_cd,upd_usr_nm,upd_ts</remove>
+						<add></add>
+					</dtl>
+					<add></add>
+				</block>
+				<conn>
+					<srch>
+						<caller>mcframe.clientXP.XPP0050.XPP_RLSearcher</caller>
+					</srch>
+					<upd>
+						<caller>mcframe.clientXP.XPP0050.XPP_RLUpdater</caller>
+					</upd>
+				</conn>
+			</RL>
+			<IS>
+				<class>mcframe.fm.wizard.FMScrSpecIS</class>
+				<outline><![CDATA[=K4&"の検索を行います。"]]></outline>
+				<keylabel>（入力値）</keylabel>
+				<block>
+					<cnd>
+						<name>Cnd</name>
+						<label>検索</label>
+						<remove>ins_usr_cd,ins_ts,upd_cntr,upd_usr_cd</remove>
+						<add></add>
+					</cnd>
+					<rslt>
+						<label></label>
+						<remove>ins_usr_cd,ins_usr_nm,ins_ts,upd_cntr,upd_usr_cd,upd_usr_nm,upd_ts</remove>
+						<add></add>
+					</rslt>
+					<add></add>
+				</block>
+				<conn>
+					<srch>
+						<caller>mcframe.clientXP.XPP0040.XPP_ISSearcher</caller>
+					</srch>
+				</conn>
+			</IS>
+			<MG>
+				<class>mcframe.fm.wizard.FMScrSpecMerger</class>
+			</MG>
+		</ScrSpec>
+		<RepSpec>
+			<MG>
+				<class>mcframe.fm.wizard.FMRepSpecMerger</class>
+			</MG>
+		</RepSpec>
+	</Wizard>
+</mcframe>

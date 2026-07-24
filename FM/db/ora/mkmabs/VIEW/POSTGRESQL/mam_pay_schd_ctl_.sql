@@ -1,0 +1,41 @@
+SELECT 
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.bsppl_cd,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.cur_cd,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.min_amt,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.sttl_cd,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.wg_cd,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.rate,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.crryovr_mons_typ,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_day1,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_day2,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_day3,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_day4,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_day5,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_crryovr_mons1,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_crryovr_mons2,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_crryovr_mons3,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_crryovr_mons4,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.pay_crryovr_mons5,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.memo1,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.memo2,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.memo3,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.del_flg,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.del_usr_id,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.del_usr_nm,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.del_ts,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.ins_usr_id,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.ins_usr_nm,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.ins_ts,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.ins_func_id,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_cntr,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_usr_id,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_usr_nm,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_ts,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_func_id,
+	mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.upd_srv_req_no
+FROM 
+	mam_pay_schd_ctl_all mam_pay_schd_ctl__mam_pay_schd_ctl_all_org
+WHERE 
+	0 = 0
+	AND mam_pay_schd_ctl__mam_pay_schd_ctl_all_org.co_cd = fcpa_context$f_get_co_cd()
+;

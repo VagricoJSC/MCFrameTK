@@ -1,0 +1,60 @@
+
+COMMENT ON TABLE MGW_ACT_OTHER_WK_IF IS '指図外工数実績ＩＦワーク // Indirect order man-hour result IF work';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.DATA_LNO IS 'データ行ＮＯ // #MA.IF_DATA_LNO // Data row No.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.CALC_CTG_CD IS '計算カテゴリＣＤ // #MA.CALC_CTG_CD // Calculation category cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.YM IS '年月 // #MA.YM // Year month';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.AC_DT IS '計上日 // #MA.DT // Recording date';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.DPT_CD IS '部門ＣＤ // #MA.COST_DPT_CD // Dept. cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.CTG_CD IS '品群ＣＤ // #MA.COST_CTG_CD // Item category cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.OPER_CD IS '工程ＣＤ // #MA.OPER_CD // Operation cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.LOT_NO IS 'ロットＮＯ // #MA.LOT_NO // Lot No.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.SUBLOT_NO IS 'サブロットＮＯ // #MA.SUBLOT_NO // Sublot No.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.WK_COST_CD IS '工数管理ＣＤ // #MA.WK_COST_CD // Work element cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.WK_RSN_CD IS '工数理由ＣＤ // #MA.WK_RSN_CD // Man-hour reason cd.';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.WK_COST IS '工数 // #MA.WK_COST_QTY // Man-hour';
+
+
+COMMENT ON COLUMN MGW_ACT_OTHER_WK_IF.MFG_ACT_GRP IS '製造実績グループ // #MG.MFG_ACT_GRP // Mfg. result group';
+

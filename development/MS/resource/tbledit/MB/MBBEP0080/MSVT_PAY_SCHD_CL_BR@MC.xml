@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MSVT_PAY_SCHD_CL_BR</dbc>
+	
+	<cond>
+		<cols>
+			batch_data_no,bsppl_cd,bsppl_dpt_cd,trd_cur_cd,wrk_no,bsppl_cl_dt,exe_sts_typ,
+			batch_log_no,log_sub_key1,log_sub_key2,ins_ts,upd_ts
+		</cols>
+	</cond>
+	
+	<list>
+		<!-- ＰＧ実行状況区分 -->	
+		<exe_sts_typ>	
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>	
+	</list>
+	
+	<format>
+		<bsppl_cl_dt>YMD</bsppl_cl_dt>
+	</format>
+	
+	<app>
+		<ref>true</ref>
+		<trans>
+			<mid>MS</mid>
+			<scrn>MSBHP0020</scrn>
+			<cndBlk>Cnd</cndBlk>
+			<do_srch>true</do_srch>
+
+			<toCol1>ope</toCol1>
+			<typ1>C</typ1>
+			<val1>0</val1>
+
+			<toCol2>bsppl_cd</toCol2>
+			<frCol2>bsppl_cd</frCol2>
+			
+			<toCol3>bsppl_dpt_cd</toCol3>
+			<frCol3>bsppl_dpt_cd</frCol3>
+			
+			<toCol4>wrk_no</toCol4>
+			<frCol4>wrk_no</frCol4>
+
+			<toCol5>bsppl_cl_dt_to</toCol5>
+			<frCol5>bsppl_cl_dt</frCol5>
+
+			<toCol6>manual_flg</toCol6>
+			<typ6>F</typ6>
+			<val6>0</val6>
+			
+			<toCol7>pay_spot_flg</toCol7>
+			<typ7>F</typ7>
+			<val7>0</val7>
+			
+			<toCol8>batch_pay_schd_cl_flg</toCol8>
+			<typ8>F</typ8>
+			<val8>1</val8>
+			
+		</trans>
+		<dtl>
+			<move>
+				<col1>bsppl_nm</col1>
+				<pos1>3</pos1>
+				
+				<col2>trd_cur_nm</col2>
+				<pos2>7</pos2>
+				
+				<col3>wrk_nm</col3>
+				<pos3>9</pos3>
+			</move>
+			
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+				
+				<col2>bsppl_nm</col2>
+				<lbl2>支払予定管理先名</lbl2>
+				<msg2>支払予定管理先名</msg2>
+
+				<col3>trd_cur_nm</col3>
+				<lbl3>取引通貨名</lbl3>
+				<msg3>取引通貨名</msg3>
+
+				<col4>wrk_nm</col4>
+				<lbl4>案件名</lbl4>
+				<msg4>案件名</msg4>
+				
+			</label>
+		</dtl>
+		<addSql>
+			<orderBy>
+				<col1>batch_log_no</col1>
+				<desc1>true</desc1>
+				<col2>bsppl_cd,bsppl_dpt_cd,trd_cur_cd,wrk_no</col2>
+			</orderBy>
+		</addSql>	
+		
+	</app>
+</mcframe>

@@ -1,0 +1,3 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location2.System.MA.MABGP0710.%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MA.MABGP0710.list.item0','MABGP0710,Cnd,Cnd.calc_grp_nm,true,true'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MA.MABGP0710.list.item1','MABGP0710,Cnd,Cnd.itm_jnl_nm,true,true'); 

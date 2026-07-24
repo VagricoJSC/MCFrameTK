@@ -1,0 +1,44 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE VIEW MGVT_PAT_CAL(
+	NX_FY,
+	NX_GTD,
+	YM,
+	RMRKS,
+	SUB_CHAR1,
+	SUB_CHAR2,
+	SUB_CHAR3,
+	INS_USR_ID,
+	INS_USR_NM,
+	INS_TS,
+	INS_FUNC_ID,
+	UPD_CNTR,
+	UPD_USR_ID,
+	UPD_USR_NM,
+	UPD_TS,
+	UPD_FUNC_ID,
+	UPD_SRV_REQ_NO
+)
+AS
+SELECT
+	null NX_FY,
+	null NX_GTD,
+	null YM,
+	null RMRKS,
+	null SUB_CHAR1,
+	null SUB_CHAR2,
+	null SUB_CHAR3,
+	null INS_USR_ID,
+	null INS_USR_NM,
+	null INS_TS,
+	null INS_FUNC_ID,
+	null UPD_CNTR,
+	null UPD_USR_ID,
+	null UPD_USR_NM,
+	null UPD_TS,
+	null UPD_FUNC_ID,
+	null UPD_SRV_REQ_NO
+FROM 
+	DUAL
+;
+

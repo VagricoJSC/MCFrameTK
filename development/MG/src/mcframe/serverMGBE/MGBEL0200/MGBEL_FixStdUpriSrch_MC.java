@@ -1,0 +1,123 @@
+package mcframe.serverMGBE.MGBEL0200;
+
+import mcframe.commonCore.lang.*;
+import mcframe.commonCore.container.*;
+import mcframe.commonCore.container.MCList.SortType;
+import mcframe.commonCore.notice.*;
+import mcframe.serverCore.logic.*;
+import mcframe.serverCore.notice.MCMessagePool;
+import mcframe.commonCore.annotation.Rev;
+import mcframe.commonCore.annotation.Rev.Pj;
+import mcframe.commonCore.annotation.Rev.Cl;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import mcframe.commonMA.constant.*;
+import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMAUC.MAUCL0060.ElmArgsR;
+import static mcframe.commonMA.notice.MA_Msg.*;
+import static mcframe.serverMAUC.MAUCL0010.MAUCL_MCDataUtil.*;
+import static mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil.*;
+import static mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys.*;
+import static mcframe.serverMAUC.MAUCL0030.MAUCL_Dac.*;
+import static mcframe.serverMAUC.MAUCL0060.MAUCL_Num.*;
+import mcframe.commonMB.constant.*;
+import mcframe.serverMB.dbc.*;
+import static mcframe.commonMB.notice.MB_Msg.*;
+import static mcframe.serverMBUC.MBUCL0010.MBUCL_MCDataUtil.*;
+import static mcframe.serverMGUC.MGUCL0020.MGUCL_AppSys.*;
+import mcframe.commonMG.constant.*;
+import mcframe.serverMG.dbc.*;
+import static mcframe.commonMG.notice.MG_Msg.*;
+
+import static mcframe.serverFXUC.FXUCL0160.FXUCL_DateUtil.*;
+import static mcframe.serverFXUC.FXUCL0170.FXUCL_ValidaterUtil.*;
+import static mcframe.serverFXBA.FXBAL0120.FXBAL_BatchLogManager.*;
+import mcframe.serverCore.queryapi.MCQueryExecution.MCQueryPlan;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+import static mcframe.serverMB.dbc.MBBAFunction.*;
+import static mcframe.serverMB.dbc.MBBBFunction.*;
+import static mcframe.serverMB.dbc.MBBCFunction.*;
+import static mcframe.serverMB.dbc.MBBEFunction.*;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMG.dbc.MGFunction.*;
+
+
+//手修正によるカスタマイズで必要なimportはこの間に記述してください。
+//FMCB CUSTOM_IMPORT START
+import static mcframe.serverMGBE.MGBEL0200.Query.*;
+import java.util.ArrayList;
+//FMCB CUSTOM_IMPORT END
+
+/**
+ * "MGBEL_FixStdUpriSrch"ロジッククラスです。<p>
+ *
+ * 実装仕様書から自動生成されるクラスです。
+ */
+abstract public class MGBEL_FixStdUpriSrch_MC extends MGBEL_FixStdUpriSrch_MC_A{
+	//FMCB CUSTOM START
+
+	/**
+	 * Srch01オペレーション.<p>
+	 *
+	 * 確定標準単価を検索する。<br>
+	 */
+	public class Srch01 extends MGBEL_FixStdUpriSrch_MC_A.Srch01 {
+
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected void doSearchMain() {
+			super.doSearchMain();
+			srch();
+		}
+
+		protected void srch() {
+			addDynamicBind(up0(), down0());
+			executeQuery(down0(), MGBEL0200_MGT_STD_FIX_S01(), up0());
+		}
+
+		@Override
+		protected void editListMain() {
+			super.editListMain();
+			calcUnitQtyTtl();
+		}
+
+		protected void calcUnitQtyTtl() {
+			for (Srch01_RsltR row : down0()) {
+				// 通常の合計の計算
+				row.ttl(sum(row.var_cost(), row.fxd_cost()));
+
+				// １単位基準数の計算
+				row.qty_unit(1);
+				row.ttl_unit(calcUnit(row.ttl(), row.qty(), Srch01_RsltR.ttl_unit_META.scale()));
+				row.var_cost_unit(calcUnit(row.var_cost(), row.qty(), Srch01_RsltR.var_cost_unit_META.scale()));
+				row.fxd_cost_unit(calcUnit(row.fxd_cost(), row.qty(), Srch01_RsltR.fxd_cost_unit_META.scale()));
+			}
+		}
+
+	}
+
+	@Override
+	protected ArrayList<String> getValidExpnsTyp() {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add(MAC_EXPNS_TYP.PROD.value());
+		return list;
+	}
+
+	@Override
+	protected String[] getSumTgtCols() {
+		String[] stringArray = {
+				"T.std_cost", null
+		};
+		return stringArray;
+	}
+
+	//FMCB CUSTOM END
+}

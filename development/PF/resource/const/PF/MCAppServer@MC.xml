@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCAppServer Constant -->
+<mcframe>
+	<PF>
+		<!-- GA Linkの送信分割件数 -->
+		<PFBBL5010>
+			<gl><send_size>5000</send_size></gl>
+		</PFBBL5010>
+		<PFBBL5100>
+			<cst>
+				<send_size>5000</send_size>
+				<mapping_cols>
+					<sal_ar_patterncode>memo1</sal_ar_patterncode>
+					<ar_settlemethod>memo2</ar_settlemethod>
+				</mapping_cols>
+			</cst>
+			<sppl>
+				<send_size>5000</send_size>
+				<mapping_cols>
+					<pur_ap_patterncode>memo3</pur_ap_patterncode>
+					<ap_settlemethod>memo4</ap_settlemethod>
+					<commission_pay>memo5</commission_pay>
+					<iraicode>memo6</iraicode>
+				</mapping_cols>
+			</sppl>
+		</PFBBL5100>
+		<PFBBL5020>
+			<!-- 伝票送信分割件数。負数は上限なし -->
+			<send_size>1</send_size>
+			<!-- GAのメモ情報、ユーザ、フレックスに連携する項目 -->
+			<mapping_cols>
+				<remarks1>cred_cd</remarks1>
+				<detail_UserText>itm_nm</detail_UserText>
+				<detail_FlexCode>act_no_s</detail_FlexCode>
+				<detail_FlexText1>act_d_no_s</detail_FlexText1>
+				<detail_FlexText2>itm_cd_s</detail_FlexText2>
+			</mapping_cols>
+		</PFBBL5020>
+		<PFBBL5030>
+			<!-- 伝票送信分割件数。負数は上限なし -->
+			<send_size>1</send_size>
+			<!-- GAのメモ情報、ユーザ、フレックスに連携する項目 -->
+			<mapping_cols>
+				<header_FlexCode1>rcpt_iv_mng_no</header_FlexCode1>
+				<remarks1>cred_cd</remarks1>
+				<detail_UserText>itm_nm</detail_UserText>
+				<detail_FlexCode>act_no_s</detail_FlexCode>
+				<detail_FlexText1>act_d_no_s</detail_FlexText1>
+				<detail_FlexText2>itm_cd_s</detail_FlexText2>
+			</mapping_cols>
+		</PFBBL5030>
+		<PFBAL5810>
+			<file_upload>
+				<charset></charset>
+				<doc_header_text>25</doc_header_text>
+				<doc_itm_text>50</doc_itm_text>
+			</file_upload>
+		</PFBAL5810>
+		<PFBAL5820>
+			<!-- 伝票送信分割件数。負数は上限なし -->
+			<send_size>500</send_size>
+			<!-- SAP連携で使用する項目 -->
+			<mapping_cols>
+				<send>
+					<SoldMaterial></SoldMaterial>
+					<SoldMaterialGroup></SoldMaterialGroup>
+				</send>
+				<recv>
+					<PFT_SDRV_IF>
+						<transaction_id>attr_char1</transaction_id>
+					</PFT_SDRV_IF>
+				</recv>
+			</mapping_cols>
+			<!-- SAP連携で使用する定数 -->
+			<const>
+				<OriginalReferenceDocumentType>BKPFF</OriginalReferenceDocumentType>
+				<BusinessTransactionType>RFBU</BusinessTransactionType>
+				<AccountingDocumentType>
+					<GL>SA</GL>
+					<AP>KB</AP>
+					<AR>DB</AR>
+				</AccountingDocumentType>
+				<DebitCreditCode>
+					<DR>S</DR>
+					<CR>H</CR>
+				</DebitCreditCode>
+				<TaxItemClassification>
+					<val1>VST</val1>
+					<val2>MWS</val2>
+				</TaxItemClassification>
+			</const>
+		</PFBAL5820>
+		<PFUDL5030>
+				<!-- SOAP通信におけるWS-ReliableMessagingに使用するアドレス -->
+				<wsrm>http://schemas.xmlsoap.org/ws/2005/02/rm</wsrm>
+				<wsa>http://www.w3.org/2005/08/addressing</wsa>
+				<ack_client_addr>http://www.w3.org/2005/08/addressing/none</ack_client_addr>
+				<create_sequence>http://docs.oasis-open.org/ws-rx/wsrm/200702/CreateSequence</create_sequence>
+		</PFUDL5030>
+	</PF>
+</mcframe>

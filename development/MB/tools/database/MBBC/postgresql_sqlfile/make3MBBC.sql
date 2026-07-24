@@ -1,0 +1,10 @@
+\encoding UTF-8
+
+\i ./OBJECT/MBT_ATTACHMENT.sql
+
+\i ./OBJECT/MBT_ATTACHMENT_@S.sql
+
+\i ./OBJECT/MBT_ATTACHMENT_@U.sql
+
+\i ./CO_VT/MBT_ATTACHMENT_ALL_TR_K.sql
+

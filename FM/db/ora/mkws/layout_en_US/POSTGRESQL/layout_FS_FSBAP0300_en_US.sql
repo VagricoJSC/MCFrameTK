@@ -1,0 +1,3 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location3.System.FS.FSBAP0300.en_US%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL','','','','','','MCAppClient','system_location3.System.FS.FSBAP0300.en_US.list.item0','FSBAP0300,Cnd,Cnd.to_screen_nm,false,false,400'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL','','','','','','MCAppClient','system_location3.System.FS.FSBAP0300.en_US.list.item1','FSBAP0300,Cnd,Cnd.from_screen_nm,false,false,400'); 

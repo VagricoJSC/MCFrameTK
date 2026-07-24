@@ -1,0 +1,601 @@
+package mcframe.clientMSBE.MSBEP2210;
+
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.annotation.EI;
+
+/**
+ * ブロック"Dtl2"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>alias</th>
+ *  	<th>項目名</th>
+ *  	<th>フルネーム</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>INNERROW/COLUMNPATH</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dtl_peg_no</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INT INT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>peg_no</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INT INT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>from_gd_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>tmp_quality_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP QUALITY_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>tmp_stk_insp_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_INSP_TYP STK_INSP_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>tmp_stk_id_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_ID_TYP STK_ID_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>gi_wg_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WG_CD WG_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gi_loc_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>gi_str_ln_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR_LN_CD STR_LN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gi_unit_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dlv_loc_wg_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WG_CD WG_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>dlv_loc_wg_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WG_NM WG_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dlv_loc_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_CD LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>dlv_loc_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOC_NM LOC_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dlv_loc_sppl_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>site_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SITE_CD SITE_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>str_ln_tgt_flg</td>
+ *  	<td><br></td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>str_ln_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5120.StrLnR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>stk_mng_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_MNG_TYP STK_MNG_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>lot_mng_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOT_MNG_TYP LOT_MNG_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>lot_no_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOT_NO_TYP LOT_NO_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sublot_mng_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SUBLOT_MNG_TYP SUBLOT_MNG_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sublot_no_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#LOT_NO_TYP LOT_NO_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>old_quality_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP QUALITY_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>quality_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP QUALITY_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>quality_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QUALITY_TYP_NM QUALITY_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>old_gd_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>gd_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gd_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_NM STK_GD_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>stk_insp_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_INSP_TYP STK_INSP_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>stk_insp_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_INSP_TYP_NM STK_INSP_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>stk_id_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_ID_TYP STK_ID_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>stk_id_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#STK_ID_TYP_NM STK_ID_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>lot_no_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMSUB.MSUBP5030.LotNoR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ver_flg</td>
+ *  	<td><br></td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ver_no_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5250.VerNoR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>org_ver_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VER_NO VER_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>bp_lot_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_LOT_NO BP_LOT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>bp_dlv_slip_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_DLV_SLIP_NO BP_DLV_SLIP_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>bp_dlv_slip_d_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_DLV_SLIP_D_NO BP_DLV_SLIP_D_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ship_fr_valid_dt</td>
+ *  	<td><br></td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_NM UNIT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_dec_place</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_rnd_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RND_TYP RND_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_conv_base_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_unit_conv_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>trd_unit_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_CD UNIT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#UNIT_NM UNIT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_dec_place</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_unit_rnd_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RND_TYP RND_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_unit_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5040.QtyR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>arr_act_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ARR_ACT_NO ARR_ACT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>purc_act_io_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#PURC_ACT_IO_NO PURC_ACT_IO_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>purc_act_io_seq</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLIP_SEQ SLIP_SEQ}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cont_fctr_flg</td>
+ *  	<td><br></td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>purc_cont_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5300.PurcContQtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>purc_cont_fctr_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5330.PurcContFctrR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>std_cont_qty_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5260.ContQtyR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>std_cont_fctr_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5280.StdContFctrR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>cont_fctr_unit_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5270.ContFctrUnitR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cont_fctr_rnd_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RND_TYP RND_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>cont_fctr_dec_place</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEC_PLACE DEC_PLACE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sub_char1</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#PURC_ACT_IO_SUB_CHAR1 PURC_ACT_IO_SUB_CHAR1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sub_char2</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#PURC_ACT_IO_SUB_CHAR2 PURC_ACT_IO_SUB_CHAR2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sub_char3</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#PURC_ACT_IO_SUB_CHAR3 PURC_ACT_IO_SUB_CHAR3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。
+ */
+@EI
+public class Dtl2R extends Dtl2R_MC_A {
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static Dtl2R create() {
+		Dtl2R row = new Dtl2R(constMetas);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> Dtl2R createByName(T proto) {
+		Dtl2R row = Dtl2R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	public Dtl2R(ConstMetaList<? extends Dtl2R> metas) {
+		super(metas);
+	}
+}

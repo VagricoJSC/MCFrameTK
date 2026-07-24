@@ -1,0 +1,95 @@
+\encoding UTF-8
+
+CREATE TABLE mst_purc_ret_act_d_all
+(purc_ret_act_d_no varchar (15) NOT NULL,
+co_cd varchar (10) NOT NULL,
+purc_ret_act_no varchar (15) NOT NULL,
+purc_ret_act_rev numeric (4,0) NOT NULL,
+disp_seq numeric (5,0) NOT NULL,
+itm_cd varchar (40) NOT NULL,
+itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+ver_no varchar (10) NULL,
+itm_nm varchar (100) NULL,
+iv_itm_nm varchar (100) NULL,
+sno1 varchar (15) DEFAULT '*' NOT NULL,
+sno2 varchar (15) DEFAULT '*' NOT NULL,
+sno3 varchar (15) DEFAULT '*' NOT NULL,
+sno4 varchar (15) DEFAULT '*' NOT NULL,
+lot_no varchar (15) NULL,
+sublot_no varchar (15) NULL,
+bp_lot_no varchar (15) NULL,
+purc_typ varchar (1) NOT NULL,
+mfg_inst_no varchar (15) NULL,
+in_xfr_typ varchar (1) NULL,
+quality_typ varchar (1) NULL,
+stk_insp_typ varchar (1) NULL,
+stk_id_typ varchar (1) NULL,
+stk_mng_typ varchar (1) NOT NULL,
+gd_cd varchar (2) NULL,
+stk_arrv_bp_cd varchar (20) DEFAULT '*' NOT NULL,
+ret_rsn_cd varchar (10) NOT NULL,
+sundry_itm_flg char (1) DEFAULT '0' NOT NULL,
+sppl_itm_cd varchar (40) NULL,
+sppl_itm_nm varchar (100) NULL,
+purc_ret_loc_wg_cd varchar (10) NULL,
+purc_ret_loc_cd varchar (20) NULL,
+maker_cd varchar (20) DEFAULT '*' NOT NULL,
+str_ln_cd varchar (10) NULL,
+trd_unit_qty numeric (21,8) NOT NULL,
+trd_unit_cd varchar (5) NOT NULL,
+base_unit_qty numeric (21,8) NOT NULL,
+base_unit_cd varchar (5) NOT NULL,
+purc_id_typ varchar (1) NOT NULL,
+purc_cont_qty numeric (21,8) NULL,
+po_no varchar (15) NULL,
+ref_purc_act_no varchar (15) NULL,
+ref_purc_act_seq numeric (4,0) NULL,
+ref_purc_act_d_no varchar (15) NULL,
+ref_purc_act_d_seq numeric (4,0) NULL,
+purc_ret_schd_d_no varchar (15) NULL,
+sls_act_d_no varchar (15) NULL,
+can_flg char (1) DEFAULT '0' NOT NULL,
+intr_rmrks varchar (100) NULL,
+purc_ret_print_d_rmrks varchar (100) NULL,
+trd_d_rmrks varchar (100) NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+ALTER TABLE mst_purc_ret_act_d_all
+ADD CONSTRAINT mst_purc_ret_act_d_all_pk PRIMARY KEY(purc_ret_act_d_no,co_cd);
+
+
+CREATE INDEX mst_purc_ret_act_d_all_ie01
+ON mst_purc_ret_act_d_all USING BTREE (purc_ret_act_no,purc_ret_act_rev,co_cd);
+
+
+CREATE INDEX mst_purc_ret_act_d_all_ie02
+ON mst_purc_ret_act_d_all USING BTREE (itm_cd, itm_sub1, itm_sub2, itm_sub3, lot_no, sublot_no,co_cd);
+
+
+CREATE INDEX mst_purc_ret_act_d_all_ie03
+ON mst_purc_ret_act_d_all USING BTREE (purc_ret_loc_cd,str_ln_cd,co_cd);
+
+
+CREATE INDEX mst_purc_ret_act_d_all_ie04
+ON mst_purc_ret_act_d_all USING BTREE (purc_ret_schd_d_no,co_cd);
+
+
+CREATE INDEX mst_purc_ret_act_d_all_ie05
+ON mst_purc_ret_act_d_all USING BTREE (sls_act_d_no,co_cd);
+

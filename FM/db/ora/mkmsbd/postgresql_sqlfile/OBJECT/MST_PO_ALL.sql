@@ -1,0 +1,92 @@
+\encoding UTF-8
+
+CREATE TABLE mst_po_all
+(po_no varchar (15) NOT NULL,
+co_cd varchar (10) NOT NULL,
+po_rev numeric (4,0) NOT NULL,
+trd_cd varchar (4) NOT NULL,
+trd_ptn_typ varchar (4) NOT NULL,
+purc_dpt_cd varchar (20) NOT NULL,
+wg_cd varchar (10) NOT NULL,
+purc_usr_cd varchar (500) NULL,
+sppl_cd varchar (20) NOT NULL,
+sppl_cntct_dpt varchar (100) NULL,
+sppl_cntct_psn varchar (100) NULL,
+sppl_zip_cd varchar (10) NULL,
+sppl_addr1 varchar (250) NULL,
+sppl_addr2 varchar (250) NULL,
+sppl_addr3 varchar (250) NULL,
+sppl_addr4 varchar (250) NULL,
+sppl_tel varchar (30) NULL,
+sppl_fax varchar (30) NULL,
+po_dt timestamp(0)  NOT NULL,
+upd_po_print_schd_dt timestamp(0)  NULL,
+po_print_dt timestamp(0)  NULL,
+po_print_flg char (1) DEFAULT '0' NOT NULL,
+last_po_rev numeric (4,0) NULL,
+trd_cur_cd varchar (3) NOT NULL,
+xrate numeric (21,8) NOT NULL,
+xrate_inpt_flg char (1) DEFAULT '0' NOT NULL,
+ptax_xrate numeric (21,8) NULL,
+ptax_xrate_inpt_flg char (1) DEFAULT '0' NOT NULL,
+crct_rsn_cd varchar (10) NULL,
+po_print_cd varchar (5) NULL,
+wrk_no varchar (15) NULL,
+tterm_cd1 varchar (5) NULL,
+tterm_rmrks1 varchar (100) NULL,
+tterm_cd2 varchar (5) NULL,
+tterm_rmrks2 varchar (100) NULL,
+tterm_cd3 varchar (5) NULL,
+tterm_rmrks3 varchar (100) NULL,
+can_flg char (1) DEFAULT '0' NOT NULL,
+edi_flg char (1) DEFAULT '0' NOT NULL,
+aprv_flg char (1) DEFAULT '0' NOT NULL,
+aprv_no varchar (15) NULL,
+aprv_sts_typ varchar (1) NULL,
+purc_if_flg char (1) DEFAULT '0' NOT NULL,
+ext_sys_cd varchar (10) NULL,
+ext_po_no varchar (300) NULL,
+dlv_slip_form_cd varchar (20) NULL,
+sgl_form_flg char (1) DEFAULT '0' NOT NULL,
+trd_rmrks varchar (100) NULL,
+intr_rmrks varchar (100) NULL,
+po_print_rmrks varchar (100) NULL,
+dlv_slip_rmrks varchar (100) NULL,
+sub_char1 varchar (20) NULL,
+sub_char2 varchar (20) NULL,
+sub_char3 varchar (20) NULL,
+edi_sub_char1 varchar (50) NULL,
+edi_sub_char2 varchar (50) NULL,
+edi_sub_char3 varchar (50) NULL,
+edi_sub_char4 varchar (50) NULL,
+edi_sub_char5 varchar (50) NULL,
+edi_sub_num1 numeric (21,8) NULL,
+edi_sub_dt1 timestamp(0)  NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+ALTER TABLE mst_po_all
+ADD CONSTRAINT mst_po_all_pk PRIMARY KEY(po_no,co_cd);
+
+
+CREATE INDEX mst_po_all_ie01
+ON mst_po_all USING BTREE (aprv_no,co_cd);
+
+
+CREATE INDEX mst_po_all_ie02
+ON mst_po_all USING BTREE (sppl_cd,co_cd);
+
+
+CREATE INDEX mst_po_all_ie03
+ON mst_po_all USING BTREE (ext_po_no,ext_sys_cd,co_cd);
+

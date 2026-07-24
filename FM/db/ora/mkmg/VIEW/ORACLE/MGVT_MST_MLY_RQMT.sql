@@ -1,0 +1,31 @@
+SELECT
+	TO_DATE(null) YM,
+	TO_DATE(null) PROD_YM,
+	null MPS_GRP_CD,
+	null ITM_CD,
+	null ITM_SUB1,
+	null ITM_SUB2,
+	null ITM_SUB3,
+	null STRG_LOC_CD,
+	null MFG_LOC_CD,
+	null SPPL_CD,
+	null RQST_LOC_CD,
+	null QTY,
+	null WG_CD,
+	null INTR_RMRKS,
+	null SUB_CHAR1,
+	null SUB_CHAR2,
+	null SUB_CHAR3,
+	null INS_USR_ID,
+	null INS_USR_NM,
+	null INS_TS,
+	null INS_FUNC_ID,
+	null UPD_CNTR,
+	null UPD_USR_ID,
+	null UPD_USR_NM,
+	null UPD_TS,
+	null UPD_FUNC_ID,
+	null UPD_SRV_REQ_NO
+FROM 
+	DUAL
+/

@@ -1,0 +1,65 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mam_trd_$u(
+	trd_cd,
+	trd_nm,
+	trd_ptn_typ,
+	ac_rsn_cd,
+	slip_each_lot_typ,
+	slip_form_cd,
+	auto_adopt_flg,
+	not_sls_slip_snd_flg,
+	not_purc_slip_snd_flg,
+	memo1,
+	memo2,
+	memo3,
+	del_flg,
+	del_usr_id,
+	del_usr_nm,
+	del_ts,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mam_trd_$u_mam_trd_all_org.trd_cd,
+	mam_trd_$u_mam_trd_all_org.trd_nm,
+	mam_trd_$u_mam_trd_all_org.trd_ptn_typ,
+	mam_trd_$u_mam_trd_all_org.ac_rsn_cd,
+	mam_trd_$u_mam_trd_all_org.slip_each_lot_typ,
+	mam_trd_$u_mam_trd_all_org.slip_form_cd,
+	mam_trd_$u_mam_trd_all_org.auto_adopt_flg,
+	mam_trd_$u_mam_trd_all_org.not_sls_slip_snd_flg,
+	mam_trd_$u_mam_trd_all_org.not_purc_slip_snd_flg,
+	mam_trd_$u_mam_trd_all_org.memo1,
+	mam_trd_$u_mam_trd_all_org.memo2,
+	mam_trd_$u_mam_trd_all_org.memo3,
+	mam_trd_$u_mam_trd_all_org.del_flg,
+	mam_trd_$u_mam_trd_all_org.del_usr_id,
+	mam_trd_$u_mam_trd_all_org.del_usr_nm,
+	mam_trd_$u_mam_trd_all_org.del_ts,
+	mam_trd_$u_mam_trd_all_org.ins_usr_id,
+	mam_trd_$u_mam_trd_all_org.ins_usr_nm,
+	mam_trd_$u_mam_trd_all_org.ins_ts,
+	mam_trd_$u_mam_trd_all_org.ins_func_id,
+	mam_trd_$u_mam_trd_all_org.upd_cntr,
+	mam_trd_$u_mam_trd_all_org.upd_usr_id,
+	mam_trd_$u_mam_trd_all_org.upd_usr_nm,
+	mam_trd_$u_mam_trd_all_org.upd_ts,
+	mam_trd_$u_mam_trd_all_org.upd_func_id,
+	mam_trd_$u_mam_trd_all_org.upd_srv_req_no
+FROM
+	mam_trd_all mam_trd_$u_mam_trd_all_org
+WHERE
+	0 = 0
+	AND mam_trd_$u_mam_trd_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

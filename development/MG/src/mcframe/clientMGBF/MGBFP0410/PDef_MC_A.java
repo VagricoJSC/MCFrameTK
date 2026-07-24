@@ -1,0 +1,116 @@
+package mcframe.clientMGBF.MGBFP0410;
+
+import mcframe.commonCore.param.MCOperationInfo;
+import mcframe.commonCore.param.MCContainerDef;
+import mcframe.commonCore.param.MCGeneralContainerDef;
+import mcframe.commonCore.param.MCBlockDef;
+import mcframe.commonCore.param.MCItemDef;
+import mcframe.commonCore.param.MCDef;
+
+/**
+ * [MGBFP_RptCmp]の入出力情報となる電文（上り・下り電文）と
+ * 画面コンテナの間のデータ変換の定義を行うクラスです。
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズはできません。
+ */
+@SuppressWarnings({"all"})
+abstract public class PDef_MC_A extends MCDef {
+	public MCContainerDef getCustomDef(String id){
+		if (id == null) {
+			return null;
+		} 
+//FMCB GET_DEF START
+		else if (id.equals("MG.MGBFL0410.Srch01.UP.BLOCK0")){
+			return MG_MGBFL0410_Srch01_UP_BLOCK0();
+		}
+		else if (id.equals("MG.MGBFL0410.Srch01.DOWN.BLOCK0")){
+			return MG_MGBFL0410_Srch01_DOWN_BLOCK0();
+		}
+		else if (id.equals("MG.MGBFL0410.Srch01.DOWN.BLOCK1")){
+			return MG_MGBFL0410_Srch01_DOWN_BLOCK1();
+		}
+		else if (id.equals("MG.MGBFL0410.Srch01.DOWN.BLOCK2")){
+			return MG_MGBFL0410_Srch01_DOWN_BLOCK2();
+		}
+//FMCB GET_DEF END
+		else {
+			return null;
+		}
+	}
+	//FMCB DEF_CLASSES START
+	
+	
+	static final MCOperationInfo MG_MGBFL0410_Srch01_INFO = new MCOperationInfo("MG", "MGBFL0410", "Srch01", "000000", new PDef());
+
+	public static MCContainerDef MG_MGBFL0410_Srch01_UP_BLOCK0() {
+		/** Ope.のBlock [Srch01_Cnd] に対する電文項目定義 */
+		return new MCGeneralContainerDef("MG", "MGBFL0410", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("cmp_ptn_cd", "cmp_ptn_cd"),
+				MCItemDef.create("rpt_key_cd", "rpt_key_cd"),
+				MCItemDef.create("rpt_key_typ", "rpt_key_typ"),
+				MCItemDef.create("mng_dpt_cd", "mng_dpt_cd"),
+				MCItemDef.create("mng_dpt_nm", "mng_dpt_nm"),
+				MCItemDef.create("itm_p" + ".itm_cd", "itm_cd"),
+				MCItemDef.create("itm_p" + ".itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_p" + ".itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_p" + ".itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_p" + ".itm_nm", "itm_nm"),
+				MCItemDef.create("itm_jnl_cd", "itm_jnl_cd"),
+				MCItemDef.create("itm_jnl_nm", "itm_jnl_nm"),
+				MCItemDef.create("itm_grp_cd", "itm_grp_cd"),
+				MCItemDef.create("itm_grp_nm", "itm_grp_nm"),
+				MCItemDef.create("itm_grp_typ", "itm_grp_typ"),
+				MCItemDef.create("wg_cd", "wg_cd")
+			}
+			,
+			MCBlockDef.create("Cnd")
+		);
+	}
+
+
+	public static MCContainerDef MG_MGBFL0410_Srch01_DOWN_BLOCK0() {
+	/** Ope.のBlock [Srch01_Dtl] に対する電文項目定義 */
+		return new MCGeneralContainerDef("MG", "MGBFL0410", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("rpt_seq", "rpt_seq"),
+				MCItemDef.create("fg_r", "fg_r"),
+				MCItemDef.create("fg_g", "fg_g"),
+				MCItemDef.create("fg_b", "fg_b"),
+				MCItemDef.create("bg_r", "bg_r"),
+				MCItemDef.create("bg_g", "bg_g"),
+				MCItemDef.create("bg_b", "bg_b"),
+				MCItemDef.create("rpt_row_view", "rpt_row_view"),
+				MCItemDef.create("qty_unit_typ", "qty_unit_typ"),
+				MCItemDef.create("col_all", "col_all")
+			}
+			,
+			MCBlockDef.create("DispDtl")
+		);
+	}
+	public static MCContainerDef MG_MGBFL0410_Srch01_DOWN_BLOCK1() {
+	/** Ope.のBlock [Srch01_Key] に対する電文項目定義 */
+		return new MCGeneralContainerDef("MG", "MGBFL0410", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("cd", "cd"),
+				MCItemDef.create("nm", "nm")
+			}
+			,
+			MCBlockDef.create("Key")
+		);
+	}
+	public static MCContainerDef MG_MGBFL0410_Srch01_DOWN_BLOCK2() {
+	/** Ope.のBlock [Srch01_Mstr] に対する電文項目定義 */
+		return new MCGeneralContainerDef("MG", "MGBFL0410", "Srch01",
+			new MCItemDef[]{
+				MCItemDef.create("col_cd", "col_cd"),
+				MCItemDef.create("col_nm", "col_nm"),
+				MCItemDef.create("sml_flg", "sml_flg")
+			}
+			,
+			MCBlockDef.create("Mstr")
+		);
+	}
+	//FMCB DEF_CLASSES END
+}
+

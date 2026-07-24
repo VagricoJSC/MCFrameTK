@@ -1,0 +1,89 @@
+{
+"version" : "1.0.0",
+"scriptComment" : "コメントを記入",
+"mcddlList" : [
+	{
+		"mcddl" : "CREATE_TEMPORARY_TABLE",
+		"dropType" : "*gtd",
+		"tableName" : "MAW_DPT_LOC_YM",
+		"jpName" : "月別部門場所ワーク",
+		"comment" : [],
+		"isPkWkTable" : false,
+		"columnList" : [
+			{
+			"isKey" : true,
+			"name" : "YM",
+			"dataType" : "D",
+			"length" : "",
+			"integerLength" : "",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "年月",
+			"fullName" : "Year month"
+			},
+			{
+			"isKey" : true,
+			"name" : "DPT_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "部門ＣＤ",
+			"fullName" : "Dept. cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "LOC_CD",
+			"dataType" : "C",
+			"length" : "20",
+			"integerLength" : "20",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "場所ＣＤ",
+			"fullName" : "Location cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "OPER_CD",
+			"dataType" : "C",
+			"length" : "10",
+			"integerLength" : "10",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "工程ＣＤ",
+			"fullName" : "Operation cd."
+			},
+			{
+			"isKey" : true,
+			"name" : "OPER_NULL_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "工程無ＦＬＧ",
+			"fullName" : "No operation flg."
+			}
+		],
+		"indexList": [
+			{
+			"name" : "MAW_DPT_LOC_YM_IE01",
+			"items" : "LOC_CD"
+			}
+		],
+		"checkList": [
+			{
+			"item" : "OPER_NULL_FLG",
+			"name" : "MAW_DPT_LOC_YM_CK01",
+			"value" : [0, 1]
+			}
+		]
+	}
+]
+}

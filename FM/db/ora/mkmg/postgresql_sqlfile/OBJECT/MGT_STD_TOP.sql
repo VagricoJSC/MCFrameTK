@@ -1,0 +1,79 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mgt_std_top(
+	calc_no,
+	calc_grp_cd,
+	top_rec_no,
+	wg_cd,
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	mfg_purc_typ,
+	loc_cd,
+	sppl_cd,
+	dpt_cd,
+	cst_cd,
+	dlv_cd,
+	dest_cd1,
+	dest_cd2,
+	dest_cd3,
+	qty,
+	amt,
+	sls_amt,
+	cur_cd,
+	cur_amt,
+	sls_flg,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mgt_std_top_mgt_std_top_all_org.calc_no,
+	mgt_std_top_mgt_std_top_all_org.calc_grp_cd,
+	mgt_std_top_mgt_std_top_all_org.top_rec_no,
+	mgt_std_top_mgt_std_top_all_org.wg_cd,
+	mgt_std_top_mgt_std_top_all_org.itm_cd,
+	mgt_std_top_mgt_std_top_all_org.itm_sub1,
+	mgt_std_top_mgt_std_top_all_org.itm_sub2,
+	mgt_std_top_mgt_std_top_all_org.itm_sub3,
+	mgt_std_top_mgt_std_top_all_org.mfg_purc_typ,
+	mgt_std_top_mgt_std_top_all_org.loc_cd,
+	mgt_std_top_mgt_std_top_all_org.sppl_cd,
+	mgt_std_top_mgt_std_top_all_org.dpt_cd,
+	mgt_std_top_mgt_std_top_all_org.cst_cd,
+	mgt_std_top_mgt_std_top_all_org.dlv_cd,
+	mgt_std_top_mgt_std_top_all_org.dest_cd1,
+	mgt_std_top_mgt_std_top_all_org.dest_cd2,
+	mgt_std_top_mgt_std_top_all_org.dest_cd3,
+	mgt_std_top_mgt_std_top_all_org.qty,
+	mgt_std_top_mgt_std_top_all_org.amt,
+	mgt_std_top_mgt_std_top_all_org.sls_amt,
+	mgt_std_top_mgt_std_top_all_org.cur_cd,
+	mgt_std_top_mgt_std_top_all_org.cur_amt,
+	mgt_std_top_mgt_std_top_all_org.sls_flg,
+	mgt_std_top_mgt_std_top_all_org.ins_usr_id,
+	mgt_std_top_mgt_std_top_all_org.ins_usr_nm,
+	mgt_std_top_mgt_std_top_all_org.ins_ts,
+	mgt_std_top_mgt_std_top_all_org.ins_func_id,
+	mgt_std_top_mgt_std_top_all_org.upd_cntr,
+	mgt_std_top_mgt_std_top_all_org.upd_usr_id,
+	mgt_std_top_mgt_std_top_all_org.upd_usr_nm,
+	mgt_std_top_mgt_std_top_all_org.upd_ts,
+	mgt_std_top_mgt_std_top_all_org.upd_func_id,
+	mgt_std_top_mgt_std_top_all_org.upd_srv_req_no
+FROM
+	mgt_std_top_all mgt_std_top_mgt_std_top_all_org
+WHERE
+	0 = 0
+	AND mgt_std_top_mgt_std_top_all_org.co_cd = (SELECT co_cd FROM fct_context mgt_std_top_fct_context WHERE pid = pg_backend_pid())
+;
+

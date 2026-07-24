@@ -1,0 +1,137 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION mgw_inst_oper_key()
+RETURNS TABLE (
+	calc_ctg_cd varchar,
+	itm_cd varchar,
+	itm_sub1 varchar,
+	itm_sub2 varchar,
+	itm_sub3 varchar,
+	itm_mfg_inst_no varchar,
+	mfg_act_no varchar,
+	oper_act_no varchar
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_inst_oper_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_inst_oper_key$temp(
+				calc_ctg_cd varchar (10) NULL,
+				itm_cd varchar (40) NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NULL,
+				itm_mfg_inst_no varchar (15) NULL,
+				mfg_act_no varchar (15) DEFAULT '*' NULL,
+				oper_act_no varchar (15) DEFAULT '*' NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX mgw_inst_oper_key_pk_ie ON mgw_inst_oper_key$temp
+				USING BTREE (calc_ctg_cd,itm_cd,itm_sub1,itm_sub2,itm_sub3,itm_mfg_inst_no,mfg_act_no,oper_act_no);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_inst_oper_key$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM mgw_inst_oper_key$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW mgw_inst_oper_key
+AS
+SELECT *
+FROM mgw_inst_oper_key();
+ALTER VIEW mgw_inst_oper_key ALTER COLUMN itm_sub1 SET DEFAULT '*';
+ALTER VIEW mgw_inst_oper_key ALTER COLUMN itm_sub2 SET DEFAULT '*';
+ALTER VIEW mgw_inst_oper_key ALTER COLUMN itm_sub3 SET DEFAULT '*';
+ALTER VIEW mgw_inst_oper_key ALTER COLUMN mfg_act_no SET DEFAULT '*';
+ALTER VIEW mgw_inst_oper_key ALTER COLUMN oper_act_no SET DEFAULT '*';
+
+CREATE OR REPLACE FUNCTION mgw_inst_oper_key$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_inst_oper_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_inst_oper_key$temp(
+				calc_ctg_cd varchar (10) NULL,
+				itm_cd varchar (40) NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NULL,
+				itm_mfg_inst_no varchar (15) NULL,
+				mfg_act_no varchar (15) DEFAULT '*' NULL,
+				oper_act_no varchar (15) DEFAULT '*' NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX mgw_inst_oper_key_pk_ie ON mgw_inst_oper_key$temp
+				USING BTREE (calc_ctg_cd,itm_cd,itm_sub1,itm_sub2,itm_sub3,itm_mfg_inst_no,mfg_act_no,oper_act_no);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_inst_oper_key$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO mgw_inst_oper_key$temp(
+			calc_ctg_cd,
+			itm_cd,
+			itm_sub1,
+			itm_sub2,
+			itm_sub3,
+			itm_mfg_inst_no,
+			mfg_act_no,
+			oper_act_no
+		)VALUES (
+			NEW.calc_ctg_cd,
+			NEW.itm_cd,
+			NEW.itm_sub1,
+			NEW.itm_sub2,
+			NEW.itm_sub3,
+			NEW.itm_mfg_inst_no,
+			NEW.mfg_act_no,
+			NEW.oper_act_no
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE mgw_inst_oper_key$temp
+		SET 
+			calc_ctg_cd = NEW.calc_ctg_cd,
+			itm_cd = NEW.itm_cd,
+			itm_sub1 = NEW.itm_sub1,
+			itm_sub2 = NEW.itm_sub2,
+			itm_sub3 = NEW.itm_sub3,
+			itm_mfg_inst_no = NEW.itm_mfg_inst_no,
+			mfg_act_no = NEW.mfg_act_no,
+			oper_act_no = NEW.oper_act_no
+		WHERE 0=0
+		AND (calc_ctg_cd = OLD.calc_ctg_cd OR calc_ctg_cd IS NULL AND OLD.calc_ctg_cd IS NULL)
+		AND (itm_cd = OLD.itm_cd OR itm_cd IS NULL AND OLD.itm_cd IS NULL)
+		AND (itm_sub1 = OLD.itm_sub1 OR itm_sub1 IS NULL AND OLD.itm_sub1 IS NULL)
+		AND (itm_sub2 = OLD.itm_sub2 OR itm_sub2 IS NULL AND OLD.itm_sub2 IS NULL)
+		AND (itm_sub3 = OLD.itm_sub3 OR itm_sub3 IS NULL AND OLD.itm_sub3 IS NULL)
+		AND (itm_mfg_inst_no = OLD.itm_mfg_inst_no OR itm_mfg_inst_no IS NULL AND OLD.itm_mfg_inst_no IS NULL)
+		AND (mfg_act_no = OLD.mfg_act_no OR mfg_act_no IS NULL AND OLD.mfg_act_no IS NULL)
+		AND (oper_act_no = OLD.oper_act_no OR oper_act_no IS NULL AND OLD.oper_act_no IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM mgw_inst_oper_key$temp
+		WHERE 0=0
+		AND (calc_ctg_cd = OLD.calc_ctg_cd OR calc_ctg_cd IS NULL AND OLD.calc_ctg_cd IS NULL)
+		AND (itm_cd = OLD.itm_cd OR itm_cd IS NULL AND OLD.itm_cd IS NULL)
+		AND (itm_sub1 = OLD.itm_sub1 OR itm_sub1 IS NULL AND OLD.itm_sub1 IS NULL)
+		AND (itm_sub2 = OLD.itm_sub2 OR itm_sub2 IS NULL AND OLD.itm_sub2 IS NULL)
+		AND (itm_sub3 = OLD.itm_sub3 OR itm_sub3 IS NULL AND OLD.itm_sub3 IS NULL)
+		AND (itm_mfg_inst_no = OLD.itm_mfg_inst_no OR itm_mfg_inst_no IS NULL AND OLD.itm_mfg_inst_no IS NULL)
+		AND (mfg_act_no = OLD.mfg_act_no OR mfg_act_no IS NULL AND OLD.mfg_act_no IS NULL)
+		AND (oper_act_no = OLD.oper_act_no OR oper_act_no IS NULL AND OLD.oper_act_no IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER mgw_inst_oper_key$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON mgw_inst_oper_key
+FOR EACH ROW
+EXECUTE PROCEDURE mgw_inst_oper_key$func();
+;
+

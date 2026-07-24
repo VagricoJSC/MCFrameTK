@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_pay_note_$u(
+	pay_note_mng_no,
+	pay_note_mng_seq,
+	slip_sts_typ,
+	note_no,
+	note_typ,
+	note_rsn_cd,
+	draw_dt,
+	due_dt,
+	note_days,
+	drawer_nm,
+	draw_bank_cd,
+	draw_branch_cd,
+	endrsr,
+	accptr,
+	note_amt,
+	cur_cd,
+	pay_act_no,
+	pay_act_seq,
+	adv_pay_act_no,
+	adv_pay_act_seq,
+	a_imp_flg,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_pay_note_$u_mst_pay_note_all_org.pay_note_mng_no,
+	mst_pay_note_$u_mst_pay_note_all_org.pay_note_mng_seq,
+	mst_pay_note_$u_mst_pay_note_all_org.slip_sts_typ,
+	mst_pay_note_$u_mst_pay_note_all_org.note_no,
+	mst_pay_note_$u_mst_pay_note_all_org.note_typ,
+	mst_pay_note_$u_mst_pay_note_all_org.note_rsn_cd,
+	mst_pay_note_$u_mst_pay_note_all_org.draw_dt,
+	mst_pay_note_$u_mst_pay_note_all_org.due_dt,
+	mst_pay_note_$u_mst_pay_note_all_org.note_days,
+	mst_pay_note_$u_mst_pay_note_all_org.drawer_nm,
+	mst_pay_note_$u_mst_pay_note_all_org.draw_bank_cd,
+	mst_pay_note_$u_mst_pay_note_all_org.draw_branch_cd,
+	mst_pay_note_$u_mst_pay_note_all_org.endrsr,
+	mst_pay_note_$u_mst_pay_note_all_org.accptr,
+	mst_pay_note_$u_mst_pay_note_all_org.note_amt,
+	mst_pay_note_$u_mst_pay_note_all_org.cur_cd,
+	mst_pay_note_$u_mst_pay_note_all_org.pay_act_no,
+	mst_pay_note_$u_mst_pay_note_all_org.pay_act_seq,
+	mst_pay_note_$u_mst_pay_note_all_org.adv_pay_act_no,
+	mst_pay_note_$u_mst_pay_note_all_org.adv_pay_act_seq,
+	mst_pay_note_$u_mst_pay_note_all_org.a_imp_flg,
+	mst_pay_note_$u_mst_pay_note_all_org.sub_char1,
+	mst_pay_note_$u_mst_pay_note_all_org.sub_char2,
+	mst_pay_note_$u_mst_pay_note_all_org.sub_char3,
+	mst_pay_note_$u_mst_pay_note_all_org.ins_usr_id,
+	mst_pay_note_$u_mst_pay_note_all_org.ins_usr_nm,
+	mst_pay_note_$u_mst_pay_note_all_org.ins_ts,
+	mst_pay_note_$u_mst_pay_note_all_org.ins_func_id,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_cntr,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_usr_id,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_usr_nm,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_ts,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_func_id,
+	mst_pay_note_$u_mst_pay_note_all_org.upd_srv_req_no
+FROM
+	mst_pay_note_all mst_pay_note_$u_mst_pay_note_all_org
+WHERE
+	0 = 0
+	AND mst_pay_note_$u_mst_pay_note_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

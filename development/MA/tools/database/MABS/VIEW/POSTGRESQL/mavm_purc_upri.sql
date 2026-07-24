@@ -1,0 +1,46 @@
+SELECT 
+	mavm_purc_upri_mam_purc_upri_all_org.itm_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.itm_sub1,
+	mavm_purc_upri_mam_purc_upri_all_org.itm_sub2,
+	mavm_purc_upri_mam_purc_upri_all_org.itm_sub3,
+	mavm_purc_upri_mam_purc_upri_all_org.sppl_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.maker_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.unit_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.lot_qty,
+	mavm_purc_upri_mam_purc_upri_all_org.cur_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.loc_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.dlv_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.wg_cd,
+	mavm_purc_upri_mam_purc_upri_all_org.st_dt,
+	mavm_purc_upri_mam_purc_upri_all_org.end_dt,
+	mavm_purc_upri_mam_purc_upri_all_org.upri,
+	mavm_purc_upri_mam_purc_upri_all_org.upri_bf,
+	mavm_purc_upri_mam_purc_upri_all_org.interim_flg,
+	mavm_purc_upri_mam_purc_upri_all_org.not_cost_flg,
+	mavm_purc_upri_mam_purc_upri_all_org.sub_upri1,
+	mavm_purc_upri_mam_purc_upri_all_org.sub_upri2,
+	mavm_purc_upri_mam_purc_upri_all_org.sub_upri3,
+	mavm_purc_upri_mam_purc_upri_all_org.memo1,
+	mavm_purc_upri_mam_purc_upri_all_org.memo2,
+	mavm_purc_upri_mam_purc_upri_all_org.memo3,
+	mavm_purc_upri_mam_purc_upri_all_org.del_flg,
+	mavm_purc_upri_mam_purc_upri_all_org.del_usr_id,
+	mavm_purc_upri_mam_purc_upri_all_org.del_usr_nm,
+	mavm_purc_upri_mam_purc_upri_all_org.del_ts,
+	mavm_purc_upri_mam_purc_upri_all_org.ins_usr_id,
+	mavm_purc_upri_mam_purc_upri_all_org.ins_usr_nm,
+	mavm_purc_upri_mam_purc_upri_all_org.ins_ts,
+	mavm_purc_upri_mam_purc_upri_all_org.ins_func_id,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_cntr,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_usr_id,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_usr_nm,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_ts,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_func_id,
+	mavm_purc_upri_mam_purc_upri_all_org.upd_srv_req_no,
+	mavm_purc_upri_mam_purc_upri_all_org.ctid::VARCHAR	row_id
+FROM 
+	mam_purc_upri_all mavm_purc_upri_mam_purc_upri_all_org
+WHERE 
+	0 = 0
+	AND mavm_purc_upri_mam_purc_upri_all_org.co_cd = fcpa_context$f_get_co_cd()
+;

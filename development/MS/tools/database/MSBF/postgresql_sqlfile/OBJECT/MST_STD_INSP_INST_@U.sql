@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_std_insp_inst_$u(
+	std_insp_inst_no,
+	insp_typ,
+	insp_no,
+	insp_freq,
+	insp_seq,
+	insp_point_cd,
+	insp_qlqn_typ,
+	qn_out_min,
+	qn_out_max,
+	sign_out_min_typ,
+	sign_out_max_typ,
+	qn_in_min,
+	qn_in_max,
+	sign_in_min_typ,
+	sign_in_max_typ,
+	trd_unit_cd,
+	qn_int_digit,
+	qn_int_frac,
+	ql_std_val,
+	add_point_flg,
+	intr_rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.std_insp_inst_no,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_no,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_freq,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_seq,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_point_cd,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.insp_qlqn_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_out_min,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_out_max,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sign_out_min_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sign_out_max_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_in_min,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_in_max,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sign_in_min_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sign_in_max_typ,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.trd_unit_cd,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_int_digit,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.qn_int_frac,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.ql_std_val,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.add_point_flg,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.intr_rmrks,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sub_char1,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sub_char2,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.sub_char3,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.ins_usr_id,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.ins_usr_nm,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.ins_ts,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.ins_func_id,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_cntr,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_usr_id,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_usr_nm,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_ts,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_func_id,
+	mst_std_insp_inst_$u_mst_std_insp_inst_all_org.upd_srv_req_no
+FROM
+	mst_std_insp_inst_all mst_std_insp_inst_$u_mst_std_insp_inst_all_org
+WHERE
+	0 = 0
+	AND mst_std_insp_inst_$u_mst_std_insp_inst_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

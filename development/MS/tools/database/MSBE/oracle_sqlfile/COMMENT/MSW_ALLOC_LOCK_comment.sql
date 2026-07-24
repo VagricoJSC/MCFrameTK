@@ -1,0 +1,18 @@
+
+COMMENT ON TABLE MSW_ALLOC_LOCK IS '引当ロックワーク // Allocation lock work';
+
+
+COMMENT ON COLUMN MSW_ALLOC_LOCK.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MSW_ALLOC_LOCK.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MSW_ALLOC_LOCK.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MSW_ALLOC_LOCK.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MSW_ALLOC_LOCK.LOC_CD IS '場所ＣＤ // #MA.LOC_CD // Location cd.';
+

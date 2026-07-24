@@ -1,0 +1,22 @@
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--通貨ＣＤ
+	T1.CUR_CD,
+	--通貨名
+	T1.CUR_NM,
+	--通貨名（ロケール１）
+	T1.CUR_NM_LCL1,
+	--通貨名（ロケール２）
+	T1.CUR_NM_LCL2,
+	--通貨名（ロケール３）
+	T1.CUR_NM_LCL3,
+	--通貨名（ロケール４）
+	T1.CUR_NM_LCL4,
+	--通貨名（ロケール５）
+	T1.CUR_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_CUR_MST T1
+/

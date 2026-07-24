@@ -1,0 +1,219 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION fcm_const_nm_tr_r_body() RETURNS trigger AS $BODY$
+DECLARE
+	h_id fct_hst_header.hst_id%TYPE;
+	a_id fct_oprhistory.action_id%TYPE;
+	h_typ fct_hst_header.hst_type%TYPE;
+	h_tab fct_hst_header.table_name%TYPE;
+	u_id fcm_user.user_id%TYPE;
+	cocd fct_hst_header.co_cd%TYPE;
+	ex_1 fct_hst_header.ext_attr1%TYPE;
+	ex_2 fct_hst_header.ext_attr2%TYPE;
+	ex_3 fct_hst_header.ext_attr3%TYPE;
+	rdate timestamp(0);
+BEGIN
+	h_tab :='fcm_const_nm_r';
+	a_id := fcpa_context$f_get_action_id();
+	u_id := fcpa_context$f_get_userid();
+	cocd := fcpa_context$f_get_co_cd();
+	ex_1 := fcpa_context$f_get_ext_attr1();
+	ex_2 := fcpa_context$f_get_ext_attr2();
+	ex_3 := fcpa_context$f_get_ext_attr3();
+	rdate := fcpa_date_util$f_mcsysdate();
+	IF (TG_OP = 'INSERT') THEN
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		h_typ := 'I'; 
+		INSERT INTO fct_hst_header (hst_id, table_name, key_id, action_id, hst_type, hst_time, hst_user_id, co_cd, ext_attr1, ext_attr2, ext_attr3)
+			values (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO fcm_const_nm_r (
+			hst_id,
+			hst_type,
+			c_grp_cd,
+			c_key,
+			locale_cd,
+			v_s,
+			v_n,
+			v_d,
+			v_ts,
+			v_f,
+			c_name,
+			c_rmrks
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				NEW.c_grp_cd,
+				NEW.c_key,
+				NEW.locale_cd,
+				NEW.v_s,
+				NEW.v_n,
+				NEW.v_d,
+				NEW.v_ts,
+				NEW.v_f,
+				NEW.c_name,
+				NEW.c_rmrks
+		);
+		RETURN NEW;
+	ELSIF (TG_OP = 'UPDATE') THEN
+		IF OLD.c_grp_cd <> NEW.c_grp_cd OR OLD.c_key <> NEW.c_key OR OLD.locale_cd <> NEW.locale_cd THEN
+			SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+			h_typ := 'D';
+			INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+				VALUES (
+					h_id,
+					h_tab,
+					h_id,
+					a_id,
+					h_typ,
+					rdate,
+					u_id,
+					cocd,
+					ex_1,
+					ex_2,
+					ex_3
+			);
+			INSERT INTO fcm_const_nm_r (
+				hst_id,
+				hst_type,
+				c_grp_cd,
+				c_key,
+				locale_cd,
+				v_s,
+				v_n,
+				v_d,
+				v_ts,
+				v_f,
+				c_name,
+				c_rmrks
+			)
+				VALUES (
+					h_id,
+					h_typ,
+					OLD.c_grp_cd,
+					OLD.c_key,
+					OLD.locale_cd,
+					OLD.v_s,
+					OLD.v_n,
+					OLD.v_d,
+					OLD.v_ts,
+					OLD.v_f,
+					OLD.c_name,
+					OLD.c_rmrks
+			);
+			h_typ := 'I';
+		ELSE
+			h_typ := 'U';
+		END IF;
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+			VALUES (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO fcm_const_nm_r (
+			hst_id,
+			hst_type,
+			c_grp_cd,
+			c_key,
+			locale_cd,
+			v_s,
+			v_n,
+			v_d,
+			v_ts,
+			v_f,
+			c_name,
+			c_rmrks
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				NEW.c_grp_cd,
+				NEW.c_key,
+				NEW.locale_cd,
+				NEW.v_s,
+				NEW.v_n,
+				NEW.v_d,
+				NEW.v_ts,
+				NEW.v_f,
+				NEW.c_name,
+				NEW.c_rmrks
+		);
+		RETURN NEW;
+	ELSIF (TG_OP = 'DELETE') THEN
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		h_typ := 'D';
+		INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+			VALUES (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO fcm_const_nm_r (
+			hst_id,
+			hst_type,
+			c_grp_cd,
+			c_key,
+			locale_cd,
+			v_s,
+			v_n,
+			v_d,
+			v_ts,
+			v_f,
+			c_name,
+			c_rmrks
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				OLD.c_grp_cd,
+				OLD.c_key,
+				OLD.locale_cd,
+				OLD.v_s,
+				OLD.v_n,
+				OLD.v_d,
+				OLD.v_ts,
+				OLD.v_f,
+				OLD.c_name,
+				OLD.c_rmrks
+		);
+		RETURN OLD;
+	END IF;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER fcm_const_nm_tr_r
+AFTER INSERT OR DELETE OR UPDATE ON fcm_const_nm
+FOR EACH ROW
+EXECUTE FUNCTION fcm_const_nm_tr_r_body();
+ALTER TABLE fcm_const_nm DISABLE TRIGGER fcm_const_nm_tr_r;
+

@@ -1,0 +1,79 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_bill_acst(
+	bill_acst_no,
+	bill_mng_no,
+	acst_cd,
+	ar_dpt_cd,
+	wg_cd,
+	ar_typ,
+	last_bill_amt,
+	xfr_amt,
+	note_amt,
+	cash_amt,
+	setoff_amt,
+	setoff_tax_amt,
+	sw_amt,
+	bfw_amt,
+	sls_amt,
+	ret_amt,
+	dscnt_amt,
+	sw_to_amt,
+	tax_amt,
+	bill_amt,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_bill_acst_mst_bill_acst_all_org.bill_acst_no,
+	mst_bill_acst_mst_bill_acst_all_org.bill_mng_no,
+	mst_bill_acst_mst_bill_acst_all_org.acst_cd,
+	mst_bill_acst_mst_bill_acst_all_org.ar_dpt_cd,
+	mst_bill_acst_mst_bill_acst_all_org.wg_cd,
+	mst_bill_acst_mst_bill_acst_all_org.ar_typ,
+	mst_bill_acst_mst_bill_acst_all_org.last_bill_amt,
+	mst_bill_acst_mst_bill_acst_all_org.xfr_amt,
+	mst_bill_acst_mst_bill_acst_all_org.note_amt,
+	mst_bill_acst_mst_bill_acst_all_org.cash_amt,
+	mst_bill_acst_mst_bill_acst_all_org.setoff_amt,
+	mst_bill_acst_mst_bill_acst_all_org.setoff_tax_amt,
+	mst_bill_acst_mst_bill_acst_all_org.sw_amt,
+	mst_bill_acst_mst_bill_acst_all_org.bfw_amt,
+	mst_bill_acst_mst_bill_acst_all_org.sls_amt,
+	mst_bill_acst_mst_bill_acst_all_org.ret_amt,
+	mst_bill_acst_mst_bill_acst_all_org.dscnt_amt,
+	mst_bill_acst_mst_bill_acst_all_org.sw_to_amt,
+	mst_bill_acst_mst_bill_acst_all_org.tax_amt,
+	mst_bill_acst_mst_bill_acst_all_org.bill_amt,
+	mst_bill_acst_mst_bill_acst_all_org.sub_char1,
+	mst_bill_acst_mst_bill_acst_all_org.sub_char2,
+	mst_bill_acst_mst_bill_acst_all_org.sub_char3,
+	mst_bill_acst_mst_bill_acst_all_org.ins_usr_id,
+	mst_bill_acst_mst_bill_acst_all_org.ins_usr_nm,
+	mst_bill_acst_mst_bill_acst_all_org.ins_ts,
+	mst_bill_acst_mst_bill_acst_all_org.ins_func_id,
+	mst_bill_acst_mst_bill_acst_all_org.upd_cntr,
+	mst_bill_acst_mst_bill_acst_all_org.upd_usr_id,
+	mst_bill_acst_mst_bill_acst_all_org.upd_usr_nm,
+	mst_bill_acst_mst_bill_acst_all_org.upd_ts,
+	mst_bill_acst_mst_bill_acst_all_org.upd_func_id,
+	mst_bill_acst_mst_bill_acst_all_org.upd_srv_req_no
+FROM
+	mst_bill_acst_all mst_bill_acst_mst_bill_acst_all_org
+WHERE
+	0 = 0
+	AND mst_bill_acst_mst_bill_acst_all_org.co_cd = (SELECT co_cd FROM fct_context mst_bill_acst_fct_context WHERE pid = pg_backend_pid())
+;
+

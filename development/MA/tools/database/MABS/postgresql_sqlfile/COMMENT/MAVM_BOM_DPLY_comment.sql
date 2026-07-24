@@ -1,0 +1,184 @@
+\encoding UTF-8
+
+COMMENT ON VIEW mavm_bom_dply IS '展開用ＢＯＭマスタビュー // BOM master view for explosion';
+
+
+COMMENT ON COLUMN mavm_bom_dply.bom_key IS 'ＢＯＭキー // #MA.BOM_KEY // BOM key';
+
+
+COMMENT ON COLUMN mavm_bom_dply.wg_cd IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.par_itm_cd IS '親品目ＣＤ // #MA.ITM_CD // Parent item cd.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.par_itm_sub1 IS '親枝番１ // #MA.ITM_SUB1 // Parent branch No. 1';
+
+
+COMMENT ON COLUMN mavm_bom_dply.par_itm_sub2 IS '親枝番２ // #MA.ITM_SUB2 // Parent branch No. 2';
+
+
+COMMENT ON COLUMN mavm_bom_dply.par_itm_sub3 IS '親枝番３ // #MA.ITM_SUB3 // Parent branch No. 3';
+
+
+COMMENT ON COLUMN mavm_bom_dply.bom_ptn IS '構成パタン // #MA.BOM_PTN // BOM pattern';
+
+
+COMMENT ON COLUMN mavm_bom_dply.oper_cd IS '工程ＣＤ // #MA.OPER_CD // Operation cd.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.oper_seq IS '工程連番 // #MA.OPER_SEQ // Operation sequence number';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_itm_cd IS '子品目ＣＤ // #MA.ITM_CD // Child item cd.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_itm_sub1 IS '子枝番１ // #MA.ITM_SUB1 // Child branch No. 1';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_itm_sub2 IS '子枝番２ // #MA.ITM_SUB2 // Child branch No. 2';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_itm_sub3 IS '子枝番３ // #MA.ITM_SUB3 // Child branch No. 3';
+
+
+COMMENT ON COLUMN mavm_bom_dply.ver_no IS '版ＮＯ // #MA.VER_NO // Version No.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.ph_flg IS '架空ＦＬＧ // #MA.FLG // Phantom flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.ph_bom_ptn IS '架空構成パタン // #MA.BOM_PTN // Phantom BOM pattern';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alt_itm_flg IS '代替品目ＦＬＧ // #MA.FLG // Alternative item flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alt_grp_cd IS '代替グループＣＤ // #MA.ALT_GRP_CD // Alternative group cd.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alt_itm_typ IS '代替品目選択区分 // #MA.ALT_ITM_TYP // Alternative item selection type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alt_itm_ratio IS '代替品目比率 // #MA.ALT_ITM_RATIO // Alternative item ratio';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alt_alloc_prio IS '引当優先順 // #MA.INT // Allocation priority';
+
+
+COMMENT ON COLUMN mavm_bom_dply.sno_typ1 IS '手配ＮＯ１区分 // #MA.SNO_TYP // SEIBAN No. 1 type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.sno_typ2 IS '手配ＮＯ２区分 // #MA.SNO_TYP // SEIBAN No. 2 type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.sno_typ3 IS '手配ＮＯ３区分 // #MA.SNO_TYP // SEIBAN No. 3 type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.sno_typ4 IS '手配ＮＯ４区分 // #MA.SNO_TYP // SEIBAN No. 4 type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.min_sno1 IS '下限手配ＮＯ１ // #MA.SNO1 // Min. SEIBAN No. 1';
+
+
+COMMENT ON COLUMN mavm_bom_dply.max_sno1 IS '上限手配ＮＯ１ // #MA.SNO1 // Max. SEIBAN No. 1';
+
+
+COMMENT ON COLUMN mavm_bom_dply.min_sno2 IS '下限手配ＮＯ２ // #MA.SNO2 // Min. SEIBAN No. 2';
+
+
+COMMENT ON COLUMN mavm_bom_dply.max_sno2 IS '上限手配ＮＯ２ // #MA.SNO2 // Max. SEIBAN No. 2';
+
+
+COMMENT ON COLUMN mavm_bom_dply.min_sno3 IS '下限手配ＮＯ３ // #MA.SNO3 // Min. SEIBAN No. 3';
+
+
+COMMENT ON COLUMN mavm_bom_dply.max_sno3 IS '上限手配ＮＯ３ // #MA.SNO3 // Max. SEIBAN No. 3';
+
+
+COMMENT ON COLUMN mavm_bom_dply.min_sno4 IS '下限手配ＮＯ４ // #MA.SNO4 // Min. SEIBAN No. 4';
+
+
+COMMENT ON COLUMN mavm_bom_dply.max_sno4 IS '上限手配ＮＯ４ // #MA.SNO4 // Max. SEIBAN No. 4';
+
+
+COMMENT ON COLUMN mavm_bom_dply.par_inst_qty IS '親指図数量 // #MA.QTY // Parent order qty.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_inpt_qty IS '子投入数量 // #MA.QTY // Child input qty.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_rqmt_qty IS '子必要数量 // #MA.QTY // Child required qty.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_inpt_ratio IS '子品目投入比率 // #MA.CHD_RATIO // Child item input ratio';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chd_rqmt_ratio IS '子品目必要比率 // #MA.CHD_RATIO // Child item requirement ratio';
+
+
+COMMENT ON COLUMN mavm_bom_dply.fxd_chd_rqmt_qty IS '子固定必要数量 // #MA.QTY // Child fixed required qty.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.byprod_flg IS '副産品ＦＬＧ // #MA.FLG // By-product flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.in_offst_typ IS '投入オフセット区分 // #MA.OFFST_TYP // Input offset type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.in_offst IS '投入オフセット // #MA.OFFST // Input offset';
+
+
+COMMENT ON COLUMN mavm_bom_dply.bkf_typ IS 'バックフラッシュ区分 // #MA.BKF_TYP // Backflush type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.inst_lot_fix_flg IS '指図時ロット指定ＦＬＧ // #MA.FLG // Lot specification at order flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.lot_mix_flg IS 'ロット混在ＦＬＧ // #MA.FLG // Lot mixed flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.sublot_mix_flg IS 'サブロット混在ＦＬＧ // #MA.FLG // Sublot mixed flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.alloc_ctl_typ IS '引当制御区分 // #MA.ALLOC_CTL_TYP // Allocation control type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.main_itm_flg IS '引継対象子品目ＦＬＧ // #MA.FLG // Copy-from child item flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.yield_calc_flg IS '収率計算用ＦＬＧ // #MA.FLG // Yield calculation flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.inpt_ctl_typ IS '投入制御区分 // #MA.INPT_CTL_TYP // Input control type';
+
+
+COMMENT ON COLUMN mavm_bom_dply.disp_seq IS '表示順 // #MA.INT // Display order';
+
+
+COMMENT ON COLUMN mavm_bom_dply.chng_no IS '変更ＮＯ // #MA.CHNG_NO // Change No.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.ext_sys_no_bom IS '外部システムＮＯ // #MA.EXT_SYS_NO_BOM // External system No.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.not_cost_flg IS '原価対象外ＦＬＧ // #MA.FLG // Not costing flg.';
+
+
+COMMENT ON COLUMN mavm_bom_dply.st_dt IS '適用開始日 // #MA.DT // Application start date';
+
+
+COMMENT ON COLUMN mavm_bom_dply.end_dt IS '適用終了日 // #MA.DT // Application end date';
+
+
+COMMENT ON COLUMN mavm_bom_dply.memo1 IS 'メモ１ // #MA.MST_MEMO1 // Memo 1';
+
+
+COMMENT ON COLUMN mavm_bom_dply.memo2 IS 'メモ２ // #MA.MST_MEMO2 // Memo 2';
+
+
+COMMENT ON COLUMN mavm_bom_dply.memo3 IS 'メモ３ // #MA.MST_MEMO3 // Memo 3';
+
+
+COMMENT ON COLUMN mavm_bom_dply.del_flg IS '論理削除ＦＬＧ // #MA.FLG // Logical delete flg.';
+

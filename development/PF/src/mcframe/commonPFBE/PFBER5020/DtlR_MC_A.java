@@ -1,0 +1,4758 @@
+package mcframe.commonPFBE.PFBER5020;
+
+import mcframe.commonCore.container.MCConstRow;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.container.MCContainerMeta;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCBinary;
+
+/**
+ * ブロック"Dtl"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract class DtlR_MC_A extends MCConstRow {
+
+	/**
+	 *  データ更新区分.<p>
+	 *
+	 */
+	public static final String $data_crud_typ = "data_crud_typ";
+	/**
+	 *  会社ＣＤ.<p>
+	 *
+	 */
+	public static final String $co_cd = "co_cd";
+	/**
+	 *  取引先ＣＤ.<p>
+	 *
+	 */
+	public static final String $bp_cd = "bp_cd";
+	/**
+	 *  取引先名.<p>
+	 *
+	 */
+	public static final String $bp_nm = "bp_nm";
+	/**
+	 *  取引先名（英語）.<p>
+	 *
+	 */
+	public static final String $bp_nm_en = "bp_nm_en";
+	/**
+	 *  取引先別名１.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm1 = "bp_alt_nm1";
+	/**
+	 *  取引先別名１（英語）.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm1_en = "bp_alt_nm1_en";
+	/**
+	 *  取引先別名２.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm2 = "bp_alt_nm2";
+	/**
+	 *  取引先別名２（英語）.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm2_en = "bp_alt_nm2_en";
+	/**
+	 *  取引先別名３.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm3 = "bp_alt_nm3";
+	/**
+	 *  取引先別名３（英語）.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm3_en = "bp_alt_nm3_en";
+	/**
+	 *  取引先別名４.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm4 = "bp_alt_nm4";
+	/**
+	 *  取引先別名４（英語）.<p>
+	 *
+	 */
+	public static final String $bp_alt_nm4_en = "bp_alt_nm4_en";
+	/**
+	 *  郵便番号.<p>
+	 *
+	 */
+	public static final String $zip_cd = "zip_cd";
+	/**
+	 *  住所１.<p>
+	 *
+	 */
+	public static final String $addr1 = "addr1";
+	/**
+	 *  住所２.<p>
+	 *
+	 */
+	public static final String $addr2 = "addr2";
+	/**
+	 *  住所３.<p>
+	 *
+	 */
+	public static final String $addr3 = "addr3";
+	/**
+	 *  住所４.<p>
+	 *
+	 */
+	public static final String $addr4 = "addr4";
+	/**
+	 *  ＴＥＬ.<p>
+	 *
+	 */
+	public static final String $tel = "tel";
+	/**
+	 *  ＦＡＸ.<p>
+	 *
+	 */
+	public static final String $fax = "fax";
+	/**
+	 *  法人番号.<p>
+	 *
+	 */
+	public static final String $ein = "ein";
+	/**
+	 *  標準企業コード.<p>
+	 *
+	 */
+	public static final String $std_co_cd = "std_co_cd";
+	/**
+	 *  国ＣＤ.<p>
+	 *
+	 */
+	public static final String $cntry_cd = "cntry_cd";
+	/**
+	 *  地域ＣＤ.<p>
+	 *
+	 */
+	public static final String $area_cd = "area_cd";
+	/**
+	 *  通貨ＣＤ.<p>
+	 *
+	 */
+	public static final String $cur_cd = "cur_cd";
+	/**
+	 *  帳票出力ロケールＣＤ.<p>
+	 *
+	 */
+	public static final String $prnt_lcl_cd = "prnt_lcl_cd";
+	/**
+	 *  取引先分類ＣＤ１.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd1 = "bp_grp_cd1";
+	/**
+	 *  取引先分類ＣＤ２.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd2 = "bp_grp_cd2";
+	/**
+	 *  取引先分類ＣＤ３.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd3 = "bp_grp_cd3";
+	/**
+	 *  取引先分類ＣＤ４.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd4 = "bp_grp_cd4";
+	/**
+	 *  取引先分類ＣＤ５.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd5 = "bp_grp_cd5";
+	/**
+	 *  取引先分類ＣＤ６.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd6 = "bp_grp_cd6";
+	/**
+	 *  取引先分類ＣＤ７.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd7 = "bp_grp_cd7";
+	/**
+	 *  取引先分類ＣＤ８.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd8 = "bp_grp_cd8";
+	/**
+	 *  取引先分類ＣＤ９.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd9 = "bp_grp_cd9";
+	/**
+	 *  取引先分類ＣＤ１０.<p>
+	 *
+	 */
+	public static final String $bp_grp_cd10 = "bp_grp_cd10";
+	/**
+	 *  納品先諸口ＦＬＧ.<p>
+	 *
+	 */
+	public static final String $dlv_sundry_flg = "dlv_sundry_flg";
+	/**
+	 *  納品先部署.<p>
+	 *
+	 */
+	public static final String $dlv_cntct_dpt = "dlv_cntct_dpt";
+	/**
+	 *  納品先担当者.<p>
+	 *
+	 */
+	public static final String $dlv_cntct_psn = "dlv_cntct_psn";
+	/**
+	 *  納品先担当者敬称.<p>
+	 *
+	 */
+	public static final String $dlv_cntct_psn_title = "dlv_cntct_psn_title";
+	/**
+	 *  価格印字ＦＬＧ.<p>
+	 *
+	 */
+	public static final String $pri_prnt_flg = "pri_prnt_flg";
+	/**
+	 *  貸出在庫棚卸対象ＦＬＧ.<p>
+	 *
+	 */
+	public static final String $cnsgn_stktk_flg = "cnsgn_stktk_flg";
+	/**
+	 *  配送先ＦＬＧ.<p>
+	 *
+	 */
+	public static final String $tdlv_flg = "tdlv_flg";
+	/**
+	 *  配送先経由区分.<p>
+	 *
+	 */
+	public static final String $via_dlv_typ = "via_dlv_typ";
+	/**
+	 *  配送先必須ＦＬＧ.<p>
+	 *
+	 */
+	public static final String $tdlv_req_flg = "tdlv_req_flg";
+	/**
+	 *  物流グループＣＤ.<p>
+	 *
+	 */
+	public static final String $lg_grp_cd = "lg_grp_cd";
+	/**
+	 *  納品先カレンダＣＤ.<p>
+	 *
+	 */
+	public static final String $dlv_cal_cd = "dlv_cal_cd";
+	/**
+	 *  納品先チャネル１.<p>
+	 *
+	 */
+	public static final String $dlv_chnnl1 = "dlv_chnnl1";
+	/**
+	 *  納品先チャネル２.<p>
+	 *
+	 */
+	public static final String $dlv_chnnl2 = "dlv_chnnl2";
+	/**
+	 *  納品先チャネル３.<p>
+	 *
+	 */
+	public static final String $dlv_chnnl3 = "dlv_chnnl3";
+	/**
+	 *  帳票発行区分（納品先）.<p>
+	 *
+	 */
+	public static final String $dlv_prnt_typ = "dlv_prnt_typ";
+	/**
+	 *  メモ１.<p>
+	 *
+	 */
+	public static final String $memo1 = "memo1";
+	/**
+	 *  メモ２.<p>
+	 *
+	 */
+	public static final String $memo2 = "memo2";
+	/**
+	 *  メモ３.<p>
+	 *
+	 */
+	public static final String $memo3 = "memo3";
+	/**
+	 *  論理削除FLG.<p>
+	 *
+	 */
+	public static final String $del_flg = "del_flg";
+	/**
+	 *  予備ＣＨＡＲ項目１.<p>
+	 *
+	 */
+	public static final String $if_sub_char1 = "if_sub_char1";
+	/**
+	 *  予備ＣＨＡＲ項目２.<p>
+	 *
+	 */
+	public static final String $if_sub_char2 = "if_sub_char2";
+	/**
+	 *  予備ＣＨＡＲ項目３.<p>
+	 *
+	 */
+	public static final String $if_sub_char3 = "if_sub_char3";
+	/**
+	 *  予備ＣＨＡＲ項目４.<p>
+	 *
+	 */
+	public static final String $if_sub_char4 = "if_sub_char4";
+	/**
+	 *  予備ＣＨＡＲ項目５.<p>
+	 *
+	 */
+	public static final String $if_sub_char5 = "if_sub_char5";
+	/**
+	 *  予備ＣＨＡＲ項目６.<p>
+	 *
+	 */
+	public static final String $if_sub_char6 = "if_sub_char6";
+	/**
+	 *  予備ＣＨＡＲ項目７.<p>
+	 *
+	 */
+	public static final String $if_sub_char7 = "if_sub_char7";
+	/**
+	 *  予備ＣＨＡＲ項目８.<p>
+	 *
+	 */
+	public static final String $if_sub_char8 = "if_sub_char8";
+	/**
+	 *  予備ＣＨＡＲ項目９.<p>
+	 *
+	 */
+	public static final String $if_sub_char9 = "if_sub_char9";
+	/**
+	 *  予備ＣＨＡＲ項目１０.<p>
+	 *
+	 */
+	public static final String $if_sub_char10 = "if_sub_char10";
+	/**
+	 *  予備ＣＨＡＲ項目１１.<p>
+	 *
+	 */
+	public static final String $if_sub_char11 = "if_sub_char11";
+	/**
+	 *  予備ＣＨＡＲ項目１２.<p>
+	 *
+	 */
+	public static final String $if_sub_char12 = "if_sub_char12";
+	/**
+	 *  予備ＣＨＡＲ項目１３.<p>
+	 *
+	 */
+	public static final String $if_sub_char13 = "if_sub_char13";
+	/**
+	 *  予備ＣＨＡＲ項目１４.<p>
+	 *
+	 */
+	public static final String $if_sub_char14 = "if_sub_char14";
+	/**
+	 *  予備ＣＨＡＲ項目１５.<p>
+	 *
+	 */
+	public static final String $if_sub_char15 = "if_sub_char15";
+	/**
+	 *  予備ＣＨＡＲ項目１６.<p>
+	 *
+	 */
+	public static final String $if_sub_char16 = "if_sub_char16";
+	/**
+	 *  予備ＣＨＡＲ項目１７.<p>
+	 *
+	 */
+	public static final String $if_sub_char17 = "if_sub_char17";
+	/**
+	 *  予備ＣＨＡＲ項目１８.<p>
+	 *
+	 */
+	public static final String $if_sub_char18 = "if_sub_char18";
+	/**
+	 *  予備ＣＨＡＲ項目１９.<p>
+	 *
+	 */
+	public static final String $if_sub_char19 = "if_sub_char19";
+	/**
+	 *  予備ＣＨＡＲ項目２０.<p>
+	 *
+	 */
+	public static final String $if_sub_char20 = "if_sub_char20";
+	/**
+	 *  予備ＣＨＡＲ項目２１.<p>
+	 *
+	 */
+	public static final String $if_sub_char21 = "if_sub_char21";
+	/**
+	 *  予備ＣＨＡＲ項目２２.<p>
+	 *
+	 */
+	public static final String $if_sub_char22 = "if_sub_char22";
+	/**
+	 *  予備ＣＨＡＲ項目２３.<p>
+	 *
+	 */
+	public static final String $if_sub_char23 = "if_sub_char23";
+	/**
+	 *  予備ＣＨＡＲ項目２４.<p>
+	 *
+	 */
+	public static final String $if_sub_char24 = "if_sub_char24";
+	/**
+	 *  予備ＣＨＡＲ項目２５.<p>
+	 *
+	 */
+	public static final String $if_sub_char25 = "if_sub_char25";
+	/**
+	 *  予備ＣＨＡＲ項目２６.<p>
+	 *
+	 */
+	public static final String $if_sub_char26 = "if_sub_char26";
+	/**
+	 *  予備ＣＨＡＲ項目２７.<p>
+	 *
+	 */
+	public static final String $if_sub_char27 = "if_sub_char27";
+	/**
+	 *  予備ＣＨＡＲ項目２８.<p>
+	 *
+	 */
+	public static final String $if_sub_char28 = "if_sub_char28";
+	/**
+	 *  予備ＣＨＡＲ項目２９.<p>
+	 *
+	 */
+	public static final String $if_sub_char29 = "if_sub_char29";
+	/**
+	 *  予備ＣＨＡＲ項目３０.<p>
+	 *
+	 */
+	public static final String $if_sub_char30 = "if_sub_char30";
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public static final String $if_sub_num1 = "if_sub_num1";
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public static final String $if_sub_num2 = "if_sub_num2";
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public static final String $if_sub_num3 = "if_sub_num3";
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public static final String $if_sub_num4 = "if_sub_num4";
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public static final String $if_sub_num5 = "if_sub_num5";
+	/**
+	 *  予備ＤＡＴＥ項目１.<p>
+	 *
+	 */
+	public static final String $if_sub_dt1 = "if_sub_dt1";
+	/**
+	 *  予備ＤＡＴＥ項目２.<p>
+	 *
+	 */
+	public static final String $if_sub_dt2 = "if_sub_dt2";
+	/**
+	 *  予備ＤＡＴＥ項目３.<p>
+	 *
+	 */
+	public static final String $if_sub_dt3 = "if_sub_dt3";
+	/**
+	 *  予備ＤＡＴＥ項目４.<p>
+	 *
+	 */
+	public static final String $if_sub_dt4 = "if_sub_dt4";
+	/**
+	 *  予備ＤＡＴＥ項目５.<p>
+	 *
+	 */
+	public static final String $if_sub_dt5 = "if_sub_dt5";
+	/**
+	 *  メモ４.<p>
+	 *
+	 */
+	public static final String $memo4 = "memo4";
+	/**
+	 *  メモ５.<p>
+	 *
+	 */
+	public static final String $memo5 = "memo5";
+	/**
+	 *  メモ６.<p>
+	 *
+	 */
+	public static final String $memo6 = "memo6";
+	/**
+	 *  メモ７.<p>
+	 *
+	 */
+	public static final String $memo7 = "memo7";
+	/**
+	 *  メモ８.<p>
+	 *
+	 */
+	public static final String $memo8 = "memo8";
+	/**
+	 *  メモ９.<p>
+	 *
+	 */
+	public static final String $memo9 = "memo9";
+	/**
+	 *  メモ１０.<p>
+	 *
+	 */
+	public static final String $memo10 = "memo10";
+	/**
+	 *  メモ１１.<p>
+	 *
+	 */
+	public static final String $memo11 = "memo11";
+	/**
+	 *  メモ１２.<p>
+	 *
+	 */
+	public static final String $memo12 = "memo12";
+	/**
+	 *  メモ１３.<p>
+	 *
+	 */
+	public static final String $memo13 = "memo13";
+	/**
+	 *  メモ１４.<p>
+	 *
+	 */
+	public static final String $memo14 = "memo14";
+	/**
+	 *  メモ１５.<p>
+	 *
+	 */
+	public static final String $memo15 = "memo15";
+	/**
+	 *  メモ１６.<p>
+	 *
+	 */
+	public static final String $memo16 = "memo16";
+	/**
+	 *  メモ１７.<p>
+	 *
+	 */
+	public static final String $memo17 = "memo17";
+	/**
+	 *  メモ１８.<p>
+	 *
+	 */
+	public static final String $memo18 = "memo18";
+	/**
+	 *  メモ１９.<p>
+	 *
+	 */
+	public static final String $memo19 = "memo19";
+	/**
+	 *  メモ２０.<p>
+	 *
+	 */
+	public static final String $memo20 = "memo20";
+
+
+	public static final MCMeta data_crud_typ_META = createCommonMeta($data_crud_typ, mcframe.commonMA.meta.MA_META.DATA_CRUD_TYP);
+	public static final MCMeta co_cd_META = createCommonMeta($co_cd, mcframe.commonMA.meta.MA_META.CO_CD);
+	public static final MCMeta bp_cd_META = createCommonMeta($bp_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta bp_nm_META = createCommonMeta($bp_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta bp_nm_en_META = createCommonMeta($bp_nm_en, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta bp_alt_nm1_META = createCommonMeta($bp_alt_nm1, mcframe.commonMA.meta.MA_META.BP_ALT_NM1);
+	public static final MCMeta bp_alt_nm1_en_META = createCommonMeta($bp_alt_nm1_en, mcframe.commonMA.meta.MA_META.BP_ALT_NM1);
+	public static final MCMeta bp_alt_nm2_META = createCommonMeta($bp_alt_nm2, mcframe.commonMA.meta.MA_META.BP_ALT_NM2);
+	public static final MCMeta bp_alt_nm2_en_META = createCommonMeta($bp_alt_nm2_en, mcframe.commonMA.meta.MA_META.BP_ALT_NM2);
+	public static final MCMeta bp_alt_nm3_META = createCommonMeta($bp_alt_nm3, mcframe.commonMA.meta.MA_META.BP_ALT_NM3);
+	public static final MCMeta bp_alt_nm3_en_META = createCommonMeta($bp_alt_nm3_en, mcframe.commonMA.meta.MA_META.BP_ALT_NM3);
+	public static final MCMeta bp_alt_nm4_META = createCommonMeta($bp_alt_nm4, mcframe.commonMA.meta.MA_META.BP_ALT_NM4);
+	public static final MCMeta bp_alt_nm4_en_META = createCommonMeta($bp_alt_nm4_en, mcframe.commonMA.meta.MA_META.BP_ALT_NM4);
+	public static final MCMeta zip_cd_META = createCommonMeta($zip_cd, mcframe.commonMA.meta.MA_META.ZIP_CD);
+	public static final MCMeta addr1_META = createCommonMeta($addr1, mcframe.commonMA.meta.MA_META.ADDR1);
+	public static final MCMeta addr2_META = createCommonMeta($addr2, mcframe.commonMA.meta.MA_META.ADDR2);
+	public static final MCMeta addr3_META = createCommonMeta($addr3, mcframe.commonMA.meta.MA_META.ADDR3);
+	public static final MCMeta addr4_META = createCommonMeta($addr4, mcframe.commonMA.meta.MA_META.ADDR4);
+	public static final MCMeta tel_META = createCommonMeta($tel, mcframe.commonMA.meta.MA_META.TEL);
+	public static final MCMeta fax_META = createCommonMeta($fax, mcframe.commonMA.meta.MA_META.TEL);
+	public static final MCMeta ein_META = createCommonMeta($ein, mcframe.commonMA.meta.MA_META.EIN);
+	public static final MCMeta std_co_cd_META = createCommonMeta($std_co_cd, mcframe.commonMA.meta.MA_META.STD_CO_CD);
+	public static final MCMeta cntry_cd_META = createCommonMeta($cntry_cd, mcframe.commonMA.meta.MA_META.CNTRY_CD);
+	public static final MCMeta area_cd_META = createCommonMeta($area_cd, mcframe.commonMA.meta.MA_META.AREA_CD);
+	public static final MCMeta cur_cd_META = createCommonMeta($cur_cd, mcframe.commonMA.meta.MA_META.CUR_CD);
+	public static final MCMeta prnt_lcl_cd_META = createCommonMeta($prnt_lcl_cd, mcframe.commonMA.meta.MA_META.LCL_CD);
+	public static final MCMeta bp_grp_cd1_META = createCommonMeta($bp_grp_cd1, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd2_META = createCommonMeta($bp_grp_cd2, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd3_META = createCommonMeta($bp_grp_cd3, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd4_META = createCommonMeta($bp_grp_cd4, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd5_META = createCommonMeta($bp_grp_cd5, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd6_META = createCommonMeta($bp_grp_cd6, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd7_META = createCommonMeta($bp_grp_cd7, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd8_META = createCommonMeta($bp_grp_cd8, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd9_META = createCommonMeta($bp_grp_cd9, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta bp_grp_cd10_META = createCommonMeta($bp_grp_cd10, mcframe.commonMA.meta.MA_META.BP_GRP_CD);
+	public static final MCMeta dlv_sundry_flg_META = createCommonMeta($dlv_sundry_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta dlv_cntct_dpt_META = createCommonMeta($dlv_cntct_dpt, mcframe.commonMA.meta.MA_META.BP_CNTCT_DPT);
+	public static final MCMeta dlv_cntct_psn_META = createCommonMeta($dlv_cntct_psn, mcframe.commonMA.meta.MA_META.BP_CNTCT_PSN);
+	public static final MCMeta dlv_cntct_psn_title_META = createCommonMeta($dlv_cntct_psn_title, mcframe.commonMA.meta.MA_META.BP_PSN_TITLE);
+	public static final MCMeta pri_prnt_flg_META = createCommonMeta($pri_prnt_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta cnsgn_stktk_flg_META = createCommonMeta($cnsgn_stktk_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta tdlv_flg_META = createCommonMeta($tdlv_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta via_dlv_typ_META = createCommonMeta($via_dlv_typ, mcframe.commonMA.meta.MA_META.VIA_DLV_TYP);
+	public static final MCMeta tdlv_req_flg_META = createCommonMeta($tdlv_req_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta lg_grp_cd_META = createCommonMeta($lg_grp_cd, mcframe.commonMA.meta.MA_META.LG_GRP_CD);
+	public static final MCMeta dlv_cal_cd_META = createCommonMeta($dlv_cal_cd, mcframe.commonMA.meta.MA_META.CAL_CD);
+	public static final MCMeta dlv_chnnl1_META = createCommonMeta($dlv_chnnl1, mcframe.commonMA.meta.MA_META.DLV_CHNNL1);
+	public static final MCMeta dlv_chnnl2_META = createCommonMeta($dlv_chnnl2, mcframe.commonMA.meta.MA_META.DLV_CHNNL2);
+	public static final MCMeta dlv_chnnl3_META = createCommonMeta($dlv_chnnl3, mcframe.commonMA.meta.MA_META.DLV_CHNNL3);
+	public static final MCMeta dlv_prnt_typ_META = createCommonMeta($dlv_prnt_typ, mcframe.commonMA.meta.MA_META.PRNT_TYP);
+	public static final MCMeta memo1_META = createCommonMeta($memo1, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta memo2_META = createCommonMeta($memo2, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta memo3_META = createCommonMeta($memo3, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta del_flg_META = createCommonMeta($del_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta if_sub_char1_META = createCommonMeta($if_sub_char1, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR1);
+	public static final MCMeta if_sub_char2_META = createCommonMeta($if_sub_char2, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR2);
+	public static final MCMeta if_sub_char3_META = createCommonMeta($if_sub_char3, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR3);
+	public static final MCMeta if_sub_char4_META = createCommonMeta($if_sub_char4, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR4);
+	public static final MCMeta if_sub_char5_META = createCommonMeta($if_sub_char5, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR5);
+	public static final MCMeta if_sub_char6_META = createCommonMeta($if_sub_char6, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR6);
+	public static final MCMeta if_sub_char7_META = createCommonMeta($if_sub_char7, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR7);
+	public static final MCMeta if_sub_char8_META = createCommonMeta($if_sub_char8, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR8);
+	public static final MCMeta if_sub_char9_META = createCommonMeta($if_sub_char9, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR9);
+	public static final MCMeta if_sub_char10_META = createCommonMeta($if_sub_char10, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR10);
+	public static final MCMeta if_sub_char11_META = createCommonMeta($if_sub_char11, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR11);
+	public static final MCMeta if_sub_char12_META = createCommonMeta($if_sub_char12, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR12);
+	public static final MCMeta if_sub_char13_META = createCommonMeta($if_sub_char13, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR13);
+	public static final MCMeta if_sub_char14_META = createCommonMeta($if_sub_char14, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR14);
+	public static final MCMeta if_sub_char15_META = createCommonMeta($if_sub_char15, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR15);
+	public static final MCMeta if_sub_char16_META = createCommonMeta($if_sub_char16, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR16);
+	public static final MCMeta if_sub_char17_META = createCommonMeta($if_sub_char17, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR17);
+	public static final MCMeta if_sub_char18_META = createCommonMeta($if_sub_char18, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR18);
+	public static final MCMeta if_sub_char19_META = createCommonMeta($if_sub_char19, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR19);
+	public static final MCMeta if_sub_char20_META = createCommonMeta($if_sub_char20, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR20);
+	public static final MCMeta if_sub_char21_META = createCommonMeta($if_sub_char21, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR21);
+	public static final MCMeta if_sub_char22_META = createCommonMeta($if_sub_char22, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR22);
+	public static final MCMeta if_sub_char23_META = createCommonMeta($if_sub_char23, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR23);
+	public static final MCMeta if_sub_char24_META = createCommonMeta($if_sub_char24, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR24);
+	public static final MCMeta if_sub_char25_META = createCommonMeta($if_sub_char25, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR25);
+	public static final MCMeta if_sub_char26_META = createCommonMeta($if_sub_char26, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR26);
+	public static final MCMeta if_sub_char27_META = createCommonMeta($if_sub_char27, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR27);
+	public static final MCMeta if_sub_char28_META = createCommonMeta($if_sub_char28, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR28);
+	public static final MCMeta if_sub_char29_META = createCommonMeta($if_sub_char29, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR29);
+	public static final MCMeta if_sub_char30_META = createCommonMeta($if_sub_char30, mcframe.commonMA.meta.MA_META.IF_SUB_CHAR30);
+	public static final MCMeta if_sub_num1_META = createCommonMeta($if_sub_num1, mcframe.commonMA.meta.MA_META.IF_SUB_NUM1);
+	public static final MCMeta if_sub_num2_META = createCommonMeta($if_sub_num2, mcframe.commonMA.meta.MA_META.IF_SUB_NUM2);
+	public static final MCMeta if_sub_num3_META = createCommonMeta($if_sub_num3, mcframe.commonMA.meta.MA_META.IF_SUB_NUM3);
+	public static final MCMeta if_sub_num4_META = createCommonMeta($if_sub_num4, mcframe.commonMA.meta.MA_META.IF_SUB_NUM4);
+	public static final MCMeta if_sub_num5_META = createCommonMeta($if_sub_num5, mcframe.commonMA.meta.MA_META.IF_SUB_NUM5);
+	public static final MCMeta if_sub_dt1_META = createCommonMeta($if_sub_dt1, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta if_sub_dt2_META = createCommonMeta($if_sub_dt2, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta if_sub_dt3_META = createCommonMeta($if_sub_dt3, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta if_sub_dt4_META = createCommonMeta($if_sub_dt4, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta if_sub_dt5_META = createCommonMeta($if_sub_dt5, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta memo4_META = createCommonMeta($memo4, mcframe.commonMA.meta.MA_META.MST_MEMO4);
+	public static final MCMeta memo5_META = createCommonMeta($memo5, mcframe.commonMA.meta.MA_META.MST_MEMO5);
+	public static final MCMeta memo6_META = createCommonMeta($memo6, mcframe.commonMA.meta.MA_META.MST_MEMO6);
+	public static final MCMeta memo7_META = createCommonMeta($memo7, mcframe.commonMA.meta.MA_META.MST_MEMO7);
+	public static final MCMeta memo8_META = createCommonMeta($memo8, mcframe.commonMA.meta.MA_META.MST_MEMO8);
+	public static final MCMeta memo9_META = createCommonMeta($memo9, mcframe.commonMA.meta.MA_META.MST_MEMO9);
+	public static final MCMeta memo10_META = createCommonMeta($memo10, mcframe.commonMA.meta.MA_META.MST_MEMO10);
+	public static final MCMeta memo11_META = createCommonMeta($memo11, mcframe.commonMA.meta.MA_META.MST_MEMO11);
+	public static final MCMeta memo12_META = createCommonMeta($memo12, mcframe.commonMA.meta.MA_META.MST_MEMO12);
+	public static final MCMeta memo13_META = createCommonMeta($memo13, mcframe.commonMA.meta.MA_META.MST_MEMO13);
+	public static final MCMeta memo14_META = createCommonMeta($memo14, mcframe.commonMA.meta.MA_META.MST_MEMO14);
+	public static final MCMeta memo15_META = createCommonMeta($memo15, mcframe.commonMA.meta.MA_META.MST_MEMO15);
+	public static final MCMeta memo16_META = createCommonMeta($memo16, mcframe.commonMA.meta.MA_META.MST_MEMO16);
+	public static final MCMeta memo17_META = createCommonMeta($memo17, mcframe.commonMA.meta.MA_META.MST_MEMO17);
+	public static final MCMeta memo18_META = createCommonMeta($memo18, mcframe.commonMA.meta.MA_META.MST_MEMO18);
+	public static final MCMeta memo19_META = createCommonMeta($memo19, mcframe.commonMA.meta.MA_META.MST_MEMO19);
+	public static final MCMeta memo20_META = createCommonMeta($memo20, mcframe.commonMA.meta.MA_META.MST_MEMO20);
+
+	protected static final ConstMetaList<DtlR> constMetas = new ConstMetaList<DtlR>(
+		MCConstRow.constMetas,
+		new MCMeta[]{
+			data_crud_typ_META,
+			co_cd_META,
+			bp_cd_META,
+			bp_nm_META,
+			bp_nm_en_META,
+			bp_alt_nm1_META,
+			bp_alt_nm1_en_META,
+			bp_alt_nm2_META,
+			bp_alt_nm2_en_META,
+			bp_alt_nm3_META,
+			bp_alt_nm3_en_META,
+			bp_alt_nm4_META,
+			bp_alt_nm4_en_META,
+			zip_cd_META,
+			addr1_META,
+			addr2_META,
+			addr3_META,
+			addr4_META,
+			tel_META,
+			fax_META,
+			ein_META,
+			std_co_cd_META,
+			cntry_cd_META,
+			area_cd_META,
+			cur_cd_META,
+			prnt_lcl_cd_META,
+			bp_grp_cd1_META,
+			bp_grp_cd2_META,
+			bp_grp_cd3_META,
+			bp_grp_cd4_META,
+			bp_grp_cd5_META,
+			bp_grp_cd6_META,
+			bp_grp_cd7_META,
+			bp_grp_cd8_META,
+			bp_grp_cd9_META,
+			bp_grp_cd10_META,
+			dlv_sundry_flg_META,
+			dlv_cntct_dpt_META,
+			dlv_cntct_psn_META,
+			dlv_cntct_psn_title_META,
+			pri_prnt_flg_META,
+			cnsgn_stktk_flg_META,
+			tdlv_flg_META,
+			via_dlv_typ_META,
+			tdlv_req_flg_META,
+			lg_grp_cd_META,
+			dlv_cal_cd_META,
+			dlv_chnnl1_META,
+			dlv_chnnl2_META,
+			dlv_chnnl3_META,
+			dlv_prnt_typ_META,
+			memo1_META,
+			memo2_META,
+			memo3_META,
+			del_flg_META,
+			if_sub_char1_META,
+			if_sub_char2_META,
+			if_sub_char3_META,
+			if_sub_char4_META,
+			if_sub_char5_META,
+			if_sub_char6_META,
+			if_sub_char7_META,
+			if_sub_char8_META,
+			if_sub_char9_META,
+			if_sub_char10_META,
+			if_sub_char11_META,
+			if_sub_char12_META,
+			if_sub_char13_META,
+			if_sub_char14_META,
+			if_sub_char15_META,
+			if_sub_char16_META,
+			if_sub_char17_META,
+			if_sub_char18_META,
+			if_sub_char19_META,
+			if_sub_char20_META,
+			if_sub_char21_META,
+			if_sub_char22_META,
+			if_sub_char23_META,
+			if_sub_char24_META,
+			if_sub_char25_META,
+			if_sub_char26_META,
+			if_sub_char27_META,
+			if_sub_char28_META,
+			if_sub_char29_META,
+			if_sub_char30_META,
+			if_sub_num1_META,
+			if_sub_num2_META,
+			if_sub_num3_META,
+			if_sub_num4_META,
+			if_sub_num5_META,
+			if_sub_dt1_META,
+			if_sub_dt2_META,
+			if_sub_dt3_META,
+			if_sub_dt4_META,
+			if_sub_dt5_META,
+			memo4_META,
+			memo5_META,
+			memo6_META,
+			memo7_META,
+			memo8_META,
+			memo9_META,
+			memo10_META,
+			memo11_META,
+			memo12_META,
+			memo13_META,
+			memo14_META,
+			memo15_META,
+			memo16_META,
+			memo17_META,
+			memo18_META,
+			memo19_META,
+			memo20_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected DtlR_MC_A(ConstMetaList<? extends DtlR> metas) {
+		super(metas);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR clone() {
+		return (DtlR) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR createInstance() {
+		return (DtlR) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public DtlR getValues(String... names) {
+		return (DtlR) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+
+	/**
+	 *  データ更新区分.<p>
+	 *
+	 */
+	public String data_crud_typ() {
+		return getConstString(offset + 0, $data_crud_typ);
+	}
+
+	/**
+	 *  データ更新区分.<p>
+	 *
+	 */
+	public void data_crud_typ(String value) {
+		setConstString(offset + 0, $data_crud_typ, value);
+	}
+
+
+	/**
+	 *  会社ＣＤ.<p>
+	 *
+	 */
+	public String co_cd() {
+		return getConstString(offset + 1, $co_cd);
+	}
+
+	/**
+	 *  会社ＣＤ.<p>
+	 *
+	 */
+	public void co_cd(String value) {
+		setConstString(offset + 1, $co_cd, value);
+	}
+
+
+	/**
+	 *  取引先ＣＤ.<p>
+	 *
+	 */
+	public String bp_cd() {
+		return getConstString(offset + 2, $bp_cd);
+	}
+
+	/**
+	 *  取引先ＣＤ.<p>
+	 *
+	 */
+	public void bp_cd(String value) {
+		setConstString(offset + 2, $bp_cd, value);
+	}
+
+
+	/**
+	 *  取引先名.<p>
+	 *
+	 */
+	public String bp_nm() {
+		return getConstString(offset + 3, $bp_nm);
+	}
+
+	/**
+	 *  取引先名.<p>
+	 *
+	 */
+	public void bp_nm(String value) {
+		setConstString(offset + 3, $bp_nm, value);
+	}
+
+
+	/**
+	 *  取引先名（英語）.<p>
+	 *
+	 */
+	public String bp_nm_en() {
+		return getConstString(offset + 4, $bp_nm_en);
+	}
+
+	/**
+	 *  取引先名（英語）.<p>
+	 *
+	 */
+	public void bp_nm_en(String value) {
+		setConstString(offset + 4, $bp_nm_en, value);
+	}
+
+
+	/**
+	 *  取引先別名１.<p>
+	 *
+	 */
+	public String bp_alt_nm1() {
+		return getConstString(offset + 5, $bp_alt_nm1);
+	}
+
+	/**
+	 *  取引先別名１.<p>
+	 *
+	 */
+	public void bp_alt_nm1(String value) {
+		setConstString(offset + 5, $bp_alt_nm1, value);
+	}
+
+
+	/**
+	 *  取引先別名１（英語）.<p>
+	 *
+	 */
+	public String bp_alt_nm1_en() {
+		return getConstString(offset + 6, $bp_alt_nm1_en);
+	}
+
+	/**
+	 *  取引先別名１（英語）.<p>
+	 *
+	 */
+	public void bp_alt_nm1_en(String value) {
+		setConstString(offset + 6, $bp_alt_nm1_en, value);
+	}
+
+
+	/**
+	 *  取引先別名２.<p>
+	 *
+	 */
+	public String bp_alt_nm2() {
+		return getConstString(offset + 7, $bp_alt_nm2);
+	}
+
+	/**
+	 *  取引先別名２.<p>
+	 *
+	 */
+	public void bp_alt_nm2(String value) {
+		setConstString(offset + 7, $bp_alt_nm2, value);
+	}
+
+
+	/**
+	 *  取引先別名２（英語）.<p>
+	 *
+	 */
+	public String bp_alt_nm2_en() {
+		return getConstString(offset + 8, $bp_alt_nm2_en);
+	}
+
+	/**
+	 *  取引先別名２（英語）.<p>
+	 *
+	 */
+	public void bp_alt_nm2_en(String value) {
+		setConstString(offset + 8, $bp_alt_nm2_en, value);
+	}
+
+
+	/**
+	 *  取引先別名３.<p>
+	 *
+	 */
+	public String bp_alt_nm3() {
+		return getConstString(offset + 9, $bp_alt_nm3);
+	}
+
+	/**
+	 *  取引先別名３.<p>
+	 *
+	 */
+	public void bp_alt_nm3(String value) {
+		setConstString(offset + 9, $bp_alt_nm3, value);
+	}
+
+
+	/**
+	 *  取引先別名３（英語）.<p>
+	 *
+	 */
+	public String bp_alt_nm3_en() {
+		return getConstString(offset + 10, $bp_alt_nm3_en);
+	}
+
+	/**
+	 *  取引先別名３（英語）.<p>
+	 *
+	 */
+	public void bp_alt_nm3_en(String value) {
+		setConstString(offset + 10, $bp_alt_nm3_en, value);
+	}
+
+
+	/**
+	 *  取引先別名４.<p>
+	 *
+	 */
+	public String bp_alt_nm4() {
+		return getConstString(offset + 11, $bp_alt_nm4);
+	}
+
+	/**
+	 *  取引先別名４.<p>
+	 *
+	 */
+	public void bp_alt_nm4(String value) {
+		setConstString(offset + 11, $bp_alt_nm4, value);
+	}
+
+
+	/**
+	 *  取引先別名４（英語）.<p>
+	 *
+	 */
+	public String bp_alt_nm4_en() {
+		return getConstString(offset + 12, $bp_alt_nm4_en);
+	}
+
+	/**
+	 *  取引先別名４（英語）.<p>
+	 *
+	 */
+	public void bp_alt_nm4_en(String value) {
+		setConstString(offset + 12, $bp_alt_nm4_en, value);
+	}
+
+
+	/**
+	 *  郵便番号.<p>
+	 *
+	 */
+	public String zip_cd() {
+		return getConstString(offset + 13, $zip_cd);
+	}
+
+	/**
+	 *  郵便番号.<p>
+	 *
+	 */
+	public void zip_cd(String value) {
+		setConstString(offset + 13, $zip_cd, value);
+	}
+
+
+	/**
+	 *  住所１.<p>
+	 *
+	 */
+	public String addr1() {
+		return getConstString(offset + 14, $addr1);
+	}
+
+	/**
+	 *  住所１.<p>
+	 *
+	 */
+	public void addr1(String value) {
+		setConstString(offset + 14, $addr1, value);
+	}
+
+
+	/**
+	 *  住所２.<p>
+	 *
+	 */
+	public String addr2() {
+		return getConstString(offset + 15, $addr2);
+	}
+
+	/**
+	 *  住所２.<p>
+	 *
+	 */
+	public void addr2(String value) {
+		setConstString(offset + 15, $addr2, value);
+	}
+
+
+	/**
+	 *  住所３.<p>
+	 *
+	 */
+	public String addr3() {
+		return getConstString(offset + 16, $addr3);
+	}
+
+	/**
+	 *  住所３.<p>
+	 *
+	 */
+	public void addr3(String value) {
+		setConstString(offset + 16, $addr3, value);
+	}
+
+
+	/**
+	 *  住所４.<p>
+	 *
+	 */
+	public String addr4() {
+		return getConstString(offset + 17, $addr4);
+	}
+
+	/**
+	 *  住所４.<p>
+	 *
+	 */
+	public void addr4(String value) {
+		setConstString(offset + 17, $addr4, value);
+	}
+
+
+	/**
+	 *  ＴＥＬ.<p>
+	 *
+	 */
+	public String tel() {
+		return getConstString(offset + 18, $tel);
+	}
+
+	/**
+	 *  ＴＥＬ.<p>
+	 *
+	 */
+	public void tel(String value) {
+		setConstString(offset + 18, $tel, value);
+	}
+
+
+	/**
+	 *  ＦＡＸ.<p>
+	 *
+	 */
+	public String fax() {
+		return getConstString(offset + 19, $fax);
+	}
+
+	/**
+	 *  ＦＡＸ.<p>
+	 *
+	 */
+	public void fax(String value) {
+		setConstString(offset + 19, $fax, value);
+	}
+
+
+	/**
+	 *  法人番号.<p>
+	 *
+	 */
+	public String ein() {
+		return getConstString(offset + 20, $ein);
+	}
+
+	/**
+	 *  法人番号.<p>
+	 *
+	 */
+	public void ein(String value) {
+		setConstString(offset + 20, $ein, value);
+	}
+
+
+	/**
+	 *  標準企業コード.<p>
+	 *
+	 */
+	public String std_co_cd() {
+		return getConstString(offset + 21, $std_co_cd);
+	}
+
+	/**
+	 *  標準企業コード.<p>
+	 *
+	 */
+	public void std_co_cd(String value) {
+		setConstString(offset + 21, $std_co_cd, value);
+	}
+
+
+	/**
+	 *  国ＣＤ.<p>
+	 *
+	 */
+	public String cntry_cd() {
+		return getConstString(offset + 22, $cntry_cd);
+	}
+
+	/**
+	 *  国ＣＤ.<p>
+	 *
+	 */
+	public void cntry_cd(String value) {
+		setConstString(offset + 22, $cntry_cd, value);
+	}
+
+
+	/**
+	 *  地域ＣＤ.<p>
+	 *
+	 */
+	public String area_cd() {
+		return getConstString(offset + 23, $area_cd);
+	}
+
+	/**
+	 *  地域ＣＤ.<p>
+	 *
+	 */
+	public void area_cd(String value) {
+		setConstString(offset + 23, $area_cd, value);
+	}
+
+
+	/**
+	 *  通貨ＣＤ.<p>
+	 *
+	 */
+	public String cur_cd() {
+		return getConstString(offset + 24, $cur_cd);
+	}
+
+	/**
+	 *  通貨ＣＤ.<p>
+	 *
+	 */
+	public void cur_cd(String value) {
+		setConstString(offset + 24, $cur_cd, value);
+	}
+
+
+	/**
+	 *  帳票出力ロケールＣＤ.<p>
+	 *
+	 */
+	public String prnt_lcl_cd() {
+		return getConstString(offset + 25, $prnt_lcl_cd);
+	}
+
+	/**
+	 *  帳票出力ロケールＣＤ.<p>
+	 *
+	 */
+	public void prnt_lcl_cd(String value) {
+		setConstString(offset + 25, $prnt_lcl_cd, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ１.<p>
+	 *
+	 */
+	public String bp_grp_cd1() {
+		return getConstString(offset + 26, $bp_grp_cd1);
+	}
+
+	/**
+	 *  取引先分類ＣＤ１.<p>
+	 *
+	 */
+	public void bp_grp_cd1(String value) {
+		setConstString(offset + 26, $bp_grp_cd1, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ２.<p>
+	 *
+	 */
+	public String bp_grp_cd2() {
+		return getConstString(offset + 27, $bp_grp_cd2);
+	}
+
+	/**
+	 *  取引先分類ＣＤ２.<p>
+	 *
+	 */
+	public void bp_grp_cd2(String value) {
+		setConstString(offset + 27, $bp_grp_cd2, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ３.<p>
+	 *
+	 */
+	public String bp_grp_cd3() {
+		return getConstString(offset + 28, $bp_grp_cd3);
+	}
+
+	/**
+	 *  取引先分類ＣＤ３.<p>
+	 *
+	 */
+	public void bp_grp_cd3(String value) {
+		setConstString(offset + 28, $bp_grp_cd3, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ４.<p>
+	 *
+	 */
+	public String bp_grp_cd4() {
+		return getConstString(offset + 29, $bp_grp_cd4);
+	}
+
+	/**
+	 *  取引先分類ＣＤ４.<p>
+	 *
+	 */
+	public void bp_grp_cd4(String value) {
+		setConstString(offset + 29, $bp_grp_cd4, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ５.<p>
+	 *
+	 */
+	public String bp_grp_cd5() {
+		return getConstString(offset + 30, $bp_grp_cd5);
+	}
+
+	/**
+	 *  取引先分類ＣＤ５.<p>
+	 *
+	 */
+	public void bp_grp_cd5(String value) {
+		setConstString(offset + 30, $bp_grp_cd5, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ６.<p>
+	 *
+	 */
+	public String bp_grp_cd6() {
+		return getConstString(offset + 31, $bp_grp_cd6);
+	}
+
+	/**
+	 *  取引先分類ＣＤ６.<p>
+	 *
+	 */
+	public void bp_grp_cd6(String value) {
+		setConstString(offset + 31, $bp_grp_cd6, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ７.<p>
+	 *
+	 */
+	public String bp_grp_cd7() {
+		return getConstString(offset + 32, $bp_grp_cd7);
+	}
+
+	/**
+	 *  取引先分類ＣＤ７.<p>
+	 *
+	 */
+	public void bp_grp_cd7(String value) {
+		setConstString(offset + 32, $bp_grp_cd7, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ８.<p>
+	 *
+	 */
+	public String bp_grp_cd8() {
+		return getConstString(offset + 33, $bp_grp_cd8);
+	}
+
+	/**
+	 *  取引先分類ＣＤ８.<p>
+	 *
+	 */
+	public void bp_grp_cd8(String value) {
+		setConstString(offset + 33, $bp_grp_cd8, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ９.<p>
+	 *
+	 */
+	public String bp_grp_cd9() {
+		return getConstString(offset + 34, $bp_grp_cd9);
+	}
+
+	/**
+	 *  取引先分類ＣＤ９.<p>
+	 *
+	 */
+	public void bp_grp_cd9(String value) {
+		setConstString(offset + 34, $bp_grp_cd9, value);
+	}
+
+
+	/**
+	 *  取引先分類ＣＤ１０.<p>
+	 *
+	 */
+	public String bp_grp_cd10() {
+		return getConstString(offset + 35, $bp_grp_cd10);
+	}
+
+	/**
+	 *  取引先分類ＣＤ１０.<p>
+	 *
+	 */
+	public void bp_grp_cd10(String value) {
+		setConstString(offset + 35, $bp_grp_cd10, value);
+	}
+
+
+	/**
+	 *  納品先諸口ＦＬＧ.<p>
+	 *
+	 */
+	public boolean dlv_sundry_flg() {
+		return getConstBoolean(offset + 36, $dlv_sundry_flg);
+	}
+
+	/**
+	 *  納品先諸口ＦＬＧ.<p>
+	 *
+	 */
+	public void dlv_sundry_flg(boolean value) {
+		setConstBoolean(offset + 36, $dlv_sundry_flg, value);
+	}
+
+
+	/**
+	 *  納品先部署.<p>
+	 *
+	 */
+	public String dlv_cntct_dpt() {
+		return getConstString(offset + 37, $dlv_cntct_dpt);
+	}
+
+	/**
+	 *  納品先部署.<p>
+	 *
+	 */
+	public void dlv_cntct_dpt(String value) {
+		setConstString(offset + 37, $dlv_cntct_dpt, value);
+	}
+
+
+	/**
+	 *  納品先担当者.<p>
+	 *
+	 */
+	public String dlv_cntct_psn() {
+		return getConstString(offset + 38, $dlv_cntct_psn);
+	}
+
+	/**
+	 *  納品先担当者.<p>
+	 *
+	 */
+	public void dlv_cntct_psn(String value) {
+		setConstString(offset + 38, $dlv_cntct_psn, value);
+	}
+
+
+	/**
+	 *  納品先担当者敬称.<p>
+	 *
+	 */
+	public String dlv_cntct_psn_title() {
+		return getConstString(offset + 39, $dlv_cntct_psn_title);
+	}
+
+	/**
+	 *  納品先担当者敬称.<p>
+	 *
+	 */
+	public void dlv_cntct_psn_title(String value) {
+		setConstString(offset + 39, $dlv_cntct_psn_title, value);
+	}
+
+
+	/**
+	 *  価格印字ＦＬＧ.<p>
+	 *
+	 */
+	public boolean pri_prnt_flg() {
+		return getConstBoolean(offset + 40, $pri_prnt_flg);
+	}
+
+	/**
+	 *  価格印字ＦＬＧ.<p>
+	 *
+	 */
+	public void pri_prnt_flg(boolean value) {
+		setConstBoolean(offset + 40, $pri_prnt_flg, value);
+	}
+
+
+	/**
+	 *  貸出在庫棚卸対象ＦＬＧ.<p>
+	 *
+	 */
+	public boolean cnsgn_stktk_flg() {
+		return getConstBoolean(offset + 41, $cnsgn_stktk_flg);
+	}
+
+	/**
+	 *  貸出在庫棚卸対象ＦＬＧ.<p>
+	 *
+	 */
+	public void cnsgn_stktk_flg(boolean value) {
+		setConstBoolean(offset + 41, $cnsgn_stktk_flg, value);
+	}
+
+
+	/**
+	 *  配送先ＦＬＧ.<p>
+	 *
+	 */
+	public boolean tdlv_flg() {
+		return getConstBoolean(offset + 42, $tdlv_flg);
+	}
+
+	/**
+	 *  配送先ＦＬＧ.<p>
+	 *
+	 */
+	public void tdlv_flg(boolean value) {
+		setConstBoolean(offset + 42, $tdlv_flg, value);
+	}
+
+
+	/**
+	 *  配送先経由区分.<p>
+	 *
+	 */
+	public String via_dlv_typ() {
+		return getConstString(offset + 43, $via_dlv_typ);
+	}
+
+	/**
+	 *  配送先経由区分.<p>
+	 *
+	 */
+	public void via_dlv_typ(String value) {
+		setConstString(offset + 43, $via_dlv_typ, value);
+	}
+
+
+	/**
+	 *  配送先必須ＦＬＧ.<p>
+	 *
+	 */
+	public boolean tdlv_req_flg() {
+		return getConstBoolean(offset + 44, $tdlv_req_flg);
+	}
+
+	/**
+	 *  配送先必須ＦＬＧ.<p>
+	 *
+	 */
+	public void tdlv_req_flg(boolean value) {
+		setConstBoolean(offset + 44, $tdlv_req_flg, value);
+	}
+
+
+	/**
+	 *  物流グループＣＤ.<p>
+	 *
+	 */
+	public String lg_grp_cd() {
+		return getConstString(offset + 45, $lg_grp_cd);
+	}
+
+	/**
+	 *  物流グループＣＤ.<p>
+	 *
+	 */
+	public void lg_grp_cd(String value) {
+		setConstString(offset + 45, $lg_grp_cd, value);
+	}
+
+
+	/**
+	 *  納品先カレンダＣＤ.<p>
+	 *
+	 */
+	public String dlv_cal_cd() {
+		return getConstString(offset + 46, $dlv_cal_cd);
+	}
+
+	/**
+	 *  納品先カレンダＣＤ.<p>
+	 *
+	 */
+	public void dlv_cal_cd(String value) {
+		setConstString(offset + 46, $dlv_cal_cd, value);
+	}
+
+
+	/**
+	 *  納品先チャネル１.<p>
+	 *
+	 */
+	public String dlv_chnnl1() {
+		return getConstString(offset + 47, $dlv_chnnl1);
+	}
+
+	/**
+	 *  納品先チャネル１.<p>
+	 *
+	 */
+	public void dlv_chnnl1(String value) {
+		setConstString(offset + 47, $dlv_chnnl1, value);
+	}
+
+
+	/**
+	 *  納品先チャネル２.<p>
+	 *
+	 */
+	public String dlv_chnnl2() {
+		return getConstString(offset + 48, $dlv_chnnl2);
+	}
+
+	/**
+	 *  納品先チャネル２.<p>
+	 *
+	 */
+	public void dlv_chnnl2(String value) {
+		setConstString(offset + 48, $dlv_chnnl2, value);
+	}
+
+
+	/**
+	 *  納品先チャネル３.<p>
+	 *
+	 */
+	public String dlv_chnnl3() {
+		return getConstString(offset + 49, $dlv_chnnl3);
+	}
+
+	/**
+	 *  納品先チャネル３.<p>
+	 *
+	 */
+	public void dlv_chnnl3(String value) {
+		setConstString(offset + 49, $dlv_chnnl3, value);
+	}
+
+
+	/**
+	 *  帳票発行区分（納品先）.<p>
+	 *
+	 */
+	public String dlv_prnt_typ() {
+		return getConstString(offset + 50, $dlv_prnt_typ);
+	}
+
+	/**
+	 *  帳票発行区分（納品先）.<p>
+	 *
+	 */
+	public void dlv_prnt_typ(String value) {
+		setConstString(offset + 50, $dlv_prnt_typ, value);
+	}
+
+
+	/**
+	 *  メモ１.<p>
+	 *
+	 */
+	public String memo1() {
+		return getConstString(offset + 51, $memo1);
+	}
+
+	/**
+	 *  メモ１.<p>
+	 *
+	 */
+	public void memo1(String value) {
+		setConstString(offset + 51, $memo1, value);
+	}
+
+
+	/**
+	 *  メモ２.<p>
+	 *
+	 */
+	public String memo2() {
+		return getConstString(offset + 52, $memo2);
+	}
+
+	/**
+	 *  メモ２.<p>
+	 *
+	 */
+	public void memo2(String value) {
+		setConstString(offset + 52, $memo2, value);
+	}
+
+
+	/**
+	 *  メモ３.<p>
+	 *
+	 */
+	public String memo3() {
+		return getConstString(offset + 53, $memo3);
+	}
+
+	/**
+	 *  メモ３.<p>
+	 *
+	 */
+	public void memo3(String value) {
+		setConstString(offset + 53, $memo3, value);
+	}
+
+
+	/**
+	 *  論理削除FLG.<p>
+	 *
+	 */
+	public boolean del_flg() {
+		return getConstBoolean(offset + 54, $del_flg);
+	}
+
+	/**
+	 *  論理削除FLG.<p>
+	 *
+	 */
+	public void del_flg(boolean value) {
+		setConstBoolean(offset + 54, $del_flg, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１.<p>
+	 *
+	 */
+	public String if_sub_char1() {
+		return getConstString(offset + 55, $if_sub_char1);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１.<p>
+	 *
+	 */
+	public void if_sub_char1(String value) {
+		setConstString(offset + 55, $if_sub_char1, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２.<p>
+	 *
+	 */
+	public String if_sub_char2() {
+		return getConstString(offset + 56, $if_sub_char2);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２.<p>
+	 *
+	 */
+	public void if_sub_char2(String value) {
+		setConstString(offset + 56, $if_sub_char2, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目３.<p>
+	 *
+	 */
+	public String if_sub_char3() {
+		return getConstString(offset + 57, $if_sub_char3);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目３.<p>
+	 *
+	 */
+	public void if_sub_char3(String value) {
+		setConstString(offset + 57, $if_sub_char3, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目４.<p>
+	 *
+	 */
+	public String if_sub_char4() {
+		return getConstString(offset + 58, $if_sub_char4);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目４.<p>
+	 *
+	 */
+	public void if_sub_char4(String value) {
+		setConstString(offset + 58, $if_sub_char4, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目５.<p>
+	 *
+	 */
+	public String if_sub_char5() {
+		return getConstString(offset + 59, $if_sub_char5);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目５.<p>
+	 *
+	 */
+	public void if_sub_char5(String value) {
+		setConstString(offset + 59, $if_sub_char5, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目６.<p>
+	 *
+	 */
+	public String if_sub_char6() {
+		return getConstString(offset + 60, $if_sub_char6);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目６.<p>
+	 *
+	 */
+	public void if_sub_char6(String value) {
+		setConstString(offset + 60, $if_sub_char6, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目７.<p>
+	 *
+	 */
+	public String if_sub_char7() {
+		return getConstString(offset + 61, $if_sub_char7);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目７.<p>
+	 *
+	 */
+	public void if_sub_char7(String value) {
+		setConstString(offset + 61, $if_sub_char7, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目８.<p>
+	 *
+	 */
+	public String if_sub_char8() {
+		return getConstString(offset + 62, $if_sub_char8);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目８.<p>
+	 *
+	 */
+	public void if_sub_char8(String value) {
+		setConstString(offset + 62, $if_sub_char8, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目９.<p>
+	 *
+	 */
+	public String if_sub_char9() {
+		return getConstString(offset + 63, $if_sub_char9);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目９.<p>
+	 *
+	 */
+	public void if_sub_char9(String value) {
+		setConstString(offset + 63, $if_sub_char9, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１０.<p>
+	 *
+	 */
+	public String if_sub_char10() {
+		return getConstString(offset + 64, $if_sub_char10);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１０.<p>
+	 *
+	 */
+	public void if_sub_char10(String value) {
+		setConstString(offset + 64, $if_sub_char10, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１１.<p>
+	 *
+	 */
+	public String if_sub_char11() {
+		return getConstString(offset + 65, $if_sub_char11);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１１.<p>
+	 *
+	 */
+	public void if_sub_char11(String value) {
+		setConstString(offset + 65, $if_sub_char11, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１２.<p>
+	 *
+	 */
+	public String if_sub_char12() {
+		return getConstString(offset + 66, $if_sub_char12);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１２.<p>
+	 *
+	 */
+	public void if_sub_char12(String value) {
+		setConstString(offset + 66, $if_sub_char12, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１３.<p>
+	 *
+	 */
+	public String if_sub_char13() {
+		return getConstString(offset + 67, $if_sub_char13);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１３.<p>
+	 *
+	 */
+	public void if_sub_char13(String value) {
+		setConstString(offset + 67, $if_sub_char13, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１４.<p>
+	 *
+	 */
+	public String if_sub_char14() {
+		return getConstString(offset + 68, $if_sub_char14);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１４.<p>
+	 *
+	 */
+	public void if_sub_char14(String value) {
+		setConstString(offset + 68, $if_sub_char14, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１５.<p>
+	 *
+	 */
+	public String if_sub_char15() {
+		return getConstString(offset + 69, $if_sub_char15);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１５.<p>
+	 *
+	 */
+	public void if_sub_char15(String value) {
+		setConstString(offset + 69, $if_sub_char15, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１６.<p>
+	 *
+	 */
+	public String if_sub_char16() {
+		return getConstString(offset + 70, $if_sub_char16);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１６.<p>
+	 *
+	 */
+	public void if_sub_char16(String value) {
+		setConstString(offset + 70, $if_sub_char16, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１７.<p>
+	 *
+	 */
+	public String if_sub_char17() {
+		return getConstString(offset + 71, $if_sub_char17);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１７.<p>
+	 *
+	 */
+	public void if_sub_char17(String value) {
+		setConstString(offset + 71, $if_sub_char17, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１８.<p>
+	 *
+	 */
+	public String if_sub_char18() {
+		return getConstString(offset + 72, $if_sub_char18);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１８.<p>
+	 *
+	 */
+	public void if_sub_char18(String value) {
+		setConstString(offset + 72, $if_sub_char18, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目１９.<p>
+	 *
+	 */
+	public String if_sub_char19() {
+		return getConstString(offset + 73, $if_sub_char19);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目１９.<p>
+	 *
+	 */
+	public void if_sub_char19(String value) {
+		setConstString(offset + 73, $if_sub_char19, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２０.<p>
+	 *
+	 */
+	public String if_sub_char20() {
+		return getConstString(offset + 74, $if_sub_char20);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２０.<p>
+	 *
+	 */
+	public void if_sub_char20(String value) {
+		setConstString(offset + 74, $if_sub_char20, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２１.<p>
+	 *
+	 */
+	public String if_sub_char21() {
+		return getConstString(offset + 75, $if_sub_char21);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２１.<p>
+	 *
+	 */
+	public void if_sub_char21(String value) {
+		setConstString(offset + 75, $if_sub_char21, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２２.<p>
+	 *
+	 */
+	public String if_sub_char22() {
+		return getConstString(offset + 76, $if_sub_char22);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２２.<p>
+	 *
+	 */
+	public void if_sub_char22(String value) {
+		setConstString(offset + 76, $if_sub_char22, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２３.<p>
+	 *
+	 */
+	public String if_sub_char23() {
+		return getConstString(offset + 77, $if_sub_char23);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２３.<p>
+	 *
+	 */
+	public void if_sub_char23(String value) {
+		setConstString(offset + 77, $if_sub_char23, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２４.<p>
+	 *
+	 */
+	public String if_sub_char24() {
+		return getConstString(offset + 78, $if_sub_char24);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２４.<p>
+	 *
+	 */
+	public void if_sub_char24(String value) {
+		setConstString(offset + 78, $if_sub_char24, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２５.<p>
+	 *
+	 */
+	public String if_sub_char25() {
+		return getConstString(offset + 79, $if_sub_char25);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２５.<p>
+	 *
+	 */
+	public void if_sub_char25(String value) {
+		setConstString(offset + 79, $if_sub_char25, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２６.<p>
+	 *
+	 */
+	public String if_sub_char26() {
+		return getConstString(offset + 80, $if_sub_char26);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２６.<p>
+	 *
+	 */
+	public void if_sub_char26(String value) {
+		setConstString(offset + 80, $if_sub_char26, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２７.<p>
+	 *
+	 */
+	public String if_sub_char27() {
+		return getConstString(offset + 81, $if_sub_char27);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２７.<p>
+	 *
+	 */
+	public void if_sub_char27(String value) {
+		setConstString(offset + 81, $if_sub_char27, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２８.<p>
+	 *
+	 */
+	public String if_sub_char28() {
+		return getConstString(offset + 82, $if_sub_char28);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２８.<p>
+	 *
+	 */
+	public void if_sub_char28(String value) {
+		setConstString(offset + 82, $if_sub_char28, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目２９.<p>
+	 *
+	 */
+	public String if_sub_char29() {
+		return getConstString(offset + 83, $if_sub_char29);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目２９.<p>
+	 *
+	 */
+	public void if_sub_char29(String value) {
+		setConstString(offset + 83, $if_sub_char29, value);
+	}
+
+
+	/**
+	 *  予備ＣＨＡＲ項目３０.<p>
+	 *
+	 */
+	public String if_sub_char30() {
+		return getConstString(offset + 84, $if_sub_char30);
+	}
+
+	/**
+	 *  予備ＣＨＡＲ項目３０.<p>
+	 *
+	 */
+	public void if_sub_char30(String value) {
+		setConstString(offset + 84, $if_sub_char30, value);
+	}
+
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public MCNumber if_sub_num1() {
+		return getConstNumber(offset + 85, $if_sub_num1);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public void if_sub_num1(MCNumber value) {
+		setConstNumber(offset + 85, $if_sub_num1, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public void if_sub_num1(int value) {
+		setConstNumber(offset + 85, $if_sub_num1, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public void if_sub_num1(long value) {
+		setConstNumber(offset + 85, $if_sub_num1, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public void if_sub_num1(float value) {
+		setConstNumber(offset + 85, $if_sub_num1, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目１.<p>
+	 *
+	 */
+	public void if_sub_num1(double value) {
+		setConstNumber(offset + 85, $if_sub_num1, value);
+	}
+
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public MCNumber if_sub_num2() {
+		return getConstNumber(offset + 86, $if_sub_num2);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public void if_sub_num2(MCNumber value) {
+		setConstNumber(offset + 86, $if_sub_num2, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public void if_sub_num2(int value) {
+		setConstNumber(offset + 86, $if_sub_num2, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public void if_sub_num2(long value) {
+		setConstNumber(offset + 86, $if_sub_num2, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public void if_sub_num2(float value) {
+		setConstNumber(offset + 86, $if_sub_num2, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目２.<p>
+	 *
+	 */
+	public void if_sub_num2(double value) {
+		setConstNumber(offset + 86, $if_sub_num2, value);
+	}
+
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public MCNumber if_sub_num3() {
+		return getConstNumber(offset + 87, $if_sub_num3);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public void if_sub_num3(MCNumber value) {
+		setConstNumber(offset + 87, $if_sub_num3, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public void if_sub_num3(int value) {
+		setConstNumber(offset + 87, $if_sub_num3, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public void if_sub_num3(long value) {
+		setConstNumber(offset + 87, $if_sub_num3, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public void if_sub_num3(float value) {
+		setConstNumber(offset + 87, $if_sub_num3, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目３.<p>
+	 *
+	 */
+	public void if_sub_num3(double value) {
+		setConstNumber(offset + 87, $if_sub_num3, value);
+	}
+
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public MCNumber if_sub_num4() {
+		return getConstNumber(offset + 88, $if_sub_num4);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public void if_sub_num4(MCNumber value) {
+		setConstNumber(offset + 88, $if_sub_num4, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public void if_sub_num4(int value) {
+		setConstNumber(offset + 88, $if_sub_num4, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public void if_sub_num4(long value) {
+		setConstNumber(offset + 88, $if_sub_num4, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public void if_sub_num4(float value) {
+		setConstNumber(offset + 88, $if_sub_num4, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目４.<p>
+	 *
+	 */
+	public void if_sub_num4(double value) {
+		setConstNumber(offset + 88, $if_sub_num4, value);
+	}
+
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public MCNumber if_sub_num5() {
+		return getConstNumber(offset + 89, $if_sub_num5);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public void if_sub_num5(MCNumber value) {
+		setConstNumber(offset + 89, $if_sub_num5, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public void if_sub_num5(int value) {
+		setConstNumber(offset + 89, $if_sub_num5, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public void if_sub_num5(long value) {
+		setConstNumber(offset + 89, $if_sub_num5, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public void if_sub_num5(float value) {
+		setConstNumber(offset + 89, $if_sub_num5, value);
+	}
+
+	/**
+	 *  予備ＮＵＭ項目５.<p>
+	 *
+	 */
+	public void if_sub_num5(double value) {
+		setConstNumber(offset + 89, $if_sub_num5, value);
+	}
+
+
+	/**
+	 *  予備ＤＡＴＥ項目１.<p>
+	 *
+	 */
+	public MCDate if_sub_dt1() {
+		return getConstDate(offset + 90, $if_sub_dt1);
+	}
+
+	/**
+	 *  予備ＤＡＴＥ項目１.<p>
+	 *
+	 */
+	public void if_sub_dt1(MCDate value) {
+		setConstDate(offset + 90, $if_sub_dt1, value);
+	}
+
+
+	/**
+	 *  予備ＤＡＴＥ項目２.<p>
+	 *
+	 */
+	public MCDate if_sub_dt2() {
+		return getConstDate(offset + 91, $if_sub_dt2);
+	}
+
+	/**
+	 *  予備ＤＡＴＥ項目２.<p>
+	 *
+	 */
+	public void if_sub_dt2(MCDate value) {
+		setConstDate(offset + 91, $if_sub_dt2, value);
+	}
+
+
+	/**
+	 *  予備ＤＡＴＥ項目３.<p>
+	 *
+	 */
+	public MCDate if_sub_dt3() {
+		return getConstDate(offset + 92, $if_sub_dt3);
+	}
+
+	/**
+	 *  予備ＤＡＴＥ項目３.<p>
+	 *
+	 */
+	public void if_sub_dt3(MCDate value) {
+		setConstDate(offset + 92, $if_sub_dt3, value);
+	}
+
+
+	/**
+	 *  予備ＤＡＴＥ項目４.<p>
+	 *
+	 */
+	public MCDate if_sub_dt4() {
+		return getConstDate(offset + 93, $if_sub_dt4);
+	}
+
+	/**
+	 *  予備ＤＡＴＥ項目４.<p>
+	 *
+	 */
+	public void if_sub_dt4(MCDate value) {
+		setConstDate(offset + 93, $if_sub_dt4, value);
+	}
+
+
+	/**
+	 *  予備ＤＡＴＥ項目５.<p>
+	 *
+	 */
+	public MCDate if_sub_dt5() {
+		return getConstDate(offset + 94, $if_sub_dt5);
+	}
+
+	/**
+	 *  予備ＤＡＴＥ項目５.<p>
+	 *
+	 */
+	public void if_sub_dt5(MCDate value) {
+		setConstDate(offset + 94, $if_sub_dt5, value);
+	}
+
+
+	/**
+	 *  メモ４.<p>
+	 *
+	 */
+	public String memo4() {
+		return getConstString(offset + 95, $memo4);
+	}
+
+	/**
+	 *  メモ４.<p>
+	 *
+	 */
+	public void memo4(String value) {
+		setConstString(offset + 95, $memo4, value);
+	}
+
+
+	/**
+	 *  メモ５.<p>
+	 *
+	 */
+	public String memo5() {
+		return getConstString(offset + 96, $memo5);
+	}
+
+	/**
+	 *  メモ５.<p>
+	 *
+	 */
+	public void memo5(String value) {
+		setConstString(offset + 96, $memo5, value);
+	}
+
+
+	/**
+	 *  メモ６.<p>
+	 *
+	 */
+	public String memo6() {
+		return getConstString(offset + 97, $memo6);
+	}
+
+	/**
+	 *  メモ６.<p>
+	 *
+	 */
+	public void memo6(String value) {
+		setConstString(offset + 97, $memo6, value);
+	}
+
+
+	/**
+	 *  メモ７.<p>
+	 *
+	 */
+	public String memo7() {
+		return getConstString(offset + 98, $memo7);
+	}
+
+	/**
+	 *  メモ７.<p>
+	 *
+	 */
+	public void memo7(String value) {
+		setConstString(offset + 98, $memo7, value);
+	}
+
+
+	/**
+	 *  メモ８.<p>
+	 *
+	 */
+	public String memo8() {
+		return getConstString(offset + 99, $memo8);
+	}
+
+	/**
+	 *  メモ８.<p>
+	 *
+	 */
+	public void memo8(String value) {
+		setConstString(offset + 99, $memo8, value);
+	}
+
+
+	/**
+	 *  メモ９.<p>
+	 *
+	 */
+	public String memo9() {
+		return getConstString(offset + 100, $memo9);
+	}
+
+	/**
+	 *  メモ９.<p>
+	 *
+	 */
+	public void memo9(String value) {
+		setConstString(offset + 100, $memo9, value);
+	}
+
+
+	/**
+	 *  メモ１０.<p>
+	 *
+	 */
+	public String memo10() {
+		return getConstString(offset + 101, $memo10);
+	}
+
+	/**
+	 *  メモ１０.<p>
+	 *
+	 */
+	public void memo10(String value) {
+		setConstString(offset + 101, $memo10, value);
+	}
+
+
+	/**
+	 *  メモ１１.<p>
+	 *
+	 */
+	public String memo11() {
+		return getConstString(offset + 102, $memo11);
+	}
+
+	/**
+	 *  メモ１１.<p>
+	 *
+	 */
+	public void memo11(String value) {
+		setConstString(offset + 102, $memo11, value);
+	}
+
+
+	/**
+	 *  メモ１２.<p>
+	 *
+	 */
+	public String memo12() {
+		return getConstString(offset + 103, $memo12);
+	}
+
+	/**
+	 *  メモ１２.<p>
+	 *
+	 */
+	public void memo12(String value) {
+		setConstString(offset + 103, $memo12, value);
+	}
+
+
+	/**
+	 *  メモ１３.<p>
+	 *
+	 */
+	public String memo13() {
+		return getConstString(offset + 104, $memo13);
+	}
+
+	/**
+	 *  メモ１３.<p>
+	 *
+	 */
+	public void memo13(String value) {
+		setConstString(offset + 104, $memo13, value);
+	}
+
+
+	/**
+	 *  メモ１４.<p>
+	 *
+	 */
+	public String memo14() {
+		return getConstString(offset + 105, $memo14);
+	}
+
+	/**
+	 *  メモ１４.<p>
+	 *
+	 */
+	public void memo14(String value) {
+		setConstString(offset + 105, $memo14, value);
+	}
+
+
+	/**
+	 *  メモ１５.<p>
+	 *
+	 */
+	public String memo15() {
+		return getConstString(offset + 106, $memo15);
+	}
+
+	/**
+	 *  メモ１５.<p>
+	 *
+	 */
+	public void memo15(String value) {
+		setConstString(offset + 106, $memo15, value);
+	}
+
+
+	/**
+	 *  メモ１６.<p>
+	 *
+	 */
+	public String memo16() {
+		return getConstString(offset + 107, $memo16);
+	}
+
+	/**
+	 *  メモ１６.<p>
+	 *
+	 */
+	public void memo16(String value) {
+		setConstString(offset + 107, $memo16, value);
+	}
+
+
+	/**
+	 *  メモ１７.<p>
+	 *
+	 */
+	public String memo17() {
+		return getConstString(offset + 108, $memo17);
+	}
+
+	/**
+	 *  メモ１７.<p>
+	 *
+	 */
+	public void memo17(String value) {
+		setConstString(offset + 108, $memo17, value);
+	}
+
+
+	/**
+	 *  メモ１８.<p>
+	 *
+	 */
+	public String memo18() {
+		return getConstString(offset + 109, $memo18);
+	}
+
+	/**
+	 *  メモ１８.<p>
+	 *
+	 */
+	public void memo18(String value) {
+		setConstString(offset + 109, $memo18, value);
+	}
+
+
+	/**
+	 *  メモ１９.<p>
+	 *
+	 */
+	public String memo19() {
+		return getConstString(offset + 110, $memo19);
+	}
+
+	/**
+	 *  メモ１９.<p>
+	 *
+	 */
+	public void memo19(String value) {
+		setConstString(offset + 110, $memo19, value);
+	}
+
+
+	/**
+	 *  メモ２０.<p>
+	 *
+	 */
+	public String memo20() {
+		return getConstString(offset + 111, $memo20);
+	}
+
+	/**
+	 *  メモ２０.<p>
+	 *
+	 */
+	public void memo20(String value) {
+		setConstString(offset + 111, $memo20, value);
+	}
+
+
+	public String getString(String name) {
+		if ($data_crud_typ.equalsIgnoreCase(name)) {
+			return data_crud_typ();
+		}
+		if ($co_cd.equalsIgnoreCase(name)) {
+			return co_cd();
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			return bp_cd();
+		}
+		if ($bp_nm.equalsIgnoreCase(name)) {
+			return bp_nm();
+		}
+		if ($bp_nm_en.equalsIgnoreCase(name)) {
+			return bp_nm_en();
+		}
+		if ($bp_alt_nm1.equalsIgnoreCase(name)) {
+			return bp_alt_nm1();
+		}
+		if ($bp_alt_nm1_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm1_en();
+		}
+		if ($bp_alt_nm2.equalsIgnoreCase(name)) {
+			return bp_alt_nm2();
+		}
+		if ($bp_alt_nm2_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm2_en();
+		}
+		if ($bp_alt_nm3.equalsIgnoreCase(name)) {
+			return bp_alt_nm3();
+		}
+		if ($bp_alt_nm3_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm3_en();
+		}
+		if ($bp_alt_nm4.equalsIgnoreCase(name)) {
+			return bp_alt_nm4();
+		}
+		if ($bp_alt_nm4_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm4_en();
+		}
+		if ($zip_cd.equalsIgnoreCase(name)) {
+			return zip_cd();
+		}
+		if ($addr1.equalsIgnoreCase(name)) {
+			return addr1();
+		}
+		if ($addr2.equalsIgnoreCase(name)) {
+			return addr2();
+		}
+		if ($addr3.equalsIgnoreCase(name)) {
+			return addr3();
+		}
+		if ($addr4.equalsIgnoreCase(name)) {
+			return addr4();
+		}
+		if ($tel.equalsIgnoreCase(name)) {
+			return tel();
+		}
+		if ($fax.equalsIgnoreCase(name)) {
+			return fax();
+		}
+		if ($ein.equalsIgnoreCase(name)) {
+			return ein();
+		}
+		if ($std_co_cd.equalsIgnoreCase(name)) {
+			return std_co_cd();
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			return cntry_cd();
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			return area_cd();
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			return cur_cd();
+		}
+		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
+			return prnt_lcl_cd();
+		}
+		if ($bp_grp_cd1.equalsIgnoreCase(name)) {
+			return bp_grp_cd1();
+		}
+		if ($bp_grp_cd2.equalsIgnoreCase(name)) {
+			return bp_grp_cd2();
+		}
+		if ($bp_grp_cd3.equalsIgnoreCase(name)) {
+			return bp_grp_cd3();
+		}
+		if ($bp_grp_cd4.equalsIgnoreCase(name)) {
+			return bp_grp_cd4();
+		}
+		if ($bp_grp_cd5.equalsIgnoreCase(name)) {
+			return bp_grp_cd5();
+		}
+		if ($bp_grp_cd6.equalsIgnoreCase(name)) {
+			return bp_grp_cd6();
+		}
+		if ($bp_grp_cd7.equalsIgnoreCase(name)) {
+			return bp_grp_cd7();
+		}
+		if ($bp_grp_cd8.equalsIgnoreCase(name)) {
+			return bp_grp_cd8();
+		}
+		if ($bp_grp_cd9.equalsIgnoreCase(name)) {
+			return bp_grp_cd9();
+		}
+		if ($bp_grp_cd10.equalsIgnoreCase(name)) {
+			return bp_grp_cd10();
+		}
+		if ($dlv_cntct_dpt.equalsIgnoreCase(name)) {
+			return dlv_cntct_dpt();
+		}
+		if ($dlv_cntct_psn.equalsIgnoreCase(name)) {
+			return dlv_cntct_psn();
+		}
+		if ($dlv_cntct_psn_title.equalsIgnoreCase(name)) {
+			return dlv_cntct_psn_title();
+		}
+		if ($via_dlv_typ.equalsIgnoreCase(name)) {
+			return via_dlv_typ();
+		}
+		if ($lg_grp_cd.equalsIgnoreCase(name)) {
+			return lg_grp_cd();
+		}
+		if ($dlv_cal_cd.equalsIgnoreCase(name)) {
+			return dlv_cal_cd();
+		}
+		if ($dlv_chnnl1.equalsIgnoreCase(name)) {
+			return dlv_chnnl1();
+		}
+		if ($dlv_chnnl2.equalsIgnoreCase(name)) {
+			return dlv_chnnl2();
+		}
+		if ($dlv_chnnl3.equalsIgnoreCase(name)) {
+			return dlv_chnnl3();
+		}
+		if ($dlv_prnt_typ.equalsIgnoreCase(name)) {
+			return dlv_prnt_typ();
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			return memo1();
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			return memo2();
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			return memo3();
+		}
+		if ($if_sub_char1.equalsIgnoreCase(name)) {
+			return if_sub_char1();
+		}
+		if ($if_sub_char2.equalsIgnoreCase(name)) {
+			return if_sub_char2();
+		}
+		if ($if_sub_char3.equalsIgnoreCase(name)) {
+			return if_sub_char3();
+		}
+		if ($if_sub_char4.equalsIgnoreCase(name)) {
+			return if_sub_char4();
+		}
+		if ($if_sub_char5.equalsIgnoreCase(name)) {
+			return if_sub_char5();
+		}
+		if ($if_sub_char6.equalsIgnoreCase(name)) {
+			return if_sub_char6();
+		}
+		if ($if_sub_char7.equalsIgnoreCase(name)) {
+			return if_sub_char7();
+		}
+		if ($if_sub_char8.equalsIgnoreCase(name)) {
+			return if_sub_char8();
+		}
+		if ($if_sub_char9.equalsIgnoreCase(name)) {
+			return if_sub_char9();
+		}
+		if ($if_sub_char10.equalsIgnoreCase(name)) {
+			return if_sub_char10();
+		}
+		if ($if_sub_char11.equalsIgnoreCase(name)) {
+			return if_sub_char11();
+		}
+		if ($if_sub_char12.equalsIgnoreCase(name)) {
+			return if_sub_char12();
+		}
+		if ($if_sub_char13.equalsIgnoreCase(name)) {
+			return if_sub_char13();
+		}
+		if ($if_sub_char14.equalsIgnoreCase(name)) {
+			return if_sub_char14();
+		}
+		if ($if_sub_char15.equalsIgnoreCase(name)) {
+			return if_sub_char15();
+		}
+		if ($if_sub_char16.equalsIgnoreCase(name)) {
+			return if_sub_char16();
+		}
+		if ($if_sub_char17.equalsIgnoreCase(name)) {
+			return if_sub_char17();
+		}
+		if ($if_sub_char18.equalsIgnoreCase(name)) {
+			return if_sub_char18();
+		}
+		if ($if_sub_char19.equalsIgnoreCase(name)) {
+			return if_sub_char19();
+		}
+		if ($if_sub_char20.equalsIgnoreCase(name)) {
+			return if_sub_char20();
+		}
+		if ($if_sub_char21.equalsIgnoreCase(name)) {
+			return if_sub_char21();
+		}
+		if ($if_sub_char22.equalsIgnoreCase(name)) {
+			return if_sub_char22();
+		}
+		if ($if_sub_char23.equalsIgnoreCase(name)) {
+			return if_sub_char23();
+		}
+		if ($if_sub_char24.equalsIgnoreCase(name)) {
+			return if_sub_char24();
+		}
+		if ($if_sub_char25.equalsIgnoreCase(name)) {
+			return if_sub_char25();
+		}
+		if ($if_sub_char26.equalsIgnoreCase(name)) {
+			return if_sub_char26();
+		}
+		if ($if_sub_char27.equalsIgnoreCase(name)) {
+			return if_sub_char27();
+		}
+		if ($if_sub_char28.equalsIgnoreCase(name)) {
+			return if_sub_char28();
+		}
+		if ($if_sub_char29.equalsIgnoreCase(name)) {
+			return if_sub_char29();
+		}
+		if ($if_sub_char30.equalsIgnoreCase(name)) {
+			return if_sub_char30();
+		}
+		if ($memo4.equalsIgnoreCase(name)) {
+			return memo4();
+		}
+		if ($memo5.equalsIgnoreCase(name)) {
+			return memo5();
+		}
+		if ($memo6.equalsIgnoreCase(name)) {
+			return memo6();
+		}
+		if ($memo7.equalsIgnoreCase(name)) {
+			return memo7();
+		}
+		if ($memo8.equalsIgnoreCase(name)) {
+			return memo8();
+		}
+		if ($memo9.equalsIgnoreCase(name)) {
+			return memo9();
+		}
+		if ($memo10.equalsIgnoreCase(name)) {
+			return memo10();
+		}
+		if ($memo11.equalsIgnoreCase(name)) {
+			return memo11();
+		}
+		if ($memo12.equalsIgnoreCase(name)) {
+			return memo12();
+		}
+		if ($memo13.equalsIgnoreCase(name)) {
+			return memo13();
+		}
+		if ($memo14.equalsIgnoreCase(name)) {
+			return memo14();
+		}
+		if ($memo15.equalsIgnoreCase(name)) {
+			return memo15();
+		}
+		if ($memo16.equalsIgnoreCase(name)) {
+			return memo16();
+		}
+		if ($memo17.equalsIgnoreCase(name)) {
+			return memo17();
+		}
+		if ($memo18.equalsIgnoreCase(name)) {
+			return memo18();
+		}
+		if ($memo19.equalsIgnoreCase(name)) {
+			return memo19();
+		}
+		if ($memo20.equalsIgnoreCase(name)) {
+			return memo20();
+		}
+		return super.getString(name);
+	}
+	public MCNumber getNumber(String name) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			return if_sub_num1();
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			return if_sub_num2();
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			return if_sub_num3();
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			return if_sub_num4();
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			return if_sub_num5();
+		}
+		return super.getNumber(name);
+	}
+	public MCDate getDate(String name) {
+		if ($if_sub_dt1.equalsIgnoreCase(name)) {
+			return if_sub_dt1();
+		}
+		if ($if_sub_dt2.equalsIgnoreCase(name)) {
+			return if_sub_dt2();
+		}
+		if ($if_sub_dt3.equalsIgnoreCase(name)) {
+			return if_sub_dt3();
+		}
+		if ($if_sub_dt4.equalsIgnoreCase(name)) {
+			return if_sub_dt4();
+		}
+		if ($if_sub_dt5.equalsIgnoreCase(name)) {
+			return if_sub_dt5();
+		}
+		return super.getDate(name);
+	}
+	public boolean getBoolean(String name) {
+		if ($dlv_sundry_flg.equalsIgnoreCase(name)) {
+			return dlv_sundry_flg();
+		}
+		if ($pri_prnt_flg.equalsIgnoreCase(name)) {
+			return pri_prnt_flg();
+		}
+		if ($cnsgn_stktk_flg.equalsIgnoreCase(name)) {
+			return cnsgn_stktk_flg();
+		}
+		if ($tdlv_flg.equalsIgnoreCase(name)) {
+			return tdlv_flg();
+		}
+		if ($tdlv_req_flg.equalsIgnoreCase(name)) {
+			return tdlv_req_flg();
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			return del_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($data_crud_typ.equalsIgnoreCase(name)) {
+			return data_crud_typ();
+		}
+		if ($co_cd.equalsIgnoreCase(name)) {
+			return co_cd();
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			return bp_cd();
+		}
+		if ($bp_nm.equalsIgnoreCase(name)) {
+			return bp_nm();
+		}
+		if ($bp_nm_en.equalsIgnoreCase(name)) {
+			return bp_nm_en();
+		}
+		if ($bp_alt_nm1.equalsIgnoreCase(name)) {
+			return bp_alt_nm1();
+		}
+		if ($bp_alt_nm1_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm1_en();
+		}
+		if ($bp_alt_nm2.equalsIgnoreCase(name)) {
+			return bp_alt_nm2();
+		}
+		if ($bp_alt_nm2_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm2_en();
+		}
+		if ($bp_alt_nm3.equalsIgnoreCase(name)) {
+			return bp_alt_nm3();
+		}
+		if ($bp_alt_nm3_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm3_en();
+		}
+		if ($bp_alt_nm4.equalsIgnoreCase(name)) {
+			return bp_alt_nm4();
+		}
+		if ($bp_alt_nm4_en.equalsIgnoreCase(name)) {
+			return bp_alt_nm4_en();
+		}
+		if ($zip_cd.equalsIgnoreCase(name)) {
+			return zip_cd();
+		}
+		if ($addr1.equalsIgnoreCase(name)) {
+			return addr1();
+		}
+		if ($addr2.equalsIgnoreCase(name)) {
+			return addr2();
+		}
+		if ($addr3.equalsIgnoreCase(name)) {
+			return addr3();
+		}
+		if ($addr4.equalsIgnoreCase(name)) {
+			return addr4();
+		}
+		if ($tel.equalsIgnoreCase(name)) {
+			return tel();
+		}
+		if ($fax.equalsIgnoreCase(name)) {
+			return fax();
+		}
+		if ($ein.equalsIgnoreCase(name)) {
+			return ein();
+		}
+		if ($std_co_cd.equalsIgnoreCase(name)) {
+			return std_co_cd();
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			return cntry_cd();
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			return area_cd();
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			return cur_cd();
+		}
+		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
+			return prnt_lcl_cd();
+		}
+		if ($bp_grp_cd1.equalsIgnoreCase(name)) {
+			return bp_grp_cd1();
+		}
+		if ($bp_grp_cd2.equalsIgnoreCase(name)) {
+			return bp_grp_cd2();
+		}
+		if ($bp_grp_cd3.equalsIgnoreCase(name)) {
+			return bp_grp_cd3();
+		}
+		if ($bp_grp_cd4.equalsIgnoreCase(name)) {
+			return bp_grp_cd4();
+		}
+		if ($bp_grp_cd5.equalsIgnoreCase(name)) {
+			return bp_grp_cd5();
+		}
+		if ($bp_grp_cd6.equalsIgnoreCase(name)) {
+			return bp_grp_cd6();
+		}
+		if ($bp_grp_cd7.equalsIgnoreCase(name)) {
+			return bp_grp_cd7();
+		}
+		if ($bp_grp_cd8.equalsIgnoreCase(name)) {
+			return bp_grp_cd8();
+		}
+		if ($bp_grp_cd9.equalsIgnoreCase(name)) {
+			return bp_grp_cd9();
+		}
+		if ($bp_grp_cd10.equalsIgnoreCase(name)) {
+			return bp_grp_cd10();
+		}
+		if ($dlv_cntct_dpt.equalsIgnoreCase(name)) {
+			return dlv_cntct_dpt();
+		}
+		if ($dlv_cntct_psn.equalsIgnoreCase(name)) {
+			return dlv_cntct_psn();
+		}
+		if ($dlv_cntct_psn_title.equalsIgnoreCase(name)) {
+			return dlv_cntct_psn_title();
+		}
+		if ($via_dlv_typ.equalsIgnoreCase(name)) {
+			return via_dlv_typ();
+		}
+		if ($lg_grp_cd.equalsIgnoreCase(name)) {
+			return lg_grp_cd();
+		}
+		if ($dlv_cal_cd.equalsIgnoreCase(name)) {
+			return dlv_cal_cd();
+		}
+		if ($dlv_chnnl1.equalsIgnoreCase(name)) {
+			return dlv_chnnl1();
+		}
+		if ($dlv_chnnl2.equalsIgnoreCase(name)) {
+			return dlv_chnnl2();
+		}
+		if ($dlv_chnnl3.equalsIgnoreCase(name)) {
+			return dlv_chnnl3();
+		}
+		if ($dlv_prnt_typ.equalsIgnoreCase(name)) {
+			return dlv_prnt_typ();
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			return memo1();
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			return memo2();
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			return memo3();
+		}
+		if ($if_sub_char1.equalsIgnoreCase(name)) {
+			return if_sub_char1();
+		}
+		if ($if_sub_char2.equalsIgnoreCase(name)) {
+			return if_sub_char2();
+		}
+		if ($if_sub_char3.equalsIgnoreCase(name)) {
+			return if_sub_char3();
+		}
+		if ($if_sub_char4.equalsIgnoreCase(name)) {
+			return if_sub_char4();
+		}
+		if ($if_sub_char5.equalsIgnoreCase(name)) {
+			return if_sub_char5();
+		}
+		if ($if_sub_char6.equalsIgnoreCase(name)) {
+			return if_sub_char6();
+		}
+		if ($if_sub_char7.equalsIgnoreCase(name)) {
+			return if_sub_char7();
+		}
+		if ($if_sub_char8.equalsIgnoreCase(name)) {
+			return if_sub_char8();
+		}
+		if ($if_sub_char9.equalsIgnoreCase(name)) {
+			return if_sub_char9();
+		}
+		if ($if_sub_char10.equalsIgnoreCase(name)) {
+			return if_sub_char10();
+		}
+		if ($if_sub_char11.equalsIgnoreCase(name)) {
+			return if_sub_char11();
+		}
+		if ($if_sub_char12.equalsIgnoreCase(name)) {
+			return if_sub_char12();
+		}
+		if ($if_sub_char13.equalsIgnoreCase(name)) {
+			return if_sub_char13();
+		}
+		if ($if_sub_char14.equalsIgnoreCase(name)) {
+			return if_sub_char14();
+		}
+		if ($if_sub_char15.equalsIgnoreCase(name)) {
+			return if_sub_char15();
+		}
+		if ($if_sub_char16.equalsIgnoreCase(name)) {
+			return if_sub_char16();
+		}
+		if ($if_sub_char17.equalsIgnoreCase(name)) {
+			return if_sub_char17();
+		}
+		if ($if_sub_char18.equalsIgnoreCase(name)) {
+			return if_sub_char18();
+		}
+		if ($if_sub_char19.equalsIgnoreCase(name)) {
+			return if_sub_char19();
+		}
+		if ($if_sub_char20.equalsIgnoreCase(name)) {
+			return if_sub_char20();
+		}
+		if ($if_sub_char21.equalsIgnoreCase(name)) {
+			return if_sub_char21();
+		}
+		if ($if_sub_char22.equalsIgnoreCase(name)) {
+			return if_sub_char22();
+		}
+		if ($if_sub_char23.equalsIgnoreCase(name)) {
+			return if_sub_char23();
+		}
+		if ($if_sub_char24.equalsIgnoreCase(name)) {
+			return if_sub_char24();
+		}
+		if ($if_sub_char25.equalsIgnoreCase(name)) {
+			return if_sub_char25();
+		}
+		if ($if_sub_char26.equalsIgnoreCase(name)) {
+			return if_sub_char26();
+		}
+		if ($if_sub_char27.equalsIgnoreCase(name)) {
+			return if_sub_char27();
+		}
+		if ($if_sub_char28.equalsIgnoreCase(name)) {
+			return if_sub_char28();
+		}
+		if ($if_sub_char29.equalsIgnoreCase(name)) {
+			return if_sub_char29();
+		}
+		if ($if_sub_char30.equalsIgnoreCase(name)) {
+			return if_sub_char30();
+		}
+		if ($memo4.equalsIgnoreCase(name)) {
+			return memo4();
+		}
+		if ($memo5.equalsIgnoreCase(name)) {
+			return memo5();
+		}
+		if ($memo6.equalsIgnoreCase(name)) {
+			return memo6();
+		}
+		if ($memo7.equalsIgnoreCase(name)) {
+			return memo7();
+		}
+		if ($memo8.equalsIgnoreCase(name)) {
+			return memo8();
+		}
+		if ($memo9.equalsIgnoreCase(name)) {
+			return memo9();
+		}
+		if ($memo10.equalsIgnoreCase(name)) {
+			return memo10();
+		}
+		if ($memo11.equalsIgnoreCase(name)) {
+			return memo11();
+		}
+		if ($memo12.equalsIgnoreCase(name)) {
+			return memo12();
+		}
+		if ($memo13.equalsIgnoreCase(name)) {
+			return memo13();
+		}
+		if ($memo14.equalsIgnoreCase(name)) {
+			return memo14();
+		}
+		if ($memo15.equalsIgnoreCase(name)) {
+			return memo15();
+		}
+		if ($memo16.equalsIgnoreCase(name)) {
+			return memo16();
+		}
+		if ($memo17.equalsIgnoreCase(name)) {
+			return memo17();
+		}
+		if ($memo18.equalsIgnoreCase(name)) {
+			return memo18();
+		}
+		if ($memo19.equalsIgnoreCase(name)) {
+			return memo19();
+		}
+		if ($memo20.equalsIgnoreCase(name)) {
+			return memo20();
+		}
+		return super.getStringNE(name);
+	}
+	public MCNumber getNumberNE(String name) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			return if_sub_num1();
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			return if_sub_num2();
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			return if_sub_num3();
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			return if_sub_num4();
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			return if_sub_num5();
+		}
+		return super.getNumberNE(name);
+	}
+	public MCDate getDateNE(String name) {
+		if ($if_sub_dt1.equalsIgnoreCase(name)) {
+			return if_sub_dt1();
+		}
+		if ($if_sub_dt2.equalsIgnoreCase(name)) {
+			return if_sub_dt2();
+		}
+		if ($if_sub_dt3.equalsIgnoreCase(name)) {
+			return if_sub_dt3();
+		}
+		if ($if_sub_dt4.equalsIgnoreCase(name)) {
+			return if_sub_dt4();
+		}
+		if ($if_sub_dt5.equalsIgnoreCase(name)) {
+			return if_sub_dt5();
+		}
+		return super.getDateNE(name);
+	}
+	public boolean getBooleanNE(String name) {
+		if ($dlv_sundry_flg.equalsIgnoreCase(name)) {
+			return dlv_sundry_flg();
+		}
+		if ($pri_prnt_flg.equalsIgnoreCase(name)) {
+			return pri_prnt_flg();
+		}
+		if ($cnsgn_stktk_flg.equalsIgnoreCase(name)) {
+			return cnsgn_stktk_flg();
+		}
+		if ($tdlv_flg.equalsIgnoreCase(name)) {
+			return tdlv_flg();
+		}
+		if ($tdlv_req_flg.equalsIgnoreCase(name)) {
+			return tdlv_req_flg();
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			return del_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($data_crud_typ.equalsIgnoreCase(name)) {
+			data_crud_typ(value);
+			return;
+		}
+		if ($co_cd.equalsIgnoreCase(name)) {
+			co_cd(value);
+			return;
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			bp_cd(value);
+			return;
+		}
+		if ($bp_nm.equalsIgnoreCase(name)) {
+			bp_nm(value);
+			return;
+		}
+		if ($bp_nm_en.equalsIgnoreCase(name)) {
+			bp_nm_en(value);
+			return;
+		}
+		if ($bp_alt_nm1.equalsIgnoreCase(name)) {
+			bp_alt_nm1(value);
+			return;
+		}
+		if ($bp_alt_nm1_en.equalsIgnoreCase(name)) {
+			bp_alt_nm1_en(value);
+			return;
+		}
+		if ($bp_alt_nm2.equalsIgnoreCase(name)) {
+			bp_alt_nm2(value);
+			return;
+		}
+		if ($bp_alt_nm2_en.equalsIgnoreCase(name)) {
+			bp_alt_nm2_en(value);
+			return;
+		}
+		if ($bp_alt_nm3.equalsIgnoreCase(name)) {
+			bp_alt_nm3(value);
+			return;
+		}
+		if ($bp_alt_nm3_en.equalsIgnoreCase(name)) {
+			bp_alt_nm3_en(value);
+			return;
+		}
+		if ($bp_alt_nm4.equalsIgnoreCase(name)) {
+			bp_alt_nm4(value);
+			return;
+		}
+		if ($bp_alt_nm4_en.equalsIgnoreCase(name)) {
+			bp_alt_nm4_en(value);
+			return;
+		}
+		if ($zip_cd.equalsIgnoreCase(name)) {
+			zip_cd(value);
+			return;
+		}
+		if ($addr1.equalsIgnoreCase(name)) {
+			addr1(value);
+			return;
+		}
+		if ($addr2.equalsIgnoreCase(name)) {
+			addr2(value);
+			return;
+		}
+		if ($addr3.equalsIgnoreCase(name)) {
+			addr3(value);
+			return;
+		}
+		if ($addr4.equalsIgnoreCase(name)) {
+			addr4(value);
+			return;
+		}
+		if ($tel.equalsIgnoreCase(name)) {
+			tel(value);
+			return;
+		}
+		if ($fax.equalsIgnoreCase(name)) {
+			fax(value);
+			return;
+		}
+		if ($ein.equalsIgnoreCase(name)) {
+			ein(value);
+			return;
+		}
+		if ($std_co_cd.equalsIgnoreCase(name)) {
+			std_co_cd(value);
+			return;
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			cntry_cd(value);
+			return;
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			area_cd(value);
+			return;
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			cur_cd(value);
+			return;
+		}
+		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
+			prnt_lcl_cd(value);
+			return;
+		}
+		if ($bp_grp_cd1.equalsIgnoreCase(name)) {
+			bp_grp_cd1(value);
+			return;
+		}
+		if ($bp_grp_cd2.equalsIgnoreCase(name)) {
+			bp_grp_cd2(value);
+			return;
+		}
+		if ($bp_grp_cd3.equalsIgnoreCase(name)) {
+			bp_grp_cd3(value);
+			return;
+		}
+		if ($bp_grp_cd4.equalsIgnoreCase(name)) {
+			bp_grp_cd4(value);
+			return;
+		}
+		if ($bp_grp_cd5.equalsIgnoreCase(name)) {
+			bp_grp_cd5(value);
+			return;
+		}
+		if ($bp_grp_cd6.equalsIgnoreCase(name)) {
+			bp_grp_cd6(value);
+			return;
+		}
+		if ($bp_grp_cd7.equalsIgnoreCase(name)) {
+			bp_grp_cd7(value);
+			return;
+		}
+		if ($bp_grp_cd8.equalsIgnoreCase(name)) {
+			bp_grp_cd8(value);
+			return;
+		}
+		if ($bp_grp_cd9.equalsIgnoreCase(name)) {
+			bp_grp_cd9(value);
+			return;
+		}
+		if ($bp_grp_cd10.equalsIgnoreCase(name)) {
+			bp_grp_cd10(value);
+			return;
+		}
+		if ($dlv_cntct_dpt.equalsIgnoreCase(name)) {
+			dlv_cntct_dpt(value);
+			return;
+		}
+		if ($dlv_cntct_psn.equalsIgnoreCase(name)) {
+			dlv_cntct_psn(value);
+			return;
+		}
+		if ($dlv_cntct_psn_title.equalsIgnoreCase(name)) {
+			dlv_cntct_psn_title(value);
+			return;
+		}
+		if ($via_dlv_typ.equalsIgnoreCase(name)) {
+			via_dlv_typ(value);
+			return;
+		}
+		if ($lg_grp_cd.equalsIgnoreCase(name)) {
+			lg_grp_cd(value);
+			return;
+		}
+		if ($dlv_cal_cd.equalsIgnoreCase(name)) {
+			dlv_cal_cd(value);
+			return;
+		}
+		if ($dlv_chnnl1.equalsIgnoreCase(name)) {
+			dlv_chnnl1(value);
+			return;
+		}
+		if ($dlv_chnnl2.equalsIgnoreCase(name)) {
+			dlv_chnnl2(value);
+			return;
+		}
+		if ($dlv_chnnl3.equalsIgnoreCase(name)) {
+			dlv_chnnl3(value);
+			return;
+		}
+		if ($dlv_prnt_typ.equalsIgnoreCase(name)) {
+			dlv_prnt_typ(value);
+			return;
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			memo1(value);
+			return;
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			memo2(value);
+			return;
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			memo3(value);
+			return;
+		}
+		if ($if_sub_char1.equalsIgnoreCase(name)) {
+			if_sub_char1(value);
+			return;
+		}
+		if ($if_sub_char2.equalsIgnoreCase(name)) {
+			if_sub_char2(value);
+			return;
+		}
+		if ($if_sub_char3.equalsIgnoreCase(name)) {
+			if_sub_char3(value);
+			return;
+		}
+		if ($if_sub_char4.equalsIgnoreCase(name)) {
+			if_sub_char4(value);
+			return;
+		}
+		if ($if_sub_char5.equalsIgnoreCase(name)) {
+			if_sub_char5(value);
+			return;
+		}
+		if ($if_sub_char6.equalsIgnoreCase(name)) {
+			if_sub_char6(value);
+			return;
+		}
+		if ($if_sub_char7.equalsIgnoreCase(name)) {
+			if_sub_char7(value);
+			return;
+		}
+		if ($if_sub_char8.equalsIgnoreCase(name)) {
+			if_sub_char8(value);
+			return;
+		}
+		if ($if_sub_char9.equalsIgnoreCase(name)) {
+			if_sub_char9(value);
+			return;
+		}
+		if ($if_sub_char10.equalsIgnoreCase(name)) {
+			if_sub_char10(value);
+			return;
+		}
+		if ($if_sub_char11.equalsIgnoreCase(name)) {
+			if_sub_char11(value);
+			return;
+		}
+		if ($if_sub_char12.equalsIgnoreCase(name)) {
+			if_sub_char12(value);
+			return;
+		}
+		if ($if_sub_char13.equalsIgnoreCase(name)) {
+			if_sub_char13(value);
+			return;
+		}
+		if ($if_sub_char14.equalsIgnoreCase(name)) {
+			if_sub_char14(value);
+			return;
+		}
+		if ($if_sub_char15.equalsIgnoreCase(name)) {
+			if_sub_char15(value);
+			return;
+		}
+		if ($if_sub_char16.equalsIgnoreCase(name)) {
+			if_sub_char16(value);
+			return;
+		}
+		if ($if_sub_char17.equalsIgnoreCase(name)) {
+			if_sub_char17(value);
+			return;
+		}
+		if ($if_sub_char18.equalsIgnoreCase(name)) {
+			if_sub_char18(value);
+			return;
+		}
+		if ($if_sub_char19.equalsIgnoreCase(name)) {
+			if_sub_char19(value);
+			return;
+		}
+		if ($if_sub_char20.equalsIgnoreCase(name)) {
+			if_sub_char20(value);
+			return;
+		}
+		if ($if_sub_char21.equalsIgnoreCase(name)) {
+			if_sub_char21(value);
+			return;
+		}
+		if ($if_sub_char22.equalsIgnoreCase(name)) {
+			if_sub_char22(value);
+			return;
+		}
+		if ($if_sub_char23.equalsIgnoreCase(name)) {
+			if_sub_char23(value);
+			return;
+		}
+		if ($if_sub_char24.equalsIgnoreCase(name)) {
+			if_sub_char24(value);
+			return;
+		}
+		if ($if_sub_char25.equalsIgnoreCase(name)) {
+			if_sub_char25(value);
+			return;
+		}
+		if ($if_sub_char26.equalsIgnoreCase(name)) {
+			if_sub_char26(value);
+			return;
+		}
+		if ($if_sub_char27.equalsIgnoreCase(name)) {
+			if_sub_char27(value);
+			return;
+		}
+		if ($if_sub_char28.equalsIgnoreCase(name)) {
+			if_sub_char28(value);
+			return;
+		}
+		if ($if_sub_char29.equalsIgnoreCase(name)) {
+			if_sub_char29(value);
+			return;
+		}
+		if ($if_sub_char30.equalsIgnoreCase(name)) {
+			if_sub_char30(value);
+			return;
+		}
+		if ($memo4.equalsIgnoreCase(name)) {
+			memo4(value);
+			return;
+		}
+		if ($memo5.equalsIgnoreCase(name)) {
+			memo5(value);
+			return;
+		}
+		if ($memo6.equalsIgnoreCase(name)) {
+			memo6(value);
+			return;
+		}
+		if ($memo7.equalsIgnoreCase(name)) {
+			memo7(value);
+			return;
+		}
+		if ($memo8.equalsIgnoreCase(name)) {
+			memo8(value);
+			return;
+		}
+		if ($memo9.equalsIgnoreCase(name)) {
+			memo9(value);
+			return;
+		}
+		if ($memo10.equalsIgnoreCase(name)) {
+			memo10(value);
+			return;
+		}
+		if ($memo11.equalsIgnoreCase(name)) {
+			memo11(value);
+			return;
+		}
+		if ($memo12.equalsIgnoreCase(name)) {
+			memo12(value);
+			return;
+		}
+		if ($memo13.equalsIgnoreCase(name)) {
+			memo13(value);
+			return;
+		}
+		if ($memo14.equalsIgnoreCase(name)) {
+			memo14(value);
+			return;
+		}
+		if ($memo15.equalsIgnoreCase(name)) {
+			memo15(value);
+			return;
+		}
+		if ($memo16.equalsIgnoreCase(name)) {
+			memo16(value);
+			return;
+		}
+		if ($memo17.equalsIgnoreCase(name)) {
+			memo17(value);
+			return;
+		}
+		if ($memo18.equalsIgnoreCase(name)) {
+			memo18(value);
+			return;
+		}
+		if ($memo19.equalsIgnoreCase(name)) {
+			memo19(value);
+			return;
+		}
+		if ($memo20.equalsIgnoreCase(name)) {
+			memo20(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+	public void setNumber(String name, MCNumber value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, int value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, long value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, float value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, double value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setDate(String name, MCDate value) {
+		if ($if_sub_dt1.equalsIgnoreCase(name)) {
+			if_sub_dt1(value);
+			return;
+		}
+		if ($if_sub_dt2.equalsIgnoreCase(name)) {
+			if_sub_dt2(value);
+			return;
+		}
+		if ($if_sub_dt3.equalsIgnoreCase(name)) {
+			if_sub_dt3(value);
+			return;
+		}
+		if ($if_sub_dt4.equalsIgnoreCase(name)) {
+			if_sub_dt4(value);
+			return;
+		}
+		if ($if_sub_dt5.equalsIgnoreCase(name)) {
+			if_sub_dt5(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+	public void setBoolean(String name, boolean value) {
+		if ($dlv_sundry_flg.equalsIgnoreCase(name)) {
+			dlv_sundry_flg(value);
+			return;
+		}
+		if ($pri_prnt_flg.equalsIgnoreCase(name)) {
+			pri_prnt_flg(value);
+			return;
+		}
+		if ($cnsgn_stktk_flg.equalsIgnoreCase(name)) {
+			cnsgn_stktk_flg(value);
+			return;
+		}
+		if ($tdlv_flg.equalsIgnoreCase(name)) {
+			tdlv_flg(value);
+			return;
+		}
+		if ($tdlv_req_flg.equalsIgnoreCase(name)) {
+			tdlv_req_flg(value);
+			return;
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			del_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($data_crud_typ.equalsIgnoreCase(name)) {
+			data_crud_typ(value);
+			return;
+		}
+		if ($co_cd.equalsIgnoreCase(name)) {
+			co_cd(value);
+			return;
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			bp_cd(value);
+			return;
+		}
+		if ($bp_nm.equalsIgnoreCase(name)) {
+			bp_nm(value);
+			return;
+		}
+		if ($bp_nm_en.equalsIgnoreCase(name)) {
+			bp_nm_en(value);
+			return;
+		}
+		if ($bp_alt_nm1.equalsIgnoreCase(name)) {
+			bp_alt_nm1(value);
+			return;
+		}
+		if ($bp_alt_nm1_en.equalsIgnoreCase(name)) {
+			bp_alt_nm1_en(value);
+			return;
+		}
+		if ($bp_alt_nm2.equalsIgnoreCase(name)) {
+			bp_alt_nm2(value);
+			return;
+		}
+		if ($bp_alt_nm2_en.equalsIgnoreCase(name)) {
+			bp_alt_nm2_en(value);
+			return;
+		}
+		if ($bp_alt_nm3.equalsIgnoreCase(name)) {
+			bp_alt_nm3(value);
+			return;
+		}
+		if ($bp_alt_nm3_en.equalsIgnoreCase(name)) {
+			bp_alt_nm3_en(value);
+			return;
+		}
+		if ($bp_alt_nm4.equalsIgnoreCase(name)) {
+			bp_alt_nm4(value);
+			return;
+		}
+		if ($bp_alt_nm4_en.equalsIgnoreCase(name)) {
+			bp_alt_nm4_en(value);
+			return;
+		}
+		if ($zip_cd.equalsIgnoreCase(name)) {
+			zip_cd(value);
+			return;
+		}
+		if ($addr1.equalsIgnoreCase(name)) {
+			addr1(value);
+			return;
+		}
+		if ($addr2.equalsIgnoreCase(name)) {
+			addr2(value);
+			return;
+		}
+		if ($addr3.equalsIgnoreCase(name)) {
+			addr3(value);
+			return;
+		}
+		if ($addr4.equalsIgnoreCase(name)) {
+			addr4(value);
+			return;
+		}
+		if ($tel.equalsIgnoreCase(name)) {
+			tel(value);
+			return;
+		}
+		if ($fax.equalsIgnoreCase(name)) {
+			fax(value);
+			return;
+		}
+		if ($ein.equalsIgnoreCase(name)) {
+			ein(value);
+			return;
+		}
+		if ($std_co_cd.equalsIgnoreCase(name)) {
+			std_co_cd(value);
+			return;
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			cntry_cd(value);
+			return;
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			area_cd(value);
+			return;
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			cur_cd(value);
+			return;
+		}
+		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
+			prnt_lcl_cd(value);
+			return;
+		}
+		if ($bp_grp_cd1.equalsIgnoreCase(name)) {
+			bp_grp_cd1(value);
+			return;
+		}
+		if ($bp_grp_cd2.equalsIgnoreCase(name)) {
+			bp_grp_cd2(value);
+			return;
+		}
+		if ($bp_grp_cd3.equalsIgnoreCase(name)) {
+			bp_grp_cd3(value);
+			return;
+		}
+		if ($bp_grp_cd4.equalsIgnoreCase(name)) {
+			bp_grp_cd4(value);
+			return;
+		}
+		if ($bp_grp_cd5.equalsIgnoreCase(name)) {
+			bp_grp_cd5(value);
+			return;
+		}
+		if ($bp_grp_cd6.equalsIgnoreCase(name)) {
+			bp_grp_cd6(value);
+			return;
+		}
+		if ($bp_grp_cd7.equalsIgnoreCase(name)) {
+			bp_grp_cd7(value);
+			return;
+		}
+		if ($bp_grp_cd8.equalsIgnoreCase(name)) {
+			bp_grp_cd8(value);
+			return;
+		}
+		if ($bp_grp_cd9.equalsIgnoreCase(name)) {
+			bp_grp_cd9(value);
+			return;
+		}
+		if ($bp_grp_cd10.equalsIgnoreCase(name)) {
+			bp_grp_cd10(value);
+			return;
+		}
+		if ($dlv_cntct_dpt.equalsIgnoreCase(name)) {
+			dlv_cntct_dpt(value);
+			return;
+		}
+		if ($dlv_cntct_psn.equalsIgnoreCase(name)) {
+			dlv_cntct_psn(value);
+			return;
+		}
+		if ($dlv_cntct_psn_title.equalsIgnoreCase(name)) {
+			dlv_cntct_psn_title(value);
+			return;
+		}
+		if ($via_dlv_typ.equalsIgnoreCase(name)) {
+			via_dlv_typ(value);
+			return;
+		}
+		if ($lg_grp_cd.equalsIgnoreCase(name)) {
+			lg_grp_cd(value);
+			return;
+		}
+		if ($dlv_cal_cd.equalsIgnoreCase(name)) {
+			dlv_cal_cd(value);
+			return;
+		}
+		if ($dlv_chnnl1.equalsIgnoreCase(name)) {
+			dlv_chnnl1(value);
+			return;
+		}
+		if ($dlv_chnnl2.equalsIgnoreCase(name)) {
+			dlv_chnnl2(value);
+			return;
+		}
+		if ($dlv_chnnl3.equalsIgnoreCase(name)) {
+			dlv_chnnl3(value);
+			return;
+		}
+		if ($dlv_prnt_typ.equalsIgnoreCase(name)) {
+			dlv_prnt_typ(value);
+			return;
+		}
+		if ($memo1.equalsIgnoreCase(name)) {
+			memo1(value);
+			return;
+		}
+		if ($memo2.equalsIgnoreCase(name)) {
+			memo2(value);
+			return;
+		}
+		if ($memo3.equalsIgnoreCase(name)) {
+			memo3(value);
+			return;
+		}
+		if ($if_sub_char1.equalsIgnoreCase(name)) {
+			if_sub_char1(value);
+			return;
+		}
+		if ($if_sub_char2.equalsIgnoreCase(name)) {
+			if_sub_char2(value);
+			return;
+		}
+		if ($if_sub_char3.equalsIgnoreCase(name)) {
+			if_sub_char3(value);
+			return;
+		}
+		if ($if_sub_char4.equalsIgnoreCase(name)) {
+			if_sub_char4(value);
+			return;
+		}
+		if ($if_sub_char5.equalsIgnoreCase(name)) {
+			if_sub_char5(value);
+			return;
+		}
+		if ($if_sub_char6.equalsIgnoreCase(name)) {
+			if_sub_char6(value);
+			return;
+		}
+		if ($if_sub_char7.equalsIgnoreCase(name)) {
+			if_sub_char7(value);
+			return;
+		}
+		if ($if_sub_char8.equalsIgnoreCase(name)) {
+			if_sub_char8(value);
+			return;
+		}
+		if ($if_sub_char9.equalsIgnoreCase(name)) {
+			if_sub_char9(value);
+			return;
+		}
+		if ($if_sub_char10.equalsIgnoreCase(name)) {
+			if_sub_char10(value);
+			return;
+		}
+		if ($if_sub_char11.equalsIgnoreCase(name)) {
+			if_sub_char11(value);
+			return;
+		}
+		if ($if_sub_char12.equalsIgnoreCase(name)) {
+			if_sub_char12(value);
+			return;
+		}
+		if ($if_sub_char13.equalsIgnoreCase(name)) {
+			if_sub_char13(value);
+			return;
+		}
+		if ($if_sub_char14.equalsIgnoreCase(name)) {
+			if_sub_char14(value);
+			return;
+		}
+		if ($if_sub_char15.equalsIgnoreCase(name)) {
+			if_sub_char15(value);
+			return;
+		}
+		if ($if_sub_char16.equalsIgnoreCase(name)) {
+			if_sub_char16(value);
+			return;
+		}
+		if ($if_sub_char17.equalsIgnoreCase(name)) {
+			if_sub_char17(value);
+			return;
+		}
+		if ($if_sub_char18.equalsIgnoreCase(name)) {
+			if_sub_char18(value);
+			return;
+		}
+		if ($if_sub_char19.equalsIgnoreCase(name)) {
+			if_sub_char19(value);
+			return;
+		}
+		if ($if_sub_char20.equalsIgnoreCase(name)) {
+			if_sub_char20(value);
+			return;
+		}
+		if ($if_sub_char21.equalsIgnoreCase(name)) {
+			if_sub_char21(value);
+			return;
+		}
+		if ($if_sub_char22.equalsIgnoreCase(name)) {
+			if_sub_char22(value);
+			return;
+		}
+		if ($if_sub_char23.equalsIgnoreCase(name)) {
+			if_sub_char23(value);
+			return;
+		}
+		if ($if_sub_char24.equalsIgnoreCase(name)) {
+			if_sub_char24(value);
+			return;
+		}
+		if ($if_sub_char25.equalsIgnoreCase(name)) {
+			if_sub_char25(value);
+			return;
+		}
+		if ($if_sub_char26.equalsIgnoreCase(name)) {
+			if_sub_char26(value);
+			return;
+		}
+		if ($if_sub_char27.equalsIgnoreCase(name)) {
+			if_sub_char27(value);
+			return;
+		}
+		if ($if_sub_char28.equalsIgnoreCase(name)) {
+			if_sub_char28(value);
+			return;
+		}
+		if ($if_sub_char29.equalsIgnoreCase(name)) {
+			if_sub_char29(value);
+			return;
+		}
+		if ($if_sub_char30.equalsIgnoreCase(name)) {
+			if_sub_char30(value);
+			return;
+		}
+		if ($memo4.equalsIgnoreCase(name)) {
+			memo4(value);
+			return;
+		}
+		if ($memo5.equalsIgnoreCase(name)) {
+			memo5(value);
+			return;
+		}
+		if ($memo6.equalsIgnoreCase(name)) {
+			memo6(value);
+			return;
+		}
+		if ($memo7.equalsIgnoreCase(name)) {
+			memo7(value);
+			return;
+		}
+		if ($memo8.equalsIgnoreCase(name)) {
+			memo8(value);
+			return;
+		}
+		if ($memo9.equalsIgnoreCase(name)) {
+			memo9(value);
+			return;
+		}
+		if ($memo10.equalsIgnoreCase(name)) {
+			memo10(value);
+			return;
+		}
+		if ($memo11.equalsIgnoreCase(name)) {
+			memo11(value);
+			return;
+		}
+		if ($memo12.equalsIgnoreCase(name)) {
+			memo12(value);
+			return;
+		}
+		if ($memo13.equalsIgnoreCase(name)) {
+			memo13(value);
+			return;
+		}
+		if ($memo14.equalsIgnoreCase(name)) {
+			memo14(value);
+			return;
+		}
+		if ($memo15.equalsIgnoreCase(name)) {
+			memo15(value);
+			return;
+		}
+		if ($memo16.equalsIgnoreCase(name)) {
+			memo16(value);
+			return;
+		}
+		if ($memo17.equalsIgnoreCase(name)) {
+			memo17(value);
+			return;
+		}
+		if ($memo18.equalsIgnoreCase(name)) {
+			memo18(value);
+			return;
+		}
+		if ($memo19.equalsIgnoreCase(name)) {
+			memo19(value);
+			return;
+		}
+		if ($memo20.equalsIgnoreCase(name)) {
+			memo20(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+	public void setNumberNE(String name, MCNumber value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, int value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, long value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, float value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, double value) {
+		if ($if_sub_num1.equalsIgnoreCase(name)) {
+			if_sub_num1(value);
+			return;
+		}
+		if ($if_sub_num2.equalsIgnoreCase(name)) {
+			if_sub_num2(value);
+			return;
+		}
+		if ($if_sub_num3.equalsIgnoreCase(name)) {
+			if_sub_num3(value);
+			return;
+		}
+		if ($if_sub_num4.equalsIgnoreCase(name)) {
+			if_sub_num4(value);
+			return;
+		}
+		if ($if_sub_num5.equalsIgnoreCase(name)) {
+			if_sub_num5(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setDateNE(String name, MCDate value) {
+		if ($if_sub_dt1.equalsIgnoreCase(name)) {
+			if_sub_dt1(value);
+			return;
+		}
+		if ($if_sub_dt2.equalsIgnoreCase(name)) {
+			if_sub_dt2(value);
+			return;
+		}
+		if ($if_sub_dt3.equalsIgnoreCase(name)) {
+			if_sub_dt3(value);
+			return;
+		}
+		if ($if_sub_dt4.equalsIgnoreCase(name)) {
+			if_sub_dt4(value);
+			return;
+		}
+		if ($if_sub_dt5.equalsIgnoreCase(name)) {
+			if_sub_dt5(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+	public void setBooleanNE(String name, boolean value) {
+		if ($dlv_sundry_flg.equalsIgnoreCase(name)) {
+			dlv_sundry_flg(value);
+			return;
+		}
+		if ($pri_prnt_flg.equalsIgnoreCase(name)) {
+			pri_prnt_flg(value);
+			return;
+		}
+		if ($cnsgn_stktk_flg.equalsIgnoreCase(name)) {
+			cnsgn_stktk_flg(value);
+			return;
+		}
+		if ($tdlv_flg.equalsIgnoreCase(name)) {
+			tdlv_flg(value);
+			return;
+		}
+		if ($tdlv_req_flg.equalsIgnoreCase(name)) {
+			tdlv_req_flg(value);
+			return;
+		}
+		if ($del_flg.equalsIgnoreCase(name)) {
+			del_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+
+
+}
+

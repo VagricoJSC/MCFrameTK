@@ -1,0 +1,709 @@
+package mcframe.serverMA.dbc;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCDatePermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCBooleanPermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "ＦＢ ＩＦ制御マスタ // FB IF control master"PKワークテーブルDBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>if_proc_typ</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ＩＦ処理区分</td>
+ *  	<td>IF process type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>bp_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>取引先ＣＤ</td>
+ *  	<td>BP cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>bp_cd_null_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>取引先無しＦＬＧ</td>
+ *  	<td>Without BP flg.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>ar_sttl_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>債権決済区分</td>
+ *  	<td>AR settlement type</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>bank_cd</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>銀行ＣＤ</td>
+ *  	<td>Bank cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>K</td>
+ *  	<td>bank_ac_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>口座ＣＤ</td>
+ *  	<td>Bank account cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>st_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>適用開始日</td>
+ *  	<td>Application start date</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MAW_FB_IF_CTL_KEY_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.TEMP_TABLE_ON_COMMIT_DELETE_ROWS;
+
+	public static final String TABLE_NAME = "MAW_FB_IF_CTL_KEY";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * ＩＦ処理区分. IF process type.<p>
+	 *
+	 */
+	public static final String $if_proc_typ = "if_proc_typ";
+	private static final MCPermColumnInfo _if_proc_typ = createColumnInfo("if_proc_typ");
+	public final MCStringPermColumn if_proc_typ = createStringColumn(_if_proc_typ);
+	
+	/**
+	 * 取引先ＣＤ. BP cd..<p>
+	 *
+	 */
+	public static final String $bp_cd = "bp_cd";
+	private static final MCPermColumnInfo _bp_cd = createColumnInfo("bp_cd");
+	public final MCStringPermColumn bp_cd = createStringColumn(_bp_cd);
+	
+	/**
+	 * 取引先無しＦＬＧ. Without BP flg..<p>
+	 *
+	 */
+	public static final String $bp_cd_null_flg = "bp_cd_null_flg";
+	private static final MCPermColumnInfo _bp_cd_null_flg = createColumnInfo("bp_cd_null_flg");
+	public final MCBooleanPermColumn bp_cd_null_flg = createBooleanColumn(_bp_cd_null_flg);
+	
+	/**
+	 * 債権決済区分. AR settlement type.<p>
+	 *
+	 */
+	public static final String $ar_sttl_typ = "ar_sttl_typ";
+	private static final MCPermColumnInfo _ar_sttl_typ = createColumnInfo("ar_sttl_typ");
+	public final MCStringPermColumn ar_sttl_typ = createStringColumn(_ar_sttl_typ);
+	
+	/**
+	 * 銀行ＣＤ. Bank cd..<p>
+	 *
+	 */
+	public static final String $bank_cd = "bank_cd";
+	private static final MCPermColumnInfo _bank_cd = createColumnInfo("bank_cd");
+	public final MCStringPermColumn bank_cd = createStringColumn(_bank_cd);
+	
+	/**
+	 * 口座ＣＤ. Bank account cd..<p>
+	 *
+	 */
+	public static final String $bank_ac_cd = "bank_ac_cd";
+	private static final MCPermColumnInfo _bank_ac_cd = createColumnInfo("bank_ac_cd");
+	public final MCStringPermColumn bank_ac_cd = createStringColumn(_bank_ac_cd);
+	
+	/**
+	 * 適用開始日. Application start date.<p>
+	 *
+	 */
+	public static final String $st_dt = "st_dt";
+	private static final MCPermColumnInfo _st_dt = createColumnInfo("st_dt");
+	public final MCDatePermColumn st_dt = createDateColumn(_st_dt);
+	
+	public static final MCMeta if_proc_typ_META = createCommonMeta($if_proc_typ, mcframe.commonMA.meta.MA_META.IF_PROC_TYP);
+	public static final MCMeta bp_cd_META = createCommonMeta($bp_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta bp_cd_null_flg_META = createCommonMeta($bp_cd_null_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta ar_sttl_typ_META = createCommonMeta($ar_sttl_typ, mcframe.commonMA.meta.MA_META.AR_STTL_TYP);
+	public static final MCMeta bank_cd_META = createCommonMeta($bank_cd, mcframe.commonMA.meta.MA_META.BANK_CD);
+	public static final MCMeta bank_ac_cd_META = createCommonMeta($bank_ac_cd, mcframe.commonMA.meta.MA_META.BANK_AC_CD);
+	public static final MCMeta st_dt_META = createCommonMeta($st_dt, mcframe.commonMA.meta.MA_META.DT);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	
+	protected static final ConstMetaList<MAW_FB_IF_CTL_KEY_R> constMetas = new ConstMetaList<MAW_FB_IF_CTL_KEY_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			if_proc_typ_META,
+			bp_cd_META,
+			bp_cd_null_flg_META,
+			ar_sttl_typ_META,
+			bank_cd_META,
+			bank_ac_cd_META,
+			st_dt_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MAW_FB_IF_CTL_KEY_R(ConstMetaList<? extends MAW_FB_IF_CTL_KEY_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MAW_FB_IF_CTL_KEY_R(ConstMetaList<? extends MAW_FB_IF_CTL_KEY_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$if_proc_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAW_FB_IF_CTL_KEY_R.$if_proc_typ,
+				"if_proc_typ",
+				if_proc_typ,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$bp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAW_FB_IF_CTL_KEY_R.$bp_cd,
+				"bp_cd",
+				bp_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$bp_cd_null_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MAW_FB_IF_CTL_KEY_R.$bp_cd_null_flg,
+				"bp_cd_null_flg",
+				bp_cd_null_flg,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$ar_sttl_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAW_FB_IF_CTL_KEY_R.$ar_sttl_typ,
+				"ar_sttl_typ",
+				ar_sttl_typ,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$bank_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAW_FB_IF_CTL_KEY_R.$bank_cd,
+				"bank_cd",
+				bank_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$bank_ac_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAW_FB_IF_CTL_KEY_R.$bank_ac_cd,
+				"bank_ac_cd",
+				bank_ac_cd,
+				true,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAW_FB_IF_CTL_KEY_R.$st_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MAW_FB_IF_CTL_KEY_R.$st_dt,
+				"st_dt",
+				st_dt,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MAW_FB_IF_CTL_KEY_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MAW_FB_IF_CTL_KEY_R create(String alias) {
+		MAW_FB_IF_CTL_KEY_R row = new MAW_FB_IF_CTL_KEY_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MAW_FB_IF_CTL_KEY_R createByName(T proto) {
+		MAW_FB_IF_CTL_KEY_R row = MAW_FB_IF_CTL_KEY_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MAW_FB_IF_CTL_KEY_R clone() {
+		return (MAW_FB_IF_CTL_KEY_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MAW_FB_IF_CTL_KEY_R createInstance() {
+		return (MAW_FB_IF_CTL_KEY_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MAW_FB_IF_CTL_KEY_R getValues(String... names) {
+		return (MAW_FB_IF_CTL_KEY_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc(String alias) {
+	 	return null;
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MCDBContainer getPkWorkDbc() {
+	 	return null;
+	 }
+
+	/**
+	 * ＩＦ処理区分. IF process type.<p>
+	 *
+	 */
+	public String if_proc_typ() {
+		return getConstString(offset + 0, $if_proc_typ);
+	}
+
+	/**
+	 * ＩＦ処理区分. IF process type.<p>
+	 *
+	 */
+	public void if_proc_typ(String value) {
+		setConstString(offset + 0, $if_proc_typ, value);
+	}
+
+	/**
+	 * 取引先ＣＤ. BP cd..<p>
+	 *
+	 */
+	public String bp_cd() {
+		return getConstString(offset + 1, $bp_cd);
+	}
+
+	/**
+	 * 取引先ＣＤ. BP cd..<p>
+	 *
+	 */
+	public void bp_cd(String value) {
+		setConstString(offset + 1, $bp_cd, value);
+	}
+
+	/**
+	 * 取引先無しＦＬＧ. Without BP flg..<p>
+	 *
+	 */
+	public boolean bp_cd_null_flg() {
+		return getConstBoolean(offset + 2, $bp_cd_null_flg);
+	}
+
+	/**
+	 * 取引先無しＦＬＧ. Without BP flg..<p>
+	 *
+	 */
+	public void bp_cd_null_flg(boolean value) {
+		setConstBoolean(offset + 2, $bp_cd_null_flg, value);
+	}
+
+	/**
+	 * 債権決済区分. AR settlement type.<p>
+	 *
+	 */
+	public String ar_sttl_typ() {
+		return getConstString(offset + 3, $ar_sttl_typ);
+	}
+
+	/**
+	 * 債権決済区分. AR settlement type.<p>
+	 *
+	 */
+	public void ar_sttl_typ(String value) {
+		setConstString(offset + 3, $ar_sttl_typ, value);
+	}
+
+	/**
+	 * 銀行ＣＤ. Bank cd..<p>
+	 *
+	 */
+	public String bank_cd() {
+		return getConstString(offset + 4, $bank_cd);
+	}
+
+	/**
+	 * 銀行ＣＤ. Bank cd..<p>
+	 *
+	 */
+	public void bank_cd(String value) {
+		setConstString(offset + 4, $bank_cd, value);
+	}
+
+	/**
+	 * 口座ＣＤ. Bank account cd..<p>
+	 *
+	 */
+	public String bank_ac_cd() {
+		return getConstString(offset + 5, $bank_ac_cd);
+	}
+
+	/**
+	 * 口座ＣＤ. Bank account cd..<p>
+	 *
+	 */
+	public void bank_ac_cd(String value) {
+		setConstString(offset + 5, $bank_ac_cd, value);
+	}
+
+	/**
+	 * 適用開始日. Application start date.<p>
+	 *
+	 */
+	public MCDate st_dt() {
+		return getConstDate(offset + 6, $st_dt);
+	}
+
+	/**
+	 * 適用開始日. Application start date.<p>
+	 *
+	 */
+	public void st_dt(MCDate value) {
+		setConstDate(offset + 6, $st_dt, value);
+	}
+
+	public String getString(String name) {
+		if ($if_proc_typ.equalsIgnoreCase(name)) {
+			return if_proc_typ();
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			return bp_cd();
+		}
+		if ($ar_sttl_typ.equalsIgnoreCase(name)) {
+			return ar_sttl_typ();
+		}
+		if ($bank_cd.equalsIgnoreCase(name)) {
+			return bank_cd();
+		}
+		if ($bank_ac_cd.equalsIgnoreCase(name)) {
+			return bank_ac_cd();
+		}
+		return super.getString(name);
+	}
+
+	public MCDate getDate(String name) {
+		if ($st_dt.equalsIgnoreCase(name)) {
+			return st_dt();
+		}
+		return super.getDate(name);
+	}
+
+	public boolean getBoolean(String name) {
+		if ($bp_cd_null_flg.equalsIgnoreCase(name)) {
+			return bp_cd_null_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($if_proc_typ.equalsIgnoreCase(name)) {
+			return if_proc_typ();
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			return bp_cd();
+		}
+		if ($ar_sttl_typ.equalsIgnoreCase(name)) {
+			return ar_sttl_typ();
+		}
+		if ($bank_cd.equalsIgnoreCase(name)) {
+			return bank_cd();
+		}
+		if ($bank_ac_cd.equalsIgnoreCase(name)) {
+			return bank_ac_cd();
+		}
+		return super.getStringNE(name);
+	}
+
+	public MCDate getDateNE(String name) {
+		if ($st_dt.equalsIgnoreCase(name)) {
+			return st_dt();
+		}
+		return super.getDateNE(name);
+	}
+
+	public boolean getBooleanNE(String name) {
+		if ($bp_cd_null_flg.equalsIgnoreCase(name)) {
+			return bp_cd_null_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($if_proc_typ.equalsIgnoreCase(name)) {
+			if_proc_typ(value);
+			return;
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			bp_cd(value);
+			return;
+		}
+		if ($ar_sttl_typ.equalsIgnoreCase(name)) {
+			ar_sttl_typ(value);
+			return;
+		}
+		if ($bank_cd.equalsIgnoreCase(name)) {
+			bank_cd(value);
+			return;
+		}
+		if ($bank_ac_cd.equalsIgnoreCase(name)) {
+			bank_ac_cd(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setDate(String name, MCDate value) {
+		if ($st_dt.equalsIgnoreCase(name)) {
+			st_dt(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+
+	public void setBoolean(String name, boolean value) {
+		if ($bp_cd_null_flg.equalsIgnoreCase(name)) {
+			bp_cd_null_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($if_proc_typ.equalsIgnoreCase(name)) {
+			if_proc_typ(value);
+			return;
+		}
+		if ($bp_cd.equalsIgnoreCase(name)) {
+			bp_cd(value);
+			return;
+		}
+		if ($ar_sttl_typ.equalsIgnoreCase(name)) {
+			ar_sttl_typ(value);
+			return;
+		}
+		if ($bank_cd.equalsIgnoreCase(name)) {
+			bank_cd(value);
+			return;
+		}
+		if ($bank_ac_cd.equalsIgnoreCase(name)) {
+			bank_ac_cd(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setDateNE(String name, MCDate value) {
+		if ($st_dt.equalsIgnoreCase(name)) {
+			st_dt(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+
+	public void setBooleanNE(String name, boolean value) {
+		if ($bp_cd_null_flg.equalsIgnoreCase(name)) {
+			bp_cd_null_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+}

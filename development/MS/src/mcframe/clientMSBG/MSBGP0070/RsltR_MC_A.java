@@ -1,0 +1,1989 @@
+package mcframe.clientMSBG.MSBGP0070;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCExtList;
+import mcframe.clientCore.container.MCKeyList;
+import mcframe.clientCore.container.MCConstRow;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.container.MCContainerMeta;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCBinary;
+
+/**
+ * ブロック"Rslt"コンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+abstract class RsltR_MC_A extends MCConstRow {
+
+	/**
+	 * Billing dept. cd. 請求部門ＣＤ.<p>
+	 *
+	 */
+	public static final String $bill_dpt_cd = "bill_dpt_cd";
+	/**
+	 * Billing dept. name 請求部門名.<p>
+	 *
+	 */
+	public static final String $bill_dpt_nm = "bill_dpt_nm";
+	/**
+	 * WG cd. ワーキンググループＣＤ.<p>
+	 *
+	 */
+	public static final String $wg_cd = "wg_cd";
+	/**
+	 * WG name ワーキンググループ名.<p>
+	 *
+	 */
+	public static final String $wg_nm = "wg_nm";
+	/**
+	 * Billing customer cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public static final String $bcst_cd = "bcst_cd";
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public static final String $bcst_nm = "bcst_nm";
+	/**
+	 * Scheduled/Actual payment receipt date 入金予定日／実績日.<p>
+	 *
+	 */
+	public static final String $schd_act_rcv_dt = "schd_act_rcv_dt";
+	/**
+	 * Payment received method cd. 入金方法ＣＤ.<p>
+	 *
+	 */
+	public static final String $rcv_mtd_cd = "rcv_mtd_cd";
+	/**
+	 * Payment received method name 入金方法名.<p>
+	 *
+	 */
+	public static final String $rcv_mtd_nm = "rcv_mtd_nm";
+	/**
+	 * Payment received type 入金区分.<p>
+	 *
+	 */
+	public static final String $rcv_typ = "rcv_typ";
+	public static final String $rcv_reg_typ = "rcv_reg_typ";
+	public static final String $rcv_schd_amt_p = "rcv_schd_amt_p";
+	public static final String $rcv_act_amt_p = "rcv_act_amt_p";
+	public static final String $not_appl_bal_p = "not_appl_bal_p";
+	/**
+	 * Delay 遅延.<p>
+	 *
+	 */
+	public static final String $delay = "delay";
+	/**
+	 * Billing month 請求年月.<p>
+	 *
+	 */
+	public static final String $bill_ym = "bill_ym";
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public static final String $bill_cl_day = "bill_cl_day";
+	/**
+	 * Billing closing date 請求締処理日.<p>
+	 *
+	 */
+	public static final String $bill_dt = "bill_dt";
+	/**
+	 * Currency cd. 通貨ＣＤ.<p>
+	 *
+	 */
+	public static final String $trd_cur_cd = "trd_cur_cd";
+	/**
+	 * Currency name 通貨名.<p>
+	 *
+	 */
+	public static final String $trd_cur_nm = "trd_cur_nm";
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public static final String $amt_dec_place = "amt_dec_place";
+	/**
+	 * Invoice No. 請求書ＮＯ.<p>
+	 *
+	 */
+	public static final String $bill_no = "bill_no";
+	/**
+	 * Invoice No. インボイスＮＯ.<p>
+	 *
+	 */
+	public static final String $iv_no = "iv_no";
+	public static final String $wrk_no_p = "wrk_no_p";
+	/**
+	 * Payer cd. 入金先ＣＤ.<p>
+	 *
+	 */
+	public static final String $rcst_cd = "rcst_cd";
+	/**
+	 * Payer name 入金先名.<p>
+	 *
+	 */
+	public static final String $rcst_nm = "rcst_nm";
+	/**
+	 * For target of payment receipt schedule adjustment 入金予定調整対象.<p>
+	 *
+	 */
+	public static final String $rcv_schd_adjst_flg = "rcv_schd_adjst_flg";
+	/**
+	 * Adjusted 調整済.<p>
+	 *
+	 */
+	public static final String $adjst_flg = "adjst_flg";
+	/**
+	 * Billing management No. 請求管理ＮＯ.<p>
+	 *
+	 */
+	public static final String $bill_mng_no = "bill_mng_no";
+	public static final String $bcst_grp_p = "bcst_grp_p";
+
+	public static final String $rcv_schd_amt = $rcv_schd_amt_p + ".amt";
+	public static final String $rcv_act_amt = $rcv_act_amt_p + ".amt";
+	public static final String $not_appl_bal = $not_appl_bal_p + ".amt";
+	public static final String $wrk_no = $wrk_no_p + ".wrk_no";
+	public static final String $wrk_nm = $wrk_no_p + ".wrk_nm";
+	public static final String $bcst_grp_cd1 = $bcst_grp_p + ".bp_grp_cd1";
+	public static final String $bcst_grp_nm1 = $bcst_grp_p + ".bp_grp_nm1";
+	public static final String $bcst_grp_cd2 = $bcst_grp_p + ".bp_grp_cd2";
+	public static final String $bcst_grp_nm2 = $bcst_grp_p + ".bp_grp_nm2";
+	public static final String $bcst_grp_cd3 = $bcst_grp_p + ".bp_grp_cd3";
+	public static final String $bcst_grp_nm3 = $bcst_grp_p + ".bp_grp_nm3";
+	public static final String $bcst_grp_cd4 = $bcst_grp_p + ".bp_grp_cd4";
+	public static final String $bcst_grp_nm4 = $bcst_grp_p + ".bp_grp_nm4";
+	public static final String $bcst_grp_cd5 = $bcst_grp_p + ".bp_grp_cd5";
+	public static final String $bcst_grp_nm5 = $bcst_grp_p + ".bp_grp_nm5";
+	public static final String $bcst_grp_cd6 = $bcst_grp_p + ".bp_grp_cd6";
+	public static final String $bcst_grp_nm6 = $bcst_grp_p + ".bp_grp_nm6";
+	public static final String $bcst_grp_cd7 = $bcst_grp_p + ".bp_grp_cd7";
+	public static final String $bcst_grp_nm7 = $bcst_grp_p + ".bp_grp_nm7";
+	public static final String $bcst_grp_cd8 = $bcst_grp_p + ".bp_grp_cd8";
+	public static final String $bcst_grp_nm8 = $bcst_grp_p + ".bp_grp_nm8";
+	public static final String $bcst_grp_cd9 = $bcst_grp_p + ".bp_grp_cd9";
+	public static final String $bcst_grp_nm9 = $bcst_grp_p + ".bp_grp_nm9";
+	public static final String $bcst_grp_cd10 = $bcst_grp_p + ".bp_grp_cd10";
+	public static final String $bcst_grp_nm10 = $bcst_grp_p + ".bp_grp_nm10";
+
+	public static final MCMeta bill_dpt_cd_META = createCommonMeta($bill_dpt_cd, mcframe.commonMA.meta.MA_META.DPT_CD);
+	public static final MCMeta bill_dpt_nm_META = createCommonMeta($bill_dpt_nm, mcframe.commonMA.meta.MA_META.DPT_NM);
+	public static final MCMeta wg_cd_META = createCommonMeta($wg_cd, mcframe.commonMA.meta.MA_META.WG_CD);
+	public static final MCMeta wg_nm_META = createCommonMeta($wg_nm, mcframe.commonMA.meta.MA_META.WG_NM);
+	public static final MCMeta bcst_cd_META = createCommonMeta($bcst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta bcst_nm_META = createCommonMeta($bcst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta schd_act_rcv_dt_META = createCommonMeta($schd_act_rcv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta rcv_mtd_cd_META = createCommonMeta($rcv_mtd_cd, mcframe.commonMA.meta.MA_META.STTL_CD);
+	public static final MCMeta rcv_mtd_nm_META = createCommonMeta($rcv_mtd_nm, mcframe.commonMA.meta.MA_META.STTL_NM);
+	public static final MCMeta rcv_typ_META = createCommonMeta($rcv_typ, mcframe.commonMA.meta.MA_META.AR_STTL_TYP);
+	public static final MCMeta rcv_reg_typ_META = createCommonMeta($rcv_reg_typ, mcframe.commonMA.meta.MA_META.RCV_REG_TYP);
+	public static final MCMeta rcv_schd_amt_p_META = createInnerRowMeta($rcv_schd_amt_p, mcframe.clientMAUB.MAUBP5050.AmtR.class);
+	public static final MCMeta rcv_act_amt_p_META = createInnerRowMeta($rcv_act_amt_p, mcframe.clientMAUB.MAUBP5050.AmtR.class);
+	public static final MCMeta not_appl_bal_p_META = createInnerRowMeta($not_appl_bal_p, mcframe.clientMAUB.MAUBP5050.AmtR.class);
+	public static final MCMeta delay_META = createStringMeta($delay);
+	public static final MCMeta bill_ym_META = createCommonMeta($bill_ym, mcframe.commonMA.meta.MA_META.YM);
+	public static final MCMeta bill_cl_day_META = createCommonMeta($bill_cl_day, mcframe.commonMA.meta.MA_META.CL_DAY);
+	public static final MCMeta bill_dt_META = createCommonMeta($bill_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta trd_cur_cd_META = createCommonMeta($trd_cur_cd, mcframe.commonMA.meta.MA_META.CUR_CD);
+	public static final MCMeta trd_cur_nm_META = createCommonMeta($trd_cur_nm, mcframe.commonMA.meta.MA_META.CUR_NM);
+	public static final MCMeta amt_dec_place_META = createCommonMeta($amt_dec_place, mcframe.commonMA.meta.MA_META.DEC_PLACE);
+	public static final MCMeta bill_no_META = createCommonMeta($bill_no, mcframe.commonMA.meta.MA_META.BILL_NO);
+	public static final MCMeta iv_no_META = createCommonMeta($iv_no, mcframe.commonMA.meta.MA_META.IV_NO);
+	public static final MCMeta wrk_no_p_META = createInnerRowMeta($wrk_no_p, mcframe.clientMSUB.MSUBP5010.WrkNoR.class);
+	public static final MCMeta rcst_cd_META = createCommonMeta($rcst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta rcst_nm_META = createCommonMeta($rcst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta rcv_schd_adjst_flg_META = createCommonMeta($rcv_schd_adjst_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta adjst_flg_META = createCommonMeta($adjst_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta bill_mng_no_META = createCommonMeta($bill_mng_no, mcframe.commonMA.meta.MA_META.BILL_MNG_NO);
+	public static final MCMeta bcst_grp_p_META = createInnerRowMeta($bcst_grp_p, mcframe.clientMAUB.MAUBP5190.BpGrpR.class);
+
+	protected static final ConstMetaList<RsltR> constMetas = new ConstMetaList<RsltR>(
+		MCConstRow.constMetas,
+		new MCMeta[]{
+			bill_dpt_cd_META,
+			bill_dpt_nm_META,
+			wg_cd_META,
+			wg_nm_META,
+			bcst_cd_META,
+			bcst_nm_META,
+			schd_act_rcv_dt_META,
+			rcv_mtd_cd_META,
+			rcv_mtd_nm_META,
+			rcv_typ_META,
+			rcv_reg_typ_META,
+			rcv_schd_amt_p_META,
+			rcv_act_amt_p_META,
+			not_appl_bal_p_META,
+			delay_META,
+			bill_ym_META,
+			bill_cl_day_META,
+			bill_dt_META,
+			trd_cur_cd_META,
+			trd_cur_nm_META,
+			amt_dec_place_META,
+			bill_no_META,
+			iv_no_META,
+			wrk_no_p_META,
+			rcst_cd_META,
+			rcst_nm_META,
+			rcv_schd_adjst_flg_META,
+			adjst_flg_META,
+			bill_mng_no_META,
+			bcst_grp_p_META
+		},
+		new String[][]{
+			{
+				"rcv_schd_amt",
+				"rcv_act_amt",
+				"not_appl_bal",
+				"wrk_no",
+				"wrk_nm",
+				"bcst_grp_cd1",
+				"bcst_grp_nm1",
+				"bcst_grp_cd2",
+				"bcst_grp_nm2",
+				"bcst_grp_cd3",
+				"bcst_grp_nm3",
+				"bcst_grp_cd4",
+				"bcst_grp_nm4",
+				"bcst_grp_cd5",
+				"bcst_grp_nm5",
+				"bcst_grp_cd6",
+				"bcst_grp_nm6",
+				"bcst_grp_cd7",
+				"bcst_grp_nm7",
+				"bcst_grp_cd8",
+				"bcst_grp_nm8",
+				"bcst_grp_cd9",
+				"bcst_grp_nm9",
+				"bcst_grp_cd10",
+				"bcst_grp_nm10"
+			},
+			{
+				$rcv_schd_amt,
+				$rcv_act_amt,
+				$not_appl_bal,
+				$wrk_no,
+				$wrk_nm,
+				$bcst_grp_cd1,
+				$bcst_grp_nm1,
+				$bcst_grp_cd2,
+				$bcst_grp_nm2,
+				$bcst_grp_cd3,
+				$bcst_grp_nm3,
+				$bcst_grp_cd4,
+				$bcst_grp_nm4,
+				$bcst_grp_cd5,
+				$bcst_grp_nm5,
+				$bcst_grp_cd6,
+				$bcst_grp_nm6,
+				$bcst_grp_cd7,
+				$bcst_grp_nm7,
+				$bcst_grp_cd8,
+				$bcst_grp_nm8,
+				$bcst_grp_cd9,
+				$bcst_grp_nm9,
+				$bcst_grp_cd10,
+				$bcst_grp_nm10
+			}
+		}
+	);
+
+	/**
+	 * "KEYS"グループのキー項目情報です。
+	 */
+	protected static final MCKeyList KEYS = new MCKeyList(
+		null,
+		new String[]{
+		}
+	);
+
+	/** 項目属性情報のグループ[LIST_OUT_BASE]のキー定数 */
+	public static final String $$LIST_OUT_BASE = "LIST_OUT_BASE";
+	/** 項目属性情報のグループ[LIST_IN]のキー定数 */
+	public static final String $$LIST_IN = "LIST_IN";
+	/** 項目属性情報のグループ[LIST_IN_BASE]のキー定数 */
+	public static final String $$LIST_IN_BASE = "LIST_IN_BASE";
+	/** 項目属性情報のグループ[DISP_CTL]のキー定数 */
+	public static final String $$DISP_CTL = "DISP_CTL";
+
+	/**
+	 * グループ毎に定義される項目属性情報です。
+	 */
+	protected static final MCExtMap EXTMAP = new MCExtMap(
+		null,
+		new MCExtMap.Entry($$LIST_OUT_BASE, new MCExtList(
+			new String[][]{
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN, new MCExtList(
+			new String[][]{
+			}
+		)),
+		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
+			new String[][]{
+			}
+		)),
+		new MCExtMap.Entry($$DISP_CTL, new MCExtList(
+			new String[][]{
+				{$wg_cd, "WG"},	// wg_cd
+				{$wg_nm, "WG"}	// wg_nm
+			}
+		))
+	);
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * "KEYS"グループのキー項目情報を返します。
+	 */
+	public MCKeyList getKeys(){
+		return KEYS;
+	}
+
+	/**
+	 * 指定グループの項目属性情報を返します。
+	 */
+	public Map<String, String> getExtMap(String aGroup){
+		if(aGroup == null) return null;
+		return EXTMAP.get(aGroup);
+	}
+
+	/**
+	 * 指定グループの項目属性が登録された項目リストを返します。
+	 */
+	public MCKeyList getKeys(String aGroup){
+		if(aGroup == null) return null;
+		return new MCKeyList(EXTMAP.getKeyList(aGroup));
+	}
+
+	/**
+	 * 項目属性のグループのSet情報を返します。
+	 */
+	public Set<String> getExtGroups(){
+		Set<String> ret = EXTMAP.keySet();
+		return ret;
+	}
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected RsltR_MC_A(ConstMetaList<? extends RsltR> metas) {
+		super(metas);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public RsltR clone() {
+		return (RsltR) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public RsltR createInstance() {
+		return (RsltR) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public RsltR getValues(String... names) {
+		return (RsltR) super.getValues(names);
+	}
+
+
+
+	/**
+	 * Billing dept. cd. 請求部門ＣＤ.<p>
+	 *
+	 */
+	public String bill_dpt_cd() {
+		return getConstString(offset + 0, $bill_dpt_cd);
+	}
+
+	/**
+	 * Billing dept. cd. 請求部門ＣＤ.<p>
+	 *
+	 */
+	public void bill_dpt_cd(String value) {
+		setConstString(offset + 0, $bill_dpt_cd, value);
+	}
+
+
+	/**
+	 * Billing dept. name 請求部門名.<p>
+	 *
+	 */
+	public String bill_dpt_nm() {
+		return getConstString(offset + 1, $bill_dpt_nm);
+	}
+
+	/**
+	 * Billing dept. name 請求部門名.<p>
+	 *
+	 */
+	public void bill_dpt_nm(String value) {
+		setConstString(offset + 1, $bill_dpt_nm, value);
+	}
+
+
+	/**
+	 * WG cd. ワーキンググループＣＤ.<p>
+	 *
+	 */
+	public String wg_cd() {
+		return getConstString(offset + 2, $wg_cd);
+	}
+
+	/**
+	 * WG cd. ワーキンググループＣＤ.<p>
+	 *
+	 */
+	public void wg_cd(String value) {
+		setConstString(offset + 2, $wg_cd, value);
+	}
+
+
+	/**
+	 * WG name ワーキンググループ名.<p>
+	 *
+	 */
+	public String wg_nm() {
+		return getConstString(offset + 3, $wg_nm);
+	}
+
+	/**
+	 * WG name ワーキンググループ名.<p>
+	 *
+	 */
+	public void wg_nm(String value) {
+		setConstString(offset + 3, $wg_nm, value);
+	}
+
+
+	/**
+	 * Billing customer cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public String bcst_cd() {
+		return getConstString(offset + 4, $bcst_cd);
+	}
+
+	/**
+	 * Billing customer cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public void bcst_cd(String value) {
+		setConstString(offset + 4, $bcst_cd, value);
+	}
+
+
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public String bcst_nm() {
+		return getConstString(offset + 5, $bcst_nm);
+	}
+
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public void bcst_nm(String value) {
+		setConstString(offset + 5, $bcst_nm, value);
+	}
+
+
+	/**
+	 * Scheduled/Actual payment receipt date 入金予定日／実績日.<p>
+	 *
+	 */
+	public MCDate schd_act_rcv_dt() {
+		return getConstDate(offset + 6, $schd_act_rcv_dt);
+	}
+
+	/**
+	 * Scheduled/Actual payment receipt date 入金予定日／実績日.<p>
+	 *
+	 */
+	public void schd_act_rcv_dt(MCDate value) {
+		setConstDate(offset + 6, $schd_act_rcv_dt, value);
+	}
+
+
+	/**
+	 * Payment received method cd. 入金方法ＣＤ.<p>
+	 *
+	 */
+	public String rcv_mtd_cd() {
+		return getConstString(offset + 7, $rcv_mtd_cd);
+	}
+
+	/**
+	 * Payment received method cd. 入金方法ＣＤ.<p>
+	 *
+	 */
+	public void rcv_mtd_cd(String value) {
+		setConstString(offset + 7, $rcv_mtd_cd, value);
+	}
+
+
+	/**
+	 * Payment received method name 入金方法名.<p>
+	 *
+	 */
+	public String rcv_mtd_nm() {
+		return getConstString(offset + 8, $rcv_mtd_nm);
+	}
+
+	/**
+	 * Payment received method name 入金方法名.<p>
+	 *
+	 */
+	public void rcv_mtd_nm(String value) {
+		setConstString(offset + 8, $rcv_mtd_nm, value);
+	}
+
+
+	/**
+	 * Payment received type 入金区分.<p>
+	 *
+	 */
+	public String rcv_typ() {
+		return getConstString(offset + 9, $rcv_typ);
+	}
+
+	/**
+	 * Payment received type 入金区分.<p>
+	 *
+	 */
+	public void rcv_typ(String value) {
+		setConstString(offset + 9, $rcv_typ, value);
+	}
+
+
+	public String rcv_reg_typ() {
+		return getConstString(offset + 10, $rcv_reg_typ);
+	}
+
+	public void rcv_reg_typ(String value) {
+		setConstString(offset + 10, $rcv_reg_typ, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR rcv_schd_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 11, $rcv_schd_amt_p);
+	}
+	
+	public void rcv_schd_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 11, $rcv_schd_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR rcv_act_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 12, $rcv_act_amt_p);
+	}
+	
+	public void rcv_act_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 12, $rcv_act_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR not_appl_bal_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 13, $not_appl_bal_p);
+	}
+	
+	public void not_appl_bal_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 13, $not_appl_bal_p, row);
+	}
+
+
+	/**
+	 * Delay 遅延.<p>
+	 *
+	 */
+	public String delay() {
+		return getConstString(offset + 14, $delay);
+	}
+
+	/**
+	 * Delay 遅延.<p>
+	 *
+	 */
+	public void delay(String value) {
+		setConstString(offset + 14, $delay, value);
+	}
+
+
+	/**
+	 * Billing month 請求年月.<p>
+	 *
+	 */
+	public MCDate bill_ym() {
+		return getConstDate(offset + 15, $bill_ym);
+	}
+
+	/**
+	 * Billing month 請求年月.<p>
+	 *
+	 */
+	public void bill_ym(MCDate value) {
+		setConstDate(offset + 15, $bill_ym, value);
+	}
+
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public MCNumber bill_cl_day() {
+		return getConstNumber(offset + 16, $bill_cl_day);
+	}
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public void bill_cl_day(MCNumber value) {
+		setConstNumber(offset + 16, $bill_cl_day, value);
+	}
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public void bill_cl_day(int value) {
+		setConstNumber(offset + 16, $bill_cl_day, value);
+	}
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public void bill_cl_day(long value) {
+		setConstNumber(offset + 16, $bill_cl_day, value);
+	}
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public void bill_cl_day(float value) {
+		setConstNumber(offset + 16, $bill_cl_day, value);
+	}
+
+	/**
+	 * Closing date 締日.<p>
+	 *
+	 */
+	public void bill_cl_day(double value) {
+		setConstNumber(offset + 16, $bill_cl_day, value);
+	}
+
+
+	/**
+	 * Billing closing date 請求締処理日.<p>
+	 *
+	 */
+	public MCDate bill_dt() {
+		return getConstDate(offset + 17, $bill_dt);
+	}
+
+	/**
+	 * Billing closing date 請求締処理日.<p>
+	 *
+	 */
+	public void bill_dt(MCDate value) {
+		setConstDate(offset + 17, $bill_dt, value);
+	}
+
+
+	/**
+	 * Currency cd. 通貨ＣＤ.<p>
+	 *
+	 */
+	public String trd_cur_cd() {
+		return getConstString(offset + 18, $trd_cur_cd);
+	}
+
+	/**
+	 * Currency cd. 通貨ＣＤ.<p>
+	 *
+	 */
+	public void trd_cur_cd(String value) {
+		setConstString(offset + 18, $trd_cur_cd, value);
+	}
+
+
+	/**
+	 * Currency name 通貨名.<p>
+	 *
+	 */
+	public String trd_cur_nm() {
+		return getConstString(offset + 19, $trd_cur_nm);
+	}
+
+	/**
+	 * Currency name 通貨名.<p>
+	 *
+	 */
+	public void trd_cur_nm(String value) {
+		setConstString(offset + 19, $trd_cur_nm, value);
+	}
+
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public MCNumber amt_dec_place() {
+		return getConstNumber(offset + 20, $amt_dec_place);
+	}
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public void amt_dec_place(MCNumber value) {
+		setConstNumber(offset + 20, $amt_dec_place, value);
+	}
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public void amt_dec_place(int value) {
+		setConstNumber(offset + 20, $amt_dec_place, value);
+	}
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public void amt_dec_place(long value) {
+		setConstNumber(offset + 20, $amt_dec_place, value);
+	}
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public void amt_dec_place(float value) {
+		setConstNumber(offset + 20, $amt_dec_place, value);
+	}
+
+	/**
+	 * Amount number of decimal places 金額小数部有効桁数.<p>
+	 *
+	 */
+	public void amt_dec_place(double value) {
+		setConstNumber(offset + 20, $amt_dec_place, value);
+	}
+
+
+	/**
+	 * Invoice No. 請求書ＮＯ.<p>
+	 *
+	 */
+	public String bill_no() {
+		return getConstString(offset + 21, $bill_no);
+	}
+
+	/**
+	 * Invoice No. 請求書ＮＯ.<p>
+	 *
+	 */
+	public void bill_no(String value) {
+		setConstString(offset + 21, $bill_no, value);
+	}
+
+
+	/**
+	 * Invoice No. インボイスＮＯ.<p>
+	 *
+	 */
+	public String iv_no() {
+		return getConstString(offset + 22, $iv_no);
+	}
+
+	/**
+	 * Invoice No. インボイスＮＯ.<p>
+	 *
+	 */
+	public void iv_no(String value) {
+		setConstString(offset + 22, $iv_no, value);
+	}
+
+
+	public mcframe.clientMSUB.MSUBP5010.WrkNoR wrk_no_p(){
+		return (mcframe.clientMSUB.MSUBP5010.WrkNoR) getConstInnerRow(offset + 23, $wrk_no_p);
+	}
+	
+	public void wrk_no_p(mcframe.clientMSUB.MSUBP5010.WrkNoR row){
+		setConstInnerRow(offset + 23, $wrk_no_p, row);
+	}
+
+
+	/**
+	 * Payer cd. 入金先ＣＤ.<p>
+	 *
+	 */
+	public String rcst_cd() {
+		return getConstString(offset + 24, $rcst_cd);
+	}
+
+	/**
+	 * Payer cd. 入金先ＣＤ.<p>
+	 *
+	 */
+	public void rcst_cd(String value) {
+		setConstString(offset + 24, $rcst_cd, value);
+	}
+
+
+	/**
+	 * Payer name 入金先名.<p>
+	 *
+	 */
+	public String rcst_nm() {
+		return getConstString(offset + 25, $rcst_nm);
+	}
+
+	/**
+	 * Payer name 入金先名.<p>
+	 *
+	 */
+	public void rcst_nm(String value) {
+		setConstString(offset + 25, $rcst_nm, value);
+	}
+
+
+	/**
+	 * For target of payment receipt schedule adjustment 入金予定調整対象.<p>
+	 *
+	 */
+	public boolean rcv_schd_adjst_flg() {
+		return getConstBoolean(offset + 26, $rcv_schd_adjst_flg);
+	}
+
+	/**
+	 * For target of payment receipt schedule adjustment 入金予定調整対象.<p>
+	 *
+	 */
+	public void rcv_schd_adjst_flg(boolean value) {
+		setConstBoolean(offset + 26, $rcv_schd_adjst_flg, value);
+	}
+
+
+	/**
+	 * Adjusted 調整済.<p>
+	 *
+	 */
+	public boolean adjst_flg() {
+		return getConstBoolean(offset + 27, $adjst_flg);
+	}
+
+	/**
+	 * Adjusted 調整済.<p>
+	 *
+	 */
+	public void adjst_flg(boolean value) {
+		setConstBoolean(offset + 27, $adjst_flg, value);
+	}
+
+
+	/**
+	 * Billing management No. 請求管理ＮＯ.<p>
+	 *
+	 */
+	public String bill_mng_no() {
+		return getConstString(offset + 28, $bill_mng_no);
+	}
+
+	/**
+	 * Billing management No. 請求管理ＮＯ.<p>
+	 *
+	 */
+	public void bill_mng_no(String value) {
+		setConstString(offset + 28, $bill_mng_no, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5190.BpGrpR bcst_grp_p(){
+		return (mcframe.clientMAUB.MAUBP5190.BpGrpR) getConstInnerRow(offset + 29, $bcst_grp_p);
+	}
+	
+	public void bcst_grp_p(mcframe.clientMAUB.MAUBP5190.BpGrpR row){
+		setConstInnerRow(offset + 29, $bcst_grp_p, row);
+	}
+
+
+	public String getString(String name) {
+		if ($bill_dpt_cd.equalsIgnoreCase(name)) {
+			return bill_dpt_cd();
+		}
+		if ($bill_dpt_nm.equalsIgnoreCase(name)) {
+			return bill_dpt_nm();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($wg_nm.equalsIgnoreCase(name)) {
+			return wg_nm();
+		}
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			return bcst_cd();
+		}
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			return bcst_nm();
+		}
+		if ($rcv_mtd_cd.equalsIgnoreCase(name)) {
+			return rcv_mtd_cd();
+		}
+		if ($rcv_mtd_nm.equalsIgnoreCase(name)) {
+			return rcv_mtd_nm();
+		}
+		if ($rcv_typ.equalsIgnoreCase(name)) {
+			return rcv_typ();
+		}
+		if ($rcv_reg_typ.equalsIgnoreCase(name)) {
+			return rcv_reg_typ();
+		}
+		if ($delay.equalsIgnoreCase(name)) {
+			return delay();
+		}
+		if ($trd_cur_cd.equalsIgnoreCase(name)) {
+			return trd_cur_cd();
+		}
+		if ($trd_cur_nm.equalsIgnoreCase(name)) {
+			return trd_cur_nm();
+		}
+		if ($bill_no.equalsIgnoreCase(name)) {
+			return bill_no();
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			return iv_no();
+		}
+		if ($rcst_cd.equalsIgnoreCase(name)) {
+			return rcst_cd();
+		}
+		if ($rcst_nm.equalsIgnoreCase(name)) {
+			return rcst_nm();
+		}
+		if ($bill_mng_no.equalsIgnoreCase(name)) {
+			return bill_mng_no();
+		}
+		return super.getString(name);
+	}
+	public MCNumber getNumber(String name) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			return bill_cl_day();
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			return amt_dec_place();
+		}
+		return super.getNumber(name);
+	}
+	public MCDate getDate(String name) {
+		if ($schd_act_rcv_dt.equalsIgnoreCase(name)) {
+			return schd_act_rcv_dt();
+		}
+		if ($bill_ym.equalsIgnoreCase(name)) {
+			return bill_ym();
+		}
+		if ($bill_dt.equalsIgnoreCase(name)) {
+			return bill_dt();
+		}
+		return super.getDate(name);
+	}
+	public boolean getBoolean(String name) {
+		if ($rcv_schd_adjst_flg.equalsIgnoreCase(name)) {
+			return rcv_schd_adjst_flg();
+		}
+		if ($adjst_flg.equalsIgnoreCase(name)) {
+			return adjst_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($bill_dpt_cd.equalsIgnoreCase(name)) {
+			return bill_dpt_cd();
+		}
+		if ($bill_dpt_nm.equalsIgnoreCase(name)) {
+			return bill_dpt_nm();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($wg_nm.equalsIgnoreCase(name)) {
+			return wg_nm();
+		}
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			return bcst_cd();
+		}
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			return bcst_nm();
+		}
+		if ($rcv_mtd_cd.equalsIgnoreCase(name)) {
+			return rcv_mtd_cd();
+		}
+		if ($rcv_mtd_nm.equalsIgnoreCase(name)) {
+			return rcv_mtd_nm();
+		}
+		if ($rcv_typ.equalsIgnoreCase(name)) {
+			return rcv_typ();
+		}
+		if ($rcv_reg_typ.equalsIgnoreCase(name)) {
+			return rcv_reg_typ();
+		}
+		if ($delay.equalsIgnoreCase(name)) {
+			return delay();
+		}
+		if ($trd_cur_cd.equalsIgnoreCase(name)) {
+			return trd_cur_cd();
+		}
+		if ($trd_cur_nm.equalsIgnoreCase(name)) {
+			return trd_cur_nm();
+		}
+		if ($bill_no.equalsIgnoreCase(name)) {
+			return bill_no();
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			return iv_no();
+		}
+		if ($rcst_cd.equalsIgnoreCase(name)) {
+			return rcst_cd();
+		}
+		if ($rcst_nm.equalsIgnoreCase(name)) {
+			return rcst_nm();
+		}
+		if ($bill_mng_no.equalsIgnoreCase(name)) {
+			return bill_mng_no();
+		}
+		return super.getStringNE(name);
+	}
+	public MCNumber getNumberNE(String name) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			return bill_cl_day();
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			return amt_dec_place();
+		}
+		return super.getNumberNE(name);
+	}
+	public MCDate getDateNE(String name) {
+		if ($schd_act_rcv_dt.equalsIgnoreCase(name)) {
+			return schd_act_rcv_dt();
+		}
+		if ($bill_ym.equalsIgnoreCase(name)) {
+			return bill_ym();
+		}
+		if ($bill_dt.equalsIgnoreCase(name)) {
+			return bill_dt();
+		}
+		return super.getDateNE(name);
+	}
+	public boolean getBooleanNE(String name) {
+		if ($rcv_schd_adjst_flg.equalsIgnoreCase(name)) {
+			return rcv_schd_adjst_flg();
+		}
+		if ($adjst_flg.equalsIgnoreCase(name)) {
+			return adjst_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($bill_dpt_cd.equalsIgnoreCase(name)) {
+			bill_dpt_cd(value);
+			return;
+		}
+		if ($bill_dpt_nm.equalsIgnoreCase(name)) {
+			bill_dpt_nm(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($wg_nm.equalsIgnoreCase(name)) {
+			wg_nm(value);
+			return;
+		}
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			bcst_cd(value);
+			return;
+		}
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			bcst_nm(value);
+			return;
+		}
+		if ($rcv_mtd_cd.equalsIgnoreCase(name)) {
+			rcv_mtd_cd(value);
+			return;
+		}
+		if ($rcv_mtd_nm.equalsIgnoreCase(name)) {
+			rcv_mtd_nm(value);
+			return;
+		}
+		if ($rcv_typ.equalsIgnoreCase(name)) {
+			rcv_typ(value);
+			return;
+		}
+		if ($rcv_reg_typ.equalsIgnoreCase(name)) {
+			rcv_reg_typ(value);
+			return;
+		}
+		if ($delay.equalsIgnoreCase(name)) {
+			delay(value);
+			return;
+		}
+		if ($trd_cur_cd.equalsIgnoreCase(name)) {
+			trd_cur_cd(value);
+			return;
+		}
+		if ($trd_cur_nm.equalsIgnoreCase(name)) {
+			trd_cur_nm(value);
+			return;
+		}
+		if ($bill_no.equalsIgnoreCase(name)) {
+			bill_no(value);
+			return;
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			iv_no(value);
+			return;
+		}
+		if ($rcst_cd.equalsIgnoreCase(name)) {
+			rcst_cd(value);
+			return;
+		}
+		if ($rcst_nm.equalsIgnoreCase(name)) {
+			rcst_nm(value);
+			return;
+		}
+		if ($bill_mng_no.equalsIgnoreCase(name)) {
+			bill_mng_no(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+	public void setNumber(String name, MCNumber value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, int value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, long value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, float value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, double value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setDate(String name, MCDate value) {
+		if ($schd_act_rcv_dt.equalsIgnoreCase(name)) {
+			schd_act_rcv_dt(value);
+			return;
+		}
+		if ($bill_ym.equalsIgnoreCase(name)) {
+			bill_ym(value);
+			return;
+		}
+		if ($bill_dt.equalsIgnoreCase(name)) {
+			bill_dt(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+	public void setBoolean(String name, boolean value) {
+		if ($rcv_schd_adjst_flg.equalsIgnoreCase(name)) {
+			rcv_schd_adjst_flg(value);
+			return;
+		}
+		if ($adjst_flg.equalsIgnoreCase(name)) {
+			adjst_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($bill_dpt_cd.equalsIgnoreCase(name)) {
+			bill_dpt_cd(value);
+			return;
+		}
+		if ($bill_dpt_nm.equalsIgnoreCase(name)) {
+			bill_dpt_nm(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($wg_nm.equalsIgnoreCase(name)) {
+			wg_nm(value);
+			return;
+		}
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			bcst_cd(value);
+			return;
+		}
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			bcst_nm(value);
+			return;
+		}
+		if ($rcv_mtd_cd.equalsIgnoreCase(name)) {
+			rcv_mtd_cd(value);
+			return;
+		}
+		if ($rcv_mtd_nm.equalsIgnoreCase(name)) {
+			rcv_mtd_nm(value);
+			return;
+		}
+		if ($rcv_typ.equalsIgnoreCase(name)) {
+			rcv_typ(value);
+			return;
+		}
+		if ($rcv_reg_typ.equalsIgnoreCase(name)) {
+			rcv_reg_typ(value);
+			return;
+		}
+		if ($delay.equalsIgnoreCase(name)) {
+			delay(value);
+			return;
+		}
+		if ($trd_cur_cd.equalsIgnoreCase(name)) {
+			trd_cur_cd(value);
+			return;
+		}
+		if ($trd_cur_nm.equalsIgnoreCase(name)) {
+			trd_cur_nm(value);
+			return;
+		}
+		if ($bill_no.equalsIgnoreCase(name)) {
+			bill_no(value);
+			return;
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			iv_no(value);
+			return;
+		}
+		if ($rcst_cd.equalsIgnoreCase(name)) {
+			rcst_cd(value);
+			return;
+		}
+		if ($rcst_nm.equalsIgnoreCase(name)) {
+			rcst_nm(value);
+			return;
+		}
+		if ($bill_mng_no.equalsIgnoreCase(name)) {
+			bill_mng_no(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+	public void setNumberNE(String name, MCNumber value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, int value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, long value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, float value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, double value) {
+		if ($bill_cl_day.equalsIgnoreCase(name)) {
+			bill_cl_day(value);
+			return;
+		}
+		if ($amt_dec_place.equalsIgnoreCase(name)) {
+			amt_dec_place(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setDateNE(String name, MCDate value) {
+		if ($schd_act_rcv_dt.equalsIgnoreCase(name)) {
+			schd_act_rcv_dt(value);
+			return;
+		}
+		if ($bill_ym.equalsIgnoreCase(name)) {
+			bill_ym(value);
+			return;
+		}
+		if ($bill_dt.equalsIgnoreCase(name)) {
+			bill_dt(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+	public void setBooleanNE(String name, boolean value) {
+		if ($rcv_schd_adjst_flg.equalsIgnoreCase(name)) {
+			rcv_schd_adjst_flg(value);
+			return;
+		}
+		if ($adjst_flg.equalsIgnoreCase(name)) {
+			adjst_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+	public MCRow getInnerRow(String name) {
+		if ($rcv_schd_amt_p.equalsIgnoreCase(name)) {
+			return rcv_schd_amt_p();
+		}
+		if ($rcv_act_amt_p.equalsIgnoreCase(name)) {
+			return rcv_act_amt_p();
+		}
+		if ($not_appl_bal_p.equalsIgnoreCase(name)) {
+			return not_appl_bal_p();
+		}
+		if ($wrk_no_p.equalsIgnoreCase(name)) {
+			return wrk_no_p();
+		}
+		if ($bcst_grp_p.equalsIgnoreCase(name)) {
+			return bcst_grp_p();
+		}
+		return super.getInnerRow(name);
+	}
+
+	public void setInnerRow(String name, MCRow value) {
+		if ($rcv_schd_amt_p.equalsIgnoreCase(name)) {
+			rcv_schd_amt_p(
+				((MCContainerMeta) rcv_schd_amt_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5050.AmtR.class, value)
+			);
+			return;
+		}
+		if ($rcv_act_amt_p.equalsIgnoreCase(name)) {
+			rcv_act_amt_p(
+				((MCContainerMeta) rcv_act_amt_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5050.AmtR.class, value)
+			);
+			return;
+		}
+		if ($not_appl_bal_p.equalsIgnoreCase(name)) {
+			not_appl_bal_p(
+				((MCContainerMeta) not_appl_bal_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5050.AmtR.class, value)
+			);
+			return;
+		}
+		if ($wrk_no_p.equalsIgnoreCase(name)) {
+			wrk_no_p(
+				((MCContainerMeta) wrk_no_p_META).castInnerRow(mcframe.clientMSUB.MSUBP5010.WrkNoR.class, value)
+			);
+			return;
+		}
+		if ($bcst_grp_p.equalsIgnoreCase(name)) {
+			bcst_grp_p(
+				((MCContainerMeta) bcst_grp_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5190.BpGrpR.class, value)
+			);
+			return;
+		}
+		super.setInnerRow(name, value);
+	}
+
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public MCNumber rcv_schd_amt() {
+		return rcv_schd_amt_p().amt();
+	}
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public void rcv_schd_amt(MCNumber value) {
+		rcv_schd_amt_p().amt(value);
+	}
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public void rcv_schd_amt(int value) {
+		rcv_schd_amt_p().amt(value);
+	}
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public void rcv_schd_amt(long value) {
+		rcv_schd_amt_p().amt(value);
+	}
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public void rcv_schd_amt(float value) {
+		rcv_schd_amt_p().amt(value);
+	}
+
+	/**
+	 * Amount of payment receipt schedule 入金予定額.<p>
+	 *
+	 */
+	public void rcv_schd_amt(double value) {
+		rcv_schd_amt_p().amt(value);
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public MCNumber rcv_act_amt() {
+		return rcv_act_amt_p().amt();
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public void rcv_act_amt(MCNumber value) {
+		rcv_act_amt_p().amt(value);
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public void rcv_act_amt(int value) {
+		rcv_act_amt_p().amt(value);
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public void rcv_act_amt(long value) {
+		rcv_act_amt_p().amt(value);
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public void rcv_act_amt(float value) {
+		rcv_act_amt_p().amt(value);
+	}
+
+	/**
+	 * Payment received result amount 入金実績額.<p>
+	 *
+	 */
+	public void rcv_act_amt(double value) {
+		rcv_act_amt_p().amt(value);
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public MCNumber not_appl_bal() {
+		return not_appl_bal_p().amt();
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public void not_appl_bal(MCNumber value) {
+		not_appl_bal_p().amt(value);
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public void not_appl_bal(int value) {
+		not_appl_bal_p().amt(value);
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public void not_appl_bal(long value) {
+		not_appl_bal_p().amt(value);
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public void not_appl_bal(float value) {
+		not_appl_bal_p().amt(value);
+	}
+
+	/**
+	 * Scheduled balance 予定残高.<p>
+	 *
+	 */
+	public void not_appl_bal(double value) {
+		not_appl_bal_p().amt(value);
+	}
+
+	public String wrk_no() {
+		return wrk_no_p().wrk_no();
+	}
+
+	public void wrk_no(String value) {
+		wrk_no_p().wrk_no(value);
+	}
+
+	public String wrk_nm() {
+		return wrk_no_p().wrk_nm();
+	}
+
+	public void wrk_nm(String value) {
+		wrk_no_p().wrk_nm(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 1 請求先分類ＣＤ１.<p>
+	 *
+	 */
+	public String bcst_grp_cd1() {
+		return bcst_grp_p().bp_grp_cd1();
+	}
+
+	/**
+	 * Billing customer classification cd. 1 請求先分類ＣＤ１.<p>
+	 *
+	 */
+	public void bcst_grp_cd1(String value) {
+		bcst_grp_p().bp_grp_cd1(value);
+	}
+
+	/**
+	 * Billing customer classification name 1 請求先分類名１.<p>
+	 *
+	 */
+	public String bcst_grp_nm1() {
+		return bcst_grp_p().bp_grp_nm1();
+	}
+
+	/**
+	 * Billing customer classification name 1 請求先分類名１.<p>
+	 *
+	 */
+	public void bcst_grp_nm1(String value) {
+		bcst_grp_p().bp_grp_nm1(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 2 請求先分類ＣＤ２.<p>
+	 *
+	 */
+	public String bcst_grp_cd2() {
+		return bcst_grp_p().bp_grp_cd2();
+	}
+
+	/**
+	 * Billing customer classification cd. 2 請求先分類ＣＤ２.<p>
+	 *
+	 */
+	public void bcst_grp_cd2(String value) {
+		bcst_grp_p().bp_grp_cd2(value);
+	}
+
+	/**
+	 * Billing customer classification name 2 請求先分類名２.<p>
+	 *
+	 */
+	public String bcst_grp_nm2() {
+		return bcst_grp_p().bp_grp_nm2();
+	}
+
+	/**
+	 * Billing customer classification name 2 請求先分類名２.<p>
+	 *
+	 */
+	public void bcst_grp_nm2(String value) {
+		bcst_grp_p().bp_grp_nm2(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 3 請求先分類ＣＤ３.<p>
+	 *
+	 */
+	public String bcst_grp_cd3() {
+		return bcst_grp_p().bp_grp_cd3();
+	}
+
+	/**
+	 * Billing customer classification cd. 3 請求先分類ＣＤ３.<p>
+	 *
+	 */
+	public void bcst_grp_cd3(String value) {
+		bcst_grp_p().bp_grp_cd3(value);
+	}
+
+	/**
+	 * Billing customer classification name 3 請求先分類名３.<p>
+	 *
+	 */
+	public String bcst_grp_nm3() {
+		return bcst_grp_p().bp_grp_nm3();
+	}
+
+	/**
+	 * Billing customer classification name 3 請求先分類名３.<p>
+	 *
+	 */
+	public void bcst_grp_nm3(String value) {
+		bcst_grp_p().bp_grp_nm3(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 4 請求先分類ＣＤ４.<p>
+	 *
+	 */
+	public String bcst_grp_cd4() {
+		return bcst_grp_p().bp_grp_cd4();
+	}
+
+	/**
+	 * Billing customer classification cd. 4 請求先分類ＣＤ４.<p>
+	 *
+	 */
+	public void bcst_grp_cd4(String value) {
+		bcst_grp_p().bp_grp_cd4(value);
+	}
+
+	/**
+	 * Billing customer classification name 4 請求先分類名４.<p>
+	 *
+	 */
+	public String bcst_grp_nm4() {
+		return bcst_grp_p().bp_grp_nm4();
+	}
+
+	/**
+	 * Billing customer classification name 4 請求先分類名４.<p>
+	 *
+	 */
+	public void bcst_grp_nm4(String value) {
+		bcst_grp_p().bp_grp_nm4(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 5 請求先分類ＣＤ５.<p>
+	 *
+	 */
+	public String bcst_grp_cd5() {
+		return bcst_grp_p().bp_grp_cd5();
+	}
+
+	/**
+	 * Billing customer classification cd. 5 請求先分類ＣＤ５.<p>
+	 *
+	 */
+	public void bcst_grp_cd5(String value) {
+		bcst_grp_p().bp_grp_cd5(value);
+	}
+
+	/**
+	 * Billing customer classification name 5 請求先分類名５.<p>
+	 *
+	 */
+	public String bcst_grp_nm5() {
+		return bcst_grp_p().bp_grp_nm5();
+	}
+
+	/**
+	 * Billing customer classification name 5 請求先分類名５.<p>
+	 *
+	 */
+	public void bcst_grp_nm5(String value) {
+		bcst_grp_p().bp_grp_nm5(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 6 請求先分類ＣＤ６.<p>
+	 *
+	 */
+	public String bcst_grp_cd6() {
+		return bcst_grp_p().bp_grp_cd6();
+	}
+
+	/**
+	 * Billing customer classification cd. 6 請求先分類ＣＤ６.<p>
+	 *
+	 */
+	public void bcst_grp_cd6(String value) {
+		bcst_grp_p().bp_grp_cd6(value);
+	}
+
+	/**
+	 * Billing customer classification name 6 請求先分類名６.<p>
+	 *
+	 */
+	public String bcst_grp_nm6() {
+		return bcst_grp_p().bp_grp_nm6();
+	}
+
+	/**
+	 * Billing customer classification name 6 請求先分類名６.<p>
+	 *
+	 */
+	public void bcst_grp_nm6(String value) {
+		bcst_grp_p().bp_grp_nm6(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 7 請求先分類ＣＤ７.<p>
+	 *
+	 */
+	public String bcst_grp_cd7() {
+		return bcst_grp_p().bp_grp_cd7();
+	}
+
+	/**
+	 * Billing customer classification cd. 7 請求先分類ＣＤ７.<p>
+	 *
+	 */
+	public void bcst_grp_cd7(String value) {
+		bcst_grp_p().bp_grp_cd7(value);
+	}
+
+	/**
+	 * Billing customer classification name 7 請求先分類名７.<p>
+	 *
+	 */
+	public String bcst_grp_nm7() {
+		return bcst_grp_p().bp_grp_nm7();
+	}
+
+	/**
+	 * Billing customer classification name 7 請求先分類名７.<p>
+	 *
+	 */
+	public void bcst_grp_nm7(String value) {
+		bcst_grp_p().bp_grp_nm7(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 8 請求先分類ＣＤ８.<p>
+	 *
+	 */
+	public String bcst_grp_cd8() {
+		return bcst_grp_p().bp_grp_cd8();
+	}
+
+	/**
+	 * Billing customer classification cd. 8 請求先分類ＣＤ８.<p>
+	 *
+	 */
+	public void bcst_grp_cd8(String value) {
+		bcst_grp_p().bp_grp_cd8(value);
+	}
+
+	/**
+	 * Billing customer classification name 8 請求先分類名８.<p>
+	 *
+	 */
+	public String bcst_grp_nm8() {
+		return bcst_grp_p().bp_grp_nm8();
+	}
+
+	/**
+	 * Billing customer classification name 8 請求先分類名８.<p>
+	 *
+	 */
+	public void bcst_grp_nm8(String value) {
+		bcst_grp_p().bp_grp_nm8(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 9 請求先分類ＣＤ９.<p>
+	 *
+	 */
+	public String bcst_grp_cd9() {
+		return bcst_grp_p().bp_grp_cd9();
+	}
+
+	/**
+	 * Billing customer classification cd. 9 請求先分類ＣＤ９.<p>
+	 *
+	 */
+	public void bcst_grp_cd9(String value) {
+		bcst_grp_p().bp_grp_cd9(value);
+	}
+
+	/**
+	 * Billing customer classification name 9 請求先分類名９.<p>
+	 *
+	 */
+	public String bcst_grp_nm9() {
+		return bcst_grp_p().bp_grp_nm9();
+	}
+
+	/**
+	 * Billing customer classification name 9 請求先分類名９.<p>
+	 *
+	 */
+	public void bcst_grp_nm9(String value) {
+		bcst_grp_p().bp_grp_nm9(value);
+	}
+
+	/**
+	 * Billing customer classification cd. 10 請求先分類ＣＤ１０.<p>
+	 *
+	 */
+	public String bcst_grp_cd10() {
+		return bcst_grp_p().bp_grp_cd10();
+	}
+
+	/**
+	 * Billing customer classification cd. 10 請求先分類ＣＤ１０.<p>
+	 *
+	 */
+	public void bcst_grp_cd10(String value) {
+		bcst_grp_p().bp_grp_cd10(value);
+	}
+
+	/**
+	 * Billing customer classification name 10 請求先分類名１０.<p>
+	 *
+	 */
+	public String bcst_grp_nm10() {
+		return bcst_grp_p().bp_grp_nm10();
+	}
+
+	/**
+	 * Billing customer classification name 10 請求先分類名１０.<p>
+	 *
+	 */
+	public void bcst_grp_nm10(String value) {
+		bcst_grp_p().bp_grp_nm10(value);
+	}
+
+}
+

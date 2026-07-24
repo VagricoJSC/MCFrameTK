@@ -1,0 +1,613 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE PACKAGE MGPA_ACC_INPT
+/**************************************************************************
+<SYNOPSIS>
+	原価内訳照会作成処理
+<REMARKS>
+
+<ARGUMENTS>
+<HISTORY>
+**************************************************************************/
+IS
+
+	PROCEDURE P_MAIN (
+		I_CALC_GRP_CD		IN MAPA_META.CALC_GRP_CD%TYPE,
+		I_CALC_NO		IN MAPA_META.CALC_NO%TYPE,
+		I_WG_CD			IN MAPA_META.WG_CD%TYPE,
+		I_YM_FROM		IN MAPA_META.YM%TYPE,
+		I_YM_TO			IN MAPA_META.YM%TYPE,
+		I_ITM_CD		IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1		IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2		IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3		IN MAPA_META.ITM_SUB3%TYPE,
+		I_ITM_MFG_INST_NO	IN MAPA_META.ITM_MFG_INST_NO%TYPE,
+		I_MFG_ACT_NO	IN MAPA_META.MFG_ACT_NO%TYPE,
+		I_MNG_DPT_CD		IN MAPA_META.COST_DPT_CD%TYPE,
+		I_LOT_NO		IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO		IN MAPA_META.SUBLOT_NO%TYPE,
+		I_SNO1			IN MAPA_META.SNO1%TYPE,
+		I_SNO2			IN MAPA_META.SNO2%TYPE,
+		I_SNO3			IN MAPA_META.SNO3%TYPE,
+		I_SNO4			IN MAPA_META.SNO4%TYPE,
+		I_LOC_CD		IN MAPA_META.LOC_CD%TYPE,
+		I_STR_LN_CD		IN MAPA_META.STR_LN_CD%TYPE,
+		I_PO_NO			IN MAPA_META.PO_NO%TYPE,
+		I_NO_PO_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_SLO_NO		IN MAPA_META.SLO_NO%TYPE,
+		I_NO_SLO_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_IV_NO			IN MAPA_META.IV_NO%TYPE,
+		I_NO_IV_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_WIP_FLG		IN MAPA_META.FLG%TYPE DEFAULT '0'
+	) ;
+	/**************************************************************************
+	<SYNOPSIS>
+		原価内訳照会作成メイン処理
+	<REMARKS>
+		原価計算ＮＯが設定されていないときは、対象となる品目・品目製造指図ＮＯ
+		・製造実績ＮＯに対して、指定された年月までの累計情報を作成する。
+		※確定されている原価計算結果（MGT_YM_NO）をもとにデータを作成する。
+		原価計算ＮＯが設定されているときは、対象となる原価計算ＮＯに対する結果
+		からのみデータを作成する。
+	<ARGUMENTS>
+	<IN>	I_CALC_GRP_CD
+			計算グループＣＤ
+	<IN>	I_CALC_NO
+			原価計算ＮＯ
+	<IN>	I_WG_CD
+			ワーキンググループＣＤ
+	<IN>	I_YM_FROM
+			年月ＦＲＯＭ
+	<IN>	I_YM_TO
+			年月ＴＯ
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_ITM_MFG_INST_NO
+			品目製造指図ＮＯ
+	<IN>	I_MFG_ACT_NO
+			製造実績ＮＯ
+	<IN>	I_MNG_DPT_CD
+			管理部門ＣＤ
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_SNO1
+			手配ＮＯ１
+	<IN>	I_SNO2
+			手配ＮＯ２
+	<IN>	I_SNO3
+			手配ＮＯ３
+	<IN>	I_SNO4
+			手配ＮＯ４
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_STR_LN_CD
+			ラインＣＤ
+	<IN>	I_PO_NO
+			発注ＮＯ
+	<IN>	I_NO_PO_NO_FLG
+			発注ＮＯ無ＦＬＧ
+	<IN>	I_SLO_NO
+			受注ＮＯ
+	<IN>	I_NO_SLO_NO_FLG
+			受注ＮＯ無ＦＬＧ
+	<IN>	I_IV_NO
+			Ｉ／Ｖ ＮＯ
+	<IN>	I_NO_IV_NO_FLG
+			Ｉ／Ｖ ＮＯ無ＦＬＧ
+	<IN>	I_WIP_FLG
+			月初仕掛ＦＬＧ
+	<HISTORY>
+	**************************************************************************/
+
+END MGPA_ACC_INPT ;
+
+/
+show errors;
+
+
+CREATE OR REPLACE PACKAGE BODY MGPA_ACC_INPT
+IS
+
+	G_SML_LENGTH	CONSTANT MGPA_META.SML_INPT_REC_NO%TYPE := POWER(10, MGPA_META.INPT_REC_NO_L) ;
+
+	TYPE PLIST IS TABLE OF MGPA_META.SML_INPT_REC_NO%TYPE INDEX BY BINARY_INTEGER ;
+	G_NO	MGPA_META.SML_INPT_REC_NO%TYPE ;
+
+	PROCEDURE P_EX (
+		I_WG_CD		IN MAPA_META.WG_CD%TYPE,
+		I_ITM_CD	IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1	IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2	IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3	IN MAPA_META.ITM_SUB3%TYPE,
+		I_LVL		IN MGPA_META.CALC_LVL%TYPE,
+		I_TGT_NO	IN PLIST
+	)
+	/**************************************************************************
+	<SYNOPSIS>
+		再帰的展開処理
+	<REMARKS>
+
+	<ARGUMENTS>
+	<IN>	I_WG_CD
+			ワーキンググループＣＤ
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_LVL
+			階層レベル
+	<IN>	I_TGT_NO
+			対象となる投入レコードＮＯのリスト
+	<HISTORY>
+	**************************************************************************/
+	AS
+		L_TGT_NO	PLIST ;
+		L_BOTTOM_FLG	MAPA_META.FLG%TYPE ;
+	BEGIN
+		IF I_TGT_NO.COUNT = 0 THEN
+			RETURN ;
+		END IF ;
+
+		G_NO := G_NO + 1 ;
+
+		FORALL i IN 1..I_TGT_NO.COUNT
+			UPDATE	MGW_ACC_INPT w1
+			SET	w1.SML_INPT_REC_NO = G_NO
+			WHERE	0=0
+			AND	w1.WG_CD = I_WG_CD
+			AND	w1.ITM_CD = I_ITM_CD
+			AND	w1.ITM_SUB1 = I_ITM_SUB1
+			AND	w1.ITM_SUB2 = I_ITM_SUB2
+			AND	w1.ITM_SUB3 = I_ITM_SUB3
+			AND	w1.LVL = I_LVL
+			AND	w1.SML_INPT_REC_NO = I_TGT_NO(i)
+			;
+
+		FOR p IN (
+			SELECT	DISTINCT
+				w1.INPT_REC_NO
+			FROM	MGW_ACC_INPT w1
+			WHERE	0=0
+			AND	w1.WG_CD = I_WG_CD
+			AND	w1.ITM_CD = I_ITM_CD
+			AND	w1.ITM_SUB1 = I_ITM_SUB1
+			AND	w1.ITM_SUB2 = I_ITM_SUB2
+			AND	w1.ITM_SUB3 = I_ITM_SUB3
+			AND	w1.LVL = I_LVL
+			AND	w1.SML_INPT_REC_NO = G_NO
+			)
+		LOOP
+			L_TGT_NO(L_TGT_NO.COUNT + 1) := p.INPT_REC_NO ;
+		END LOOP ;
+
+		L_BOTTOM_FLG := '1' ;
+		FOR w IN (
+			SELECT	c.WG_CD,
+				c.ITM_CD,
+				c.ITM_SUB1,
+				c.ITM_SUB2,
+				c.ITM_SUB3,
+				c.LVL
+			FROM	MGW_ACC_INPT p, MGW_ACC_INPT c
+			WHERE	0=0
+			AND	p.SML_INPT_REC_NO = G_NO
+			AND	p.WG_CD = I_WG_CD
+			AND	p.ITM_CD = I_ITM_CD
+			AND	p.ITM_SUB1 = I_ITM_SUB1
+			AND	p.ITM_SUB2 = I_ITM_SUB2
+			AND	p.ITM_SUB3 = I_ITM_SUB3
+			AND	p.LVL = I_LVL
+			AND	c.SML_INPT_REC_NO = p.INPT_REC_NO
+			AND	c.LVL = I_LVL + 1
+			GROUP BY c.WG_CD, c.ITM_CD, c.ITM_SUB1, c.ITM_SUB2, c.ITM_SUB3, c.LVL
+			ORDER BY MIN(c.INPT_REC_NO)
+			)
+		LOOP
+			L_BOTTOM_FLG := '0' ;
+			P_EX(w.WG_CD, w.ITM_CD, w.ITM_SUB1, w.ITM_SUB2, w.ITM_SUB3, w.LVL, L_TGT_NO) ;
+		END LOOP ;
+
+		IF L_BOTTOM_FLG = '1' THEN
+			UPDATE	MGW_ACC_INPT w
+			SET	w.BOTTOM_FLG = '1'
+			WHERE	0=0
+			AND	w.SML_INPT_REC_NO = G_NO
+			AND	w.WG_CD = I_WG_CD
+			AND	w.ITM_CD = I_ITM_CD
+			AND	w.ITM_SUB1 = I_ITM_SUB1
+			AND	w.ITM_SUB2 = I_ITM_SUB2
+			AND	w.ITM_SUB3 = I_ITM_SUB3
+			AND	w.LVL = I_LVL
+			;
+		END IF ;
+
+		L_TGT_NO.DELETE ;
+
+	END P_EX ;
+
+
+	PROCEDURE P_MAIN (
+		I_CALC_GRP_CD		IN MAPA_META.CALC_GRP_CD%TYPE,
+		I_CALC_NO		IN MAPA_META.CALC_NO%TYPE,
+		I_WG_CD			IN MAPA_META.WG_CD%TYPE,
+		I_YM_FROM		IN MAPA_META.YM%TYPE,
+		I_YM_TO			IN MAPA_META.YM%TYPE,
+		I_ITM_CD		IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1		IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2		IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3		IN MAPA_META.ITM_SUB3%TYPE,
+		I_ITM_MFG_INST_NO	IN MAPA_META.ITM_MFG_INST_NO%TYPE,
+		I_MFG_ACT_NO	IN MAPA_META.MFG_ACT_NO%TYPE,
+		I_MNG_DPT_CD		IN MAPA_META.COST_DPT_CD%TYPE,
+		I_LOT_NO		IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO		IN MAPA_META.SUBLOT_NO%TYPE,
+		I_SNO1			IN MAPA_META.SNO1%TYPE,
+		I_SNO2			IN MAPA_META.SNO2%TYPE,
+		I_SNO3			IN MAPA_META.SNO3%TYPE,
+		I_SNO4			IN MAPA_META.SNO4%TYPE,
+		I_LOC_CD		IN MAPA_META.LOC_CD%TYPE,
+		I_STR_LN_CD		IN MAPA_META.STR_LN_CD%TYPE,
+		I_PO_NO			IN MAPA_META.PO_NO%TYPE,
+		I_NO_PO_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_SLO_NO		IN MAPA_META.SLO_NO%TYPE,
+		I_NO_SLO_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_IV_NO			IN MAPA_META.IV_NO%TYPE,
+		I_NO_IV_NO_FLG		IN MAPA_META.FLG%TYPE,
+		I_WIP_FLG		IN MAPA_META.FLG%TYPE DEFAULT '0'
+	)
+	/**************************************************************************
+	<SYNOPSIS>
+		原価内訳照会作成メイン処理
+	<REMARKS>
+		原価計算ＮＯが設定されていないときは、対象となる品目・品目製造指図ＮＯ
+		・製造実績ＮＯに対して、指定された年月までの累計情報を作成する。
+		※確定されている原価計算結果（MGT_YM_NO）をもとにデータを作成する。
+		原価計算ＮＯが設定されているときは、対象となる原価計算ＮＯに対する結果
+		からのみデータを作成する。
+	<ARGUMENTS>
+	<IN>	I_CALC_GRP_CD
+			計算グループＣＤ
+	<IN>	I_CALC_NO
+			原価計算ＮＯ
+	<IN>	I_WG_CD
+			ワーキンググループＣＤ
+	<IN>	I_YM_FROM
+			年月ＦＲＯＭ
+	<IN>	I_YM_TO
+			年月ＴＯ
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_ITM_MFG_INST_NO
+			品目製造指図ＮＯ
+	<IN>	I_MFG_ACT_NO
+			製造実績ＮＯ
+	<IN>	I_MNG_DPT_CD
+			管理部門ＣＤ
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_SNO1
+			手配ＮＯ１
+	<IN>	I_SNO2
+			手配ＮＯ２
+	<IN>	I_SNO3
+			手配ＮＯ３
+	<IN>	I_SNO4
+			手配ＮＯ４
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_STR_LN_CD
+			ラインＣＤ
+	<IN>	I_PO_NO
+			発注ＮＯ
+	<IN>	I_NO_PO_NO_FLG
+			発注ＮＯ無ＦＬＧ
+	<IN>	I_SLO_NO
+			受注ＮＯ
+	<IN>	I_NO_SLO_NO_FLG
+			受注ＮＯ無ＦＬＧ
+	<IN>	I_IV_NO
+			Ｉ／Ｖ ＮＯ
+	<IN>	I_NO_IV_NO_FLG
+			Ｉ／Ｖ ＮＯ無ＦＬＧ
+	<IN>	I_WIP_FLG
+			月初仕掛ＦＬＧ
+	<HISTORY>
+	**************************************************************************/
+	IS
+		C_CALC_REC_INST		CONSTANT MGPA_META.CALC_REC_TYP%TYPE := MGC_CALC_REC_TYP.INST ;
+		C_CALC_REC_ST_WIP	CONSTANT MGPA_META.CALC_REC_TYP%TYPE := MGC_CALC_REC_TYP.ST_WIP ;
+
+		C_ENPNS_PRD	CONSTANT MAPA_META.EXPNS_TYP%TYPE := MAC_EXPNS_TYP.PROD ;
+
+		L_TGT_NO	PLIST ;
+		L_CNT		NUMBER ;
+		L_BOTTOM_FLG	MAPA_META.FLG%TYPE ;
+		L_REC_TYP_1	MGPA_META.CALC_REC_TYP%TYPE ;
+	BEGIN
+		G_NO := 0 ;
+
+		DELETE MGW_ACC_INPT ;
+		DELETE MGW_CALC_NO ;
+
+		L_REC_TYP_1 := NULL ;
+		IF I_CALC_NO IS NULL THEN
+			INSERT INTO MGW_CALC_NO (
+				CALC_GRP_CD,
+				CALC_NO,
+				YM
+				)
+			SELECT	t.CALC_GRP_CD,
+				t.CALC_NO,
+				t.YM
+			FROM	MGT_YM_NO t
+			WHERE	0=0
+			AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+			AND	(I_YM_FROM IS NULL OR t.YM >= I_YM_FROM)
+			AND	t.YM <= I_YM_TO
+			;
+		ELSE
+			INSERT INTO MGW_CALC_NO (
+				CALC_GRP_CD,
+				CALC_NO,
+				YM
+				)
+			SELECT	t.CALC_GRP_CD,
+				t.CALC_NO,
+				NULL
+			FROM	MGT_ARG t
+			WHERE	0=0
+			AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+			AND	t.CALC_NO = I_CALC_NO
+			;
+
+			IF I_WIP_FLG = '1' THEN
+				L_REC_TYP_1 := C_CALC_REC_ST_WIP ;
+			END IF ;
+		END IF ;
+
+		FOR x IN (
+			SELECT	t3.CALC_NO,
+				t2.CALC_REC_TYP,
+				t3.LVL,
+				t3.WG_CD,
+				t3.ITM_CD,
+				t3.ITM_SUB1,
+				t3.ITM_SUB2,
+				t3.ITM_SUB3,
+				t3.MFG_PURC_TYP,
+				t3.INPT_REC_NO,
+				t3.TOP_REC_NO,
+				DECODE(t2.CALC_REC_TYP, C_CALC_REC_ST_WIP, 0, t3.ACT_QTY) ACT_QTY,
+				DECODE(t2.CALC_REC_TYP, C_CALC_REC_ST_WIP, 0, t3.STD_QTY) STD_QTY
+			FROM	MGW_CALC_NO t1, MGT_ACC_TOP t2, MGT_ACC_INPT t3
+			WHERE	0=0
+			AND	t1.CALC_NO = t2.CALC_NO
+			AND	t1.CALC_GRP_CD = t2.CALC_GRP_CD
+			AND	(t1.YM IS NULL OR t1.YM = t2.YM)
+			AND	t2.CALC_NO	= t3.CALC_NO
+			AND	t2.CALC_GRP_CD	= t3.CALC_GRP_CD
+			AND	t2.TOP_REC_NO	= t3.TOP_REC_NO
+			AND	t2.WG_CD = I_WG_CD
+			AND	t2.ITM_CD = I_ITM_CD
+			AND	t2.ITM_SUB1 = I_ITM_SUB1
+			AND	t2.ITM_SUB2 = I_ITM_SUB2
+			AND	t2.ITM_SUB3 = I_ITM_SUB3
+			AND	t2.CALC_REC_TYP IN (C_CALC_REC_INST, L_REC_TYP_1)
+			AND	(I_YM_FROM IS NULL OR t2.YM >= I_YM_FROM)
+			AND	(I_YM_TO IS NULL OR t2.YM <= I_YM_TO)
+			AND	(I_ITM_MFG_INST_NO IS NULL OR t2.ITM_MFG_INST_NO LIKE I_ITM_MFG_INST_NO)
+			AND	(I_MFG_ACT_NO IS NULL OR t2.MFG_ACT_NO LIKE I_MFG_ACT_NO)
+			AND	(I_MNG_DPT_CD IS NULL OR t2.MNG_DPT_CD LIKE I_MNG_DPT_CD)
+			AND	(I_LOT_NO IS NULL OR t2.LOT_NO LIKE I_LOT_NO)
+			AND	(I_SUBLOT_NO IS NULL OR t2.SUBLOT_NO LIKE I_SUBLOT_NO)
+			AND	(I_SNO1 IS NULL OR t2.SNO1 LIKE I_SNO1)
+			AND	(I_SNO2 IS NULL OR t2.SNO2 LIKE I_SNO2)
+			AND	(I_SNO3 IS NULL OR t2.SNO3 LIKE I_SNO3)
+			AND	(I_SNO4 IS NULL OR t2.SNO4 LIKE I_SNO4)
+			AND	(I_LOC_CD IS NULL OR t2.LOC_CD LIKE I_LOC_CD)
+			AND	(I_STR_LN_CD IS NULL OR t2.STR_LN_CD LIKE I_STR_LN_CD)
+			AND	(I_PO_NO IS NULL OR t2.PO_NO LIKE I_PO_NO)
+			AND	(I_SLO_NO IS NULL OR t2.SLO_NO LIKE I_SLO_NO)
+			AND	(I_IV_NO IS NULL OR t2.IV_NO LIKE I_IV_NO)
+			AND	(I_NO_PO_NO_FLG = '0' OR t2.PO_NO IS NULL)
+			AND	(I_NO_SLO_NO_FLG = '0' OR t2.SLO_NO IS NULL)
+			AND	(I_NO_IV_NO_FLG = '0' OR t2.IV_NO IS NULL)
+			)
+		LOOP
+			IF x.CALC_REC_TYP = C_CALC_REC_ST_WIP THEN
+				IF x.LVL > 0 THEN
+					GOTO NEXT_LOOP ;
+				ELSE
+					SELECT	COUNT(t.CALC_NO)
+					INTO	L_CNT
+					FROM	MGT_ACC_COST t
+					WHERE	0=0
+					AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+					AND	t.CALC_NO = x.CALC_NO
+					AND	t.TOP_REC_NO = x.TOP_REC_NO
+					AND	t.EXPNS_TYP = C_ENPNS_PRD
+					;
+					IF L_CNT > 0 THEN
+						L_CNT := -1 ;
+					END IF ;
+				END IF ;
+			ELSE
+				SELECT	COUNT(t.CALC_NO)
+				INTO	L_CNT
+				FROM	MGT_ACC_COST t
+				WHERE	0=0
+				AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+				AND	t.CALC_NO = x.CALC_NO
+				AND	t.INPT_REC_NO = x.INPT_REC_NO
+				AND	t.EXPNS_TYP = C_ENPNS_PRD
+				;
+			END IF ;
+
+			INSERT INTO MGW_ACC_INPT (
+				LVL,
+				WG_CD,
+				ITM_CD,
+				ITM_SUB1,
+				ITM_SUB2,
+				ITM_SUB3,
+				MFG_PURC_TYP,
+				INPT_REC_NO,
+				ACT_QTY,
+				STD_QTY,
+				EXPNS_CD,
+				ACT_COST,
+				STD_COST,
+				SML_INPT_REC_NO,
+				CALC_NO
+				)
+			SELECT	DECODE(x.CALC_REC_TYP, C_CALC_REC_ST_WIP, 0, x.LVL),
+				x.WG_CD,
+				x.ITM_CD,
+				x.ITM_SUB1,
+				x.ITM_SUB2,
+				x.ITM_SUB3,
+				x.MFG_PURC_TYP,
+				x.INPT_REC_NO,
+				DECODE(ROWNUM, 1, x.ACT_QTY, 0),
+				DECODE(ROWNUM, 1, x.STD_QTY, 0),
+				y.EXPNS_CD,
+				y.ACT_COST,
+				DECODE(x.CALC_REC_TYP, C_CALC_REC_ST_WIP, 0, y.STD_COST),
+				z.SML_INPT_REC_NO,
+				x.CALC_NO
+			FROM	(
+				SELECT	t.EXPNS_CD,
+					SUM(t.ACT_COST)	ACT_COST,
+					SUM(t.STD_COST)	STD_COST
+				FROM	MGT_ACC_COST t
+				WHERE	0=0
+				AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+				AND	t.CALC_NO = x.CALC_NO
+				AND	t.INPT_REC_NO = x.INPT_REC_NO
+				AND	t.EXPNS_TYP = C_ENPNS_PRD
+				AND	L_CNT > 0
+				GROUP BY t.EXPNS_CD
+				UNION ALL
+				SELECT	t.EXPNS_CD,
+					SUM(t.ACT_COST)	ACT_COST,
+					SUM(t.STD_COST)	STD_COST
+				FROM	MGT_ACC_COST t
+				WHERE	0=0
+				AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+				AND	t.CALC_NO = x.CALC_NO
+				AND	t.TOP_REC_NO = x.TOP_REC_NO
+				AND	t.EXPNS_TYP = C_ENPNS_PRD
+				AND	L_CNT < 0
+				GROUP BY t.EXPNS_CD
+				UNION ALL
+				SELECT	NULL	EXPNS_CD,
+					0	ACT_COST,
+					0	STD_COST
+				FROM	DUAL
+				WHERE	0=0
+				AND	L_CNT = 0
+				) y,
+				(
+				SELECT	NVL(MAX(t.INPT_REC_NO), 0) SML_INPT_REC_NO
+				FROM	MGT_ACC_INPT t
+				WHERE	0=0
+				AND	t.CALC_GRP_CD = I_CALC_GRP_CD
+				AND	t.CALC_NO = x.CALC_NO
+				AND	t.TOP_REC_NO = x.TOP_REC_NO
+				AND	t.LVL = x.LVL - 1
+				AND	t.INPT_REC_NO <= x.INPT_REC_NO
+				) z
+			WHERE	0=0
+			;
+
+			<<NEXT_LOOP>>
+				NULL ;
+		END LOOP ;
+
+		FOR y IN (
+			SELECT	ROWNUM		r_no,
+				w.CALC_NO
+			FROM	(
+				SELECT	DISTINCT
+					w1.CALC_NO
+				FROM	MGW_ACC_INPT w1
+				WHERE	0=0
+				) w
+			WHERE	0=0
+			)
+		LOOP
+			UPDATE	MGW_ACC_INPT w
+			SET	w.INPT_REC_NO = y.r_no * G_SML_LENGTH + w.INPT_REC_NO,
+				w.SML_INPT_REC_NO = DECODE(w.SML_INPT_REC_NO, 0, 0, y.r_no * G_SML_LENGTH + w.SML_INPT_REC_NO)
+			WHERE	0=0
+			AND	w.CALC_NO = y.CALC_NO
+			;
+		END LOOP ;
+
+		FOR p IN (
+			SELECT	DISTINCT
+				w1.INPT_REC_NO
+			FROM	MGW_ACC_INPT w1
+			WHERE	0=0
+			AND	w1.LVL = 0
+			)
+		LOOP
+			L_TGT_NO(L_TGT_NO.COUNT + 1) := p.INPT_REC_NO ;
+		END LOOP ;
+
+		L_BOTTOM_FLG := '1' ;
+		FOR z IN (
+			SELECT	w1.WG_CD,
+				w1.ITM_CD,
+				w1.ITM_SUB1,
+				w1.ITM_SUB2,
+				w1.ITM_SUB3
+			FROM	MGW_ACC_INPT w1
+			WHERE	0=0
+			AND	w1.LVL = 1
+			GROUP BY w1.WG_CD, w1.ITM_CD, w1.ITM_SUB1, w1.ITM_SUB2, w1.ITM_SUB3
+			ORDER BY MIN(w1.INPT_REC_NO)
+			)
+		LOOP
+			L_BOTTOM_FLG := '0' ;
+			P_EX(z.WG_CD, z.ITM_CD, z.ITM_SUB1, z.ITM_SUB2, z.ITM_SUB3, 1, L_TGT_NO) ;
+		END LOOP ;
+
+		IF L_BOTTOM_FLG = '1' THEN
+			UPDATE	MGW_ACC_INPT w
+			SET	w.BOTTOM_FLG = '1'
+			WHERE	0=0
+			AND	w.LVL = 0
+			;
+		END IF ;
+
+		L_TGT_NO.DELETE ;
+
+	END P_MAIN ;
+
+END MGPA_ACC_INPT ;
+
+/
+show errors;
+
+

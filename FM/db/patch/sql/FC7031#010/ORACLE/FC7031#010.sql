@@ -1,0 +1,55 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE PACKAGE BODY FCPA_CO
+-- ==============================================================================
+-- 機能      会社関連機能
+-- 作成者    S.SUZUKI
+-- 作成日付  2016-05-23
+-- 改版履歴  2016-05-23 S.SUZUKI 初版作成
+----
+-- バージョン:6.4.0
+-- ==============================================================================
+IS
+	-- ===============================================================================
+	-- ログイン会社のロケール別名称を取得する
+	-- ===============================================================================
+	FUNCTION F_GET_CO_NM(
+		LCL IN VARCHAR2
+	)
+	RETURN VARCHAR2 IS
+	BEGIN
+  		RETURN F_GET_CO_NM(FCPA_CONTEXT.F_GET_CO_CD, LCL);
+	END;
+	-- ===============================================================================
+	-- 指定された会社のロケール別名称を取得する
+	-- ===============================================================================
+	FUNCTION F_GET_CO_NM(
+		CO IN VARCHAR2 ,
+		LCL IN VARCHAR2
+	)
+	RETURN VARCHAR2 IS
+		RTN VARCHAR2(100 char);
+	BEGIN
+		SELECT
+			M.CO_NM
+		INTO
+			RTN
+		FROM
+			FCM_CO_LCL_ALL M
+		WHERE
+			M.CO_CD = CO
+			AND M.LCL_CD = LCL;
+  		RETURN RTN;
+	END;
+END;
+
+/
+show errors;
+
+
+DELETE FROM FCT_PATCHVERSION WHERE PRODUCT_ID = 'JAVA-FS' AND MODULE_ID = 'FS' AND VERSION = 'FC7031#010' AND BRANCH = '0';
+
+INSERT INTO FCT_PATCHVERSION VALUES ('JAVA-FS', 'FS','FC7031#010', '0', SYSTIMESTAMP);
+
+commit;
+

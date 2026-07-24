@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mcframe Environment Configuration for Server-->
+<mcframe>
+
+<!-- Framework Default Value -->
+<!-- Server Information -->
+<server>
+	<name>{HOST}</name>
+	<url></url>
+</server>
+
+<!-- Database -->
+<database>
+	<driver>oracle.jdbc.OracleDriver</driver>
+	<url></url>
+	<user></user>
+	<password></password>
+	<encryption>true</encryption>
+	<min>10</min>
+	<max>20</max>
+	<fetchsize>1000</fetchsize>
+	<ex_ctrl>true</ex_ctrl>
+	<sqltrace>false</sqltrace>
+	<!-- 6.3.1.0. add-s -->
+	<session>true</session>
+	<!-- 6.3.1.0. add-e -->
+	<SelectAgainSize>50</SelectAgainSize>
+	<name>oracle</name>
+</database>
+
+
+<!-- Network -->
+<net>
+	<download>
+		<dir>{USERHOME}/dl</dir>
+	</download>
+	<cap>
+		<dir>{USERHOME}/cache</dir>
+	</cap>
+	<paging>
+		<dir>{USERHOME}/paging</dir>
+	</paging>
+	<mining>
+		<dir>{USERHOME}/mining</dir>
+	</mining>
+
+	<response>
+		<limitSize>-1</limitSize>
+		<limitByte></limitByte>
+	</response>
+	<request>
+		<limitSize>-1</limitSize>
+		<retry>-1</retry>
+		<receive_timeout>600000</receive_timeout>
+		<type>java</type>
+		<java>
+			<ignoreCertification>false</ignoreCertification>
+		</java>
+	</request>
+</net>
+
+
+<!-- HTTP -->
+<http>
+	<response>
+		<limitSize>-1</limitSize>
+	</response>
+	<cors>
+		<allow-origin>*</allow-origin><!-- 複数の場合半角空白区切り  -->
+		<allow-methods></allow-methods>
+		<allow-headers></allow-headers>
+		<max-age></max-age>
+	</cors>
+</http>
+
+
+<!-- Push -->
+<push>
+	<logout>
+		<forced>true</forced><!-- 7012-2523 -->
+	</logout>
+	<message>
+		<history>100</history>
+	</message>
+	<timeout>
+		<auth>30</auth><!-- 30sec  -->
+		<message>86400</message><!-- 1day  -->
+	</timeout>
+</push>
+
+
+<!-- Authentication -->
+<auth>
+	<ldap>
+		<context>com.sun.jndi.ldap.LdapCtxFactory</context>
+		<host></host>
+		<authtype>simple</authtype>
+		<ssl></ssl>
+		<bind>
+			<dn></dn>
+			<pw></pw>
+		</bind>
+		<base></base>
+		<filter></filter>
+		<scope>2</scope>
+		<winsso>
+			<combase>{auth.ldap.base}</combase>
+			<class>
+				<user>user</user>
+				<group>group</group>
+				<computer>computer</computer>
+			</class>
+		</winsso>
+		<map>
+			<user_id></user_id>
+			<user_nm></user_nm>
+			<pw_mod_dt></pw_mod_dt>
+			<act_dt></act_dt>
+			<inact_dt></inact_dt>
+			<inv_flg></inv_flg>
+		</map>
+		<authsimple>
+			<blankpw>false</blankpw><!-- 7012-2142 -->
+		</authsimple>
+	</ldap>
+	<batch>
+		<nonpwlimit>true</nonpwlimit>
+	</batch>
+	<valid_check>0</valid_check>
+
+	<mcframe>
+		<compatible></compatible>
+	</mcframe>
+</auth>
+
+
+<!-- User Account -->
+<account>
+	<id>
+		<minlen></minlen>
+	</id>
+	<password>
+		<minlen>1</minlen>
+		<history></history>
+		<period></period>
+		<caution></caution>
+		<fail>
+			<cnt></cnt>
+			<period></period>
+		</fail>
+	</password>
+	<session>
+		<timeout></timeout>
+	</session>
+</account>
+
+
+<process>
+<!-- Parallel Process Control-->
+	<parallel>
+		<retry></retry>
+		<interval></interval>
+		<cache>false</cache>
+	</parallel>
+<!-- Max Process Control-->
+	<max>
+        <gc>true</gc>
+        <gcinterval>60000</gcinterval>          
+		<retry></retry>
+		<interval></interval>
+		<sysvol></sysvol>
+		<syslimit></syslimit>
+		<sysmemory>99</sysmemory>
+		<opevol>0</opevol>
+		<opelimit></opelimit>
+		<opememory></opememory>
+<!-- Item Settings
+		<items>
+			<item01>
+				<ptn></ptn>
+				<qty></qty>
+				<limit></limit>
+				<vol></vol>
+			</item01>
+		</items>
+  -->
+	</max>
+</process>
+
+
+<!-- Cleanup -->
+<cleanup>
+	<period></period>
+	<dir>
+		{cleanup.dir.common},
+		{cleanup.dir.user}
+	</dir>
+</cleanup>
+<!-- Cleanup (for before 6.1.0) -->
+<cleanup>
+	<dir>
+		<common></common>
+		<user>
+			{net.download.dir},
+			{net.cap.dir},
+			{net.paging.dir},
+			{net.mining.dir},
+			{report.DataDir},
+			{USERHOME}/param
+		</user>
+	</dir>
+</cleanup>
+
+
+<!-- Report -->
+<report>
+	<printCommand></printCommand>
+	<DataDir>{USERHOME}/rpt/data</DataDir>
+	<FormDir>{MCF_HOME}/rpt/frm</FormDir>
+	
+	<!-- 6.3.0.2 add-s -->
+	<!-- MCFrame/Report Ver.2.0(SVFPDF) -->
+	<SVFPDF>
+		<Spool>PDF</Spool>
+		<MultiSpool>
+			<en_US>PDF_EN</en_US>
+			<zh_CN>PDF_ZH_CN</zh_CN>
+		</MultiSpool>
+	</SVFPDF>
+	<!-- 6.3.0.2 add-e -->
+
+	<!-- MCFrame/Report Server-Spool(UCX) -->
+	<UCX>
+		<Copy>1</Copy>
+		<JobId>JOB001</JobId>
+		<SetForm>true</SetForm>
+		<HostName>localhost</HostName>
+		<Port>44080</Port>
+		<!-- 6.3.0.2 add-s -->
+		<Spool>RDSpool</Spool>
+		<MultiSpool>
+			<en_US>RDSpool_EN</en_US>
+			<zh_CN>RDSpool_ZH_CN</zh_CN>
+		</MultiSpool>
+		<!-- 6.3.0.2 add-e -->
+	</UCX>
+	
+	<!-- 6.3.1.3 add-s -->
+	<SDP>
+		<Spool>EMF_OUT</Spool>
+		<MultiSpool>
+			<en_US>EMF_OUT_EN</en_US>
+			<zh_CN>EMF_OUT_ZH_CN</zh_CN>
+		</MultiSpool>
+	</SDP>
+	<SVFExcel>
+		<Spool>EXCEL</Spool>
+		<MultiSpool>
+			<en_US>EXCEL_EN</en_US>
+			<zh_CN>EXCEL_ZH_CN</zh_CN>
+		</MultiSpool>
+	</SVFExcel>
+	<!-- 6.3.1.3 add-e -->
+	
+</report>
+
+
+<!-- TableCache  -->
+<tablecache>
+	<system>
+		<type>1</type>
+		<update>
+			<thread>4</thread>
+		</update>
+		<table>
+		</table>
+	</system>
+	<temp>
+		<type>1</type>
+	</temp>
+</tablecache>
+
+
+<!-- SmartDevice  -->
+<sd>
+	<version></version>
+</sd>
+
+</mcframe>

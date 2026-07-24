@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MSVT_PAY_ACT_BR</dbc>
+	
+	<cond>
+		<cols>
+			batch_data_no,psppl_cd,bsppl_cd,bsppl_dpt_cd,pay_schd_dt,exe_sts_typ,
+			batch_log_no,log_sub_key1,log_sub_key2,ins_ts,upd_ts
+		</cols>
+	</cond>
+	
+	<list>
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+		
+		<ap_sttl_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getApSttlTyp</logic>
+			<link>ap_sttl_typ_nm</link>
+			<use>dtl</use>
+		</ap_sttl_typ>
+	</list>
+	
+	<format>
+		<pay_schd_dt>YMD</pay_schd_dt>
+		<reg_dt>YMD</reg_dt>
+		<bsppl_cl_dt>YMD</bsppl_cl_dt>
+	</format>
+	
+	<app>
+		<ref>true</ref>
+		<trans>
+			<mid>MS</mid>
+			<scrn>MSBHP0030</scrn>
+			<cndBlk>Cnd</cndBlk>
+			<do_srch>true</do_srch>
+
+			<toCol1>ope</toCol1>
+			<typ1>C</typ1>
+			<val1>1</val1>
+
+			<toCol2>pay_chk_no</toCol2>
+			<frCol2>pay_chk_no</frCol2>
+		</trans>
+		<dtl>
+			<move>
+				<col1>psppl_nm</col1>
+				<pos1>5</pos1>
+				
+				<col2>bsppl_nm</col2>
+				<pos2>7</pos2>
+				
+				<col3>ap_sttl_nm</col3>
+				<pos3>11</pos3>
+			</move>
+			<label>
+				<col1>psppl_nm</col1>
+				<lbl1>支払先名</lbl1>
+				<msg1>支払先名</msg1>
+
+				<col2>bsppl_nm</col2>
+				<lbl2>支払予定管理先名</lbl2>
+				<msg2>支払予定管理先名</msg2>
+
+				<col3>ap_sttl_nm</col3>
+				<lbl3>債務決済方法名</lbl3>
+				<msg3>債務決済方法名</msg3>
+				
+				<col4>ap_sttl_typ_nm</col4>
+				<lbl4>債務決済区分名</lbl4>
+				<msg4>債務決済区分名</msg4>
+				
+				<col5>exe_sts_typ_nm</col5>
+				<lbl5>ＰＧ実行状況区分名</lbl5>
+				<msg5>ＰＧ実行状況区分名</msg5>
+			</label>
+		</dtl>
+		<addSql>
+			<orderBy>
+				<col1>batch_log_no</col1>
+				<desc1>true</desc1>
+				<col2>bsppl_cd,bsppl_dpt_cd</col2>
+			</orderBy>
+		</addSql>	
+	</app>
+</mcframe>

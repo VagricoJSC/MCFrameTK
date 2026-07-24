@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE logback>
+<configuration>
+
+  <property name="format" value="[%date][%t][%level]%m%n" />
+
+  <appender name="FILE_OUTPUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${AW_HOME}/log/atwork.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>${AW_HOME}/log/atwork%i.log</fileNamePattern>
+      <minIndex>1</minIndex>
+      <maxIndex>3</maxIndex>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>1MB</maxFileSize>
+    </triggeringPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>${format}</pattern>
+    </encoder>
+  </appender>
+ 
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${format}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE" />
+  </root>
+
+  <logger name="atwork" level="DEBUG">
+    <appender-ref ref="FILE_OUTPUT" />
+  </logger>
+  
+</configuration>

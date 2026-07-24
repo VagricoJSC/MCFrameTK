@@ -1,0 +1,6 @@
+\encoding UTF-8
+
+\i ./OBJECT/MBT_ATTACHMENT_ALL.sql
+
+\i ./OBJECT/MBW_ATTACHMENT_KEY.sql
+

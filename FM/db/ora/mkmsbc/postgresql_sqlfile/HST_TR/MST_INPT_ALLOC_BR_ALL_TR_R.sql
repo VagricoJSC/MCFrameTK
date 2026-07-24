@@ -1,0 +1,355 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION mst_inpt_alloc_br_all_tr_r_body() RETURNS trigger AS $BODY$
+DECLARE
+	h_id fct_hst_header.hst_id%TYPE;
+	a_id fct_oprhistory.action_id%TYPE;
+	h_typ fct_hst_header.hst_type%TYPE;
+	h_tab fct_hst_header.table_name%TYPE;
+	u_id fcm_user.user_id%TYPE;
+	cocd fct_hst_header.co_cd%TYPE;
+	ex_1 fct_hst_header.ext_attr1%TYPE;
+	ex_2 fct_hst_header.ext_attr2%TYPE;
+	ex_3 fct_hst_header.ext_attr3%TYPE;
+	rdate timestamp(0);
+BEGIN
+	h_tab :='mst_inpt_alloc_br_all_r';
+	a_id := fcpa_context$f_get_action_id();
+	u_id := fcpa_context$f_get_userid();
+	cocd := fcpa_context$f_get_co_cd();
+	ex_1 := fcpa_context$f_get_ext_attr1();
+	ex_2 := fcpa_context$f_get_ext_attr2();
+	ex_3 := fcpa_context$f_get_ext_attr3();
+	rdate := fcpa_date_util$f_mcsysdate();
+	IF (TG_OP = 'INSERT') THEN
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		h_typ := 'I'; 
+		INSERT INTO fct_hst_header (hst_id, table_name, key_id, action_id, hst_type, hst_time, hst_user_id, co_cd, ext_attr1, ext_attr2, ext_attr3)
+			values (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO mst_inpt_alloc_br_all_r (
+			hst_id,
+			hst_type,
+			batch_data_no,
+			co_cd,
+			batch_log_no,
+			log_sub_key1,
+			log_sub_key2,
+			exe_sts_typ,
+			mfg_inst_no,
+			par_itm_cd,
+			par_itm_sub1,
+			par_itm_sub2,
+			par_itm_sub3,
+			mfg_loc_cd,
+			st_schd_tm,
+			end_schd_tm,
+			alloc_tgt_cnt,
+			alloc_success_cnt,
+			alloc_failure_cnt,
+			ins_usr_id,
+			ins_usr_nm,
+			ins_ts,
+			ins_func_id,
+			upd_cntr,
+			upd_usr_id,
+			upd_usr_nm,
+			upd_ts,
+			upd_func_id,
+			upd_srv_req_no
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				NEW.batch_data_no,
+				NEW.co_cd,
+				NEW.batch_log_no,
+				NEW.log_sub_key1,
+				NEW.log_sub_key2,
+				NEW.exe_sts_typ,
+				NEW.mfg_inst_no,
+				NEW.par_itm_cd,
+				NEW.par_itm_sub1,
+				NEW.par_itm_sub2,
+				NEW.par_itm_sub3,
+				NEW.mfg_loc_cd,
+				NEW.st_schd_tm,
+				NEW.end_schd_tm,
+				NEW.alloc_tgt_cnt,
+				NEW.alloc_success_cnt,
+				NEW.alloc_failure_cnt,
+				NEW.ins_usr_id,
+				NEW.ins_usr_nm,
+				NEW.ins_ts,
+				NEW.ins_func_id,
+				NEW.upd_cntr,
+				NEW.upd_usr_id,
+				NEW.upd_usr_nm,
+				NEW.upd_ts,
+				NEW.upd_func_id,
+				NEW.upd_srv_req_no
+		);
+		RETURN NEW;
+	ELSIF (TG_OP = 'UPDATE') THEN
+		IF OLD.batch_data_no <> NEW.batch_data_no OR OLD.co_cd <> NEW.co_cd THEN
+			SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+			h_typ := 'D';
+			INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+				VALUES (
+					h_id,
+					h_tab,
+					h_id,
+					a_id,
+					h_typ,
+					rdate,
+					u_id,
+					cocd,
+					ex_1,
+					ex_2,
+					ex_3
+			);
+			INSERT INTO mst_inpt_alloc_br_all_r (
+				hst_id,
+				hst_type,
+				batch_data_no,
+				co_cd,
+				batch_log_no,
+				log_sub_key1,
+				log_sub_key2,
+				exe_sts_typ,
+				mfg_inst_no,
+				par_itm_cd,
+				par_itm_sub1,
+				par_itm_sub2,
+				par_itm_sub3,
+				mfg_loc_cd,
+				st_schd_tm,
+				end_schd_tm,
+				alloc_tgt_cnt,
+				alloc_success_cnt,
+				alloc_failure_cnt,
+				ins_usr_id,
+				ins_usr_nm,
+				ins_ts,
+				ins_func_id,
+				upd_cntr,
+				upd_usr_id,
+				upd_usr_nm,
+				upd_ts,
+				upd_func_id,
+				upd_srv_req_no
+			)
+				VALUES (
+					h_id,
+					h_typ,
+					OLD.batch_data_no,
+					OLD.co_cd,
+					OLD.batch_log_no,
+					OLD.log_sub_key1,
+					OLD.log_sub_key2,
+					OLD.exe_sts_typ,
+					OLD.mfg_inst_no,
+					OLD.par_itm_cd,
+					OLD.par_itm_sub1,
+					OLD.par_itm_sub2,
+					OLD.par_itm_sub3,
+					OLD.mfg_loc_cd,
+					OLD.st_schd_tm,
+					OLD.end_schd_tm,
+					OLD.alloc_tgt_cnt,
+					OLD.alloc_success_cnt,
+					OLD.alloc_failure_cnt,
+					OLD.ins_usr_id,
+					OLD.ins_usr_nm,
+					OLD.ins_ts,
+					OLD.ins_func_id,
+					OLD.upd_cntr,
+					OLD.upd_usr_id,
+					OLD.upd_usr_nm,
+					OLD.upd_ts,
+					OLD.upd_func_id,
+					OLD.upd_srv_req_no
+			);
+			h_typ := 'I';
+		ELSE
+			h_typ := 'U';
+		END IF;
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+			VALUES (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO mst_inpt_alloc_br_all_r (
+			hst_id,
+			hst_type,
+			batch_data_no,
+			co_cd,
+			batch_log_no,
+			log_sub_key1,
+			log_sub_key2,
+			exe_sts_typ,
+			mfg_inst_no,
+			par_itm_cd,
+			par_itm_sub1,
+			par_itm_sub2,
+			par_itm_sub3,
+			mfg_loc_cd,
+			st_schd_tm,
+			end_schd_tm,
+			alloc_tgt_cnt,
+			alloc_success_cnt,
+			alloc_failure_cnt,
+			ins_usr_id,
+			ins_usr_nm,
+			ins_ts,
+			ins_func_id,
+			upd_cntr,
+			upd_usr_id,
+			upd_usr_nm,
+			upd_ts,
+			upd_func_id,
+			upd_srv_req_no
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				NEW.batch_data_no,
+				NEW.co_cd,
+				NEW.batch_log_no,
+				NEW.log_sub_key1,
+				NEW.log_sub_key2,
+				NEW.exe_sts_typ,
+				NEW.mfg_inst_no,
+				NEW.par_itm_cd,
+				NEW.par_itm_sub1,
+				NEW.par_itm_sub2,
+				NEW.par_itm_sub3,
+				NEW.mfg_loc_cd,
+				NEW.st_schd_tm,
+				NEW.end_schd_tm,
+				NEW.alloc_tgt_cnt,
+				NEW.alloc_success_cnt,
+				NEW.alloc_failure_cnt,
+				NEW.ins_usr_id,
+				NEW.ins_usr_nm,
+				NEW.ins_ts,
+				NEW.ins_func_id,
+				NEW.upd_cntr,
+				NEW.upd_usr_id,
+				NEW.upd_usr_nm,
+				NEW.upd_ts,
+				NEW.upd_func_id,
+				NEW.upd_srv_req_no
+		);
+		RETURN NEW;
+	ELSIF (TG_OP = 'DELETE') THEN
+		SELECT NEXTVAL('fcs_history') INTO STRICT h_id;
+		h_typ := 'D';
+		INSERT INTO fct_hst_header (hst_id,table_name,key_id,action_id,hst_type,hst_time,hst_user_id,co_cd,ext_attr1,ext_attr2,ext_attr3)
+			VALUES (
+				h_id,
+				h_tab,
+				h_id,
+				a_id,
+				h_typ,
+				rdate,
+				u_id,
+				cocd,
+				ex_1,
+				ex_2,
+				ex_3
+		);
+		INSERT INTO mst_inpt_alloc_br_all_r (
+			hst_id,
+			hst_type,
+			batch_data_no,
+			co_cd,
+			batch_log_no,
+			log_sub_key1,
+			log_sub_key2,
+			exe_sts_typ,
+			mfg_inst_no,
+			par_itm_cd,
+			par_itm_sub1,
+			par_itm_sub2,
+			par_itm_sub3,
+			mfg_loc_cd,
+			st_schd_tm,
+			end_schd_tm,
+			alloc_tgt_cnt,
+			alloc_success_cnt,
+			alloc_failure_cnt,
+			ins_usr_id,
+			ins_usr_nm,
+			ins_ts,
+			ins_func_id,
+			upd_cntr,
+			upd_usr_id,
+			upd_usr_nm,
+			upd_ts,
+			upd_func_id,
+			upd_srv_req_no
+		)
+			VALUES (
+				h_id,
+				h_typ,
+				OLD.batch_data_no,
+				OLD.co_cd,
+				OLD.batch_log_no,
+				OLD.log_sub_key1,
+				OLD.log_sub_key2,
+				OLD.exe_sts_typ,
+				OLD.mfg_inst_no,
+				OLD.par_itm_cd,
+				OLD.par_itm_sub1,
+				OLD.par_itm_sub2,
+				OLD.par_itm_sub3,
+				OLD.mfg_loc_cd,
+				OLD.st_schd_tm,
+				OLD.end_schd_tm,
+				OLD.alloc_tgt_cnt,
+				OLD.alloc_success_cnt,
+				OLD.alloc_failure_cnt,
+				OLD.ins_usr_id,
+				OLD.ins_usr_nm,
+				OLD.ins_ts,
+				OLD.ins_func_id,
+				OLD.upd_cntr,
+				OLD.upd_usr_id,
+				OLD.upd_usr_nm,
+				OLD.upd_ts,
+				OLD.upd_func_id,
+				OLD.upd_srv_req_no
+		);
+		RETURN OLD;
+	END IF;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER mst_inpt_alloc_br_all_tr_r
+AFTER INSERT OR DELETE OR UPDATE ON mst_inpt_alloc_br_all
+FOR EACH ROW
+EXECUTE FUNCTION mst_inpt_alloc_br_all_tr_r_body();
+ALTER TABLE mst_inpt_alloc_br_all DISABLE TRIGGER mst_inpt_alloc_br_all_tr_r;
+

@@ -1,0 +1,8916 @@
+package mcframe.serverMB.dbc;
+
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import mcframe.commonCore.container.MCExtMap;
+import mcframe.commonCore.container.MCRow;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.serverCore.queryapi.IFMCSQL.MCStringPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCNumberPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCDatePermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCTimestampPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCBooleanPermColumn;
+import mcframe.commonCore.meta.MCMeta;
+import mcframe.commonCore.lang.MCDataType;
+import mcframe.commonCore.lang.MCTimestamp;
+import mcframe.serverCore.queryapi.MCDBContainer;
+import mcframe.serverCore.queryapi.MCDBContainer.MCTableType;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumn;
+import mcframe.serverCore.queryapi.IFMCSQL.MCPermColumnInfo;
+import mcframe.serverCore.queryapi.MCForeignInfo;
+
+/**
+ * "会計原価情報 // Accounting cost info."DBコンテナRowクラスです。<p>
+ *
+ * <br>
+ *
+ * <table border=1 cellspacing=0 cellpadding=2 >
+ *  <caption>[項目定義]</caption>
+ * 	<tr bgcolor="#cccccc">
+ *  	<th>区分</th>
+ *  	<th>項目名</th>
+ *  	<th>型</th>
+ *  	<th>桁</th>
+ *  	<th>Null</th>
+ *  	<th>別名/参照先</th>
+ *  	<th>日本語</th>
+ *  	<th>フルネーム</th>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>K</td>
+ *  	<td>data_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>データＮＯ</td>
+ *  	<td>Data No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>wg_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ワーキンググループＣＤ</td>
+ *  	<td>WG cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ac_ym</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>計上年月</td>
+ *  	<td>Recording month</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>calc_grp_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>計算グループＣＤ</td>
+ *  	<td>Calculation group cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>calc_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>原価計算ＮＯ</td>
+ *  	<td>Calculation No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ac_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>計上日</td>
+ *  	<td>Recording date</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ac_slip_typ</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>会計伝票区分</td>
+ *  	<td>Accounting slip type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ac_rsn_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>会計理由ＣＤ</td>
+ *  	<td>Accounting reason cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>purc_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>購買部門ＣＤ</td>
+ *  	<td>Purchasing dept. cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ap_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>債務部門ＣＤ</td>
+ *  	<td>AP dept. cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sls_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>売上部門ＣＤ</td>
+ *  	<td>Sales dept. cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ar_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>債権部門ＣＤ</td>
+ *  	<td>AR dept. cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>gi_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>出庫部門ＣＤ</td>
+ *  	<td>GI dept. cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>gr_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>入庫部門ＣＤ</td>
+ *  	<td>GR dept. cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>bd_dpt_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>負担部門ＣＤ</td>
+ *  	<td>Charged dept. cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_dpt_cd1</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備部門ＣＤ１</td>
+ *  	<td>Spare dept. cd. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_dpt_cd2</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備部門ＣＤ２</td>
+ *  	<td>Spare dept. cd. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_dpt_cd3</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備部門ＣＤ３</td>
+ *  	<td>Spare dept. cd. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>loc_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>場所ＣＤ</td>
+ *  	<td>Location cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>str_ln_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>棚・ラインＣＤ</td>
+ *  	<td>Rack/Line cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ac_itm_grp_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>会計品目分類ＣＤ</td>
+ *  	<td>Accounting item classification cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>itm_jnl_cd</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>品目仕訳ＣＤ</td>
+ *  	<td>Item journal cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>itm_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>品目ＣＤ</td>
+ *  	<td>Item cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>itm_sub1</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番１</td>
+ *  	<td>Branch No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>itm_sub2</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番２</td>
+ *  	<td>Branch No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>itm_sub3</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>枝番３</td>
+ *  	<td>Branch No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>itm_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>品名</td>
+ *  	<td>Item name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>lot_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ロットＮＯ</td>
+ *  	<td>Lot No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sublot_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>サブロットＮＯ</td>
+ *  	<td>Sublot No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sno1</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>手配ＮＯ１</td>
+ *  	<td>SEIBAN No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sno2</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>手配ＮＯ２</td>
+ *  	<td>SEIBAN No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sno3</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>手配ＮＯ３</td>
+ *  	<td>SEIBAN No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sno4</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>手配ＮＯ４</td>
+ *  	<td>SEIBAN No. 4</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受注ＮＯ</td>
+ *  	<td>Sales order No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>po_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>発注ＮＯ</td>
+ *  	<td>PO No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>iv_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>インボイスＮＯ</td>
+ *  	<td>Invoice No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>wrk_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>案件ＮＯ</td>
+ *  	<td>Sales project No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>asst_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>資産区分</td>
+ *  	<td>Asset type</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>repurc_obli_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>買戻義務ＦＬＧ</td>
+ *  	<td>Repurchase obligation flg.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>base_unit_cd</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>基準単位ＣＤ</td>
+ *  	<td>Base unit cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>base_unit_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>基準単位数量</td>
+ *  	<td>Base unit qty.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>base_cur_cd</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>基準通貨ＣＤ</td>
+ *  	<td>Base currency cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>amt</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>評価金額</td>
+ *  	<td>Evaluated amount</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sppl_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>発注先ＣＤ</td>
+ *  	<td>Supplier cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>cst_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>得意先ＣＤ</td>
+ *  	<td>Customer cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>inv_com_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>在庫保管先ＣＤ</td>
+ *  	<td>Inventory storage destination cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>area_cd</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>地域ＣＤ</td>
+ *  	<td>Region cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>cntry_cd</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>国ＣＤ</td>
+ *  	<td>Country cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>foreign_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>国外取引ＦＬＧ</td>
+ *  	<td>Foreign transaction flg.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>usr_cd</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>担当者ＣＤ</td>
+ *  	<td>PIC cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>src_alc_ac_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦元配賦科目ＣＤ</td>
+ *  	<td>Allocation source allocation account cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>alc_ac_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>配賦科目ＣＤ</td>
+ *  	<td>Allocation account cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>expns_cd</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>費目ＣＤ</td>
+ *  	<td>Cost element cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_grp</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替グループ</td>
+ *  	<td>Transfer group</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_ac_itm_grp_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先会計品目分類ＣＤ</td>
+ *  	<td>Transfer accounting item classification cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_itm_jnl_cd</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先品目仕訳ＣＤ</td>
+ *  	<td>Transfer Item journal cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_itm_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先品目ＣＤ</td>
+ *  	<td>Transfer Item cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_itm_sub1</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先枝番１</td>
+ *  	<td>Transfer branch No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_itm_sub2</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先枝番２</td>
+ *  	<td>Transfer branch No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_itm_sub3</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先枝番３</td>
+ *  	<td>Transfer branch No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_itm_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先品名</td>
+ *  	<td>Transfer item name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_lot_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先ロットＮＯ</td>
+ *  	<td>Transfer lot No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_sublot_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先サブロットＮＯ</td>
+ *  	<td>Transfer sublot No.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_sno1</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先手配ＮＯ１</td>
+ *  	<td>Transfer SEIBAN No. 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_sno2</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先手配ＮＯ２</td>
+ *  	<td>Transfer SEIBAN No. 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_sno3</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先手配ＮＯ３</td>
+ *  	<td>Transfer SEIBAN No. 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_sno4</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>振替先手配ＮＯ４</td>
+ *  	<td>Transfer SEIBAN No. 4</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_key1</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目１</td>
+ *  	<td>Journal key column 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jnl_key2</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目２</td>
+ *  	<td>Journal key column 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_key3</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目３</td>
+ *  	<td>Journal key column 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jnl_key4</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目４</td>
+ *  	<td>Journal key column 4</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_key5</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目５</td>
+ *  	<td>Journal key column 5</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jnl_key6</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目６</td>
+ *  	<td>Journal key column 6</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_key7</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目７</td>
+ *  	<td>Journal key column 7</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jnl_key8</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目８</td>
+ *  	<td>Journal key column 8</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_key9</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目９</td>
+ *  	<td>Journal key column 9</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jnl_key10</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕訳キー項目１０</td>
+ *  	<td>Journal key column 10</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char1</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目１</td>
+ *  	<td>Spare CHAR column 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char2</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目２</td>
+ *  	<td>Spare CHAR column 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char3</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目３</td>
+ *  	<td>Spare CHAR column 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char4</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目４</td>
+ *  	<td>Spare CHAR column 4</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char5</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目５</td>
+ *  	<td>Spare CHAR column 5</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char6</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目６</td>
+ *  	<td>Spare CHAR column 6</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char7</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目７</td>
+ *  	<td>Spare CHAR column 7</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char8</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目８</td>
+ *  	<td>Spare CHAR column 8</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_char9</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目９</td>
+ *  	<td>Spare CHAR column 9</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_char10</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＣＨＡＲ項目１０</td>
+ *  	<td>Spare CHAR column 10</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_num1</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＮＵＭ項目１</td>
+ *  	<td>Spare NUM column 1</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_num2</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＮＵＭ項目２</td>
+ *  	<td>Spare NUM column 2</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_num3</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＮＵＭ項目３</td>
+ *  	<td>Spare NUM column 3</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_dt1</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＤＡＴＥ項目１</td>
+ *  	<td>Spare DATE column 1</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sub_dt2</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＤＡＴＥ項目２</td>
+ *  	<td>Spare DATE column 2</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sub_dt3</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>予備ＤＡＴＥ項目３</td>
+ *  	<td>Spare DATE column 3</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jnl_fin_cnt</td>
+ *  	<td>N</td>
+ *  	<td>2,0</td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>仕訳実行回数</td>
+ *  	<td>Number of journalizing</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ins_usr_id</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録ユーザＩＤ</td>
+ *  	<td>Entry user ID</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ins_usr_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録ユーザ名</td>
+ *  	<td>Entry user name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ins_ts</td>
+ *  	<td>TS</td>
+ *  	<td>0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録日時</td>
+ *  	<td>Entry date and time</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ins_func_id</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>登録機能ＩＤ</td>
+ *  	<td>Entry function ID</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_cntr</td>
+ *  	<td>N</td>
+ *  	<td>9,0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新カウンタ</td>
+ *  	<td>Update counter</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_usr_id</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新ユーザＩＤ</td>
+ *  	<td>Update user ID</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_usr_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新ユーザ名</td>
+ *  	<td>Update user name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_ts</td>
+ *  	<td>TS</td>
+ *  	<td>0</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新日時</td>
+ *  	<td>Update date and time</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>upd_func_id</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新機能ＩＤ</td>
+ *  	<td>Update function ID</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upd_srv_req_no</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新リクエストＮＯ</td>
+ *  	<td>Update request No.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>calc_grp_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>CALC_GRP1.CALC_GRP_NM</td>
+ *  	<td>計算グループ名</td>
+ *  	<td>Calculation group name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ac_rsn_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td>AC_RSN1.AC_RSN_NM</td>
+ *  	<td>会計理由名</td>
+ *  	<td>Accounting reason name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>loc_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>LOC1.LOC_NM</td>
+ *  	<td>場所名</td>
+ *  	<td>Location name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>str_ln_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>STR_LN1.STR_LN_NM</td>
+ *  	<td>棚・ライン名</td>
+ *  	<td>Rack/Line name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ac_itm_grp_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>AC_ITM_GRP1.AC_ITM_GRP_NM</td>
+ *  	<td>会計品目分類名</td>
+ *  	<td>Accounting item classification name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>itm_jnl_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>ITM_JNL1.ITM_JNL_NM</td>
+ *  	<td>品目仕訳名</td>
+ *  	<td>Item journal name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>base_unit_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>UNIT1.UNIT_NM</td>
+ *  	<td>基準単位名</td>
+ *  	<td>Base unit name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>base_cur_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>CUR1.CUR_NM</td>
+ *  	<td>基準通貨名</td>
+ *  	<td>Base currency name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sppl_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td>BP1.BP_NM</td>
+ *  	<td>発注先名</td>
+ *  	<td>Supplier name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>cst_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td>BP2.BP_NM</td>
+ *  	<td>得意先名</td>
+ *  	<td>Customer name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>inv_com_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td>BP3.BP_NM</td>
+ *  	<td>在庫保管先名</td>
+ *  	<td>Inventory storage destination name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>area_nm</td>
+ *  	<td>C</td>
+ *  	<td>60</td>
+ *  	<td>Y</td>
+ *  	<td>AREA1.AREA_NM</td>
+ *  	<td>地域名</td>
+ *  	<td>Region name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>cntry_nm</td>
+ *  	<td>C</td>
+ *  	<td>60</td>
+ *  	<td>Y</td>
+ *  	<td>CNTRY1.CNTRY_NM</td>
+ *  	<td>国名</td>
+ *  	<td>Country name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>usr_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td>USR1.USR_NM</td>
+ *  	<td>担当者名</td>
+ *  	<td>PIC name</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>trd_ac_itm_grp_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>AC_ITM_GRP2.AC_ITM_GRP_NM</td>
+ *  	<td>振替先会計品目分類名</td>
+ *  	<td>Transfer accounting item classification name</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>trd_itm_jnl_nm</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td>ITM_JNL2.ITM_JNL_NM</td>
+ *  	<td>振替先品目仕訳名</td>
+ *  	<td>Transfer item journal name</td>
+ *  </tr>
+ * </table>
+ *
+ * <br>
+ * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
+ */
+@SuppressWarnings({"all"})
+public class MBT_AC_COST_R extends MCDBContainer {
+
+	public static final MCTableType TABLE_TYPE = MCTableType.CO_VIEW;
+
+	public static final String TABLE_NAME = "MBT_AC_COST";
+
+	public static final boolean EX_CTRL = false;
+	
+	public static final boolean LCL_TABLE = false;
+	
+	/**
+	 * データＮＯ. Data No..<p>
+	 *
+	 */
+	public static final String $data_no = "data_no";
+	private static final MCPermColumnInfo _data_no = createColumnInfo("data_no");
+	public final MCStringPermColumn data_no = createStringColumn(_data_no);
+	
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public static final String $wg_cd = "wg_cd";
+	private static final MCPermColumnInfo _wg_cd = createColumnInfo("wg_cd");
+	public final MCStringPermColumn wg_cd = createStringColumn(_wg_cd);
+	
+	/**
+	 * 計上年月. Recording month.<p>
+	 *
+	 */
+	public static final String $ac_ym = "ac_ym";
+	private static final MCPermColumnInfo _ac_ym = createColumnInfo("ac_ym");
+	public final MCDatePermColumn ac_ym = createDateColumn(_ac_ym);
+	
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public static final String $calc_grp_cd = "calc_grp_cd";
+	private static final MCPermColumnInfo _calc_grp_cd = createColumnInfo("calc_grp_cd");
+	public final MCStringPermColumn calc_grp_cd = createStringColumn(_calc_grp_cd);
+	
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public static final String $calc_no = "calc_no";
+	private static final MCPermColumnInfo _calc_no = createColumnInfo("calc_no");
+	public final MCStringPermColumn calc_no = createStringColumn(_calc_no);
+	
+	/**
+	 * 計上日. Recording date.<p>
+	 *
+	 */
+	public static final String $ac_dt = "ac_dt";
+	private static final MCPermColumnInfo _ac_dt = createColumnInfo("ac_dt");
+	public final MCDatePermColumn ac_dt = createDateColumn(_ac_dt);
+	
+	/**
+	 * 会計伝票区分. Accounting slip type.<p>
+	 *
+	 */
+	public static final String $ac_slip_typ = "ac_slip_typ";
+	private static final MCPermColumnInfo _ac_slip_typ = createColumnInfo("ac_slip_typ");
+	public final MCStringPermColumn ac_slip_typ = createStringColumn(_ac_slip_typ);
+	
+	/**
+	 * 会計理由ＣＤ. Accounting reason cd..<p>
+	 *
+	 */
+	public static final String $ac_rsn_cd = "ac_rsn_cd";
+	private static final MCPermColumnInfo _ac_rsn_cd = createColumnInfo("ac_rsn_cd");
+	public final MCStringPermColumn ac_rsn_cd = createStringColumn(_ac_rsn_cd);
+	
+	/**
+	 * 購買部門ＣＤ. Purchasing dept. cd..<p>
+	 *
+	 */
+	public static final String $purc_dpt_cd = "purc_dpt_cd";
+	private static final MCPermColumnInfo _purc_dpt_cd = createColumnInfo("purc_dpt_cd");
+	public final MCStringPermColumn purc_dpt_cd = createStringColumn(_purc_dpt_cd);
+	
+	/**
+	 * 債務部門ＣＤ. AP dept. cd..<p>
+	 *
+	 */
+	public static final String $ap_dpt_cd = "ap_dpt_cd";
+	private static final MCPermColumnInfo _ap_dpt_cd = createColumnInfo("ap_dpt_cd");
+	public final MCStringPermColumn ap_dpt_cd = createStringColumn(_ap_dpt_cd);
+	
+	/**
+	 * 売上部門ＣＤ. Sales dept. cd..<p>
+	 *
+	 */
+	public static final String $sls_dpt_cd = "sls_dpt_cd";
+	private static final MCPermColumnInfo _sls_dpt_cd = createColumnInfo("sls_dpt_cd");
+	public final MCStringPermColumn sls_dpt_cd = createStringColumn(_sls_dpt_cd);
+	
+	/**
+	 * 債権部門ＣＤ. AR dept. cd..<p>
+	 *
+	 */
+	public static final String $ar_dpt_cd = "ar_dpt_cd";
+	private static final MCPermColumnInfo _ar_dpt_cd = createColumnInfo("ar_dpt_cd");
+	public final MCStringPermColumn ar_dpt_cd = createStringColumn(_ar_dpt_cd);
+	
+	/**
+	 * 出庫部門ＣＤ. GI dept. cd..<p>
+	 *
+	 */
+	public static final String $gi_dpt_cd = "gi_dpt_cd";
+	private static final MCPermColumnInfo _gi_dpt_cd = createColumnInfo("gi_dpt_cd");
+	public final MCStringPermColumn gi_dpt_cd = createStringColumn(_gi_dpt_cd);
+	
+	/**
+	 * 入庫部門ＣＤ. GR dept. cd..<p>
+	 *
+	 */
+	public static final String $gr_dpt_cd = "gr_dpt_cd";
+	private static final MCPermColumnInfo _gr_dpt_cd = createColumnInfo("gr_dpt_cd");
+	public final MCStringPermColumn gr_dpt_cd = createStringColumn(_gr_dpt_cd);
+	
+	/**
+	 * 負担部門ＣＤ. Charged dept. cd..<p>
+	 *
+	 */
+	public static final String $bd_dpt_cd = "bd_dpt_cd";
+	private static final MCPermColumnInfo _bd_dpt_cd = createColumnInfo("bd_dpt_cd");
+	public final MCStringPermColumn bd_dpt_cd = createStringColumn(_bd_dpt_cd);
+	
+	/**
+	 * 予備部門ＣＤ１. Spare dept. cd. 1.<p>
+	 *
+	 */
+	public static final String $sub_dpt_cd1 = "sub_dpt_cd1";
+	private static final MCPermColumnInfo _sub_dpt_cd1 = createColumnInfo("sub_dpt_cd1");
+	public final MCStringPermColumn sub_dpt_cd1 = createStringColumn(_sub_dpt_cd1);
+	
+	/**
+	 * 予備部門ＣＤ２. Spare dept. cd. 2.<p>
+	 *
+	 */
+	public static final String $sub_dpt_cd2 = "sub_dpt_cd2";
+	private static final MCPermColumnInfo _sub_dpt_cd2 = createColumnInfo("sub_dpt_cd2");
+	public final MCStringPermColumn sub_dpt_cd2 = createStringColumn(_sub_dpt_cd2);
+	
+	/**
+	 * 予備部門ＣＤ３. Spare dept. cd. 3.<p>
+	 *
+	 */
+	public static final String $sub_dpt_cd3 = "sub_dpt_cd3";
+	private static final MCPermColumnInfo _sub_dpt_cd3 = createColumnInfo("sub_dpt_cd3");
+	public final MCStringPermColumn sub_dpt_cd3 = createStringColumn(_sub_dpt_cd3);
+	
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public static final String $loc_cd = "loc_cd";
+	private static final MCPermColumnInfo _loc_cd = createColumnInfo("loc_cd");
+	public final MCStringPermColumn loc_cd = createStringColumn(_loc_cd);
+	
+	/**
+	 * 棚・ラインＣＤ. Rack/Line cd..<p>
+	 *
+	 */
+	public static final String $str_ln_cd = "str_ln_cd";
+	private static final MCPermColumnInfo _str_ln_cd = createColumnInfo("str_ln_cd");
+	public final MCStringPermColumn str_ln_cd = createStringColumn(_str_ln_cd);
+	
+	/**
+	 * 会計品目分類ＣＤ. Accounting item classification cd..<p>
+	 *
+	 */
+	public static final String $ac_itm_grp_cd = "ac_itm_grp_cd";
+	private static final MCPermColumnInfo _ac_itm_grp_cd = createColumnInfo("ac_itm_grp_cd");
+	public final MCStringPermColumn ac_itm_grp_cd = createStringColumn(_ac_itm_grp_cd);
+	
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public static final String $itm_jnl_cd = "itm_jnl_cd";
+	private static final MCPermColumnInfo _itm_jnl_cd = createColumnInfo("itm_jnl_cd");
+	public final MCStringPermColumn itm_jnl_cd = createStringColumn(_itm_jnl_cd);
+	
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public static final String $itm_cd = "itm_cd";
+	private static final MCPermColumnInfo _itm_cd = createColumnInfo("itm_cd");
+	public final MCStringPermColumn itm_cd = createStringColumn(_itm_cd);
+	
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public static final String $itm_sub1 = "itm_sub1";
+	private static final MCPermColumnInfo _itm_sub1 = createColumnInfo("itm_sub1");
+	public final MCStringPermColumn itm_sub1 = createStringColumn(_itm_sub1);
+	
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public static final String $itm_sub2 = "itm_sub2";
+	private static final MCPermColumnInfo _itm_sub2 = createColumnInfo("itm_sub2");
+	public final MCStringPermColumn itm_sub2 = createStringColumn(_itm_sub2);
+	
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public static final String $itm_sub3 = "itm_sub3";
+	private static final MCPermColumnInfo _itm_sub3 = createColumnInfo("itm_sub3");
+	public final MCStringPermColumn itm_sub3 = createStringColumn(_itm_sub3);
+	
+	/**
+	 * 品名. Item name.<p>
+	 *
+	 */
+	public static final String $itm_nm = "itm_nm";
+	private static final MCPermColumnInfo _itm_nm = createColumnInfo("itm_nm");
+	public final MCStringPermColumn itm_nm = createStringColumn(_itm_nm);
+	
+	/**
+	 * ロットＮＯ. Lot No..<p>
+	 *
+	 */
+	public static final String $lot_no = "lot_no";
+	private static final MCPermColumnInfo _lot_no = createColumnInfo("lot_no");
+	public final MCStringPermColumn lot_no = createStringColumn(_lot_no);
+	
+	/**
+	 * サブロットＮＯ. Sublot No..<p>
+	 *
+	 */
+	public static final String $sublot_no = "sublot_no";
+	private static final MCPermColumnInfo _sublot_no = createColumnInfo("sublot_no");
+	public final MCStringPermColumn sublot_no = createStringColumn(_sublot_no);
+	
+	/**
+	 * 手配ＮＯ１. SEIBAN No. 1.<p>
+	 *
+	 */
+	public static final String $sno1 = "sno1";
+	private static final MCPermColumnInfo _sno1 = createColumnInfo("sno1");
+	public final MCStringPermColumn sno1 = createStringColumn(_sno1);
+	
+	/**
+	 * 手配ＮＯ２. SEIBAN No. 2.<p>
+	 *
+	 */
+	public static final String $sno2 = "sno2";
+	private static final MCPermColumnInfo _sno2 = createColumnInfo("sno2");
+	public final MCStringPermColumn sno2 = createStringColumn(_sno2);
+	
+	/**
+	 * 手配ＮＯ３. SEIBAN No. 3.<p>
+	 *
+	 */
+	public static final String $sno3 = "sno3";
+	private static final MCPermColumnInfo _sno3 = createColumnInfo("sno3");
+	public final MCStringPermColumn sno3 = createStringColumn(_sno3);
+	
+	/**
+	 * 手配ＮＯ４. SEIBAN No. 4.<p>
+	 *
+	 */
+	public static final String $sno4 = "sno4";
+	private static final MCPermColumnInfo _sno4 = createColumnInfo("sno4");
+	public final MCStringPermColumn sno4 = createStringColumn(_sno4);
+	
+	/**
+	 * 受注ＮＯ. Sales order No..<p>
+	 *
+	 */
+	public static final String $slo_no = "slo_no";
+	private static final MCPermColumnInfo _slo_no = createColumnInfo("slo_no");
+	public final MCStringPermColumn slo_no = createStringColumn(_slo_no);
+	
+	/**
+	 * 発注ＮＯ. PO No..<p>
+	 *
+	 */
+	public static final String $po_no = "po_no";
+	private static final MCPermColumnInfo _po_no = createColumnInfo("po_no");
+	public final MCStringPermColumn po_no = createStringColumn(_po_no);
+	
+	/**
+	 * インボイスＮＯ. Invoice No..<p>
+	 *
+	 */
+	public static final String $iv_no = "iv_no";
+	private static final MCPermColumnInfo _iv_no = createColumnInfo("iv_no");
+	public final MCStringPermColumn iv_no = createStringColumn(_iv_no);
+	
+	/**
+	 * 案件ＮＯ. Sales project No..<p>
+	 *
+	 */
+	public static final String $wrk_no = "wrk_no";
+	private static final MCPermColumnInfo _wrk_no = createColumnInfo("wrk_no");
+	public final MCStringPermColumn wrk_no = createStringColumn(_wrk_no);
+	
+	/**
+	 * 資産区分. Asset type.<p>
+	 *
+	 */
+	public static final String $asst_typ = "asst_typ";
+	private static final MCPermColumnInfo _asst_typ = createColumnInfo("asst_typ");
+	public final MCStringPermColumn asst_typ = createStringColumn(_asst_typ);
+	
+	/**
+	 * 買戻義務ＦＬＧ. Repurchase obligation flg..<p>
+	 *
+	 */
+	public static final String $repurc_obli_flg = "repurc_obli_flg";
+	private static final MCPermColumnInfo _repurc_obli_flg = createColumnInfo("repurc_obli_flg");
+	public final MCBooleanPermColumn repurc_obli_flg = createBooleanColumn(_repurc_obli_flg);
+	
+	/**
+	 * 基準単位ＣＤ. Base unit cd..<p>
+	 *
+	 */
+	public static final String $base_unit_cd = "base_unit_cd";
+	private static final MCPermColumnInfo _base_unit_cd = createColumnInfo("base_unit_cd");
+	public final MCStringPermColumn base_unit_cd = createStringColumn(_base_unit_cd);
+	
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public static final String $base_unit_qty = "base_unit_qty";
+	private static final MCPermColumnInfo _base_unit_qty = createColumnInfo("base_unit_qty");
+	public final MCNumberPermColumn base_unit_qty = createNumberColumn(_base_unit_qty);
+	
+	/**
+	 * 基準通貨ＣＤ. Base currency cd..<p>
+	 *
+	 */
+	public static final String $base_cur_cd = "base_cur_cd";
+	private static final MCPermColumnInfo _base_cur_cd = createColumnInfo("base_cur_cd");
+	public final MCStringPermColumn base_cur_cd = createStringColumn(_base_cur_cd);
+	
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public static final String $amt = "amt";
+	private static final MCPermColumnInfo _amt = createColumnInfo("amt");
+	public final MCNumberPermColumn amt = createNumberColumn(_amt);
+	
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public static final String $sppl_cd = "sppl_cd";
+	private static final MCPermColumnInfo _sppl_cd = createColumnInfo("sppl_cd");
+	public final MCStringPermColumn sppl_cd = createStringColumn(_sppl_cd);
+	
+	/**
+	 * 得意先ＣＤ. Customer cd..<p>
+	 *
+	 */
+	public static final String $cst_cd = "cst_cd";
+	private static final MCPermColumnInfo _cst_cd = createColumnInfo("cst_cd");
+	public final MCStringPermColumn cst_cd = createStringColumn(_cst_cd);
+	
+	/**
+	 * 在庫保管先ＣＤ. Inventory storage destination cd..<p>
+	 *
+	 */
+	public static final String $inv_com_cd = "inv_com_cd";
+	private static final MCPermColumnInfo _inv_com_cd = createColumnInfo("inv_com_cd");
+	public final MCStringPermColumn inv_com_cd = createStringColumn(_inv_com_cd);
+	
+	/**
+	 * 地域ＣＤ. Region cd..<p>
+	 *
+	 */
+	public static final String $area_cd = "area_cd";
+	private static final MCPermColumnInfo _area_cd = createColumnInfo("area_cd");
+	public final MCStringPermColumn area_cd = createStringColumn(_area_cd);
+	
+	/**
+	 * 国ＣＤ. Country cd..<p>
+	 *
+	 */
+	public static final String $cntry_cd = "cntry_cd";
+	private static final MCPermColumnInfo _cntry_cd = createColumnInfo("cntry_cd");
+	public final MCStringPermColumn cntry_cd = createStringColumn(_cntry_cd);
+	
+	/**
+	 * 国外取引ＦＬＧ. Foreign transaction flg..<p>
+	 *
+	 */
+	public static final String $foreign_flg = "foreign_flg";
+	private static final MCPermColumnInfo _foreign_flg = createColumnInfo("foreign_flg");
+	public final MCBooleanPermColumn foreign_flg = createBooleanColumn(_foreign_flg);
+	
+	/**
+	 * 担当者ＣＤ. PIC cd..<p>
+	 *
+	 */
+	public static final String $usr_cd = "usr_cd";
+	private static final MCPermColumnInfo _usr_cd = createColumnInfo("usr_cd");
+	public final MCStringPermColumn usr_cd = createStringColumn(_usr_cd);
+	
+	/**
+	 * 配賦元配賦科目ＣＤ. Allocation source allocation account cd..<p>
+	 *
+	 */
+	public static final String $src_alc_ac_cd = "src_alc_ac_cd";
+	private static final MCPermColumnInfo _src_alc_ac_cd = createColumnInfo("src_alc_ac_cd");
+	public final MCStringPermColumn src_alc_ac_cd = createStringColumn(_src_alc_ac_cd);
+	
+	/**
+	 * 配賦科目ＣＤ. Allocation account cd..<p>
+	 *
+	 */
+	public static final String $alc_ac_cd = "alc_ac_cd";
+	private static final MCPermColumnInfo _alc_ac_cd = createColumnInfo("alc_ac_cd");
+	public final MCStringPermColumn alc_ac_cd = createStringColumn(_alc_ac_cd);
+	
+	/**
+	 * 費目ＣＤ. Cost element cd..<p>
+	 *
+	 */
+	public static final String $expns_cd = "expns_cd";
+	private static final MCPermColumnInfo _expns_cd = createColumnInfo("expns_cd");
+	public final MCStringPermColumn expns_cd = createStringColumn(_expns_cd);
+	
+	/**
+	 * 振替グループ. Transfer group.<p>
+	 *
+	 */
+	public static final String $trd_grp = "trd_grp";
+	private static final MCPermColumnInfo _trd_grp = createColumnInfo("trd_grp");
+	public final MCStringPermColumn trd_grp = createStringColumn(_trd_grp);
+	
+	/**
+	 * 振替先会計品目分類ＣＤ. Transfer accounting item classification cd..<p>
+	 *
+	 */
+	public static final String $trd_ac_itm_grp_cd = "trd_ac_itm_grp_cd";
+	private static final MCPermColumnInfo _trd_ac_itm_grp_cd = createColumnInfo("trd_ac_itm_grp_cd");
+	public final MCStringPermColumn trd_ac_itm_grp_cd = createStringColumn(_trd_ac_itm_grp_cd);
+	
+	/**
+	 * 振替先品目仕訳ＣＤ. Transfer Item journal cd..<p>
+	 *
+	 */
+	public static final String $trd_itm_jnl_cd = "trd_itm_jnl_cd";
+	private static final MCPermColumnInfo _trd_itm_jnl_cd = createColumnInfo("trd_itm_jnl_cd");
+	public final MCStringPermColumn trd_itm_jnl_cd = createStringColumn(_trd_itm_jnl_cd);
+	
+	/**
+	 * 振替先品目ＣＤ. Transfer Item cd..<p>
+	 *
+	 */
+	public static final String $trd_itm_cd = "trd_itm_cd";
+	private static final MCPermColumnInfo _trd_itm_cd = createColumnInfo("trd_itm_cd");
+	public final MCStringPermColumn trd_itm_cd = createStringColumn(_trd_itm_cd);
+	
+	/**
+	 * 振替先枝番１. Transfer branch No. 1.<p>
+	 *
+	 */
+	public static final String $trd_itm_sub1 = "trd_itm_sub1";
+	private static final MCPermColumnInfo _trd_itm_sub1 = createColumnInfo("trd_itm_sub1");
+	public final MCStringPermColumn trd_itm_sub1 = createStringColumn(_trd_itm_sub1);
+	
+	/**
+	 * 振替先枝番２. Transfer branch No. 2.<p>
+	 *
+	 */
+	public static final String $trd_itm_sub2 = "trd_itm_sub2";
+	private static final MCPermColumnInfo _trd_itm_sub2 = createColumnInfo("trd_itm_sub2");
+	public final MCStringPermColumn trd_itm_sub2 = createStringColumn(_trd_itm_sub2);
+	
+	/**
+	 * 振替先枝番３. Transfer branch No. 3.<p>
+	 *
+	 */
+	public static final String $trd_itm_sub3 = "trd_itm_sub3";
+	private static final MCPermColumnInfo _trd_itm_sub3 = createColumnInfo("trd_itm_sub3");
+	public final MCStringPermColumn trd_itm_sub3 = createStringColumn(_trd_itm_sub3);
+	
+	/**
+	 * 振替先品名. Transfer item name.<p>
+	 *
+	 */
+	public static final String $trd_itm_nm = "trd_itm_nm";
+	private static final MCPermColumnInfo _trd_itm_nm = createColumnInfo("trd_itm_nm");
+	public final MCStringPermColumn trd_itm_nm = createStringColumn(_trd_itm_nm);
+	
+	/**
+	 * 振替先ロットＮＯ. Transfer lot No..<p>
+	 *
+	 */
+	public static final String $trd_lot_no = "trd_lot_no";
+	private static final MCPermColumnInfo _trd_lot_no = createColumnInfo("trd_lot_no");
+	public final MCStringPermColumn trd_lot_no = createStringColumn(_trd_lot_no);
+	
+	/**
+	 * 振替先サブロットＮＯ. Transfer sublot No..<p>
+	 *
+	 */
+	public static final String $trd_sublot_no = "trd_sublot_no";
+	private static final MCPermColumnInfo _trd_sublot_no = createColumnInfo("trd_sublot_no");
+	public final MCStringPermColumn trd_sublot_no = createStringColumn(_trd_sublot_no);
+	
+	/**
+	 * 振替先手配ＮＯ１. Transfer SEIBAN No. 1.<p>
+	 *
+	 */
+	public static final String $trd_sno1 = "trd_sno1";
+	private static final MCPermColumnInfo _trd_sno1 = createColumnInfo("trd_sno1");
+	public final MCStringPermColumn trd_sno1 = createStringColumn(_trd_sno1);
+	
+	/**
+	 * 振替先手配ＮＯ２. Transfer SEIBAN No. 2.<p>
+	 *
+	 */
+	public static final String $trd_sno2 = "trd_sno2";
+	private static final MCPermColumnInfo _trd_sno2 = createColumnInfo("trd_sno2");
+	public final MCStringPermColumn trd_sno2 = createStringColumn(_trd_sno2);
+	
+	/**
+	 * 振替先手配ＮＯ３. Transfer SEIBAN No. 3.<p>
+	 *
+	 */
+	public static final String $trd_sno3 = "trd_sno3";
+	private static final MCPermColumnInfo _trd_sno3 = createColumnInfo("trd_sno3");
+	public final MCStringPermColumn trd_sno3 = createStringColumn(_trd_sno3);
+	
+	/**
+	 * 振替先手配ＮＯ４. Transfer SEIBAN No. 4.<p>
+	 *
+	 */
+	public static final String $trd_sno4 = "trd_sno4";
+	private static final MCPermColumnInfo _trd_sno4 = createColumnInfo("trd_sno4");
+	public final MCStringPermColumn trd_sno4 = createStringColumn(_trd_sno4);
+	
+	/**
+	 * 仕訳キー項目１. Journal key column 1.<p>
+	 *
+	 */
+	public static final String $jnl_key1 = "jnl_key1";
+	private static final MCPermColumnInfo _jnl_key1 = createColumnInfo("jnl_key1");
+	public final MCStringPermColumn jnl_key1 = createStringColumn(_jnl_key1);
+	
+	/**
+	 * 仕訳キー項目２. Journal key column 2.<p>
+	 *
+	 */
+	public static final String $jnl_key2 = "jnl_key2";
+	private static final MCPermColumnInfo _jnl_key2 = createColumnInfo("jnl_key2");
+	public final MCStringPermColumn jnl_key2 = createStringColumn(_jnl_key2);
+	
+	/**
+	 * 仕訳キー項目３. Journal key column 3.<p>
+	 *
+	 */
+	public static final String $jnl_key3 = "jnl_key3";
+	private static final MCPermColumnInfo _jnl_key3 = createColumnInfo("jnl_key3");
+	public final MCStringPermColumn jnl_key3 = createStringColumn(_jnl_key3);
+	
+	/**
+	 * 仕訳キー項目４. Journal key column 4.<p>
+	 *
+	 */
+	public static final String $jnl_key4 = "jnl_key4";
+	private static final MCPermColumnInfo _jnl_key4 = createColumnInfo("jnl_key4");
+	public final MCStringPermColumn jnl_key4 = createStringColumn(_jnl_key4);
+	
+	/**
+	 * 仕訳キー項目５. Journal key column 5.<p>
+	 *
+	 */
+	public static final String $jnl_key5 = "jnl_key5";
+	private static final MCPermColumnInfo _jnl_key5 = createColumnInfo("jnl_key5");
+	public final MCStringPermColumn jnl_key5 = createStringColumn(_jnl_key5);
+	
+	/**
+	 * 仕訳キー項目６. Journal key column 6.<p>
+	 *
+	 */
+	public static final String $jnl_key6 = "jnl_key6";
+	private static final MCPermColumnInfo _jnl_key6 = createColumnInfo("jnl_key6");
+	public final MCStringPermColumn jnl_key6 = createStringColumn(_jnl_key6);
+	
+	/**
+	 * 仕訳キー項目７. Journal key column 7.<p>
+	 *
+	 */
+	public static final String $jnl_key7 = "jnl_key7";
+	private static final MCPermColumnInfo _jnl_key7 = createColumnInfo("jnl_key7");
+	public final MCStringPermColumn jnl_key7 = createStringColumn(_jnl_key7);
+	
+	/**
+	 * 仕訳キー項目８. Journal key column 8.<p>
+	 *
+	 */
+	public static final String $jnl_key8 = "jnl_key8";
+	private static final MCPermColumnInfo _jnl_key8 = createColumnInfo("jnl_key8");
+	public final MCStringPermColumn jnl_key8 = createStringColumn(_jnl_key8);
+	
+	/**
+	 * 仕訳キー項目９. Journal key column 9.<p>
+	 *
+	 */
+	public static final String $jnl_key9 = "jnl_key9";
+	private static final MCPermColumnInfo _jnl_key9 = createColumnInfo("jnl_key9");
+	public final MCStringPermColumn jnl_key9 = createStringColumn(_jnl_key9);
+	
+	/**
+	 * 仕訳キー項目１０. Journal key column 10.<p>
+	 *
+	 */
+	public static final String $jnl_key10 = "jnl_key10";
+	private static final MCPermColumnInfo _jnl_key10 = createColumnInfo("jnl_key10");
+	public final MCStringPermColumn jnl_key10 = createStringColumn(_jnl_key10);
+	
+	/**
+	 * 予備ＣＨＡＲ項目１. Spare CHAR column 1.<p>
+	 *
+	 */
+	public static final String $sub_char1 = "sub_char1";
+	private static final MCPermColumnInfo _sub_char1 = createColumnInfo("sub_char1");
+	public final MCStringPermColumn sub_char1 = createStringColumn(_sub_char1);
+	
+	/**
+	 * 予備ＣＨＡＲ項目２. Spare CHAR column 2.<p>
+	 *
+	 */
+	public static final String $sub_char2 = "sub_char2";
+	private static final MCPermColumnInfo _sub_char2 = createColumnInfo("sub_char2");
+	public final MCStringPermColumn sub_char2 = createStringColumn(_sub_char2);
+	
+	/**
+	 * 予備ＣＨＡＲ項目３. Spare CHAR column 3.<p>
+	 *
+	 */
+	public static final String $sub_char3 = "sub_char3";
+	private static final MCPermColumnInfo _sub_char3 = createColumnInfo("sub_char3");
+	public final MCStringPermColumn sub_char3 = createStringColumn(_sub_char3);
+	
+	/**
+	 * 予備ＣＨＡＲ項目４. Spare CHAR column 4.<p>
+	 *
+	 */
+	public static final String $sub_char4 = "sub_char4";
+	private static final MCPermColumnInfo _sub_char4 = createColumnInfo("sub_char4");
+	public final MCStringPermColumn sub_char4 = createStringColumn(_sub_char4);
+	
+	/**
+	 * 予備ＣＨＡＲ項目５. Spare CHAR column 5.<p>
+	 *
+	 */
+	public static final String $sub_char5 = "sub_char5";
+	private static final MCPermColumnInfo _sub_char5 = createColumnInfo("sub_char5");
+	public final MCStringPermColumn sub_char5 = createStringColumn(_sub_char5);
+	
+	/**
+	 * 予備ＣＨＡＲ項目６. Spare CHAR column 6.<p>
+	 *
+	 */
+	public static final String $sub_char6 = "sub_char6";
+	private static final MCPermColumnInfo _sub_char6 = createColumnInfo("sub_char6");
+	public final MCStringPermColumn sub_char6 = createStringColumn(_sub_char6);
+	
+	/**
+	 * 予備ＣＨＡＲ項目７. Spare CHAR column 7.<p>
+	 *
+	 */
+	public static final String $sub_char7 = "sub_char7";
+	private static final MCPermColumnInfo _sub_char7 = createColumnInfo("sub_char7");
+	public final MCStringPermColumn sub_char7 = createStringColumn(_sub_char7);
+	
+	/**
+	 * 予備ＣＨＡＲ項目８. Spare CHAR column 8.<p>
+	 *
+	 */
+	public static final String $sub_char8 = "sub_char8";
+	private static final MCPermColumnInfo _sub_char8 = createColumnInfo("sub_char8");
+	public final MCStringPermColumn sub_char8 = createStringColumn(_sub_char8);
+	
+	/**
+	 * 予備ＣＨＡＲ項目９. Spare CHAR column 9.<p>
+	 *
+	 */
+	public static final String $sub_char9 = "sub_char9";
+	private static final MCPermColumnInfo _sub_char9 = createColumnInfo("sub_char9");
+	public final MCStringPermColumn sub_char9 = createStringColumn(_sub_char9);
+	
+	/**
+	 * 予備ＣＨＡＲ項目１０. Spare CHAR column 10.<p>
+	 *
+	 */
+	public static final String $sub_char10 = "sub_char10";
+	private static final MCPermColumnInfo _sub_char10 = createColumnInfo("sub_char10");
+	public final MCStringPermColumn sub_char10 = createStringColumn(_sub_char10);
+	
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public static final String $sub_num1 = "sub_num1";
+	private static final MCPermColumnInfo _sub_num1 = createColumnInfo("sub_num1");
+	public final MCNumberPermColumn sub_num1 = createNumberColumn(_sub_num1);
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public static final String $sub_num2 = "sub_num2";
+	private static final MCPermColumnInfo _sub_num2 = createColumnInfo("sub_num2");
+	public final MCNumberPermColumn sub_num2 = createNumberColumn(_sub_num2);
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public static final String $sub_num3 = "sub_num3";
+	private static final MCPermColumnInfo _sub_num3 = createColumnInfo("sub_num3");
+	public final MCNumberPermColumn sub_num3 = createNumberColumn(_sub_num3);
+	
+	/**
+	 * 予備ＤＡＴＥ項目１. Spare DATE column 1.<p>
+	 *
+	 */
+	public static final String $sub_dt1 = "sub_dt1";
+	private static final MCPermColumnInfo _sub_dt1 = createColumnInfo("sub_dt1");
+	public final MCDatePermColumn sub_dt1 = createDateColumn(_sub_dt1);
+	
+	/**
+	 * 予備ＤＡＴＥ項目２. Spare DATE column 2.<p>
+	 *
+	 */
+	public static final String $sub_dt2 = "sub_dt2";
+	private static final MCPermColumnInfo _sub_dt2 = createColumnInfo("sub_dt2");
+	public final MCDatePermColumn sub_dt2 = createDateColumn(_sub_dt2);
+	
+	/**
+	 * 予備ＤＡＴＥ項目３. Spare DATE column 3.<p>
+	 *
+	 */
+	public static final String $sub_dt3 = "sub_dt3";
+	private static final MCPermColumnInfo _sub_dt3 = createColumnInfo("sub_dt3");
+	public final MCDatePermColumn sub_dt3 = createDateColumn(_sub_dt3);
+	
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public static final String $jnl_fin_cnt = "jnl_fin_cnt";
+	private static final MCPermColumnInfo _jnl_fin_cnt = createColumnInfo("jnl_fin_cnt");
+	public final MCNumberPermColumn jnl_fin_cnt = createNumberColumn(_jnl_fin_cnt);
+	
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public static final String $ins_usr_id = "ins_usr_id";
+	private static final MCPermColumnInfo _ins_usr_id = createColumnInfo("ins_usr_id");
+	public final MCStringPermColumn ins_usr_id = createStringColumn(_ins_usr_id);
+	
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public static final String $ins_usr_nm = "ins_usr_nm";
+	private static final MCPermColumnInfo _ins_usr_nm = createColumnInfo("ins_usr_nm");
+	public final MCStringPermColumn ins_usr_nm = createStringColumn(_ins_usr_nm);
+	
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public static final String $ins_ts = "ins_ts";
+	private static final MCPermColumnInfo _ins_ts = createColumnInfo("ins_ts");
+	public final MCTimestampPermColumn ins_ts = createTimestampColumn(_ins_ts);
+	
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public static final String $ins_func_id = "ins_func_id";
+	private static final MCPermColumnInfo _ins_func_id = createColumnInfo("ins_func_id");
+	public final MCStringPermColumn ins_func_id = createStringColumn(_ins_func_id);
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public static final String $upd_cntr = "upd_cntr";
+	private static final MCPermColumnInfo _upd_cntr = createColumnInfo("upd_cntr");
+	public final MCNumberPermColumn upd_cntr = createNumberColumn(_upd_cntr);
+	
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public static final String $upd_usr_id = "upd_usr_id";
+	private static final MCPermColumnInfo _upd_usr_id = createColumnInfo("upd_usr_id");
+	public final MCStringPermColumn upd_usr_id = createStringColumn(_upd_usr_id);
+	
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public static final String $upd_usr_nm = "upd_usr_nm";
+	private static final MCPermColumnInfo _upd_usr_nm = createColumnInfo("upd_usr_nm");
+	public final MCStringPermColumn upd_usr_nm = createStringColumn(_upd_usr_nm);
+	
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public static final String $upd_ts = "upd_ts";
+	private static final MCPermColumnInfo _upd_ts = createColumnInfo("upd_ts");
+	public final MCTimestampPermColumn upd_ts = createTimestampColumn(_upd_ts);
+	
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public static final String $upd_func_id = "upd_func_id";
+	private static final MCPermColumnInfo _upd_func_id = createColumnInfo("upd_func_id");
+	public final MCStringPermColumn upd_func_id = createStringColumn(_upd_func_id);
+	
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public static final String $upd_srv_req_no = "upd_srv_req_no";
+	private static final MCPermColumnInfo _upd_srv_req_no = createColumnInfo("upd_srv_req_no");
+	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
+	
+	/**
+	 * 計算グループ名. Calculation group name.<p>
+	 *
+	 */
+	public static final String $calc_grp_nm = "calc_grp_nm";
+	
+	/**
+	 * 会計理由名. Accounting reason name.<p>
+	 *
+	 */
+	public static final String $ac_rsn_nm = "ac_rsn_nm";
+	
+	/**
+	 * 場所名. Location name.<p>
+	 *
+	 */
+	public static final String $loc_nm = "loc_nm";
+	
+	/**
+	 * 棚・ライン名. Rack/Line name.<p>
+	 *
+	 */
+	public static final String $str_ln_nm = "str_ln_nm";
+	
+	/**
+	 * 会計品目分類名. Accounting item classification name.<p>
+	 *
+	 */
+	public static final String $ac_itm_grp_nm = "ac_itm_grp_nm";
+	
+	/**
+	 * 品目仕訳名. Item journal name.<p>
+	 *
+	 */
+	public static final String $itm_jnl_nm = "itm_jnl_nm";
+	
+	/**
+	 * 基準単位名. Base unit name.<p>
+	 *
+	 */
+	public static final String $base_unit_nm = "base_unit_nm";
+	
+	/**
+	 * 基準通貨名. Base currency name.<p>
+	 *
+	 */
+	public static final String $base_cur_nm = "base_cur_nm";
+	
+	/**
+	 * 発注先名. Supplier name.<p>
+	 *
+	 */
+	public static final String $sppl_nm = "sppl_nm";
+	
+	/**
+	 * 得意先名. Customer name.<p>
+	 *
+	 */
+	public static final String $cst_nm = "cst_nm";
+	
+	/**
+	 * 在庫保管先名. Inventory storage destination name.<p>
+	 *
+	 */
+	public static final String $inv_com_nm = "inv_com_nm";
+	
+	/**
+	 * 地域名. Region name.<p>
+	 *
+	 */
+	public static final String $area_nm = "area_nm";
+	
+	/**
+	 * 国名. Country name.<p>
+	 *
+	 */
+	public static final String $cntry_nm = "cntry_nm";
+	
+	/**
+	 * 担当者名. PIC name.<p>
+	 *
+	 */
+	public static final String $usr_nm = "usr_nm";
+	
+	/**
+	 * 振替先会計品目分類名. Transfer accounting item classification name.<p>
+	 *
+	 */
+	public static final String $trd_ac_itm_grp_nm = "trd_ac_itm_grp_nm";
+	
+	/**
+	 * 振替先品目仕訳名. Transfer item journal name.<p>
+	 *
+	 */
+	public static final String $trd_itm_jnl_nm = "trd_itm_jnl_nm";
+	
+	public static final MCMeta data_no_META = createCommonMeta($data_no, mcframe.commonMA.meta.MA_META.IT_DAT_NO);
+	public static final MCMeta wg_cd_META = createCommonMeta($wg_cd, mcframe.commonMA.meta.MA_META.WG_CD);
+	public static final MCMeta ac_ym_META = createCommonMeta($ac_ym, mcframe.commonMA.meta.MA_META.YM);
+	public static final MCMeta calc_grp_cd_META = createCommonMeta($calc_grp_cd, mcframe.commonMA.meta.MA_META.CALC_GRP_CD);
+	public static final MCMeta calc_no_META = createCommonMeta($calc_no, mcframe.commonMA.meta.MA_META.CALC_NO);
+	public static final MCMeta ac_dt_META = createCommonMeta($ac_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta ac_slip_typ_META = createCommonMeta($ac_slip_typ, mcframe.commonMA.meta.MA_META.AC_SLIP_TYP);
+	public static final MCMeta ac_rsn_cd_META = createCommonMeta($ac_rsn_cd, mcframe.commonMA.meta.MA_META.AC_RSN_CD);
+	public static final MCMeta purc_dpt_cd_META = createCommonMeta($purc_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta ap_dpt_cd_META = createCommonMeta($ap_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta sls_dpt_cd_META = createCommonMeta($sls_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta ar_dpt_cd_META = createCommonMeta($ar_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta gi_dpt_cd_META = createCommonMeta($gi_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta gr_dpt_cd_META = createCommonMeta($gr_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta bd_dpt_cd_META = createCommonMeta($bd_dpt_cd, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta sub_dpt_cd1_META = createCommonMeta($sub_dpt_cd1, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta sub_dpt_cd2_META = createCommonMeta($sub_dpt_cd2, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta sub_dpt_cd3_META = createCommonMeta($sub_dpt_cd3, mcframe.commonMA.meta.MA_META.AC_DPT_CD);
+	public static final MCMeta loc_cd_META = createCommonMeta($loc_cd, mcframe.commonMA.meta.MA_META.LOC_CD);
+	public static final MCMeta str_ln_cd_META = createCommonMeta($str_ln_cd, mcframe.commonMA.meta.MA_META.STR_LN_CD);
+	public static final MCMeta ac_itm_grp_cd_META = createCommonMeta($ac_itm_grp_cd, mcframe.commonMA.meta.MA_META.AC_ITM_GRP_CD);
+	public static final MCMeta itm_jnl_cd_META = createCommonMeta($itm_jnl_cd, mcframe.commonMA.meta.MA_META.ITM_JNL_CD);
+	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta itm_sub1_META = createCommonMeta($itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta itm_sub3_META = createCommonMeta($itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta itm_nm_META = createCommonMeta($itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta lot_no_META = createCommonMeta($lot_no, mcframe.commonMA.meta.MA_META.LOT_NO);
+	public static final MCMeta sublot_no_META = createCommonMeta($sublot_no, mcframe.commonMA.meta.MA_META.SUBLOT_NO);
+	public static final MCMeta sno1_META = createCommonMeta($sno1, mcframe.commonMA.meta.MA_META.SNO1);
+	public static final MCMeta sno2_META = createCommonMeta($sno2, mcframe.commonMA.meta.MA_META.SNO2);
+	public static final MCMeta sno3_META = createCommonMeta($sno3, mcframe.commonMA.meta.MA_META.SNO3);
+	public static final MCMeta sno4_META = createCommonMeta($sno4, mcframe.commonMA.meta.MA_META.SNO4);
+	public static final MCMeta slo_no_META = createCommonMeta($slo_no, mcframe.commonMA.meta.MA_META.SLO_NO);
+	public static final MCMeta po_no_META = createCommonMeta($po_no, mcframe.commonMA.meta.MA_META.PO_NO);
+	public static final MCMeta iv_no_META = createCommonMeta($iv_no, mcframe.commonMA.meta.MA_META.IV_NO);
+	public static final MCMeta wrk_no_META = createCommonMeta($wrk_no, mcframe.commonMA.meta.MA_META.WRK_NO);
+	public static final MCMeta asst_typ_META = createCommonMeta($asst_typ, mcframe.commonMA.meta.MA_META.ASST_TYP);
+	public static final MCMeta repurc_obli_flg_META = createCommonMeta($repurc_obli_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta base_unit_cd_META = createCommonMeta($base_unit_cd, mcframe.commonMA.meta.MA_META.UNIT_CD);
+	public static final MCMeta base_unit_qty_META = createCommonMeta($base_unit_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta base_cur_cd_META = createCommonMeta($base_cur_cd, mcframe.commonMA.meta.MA_META.CUR_CD);
+	public static final MCMeta amt_META = createCommonMeta($amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta sppl_cd_META = createCommonMeta($sppl_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta inv_com_cd_META = createCommonMeta($inv_com_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta area_cd_META = createCommonMeta($area_cd, mcframe.commonMA.meta.MA_META.AREA_CD);
+	public static final MCMeta cntry_cd_META = createCommonMeta($cntry_cd, mcframe.commonMA.meta.MA_META.CNTRY_CD);
+	public static final MCMeta foreign_flg_META = createCommonMeta($foreign_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta usr_cd_META = createCommonMeta($usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
+	public static final MCMeta src_alc_ac_cd_META = createCommonMeta($src_alc_ac_cd, mcframe.commonMA.meta.MA_META.ALC_AC_CD);
+	public static final MCMeta alc_ac_cd_META = createCommonMeta($alc_ac_cd, mcframe.commonMA.meta.MA_META.ALC_AC_CD);
+	public static final MCMeta expns_cd_META = createCommonMeta($expns_cd, mcframe.commonMA.meta.MA_META.EXPNS_CD);
+	public static final MCMeta trd_grp_META = createCommonMeta($trd_grp, mcframe.commonMA.meta.MA_META.TRD_GRP);
+	public static final MCMeta trd_ac_itm_grp_cd_META = createCommonMeta($trd_ac_itm_grp_cd, mcframe.commonMA.meta.MA_META.AC_ITM_GRP_CD);
+	public static final MCMeta trd_itm_jnl_cd_META = createCommonMeta($trd_itm_jnl_cd, mcframe.commonMA.meta.MA_META.ITM_JNL_CD);
+	public static final MCMeta trd_itm_cd_META = createCommonMeta($trd_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta trd_itm_sub1_META = createCommonMeta($trd_itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta trd_itm_sub2_META = createCommonMeta($trd_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta trd_itm_sub3_META = createCommonMeta($trd_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta trd_itm_nm_META = createCommonMeta($trd_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta trd_lot_no_META = createCommonMeta($trd_lot_no, mcframe.commonMA.meta.MA_META.LOT_NO);
+	public static final MCMeta trd_sublot_no_META = createCommonMeta($trd_sublot_no, mcframe.commonMA.meta.MA_META.SUBLOT_NO);
+	public static final MCMeta trd_sno1_META = createCommonMeta($trd_sno1, mcframe.commonMA.meta.MA_META.SNO1);
+	public static final MCMeta trd_sno2_META = createCommonMeta($trd_sno2, mcframe.commonMA.meta.MA_META.SNO2);
+	public static final MCMeta trd_sno3_META = createCommonMeta($trd_sno3, mcframe.commonMA.meta.MA_META.SNO3);
+	public static final MCMeta trd_sno4_META = createCommonMeta($trd_sno4, mcframe.commonMA.meta.MA_META.SNO4);
+	public static final MCMeta jnl_key1_META = createCommonMeta($jnl_key1, mcframe.commonMA.meta.MA_META.JNL_KEY1);
+	public static final MCMeta jnl_key2_META = createCommonMeta($jnl_key2, mcframe.commonMA.meta.MA_META.JNL_KEY2);
+	public static final MCMeta jnl_key3_META = createCommonMeta($jnl_key3, mcframe.commonMA.meta.MA_META.JNL_KEY3);
+	public static final MCMeta jnl_key4_META = createCommonMeta($jnl_key4, mcframe.commonMA.meta.MA_META.JNL_KEY4);
+	public static final MCMeta jnl_key5_META = createCommonMeta($jnl_key5, mcframe.commonMA.meta.MA_META.JNL_KEY5);
+	public static final MCMeta jnl_key6_META = createCommonMeta($jnl_key6, mcframe.commonMA.meta.MA_META.JNL_KEY6);
+	public static final MCMeta jnl_key7_META = createCommonMeta($jnl_key7, mcframe.commonMA.meta.MA_META.JNL_KEY7);
+	public static final MCMeta jnl_key8_META = createCommonMeta($jnl_key8, mcframe.commonMA.meta.MA_META.JNL_KEY8);
+	public static final MCMeta jnl_key9_META = createCommonMeta($jnl_key9, mcframe.commonMA.meta.MA_META.JNL_KEY9);
+	public static final MCMeta jnl_key10_META = createCommonMeta($jnl_key10, mcframe.commonMA.meta.MA_META.JNL_KEY10);
+	public static final MCMeta sub_char1_META = createCommonMeta($sub_char1, mcframe.commonMA.meta.MA_META.SUB_CHAR1);
+	public static final MCMeta sub_char2_META = createCommonMeta($sub_char2, mcframe.commonMA.meta.MA_META.SUB_CHAR2);
+	public static final MCMeta sub_char3_META = createCommonMeta($sub_char3, mcframe.commonMA.meta.MA_META.SUB_CHAR3);
+	public static final MCMeta sub_char4_META = createCommonMeta($sub_char4, mcframe.commonMA.meta.MA_META.SUB_CHAR4);
+	public static final MCMeta sub_char5_META = createCommonMeta($sub_char5, mcframe.commonMA.meta.MA_META.SUB_CHAR5);
+	public static final MCMeta sub_char6_META = createCommonMeta($sub_char6, mcframe.commonMA.meta.MA_META.SUB_CHAR6);
+	public static final MCMeta sub_char7_META = createCommonMeta($sub_char7, mcframe.commonMA.meta.MA_META.SUB_CHAR7);
+	public static final MCMeta sub_char8_META = createCommonMeta($sub_char8, mcframe.commonMA.meta.MA_META.SUB_CHAR8);
+	public static final MCMeta sub_char9_META = createCommonMeta($sub_char9, mcframe.commonMA.meta.MA_META.SUB_CHAR9);
+	public static final MCMeta sub_char10_META = createCommonMeta($sub_char10, mcframe.commonMA.meta.MA_META.SUB_CHAR10);
+	public static final MCMeta sub_num1_META = createCommonMeta($sub_num1, mcframe.commonMA.meta.MA_META.SUB_NUM1);
+	public static final MCMeta sub_num2_META = createCommonMeta($sub_num2, mcframe.commonMA.meta.MA_META.SUB_NUM2);
+	public static final MCMeta sub_num3_META = createCommonMeta($sub_num3, mcframe.commonMA.meta.MA_META.SUB_NUM3);
+	public static final MCMeta sub_dt1_META = createCommonMeta($sub_dt1, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta sub_dt2_META = createCommonMeta($sub_dt2, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta sub_dt3_META = createCommonMeta($sub_dt3, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta jnl_fin_cnt_META = createCommonMeta($jnl_fin_cnt, mcframe.commonMA.meta.MA_META.JNL_FIN_CNT);
+	public static final MCMeta ins_usr_id_META = createCommonMeta($ins_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta ins_usr_nm_META = createCommonMeta($ins_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta ins_ts_META = createCommonMeta($ins_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta ins_func_id_META = createCommonMeta($ins_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta upd_cntr_META = createCommonMeta($upd_cntr, mcframe.commonMA.meta.MA_META.UPD_CNT);
+	public static final MCMeta upd_usr_id_META = createCommonMeta($upd_usr_id, mcframe.commonMA.meta.MA_META.FCM_USR_ID);
+	public static final MCMeta upd_usr_nm_META = createCommonMeta($upd_usr_nm, mcframe.commonMA.meta.MA_META.FCM_USR_NM);
+	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
+	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
+	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta calc_grp_nm_META = createCommonMeta($calc_grp_nm, mcframe.commonMA.meta.MA_META.CALC_GRP_NM);
+	public static final MCMeta ac_rsn_nm_META = createCommonMeta($ac_rsn_nm, mcframe.commonMA.meta.MA_META.AC_RSN_NM);
+	public static final MCMeta loc_nm_META = createCommonMeta($loc_nm, mcframe.commonMA.meta.MA_META.LOC_NM);
+	public static final MCMeta str_ln_nm_META = createCommonMeta($str_ln_nm, mcframe.commonMA.meta.MA_META.STR_LN_NM);
+	public static final MCMeta ac_itm_grp_nm_META = createCommonMeta($ac_itm_grp_nm, mcframe.commonMA.meta.MA_META.AC_ITM_GRP_NM);
+	public static final MCMeta itm_jnl_nm_META = createCommonMeta($itm_jnl_nm, mcframe.commonMA.meta.MA_META.ITM_JNL_NM);
+	public static final MCMeta base_unit_nm_META = createCommonMeta($base_unit_nm, mcframe.commonMA.meta.MA_META.UNIT_NM);
+	public static final MCMeta base_cur_nm_META = createCommonMeta($base_cur_nm, mcframe.commonMA.meta.MA_META.CUR_NM);
+	public static final MCMeta sppl_nm_META = createCommonMeta($sppl_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta inv_com_nm_META = createCommonMeta($inv_com_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta area_nm_META = createCommonMeta($area_nm, mcframe.commonMA.meta.MA_META.AREA_NM);
+	public static final MCMeta cntry_nm_META = createCommonMeta($cntry_nm, mcframe.commonMA.meta.MA_META.CNTRY_NM);
+	public static final MCMeta usr_nm_META = createCommonMeta($usr_nm, mcframe.commonMA.meta.MA_META.USR_NM);
+	public static final MCMeta trd_ac_itm_grp_nm_META = createCommonMeta($trd_ac_itm_grp_nm, mcframe.commonMA.meta.MA_META.AC_ITM_GRP_NM);
+	public static final MCMeta trd_itm_jnl_nm_META = createCommonMeta($trd_itm_jnl_nm, mcframe.commonMA.meta.MA_META.ITM_JNL_NM);
+
+	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
+	public static final String $CALC_GRP1 = "CALC_GRP1";
+	public static final String $AC_RSN1 = "AC_RSN1";
+	public static final String $LOC1 = "LOC1";
+	public static final String $STR_LN1 = "STR_LN1";
+	public static final String $AC_ITM_GRP1 = "AC_ITM_GRP1";
+	public static final String $ITM_JNL1 = "ITM_JNL1";
+	public static final String $ITM1 = "ITM1";
+	public static final String $UNIT1 = "UNIT1";
+	public static final String $CUR1 = "CUR1";
+	public static final String $BP1 = "BP1";
+	public static final String $BP2 = "BP2";
+	public static final String $BP3 = "BP3";
+	public static final String $AREA1 = "AREA1";
+	public static final String $CNTRY1 = "CNTRY1";
+	public static final String $USR1 = "USR1";
+	public static final String $AC_ITM_GRP2 = "AC_ITM_GRP2";
+	public static final String $ITM_JNL2 = "ITM_JNL2";
+	public static final String $ITM2 = "ITM2";
+	static {
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_CALC_GRP",
+				$CALC_GRP1,
+				new String[][]{
+						{"calc_grp_cd", "calc_grp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_CALC_GRP_R.create("CALC_GRP1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_CALC_GRP_R ref = mcframe.serverMA.dbc.MAM_CALC_GRP_R.create("CALC_GRP1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.calc_grp_cd.eq(ref.calc_grp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_AC_RSN",
+				$AC_RSN1,
+				new String[][]{
+						{"ac_rsn_cd", "ac_rsn_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_AC_RSN_R.create("AC_RSN1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_AC_RSN_R ref = mcframe.serverMA.dbc.MAM_AC_RSN_R.create("AC_RSN1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.ac_rsn_cd.eq(ref.ac_rsn_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_LOC",
+				$LOC1,
+				new String[][]{
+						{"loc_cd", "loc_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_LOC_R.create("LOC1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_LOC_R ref = mcframe.serverMA.dbc.MAM_LOC_R.create("LOC1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.loc_cd.eq(ref.loc_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_STR_LN",
+				$STR_LN1,
+				new String[][]{
+						{"loc_cd", "loc_cd"},
+						{"str_ln_cd", "str_ln_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_STR_LN_R.create("STR_LN1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_STR_LN_R ref = mcframe.serverMA.dbc.MAM_STR_LN_R.create("STR_LN1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.loc_cd.eq(ref.loc_cd));
+					cond = cond.and(own.str_ln_cd.eq(ref.str_ln_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_AC_ITM_GRP",
+				$AC_ITM_GRP1,
+				new String[][]{
+						{"ac_itm_grp_cd", "ac_itm_grp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R.create("AC_ITM_GRP1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R ref = mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R.create("AC_ITM_GRP1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.ac_itm_grp_cd.eq(ref.ac_itm_grp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_ITM_JNL",
+				$ITM_JNL1,
+				new String[][]{
+						{"itm_jnl_cd", "itm_jnl_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_ITM_JNL_R.create("ITM_JNL1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_ITM_JNL_R ref = mcframe.serverMA.dbc.MAM_ITM_JNL_R.create("ITM_JNL1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.itm_jnl_cd.eq(ref.itm_jnl_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_ITM",
+				$ITM1,
+				new String[][]{
+						{"itm_cd", "itm_cd"},
+						{"itm_sub1", "itm_sub1"},
+						{"itm_sub2", "itm_sub2"},
+						{"itm_sub3", "itm_sub3"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_ITM_R.create("ITM1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_ITM_R ref = mcframe.serverMA.dbc.MAM_ITM_R.create("ITM1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.itm_cd.eq(ref.itm_cd));
+					cond = cond.and(own.itm_sub1.eq(ref.itm_sub1));
+					cond = cond.and(own.itm_sub2.eq(ref.itm_sub2));
+					cond = cond.and(own.itm_sub3.eq(ref.itm_sub3));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_UNIT",
+				$UNIT1,
+				new String[][]{
+						{"base_unit_cd", "unit_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_UNIT_R.create("UNIT1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_UNIT_R ref = mcframe.serverMA.dbc.MAM_UNIT_R.create("UNIT1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.base_unit_cd.eq(ref.unit_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_CUR",
+				$CUR1,
+				new String[][]{
+						{"base_cur_cd", "cur_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_CUR_R.create("CUR1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_CUR_R ref = mcframe.serverMA.dbc.MAM_CUR_R.create("CUR1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.base_cur_cd.eq(ref.cur_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_BP",
+				$BP1,
+				new String[][]{
+						{"sppl_cd", "bp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_BP_R.create("BP1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_BP_R ref = mcframe.serverMA.dbc.MAM_BP_R.create("BP1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.sppl_cd.eq(ref.bp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_BP",
+				$BP2,
+				new String[][]{
+						{"cst_cd", "bp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_BP_R.create("BP2");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_BP_R ref = mcframe.serverMA.dbc.MAM_BP_R.create("BP2");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.cst_cd.eq(ref.bp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_BP",
+				$BP3,
+				new String[][]{
+						{"inv_com_cd", "bp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_BP_R.create("BP3");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_BP_R ref = mcframe.serverMA.dbc.MAM_BP_R.create("BP3");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.inv_com_cd.eq(ref.bp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_AREA",
+				$AREA1,
+				new String[][]{
+						{"area_cd", "area_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_AREA_R.create("AREA1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_AREA_R ref = mcframe.serverMA.dbc.MAM_AREA_R.create("AREA1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.area_cd.eq(ref.area_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_CNTRY",
+				$CNTRY1,
+				new String[][]{
+						{"cntry_cd", "cntry_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_CNTRY_R.create("CNTRY1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_CNTRY_R ref = mcframe.serverMA.dbc.MAM_CNTRY_R.create("CNTRY1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.cntry_cd.eq(ref.cntry_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_USR",
+				$USR1,
+				new String[][]{
+						{"usr_cd", "usr_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_USR_R.create("USR1");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_USR_R ref = mcframe.serverMA.dbc.MAM_USR_R.create("USR1");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.usr_cd.eq(ref.usr_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_AC_ITM_GRP",
+				$AC_ITM_GRP2,
+				new String[][]{
+						{"trd_ac_itm_grp_cd", "ac_itm_grp_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R.create("AC_ITM_GRP2");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R ref = mcframe.serverMA.dbc.MAM_AC_ITM_GRP_R.create("AC_ITM_GRP2");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.trd_ac_itm_grp_cd.eq(ref.ac_itm_grp_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_ITM_JNL",
+				$ITM_JNL2,
+				new String[][]{
+						{"trd_itm_jnl_cd", "itm_jnl_cd"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_ITM_JNL_R.create("ITM_JNL2");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_ITM_JNL_R ref = mcframe.serverMA.dbc.MAM_ITM_JNL_R.create("ITM_JNL2");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.trd_itm_jnl_cd.eq(ref.itm_jnl_cd));
+					return cond;
+				}
+			)
+		);
+		FOREIGN_INFO_LIST.add(
+			new MCForeignInfo(
+				"MAM_ITM",
+				$ITM2,
+				new String[][]{
+						{"trd_itm_cd", "itm_cd"},
+						{"trd_itm_sub1", "itm_sub1"},
+						{"trd_itm_sub2", "itm_sub2"},
+						{"trd_itm_sub3", "itm_sub3"}
+				},
+				() -> {
+					return mcframe.serverMA.dbc.MAM_ITM_R.create("ITM2");
+				},
+				(alias) -> {
+					MBT_AC_COST_R own = MBT_AC_COST_R.create(alias);
+					mcframe.serverMA.dbc.MAM_ITM_R ref = mcframe.serverMA.dbc.MAM_ITM_R.create("ITM2");
+					MCPredicate cond = value(0).eq(value(0));
+					cond = cond.and(own.trd_itm_cd.eq(ref.itm_cd));
+					cond = cond.and(own.trd_itm_sub1.eq(ref.itm_sub1));
+					cond = cond.and(own.trd_itm_sub2.eq(ref.itm_sub2));
+					cond = cond.and(own.trd_itm_sub3.eq(ref.itm_sub3));
+					return cond;
+				}
+			)
+		);
+	}
+	
+	protected static final ConstMetaList<MBT_AC_COST_R> constMetas = new ConstMetaList<MBT_AC_COST_R>(
+		MCDBContainer.constMetas,
+		new MCMeta[]{
+			data_no_META,
+			wg_cd_META,
+			ac_ym_META,
+			calc_grp_cd_META,
+			calc_no_META,
+			ac_dt_META,
+			ac_slip_typ_META,
+			ac_rsn_cd_META,
+			purc_dpt_cd_META,
+			ap_dpt_cd_META,
+			sls_dpt_cd_META,
+			ar_dpt_cd_META,
+			gi_dpt_cd_META,
+			gr_dpt_cd_META,
+			bd_dpt_cd_META,
+			sub_dpt_cd1_META,
+			sub_dpt_cd2_META,
+			sub_dpt_cd3_META,
+			loc_cd_META,
+			str_ln_cd_META,
+			ac_itm_grp_cd_META,
+			itm_jnl_cd_META,
+			itm_cd_META,
+			itm_sub1_META,
+			itm_sub2_META,
+			itm_sub3_META,
+			itm_nm_META,
+			lot_no_META,
+			sublot_no_META,
+			sno1_META,
+			sno2_META,
+			sno3_META,
+			sno4_META,
+			slo_no_META,
+			po_no_META,
+			iv_no_META,
+			wrk_no_META,
+			asst_typ_META,
+			repurc_obli_flg_META,
+			base_unit_cd_META,
+			base_unit_qty_META,
+			base_cur_cd_META,
+			amt_META,
+			sppl_cd_META,
+			cst_cd_META,
+			inv_com_cd_META,
+			area_cd_META,
+			cntry_cd_META,
+			foreign_flg_META,
+			usr_cd_META,
+			src_alc_ac_cd_META,
+			alc_ac_cd_META,
+			expns_cd_META,
+			trd_grp_META,
+			trd_ac_itm_grp_cd_META,
+			trd_itm_jnl_cd_META,
+			trd_itm_cd_META,
+			trd_itm_sub1_META,
+			trd_itm_sub2_META,
+			trd_itm_sub3_META,
+			trd_itm_nm_META,
+			trd_lot_no_META,
+			trd_sublot_no_META,
+			trd_sno1_META,
+			trd_sno2_META,
+			trd_sno3_META,
+			trd_sno4_META,
+			jnl_key1_META,
+			jnl_key2_META,
+			jnl_key3_META,
+			jnl_key4_META,
+			jnl_key5_META,
+			jnl_key6_META,
+			jnl_key7_META,
+			jnl_key8_META,
+			jnl_key9_META,
+			jnl_key10_META,
+			sub_char1_META,
+			sub_char2_META,
+			sub_char3_META,
+			sub_char4_META,
+			sub_char5_META,
+			sub_char6_META,
+			sub_char7_META,
+			sub_char8_META,
+			sub_char9_META,
+			sub_char10_META,
+			sub_num1_META,
+			sub_num2_META,
+			sub_num3_META,
+			sub_dt1_META,
+			sub_dt2_META,
+			sub_dt3_META,
+			jnl_fin_cnt_META,
+			ins_usr_id_META,
+			ins_usr_nm_META,
+			ins_ts_META,
+			ins_func_id_META,
+			upd_cntr_META,
+			upd_usr_id_META,
+			upd_usr_nm_META,
+			upd_ts_META,
+			upd_func_id_META,
+			upd_srv_req_no_META,
+			calc_grp_nm_META,
+			ac_rsn_nm_META,
+			loc_nm_META,
+			str_ln_nm_META,
+			ac_itm_grp_nm_META,
+			itm_jnl_nm_META,
+			base_unit_nm_META,
+			base_cur_nm_META,
+			sppl_nm_META,
+			cst_nm_META,
+			inv_com_nm_META,
+			area_nm_META,
+			cntry_nm_META,
+			usr_nm_META,
+			trd_ac_itm_grp_nm_META,
+			trd_itm_jnl_nm_META
+		},
+		new String[][]{
+			{
+			},
+			{
+			}
+		}
+	);
+	
+
+	/**
+	 * クラスに定義されている固定カラム名を配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラム名の配列
+	 */
+	public static String[] colnames() {
+		return constMetas.toNameArray();
+	}
+
+	/**
+	 * クラスに定義されている固定カラムメタを配列で返します。
+	 *
+	 * 並び順は定義順と同じです。
+	 * 固定カラムがない場合は要素0の配列が返ります。
+	 * 
+	 * @return 固定カラムメタの配列
+	 */
+	public static MCMeta[] colmetas() {
+		return constMetas.toMetaArray();
+	}
+
+	/**
+	 * 実際のカラム位置を知るためオフセットです。
+	 */
+	private static final int offset = constMetas.offset();
+
+	/**
+	 * コンストラクタです。
+	 */
+	protected MBT_AC_COST_R(ConstMetaList<? extends MBT_AC_COST_R> metas, String alias) {
+		super(metas, TABLE_TYPE, TABLE_NAME, alias, EX_CTRL, LCL_TABLE, FOREIGN_INFO_LIST);
+		super.setColumnMap(getColumnMap());
+	}
+
+	protected MBT_AC_COST_R(ConstMetaList<? extends MBT_AC_COST_R> metas) {
+		this(metas, TABLE_NAME);
+	}
+
+	protected LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> getColumnMap() {
+		LinkedHashMap<String, MCDBContainerColulmnInfo<? extends MCPermColumn>> COLUMN_MAP = new LinkedHashMap<>();
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$data_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$data_no,
+				"data_no",
+				data_no,
+				true,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$wg_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$wg_cd,
+				"wg_cd",
+				wg_cd,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_ym,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MBT_AC_COST_R.$ac_ym,
+				"ac_ym",
+				ac_ym,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$calc_grp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$calc_grp_cd,
+				"calc_grp_cd",
+				calc_grp_cd,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$calc_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$calc_no,
+				"calc_no",
+				calc_no,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MBT_AC_COST_R.$ac_dt,
+				"ac_dt",
+				ac_dt,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_slip_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ac_slip_typ,
+				"ac_slip_typ",
+				ac_slip_typ,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_rsn_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ac_rsn_cd,
+				"ac_rsn_cd",
+				ac_rsn_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$purc_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$purc_dpt_cd,
+				"purc_dpt_cd",
+				purc_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ap_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ap_dpt_cd,
+				"ap_dpt_cd",
+				ap_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sls_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sls_dpt_cd,
+				"sls_dpt_cd",
+				sls_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ar_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ar_dpt_cd,
+				"ar_dpt_cd",
+				ar_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$gi_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$gi_dpt_cd,
+				"gi_dpt_cd",
+				gi_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$gr_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$gr_dpt_cd,
+				"gr_dpt_cd",
+				gr_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$bd_dpt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$bd_dpt_cd,
+				"bd_dpt_cd",
+				bd_dpt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dpt_cd1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_dpt_cd1,
+				"sub_dpt_cd1",
+				sub_dpt_cd1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dpt_cd2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_dpt_cd2,
+				"sub_dpt_cd2",
+				sub_dpt_cd2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dpt_cd3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_dpt_cd3,
+				"sub_dpt_cd3",
+				sub_dpt_cd3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$loc_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$loc_cd,
+				"loc_cd",
+				loc_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$str_ln_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$str_ln_cd,
+				"str_ln_cd",
+				str_ln_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_itm_grp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ac_itm_grp_cd,
+				"ac_itm_grp_cd",
+				ac_itm_grp_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_jnl_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_jnl_cd,
+				"itm_jnl_cd",
+				itm_jnl_cd,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_cd,
+				"itm_cd",
+				itm_cd,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_sub1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_sub1,
+				"itm_sub1",
+				itm_sub1,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_sub2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_sub2,
+				"itm_sub2",
+				itm_sub2,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_sub3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_sub3,
+				"itm_sub3",
+				itm_sub3,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_nm,
+				"itm_nm",
+				itm_nm,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$lot_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$lot_no,
+				"lot_no",
+				lot_no,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sublot_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sublot_no,
+				"sublot_no",
+				sublot_no,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sno1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sno1,
+				"sno1",
+				sno1,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sno2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sno2,
+				"sno2",
+				sno2,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sno3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sno3,
+				"sno3",
+				sno3,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sno4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sno4,
+				"sno4",
+				sno4,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$slo_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$slo_no,
+				"slo_no",
+				slo_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$po_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$po_no,
+				"po_no",
+				po_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$iv_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$iv_no,
+				"iv_no",
+				iv_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$wrk_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$wrk_no,
+				"wrk_no",
+				wrk_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$asst_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$asst_typ,
+				"asst_typ",
+				asst_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$repurc_obli_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MBT_AC_COST_R.$repurc_obli_flg,
+				"repurc_obli_flg",
+				repurc_obli_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$base_unit_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$base_unit_cd,
+				"base_unit_cd",
+				base_unit_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$base_unit_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$base_unit_qty,
+				"base_unit_qty",
+				base_unit_qty,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$base_cur_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$base_cur_cd,
+				"base_cur_cd",
+				base_cur_cd,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$amt,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$amt,
+				"amt",
+				amt,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sppl_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sppl_cd,
+				"sppl_cd",
+				sppl_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$cst_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$cst_cd,
+				"cst_cd",
+				cst_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$inv_com_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$inv_com_cd,
+				"inv_com_cd",
+				inv_com_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$area_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$area_cd,
+				"area_cd",
+				area_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$cntry_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$cntry_cd,
+				"cntry_cd",
+				cntry_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$foreign_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MBT_AC_COST_R.$foreign_flg,
+				"foreign_flg",
+				foreign_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$usr_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$usr_cd,
+				"usr_cd",
+				usr_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$src_alc_ac_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$src_alc_ac_cd,
+				"src_alc_ac_cd",
+				src_alc_ac_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$alc_ac_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$alc_ac_cd,
+				"alc_ac_cd",
+				alc_ac_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$expns_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$expns_cd,
+				"expns_cd",
+				expns_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_grp,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_grp,
+				"trd_grp",
+				trd_grp,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_ac_itm_grp_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_ac_itm_grp_cd,
+				"trd_ac_itm_grp_cd",
+				trd_ac_itm_grp_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_jnl_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_jnl_cd,
+				"trd_itm_jnl_cd",
+				trd_itm_jnl_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_cd,
+				"trd_itm_cd",
+				trd_itm_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_sub1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_sub1,
+				"trd_itm_sub1",
+				trd_itm_sub1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_sub2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_sub2,
+				"trd_itm_sub2",
+				trd_itm_sub2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_sub3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_sub3,
+				"trd_itm_sub3",
+				trd_itm_sub3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_nm,
+				"trd_itm_nm",
+				trd_itm_nm,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_lot_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_lot_no,
+				"trd_lot_no",
+				trd_lot_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_sublot_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_sublot_no,
+				"trd_sublot_no",
+				trd_sublot_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_sno1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_sno1,
+				"trd_sno1",
+				trd_sno1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_sno2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_sno2,
+				"trd_sno2",
+				trd_sno2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_sno3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_sno3,
+				"trd_sno3",
+				trd_sno3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_sno4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_sno4,
+				"trd_sno4",
+				trd_sno4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key1,
+				"jnl_key1",
+				jnl_key1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key2,
+				"jnl_key2",
+				jnl_key2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key3,
+				"jnl_key3",
+				jnl_key3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key4,
+				"jnl_key4",
+				jnl_key4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key5,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key5,
+				"jnl_key5",
+				jnl_key5,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key6,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key6,
+				"jnl_key6",
+				jnl_key6,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key7,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key7,
+				"jnl_key7",
+				jnl_key7,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key8,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key8,
+				"jnl_key8",
+				jnl_key8,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key9,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key9,
+				"jnl_key9",
+				jnl_key9,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_key10,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$jnl_key10,
+				"jnl_key10",
+				jnl_key10,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char1,
+				"sub_char1",
+				sub_char1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char2,
+				"sub_char2",
+				sub_char2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char3,
+				"sub_char3",
+				sub_char3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char4,
+				"sub_char4",
+				sub_char4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char5,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char5,
+				"sub_char5",
+				sub_char5,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char6,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char6,
+				"sub_char6",
+				sub_char6,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char7,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char7,
+				"sub_char7",
+				sub_char7,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char8,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char8,
+				"sub_char8",
+				sub_char8,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char9,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char9,
+				"sub_char9",
+				sub_char9,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_char10,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sub_char10,
+				"sub_char10",
+				sub_char10,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_num1,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$sub_num1,
+				"sub_num1",
+				sub_num1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_num2,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$sub_num2,
+				"sub_num2",
+				sub_num2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_num3,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$sub_num3,
+				"sub_num3",
+				sub_num3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dt1,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MBT_AC_COST_R.$sub_dt1,
+				"sub_dt1",
+				sub_dt1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dt2,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MBT_AC_COST_R.$sub_dt2,
+				"sub_dt2",
+				sub_dt2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sub_dt3,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MBT_AC_COST_R.$sub_dt3,
+				"sub_dt3",
+				sub_dt3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$jnl_fin_cnt,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$jnl_fin_cnt,
+				"jnl_fin_cnt",
+				jnl_fin_cnt,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ins_usr_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ins_usr_id,
+				"ins_usr_id",
+				ins_usr_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ins_usr_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ins_usr_nm,
+				"ins_usr_nm",
+				ins_usr_nm,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ins_ts,
+			new MCDBContainerColulmnInfo<MCTimestampPermColumn>(
+				MCDataType.TIMESTAMP,
+				MBT_AC_COST_R.$ins_ts,
+				"ins_ts",
+				ins_ts,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ins_func_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ins_func_id,
+				"ins_func_id",
+				ins_func_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_cntr,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MBT_AC_COST_R.$upd_cntr,
+				"upd_cntr",
+				upd_cntr,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_usr_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$upd_usr_id,
+				"upd_usr_id",
+				upd_usr_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_usr_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$upd_usr_nm,
+				"upd_usr_nm",
+				upd_usr_nm,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_ts,
+			new MCDBContainerColulmnInfo<MCTimestampPermColumn>(
+				MCDataType.TIMESTAMP,
+				MBT_AC_COST_R.$upd_ts,
+				"upd_ts",
+				upd_ts,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_func_id,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$upd_func_id,
+				"upd_func_id",
+				upd_func_id,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$upd_srv_req_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$upd_srv_req_no,
+				"upd_srv_req_no",
+				upd_srv_req_no,
+				false,
+				true,
+				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$calc_grp_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$calc_grp_nm,
+				"calc_grp_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"CALC_GRP1.CALC_GRP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_rsn_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ac_rsn_nm,
+				"ac_rsn_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"AC_RSN1.AC_RSN_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$loc_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$loc_nm,
+				"loc_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"LOC1.LOC_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$str_ln_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$str_ln_nm,
+				"str_ln_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"STR_LN1.STR_LN_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$ac_itm_grp_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$ac_itm_grp_nm,
+				"ac_itm_grp_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"AC_ITM_GRP1.AC_ITM_GRP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$itm_jnl_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$itm_jnl_nm,
+				"itm_jnl_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"ITM_JNL1.ITM_JNL_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$base_unit_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$base_unit_nm,
+				"base_unit_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"UNIT1.UNIT_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$base_cur_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$base_cur_nm,
+				"base_cur_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"CUR1.CUR_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$sppl_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$sppl_nm,
+				"sppl_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"BP1.BP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$cst_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$cst_nm,
+				"cst_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"BP2.BP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$inv_com_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$inv_com_nm,
+				"inv_com_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"BP3.BP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$area_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$area_nm,
+				"area_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"AREA1.AREA_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$cntry_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$cntry_nm,
+				"cntry_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"CNTRY1.CNTRY_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$usr_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$usr_nm,
+				"usr_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"USR1.USR_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_ac_itm_grp_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_ac_itm_grp_nm,
+				"trd_ac_itm_grp_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"AC_ITM_GRP2.AC_ITM_GRP_NM"
+			)
+		);
+		COLUMN_MAP.put(
+			MBT_AC_COST_R.$trd_itm_jnl_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MBT_AC_COST_R.$trd_itm_jnl_nm,
+				"trd_itm_jnl_nm",
+				null,
+				false,
+				true,
+				false,
+				false,
+				true,
+				"ITM_JNL2.ITM_JNL_NM"
+			)
+		);
+		return COLUMN_MAP;
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MBT_AC_COST_R create() {
+		return create(TABLE_NAME);
+	}
+
+	/**
+	 * 新しいRowを生成します。
+	 *
+	 * @return 新しいインスタンス
+	 */
+	public static MBT_AC_COST_R create(String alias) {
+		MBT_AC_COST_R row = new MBT_AC_COST_R(constMetas, alias);
+		return row;
+	}
+
+	/**
+	 * 新しいRowを生成し別のRowの内容を設定します。
+	 *
+	 * @param proto 設定するRow
+	 * @return 内容を設定した新しいインスタンス
+	 */
+	public static <T extends MCRow> MBT_AC_COST_R createByName(T proto) {
+		MBT_AC_COST_R row = MBT_AC_COST_R.create();
+		copyByName(row, proto);
+		return row;
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MBT_AC_COST_R clone() {
+		return (MBT_AC_COST_R) super.clone();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MBT_AC_COST_R createInstance() {
+		return (MBT_AC_COST_R) super.createInstance();
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	public MBT_AC_COST_R getValues(String... names) {
+		return (MBT_AC_COST_R) super.getValues(names);
+	}
+
+	/*
+	 * MCRowのオーバーライドメソッドです。
+	 */
+	protected void fireValueChanged(String column,
+							Comparable<?> newvalue, Comparable<?> oldvalue) {
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasCocdFilter() {
+		return true;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	public boolean hasLclFilter() {
+		return false;
+	}
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MBW_AC_COST_KEY_R getPkWorkDbc(String alias) {
+	 	return MBW_AC_COST_KEY_R.create(alias);
+	 }
+
+	/*
+	 * MCDBContainerのオーバーライドメソッドです。
+	 */
+	 public MBW_AC_COST_KEY_R getPkWorkDbc() {
+	 	return getPkWorkDbc(MBW_AC_COST_KEY_R.TABLE_NAME);
+	 }
+
+	/**
+	 * データＮＯ. Data No..<p>
+	 *
+	 */
+	public String data_no() {
+		return getConstString(offset + 0, $data_no);
+	}
+
+	/**
+	 * データＮＯ. Data No..<p>
+	 *
+	 */
+	public void data_no(String value) {
+		setConstString(offset + 0, $data_no, value);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public String wg_cd() {
+		return getConstString(offset + 1, $wg_cd);
+	}
+
+	/**
+	 * ワーキンググループＣＤ. WG cd..<p>
+	 *
+	 */
+	public void wg_cd(String value) {
+		setConstString(offset + 1, $wg_cd, value);
+	}
+
+	/**
+	 * 計上年月. Recording month.<p>
+	 *
+	 */
+	public MCDate ac_ym() {
+		return getConstDate(offset + 2, $ac_ym);
+	}
+
+	/**
+	 * 計上年月. Recording month.<p>
+	 *
+	 */
+	public void ac_ym(MCDate value) {
+		setConstDate(offset + 2, $ac_ym, value);
+	}
+
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public String calc_grp_cd() {
+		return getConstString(offset + 3, $calc_grp_cd);
+	}
+
+	/**
+	 * 計算グループＣＤ. Calculation group cd..<p>
+	 *
+	 */
+	public void calc_grp_cd(String value) {
+		setConstString(offset + 3, $calc_grp_cd, value);
+	}
+
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public String calc_no() {
+		return getConstString(offset + 4, $calc_no);
+	}
+
+	/**
+	 * 原価計算ＮＯ. Calculation No..<p>
+	 *
+	 */
+	public void calc_no(String value) {
+		setConstString(offset + 4, $calc_no, value);
+	}
+
+	/**
+	 * 計上日. Recording date.<p>
+	 *
+	 */
+	public MCDate ac_dt() {
+		return getConstDate(offset + 5, $ac_dt);
+	}
+
+	/**
+	 * 計上日. Recording date.<p>
+	 *
+	 */
+	public void ac_dt(MCDate value) {
+		setConstDate(offset + 5, $ac_dt, value);
+	}
+
+	/**
+	 * 会計伝票区分. Accounting slip type.<p>
+	 *
+	 */
+	public String ac_slip_typ() {
+		return getConstString(offset + 6, $ac_slip_typ);
+	}
+
+	/**
+	 * 会計伝票区分. Accounting slip type.<p>
+	 *
+	 */
+	public void ac_slip_typ(String value) {
+		setConstString(offset + 6, $ac_slip_typ, value);
+	}
+
+	/**
+	 * 会計理由ＣＤ. Accounting reason cd..<p>
+	 *
+	 */
+	public String ac_rsn_cd() {
+		return getConstString(offset + 7, $ac_rsn_cd);
+	}
+
+	/**
+	 * 会計理由ＣＤ. Accounting reason cd..<p>
+	 *
+	 */
+	public void ac_rsn_cd(String value) {
+		setConstString(offset + 7, $ac_rsn_cd, value);
+	}
+
+	/**
+	 * 購買部門ＣＤ. Purchasing dept. cd..<p>
+	 *
+	 */
+	public String purc_dpt_cd() {
+		return getConstString(offset + 8, $purc_dpt_cd);
+	}
+
+	/**
+	 * 購買部門ＣＤ. Purchasing dept. cd..<p>
+	 *
+	 */
+	public void purc_dpt_cd(String value) {
+		setConstString(offset + 8, $purc_dpt_cd, value);
+	}
+
+	/**
+	 * 債務部門ＣＤ. AP dept. cd..<p>
+	 *
+	 */
+	public String ap_dpt_cd() {
+		return getConstString(offset + 9, $ap_dpt_cd);
+	}
+
+	/**
+	 * 債務部門ＣＤ. AP dept. cd..<p>
+	 *
+	 */
+	public void ap_dpt_cd(String value) {
+		setConstString(offset + 9, $ap_dpt_cd, value);
+	}
+
+	/**
+	 * 売上部門ＣＤ. Sales dept. cd..<p>
+	 *
+	 */
+	public String sls_dpt_cd() {
+		return getConstString(offset + 10, $sls_dpt_cd);
+	}
+
+	/**
+	 * 売上部門ＣＤ. Sales dept. cd..<p>
+	 *
+	 */
+	public void sls_dpt_cd(String value) {
+		setConstString(offset + 10, $sls_dpt_cd, value);
+	}
+
+	/**
+	 * 債権部門ＣＤ. AR dept. cd..<p>
+	 *
+	 */
+	public String ar_dpt_cd() {
+		return getConstString(offset + 11, $ar_dpt_cd);
+	}
+
+	/**
+	 * 債権部門ＣＤ. AR dept. cd..<p>
+	 *
+	 */
+	public void ar_dpt_cd(String value) {
+		setConstString(offset + 11, $ar_dpt_cd, value);
+	}
+
+	/**
+	 * 出庫部門ＣＤ. GI dept. cd..<p>
+	 *
+	 */
+	public String gi_dpt_cd() {
+		return getConstString(offset + 12, $gi_dpt_cd);
+	}
+
+	/**
+	 * 出庫部門ＣＤ. GI dept. cd..<p>
+	 *
+	 */
+	public void gi_dpt_cd(String value) {
+		setConstString(offset + 12, $gi_dpt_cd, value);
+	}
+
+	/**
+	 * 入庫部門ＣＤ. GR dept. cd..<p>
+	 *
+	 */
+	public String gr_dpt_cd() {
+		return getConstString(offset + 13, $gr_dpt_cd);
+	}
+
+	/**
+	 * 入庫部門ＣＤ. GR dept. cd..<p>
+	 *
+	 */
+	public void gr_dpt_cd(String value) {
+		setConstString(offset + 13, $gr_dpt_cd, value);
+	}
+
+	/**
+	 * 負担部門ＣＤ. Charged dept. cd..<p>
+	 *
+	 */
+	public String bd_dpt_cd() {
+		return getConstString(offset + 14, $bd_dpt_cd);
+	}
+
+	/**
+	 * 負担部門ＣＤ. Charged dept. cd..<p>
+	 *
+	 */
+	public void bd_dpt_cd(String value) {
+		setConstString(offset + 14, $bd_dpt_cd, value);
+	}
+
+	/**
+	 * 予備部門ＣＤ１. Spare dept. cd. 1.<p>
+	 *
+	 */
+	public String sub_dpt_cd1() {
+		return getConstString(offset + 15, $sub_dpt_cd1);
+	}
+
+	/**
+	 * 予備部門ＣＤ１. Spare dept. cd. 1.<p>
+	 *
+	 */
+	public void sub_dpt_cd1(String value) {
+		setConstString(offset + 15, $sub_dpt_cd1, value);
+	}
+
+	/**
+	 * 予備部門ＣＤ２. Spare dept. cd. 2.<p>
+	 *
+	 */
+	public String sub_dpt_cd2() {
+		return getConstString(offset + 16, $sub_dpt_cd2);
+	}
+
+	/**
+	 * 予備部門ＣＤ２. Spare dept. cd. 2.<p>
+	 *
+	 */
+	public void sub_dpt_cd2(String value) {
+		setConstString(offset + 16, $sub_dpt_cd2, value);
+	}
+
+	/**
+	 * 予備部門ＣＤ３. Spare dept. cd. 3.<p>
+	 *
+	 */
+	public String sub_dpt_cd3() {
+		return getConstString(offset + 17, $sub_dpt_cd3);
+	}
+
+	/**
+	 * 予備部門ＣＤ３. Spare dept. cd. 3.<p>
+	 *
+	 */
+	public void sub_dpt_cd3(String value) {
+		setConstString(offset + 17, $sub_dpt_cd3, value);
+	}
+
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public String loc_cd() {
+		return getConstString(offset + 18, $loc_cd);
+	}
+
+	/**
+	 * 場所ＣＤ. Location cd..<p>
+	 *
+	 */
+	public void loc_cd(String value) {
+		setConstString(offset + 18, $loc_cd, value);
+	}
+
+	/**
+	 * 棚・ラインＣＤ. Rack/Line cd..<p>
+	 *
+	 */
+	public String str_ln_cd() {
+		return getConstString(offset + 19, $str_ln_cd);
+	}
+
+	/**
+	 * 棚・ラインＣＤ. Rack/Line cd..<p>
+	 *
+	 */
+	public void str_ln_cd(String value) {
+		setConstString(offset + 19, $str_ln_cd, value);
+	}
+
+	/**
+	 * 会計品目分類ＣＤ. Accounting item classification cd..<p>
+	 *
+	 */
+	public String ac_itm_grp_cd() {
+		return getConstString(offset + 20, $ac_itm_grp_cd);
+	}
+
+	/**
+	 * 会計品目分類ＣＤ. Accounting item classification cd..<p>
+	 *
+	 */
+	public void ac_itm_grp_cd(String value) {
+		setConstString(offset + 20, $ac_itm_grp_cd, value);
+	}
+
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public String itm_jnl_cd() {
+		return getConstString(offset + 21, $itm_jnl_cd);
+	}
+
+	/**
+	 * 品目仕訳ＣＤ. Item journal cd..<p>
+	 *
+	 */
+	public void itm_jnl_cd(String value) {
+		setConstString(offset + 21, $itm_jnl_cd, value);
+	}
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public String itm_cd() {
+		return getConstString(offset + 22, $itm_cd);
+	}
+
+	/**
+	 * 品目ＣＤ. Item cd..<p>
+	 *
+	 */
+	public void itm_cd(String value) {
+		setConstString(offset + 22, $itm_cd, value);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public String itm_sub1() {
+		return getConstString(offset + 23, $itm_sub1);
+	}
+
+	/**
+	 * 枝番１. Branch No. 1.<p>
+	 *
+	 */
+	public void itm_sub1(String value) {
+		setConstString(offset + 23, $itm_sub1, value);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public String itm_sub2() {
+		return getConstString(offset + 24, $itm_sub2);
+	}
+
+	/**
+	 * 枝番２. Branch No. 2.<p>
+	 *
+	 */
+	public void itm_sub2(String value) {
+		setConstString(offset + 24, $itm_sub2, value);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public String itm_sub3() {
+		return getConstString(offset + 25, $itm_sub3);
+	}
+
+	/**
+	 * 枝番３. Branch No. 3.<p>
+	 *
+	 */
+	public void itm_sub3(String value) {
+		setConstString(offset + 25, $itm_sub3, value);
+	}
+
+	/**
+	 * 品名. Item name.<p>
+	 *
+	 */
+	public String itm_nm() {
+		return getConstString(offset + 26, $itm_nm);
+	}
+
+	/**
+	 * 品名. Item name.<p>
+	 *
+	 */
+	public void itm_nm(String value) {
+		setConstString(offset + 26, $itm_nm, value);
+	}
+
+	/**
+	 * ロットＮＯ. Lot No..<p>
+	 *
+	 */
+	public String lot_no() {
+		return getConstString(offset + 27, $lot_no);
+	}
+
+	/**
+	 * ロットＮＯ. Lot No..<p>
+	 *
+	 */
+	public void lot_no(String value) {
+		setConstString(offset + 27, $lot_no, value);
+	}
+
+	/**
+	 * サブロットＮＯ. Sublot No..<p>
+	 *
+	 */
+	public String sublot_no() {
+		return getConstString(offset + 28, $sublot_no);
+	}
+
+	/**
+	 * サブロットＮＯ. Sublot No..<p>
+	 *
+	 */
+	public void sublot_no(String value) {
+		setConstString(offset + 28, $sublot_no, value);
+	}
+
+	/**
+	 * 手配ＮＯ１. SEIBAN No. 1.<p>
+	 *
+	 */
+	public String sno1() {
+		return getConstString(offset + 29, $sno1);
+	}
+
+	/**
+	 * 手配ＮＯ１. SEIBAN No. 1.<p>
+	 *
+	 */
+	public void sno1(String value) {
+		setConstString(offset + 29, $sno1, value);
+	}
+
+	/**
+	 * 手配ＮＯ２. SEIBAN No. 2.<p>
+	 *
+	 */
+	public String sno2() {
+		return getConstString(offset + 30, $sno2);
+	}
+
+	/**
+	 * 手配ＮＯ２. SEIBAN No. 2.<p>
+	 *
+	 */
+	public void sno2(String value) {
+		setConstString(offset + 30, $sno2, value);
+	}
+
+	/**
+	 * 手配ＮＯ３. SEIBAN No. 3.<p>
+	 *
+	 */
+	public String sno3() {
+		return getConstString(offset + 31, $sno3);
+	}
+
+	/**
+	 * 手配ＮＯ３. SEIBAN No. 3.<p>
+	 *
+	 */
+	public void sno3(String value) {
+		setConstString(offset + 31, $sno3, value);
+	}
+
+	/**
+	 * 手配ＮＯ４. SEIBAN No. 4.<p>
+	 *
+	 */
+	public String sno4() {
+		return getConstString(offset + 32, $sno4);
+	}
+
+	/**
+	 * 手配ＮＯ４. SEIBAN No. 4.<p>
+	 *
+	 */
+	public void sno4(String value) {
+		setConstString(offset + 32, $sno4, value);
+	}
+
+	/**
+	 * 受注ＮＯ. Sales order No..<p>
+	 *
+	 */
+	public String slo_no() {
+		return getConstString(offset + 33, $slo_no);
+	}
+
+	/**
+	 * 受注ＮＯ. Sales order No..<p>
+	 *
+	 */
+	public void slo_no(String value) {
+		setConstString(offset + 33, $slo_no, value);
+	}
+
+	/**
+	 * 発注ＮＯ. PO No..<p>
+	 *
+	 */
+	public String po_no() {
+		return getConstString(offset + 34, $po_no);
+	}
+
+	/**
+	 * 発注ＮＯ. PO No..<p>
+	 *
+	 */
+	public void po_no(String value) {
+		setConstString(offset + 34, $po_no, value);
+	}
+
+	/**
+	 * インボイスＮＯ. Invoice No..<p>
+	 *
+	 */
+	public String iv_no() {
+		return getConstString(offset + 35, $iv_no);
+	}
+
+	/**
+	 * インボイスＮＯ. Invoice No..<p>
+	 *
+	 */
+	public void iv_no(String value) {
+		setConstString(offset + 35, $iv_no, value);
+	}
+
+	/**
+	 * 案件ＮＯ. Sales project No..<p>
+	 *
+	 */
+	public String wrk_no() {
+		return getConstString(offset + 36, $wrk_no);
+	}
+
+	/**
+	 * 案件ＮＯ. Sales project No..<p>
+	 *
+	 */
+	public void wrk_no(String value) {
+		setConstString(offset + 36, $wrk_no, value);
+	}
+
+	/**
+	 * 資産区分. Asset type.<p>
+	 *
+	 */
+	public String asst_typ() {
+		return getConstString(offset + 37, $asst_typ);
+	}
+
+	/**
+	 * 資産区分. Asset type.<p>
+	 *
+	 */
+	public void asst_typ(String value) {
+		setConstString(offset + 37, $asst_typ, value);
+	}
+
+	/**
+	 * 買戻義務ＦＬＧ. Repurchase obligation flg..<p>
+	 *
+	 */
+	public boolean repurc_obli_flg() {
+		return getConstBoolean(offset + 38, $repurc_obli_flg);
+	}
+
+	/**
+	 * 買戻義務ＦＬＧ. Repurchase obligation flg..<p>
+	 *
+	 */
+	public void repurc_obli_flg(boolean value) {
+		setConstBoolean(offset + 38, $repurc_obli_flg, value);
+	}
+
+	/**
+	 * 基準単位ＣＤ. Base unit cd..<p>
+	 *
+	 */
+	public String base_unit_cd() {
+		return getConstString(offset + 39, $base_unit_cd);
+	}
+
+	/**
+	 * 基準単位ＣＤ. Base unit cd..<p>
+	 *
+	 */
+	public void base_unit_cd(String value) {
+		setConstString(offset + 39, $base_unit_cd, value);
+	}
+
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public MCNumber base_unit_qty() {
+		return getConstNumber(offset + 40, $base_unit_qty);
+	}
+
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public void base_unit_qty(MCNumber value) {
+		setConstNumber(offset + 40, $base_unit_qty, value);
+	}
+	
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public void base_unit_qty(int value) {
+		setConstNumber(offset + 40, $base_unit_qty, value);
+	}
+	
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public void base_unit_qty(long value) {
+		setConstNumber(offset + 40, $base_unit_qty, value);
+	}
+	
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public void base_unit_qty(float value) {
+		setConstNumber(offset + 40, $base_unit_qty, value);
+	}
+	
+	/**
+	 * 基準単位数量. Base unit qty..<p>
+	 *
+	 */
+	public void base_unit_qty(double value) {
+		setConstNumber(offset + 40, $base_unit_qty, value);
+	}
+	
+	/**
+	 * 基準通貨ＣＤ. Base currency cd..<p>
+	 *
+	 */
+	public String base_cur_cd() {
+		return getConstString(offset + 41, $base_cur_cd);
+	}
+
+	/**
+	 * 基準通貨ＣＤ. Base currency cd..<p>
+	 *
+	 */
+	public void base_cur_cd(String value) {
+		setConstString(offset + 41, $base_cur_cd, value);
+	}
+
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public MCNumber amt() {
+		return getConstNumber(offset + 42, $amt);
+	}
+
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public void amt(MCNumber value) {
+		setConstNumber(offset + 42, $amt, value);
+	}
+	
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public void amt(int value) {
+		setConstNumber(offset + 42, $amt, value);
+	}
+	
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public void amt(long value) {
+		setConstNumber(offset + 42, $amt, value);
+	}
+	
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public void amt(float value) {
+		setConstNumber(offset + 42, $amt, value);
+	}
+	
+	/**
+	 * 評価金額. Evaluated amount.<p>
+	 *
+	 */
+	public void amt(double value) {
+		setConstNumber(offset + 42, $amt, value);
+	}
+	
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public String sppl_cd() {
+		return getConstString(offset + 43, $sppl_cd);
+	}
+
+	/**
+	 * 発注先ＣＤ. Supplier cd..<p>
+	 *
+	 */
+	public void sppl_cd(String value) {
+		setConstString(offset + 43, $sppl_cd, value);
+	}
+
+	/**
+	 * 得意先ＣＤ. Customer cd..<p>
+	 *
+	 */
+	public String cst_cd() {
+		return getConstString(offset + 44, $cst_cd);
+	}
+
+	/**
+	 * 得意先ＣＤ. Customer cd..<p>
+	 *
+	 */
+	public void cst_cd(String value) {
+		setConstString(offset + 44, $cst_cd, value);
+	}
+
+	/**
+	 * 在庫保管先ＣＤ. Inventory storage destination cd..<p>
+	 *
+	 */
+	public String inv_com_cd() {
+		return getConstString(offset + 45, $inv_com_cd);
+	}
+
+	/**
+	 * 在庫保管先ＣＤ. Inventory storage destination cd..<p>
+	 *
+	 */
+	public void inv_com_cd(String value) {
+		setConstString(offset + 45, $inv_com_cd, value);
+	}
+
+	/**
+	 * 地域ＣＤ. Region cd..<p>
+	 *
+	 */
+	public String area_cd() {
+		return getConstString(offset + 46, $area_cd);
+	}
+
+	/**
+	 * 地域ＣＤ. Region cd..<p>
+	 *
+	 */
+	public void area_cd(String value) {
+		setConstString(offset + 46, $area_cd, value);
+	}
+
+	/**
+	 * 国ＣＤ. Country cd..<p>
+	 *
+	 */
+	public String cntry_cd() {
+		return getConstString(offset + 47, $cntry_cd);
+	}
+
+	/**
+	 * 国ＣＤ. Country cd..<p>
+	 *
+	 */
+	public void cntry_cd(String value) {
+		setConstString(offset + 47, $cntry_cd, value);
+	}
+
+	/**
+	 * 国外取引ＦＬＧ. Foreign transaction flg..<p>
+	 *
+	 */
+	public boolean foreign_flg() {
+		return getConstBoolean(offset + 48, $foreign_flg);
+	}
+
+	/**
+	 * 国外取引ＦＬＧ. Foreign transaction flg..<p>
+	 *
+	 */
+	public void foreign_flg(boolean value) {
+		setConstBoolean(offset + 48, $foreign_flg, value);
+	}
+
+	/**
+	 * 担当者ＣＤ. PIC cd..<p>
+	 *
+	 */
+	public String usr_cd() {
+		return getConstString(offset + 49, $usr_cd);
+	}
+
+	/**
+	 * 担当者ＣＤ. PIC cd..<p>
+	 *
+	 */
+	public void usr_cd(String value) {
+		setConstString(offset + 49, $usr_cd, value);
+	}
+
+	/**
+	 * 配賦元配賦科目ＣＤ. Allocation source allocation account cd..<p>
+	 *
+	 */
+	public String src_alc_ac_cd() {
+		return getConstString(offset + 50, $src_alc_ac_cd);
+	}
+
+	/**
+	 * 配賦元配賦科目ＣＤ. Allocation source allocation account cd..<p>
+	 *
+	 */
+	public void src_alc_ac_cd(String value) {
+		setConstString(offset + 50, $src_alc_ac_cd, value);
+	}
+
+	/**
+	 * 配賦科目ＣＤ. Allocation account cd..<p>
+	 *
+	 */
+	public String alc_ac_cd() {
+		return getConstString(offset + 51, $alc_ac_cd);
+	}
+
+	/**
+	 * 配賦科目ＣＤ. Allocation account cd..<p>
+	 *
+	 */
+	public void alc_ac_cd(String value) {
+		setConstString(offset + 51, $alc_ac_cd, value);
+	}
+
+	/**
+	 * 費目ＣＤ. Cost element cd..<p>
+	 *
+	 */
+	public String expns_cd() {
+		return getConstString(offset + 52, $expns_cd);
+	}
+
+	/**
+	 * 費目ＣＤ. Cost element cd..<p>
+	 *
+	 */
+	public void expns_cd(String value) {
+		setConstString(offset + 52, $expns_cd, value);
+	}
+
+	/**
+	 * 振替グループ. Transfer group.<p>
+	 *
+	 */
+	public String trd_grp() {
+		return getConstString(offset + 53, $trd_grp);
+	}
+
+	/**
+	 * 振替グループ. Transfer group.<p>
+	 *
+	 */
+	public void trd_grp(String value) {
+		setConstString(offset + 53, $trd_grp, value);
+	}
+
+	/**
+	 * 振替先会計品目分類ＣＤ. Transfer accounting item classification cd..<p>
+	 *
+	 */
+	public String trd_ac_itm_grp_cd() {
+		return getConstString(offset + 54, $trd_ac_itm_grp_cd);
+	}
+
+	/**
+	 * 振替先会計品目分類ＣＤ. Transfer accounting item classification cd..<p>
+	 *
+	 */
+	public void trd_ac_itm_grp_cd(String value) {
+		setConstString(offset + 54, $trd_ac_itm_grp_cd, value);
+	}
+
+	/**
+	 * 振替先品目仕訳ＣＤ. Transfer Item journal cd..<p>
+	 *
+	 */
+	public String trd_itm_jnl_cd() {
+		return getConstString(offset + 55, $trd_itm_jnl_cd);
+	}
+
+	/**
+	 * 振替先品目仕訳ＣＤ. Transfer Item journal cd..<p>
+	 *
+	 */
+	public void trd_itm_jnl_cd(String value) {
+		setConstString(offset + 55, $trd_itm_jnl_cd, value);
+	}
+
+	/**
+	 * 振替先品目ＣＤ. Transfer Item cd..<p>
+	 *
+	 */
+	public String trd_itm_cd() {
+		return getConstString(offset + 56, $trd_itm_cd);
+	}
+
+	/**
+	 * 振替先品目ＣＤ. Transfer Item cd..<p>
+	 *
+	 */
+	public void trd_itm_cd(String value) {
+		setConstString(offset + 56, $trd_itm_cd, value);
+	}
+
+	/**
+	 * 振替先枝番１. Transfer branch No. 1.<p>
+	 *
+	 */
+	public String trd_itm_sub1() {
+		return getConstString(offset + 57, $trd_itm_sub1);
+	}
+
+	/**
+	 * 振替先枝番１. Transfer branch No. 1.<p>
+	 *
+	 */
+	public void trd_itm_sub1(String value) {
+		setConstString(offset + 57, $trd_itm_sub1, value);
+	}
+
+	/**
+	 * 振替先枝番２. Transfer branch No. 2.<p>
+	 *
+	 */
+	public String trd_itm_sub2() {
+		return getConstString(offset + 58, $trd_itm_sub2);
+	}
+
+	/**
+	 * 振替先枝番２. Transfer branch No. 2.<p>
+	 *
+	 */
+	public void trd_itm_sub2(String value) {
+		setConstString(offset + 58, $trd_itm_sub2, value);
+	}
+
+	/**
+	 * 振替先枝番３. Transfer branch No. 3.<p>
+	 *
+	 */
+	public String trd_itm_sub3() {
+		return getConstString(offset + 59, $trd_itm_sub3);
+	}
+
+	/**
+	 * 振替先枝番３. Transfer branch No. 3.<p>
+	 *
+	 */
+	public void trd_itm_sub3(String value) {
+		setConstString(offset + 59, $trd_itm_sub3, value);
+	}
+
+	/**
+	 * 振替先品名. Transfer item name.<p>
+	 *
+	 */
+	public String trd_itm_nm() {
+		return getConstString(offset + 60, $trd_itm_nm);
+	}
+
+	/**
+	 * 振替先品名. Transfer item name.<p>
+	 *
+	 */
+	public void trd_itm_nm(String value) {
+		setConstString(offset + 60, $trd_itm_nm, value);
+	}
+
+	/**
+	 * 振替先ロットＮＯ. Transfer lot No..<p>
+	 *
+	 */
+	public String trd_lot_no() {
+		return getConstString(offset + 61, $trd_lot_no);
+	}
+
+	/**
+	 * 振替先ロットＮＯ. Transfer lot No..<p>
+	 *
+	 */
+	public void trd_lot_no(String value) {
+		setConstString(offset + 61, $trd_lot_no, value);
+	}
+
+	/**
+	 * 振替先サブロットＮＯ. Transfer sublot No..<p>
+	 *
+	 */
+	public String trd_sublot_no() {
+		return getConstString(offset + 62, $trd_sublot_no);
+	}
+
+	/**
+	 * 振替先サブロットＮＯ. Transfer sublot No..<p>
+	 *
+	 */
+	public void trd_sublot_no(String value) {
+		setConstString(offset + 62, $trd_sublot_no, value);
+	}
+
+	/**
+	 * 振替先手配ＮＯ１. Transfer SEIBAN No. 1.<p>
+	 *
+	 */
+	public String trd_sno1() {
+		return getConstString(offset + 63, $trd_sno1);
+	}
+
+	/**
+	 * 振替先手配ＮＯ１. Transfer SEIBAN No. 1.<p>
+	 *
+	 */
+	public void trd_sno1(String value) {
+		setConstString(offset + 63, $trd_sno1, value);
+	}
+
+	/**
+	 * 振替先手配ＮＯ２. Transfer SEIBAN No. 2.<p>
+	 *
+	 */
+	public String trd_sno2() {
+		return getConstString(offset + 64, $trd_sno2);
+	}
+
+	/**
+	 * 振替先手配ＮＯ２. Transfer SEIBAN No. 2.<p>
+	 *
+	 */
+	public void trd_sno2(String value) {
+		setConstString(offset + 64, $trd_sno2, value);
+	}
+
+	/**
+	 * 振替先手配ＮＯ３. Transfer SEIBAN No. 3.<p>
+	 *
+	 */
+	public String trd_sno3() {
+		return getConstString(offset + 65, $trd_sno3);
+	}
+
+	/**
+	 * 振替先手配ＮＯ３. Transfer SEIBAN No. 3.<p>
+	 *
+	 */
+	public void trd_sno3(String value) {
+		setConstString(offset + 65, $trd_sno3, value);
+	}
+
+	/**
+	 * 振替先手配ＮＯ４. Transfer SEIBAN No. 4.<p>
+	 *
+	 */
+	public String trd_sno4() {
+		return getConstString(offset + 66, $trd_sno4);
+	}
+
+	/**
+	 * 振替先手配ＮＯ４. Transfer SEIBAN No. 4.<p>
+	 *
+	 */
+	public void trd_sno4(String value) {
+		setConstString(offset + 66, $trd_sno4, value);
+	}
+
+	/**
+	 * 仕訳キー項目１. Journal key column 1.<p>
+	 *
+	 */
+	public String jnl_key1() {
+		return getConstString(offset + 67, $jnl_key1);
+	}
+
+	/**
+	 * 仕訳キー項目１. Journal key column 1.<p>
+	 *
+	 */
+	public void jnl_key1(String value) {
+		setConstString(offset + 67, $jnl_key1, value);
+	}
+
+	/**
+	 * 仕訳キー項目２. Journal key column 2.<p>
+	 *
+	 */
+	public String jnl_key2() {
+		return getConstString(offset + 68, $jnl_key2);
+	}
+
+	/**
+	 * 仕訳キー項目２. Journal key column 2.<p>
+	 *
+	 */
+	public void jnl_key2(String value) {
+		setConstString(offset + 68, $jnl_key2, value);
+	}
+
+	/**
+	 * 仕訳キー項目３. Journal key column 3.<p>
+	 *
+	 */
+	public String jnl_key3() {
+		return getConstString(offset + 69, $jnl_key3);
+	}
+
+	/**
+	 * 仕訳キー項目３. Journal key column 3.<p>
+	 *
+	 */
+	public void jnl_key3(String value) {
+		setConstString(offset + 69, $jnl_key3, value);
+	}
+
+	/**
+	 * 仕訳キー項目４. Journal key column 4.<p>
+	 *
+	 */
+	public String jnl_key4() {
+		return getConstString(offset + 70, $jnl_key4);
+	}
+
+	/**
+	 * 仕訳キー項目４. Journal key column 4.<p>
+	 *
+	 */
+	public void jnl_key4(String value) {
+		setConstString(offset + 70, $jnl_key4, value);
+	}
+
+	/**
+	 * 仕訳キー項目５. Journal key column 5.<p>
+	 *
+	 */
+	public String jnl_key5() {
+		return getConstString(offset + 71, $jnl_key5);
+	}
+
+	/**
+	 * 仕訳キー項目５. Journal key column 5.<p>
+	 *
+	 */
+	public void jnl_key5(String value) {
+		setConstString(offset + 71, $jnl_key5, value);
+	}
+
+	/**
+	 * 仕訳キー項目６. Journal key column 6.<p>
+	 *
+	 */
+	public String jnl_key6() {
+		return getConstString(offset + 72, $jnl_key6);
+	}
+
+	/**
+	 * 仕訳キー項目６. Journal key column 6.<p>
+	 *
+	 */
+	public void jnl_key6(String value) {
+		setConstString(offset + 72, $jnl_key6, value);
+	}
+
+	/**
+	 * 仕訳キー項目７. Journal key column 7.<p>
+	 *
+	 */
+	public String jnl_key7() {
+		return getConstString(offset + 73, $jnl_key7);
+	}
+
+	/**
+	 * 仕訳キー項目７. Journal key column 7.<p>
+	 *
+	 */
+	public void jnl_key7(String value) {
+		setConstString(offset + 73, $jnl_key7, value);
+	}
+
+	/**
+	 * 仕訳キー項目８. Journal key column 8.<p>
+	 *
+	 */
+	public String jnl_key8() {
+		return getConstString(offset + 74, $jnl_key8);
+	}
+
+	/**
+	 * 仕訳キー項目８. Journal key column 8.<p>
+	 *
+	 */
+	public void jnl_key8(String value) {
+		setConstString(offset + 74, $jnl_key8, value);
+	}
+
+	/**
+	 * 仕訳キー項目９. Journal key column 9.<p>
+	 *
+	 */
+	public String jnl_key9() {
+		return getConstString(offset + 75, $jnl_key9);
+	}
+
+	/**
+	 * 仕訳キー項目９. Journal key column 9.<p>
+	 *
+	 */
+	public void jnl_key9(String value) {
+		setConstString(offset + 75, $jnl_key9, value);
+	}
+
+	/**
+	 * 仕訳キー項目１０. Journal key column 10.<p>
+	 *
+	 */
+	public String jnl_key10() {
+		return getConstString(offset + 76, $jnl_key10);
+	}
+
+	/**
+	 * 仕訳キー項目１０. Journal key column 10.<p>
+	 *
+	 */
+	public void jnl_key10(String value) {
+		setConstString(offset + 76, $jnl_key10, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目１. Spare CHAR column 1.<p>
+	 *
+	 */
+	public String sub_char1() {
+		return getConstString(offset + 77, $sub_char1);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目１. Spare CHAR column 1.<p>
+	 *
+	 */
+	public void sub_char1(String value) {
+		setConstString(offset + 77, $sub_char1, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目２. Spare CHAR column 2.<p>
+	 *
+	 */
+	public String sub_char2() {
+		return getConstString(offset + 78, $sub_char2);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目２. Spare CHAR column 2.<p>
+	 *
+	 */
+	public void sub_char2(String value) {
+		setConstString(offset + 78, $sub_char2, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目３. Spare CHAR column 3.<p>
+	 *
+	 */
+	public String sub_char3() {
+		return getConstString(offset + 79, $sub_char3);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目３. Spare CHAR column 3.<p>
+	 *
+	 */
+	public void sub_char3(String value) {
+		setConstString(offset + 79, $sub_char3, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目４. Spare CHAR column 4.<p>
+	 *
+	 */
+	public String sub_char4() {
+		return getConstString(offset + 80, $sub_char4);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目４. Spare CHAR column 4.<p>
+	 *
+	 */
+	public void sub_char4(String value) {
+		setConstString(offset + 80, $sub_char4, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目５. Spare CHAR column 5.<p>
+	 *
+	 */
+	public String sub_char5() {
+		return getConstString(offset + 81, $sub_char5);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目５. Spare CHAR column 5.<p>
+	 *
+	 */
+	public void sub_char5(String value) {
+		setConstString(offset + 81, $sub_char5, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目６. Spare CHAR column 6.<p>
+	 *
+	 */
+	public String sub_char6() {
+		return getConstString(offset + 82, $sub_char6);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目６. Spare CHAR column 6.<p>
+	 *
+	 */
+	public void sub_char6(String value) {
+		setConstString(offset + 82, $sub_char6, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目７. Spare CHAR column 7.<p>
+	 *
+	 */
+	public String sub_char7() {
+		return getConstString(offset + 83, $sub_char7);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目７. Spare CHAR column 7.<p>
+	 *
+	 */
+	public void sub_char7(String value) {
+		setConstString(offset + 83, $sub_char7, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目８. Spare CHAR column 8.<p>
+	 *
+	 */
+	public String sub_char8() {
+		return getConstString(offset + 84, $sub_char8);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目８. Spare CHAR column 8.<p>
+	 *
+	 */
+	public void sub_char8(String value) {
+		setConstString(offset + 84, $sub_char8, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目９. Spare CHAR column 9.<p>
+	 *
+	 */
+	public String sub_char9() {
+		return getConstString(offset + 85, $sub_char9);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目９. Spare CHAR column 9.<p>
+	 *
+	 */
+	public void sub_char9(String value) {
+		setConstString(offset + 85, $sub_char9, value);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目１０. Spare CHAR column 10.<p>
+	 *
+	 */
+	public String sub_char10() {
+		return getConstString(offset + 86, $sub_char10);
+	}
+
+	/**
+	 * 予備ＣＨＡＲ項目１０. Spare CHAR column 10.<p>
+	 *
+	 */
+	public void sub_char10(String value) {
+		setConstString(offset + 86, $sub_char10, value);
+	}
+
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public MCNumber sub_num1() {
+		return getConstNumber(offset + 87, $sub_num1);
+	}
+
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public void sub_num1(MCNumber value) {
+		setConstNumber(offset + 87, $sub_num1, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public void sub_num1(int value) {
+		setConstNumber(offset + 87, $sub_num1, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public void sub_num1(long value) {
+		setConstNumber(offset + 87, $sub_num1, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public void sub_num1(float value) {
+		setConstNumber(offset + 87, $sub_num1, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目１. Spare NUM column 1.<p>
+	 *
+	 */
+	public void sub_num1(double value) {
+		setConstNumber(offset + 87, $sub_num1, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public MCNumber sub_num2() {
+		return getConstNumber(offset + 88, $sub_num2);
+	}
+
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public void sub_num2(MCNumber value) {
+		setConstNumber(offset + 88, $sub_num2, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public void sub_num2(int value) {
+		setConstNumber(offset + 88, $sub_num2, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public void sub_num2(long value) {
+		setConstNumber(offset + 88, $sub_num2, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public void sub_num2(float value) {
+		setConstNumber(offset + 88, $sub_num2, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目２. Spare NUM column 2.<p>
+	 *
+	 */
+	public void sub_num2(double value) {
+		setConstNumber(offset + 88, $sub_num2, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public MCNumber sub_num3() {
+		return getConstNumber(offset + 89, $sub_num3);
+	}
+
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public void sub_num3(MCNumber value) {
+		setConstNumber(offset + 89, $sub_num3, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public void sub_num3(int value) {
+		setConstNumber(offset + 89, $sub_num3, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public void sub_num3(long value) {
+		setConstNumber(offset + 89, $sub_num3, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public void sub_num3(float value) {
+		setConstNumber(offset + 89, $sub_num3, value);
+	}
+	
+	/**
+	 * 予備ＮＵＭ項目３. Spare NUM column 3.<p>
+	 *
+	 */
+	public void sub_num3(double value) {
+		setConstNumber(offset + 89, $sub_num3, value);
+	}
+	
+	/**
+	 * 予備ＤＡＴＥ項目１. Spare DATE column 1.<p>
+	 *
+	 */
+	public MCDate sub_dt1() {
+		return getConstDate(offset + 90, $sub_dt1);
+	}
+
+	/**
+	 * 予備ＤＡＴＥ項目１. Spare DATE column 1.<p>
+	 *
+	 */
+	public void sub_dt1(MCDate value) {
+		setConstDate(offset + 90, $sub_dt1, value);
+	}
+
+	/**
+	 * 予備ＤＡＴＥ項目２. Spare DATE column 2.<p>
+	 *
+	 */
+	public MCDate sub_dt2() {
+		return getConstDate(offset + 91, $sub_dt2);
+	}
+
+	/**
+	 * 予備ＤＡＴＥ項目２. Spare DATE column 2.<p>
+	 *
+	 */
+	public void sub_dt2(MCDate value) {
+		setConstDate(offset + 91, $sub_dt2, value);
+	}
+
+	/**
+	 * 予備ＤＡＴＥ項目３. Spare DATE column 3.<p>
+	 *
+	 */
+	public MCDate sub_dt3() {
+		return getConstDate(offset + 92, $sub_dt3);
+	}
+
+	/**
+	 * 予備ＤＡＴＥ項目３. Spare DATE column 3.<p>
+	 *
+	 */
+	public void sub_dt3(MCDate value) {
+		setConstDate(offset + 92, $sub_dt3, value);
+	}
+
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public MCNumber jnl_fin_cnt() {
+		return getConstNumber(offset + 93, $jnl_fin_cnt);
+	}
+
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public void jnl_fin_cnt(MCNumber value) {
+		setConstNumber(offset + 93, $jnl_fin_cnt, value);
+	}
+	
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public void jnl_fin_cnt(int value) {
+		setConstNumber(offset + 93, $jnl_fin_cnt, value);
+	}
+	
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public void jnl_fin_cnt(long value) {
+		setConstNumber(offset + 93, $jnl_fin_cnt, value);
+	}
+	
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public void jnl_fin_cnt(float value) {
+		setConstNumber(offset + 93, $jnl_fin_cnt, value);
+	}
+	
+	/**
+	 * 仕訳実行回数. Number of journalizing.<p>
+	 *
+	 */
+	public void jnl_fin_cnt(double value) {
+		setConstNumber(offset + 93, $jnl_fin_cnt, value);
+	}
+	
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public String ins_usr_id() {
+		return getConstString(offset + 94, $ins_usr_id);
+	}
+
+	/**
+	 * 登録ユーザＩＤ. Entry user ID.<p>
+	 *
+	 */
+	public void ins_usr_id(String value) {
+		setConstString(offset + 94, $ins_usr_id, value);
+	}
+
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public String ins_usr_nm() {
+		return getConstString(offset + 95, $ins_usr_nm);
+	}
+
+	/**
+	 * 登録ユーザ名. Entry user name.<p>
+	 *
+	 */
+	public void ins_usr_nm(String value) {
+		setConstString(offset + 95, $ins_usr_nm, value);
+	}
+
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public MCTimestamp ins_ts() {
+		return getConstTimestamp(offset + 96, $ins_ts);
+	}
+
+	/**
+	 * 登録日時. Entry date and time.<p>
+	 *
+	 */
+	public void ins_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 96, $ins_ts, value);
+	}
+
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public String ins_func_id() {
+		return getConstString(offset + 97, $ins_func_id);
+	}
+
+	/**
+	 * 登録機能ＩＤ. Entry function ID.<p>
+	 *
+	 */
+	public void ins_func_id(String value) {
+		setConstString(offset + 97, $ins_func_id, value);
+	}
+
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public MCNumber upd_cntr() {
+		return getConstNumber(offset + 98, $upd_cntr);
+	}
+
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(MCNumber value) {
+		setConstNumber(offset + 98, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(int value) {
+		setConstNumber(offset + 98, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(long value) {
+		setConstNumber(offset + 98, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(float value) {
+		setConstNumber(offset + 98, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新カウンタ. Update counter.<p>
+	 *
+	 */
+	public void upd_cntr(double value) {
+		setConstNumber(offset + 98, $upd_cntr, value);
+	}
+	
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public String upd_usr_id() {
+		return getConstString(offset + 99, $upd_usr_id);
+	}
+
+	/**
+	 * 更新ユーザＩＤ. Update user ID.<p>
+	 *
+	 */
+	public void upd_usr_id(String value) {
+		setConstString(offset + 99, $upd_usr_id, value);
+	}
+
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public String upd_usr_nm() {
+		return getConstString(offset + 100, $upd_usr_nm);
+	}
+
+	/**
+	 * 更新ユーザ名. Update user name.<p>
+	 *
+	 */
+	public void upd_usr_nm(String value) {
+		setConstString(offset + 100, $upd_usr_nm, value);
+	}
+
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public MCTimestamp upd_ts() {
+		return getConstTimestamp(offset + 101, $upd_ts);
+	}
+
+	/**
+	 * 更新日時. Update date and time.<p>
+	 *
+	 */
+	public void upd_ts(MCTimestamp value) {
+		setConstTimestamp(offset + 101, $upd_ts, value);
+	}
+
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public String upd_func_id() {
+		return getConstString(offset + 102, $upd_func_id);
+	}
+
+	/**
+	 * 更新機能ＩＤ. Update function ID.<p>
+	 *
+	 */
+	public void upd_func_id(String value) {
+		setConstString(offset + 102, $upd_func_id, value);
+	}
+
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public String upd_srv_req_no() {
+		return getConstString(offset + 103, $upd_srv_req_no);
+	}
+
+	/**
+	 * 更新リクエストＮＯ. Update request No..<p>
+	 *
+	 */
+	public void upd_srv_req_no(String value) {
+		setConstString(offset + 103, $upd_srv_req_no, value);
+	}
+
+	/**
+	 * 計算グループ名. Calculation group name.<p>
+	 *
+	 */
+	public String calc_grp_nm() {
+		return getConstString(offset + 104, $calc_grp_nm);
+	}
+
+	/**
+	 * 計算グループ名. Calculation group name.<p>
+	 *
+	 */
+	public void calc_grp_nm(String value) {
+		setConstString(offset + 104, $calc_grp_nm, value);
+	}
+
+	/**
+	 * 会計理由名. Accounting reason name.<p>
+	 *
+	 */
+	public String ac_rsn_nm() {
+		return getConstString(offset + 105, $ac_rsn_nm);
+	}
+
+	/**
+	 * 会計理由名. Accounting reason name.<p>
+	 *
+	 */
+	public void ac_rsn_nm(String value) {
+		setConstString(offset + 105, $ac_rsn_nm, value);
+	}
+
+	/**
+	 * 場所名. Location name.<p>
+	 *
+	 */
+	public String loc_nm() {
+		return getConstString(offset + 106, $loc_nm);
+	}
+
+	/**
+	 * 場所名. Location name.<p>
+	 *
+	 */
+	public void loc_nm(String value) {
+		setConstString(offset + 106, $loc_nm, value);
+	}
+
+	/**
+	 * 棚・ライン名. Rack/Line name.<p>
+	 *
+	 */
+	public String str_ln_nm() {
+		return getConstString(offset + 107, $str_ln_nm);
+	}
+
+	/**
+	 * 棚・ライン名. Rack/Line name.<p>
+	 *
+	 */
+	public void str_ln_nm(String value) {
+		setConstString(offset + 107, $str_ln_nm, value);
+	}
+
+	/**
+	 * 会計品目分類名. Accounting item classification name.<p>
+	 *
+	 */
+	public String ac_itm_grp_nm() {
+		return getConstString(offset + 108, $ac_itm_grp_nm);
+	}
+
+	/**
+	 * 会計品目分類名. Accounting item classification name.<p>
+	 *
+	 */
+	public void ac_itm_grp_nm(String value) {
+		setConstString(offset + 108, $ac_itm_grp_nm, value);
+	}
+
+	/**
+	 * 品目仕訳名. Item journal name.<p>
+	 *
+	 */
+	public String itm_jnl_nm() {
+		return getConstString(offset + 109, $itm_jnl_nm);
+	}
+
+	/**
+	 * 品目仕訳名. Item journal name.<p>
+	 *
+	 */
+	public void itm_jnl_nm(String value) {
+		setConstString(offset + 109, $itm_jnl_nm, value);
+	}
+
+	/**
+	 * 基準単位名. Base unit name.<p>
+	 *
+	 */
+	public String base_unit_nm() {
+		return getConstString(offset + 110, $base_unit_nm);
+	}
+
+	/**
+	 * 基準単位名. Base unit name.<p>
+	 *
+	 */
+	public void base_unit_nm(String value) {
+		setConstString(offset + 110, $base_unit_nm, value);
+	}
+
+	/**
+	 * 基準通貨名. Base currency name.<p>
+	 *
+	 */
+	public String base_cur_nm() {
+		return getConstString(offset + 111, $base_cur_nm);
+	}
+
+	/**
+	 * 基準通貨名. Base currency name.<p>
+	 *
+	 */
+	public void base_cur_nm(String value) {
+		setConstString(offset + 111, $base_cur_nm, value);
+	}
+
+	/**
+	 * 発注先名. Supplier name.<p>
+	 *
+	 */
+	public String sppl_nm() {
+		return getConstString(offset + 112, $sppl_nm);
+	}
+
+	/**
+	 * 発注先名. Supplier name.<p>
+	 *
+	 */
+	public void sppl_nm(String value) {
+		setConstString(offset + 112, $sppl_nm, value);
+	}
+
+	/**
+	 * 得意先名. Customer name.<p>
+	 *
+	 */
+	public String cst_nm() {
+		return getConstString(offset + 113, $cst_nm);
+	}
+
+	/**
+	 * 得意先名. Customer name.<p>
+	 *
+	 */
+	public void cst_nm(String value) {
+		setConstString(offset + 113, $cst_nm, value);
+	}
+
+	/**
+	 * 在庫保管先名. Inventory storage destination name.<p>
+	 *
+	 */
+	public String inv_com_nm() {
+		return getConstString(offset + 114, $inv_com_nm);
+	}
+
+	/**
+	 * 在庫保管先名. Inventory storage destination name.<p>
+	 *
+	 */
+	public void inv_com_nm(String value) {
+		setConstString(offset + 114, $inv_com_nm, value);
+	}
+
+	/**
+	 * 地域名. Region name.<p>
+	 *
+	 */
+	public String area_nm() {
+		return getConstString(offset + 115, $area_nm);
+	}
+
+	/**
+	 * 地域名. Region name.<p>
+	 *
+	 */
+	public void area_nm(String value) {
+		setConstString(offset + 115, $area_nm, value);
+	}
+
+	/**
+	 * 国名. Country name.<p>
+	 *
+	 */
+	public String cntry_nm() {
+		return getConstString(offset + 116, $cntry_nm);
+	}
+
+	/**
+	 * 国名. Country name.<p>
+	 *
+	 */
+	public void cntry_nm(String value) {
+		setConstString(offset + 116, $cntry_nm, value);
+	}
+
+	/**
+	 * 担当者名. PIC name.<p>
+	 *
+	 */
+	public String usr_nm() {
+		return getConstString(offset + 117, $usr_nm);
+	}
+
+	/**
+	 * 担当者名. PIC name.<p>
+	 *
+	 */
+	public void usr_nm(String value) {
+		setConstString(offset + 117, $usr_nm, value);
+	}
+
+	/**
+	 * 振替先会計品目分類名. Transfer accounting item classification name.<p>
+	 *
+	 */
+	public String trd_ac_itm_grp_nm() {
+		return getConstString(offset + 118, $trd_ac_itm_grp_nm);
+	}
+
+	/**
+	 * 振替先会計品目分類名. Transfer accounting item classification name.<p>
+	 *
+	 */
+	public void trd_ac_itm_grp_nm(String value) {
+		setConstString(offset + 118, $trd_ac_itm_grp_nm, value);
+	}
+
+	/**
+	 * 振替先品目仕訳名. Transfer item journal name.<p>
+	 *
+	 */
+	public String trd_itm_jnl_nm() {
+		return getConstString(offset + 119, $trd_itm_jnl_nm);
+	}
+
+	/**
+	 * 振替先品目仕訳名. Transfer item journal name.<p>
+	 *
+	 */
+	public void trd_itm_jnl_nm(String value) {
+		setConstString(offset + 119, $trd_itm_jnl_nm, value);
+	}
+
+	public String getString(String name) {
+		if ($data_no.equalsIgnoreCase(name)) {
+			return data_no();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			return calc_grp_cd();
+		}
+		if ($calc_no.equalsIgnoreCase(name)) {
+			return calc_no();
+		}
+		if ($ac_slip_typ.equalsIgnoreCase(name)) {
+			return ac_slip_typ();
+		}
+		if ($ac_rsn_cd.equalsIgnoreCase(name)) {
+			return ac_rsn_cd();
+		}
+		if ($purc_dpt_cd.equalsIgnoreCase(name)) {
+			return purc_dpt_cd();
+		}
+		if ($ap_dpt_cd.equalsIgnoreCase(name)) {
+			return ap_dpt_cd();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($ar_dpt_cd.equalsIgnoreCase(name)) {
+			return ar_dpt_cd();
+		}
+		if ($gi_dpt_cd.equalsIgnoreCase(name)) {
+			return gi_dpt_cd();
+		}
+		if ($gr_dpt_cd.equalsIgnoreCase(name)) {
+			return gr_dpt_cd();
+		}
+		if ($bd_dpt_cd.equalsIgnoreCase(name)) {
+			return bd_dpt_cd();
+		}
+		if ($sub_dpt_cd1.equalsIgnoreCase(name)) {
+			return sub_dpt_cd1();
+		}
+		if ($sub_dpt_cd2.equalsIgnoreCase(name)) {
+			return sub_dpt_cd2();
+		}
+		if ($sub_dpt_cd3.equalsIgnoreCase(name)) {
+			return sub_dpt_cd3();
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			return loc_cd();
+		}
+		if ($str_ln_cd.equalsIgnoreCase(name)) {
+			return str_ln_cd();
+		}
+		if ($ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			return ac_itm_grp_cd();
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			return itm_jnl_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			return itm_nm();
+		}
+		if ($lot_no.equalsIgnoreCase(name)) {
+			return lot_no();
+		}
+		if ($sublot_no.equalsIgnoreCase(name)) {
+			return sublot_no();
+		}
+		if ($sno1.equalsIgnoreCase(name)) {
+			return sno1();
+		}
+		if ($sno2.equalsIgnoreCase(name)) {
+			return sno2();
+		}
+		if ($sno3.equalsIgnoreCase(name)) {
+			return sno3();
+		}
+		if ($sno4.equalsIgnoreCase(name)) {
+			return sno4();
+		}
+		if ($slo_no.equalsIgnoreCase(name)) {
+			return slo_no();
+		}
+		if ($po_no.equalsIgnoreCase(name)) {
+			return po_no();
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			return iv_no();
+		}
+		if ($wrk_no.equalsIgnoreCase(name)) {
+			return wrk_no();
+		}
+		if ($asst_typ.equalsIgnoreCase(name)) {
+			return asst_typ();
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			return base_unit_cd();
+		}
+		if ($base_cur_cd.equalsIgnoreCase(name)) {
+			return base_cur_cd();
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			return sppl_cd();
+		}
+		if ($cst_cd.equalsIgnoreCase(name)) {
+			return cst_cd();
+		}
+		if ($inv_com_cd.equalsIgnoreCase(name)) {
+			return inv_com_cd();
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			return area_cd();
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			return cntry_cd();
+		}
+		if ($usr_cd.equalsIgnoreCase(name)) {
+			return usr_cd();
+		}
+		if ($src_alc_ac_cd.equalsIgnoreCase(name)) {
+			return src_alc_ac_cd();
+		}
+		if ($alc_ac_cd.equalsIgnoreCase(name)) {
+			return alc_ac_cd();
+		}
+		if ($expns_cd.equalsIgnoreCase(name)) {
+			return expns_cd();
+		}
+		if ($trd_grp.equalsIgnoreCase(name)) {
+			return trd_grp();
+		}
+		if ($trd_ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			return trd_ac_itm_grp_cd();
+		}
+		if ($trd_itm_jnl_cd.equalsIgnoreCase(name)) {
+			return trd_itm_jnl_cd();
+		}
+		if ($trd_itm_cd.equalsIgnoreCase(name)) {
+			return trd_itm_cd();
+		}
+		if ($trd_itm_sub1.equalsIgnoreCase(name)) {
+			return trd_itm_sub1();
+		}
+		if ($trd_itm_sub2.equalsIgnoreCase(name)) {
+			return trd_itm_sub2();
+		}
+		if ($trd_itm_sub3.equalsIgnoreCase(name)) {
+			return trd_itm_sub3();
+		}
+		if ($trd_itm_nm.equalsIgnoreCase(name)) {
+			return trd_itm_nm();
+		}
+		if ($trd_lot_no.equalsIgnoreCase(name)) {
+			return trd_lot_no();
+		}
+		if ($trd_sublot_no.equalsIgnoreCase(name)) {
+			return trd_sublot_no();
+		}
+		if ($trd_sno1.equalsIgnoreCase(name)) {
+			return trd_sno1();
+		}
+		if ($trd_sno2.equalsIgnoreCase(name)) {
+			return trd_sno2();
+		}
+		if ($trd_sno3.equalsIgnoreCase(name)) {
+			return trd_sno3();
+		}
+		if ($trd_sno4.equalsIgnoreCase(name)) {
+			return trd_sno4();
+		}
+		if ($jnl_key1.equalsIgnoreCase(name)) {
+			return jnl_key1();
+		}
+		if ($jnl_key2.equalsIgnoreCase(name)) {
+			return jnl_key2();
+		}
+		if ($jnl_key3.equalsIgnoreCase(name)) {
+			return jnl_key3();
+		}
+		if ($jnl_key4.equalsIgnoreCase(name)) {
+			return jnl_key4();
+		}
+		if ($jnl_key5.equalsIgnoreCase(name)) {
+			return jnl_key5();
+		}
+		if ($jnl_key6.equalsIgnoreCase(name)) {
+			return jnl_key6();
+		}
+		if ($jnl_key7.equalsIgnoreCase(name)) {
+			return jnl_key7();
+		}
+		if ($jnl_key8.equalsIgnoreCase(name)) {
+			return jnl_key8();
+		}
+		if ($jnl_key9.equalsIgnoreCase(name)) {
+			return jnl_key9();
+		}
+		if ($jnl_key10.equalsIgnoreCase(name)) {
+			return jnl_key10();
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			return sub_char1();
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			return sub_char2();
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			return sub_char3();
+		}
+		if ($sub_char4.equalsIgnoreCase(name)) {
+			return sub_char4();
+		}
+		if ($sub_char5.equalsIgnoreCase(name)) {
+			return sub_char5();
+		}
+		if ($sub_char6.equalsIgnoreCase(name)) {
+			return sub_char6();
+		}
+		if ($sub_char7.equalsIgnoreCase(name)) {
+			return sub_char7();
+		}
+		if ($sub_char8.equalsIgnoreCase(name)) {
+			return sub_char8();
+		}
+		if ($sub_char9.equalsIgnoreCase(name)) {
+			return sub_char9();
+		}
+		if ($sub_char10.equalsIgnoreCase(name)) {
+			return sub_char10();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		if ($calc_grp_nm.equalsIgnoreCase(name)) {
+			return calc_grp_nm();
+		}
+		if ($ac_rsn_nm.equalsIgnoreCase(name)) {
+			return ac_rsn_nm();
+		}
+		if ($loc_nm.equalsIgnoreCase(name)) {
+			return loc_nm();
+		}
+		if ($str_ln_nm.equalsIgnoreCase(name)) {
+			return str_ln_nm();
+		}
+		if ($ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			return ac_itm_grp_nm();
+		}
+		if ($itm_jnl_nm.equalsIgnoreCase(name)) {
+			return itm_jnl_nm();
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			return base_unit_nm();
+		}
+		if ($base_cur_nm.equalsIgnoreCase(name)) {
+			return base_cur_nm();
+		}
+		if ($sppl_nm.equalsIgnoreCase(name)) {
+			return sppl_nm();
+		}
+		if ($cst_nm.equalsIgnoreCase(name)) {
+			return cst_nm();
+		}
+		if ($inv_com_nm.equalsIgnoreCase(name)) {
+			return inv_com_nm();
+		}
+		if ($area_nm.equalsIgnoreCase(name)) {
+			return area_nm();
+		}
+		if ($cntry_nm.equalsIgnoreCase(name)) {
+			return cntry_nm();
+		}
+		if ($usr_nm.equalsIgnoreCase(name)) {
+			return usr_nm();
+		}
+		if ($trd_ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			return trd_ac_itm_grp_nm();
+		}
+		if ($trd_itm_jnl_nm.equalsIgnoreCase(name)) {
+			return trd_itm_jnl_nm();
+		}
+		return super.getString(name);
+	}
+
+	public MCNumber getNumber(String name) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			return base_unit_qty();
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			return amt();
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			return sub_num1();
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			return sub_num2();
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			return sub_num3();
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			return jnl_fin_cnt();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumber(name);
+	}
+
+	public MCDate getDate(String name) {
+		if ($ac_ym.equalsIgnoreCase(name)) {
+			return ac_ym();
+		}
+		if ($ac_dt.equalsIgnoreCase(name)) {
+			return ac_dt();
+		}
+		if ($sub_dt1.equalsIgnoreCase(name)) {
+			return sub_dt1();
+		}
+		if ($sub_dt2.equalsIgnoreCase(name)) {
+			return sub_dt2();
+		}
+		if ($sub_dt3.equalsIgnoreCase(name)) {
+			return sub_dt3();
+		}
+		return super.getDate(name);
+	}
+
+	public MCTimestamp getTimestamp(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		return super.getTimestamp(name);
+	}
+
+	public boolean getBoolean(String name) {
+		if ($repurc_obli_flg.equalsIgnoreCase(name)) {
+			return repurc_obli_flg();
+		}
+		if ($foreign_flg.equalsIgnoreCase(name)) {
+			return foreign_flg();
+		}
+		return super.getBoolean(name);
+	}
+
+	public String getStringNE(String name) {
+		if ($data_no.equalsIgnoreCase(name)) {
+			return data_no();
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			return wg_cd();
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			return calc_grp_cd();
+		}
+		if ($calc_no.equalsIgnoreCase(name)) {
+			return calc_no();
+		}
+		if ($ac_slip_typ.equalsIgnoreCase(name)) {
+			return ac_slip_typ();
+		}
+		if ($ac_rsn_cd.equalsIgnoreCase(name)) {
+			return ac_rsn_cd();
+		}
+		if ($purc_dpt_cd.equalsIgnoreCase(name)) {
+			return purc_dpt_cd();
+		}
+		if ($ap_dpt_cd.equalsIgnoreCase(name)) {
+			return ap_dpt_cd();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($ar_dpt_cd.equalsIgnoreCase(name)) {
+			return ar_dpt_cd();
+		}
+		if ($gi_dpt_cd.equalsIgnoreCase(name)) {
+			return gi_dpt_cd();
+		}
+		if ($gr_dpt_cd.equalsIgnoreCase(name)) {
+			return gr_dpt_cd();
+		}
+		if ($bd_dpt_cd.equalsIgnoreCase(name)) {
+			return bd_dpt_cd();
+		}
+		if ($sub_dpt_cd1.equalsIgnoreCase(name)) {
+			return sub_dpt_cd1();
+		}
+		if ($sub_dpt_cd2.equalsIgnoreCase(name)) {
+			return sub_dpt_cd2();
+		}
+		if ($sub_dpt_cd3.equalsIgnoreCase(name)) {
+			return sub_dpt_cd3();
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			return loc_cd();
+		}
+		if ($str_ln_cd.equalsIgnoreCase(name)) {
+			return str_ln_cd();
+		}
+		if ($ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			return ac_itm_grp_cd();
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			return itm_jnl_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			return itm_sub1();
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			return itm_sub2();
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			return itm_sub3();
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			return itm_nm();
+		}
+		if ($lot_no.equalsIgnoreCase(name)) {
+			return lot_no();
+		}
+		if ($sublot_no.equalsIgnoreCase(name)) {
+			return sublot_no();
+		}
+		if ($sno1.equalsIgnoreCase(name)) {
+			return sno1();
+		}
+		if ($sno2.equalsIgnoreCase(name)) {
+			return sno2();
+		}
+		if ($sno3.equalsIgnoreCase(name)) {
+			return sno3();
+		}
+		if ($sno4.equalsIgnoreCase(name)) {
+			return sno4();
+		}
+		if ($slo_no.equalsIgnoreCase(name)) {
+			return slo_no();
+		}
+		if ($po_no.equalsIgnoreCase(name)) {
+			return po_no();
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			return iv_no();
+		}
+		if ($wrk_no.equalsIgnoreCase(name)) {
+			return wrk_no();
+		}
+		if ($asst_typ.equalsIgnoreCase(name)) {
+			return asst_typ();
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			return base_unit_cd();
+		}
+		if ($base_cur_cd.equalsIgnoreCase(name)) {
+			return base_cur_cd();
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			return sppl_cd();
+		}
+		if ($cst_cd.equalsIgnoreCase(name)) {
+			return cst_cd();
+		}
+		if ($inv_com_cd.equalsIgnoreCase(name)) {
+			return inv_com_cd();
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			return area_cd();
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			return cntry_cd();
+		}
+		if ($usr_cd.equalsIgnoreCase(name)) {
+			return usr_cd();
+		}
+		if ($src_alc_ac_cd.equalsIgnoreCase(name)) {
+			return src_alc_ac_cd();
+		}
+		if ($alc_ac_cd.equalsIgnoreCase(name)) {
+			return alc_ac_cd();
+		}
+		if ($expns_cd.equalsIgnoreCase(name)) {
+			return expns_cd();
+		}
+		if ($trd_grp.equalsIgnoreCase(name)) {
+			return trd_grp();
+		}
+		if ($trd_ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			return trd_ac_itm_grp_cd();
+		}
+		if ($trd_itm_jnl_cd.equalsIgnoreCase(name)) {
+			return trd_itm_jnl_cd();
+		}
+		if ($trd_itm_cd.equalsIgnoreCase(name)) {
+			return trd_itm_cd();
+		}
+		if ($trd_itm_sub1.equalsIgnoreCase(name)) {
+			return trd_itm_sub1();
+		}
+		if ($trd_itm_sub2.equalsIgnoreCase(name)) {
+			return trd_itm_sub2();
+		}
+		if ($trd_itm_sub3.equalsIgnoreCase(name)) {
+			return trd_itm_sub3();
+		}
+		if ($trd_itm_nm.equalsIgnoreCase(name)) {
+			return trd_itm_nm();
+		}
+		if ($trd_lot_no.equalsIgnoreCase(name)) {
+			return trd_lot_no();
+		}
+		if ($trd_sublot_no.equalsIgnoreCase(name)) {
+			return trd_sublot_no();
+		}
+		if ($trd_sno1.equalsIgnoreCase(name)) {
+			return trd_sno1();
+		}
+		if ($trd_sno2.equalsIgnoreCase(name)) {
+			return trd_sno2();
+		}
+		if ($trd_sno3.equalsIgnoreCase(name)) {
+			return trd_sno3();
+		}
+		if ($trd_sno4.equalsIgnoreCase(name)) {
+			return trd_sno4();
+		}
+		if ($jnl_key1.equalsIgnoreCase(name)) {
+			return jnl_key1();
+		}
+		if ($jnl_key2.equalsIgnoreCase(name)) {
+			return jnl_key2();
+		}
+		if ($jnl_key3.equalsIgnoreCase(name)) {
+			return jnl_key3();
+		}
+		if ($jnl_key4.equalsIgnoreCase(name)) {
+			return jnl_key4();
+		}
+		if ($jnl_key5.equalsIgnoreCase(name)) {
+			return jnl_key5();
+		}
+		if ($jnl_key6.equalsIgnoreCase(name)) {
+			return jnl_key6();
+		}
+		if ($jnl_key7.equalsIgnoreCase(name)) {
+			return jnl_key7();
+		}
+		if ($jnl_key8.equalsIgnoreCase(name)) {
+			return jnl_key8();
+		}
+		if ($jnl_key9.equalsIgnoreCase(name)) {
+			return jnl_key9();
+		}
+		if ($jnl_key10.equalsIgnoreCase(name)) {
+			return jnl_key10();
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			return sub_char1();
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			return sub_char2();
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			return sub_char3();
+		}
+		if ($sub_char4.equalsIgnoreCase(name)) {
+			return sub_char4();
+		}
+		if ($sub_char5.equalsIgnoreCase(name)) {
+			return sub_char5();
+		}
+		if ($sub_char6.equalsIgnoreCase(name)) {
+			return sub_char6();
+		}
+		if ($sub_char7.equalsIgnoreCase(name)) {
+			return sub_char7();
+		}
+		if ($sub_char8.equalsIgnoreCase(name)) {
+			return sub_char8();
+		}
+		if ($sub_char9.equalsIgnoreCase(name)) {
+			return sub_char9();
+		}
+		if ($sub_char10.equalsIgnoreCase(name)) {
+			return sub_char10();
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			return ins_usr_id();
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			return ins_usr_nm();
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			return ins_func_id();
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			return upd_usr_id();
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			return upd_usr_nm();
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			return upd_func_id();
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			return upd_srv_req_no();
+		}
+		if ($calc_grp_nm.equalsIgnoreCase(name)) {
+			return calc_grp_nm();
+		}
+		if ($ac_rsn_nm.equalsIgnoreCase(name)) {
+			return ac_rsn_nm();
+		}
+		if ($loc_nm.equalsIgnoreCase(name)) {
+			return loc_nm();
+		}
+		if ($str_ln_nm.equalsIgnoreCase(name)) {
+			return str_ln_nm();
+		}
+		if ($ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			return ac_itm_grp_nm();
+		}
+		if ($itm_jnl_nm.equalsIgnoreCase(name)) {
+			return itm_jnl_nm();
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			return base_unit_nm();
+		}
+		if ($base_cur_nm.equalsIgnoreCase(name)) {
+			return base_cur_nm();
+		}
+		if ($sppl_nm.equalsIgnoreCase(name)) {
+			return sppl_nm();
+		}
+		if ($cst_nm.equalsIgnoreCase(name)) {
+			return cst_nm();
+		}
+		if ($inv_com_nm.equalsIgnoreCase(name)) {
+			return inv_com_nm();
+		}
+		if ($area_nm.equalsIgnoreCase(name)) {
+			return area_nm();
+		}
+		if ($cntry_nm.equalsIgnoreCase(name)) {
+			return cntry_nm();
+		}
+		if ($usr_nm.equalsIgnoreCase(name)) {
+			return usr_nm();
+		}
+		if ($trd_ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			return trd_ac_itm_grp_nm();
+		}
+		if ($trd_itm_jnl_nm.equalsIgnoreCase(name)) {
+			return trd_itm_jnl_nm();
+		}
+		return super.getStringNE(name);
+	}
+
+	public MCNumber getNumberNE(String name) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			return base_unit_qty();
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			return amt();
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			return sub_num1();
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			return sub_num2();
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			return sub_num3();
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			return jnl_fin_cnt();
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			return upd_cntr();
+		}
+		return super.getNumberNE(name);
+	}
+
+	public MCDate getDateNE(String name) {
+		if ($ac_ym.equalsIgnoreCase(name)) {
+			return ac_ym();
+		}
+		if ($ac_dt.equalsIgnoreCase(name)) {
+			return ac_dt();
+		}
+		if ($sub_dt1.equalsIgnoreCase(name)) {
+			return sub_dt1();
+		}
+		if ($sub_dt2.equalsIgnoreCase(name)) {
+			return sub_dt2();
+		}
+		if ($sub_dt3.equalsIgnoreCase(name)) {
+			return sub_dt3();
+		}
+		return super.getDateNE(name);
+	}
+
+	public MCTimestamp getTimestampNE(String name) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			return ins_ts();
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			return upd_ts();
+		}
+		return super.getTimestampNE(name);
+	}
+
+	public boolean getBooleanNE(String name) {
+		if ($repurc_obli_flg.equalsIgnoreCase(name)) {
+			return repurc_obli_flg();
+		}
+		if ($foreign_flg.equalsIgnoreCase(name)) {
+			return foreign_flg();
+		}
+		return super.getBooleanNE(name);
+	}
+
+	public void setString(String name, String value) {
+		if ($data_no.equalsIgnoreCase(name)) {
+			data_no(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			calc_grp_cd(value);
+			return;
+		}
+		if ($calc_no.equalsIgnoreCase(name)) {
+			calc_no(value);
+			return;
+		}
+		if ($ac_slip_typ.equalsIgnoreCase(name)) {
+			ac_slip_typ(value);
+			return;
+		}
+		if ($ac_rsn_cd.equalsIgnoreCase(name)) {
+			ac_rsn_cd(value);
+			return;
+		}
+		if ($purc_dpt_cd.equalsIgnoreCase(name)) {
+			purc_dpt_cd(value);
+			return;
+		}
+		if ($ap_dpt_cd.equalsIgnoreCase(name)) {
+			ap_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($ar_dpt_cd.equalsIgnoreCase(name)) {
+			ar_dpt_cd(value);
+			return;
+		}
+		if ($gi_dpt_cd.equalsIgnoreCase(name)) {
+			gi_dpt_cd(value);
+			return;
+		}
+		if ($gr_dpt_cd.equalsIgnoreCase(name)) {
+			gr_dpt_cd(value);
+			return;
+		}
+		if ($bd_dpt_cd.equalsIgnoreCase(name)) {
+			bd_dpt_cd(value);
+			return;
+		}
+		if ($sub_dpt_cd1.equalsIgnoreCase(name)) {
+			sub_dpt_cd1(value);
+			return;
+		}
+		if ($sub_dpt_cd2.equalsIgnoreCase(name)) {
+			sub_dpt_cd2(value);
+			return;
+		}
+		if ($sub_dpt_cd3.equalsIgnoreCase(name)) {
+			sub_dpt_cd3(value);
+			return;
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			loc_cd(value);
+			return;
+		}
+		if ($str_ln_cd.equalsIgnoreCase(name)) {
+			str_ln_cd(value);
+			return;
+		}
+		if ($ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			ac_itm_grp_cd(value);
+			return;
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			itm_jnl_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			itm_nm(value);
+			return;
+		}
+		if ($lot_no.equalsIgnoreCase(name)) {
+			lot_no(value);
+			return;
+		}
+		if ($sublot_no.equalsIgnoreCase(name)) {
+			sublot_no(value);
+			return;
+		}
+		if ($sno1.equalsIgnoreCase(name)) {
+			sno1(value);
+			return;
+		}
+		if ($sno2.equalsIgnoreCase(name)) {
+			sno2(value);
+			return;
+		}
+		if ($sno3.equalsIgnoreCase(name)) {
+			sno3(value);
+			return;
+		}
+		if ($sno4.equalsIgnoreCase(name)) {
+			sno4(value);
+			return;
+		}
+		if ($slo_no.equalsIgnoreCase(name)) {
+			slo_no(value);
+			return;
+		}
+		if ($po_no.equalsIgnoreCase(name)) {
+			po_no(value);
+			return;
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			iv_no(value);
+			return;
+		}
+		if ($wrk_no.equalsIgnoreCase(name)) {
+			wrk_no(value);
+			return;
+		}
+		if ($asst_typ.equalsIgnoreCase(name)) {
+			asst_typ(value);
+			return;
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			base_unit_cd(value);
+			return;
+		}
+		if ($base_cur_cd.equalsIgnoreCase(name)) {
+			base_cur_cd(value);
+			return;
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			sppl_cd(value);
+			return;
+		}
+		if ($cst_cd.equalsIgnoreCase(name)) {
+			cst_cd(value);
+			return;
+		}
+		if ($inv_com_cd.equalsIgnoreCase(name)) {
+			inv_com_cd(value);
+			return;
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			area_cd(value);
+			return;
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			cntry_cd(value);
+			return;
+		}
+		if ($usr_cd.equalsIgnoreCase(name)) {
+			usr_cd(value);
+			return;
+		}
+		if ($src_alc_ac_cd.equalsIgnoreCase(name)) {
+			src_alc_ac_cd(value);
+			return;
+		}
+		if ($alc_ac_cd.equalsIgnoreCase(name)) {
+			alc_ac_cd(value);
+			return;
+		}
+		if ($expns_cd.equalsIgnoreCase(name)) {
+			expns_cd(value);
+			return;
+		}
+		if ($trd_grp.equalsIgnoreCase(name)) {
+			trd_grp(value);
+			return;
+		}
+		if ($trd_ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			trd_ac_itm_grp_cd(value);
+			return;
+		}
+		if ($trd_itm_jnl_cd.equalsIgnoreCase(name)) {
+			trd_itm_jnl_cd(value);
+			return;
+		}
+		if ($trd_itm_cd.equalsIgnoreCase(name)) {
+			trd_itm_cd(value);
+			return;
+		}
+		if ($trd_itm_sub1.equalsIgnoreCase(name)) {
+			trd_itm_sub1(value);
+			return;
+		}
+		if ($trd_itm_sub2.equalsIgnoreCase(name)) {
+			trd_itm_sub2(value);
+			return;
+		}
+		if ($trd_itm_sub3.equalsIgnoreCase(name)) {
+			trd_itm_sub3(value);
+			return;
+		}
+		if ($trd_itm_nm.equalsIgnoreCase(name)) {
+			trd_itm_nm(value);
+			return;
+		}
+		if ($trd_lot_no.equalsIgnoreCase(name)) {
+			trd_lot_no(value);
+			return;
+		}
+		if ($trd_sublot_no.equalsIgnoreCase(name)) {
+			trd_sublot_no(value);
+			return;
+		}
+		if ($trd_sno1.equalsIgnoreCase(name)) {
+			trd_sno1(value);
+			return;
+		}
+		if ($trd_sno2.equalsIgnoreCase(name)) {
+			trd_sno2(value);
+			return;
+		}
+		if ($trd_sno3.equalsIgnoreCase(name)) {
+			trd_sno3(value);
+			return;
+		}
+		if ($trd_sno4.equalsIgnoreCase(name)) {
+			trd_sno4(value);
+			return;
+		}
+		if ($jnl_key1.equalsIgnoreCase(name)) {
+			jnl_key1(value);
+			return;
+		}
+		if ($jnl_key2.equalsIgnoreCase(name)) {
+			jnl_key2(value);
+			return;
+		}
+		if ($jnl_key3.equalsIgnoreCase(name)) {
+			jnl_key3(value);
+			return;
+		}
+		if ($jnl_key4.equalsIgnoreCase(name)) {
+			jnl_key4(value);
+			return;
+		}
+		if ($jnl_key5.equalsIgnoreCase(name)) {
+			jnl_key5(value);
+			return;
+		}
+		if ($jnl_key6.equalsIgnoreCase(name)) {
+			jnl_key6(value);
+			return;
+		}
+		if ($jnl_key7.equalsIgnoreCase(name)) {
+			jnl_key7(value);
+			return;
+		}
+		if ($jnl_key8.equalsIgnoreCase(name)) {
+			jnl_key8(value);
+			return;
+		}
+		if ($jnl_key9.equalsIgnoreCase(name)) {
+			jnl_key9(value);
+			return;
+		}
+		if ($jnl_key10.equalsIgnoreCase(name)) {
+			jnl_key10(value);
+			return;
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			sub_char1(value);
+			return;
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			sub_char2(value);
+			return;
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			sub_char3(value);
+			return;
+		}
+		if ($sub_char4.equalsIgnoreCase(name)) {
+			sub_char4(value);
+			return;
+		}
+		if ($sub_char5.equalsIgnoreCase(name)) {
+			sub_char5(value);
+			return;
+		}
+		if ($sub_char6.equalsIgnoreCase(name)) {
+			sub_char6(value);
+			return;
+		}
+		if ($sub_char7.equalsIgnoreCase(name)) {
+			sub_char7(value);
+			return;
+		}
+		if ($sub_char8.equalsIgnoreCase(name)) {
+			sub_char8(value);
+			return;
+		}
+		if ($sub_char9.equalsIgnoreCase(name)) {
+			sub_char9(value);
+			return;
+		}
+		if ($sub_char10.equalsIgnoreCase(name)) {
+			sub_char10(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		if ($calc_grp_nm.equalsIgnoreCase(name)) {
+			calc_grp_nm(value);
+			return;
+		}
+		if ($ac_rsn_nm.equalsIgnoreCase(name)) {
+			ac_rsn_nm(value);
+			return;
+		}
+		if ($loc_nm.equalsIgnoreCase(name)) {
+			loc_nm(value);
+			return;
+		}
+		if ($str_ln_nm.equalsIgnoreCase(name)) {
+			str_ln_nm(value);
+			return;
+		}
+		if ($ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			ac_itm_grp_nm(value);
+			return;
+		}
+		if ($itm_jnl_nm.equalsIgnoreCase(name)) {
+			itm_jnl_nm(value);
+			return;
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			base_unit_nm(value);
+			return;
+		}
+		if ($base_cur_nm.equalsIgnoreCase(name)) {
+			base_cur_nm(value);
+			return;
+		}
+		if ($sppl_nm.equalsIgnoreCase(name)) {
+			sppl_nm(value);
+			return;
+		}
+		if ($cst_nm.equalsIgnoreCase(name)) {
+			cst_nm(value);
+			return;
+		}
+		if ($inv_com_nm.equalsIgnoreCase(name)) {
+			inv_com_nm(value);
+			return;
+		}
+		if ($area_nm.equalsIgnoreCase(name)) {
+			area_nm(value);
+			return;
+		}
+		if ($cntry_nm.equalsIgnoreCase(name)) {
+			cntry_nm(value);
+			return;
+		}
+		if ($usr_nm.equalsIgnoreCase(name)) {
+			usr_nm(value);
+			return;
+		}
+		if ($trd_ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			trd_ac_itm_grp_nm(value);
+			return;
+		}
+		if ($trd_itm_jnl_nm.equalsIgnoreCase(name)) {
+			trd_itm_jnl_nm(value);
+			return;
+		}
+		super.setString(name, value);
+	}
+
+	public void setNumber(String name, MCNumber value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, int value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, long value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, float value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setNumber(String name, double value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+
+	public void setDate(String name, MCDate value) {
+		if ($ac_ym.equalsIgnoreCase(name)) {
+			ac_ym(value);
+			return;
+		}
+		if ($ac_dt.equalsIgnoreCase(name)) {
+			ac_dt(value);
+			return;
+		}
+		if ($sub_dt1.equalsIgnoreCase(name)) {
+			sub_dt1(value);
+			return;
+		}
+		if ($sub_dt2.equalsIgnoreCase(name)) {
+			sub_dt2(value);
+			return;
+		}
+		if ($sub_dt3.equalsIgnoreCase(name)) {
+			sub_dt3(value);
+			return;
+		}
+		super.setDate(name, value);
+	}
+
+	public void setTimestamp(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		super.setTimestamp(name, value);
+	}
+
+	public void setBoolean(String name, boolean value) {
+		if ($repurc_obli_flg.equalsIgnoreCase(name)) {
+			repurc_obli_flg(value);
+			return;
+		}
+		if ($foreign_flg.equalsIgnoreCase(name)) {
+			foreign_flg(value);
+			return;
+		}
+		super.setBoolean(name, value);
+	}
+
+	public void setStringNE(String name, String value) {
+		if ($data_no.equalsIgnoreCase(name)) {
+			data_no(value);
+			return;
+		}
+		if ($wg_cd.equalsIgnoreCase(name)) {
+			wg_cd(value);
+			return;
+		}
+		if ($calc_grp_cd.equalsIgnoreCase(name)) {
+			calc_grp_cd(value);
+			return;
+		}
+		if ($calc_no.equalsIgnoreCase(name)) {
+			calc_no(value);
+			return;
+		}
+		if ($ac_slip_typ.equalsIgnoreCase(name)) {
+			ac_slip_typ(value);
+			return;
+		}
+		if ($ac_rsn_cd.equalsIgnoreCase(name)) {
+			ac_rsn_cd(value);
+			return;
+		}
+		if ($purc_dpt_cd.equalsIgnoreCase(name)) {
+			purc_dpt_cd(value);
+			return;
+		}
+		if ($ap_dpt_cd.equalsIgnoreCase(name)) {
+			ap_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($ar_dpt_cd.equalsIgnoreCase(name)) {
+			ar_dpt_cd(value);
+			return;
+		}
+		if ($gi_dpt_cd.equalsIgnoreCase(name)) {
+			gi_dpt_cd(value);
+			return;
+		}
+		if ($gr_dpt_cd.equalsIgnoreCase(name)) {
+			gr_dpt_cd(value);
+			return;
+		}
+		if ($bd_dpt_cd.equalsIgnoreCase(name)) {
+			bd_dpt_cd(value);
+			return;
+		}
+		if ($sub_dpt_cd1.equalsIgnoreCase(name)) {
+			sub_dpt_cd1(value);
+			return;
+		}
+		if ($sub_dpt_cd2.equalsIgnoreCase(name)) {
+			sub_dpt_cd2(value);
+			return;
+		}
+		if ($sub_dpt_cd3.equalsIgnoreCase(name)) {
+			sub_dpt_cd3(value);
+			return;
+		}
+		if ($loc_cd.equalsIgnoreCase(name)) {
+			loc_cd(value);
+			return;
+		}
+		if ($str_ln_cd.equalsIgnoreCase(name)) {
+			str_ln_cd(value);
+			return;
+		}
+		if ($ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			ac_itm_grp_cd(value);
+			return;
+		}
+		if ($itm_jnl_cd.equalsIgnoreCase(name)) {
+			itm_jnl_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_sub1.equalsIgnoreCase(name)) {
+			itm_sub1(value);
+			return;
+		}
+		if ($itm_sub2.equalsIgnoreCase(name)) {
+			itm_sub2(value);
+			return;
+		}
+		if ($itm_sub3.equalsIgnoreCase(name)) {
+			itm_sub3(value);
+			return;
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			itm_nm(value);
+			return;
+		}
+		if ($lot_no.equalsIgnoreCase(name)) {
+			lot_no(value);
+			return;
+		}
+		if ($sublot_no.equalsIgnoreCase(name)) {
+			sublot_no(value);
+			return;
+		}
+		if ($sno1.equalsIgnoreCase(name)) {
+			sno1(value);
+			return;
+		}
+		if ($sno2.equalsIgnoreCase(name)) {
+			sno2(value);
+			return;
+		}
+		if ($sno3.equalsIgnoreCase(name)) {
+			sno3(value);
+			return;
+		}
+		if ($sno4.equalsIgnoreCase(name)) {
+			sno4(value);
+			return;
+		}
+		if ($slo_no.equalsIgnoreCase(name)) {
+			slo_no(value);
+			return;
+		}
+		if ($po_no.equalsIgnoreCase(name)) {
+			po_no(value);
+			return;
+		}
+		if ($iv_no.equalsIgnoreCase(name)) {
+			iv_no(value);
+			return;
+		}
+		if ($wrk_no.equalsIgnoreCase(name)) {
+			wrk_no(value);
+			return;
+		}
+		if ($asst_typ.equalsIgnoreCase(name)) {
+			asst_typ(value);
+			return;
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			base_unit_cd(value);
+			return;
+		}
+		if ($base_cur_cd.equalsIgnoreCase(name)) {
+			base_cur_cd(value);
+			return;
+		}
+		if ($sppl_cd.equalsIgnoreCase(name)) {
+			sppl_cd(value);
+			return;
+		}
+		if ($cst_cd.equalsIgnoreCase(name)) {
+			cst_cd(value);
+			return;
+		}
+		if ($inv_com_cd.equalsIgnoreCase(name)) {
+			inv_com_cd(value);
+			return;
+		}
+		if ($area_cd.equalsIgnoreCase(name)) {
+			area_cd(value);
+			return;
+		}
+		if ($cntry_cd.equalsIgnoreCase(name)) {
+			cntry_cd(value);
+			return;
+		}
+		if ($usr_cd.equalsIgnoreCase(name)) {
+			usr_cd(value);
+			return;
+		}
+		if ($src_alc_ac_cd.equalsIgnoreCase(name)) {
+			src_alc_ac_cd(value);
+			return;
+		}
+		if ($alc_ac_cd.equalsIgnoreCase(name)) {
+			alc_ac_cd(value);
+			return;
+		}
+		if ($expns_cd.equalsIgnoreCase(name)) {
+			expns_cd(value);
+			return;
+		}
+		if ($trd_grp.equalsIgnoreCase(name)) {
+			trd_grp(value);
+			return;
+		}
+		if ($trd_ac_itm_grp_cd.equalsIgnoreCase(name)) {
+			trd_ac_itm_grp_cd(value);
+			return;
+		}
+		if ($trd_itm_jnl_cd.equalsIgnoreCase(name)) {
+			trd_itm_jnl_cd(value);
+			return;
+		}
+		if ($trd_itm_cd.equalsIgnoreCase(name)) {
+			trd_itm_cd(value);
+			return;
+		}
+		if ($trd_itm_sub1.equalsIgnoreCase(name)) {
+			trd_itm_sub1(value);
+			return;
+		}
+		if ($trd_itm_sub2.equalsIgnoreCase(name)) {
+			trd_itm_sub2(value);
+			return;
+		}
+		if ($trd_itm_sub3.equalsIgnoreCase(name)) {
+			trd_itm_sub3(value);
+			return;
+		}
+		if ($trd_itm_nm.equalsIgnoreCase(name)) {
+			trd_itm_nm(value);
+			return;
+		}
+		if ($trd_lot_no.equalsIgnoreCase(name)) {
+			trd_lot_no(value);
+			return;
+		}
+		if ($trd_sublot_no.equalsIgnoreCase(name)) {
+			trd_sublot_no(value);
+			return;
+		}
+		if ($trd_sno1.equalsIgnoreCase(name)) {
+			trd_sno1(value);
+			return;
+		}
+		if ($trd_sno2.equalsIgnoreCase(name)) {
+			trd_sno2(value);
+			return;
+		}
+		if ($trd_sno3.equalsIgnoreCase(name)) {
+			trd_sno3(value);
+			return;
+		}
+		if ($trd_sno4.equalsIgnoreCase(name)) {
+			trd_sno4(value);
+			return;
+		}
+		if ($jnl_key1.equalsIgnoreCase(name)) {
+			jnl_key1(value);
+			return;
+		}
+		if ($jnl_key2.equalsIgnoreCase(name)) {
+			jnl_key2(value);
+			return;
+		}
+		if ($jnl_key3.equalsIgnoreCase(name)) {
+			jnl_key3(value);
+			return;
+		}
+		if ($jnl_key4.equalsIgnoreCase(name)) {
+			jnl_key4(value);
+			return;
+		}
+		if ($jnl_key5.equalsIgnoreCase(name)) {
+			jnl_key5(value);
+			return;
+		}
+		if ($jnl_key6.equalsIgnoreCase(name)) {
+			jnl_key6(value);
+			return;
+		}
+		if ($jnl_key7.equalsIgnoreCase(name)) {
+			jnl_key7(value);
+			return;
+		}
+		if ($jnl_key8.equalsIgnoreCase(name)) {
+			jnl_key8(value);
+			return;
+		}
+		if ($jnl_key9.equalsIgnoreCase(name)) {
+			jnl_key9(value);
+			return;
+		}
+		if ($jnl_key10.equalsIgnoreCase(name)) {
+			jnl_key10(value);
+			return;
+		}
+		if ($sub_char1.equalsIgnoreCase(name)) {
+			sub_char1(value);
+			return;
+		}
+		if ($sub_char2.equalsIgnoreCase(name)) {
+			sub_char2(value);
+			return;
+		}
+		if ($sub_char3.equalsIgnoreCase(name)) {
+			sub_char3(value);
+			return;
+		}
+		if ($sub_char4.equalsIgnoreCase(name)) {
+			sub_char4(value);
+			return;
+		}
+		if ($sub_char5.equalsIgnoreCase(name)) {
+			sub_char5(value);
+			return;
+		}
+		if ($sub_char6.equalsIgnoreCase(name)) {
+			sub_char6(value);
+			return;
+		}
+		if ($sub_char7.equalsIgnoreCase(name)) {
+			sub_char7(value);
+			return;
+		}
+		if ($sub_char8.equalsIgnoreCase(name)) {
+			sub_char8(value);
+			return;
+		}
+		if ($sub_char9.equalsIgnoreCase(name)) {
+			sub_char9(value);
+			return;
+		}
+		if ($sub_char10.equalsIgnoreCase(name)) {
+			sub_char10(value);
+			return;
+		}
+		if ($ins_usr_id.equalsIgnoreCase(name)) {
+			ins_usr_id(value);
+			return;
+		}
+		if ($ins_usr_nm.equalsIgnoreCase(name)) {
+			ins_usr_nm(value);
+			return;
+		}
+		if ($ins_func_id.equalsIgnoreCase(name)) {
+			ins_func_id(value);
+			return;
+		}
+		if ($upd_usr_id.equalsIgnoreCase(name)) {
+			upd_usr_id(value);
+			return;
+		}
+		if ($upd_usr_nm.equalsIgnoreCase(name)) {
+			upd_usr_nm(value);
+			return;
+		}
+		if ($upd_func_id.equalsIgnoreCase(name)) {
+			upd_func_id(value);
+			return;
+		}
+		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
+			upd_srv_req_no(value);
+			return;
+		}
+		if ($calc_grp_nm.equalsIgnoreCase(name)) {
+			calc_grp_nm(value);
+			return;
+		}
+		if ($ac_rsn_nm.equalsIgnoreCase(name)) {
+			ac_rsn_nm(value);
+			return;
+		}
+		if ($loc_nm.equalsIgnoreCase(name)) {
+			loc_nm(value);
+			return;
+		}
+		if ($str_ln_nm.equalsIgnoreCase(name)) {
+			str_ln_nm(value);
+			return;
+		}
+		if ($ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			ac_itm_grp_nm(value);
+			return;
+		}
+		if ($itm_jnl_nm.equalsIgnoreCase(name)) {
+			itm_jnl_nm(value);
+			return;
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			base_unit_nm(value);
+			return;
+		}
+		if ($base_cur_nm.equalsIgnoreCase(name)) {
+			base_cur_nm(value);
+			return;
+		}
+		if ($sppl_nm.equalsIgnoreCase(name)) {
+			sppl_nm(value);
+			return;
+		}
+		if ($cst_nm.equalsIgnoreCase(name)) {
+			cst_nm(value);
+			return;
+		}
+		if ($inv_com_nm.equalsIgnoreCase(name)) {
+			inv_com_nm(value);
+			return;
+		}
+		if ($area_nm.equalsIgnoreCase(name)) {
+			area_nm(value);
+			return;
+		}
+		if ($cntry_nm.equalsIgnoreCase(name)) {
+			cntry_nm(value);
+			return;
+		}
+		if ($usr_nm.equalsIgnoreCase(name)) {
+			usr_nm(value);
+			return;
+		}
+		if ($trd_ac_itm_grp_nm.equalsIgnoreCase(name)) {
+			trd_ac_itm_grp_nm(value);
+			return;
+		}
+		if ($trd_itm_jnl_nm.equalsIgnoreCase(name)) {
+			trd_itm_jnl_nm(value);
+			return;
+		}
+		super.setStringNE(name, value);
+	}
+
+	public void setNumberNE(String name, MCNumber value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, int value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, long value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, float value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setNumberNE(String name, double value) {
+		if ($base_unit_qty.equalsIgnoreCase(name)) {
+			base_unit_qty(value);
+			return;
+		}
+		if ($amt.equalsIgnoreCase(name)) {
+			amt(value);
+			return;
+		}
+		if ($sub_num1.equalsIgnoreCase(name)) {
+			sub_num1(value);
+			return;
+		}
+		if ($sub_num2.equalsIgnoreCase(name)) {
+			sub_num2(value);
+			return;
+		}
+		if ($sub_num3.equalsIgnoreCase(name)) {
+			sub_num3(value);
+			return;
+		}
+		if ($jnl_fin_cnt.equalsIgnoreCase(name)) {
+			jnl_fin_cnt(value);
+			return;
+		}
+		if ($upd_cntr.equalsIgnoreCase(name)) {
+			upd_cntr(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+
+	public void setDateNE(String name, MCDate value) {
+		if ($ac_ym.equalsIgnoreCase(name)) {
+			ac_ym(value);
+			return;
+		}
+		if ($ac_dt.equalsIgnoreCase(name)) {
+			ac_dt(value);
+			return;
+		}
+		if ($sub_dt1.equalsIgnoreCase(name)) {
+			sub_dt1(value);
+			return;
+		}
+		if ($sub_dt2.equalsIgnoreCase(name)) {
+			sub_dt2(value);
+			return;
+		}
+		if ($sub_dt3.equalsIgnoreCase(name)) {
+			sub_dt3(value);
+			return;
+		}
+		super.setDateNE(name, value);
+	}
+
+	public void setTimestampNE(String name, MCTimestamp value) {
+		if ($ins_ts.equalsIgnoreCase(name)) {
+			ins_ts(value);
+			return;
+		}
+		if ($upd_ts.equalsIgnoreCase(name)) {
+			upd_ts(value);
+			return;
+		}
+		super.setTimestampNE(name, value);
+	}
+
+	public void setBooleanNE(String name, boolean value) {
+		if ($repurc_obli_flg.equalsIgnoreCase(name)) {
+			repurc_obli_flg(value);
+			return;
+		}
+		if ($foreign_flg.equalsIgnoreCase(name)) {
+			foreign_flg(value);
+			return;
+		}
+		super.setBooleanNE(name, value);
+	}
+
+}

@@ -1,0 +1,40 @@
+\encoding UTF-8
+
+\i ./HST_TAB/deleteHistoryTab_MBBE1.sql
+
+\i ./HST_TAB/deleteHistoryTab_MBBE2.sql
+
+\i ./HST_TAB/MBT_BIZ_DAT_DL_ALL_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTG_DEF_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTG_LCL_DEF_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTG_ALL_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTL_DEF_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTL_LCL_DEF_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTL_ALL_R.sql
+
+\i ./HST_TAB/MBT_BP_SND_IF_EXT_ALL_R.sql
+
+\i ./HST_TAB/MBT_ITM_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BP_STOP_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_ITM_STOP_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_EX_CTRL_SND_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_PURC_UPRI_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_PROC_UPRI_IF_ALL_R.sql
+
+\i ./HST_TAB/MBT_BP_IF_ALL_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTG_LCL_ALL_R.sql
+
+\i ./HST_TAB/MBC_BULK_IMP_CTL_LCL_ALL_R.sql
+

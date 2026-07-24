@@ -1,0 +1,24 @@
+SELECT
+	--会社ＣＤ
+	mavm_term_if_all_mavm_term_mst_t1.co_cd,
+	--期
+	mavm_term_if_all_mavm_term_mst_t1.term,
+	--期終了年月
+	mavm_term_if_all_mavm_term_mst_t1.term_end_ym,
+	--期名称
+	mavm_term_if_all_mavm_term_mst_t1.term_nm,
+	--期名称（ロケール１）
+	mavm_term_if_all_mavm_term_mst_t1.term_nm_lcl1,
+	--期名称（ロケール２）
+	mavm_term_if_all_mavm_term_mst_t1.term_nm_lcl2,
+	--期名称（ロケール３）
+	mavm_term_if_all_mavm_term_mst_t1.term_nm_lcl3,
+	--期名称（ロケール４）
+	mavm_term_if_all_mavm_term_mst_t1.term_nm_lcl4,
+	--期名称（ロケール５）
+	mavm_term_if_all_mavm_term_mst_t1.term_nm_lcl5,
+	mavm_term_if_all_mavm_term_mst_t1.memo1,
+	mavm_term_if_all_mavm_term_mst_t1.memo2,
+	mavm_term_if_all_mavm_term_mst_t1.memo3
+FROM mavm_term_mst mavm_term_if_all_mavm_term_mst_t1
+;

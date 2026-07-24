@@ -1,0 +1,18 @@
+\encoding UTF-8
+
+\i ./OBJECT/MSW_DMND_LOC_LL.sql
+
+\i ./OBJECT/MSW_SHIP_TO_ID_LL.sql
+
+\i ./OBJECT/MSW_DLV_ID_LL.sql
+
+\i ./OBJECT/MSW_SHIP_RQST_ID_LL.sql
+
+\i ./OBJECT/MSW_SLO_LOC_LL.sql
+
+\i ./OBJECT/MSW_SLO_ALLOC_GRP_LL.sql
+
+\i ./OBJECT/MSW_SLO_LG_GRP_LL.sql
+
+\i ./OBJECT/MSW_SLO_ALLOC_GD_LL.sql
+

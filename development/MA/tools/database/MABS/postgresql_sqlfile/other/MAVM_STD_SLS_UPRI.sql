@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mavm_std_sls_upri(
+itm_cd,
+itm_sub1,
+itm_sub2,
+itm_sub3,
+unit_cd,
+lot_qty,
+cur_cd,
+wg_cd,
+st_dt,
+end_dt,
+upri,
+upri_bf,
+sub_upri1,
+sub_upri2,
+sub_upri3,
+not_cost_flg,
+memo1,
+memo2,
+memo3,
+del_flg,
+del_usr_id,
+del_usr_nm,
+del_ts,
+ins_usr_id,
+ins_usr_nm,
+ins_ts,
+ins_func_id,
+upd_cntr,
+upd_usr_id,
+upd_usr_nm,
+upd_ts,
+upd_func_id,
+upd_srv_req_no,
+row_id
+)
+AS
+SELECT 
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.itm_cd,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.itm_sub1,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.itm_sub2,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.itm_sub3,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.unit_cd,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.lot_qty,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.cur_cd,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.wg_cd,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.st_dt,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.end_dt,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upri,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upri_bf,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.sub_upri1,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.sub_upri2,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.sub_upri3,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.not_cost_flg,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.memo1,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.memo2,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.memo3,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.del_flg,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.del_usr_id,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.del_usr_nm,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.del_ts,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.ins_usr_id,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.ins_usr_nm,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.ins_ts,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.ins_func_id,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_cntr,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_usr_id,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_usr_nm,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_ts,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_func_id,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.upd_srv_req_no,
+	mavm_std_sls_upri_mam_std_sls_upri_all_org.ctid::VARCHAR	row_id
+FROM 
+	mam_std_sls_upri_all mavm_std_sls_upri_mam_std_sls_upri_all_org
+WHERE 
+	0 = 0
+	AND mavm_std_sls_upri_mam_std_sls_upri_all_org.co_cd = fcpa_context$f_get_co_cd()
+;;
+

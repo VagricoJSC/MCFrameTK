@@ -1,0 +1,1 @@
+insert into FCC_AVAIL_GP_BATCH (MODULE_ID,LOGIC_ID,OPERATION_ID) values ('MA','MABCB0010','SendIf_Ins01');

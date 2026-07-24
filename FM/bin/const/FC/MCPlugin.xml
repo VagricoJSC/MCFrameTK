@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCPlugin Constant-->
+<mcframe>
+	<!-- MessageGetEvent (Client/Server) -->
+	<message>
+		<order></order>
+	</message>
+	<!-- LabelGetEvent (Client) -->
+	<label>
+		<order></order>
+	</label>
+	<!-- LoginEvent (Client) -->
+	<login>
+		<order></order>
+		<FW_PUSH>mcframe.clientCore.push.MCServerPushListener</FW_PUSH>
+	</login>
+	<!-- LogoutEvent (Client) -->
+	<logout>
+		<order></order>
+		<FW_PUSH>mcframe.clientCore.push.MCServerPushListener</FW_PUSH>
+	</logout>
+	<!-- StartupEvent (Client) -->
+	<startup>
+		<order></order>
+	</startup>
+	<!-- StatusBar (Client) -->
+	<statusbar>
+		<order></order>
+	</statusbar>
+	<!-- MessageBox (Client) -->
+	<messagebox>
+		<class>mcframe.clientCore.beans.MCMessageBox</class>
+	</messagebox>
+	<!-- Dashboard (Client) -->
+	<dashboard>
+		<gadget>
+			<table>
+				<class>mcframe.clientCore.beans.dashboard.MCTableGadget</class>
+			</table>
+			<chart>
+				<class>mcframe.clientCore.beans.dashboard.MCFXChartGadget</class>
+			</chart>
+			<label>
+				<class>mcframe.clientCore.beans.dashboard.MCLabelGadget</class>
+			</label>
+			<iconlabel>
+				<class>mcframe.clientCore.beans.dashboard.MCIconLabelGadget</class>
+			</iconlabel>
+			<mining>
+				<class>mcframe.clientCore.beans.dashboard.MCMiningGadget</class>
+			</mining>
+		</gadget>
+	</dashboard>
+	<!-- Layouter (Client) -->
+	<layout>
+		<S>mcframe.clientCore.beans.layout.MCGeneralLayout</S>
+	</layout>
+	<!-- batch (Client) -->
+	<batch>
+		<controller>mcframe.clientCore.batch.MCBatchController</controller>
+		<handler>mcframe.clientCore.batch.MCResourcedReturnCodeHandler</handler>
+		<MCResourcedReturnCodeHandler>
+			<map>
+			</map>
+		</MCResourcedReturnCodeHandler>
+	</batch>
+	<!-- PreloadJitResource(Client/Server) -->
+	<preloadjitr>
+		<client>
+			<!-- 画面起動高速化設定をしたときにログインロケールのJITラベルリソースをロードするかどうか-->
+			<!--MCDBLabel-->
+			<dblbl><!-- moduleid.screenid=true --></dblbl>
+			<!--MCLogicLabel-->
+			<lgclbl><!-- moduleid.screenid=true --></lgclbl>
+		</client>
+		<server>
+			<!-- サーバ側mcframe起動時に全ロケールのJITラベルリソースをロードするかどうか-->
+			<!--MCDBLabel-->
+			<dblbl>false</dblbl>
+			<!--MCLogicLabel-->
+			<lgclbl>false</lgclbl>
+		</server>
+	</preloadjitr>
+	<!-- LogicPhase (Server)  -->
+	<phase>
+		<authorization>
+			<name>core</name>
+			<class>mcframe.serverCore.acl.MCACPhase</class>
+		</authorization>
+		<paraOpe>
+			<name>core</name>
+			<class>mcframe.serverCore.phase.MCInactivePhase</class>
+		</paraOpe>
+		<maxOpe>
+			<name>core</name>
+			<class>mcframe.serverCore.max.MCMaxVolCtrl</class>
+		</maxOpe>
+		<servSts>
+			<name>core</name>
+			<class>mcframe.serverCore.servSts.MCServStsCtrl</class>
+		</servSts>
+	</phase>
+	<!-- LogicDispatch (Server)  -->
+	<dispatcher>
+		<logicInvoker>
+			<name>core</name>
+			<class>mcframe.serverCore.requester.MCLogicInvoker</class>
+			<nativeClass>mcframe.serverCore.requester.MCNtvLogicInvoker</nativeClass>
+		</logicInvoker>
+	</dispatcher>
+	<!-- Database (Server) -->
+	<database>
+		<site_module_id_sql>
+			<FC></FC>
+		</site_module_id_sql>
+		<poolTraceLog>false</poolTraceLog>
+		<wpa_log_version>2</wpa_log_version>
+		<parser>2</parser>
+		<!-- 6.3.1.0 add-s -->
+		<purge>true</purge>
+		<NoPurgeErr>
+			<ORACLE>
+				1,
+				31,
+				54,
+				60,
+				905,
+				942,
+				2291,
+				2292,
+				30006
+			</ORACLE>
+			<!--
+			23505:一意制約違反
+			23503:外部キー制約違反（親レコードがいない、子がいて消せない）
+			40P01:deadlock_detected
+			42601:syntax_error
+			42P01:undefined_table
+			55P03:lock_not_available
+			-->
+			<POSTGRESQL>
+				23505,
+				23503,
+				40P01,
+				42601,
+				42P01,
+				55P03
+			</POSTGRESQL>
+		</NoPurgeErr>
+		<InvalidExCtrl>
+			<!--
+			Z.ZAL0100.Upd01,
+			Z.ZAL0100.Upd02
+			-->
+		</InvalidExCtrl>
+		<sqlErrCnv>
+			<ORACLE>
+				<FCBCC0110>54,30006</FCBCC0110>
+				<FCBCC0136>1</FCBCC0136>
+				<FCBCC0139>905</FCBCC0139>
+				<FCBCC0140>942</FCBCC0140>
+				<FCBCC0155>60</FCBCC0155>
+			</ORACLE>
+			<POSTGRESQL>
+				<FCBCC0110>55P03</FCBCC0110>
+				<FCBCC0136>23505</FCBCC0136>
+				<FCBCC0139>42601</FCBCC0139>
+				<FCBCC0140>42P01</FCBCC0140>
+				<FCBCC0155>40P01</FCBCC0155>
+			</POSTGRESQL>
+		</sqlErrCnv>
+		<!-- 6.3.1.0 add-e -->
+		<continuesIfOnError_exclude>
+			<FC>*WKINSERT,*WKDELETE</FC>
+		</continuesIfOnError_exclude>
+	</database>
+	<!-- Authentication (Client/Server) -->
+	<auth>
+		<server>
+			<ldap>
+				<userconv>mcframe.serverCore.login.MCLDAPUserConverter</userconv>
+			</ldap>
+			<password>
+				<policy></policy>
+				<wstoken><!-- 7012-0881 -->
+					<checker></checker>
+					<pwchallenge>false</pwchallenge>
+					<expire></expire><!-- for Default Checker -->
+				</wstoken>
+			</password>
+			<extauth>
+				<saml>
+					<agent>mcframe.serverCore.login.MCSAMLAuthenticator</agent>
+				</saml>
+			</extauth>
+		</server>
+		<common>
+			<hybrid>
+				<userid>
+					<analyzer>mcframe.commonCore.login.MCHybridUserIDAnalyzer</analyzer>
+					<separator>@</separator>
+					<userpos>0</userpos>
+				</userid>
+			</hybrid>
+			<extauth>
+				<saml>
+					<PC>
+						<sp>
+							<url></url>
+						</sp>
+					</PC>
+					<MD>
+						<sp>
+							<url></url>
+						</sp>
+					</MD>
+				</saml>
+			</extauth>
+		</common>
+		<client>
+			<extauth>
+				<saml>
+					<class>mcframe.clientCore.login.MCGUISAMLAuthImpl</class>
+					<attribute>
+						<user_id>user_id</user_id>
+					</attribute>
+				</saml>
+			</extauth>
+		</client>
+	</auth>
+	<!-- Report (Client/Server) -->
+	<report>
+		<!-- client -->
+		<client>
+			<cartridge>SVFPDF</cartridge>
+			<mapping>
+				<!--<SPL0100>Exceltrue</SPL0100>-->
+			</mapping>
+		</client>
+		<!-- server -->
+		<server>
+			<cartridge>SVFPDF</cartridge>
+			<mapping>
+				<!--<SPL0100>UCX</SPL0100>-->
+			</mapping>
+			<!-- 6.3.0.0 add-s -->
+			<exception_throw>false</exception_throw>
+			<!-- 6.3.0.0 add-e -->
+		</server>
+		<!-- common -->
+		<common>
+			<charset>
+				<defult>UTF-8</defult>
+				<csv>{report.common.charset.defult}</csv>
+				<svf>{report.common.charset.defult}</svf>
+			</charset>
+			<!-- 6.3.1.0 add-e -->
+			<CharCnvMap>
+				<TAB><![CDATA[\t,]]></TAB>
+			</CharCnvMap>
+			<!-- 6.3.1.0 add-e -->
+		</common>
+		<cartridge>
+<!--
+			<SVF>
+				<client>
+					<class>mcframe.clientCore.report.MCClientSVFCartridge</class>
+					<formExtension>frm</formExtension>
+					<datExtension>dat</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</client>
+				<server>
+					<class>mcframe.serverCore.report.MCServerSVFCartridge</class>
+					<formExtension>frm</formExtension>
+					<datExtension>dat</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</server>
+				<common>
+					<LinkField>
+						<Delimiter></Delimiter>
+					</LinkField>
+				</common>
+			</SVF>
+ -->
+			<!-- 6.3.0.2 add-s -->
+			<SVFCOMMON>
+				<Multi>
+					<ja_JP>
+						<VrSetLocale>ja</VrSetLocale>
+						<VrInit>MS932</VrInit>
+					</ja_JP>
+					<en_US>
+						<VrSetLocale>en</VrSetLocale>
+						<VrInit>CP1252</VrInit>
+					</en_US>
+					<zh_CN>
+						<VrSetLocale>zh_Cn</VrSetLocale>
+						<VrInit>MS936</VrInit>
+					</zh_CN>
+				</Multi>
+			</SVFCOMMON>
+			<!-- 6.3.0.2 add-e -->
+
+			<SVFPDF>
+				<client>
+					<class>mcframe.clientCore.report.MCClientSVFforPDFCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>pdf</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</client>
+				<server>
+					<class>mcframe.serverCore.report.MCServerSVFforPDFCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>csv</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</server>
+				<!-- 6.3.1.0 add-s -->
+				<RPTSrvPdfDel>false</RPTSrvPdfDel>
+				<!-- 6.3.1.0 add-e -->
+			</SVFPDF>
+
+			<!-- 6.3.1.3 add-s -->
+			<SVFExcel>
+				<server>
+					<class>mcframe.serverCore.report.MCServerSVFExcelCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>csv</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+					<PDFExtension>{report.cartridge.SVFExcel.server.OutExtension}</PDFExtension>
+					<OutExtension>xlsx</OutExtension>
+				</server>
+				<RPTSrvPdfDel>false</RPTSrvPdfDel>
+			</SVFExcel>
+			<!-- 6.3.1.3 add-e -->
+
+			<SVFJAVA>
+				<server>
+					<class>mcframe.serverCore.report.MCServerSVFforJavaCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>csv</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</server>
+			</SVFJAVA>
+
+			<UCX>
+				<server>
+					<class>mcframe.serverCore.report.MCServerUCXSingleCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>csv</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</server>
+			</UCX>
+
+			<Excel>
+				<client>
+					<class>mcframe.clientCore.report.MCClientExcelCartridge</class>
+					<formExtension>xlsx</formExtension>
+					<datExtension>dat</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</client>
+				<server>
+					<class>mcframe.serverCore.report.MCServerExcelCartridge</class>
+					<formExtension>xlsx</formExtension>
+					<datExtension>dat</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+					<datOnly>true</datOnly>
+				</server>
+				<common>
+					<LinkField>
+						<Delimiter></Delimiter>
+					</LinkField>
+				</common>
+			</Excel>
+
+			<ExcelIF>
+				<client>
+					<class>mcframe.clientCore.report.MCClientExcelIFCartridge</class>
+					<formExtension>xlsm</formExtension>
+					<datExtension>xlsx</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</client>
+				<server>
+					<class>mcframe.serverCore.report.MCServerExcelIFCartridge</class>
+					<formExtension>xlsm</formExtension>
+					<datExtension>xlsx</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+					<datOnly>true</datOnly>
+				</server>
+				<noReprint>true</noReprint>
+			</ExcelIF>
+
+			<SDP>
+				<client>
+					<class>mcframe.clientCore.report.MCClientSDPCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>svfwdw</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+				</client>
+				<server>
+					<class>mcframe.serverCore.report.MCServerSDPCartridge</class>
+					<formExtension>xml</formExtension>
+					<datExtension>csv</datExtension>
+					<formVersionCheck>true</formVersionCheck>
+					<PDFExtension>{report.cartridge.SDP.server.OutExtension}</PDFExtension>
+					<OutExtension>svfwdw</OutExtension>
+				</server>
+				<RPTSrvPdfDel>false</RPTSrvPdfDel>
+			</SDP>
+		</cartridge>
+		<register>
+			<!--<SPL0100>true</SPL0100>-->
+		</register>
+		<persistent>
+			<!--<SPL0100>true</SPL0100>-->
+		</persistent>
+		<reportType>
+			<server>false</server>
+		</reportType>
+		<saveFileName>
+			<!--　リソースの並びを変更した場合は、クライアント再印刷時のファイル出力パスを修正する必要があります。-->
+			<SVFPDF>{FORMNAME}.{REQNO}.{TIMESTAMP}</SVFPDF>
+			<Excel>{FORMNAME}.{USERID}.{TIMESTAMP}</Excel>
+			<ExcelIF>{FORMNAME}.{USERID}.{TIMESTAMP}</ExcelIF>
+		</saveFileName>
+		<Pdfdownload>true</Pdfdownload>
+		<itemName>true</itemName>
+	</report>
+	<!-- Crypt (Common) -->
+	<crypt>
+		<class>mcframe.commonCore.crypt.MCCipher</class>
+	</crypt>
+
+	<!-- ArrayValue (Common) -->
+	<ArrayValue>
+	 	<delimiter>^</delimiter>
+		<escape>"</escape>
+		<invalid>false</invalid>
+	</ArrayValue>
+
+	<!-- 7012-2147 add -->
+	<!-- Batch (Server) -->
+	<batch>
+		<!-- LoginEvent -->
+		<login>
+			<order></order>
+		</login>
+		<!-- LogoutEvent -->
+		<logout>
+			<order></order>
+		</logout>
+		<!-- StartupEvent -->
+		<startup>
+			<order></order>
+		</startup>
+	</batch>
+
+	<!-- WebService (Server) -->
+	<ws>
+		<!-- LoginEvent -->
+		<login>
+			<order></order>
+		</login>
+		<!-- LogoutEvent -->
+		<logout>
+			<order></order>
+		</logout>
+		<!-- StartupEvent -->
+		<startup>
+			<order></order>
+		</startup>
+	</ws>
+
+	<!-- SmartDevice (Server) -->
+	<sd>
+		<!-- LoginEvent -->
+		<login>
+			<order></order>
+		</login>
+		<!-- LogoutEvent -->
+		<logout>
+			<order></order>
+		</logout>
+		<!-- StartupEvent -->
+		<startup>
+			<order></order>
+		</startup>
+	</sd>
+
+	<!-- Mining Task -->
+	<mining>
+		<task>
+			<type0>mcframe.serverCore.mining.task.MCMiningGadgetCache</type0>
+			<type1>mcframe.serverCore.mining.task.MCThresholdCheck</type1>
+		</task>
+		<push>
+			<dest>
+				<sysgrp>
+					<list>
+						<logic>mcframe.clientFSUA.FSUAP0010.FSUAP_List.getUserGroup</logic>
+						<cols>group_id,group_nm</cols>
+					</list>
+					<getter>mcframe.serverCore.mining.task.MCPushDestSysGrp</getter>
+				</sysgrp>
+				<sys>
+					<list>
+						<logic>mcframe.clientFSUA.FSUAP0010.FSUAP_List.getUser</logic>
+						<cols>user_id,user_nm</cols>
+					</list>
+					<getter>mcframe.serverCore.mining.task.MCPushDestSys</getter>
+				</sys>
+			</dest>
+		</push>
+	</mining>
+
+	<!-- 640 personalize location パーソナライズ画面部品配置情報の有効無効 -->
+	<personalize_location>
+		<!-- moduleID毎に無効にする -->
+		<exclude_moduleID>
+			FC,FD,FS,FX
+		</exclude_moduleID>
+		<!-- screenID毎に無効にする -->
+		<exclude_screenID>
+		</exclude_screenID>
+		<!--  develop trueで自動レイアウト設定メニューがtoobarに現れる -->
+		<develop>false</develop>>
+		<!-- toolbar trueで項目配置変更がtoobarに現れる -->
+		<toolbar>true</toolbar>
+	</personalize_location>
+
+	<system_location>
+		<!-- moduleID毎に無効にする -->
+		<exclude_moduleID>
+			FC,FD,FS,FX
+		</exclude_moduleID>
+		<!-- screenID毎に無効にする -->
+		<exclude_screenID>
+		</exclude_screenID>
+		<!--  develop trueでシステム非表示設定メニューがtoobarに現れる -->
+		<develop>false</develop>
+		<!-- 配置情報をこの値で検索し全初期画面に設定する 機能はまだ有効 廃止予定 -->
+		<init_locationID></init_locationID>
+		<!-- toolbar trueでシステム非表示がtoobarに現れる -->
+		<toolbar>true</toolbar>
+	</system_location>
+
+	<localize_layout>
+		<!-- moduleID毎に無効にする -->
+		<exclude_moduleID>
+		</exclude_moduleID>
+		<!-- screenID毎に無効にする -->
+		<exclude_screenID>
+		</exclude_screenID>
+		<!--  develop trueでシステム非表示設定メニューがtoobarに現れる -->
+		<develop>false</develop>
+		<!-- toolbar trueでシステム非表示がtoobarに現れる -->
+		<toolbar>true</toolbar>
+	</localize_layout>
+
+	<barcode>
+		<!-- develop trueでバーコード設定メニューがtoobarのポップアップに現れる -->
+		<develop>true</develop>
+
+		<!-- toolbar trueでバーコードボタンがtoobarに現れる -->
+		<toolbar>true</toolbar>
+
+		<!--  dialog毎にYESにするかNOにするかを指定する。 -->
+		<!--  message_idはメッセージID -->
+		<!--  button_idはYes,No,Cancel,OKのどれか -->
+		<dialog>
+			<item1><message_id>FXBAP0034</message_id><button_id>Yes</button_id></item1>
+			<item2><message_id>FXBAP0006</message_id><button_id>Yes</button_id></item2>
+			<item3><message_id>FCBAC0072</message_id><button_id>Yes</button_id></item3>
+		</dialog>
+
+		<!-- 操作モード切り替えキーを指定 KeyEventの値 -->
+		<EscKeyChar>27</EscKeyChar>
+		<EscKeyCode>27</EscKeyCode>
+		
+	</barcode>
+
+	<robot>
+		<!-- toolbar trueで項目配置変更ボタンがtoobarに現れる -->
+		<toolbar>false</toolbar>
+
+		<!-- playSpeed 記録再生時の再生速度を指定。大きくすると遅くなる -->
+		<playSpeed>50</playSpeed>
+		<!-- playConfirm 再生する前に確認するかどうか -->
+		<playConfirm>false</playConfirm>
+
+		<!-- 再生時のタイムアウト ms -->
+		<thread_timeout>10000</thread_timeout>
+
+		<!-- 再生時のタイムアウト ms -->
+		<scenario_thread_timeout>30000</scenario_thread_timeout>
+
+		<!-- Robotで生成されるファイルの格納場所 -->
+		<robot_dir>{MCF_HOME}/robot</robot_dir>
+
+		<!-- テスタ保存で生成されるファイルの格納場所 -->
+		<screenshot_dir>{MCF_HOME}/screenshot</screenshot_dir>
+	</robot>
+
+	<!-- 7.0.1 テスト支援 -->
+	<test_assistance>
+		<tools>
+			<item1>
+				<title>
+					連番を設定
+				</title>
+				<class>
+					mcframe.clientFSBE.FSBEP0330.MCTestAssistance
+				</class>
+				<method>
+					doAssist1
+				</method>
+			</item1>
+			<item2>
+				<title>
+					設定2(予備)
+				</title>
+				<class>
+					mcframe.clientFSBE.FSBEP0330.MCTestAssistance
+				</class>
+				<method>
+					doAssist2
+				</method>
+			</item2>
+			<item3>
+				<title>
+					設定3(予備)
+				</title>
+				<class>
+					mcframe.clientFSBE.FSBEP0330.MCTestAssistance
+				</class>
+				<method>
+					doAssist3
+				</method>
+			</item3>
+		</tools>
+
+		<!-- 開始日 -->
+		<start_date>2000/01/01 00:00:00</start_date>
+		<!-- 開始カウンタ -->
+		<start_counter>1</start_counter>
+
+		<!-- toolbar trueでテスト支援ボタンがtoobarに現れる -->
+		<toolbar>true</toolbar>
+	</test_assistance>
+
+	<!-- 640 toolbar ツールバーをカスタマイズ -->
+	<toolbar_item>
+		<!--
+		<item1>
+			mcframe.clientFSBE.FSBEP0330.MCPersonalizeGraph
+		</item1>
+		-->
+		<item2>
+			mcframe.clientFSBE.FSBEP0330.MCPersonalizeLocation2
+		</item2>
+		<item3>
+			mcframe.clientFSBE.FSBEP0330.MCRobot
+		</item3>
+		<item4>
+			mcframe.clientFSBE.FSBEP0330.MCBarcodeUtil
+		</item4>
+		<item5>
+			mcframe.clientFSBE.FSBEP0330.MCPersonalizeGrpUtil
+		</item5>
+		<!--
+		<item6>
+			mcframe.clientFSBE.FSBEP0330.MCWorkflowUtil
+		</item6>
+		-->
+		<item7>
+			mcframe.clientFSBE.FSBEP0330.MCSystemLocation
+		</item7>
+		<item8>
+			mcframe.clientFSBE.FSBEP0330.MCTestAssistance
+		</item8>
+		<item9>
+			mcframe.clientFSBE.FSBEP0330.MCSystemLocation2
+		</item9>
+	</toolbar_item>
+
+	<user>
+		<module>MA</module>
+		<logic>MABCL0240</logic>
+		<ope>Srch01</ope>
+	</user>
+
+	<excelreader>
+		<!-- eventmodelAPIを利用して読み込むかどうか -->
+		<event>false</event>
+	</excelreader>
+
+	<queryapi>
+		<listener>
+			<dml>{tablecache.listener.dml}</dml>
+		</listener>
+		<oracle>
+			<keywords></keywords>
+		</oracle>
+		<postgresql>
+			<keywords>ACCESS,ACTION,ADMIN,ALL,ANY,CACHE,CHECK,COMMENT,COMMENTS,CONDITION,FLAG,GROUPS,HEADER,ID,KEY,KEYS,KEY_MEMBER,KEY_TYPE,LABEL,LOG,MONTH,NAME,NAMES,NEW,NEXT,OLD,OUT,PLAN,PLANS,POWER,RANK,STATE,TEMP,TEMPORARY,TEXT,USER,YEAR</keywords>
+		</postgresql>
+		<lockUpdTable>
+			<FC>FCM_CO,FCM_GP_BATCH_GRP,FCM_ROLE,FCM_USER_GRP</FC>
+		</lockUpdTable>
+	</queryapi>
+	<tablecache>
+		<listener>
+			<dml>mcframe.serverCore.cache.MCTableModifyListener</dml>
+		</listener>
+	</tablecache>
+	<!-- メッセージキュー since 7.0.3 -->
+	<messagequeue>
+		<!-- メッセージキューを監視する間隔 -->
+		<monitoring><interval>3000</interval></monitoring>
+		<!-- 正常終了したメッセージを削除するまでの期間。0以下なら削除しない。 -->
+		<autodelete><period>20</period></autodelete>
+		<valid>true</valid>
+	</messagequeue>
+</mcframe>

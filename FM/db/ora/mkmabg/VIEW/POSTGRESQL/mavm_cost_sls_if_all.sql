@@ -1,0 +1,24 @@
+SELECT
+	--会社ＣＤ
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.co_cd,
+	--売上分類区分
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_typ,
+	--売上分類ＣＤ
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_cd,
+	--売上分類名
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm,
+	--売上分類名（ロケール１）
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm_lcl1,
+	--売上分類名（ロケール２）
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm_lcl2,
+	--売上分類名（ロケール３）
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm_lcl3,
+	--売上分類名（ロケール４）
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm_lcl4,
+	--売上分類名（ロケール５）
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.cost_sls_nm_lcl5,
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.memo1,
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.memo2,
+	mavm_cost_sls_if_all_mavm_cost_sls_mst_t1.memo3
+FROM mavm_cost_sls_mst mavm_cost_sls_if_all_mavm_cost_sls_mst_t1
+;

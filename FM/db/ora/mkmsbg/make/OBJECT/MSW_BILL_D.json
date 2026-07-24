@@ -1,0 +1,126 @@
+{
+"version" : "1.0.0",
+"scriptComment" : "コメントを記入",
+"mcddlList" : [
+	{
+		"mcddl" : "CREATE_TEMPORARY_TABLE",
+		"dropType" : "*gtd",
+		"tableName" : "MSW_BILL_D",
+		"jpName" : "請求明細ワーク",
+		"comment" : [],
+		"isPkWkTable" : false,
+		"columnList" : [
+			{
+			"isKey" : true,
+			"name" : "BILL_D_NO",
+			"dataType" : "C",
+			"length" : "15",
+			"integerLength" : "15",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "請求明細ＮＯ",
+			"fullName" : "Billing details No."
+			},
+			{
+			"isKey" : false,
+			"name" : "BILL_MNG_NO",
+			"dataType" : "C",
+			"length" : "15",
+			"integerLength" : "15",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "請求管理ＮＯ",
+			"fullName" : "Billing management No."
+			},
+			{
+			"isKey" : false,
+			"name" : "CL_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "",
+			"jpName" : "発行",
+			"fullName" : "Issue"
+			},
+			{
+			"isKey" : false,
+			"name" : "DAT_CNTR",
+			"dataType" : "N",
+			"length" : "9,0",
+			"integerLength" : "9",
+			"decimalLength" : "0",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "データカウンタ",
+			"fullName" : "Data counter"
+			},
+			{
+			"isKey" : false,
+			"name" : "BILL_MTD_TYP",
+			"dataType" : "C",
+			"length" : "1",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "請求方式区分",
+			"fullName" : "Billing method type"
+			},
+			{
+			"isKey" : false,
+			"name" : "AMT",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "金額",
+			"fullName" : "Amount"
+			},
+			{
+			"isKey" : false,
+			"name" : "TAX_AMT",
+			"dataType" : "N",
+			"length" : "21,8",
+			"integerLength" : "21",
+			"decimalLength" : "8",
+			"nullable" : true,
+			"defaultStr" : "",
+			"jpName" : "税額",
+			"fullName" : "Tax amount"
+			},
+			{
+			"isKey" : false,
+			"name" : "BILL_PRNT_TGT_FLG",
+			"dataType" : "F",
+			"length" : "",
+			"integerLength" : "1",
+			"decimalLength" : "",
+			"nullable" : false,
+			"defaultStr" : "'0'",
+			"jpName" : "請求書出力ＦＬＧ",
+			"fullName" : "Invoice output flg."
+			}
+		],
+		"indexList": [
+		],
+		"checkList": [
+			{
+			"item" : "CL_FLG",
+			"name" : "MSW_BILL_D_CK01",
+			"value" : [0, 1]
+			},
+			{
+			"item" : "BILL_PRNT_TGT_FLG",
+			"name" : "MSW_BILL_D_CK02",
+			"value" : [0, 1]
+			}
+		]
+	}
+]
+}

@@ -1,0 +1,75 @@
+
+COMMENT ON TABLE MST_SPLN_SUM_ITM_NEW IS '最新集計別品目別販売計画 // Latest sales plan by item by aggregated';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.DPT_CD IS '部門ＣＤ // #MA.DPT_CD // Dept. cd.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.CST_CD IS '得意先ＣＤ // #MA.BP_CD // Customer cd.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.WRK_NO IS '案件ＮＯ // #MA.WRK_NO // Sales project No.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.SPLN_ITM_CD IS '計画品目ＣＤ // #MA.SPLN_ITM_CD // Plan item cd.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.CUR_CD IS '通貨ＣＤ // #MA.CUR_CD // Currency cd.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.SPLN_YM IS '販売年月 // #MA.YM // Sales month';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.SPLN_QTY IS '計画数量 // #MA.QTY // Plan qty.';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.SPLN_AMT IS '計画金額 // #MA.MONEY // Plan amount';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.YM IS '計画年月 // #MA.YM // Plan month';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.SPLN_VERS IS 'バージョン // #MS.SPLN_VERS // Version';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MST_SPLN_SUM_ITM_NEW.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

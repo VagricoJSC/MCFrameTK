@@ -1,0 +1,84 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION mgw_act_io_key()
+RETURNS TABLE (
+	act_io_id varchar,
+	act_io_id_sub varchar
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_act_io_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_act_io_key$temp(
+				act_io_id varchar (20) NULL,
+				act_io_id_sub varchar (3) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX mgw_act_io_key_pk_ie ON mgw_act_io_key$temp
+				USING BTREE (act_io_id,act_io_id_sub);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_act_io_key$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM mgw_act_io_key$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW mgw_act_io_key
+AS
+SELECT *
+FROM mgw_act_io_key();
+
+CREATE OR REPLACE FUNCTION mgw_act_io_key$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_act_io_key$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_act_io_key$temp(
+				act_io_id varchar (20) NULL,
+				act_io_id_sub varchar (3) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+			CREATE INDEX mgw_act_io_key_pk_ie ON mgw_act_io_key$temp
+				USING BTREE (act_io_id,act_io_id_sub);
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_act_io_key$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO mgw_act_io_key$temp(
+			act_io_id,
+			act_io_id_sub
+		)VALUES (
+			NEW.act_io_id,
+			NEW.act_io_id_sub
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE mgw_act_io_key$temp
+		SET 
+			act_io_id = NEW.act_io_id,
+			act_io_id_sub = NEW.act_io_id_sub
+		WHERE 0=0
+		AND (act_io_id = OLD.act_io_id OR act_io_id IS NULL AND OLD.act_io_id IS NULL)
+		AND (act_io_id_sub = OLD.act_io_id_sub OR act_io_id_sub IS NULL AND OLD.act_io_id_sub IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM mgw_act_io_key$temp
+		WHERE 0=0
+		AND (act_io_id = OLD.act_io_id OR act_io_id IS NULL AND OLD.act_io_id IS NULL)
+		AND (act_io_id_sub = OLD.act_io_id_sub OR act_io_id_sub IS NULL AND OLD.act_io_id_sub IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER mgw_act_io_key$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON mgw_act_io_key
+FOR EACH ROW
+EXECUTE PROCEDURE mgw_act_io_key$func();
+;
+

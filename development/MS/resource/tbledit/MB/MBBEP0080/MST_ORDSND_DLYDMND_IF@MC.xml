@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MST_ORDSND_DLYDMND_IF</dbc>
+
+	<cond>
+		<cols>
+			data_lno,data_no,data_crud_typ,exe_sts_typ,sdrv_sts_typ,ext_sys_cd,ext_itm_ord_no,ext_oper_ord_no,itm_ord_typ,itm_cd,itm_sub1,itm_sub2,itm_sub3,
+			strg_loc_cd,mfg_loc_cd,mfg_st_schd_dt,mfg_end_schd_dt,oper_cd,oper_seq,batch_log_no,log_sub_key1,log_sub_key2,ins_ts,upd_ts,upd_srv_req_no
+		</cols>
+	</cond>
+
+	<list>
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+
+		<data_crud_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getDataCrudTyp</logic>
+			<link>data_crud_typ_nm</link>
+			<use>both</use>
+		</data_crud_typ>
+
+		<sdrv_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getSdrvStsTyp</logic>
+			<link>sdrv_sts_typ_nm</link>
+			<use>both</use>
+		</sdrv_sts_typ>
+	</list>
+
+	<format>
+		<data_make_dt>YMDHMS</data_make_dt>
+		<mfg_st_schd_dt>YMD</mfg_st_schd_dt>
+		<mfg_end_schd_dt>YMD</mfg_end_schd_dt>
+		<st_schd_tm>YMDHM</st_schd_tm>
+		<end_schd_tm>YMDHM</end_schd_tm>
+		<st_dt>YMD</st_dt>
+		<end_dt>YMD</end_dt>
+	</format>
+
+	<app>
+		<ref>true</ref>
+		<cond>
+			<move>
+				<col1>data_lno</col1>
+				<pos1>1</pos1>
+
+				<col2>data_no</col2>
+				<pos2>2</pos2>
+
+				<col3>data_crud_typ</col3>
+				<pos3>3</pos3>
+
+				<col4>exe_sts_typ</col4>
+				<pos4>4</pos4>
+
+				<col5>ext_sys_cd</col5>
+				<pos5>5</pos5>
+
+				<col6>itm_cd</col6>
+				<pos6>6</pos6>
+
+				<col7>itm_sub1</col7>
+				<pos7>7</pos7>
+
+				<col8>itm_sub2</col8>
+				<pos8>8</pos8>
+
+				<col9>itm_sub3</col9>
+				<pos9>9</pos9>
+
+				<col10>batch_log_no</col10>
+				<pos10>10</pos10>
+
+				<col11>log_sub_key1</col11>
+				<pos11>11</pos11>
+
+				<col12>log_sub_key2</col12>
+				<pos12>12</pos12>
+
+				<col13>ins_ts</col13>
+				<pos13>13</pos13>
+
+				<col14>upd_ts</col14>
+				<pos14>14</pos14>
+
+				<col15>upd_srv_req_no</col15>
+				<pos15>15</pos15>
+
+				<col16>sdrv_sts_typ</col16>
+				<pos16>16</pos16>
+			</move>
+		</cond>
+		<dtl>
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+
+				<col2>data_crud_typ_nm</col2>
+				<lbl2>データ更新区分名</lbl2>
+				<msg2>データ更新区分名</msg2>
+				
+				<col3>sdrv_sts_typ_nm</col3>
+				<lbl3>送受信状況区分名</lbl3>
+				<msg3>送受信状況区分名</msg3>
+
+				<col4>itm_nm</col4>
+				<lbl4>品名</lbl4>
+				<msg4>品名</msg4>
+
+				<col5>dmnd_loc_nm</col5>
+				<lbl5>需要場所名</lbl5>
+				<msg5>需要場所名</msg5>
+
+				<col6>wg_nm</col6>
+				<lbl6>ワーキンググループ名</lbl6>
+				<msg6>ワーキンググループ名</msg6>
+			</label>
+			<move>
+				<col1>data_lno</col1>
+				<pos1>1</pos1>
+
+				<col2>data_no</col2>
+				<pos2>2</pos2>
+
+				<col3>sdrv_sts_typ</col3>
+				<pos3>3</pos3>
+
+				<col4>sdrv_sts_typ_nm</col4>
+				<pos4>4</pos4>
+
+				<col5>exe_sts_typ</col5>
+				<pos5>5</pos5>
+
+				<col6>exe_sts_typ_nm</col6>
+				<pos6>6</pos6>
+
+				<col7>ext_sys_cd</col7>
+				<pos7>7</pos7>
+
+				<col8>dly_dmnd_no</col8>
+				<pos8>8</pos8>
+
+				<col9>data_crud_typ</col9>
+				<pos9>9</pos9>
+
+				<col10>data_crud_typ_nm</col10>
+				<pos10>10</pos10>
+
+				<col11>due_dt</col11>
+				<pos11>11</pos11>
+
+				<col12>dmnd_typ</col12>
+				<pos12>12</pos12>
+
+				<col13>itm_cd</col13>
+				<pos13>13</pos13>
+
+				<col14>itm_sub1</col14>
+				<pos14>14</pos14>
+
+				<col15>itm_sub2</col15>
+				<pos15>15</pos15>
+
+				<col16>itm_sub3</col16>
+				<pos16>16</pos16>
+
+				<col17>if_itm_cd</col17>
+				<pos17>17</pos17>
+
+				<col18>if_itm_sub1</col18>
+				<pos18>18</pos18>
+
+				<col19>if_itm_sub2</col19>
+				<pos19>19</pos19>
+
+				<col20>if_itm_sub3</col20>
+				<pos20>20</pos20>
+
+				<col21>itm_nm</col21>
+				<pos21>21</pos21>
+
+				<col22>dmnd_loc_cd</col22>
+				<pos22>22</pos22>
+
+				<col23>if_dmnd_loc_cd</col23>
+				<pos23>23</pos23>
+
+				<col24>dmnd_loc_nm</col24>
+				<pos24>24</pos24>
+
+				<col25>rqmt_qty</col25>
+				<pos25>25</pos25>
+
+				<col26>wg_cd</col26>
+				<pos26>26</pos26>
+
+				<col27>if_wg_cd</col27>
+				<pos27>27</pos27>
+
+				<col28>wg_nm</col28>
+				<pos28>28</pos28>
+
+				<col29>sno1</col29>
+				<pos29>29</pos29>
+
+				<col30>sno_typ1</col30>
+				<pos30>30</pos30>
+
+				<col31>sno2</col31>
+				<pos31>31</pos31>
+
+				<col32>sno_typ2</col32>
+				<pos32>32</pos32>
+
+				<col33>sno3</col33>
+				<pos33>33</pos33>
+
+				<col34>sno_typ3</col34>
+				<pos34>34</pos34>
+
+				<col35>sno4</col35>
+				<pos35>35</pos35>
+
+				<col36>sno_typ4</col36>
+				<pos36>36</pos36>
+
+				<col37>sub_char1</col37>
+				<pos37>37</pos37>
+
+				<col38>sub_char2</col38>
+				<pos38>38</pos38>
+
+				<col39>sub_char3</col39>
+				<pos39>39</pos39>
+
+				<col40>sub_char4</col40>
+				<pos40>40</pos40>
+
+				<col41>sub_char5</col41>
+				<pos41>41</pos41>
+
+				<col42>sub_char6</col42>
+				<pos42>42</pos42>
+
+				<col43>sub_char7</col43>
+				<pos43>43</pos43>
+
+				<col44>sub_char8</col44>
+				<pos44>44</pos44>
+
+				<col45>sub_char9</col45>
+				<pos45>45</pos45>
+
+				<col46>sub_char10</col46>
+				<pos46>46</pos46>
+
+				<col47>sub_char11</col47>
+				<pos47>47</pos47>
+
+				<col48>sub_char12</col48>
+				<pos48>48</pos48>
+
+				<col49>sub_char13</col49>
+				<pos49>49</pos49>
+
+				<col50>sub_char14</col50>
+				<pos50>50</pos50>
+
+				<col51>sub_char15</col51>
+				<pos51>51</pos51>
+
+				<col52>sub_char16</col52>
+				<pos52>52</pos52>
+
+				<col53>sub_char17</col53>
+				<pos53>53</pos53>
+
+				<col54>sub_char18</col54>
+				<pos54>54</pos54>
+
+				<col55>sub_char19</col55>
+				<pos55>55</pos55>
+
+				<col56>sub_char20</col56>
+				<pos56>56</pos56>
+
+				<col57>sub_char21</col57>
+				<pos57>57</pos57>
+
+				<col58>sub_char22</col58>
+				<pos58>58</pos58>
+
+				<col59>sub_char23</col59>
+				<pos59>59</pos59>
+
+				<col60>sub_char24</col60>
+				<pos60>60</pos60>
+
+				<col61>sub_char25</col61>
+				<pos61>61</pos61>
+
+				<col62>sub_char26</col62>
+				<pos62>62</pos62>
+
+				<col63>sub_char27</col63>
+				<pos63>63</pos63>
+
+				<col64>sub_char28</col64>
+				<pos64>64</pos64>
+
+				<col65>sub_char29</col65>
+				<pos65>65</pos65>
+
+				<col66>sub_char30</col66>
+				<pos66>66</pos66>
+
+				<col67>sub_num1</col67>
+				<pos67>67</pos67>
+
+				<col68>sub_num2</col68>
+				<pos68>68</pos68>
+
+				<col69>sub_num3</col69>
+				<pos69>69</pos69>
+
+				<col70>sub_num4</col70>
+				<pos70>70</pos70>
+
+				<col71>sub_num5</col71>
+				<pos71>71</pos71>
+
+				<col72>sub_dt1</col72>
+				<pos72>72</pos72>
+
+				<col73>sub_dt2</col73>
+				<pos73>73</pos73>
+
+				<col74>sub_dt3</col74>
+				<pos74>74</pos74>
+
+				<col75>sub_dt4</col75>
+				<pos75>75</pos75>
+
+				<col76>sub_dt5</col76>
+				<pos76>76</pos76>
+
+				<col77>batch_log_no</col77>
+				<pos77>77</pos77>
+
+				<col78>log_sub_key1</col78>
+				<pos78>78</pos78>
+
+				<col79>log_sub_key2</col79>
+				<pos79>79</pos79>
+
+				<col80>ins_usr_id</col80>
+				<pos80>80</pos80>
+
+				<col81>ins_usr_nm</col81>
+				<pos81>81</pos81>
+
+				<col82>ins_ts</col82>
+				<pos82>82</pos82>
+
+				<col83>ins_func_id</col83>
+				<pos83>83</pos83>
+
+				<col84>upd_cntr</col84>
+				<pos84>84</pos84>
+
+				<col85>upd_usr_id</col85>
+				<pos85>85</pos85>
+
+				<col86>upd_usr_nm</col86>
+				<pos86>86</pos86>
+
+				<col87>upd_ts</col87>
+				<pos87>87</pos87>
+
+				<col88>upd_func_id</col88>
+				<pos88>88</pos88>
+
+				<col89>upd_srv_req_no</col89>
+				<pos89>89</pos89>
+			</move>
+		</dtl>
+		<addSql>
+			<orderBy>
+				<col1>data_no,data_lno</col1>
+			</orderBy>
+		</addSql>
+	</app>
+</mcframe>

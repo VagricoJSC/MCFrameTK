@@ -1,0 +1,171 @@
+
+COMMENT ON TABLE MST_MLY_AR_BAL_ALL IS '月次売掛残高 // Monthly AR balance';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.AC_YM IS '計上年月 // #MA.YM // Recording month';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.ACST_CD IS '売掛先ＣＤ // #MA.BP_CD // AR customer cd.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.AR_DPT_CD IS '債権部門ＣＤ // #MA.DPT_CD // AR dept. cd.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.TRD_CUR_CD IS '取引通貨ＣＤ // #MA.CUR_CD // Transaction currency cd.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.IV_NO IS 'インボイスＮＯ // #MA.IV_NO // Invoice No.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.WRK_NO IS '案件ＮＯ // #MA.WRK_NO // Sales project No.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.AR_TYP IS '債権区分 // #MA.AR_TYP // AR type';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.CO_CD IS '会社ＣＤ // #MA.CO_CD // Company cd.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.INIT_BAL IS '月初残高 // #MA.MONEY // Beginning balance';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SLS_AMT IS '当月売上額 // #MA.MONEY // Sales amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.RET_AMT IS '当月返品額 // #MA.MONEY // Return amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.DSCNT_AMT IS '当月値引額 // #MA.MONEY // Discount amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SW_TO_AMT IS '当月振替額（振替先） // #MA.MONEY // Transferred amount (Current month)(Transfer)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.TAX_AMT IS '当月税額 // #MA.MONEY // Tax amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.CASH_AMT IS '当月現金入金額 // #MA.MONEY // Cash payment received amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.NOTE_AMT IS '当月手形入金額 // #MA.MONEY // Notes payment received amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.XFR_AMT IS '当月振込入金額 // #MA.MONEY // Transfer payment received amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SETOFF_AMT IS '当月相殺額 // #MA.MONEY // Offset amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SW_AMT IS '当月振替額 // #MA.MONEY // Transferred amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.END_BAL IS '当月残高 // #MA.MONEY // Balance (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.AR_APPL_AMT IS '当月売掛金消込額 // #MA.MONEY // AR reconciled amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.AR_NOT_APPL_BAL IS '当月売掛金未消込残高 // #MA.MONEY // AR unreconciled balance (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.RCV_APPL_AMT IS '当月入金消込額 // #MA.MONEY // Payment received reconciled amount (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.RCV_NOT_APPL_BAL IS '当月入金未消込残高 // #MA.MONEY // Payment received unreconciled balance (Current month)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_CD IS '基準通貨ＣＤ // #MA.CUR_CD // Base currency cd.';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_INIT_BAL IS '基準通貨月初残高 // #MA.MONEY // Beginning balance (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_SLS_AMT IS '基準通貨当月売上額 // #MA.MONEY // Current month sales amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_RET_AMT IS '基準通貨当月返品額 // #MA.MONEY // Current month return amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_DSCNT_AMT IS '基準通貨当月値引額 // #MA.MONEY // Current month discount amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_SW_TO_AMT IS '基準通貨当月振替額（振替先） // #MA.MONEY // Current month transfer amount (Transfer) (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_TAX_AMT IS '基準通貨当月税額 // #MA.MONEY // Current month tax amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_CASH_AMT IS '基準通貨当月現金入金額 // #MA.MONEY // Current month cash payment received amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_NOTE_AMT IS '基準通貨当月手形入金額 // #MA.MONEY // Current month notes payment received amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_XFR_AMT IS '基準通貨当月振込入金額 // #MA.MONEY // Current month transfer payment received amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_SETOFF_AMT IS '基準通貨当月相殺額 // #MA.MONEY // Current month offset amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_SW_AMT IS '基準通貨当月振替額 // #MA.MONEY // Current month transfer amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_END_BAL IS '基準通貨当月残高 // #MA.MONEY // Current month balance (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_AR_APPL_AMT IS '基準通貨当月売掛金消込額 // #MA.MONEY // Current month AR reconciled amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_AR_NOT_APPL_BAL IS '基準通貨当月売掛金未消込残高 // #MA.MONEY // Current month AR unreconciled balance (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_RCV_APPL_AMT IS '基準通貨当月入金消込額 // #MA.MONEY // Current month payment received reconciled amount (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.BASE_CUR_RCV_NOT_APPL_BAL IS '基準通貨当月入金未消込残高 // #MA.MONEY // Current month payment received unreconciled balance (Base currency)';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.EXC_GAIN_LOSS IS '為替差損益 // #MA.MONEY // Exchange gain/loss';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.TOTAL_EXC_GAIN_LOSS IS '累計為替差損益 // #MA.MONEY // Accumulation exchange gain/loss';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SUB_CHAR1 IS '予備１ // #MS.MLY_AR_BAL_SUB_CHAR1 // Spare 1';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SUB_CHAR2 IS '予備２ // #MS.MLY_AR_BAL_SUB_CHAR2 // Spare 2';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.SUB_CHAR3 IS '予備３ // #MS.MLY_AR_BAL_SUB_CHAR3 // Spare 3';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MST_MLY_AR_BAL_ALL.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

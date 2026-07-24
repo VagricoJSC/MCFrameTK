@@ -1,0 +1,39 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE VIEW MAVM_OPER_IF_ALL(
+	CO_CD,
+	OPER_CD,
+	OPER_NM,
+	OPER_NM_LCL1,
+	OPER_NM_LCL2,
+	OPER_NM_LCL3,
+	OPER_NM_LCL4,
+	OPER_NM_LCL5,
+	MEMO1,
+	MEMO2,
+	MEMO3
+)
+AS
+SELECT
+	--会社ＣＤ
+	T1.CO_CD,
+	--工程ＣＤ
+	T1.OPER_CD,
+	--工程名
+	T1.OPER_NM,
+	--工程名（ロケール１）
+	T1.OPER_NM_LCL1,
+	--工程名（ロケール２）
+	T1.OPER_NM_LCL2,
+	--工程名（ロケール３）
+	T1.OPER_NM_LCL3,
+	--工程名（ロケール４）
+	T1.OPER_NM_LCL4,
+	--工程名（ロケール５）
+	T1.OPER_NM_LCL5,
+	T1.MEMO1,
+	T1.MEMO2,
+	T1.MEMO3
+FROM MAVM_OPER_MST T1
+;
+

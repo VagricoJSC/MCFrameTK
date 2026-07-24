@@ -1,0 +1,4 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location2.System.MS.MSUAP1020.%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MS.MSUAP1020.list.item0','MSUAP1020,Cnd,Cnd.imi_mfg_str_ln_cd_Label,false,false'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MS.MSUAP1020.list.item1','MSUAP1020,Cnd,Cnd.imi_mfg_str_ln_nm,false,false'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MS.MSUAP1020.list.item2','MSUAP1020,Cnd,Cnd.imi_mfg_str_ln_cd,false,false'); 

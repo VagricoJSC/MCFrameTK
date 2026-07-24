@@ -1,0 +1,7 @@
+\encoding UTF-8
+
+DELETE FROM fcm_history_table WHERE 
+table_name = 'mst_inpt_stk_rpl_lock_all'
+	 OR table_name = 'mst_inpt_stk_rpl_lst_all'
+	;
+

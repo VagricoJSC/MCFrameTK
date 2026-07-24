@@ -1,0 +1,81 @@
+\encoding UTF-8
+
+CREATE TABLE mam_act_io_all_r
+(
+hst_id numeric(24,0) DEFAULT 0 NOT NULL,
+hst_type varchar(2) NOT NULL,
+ac_slip_typ varchar (5) NULL,
+prio numeric (4,0) NULL,
+calc_ctg_cd varchar (10) NULL,
+wg_cd varchar (10) NULL,
+st_dt timestamp(0)  NULL,
+co_cd varchar (10) NULL,
+end_dt timestamp(0)  NULL,
+itm_jnl_cd varchar (5) NULL,
+ac_rsn_cd varchar (10) NULL,
+ac_rsn_null_flg char (1) DEFAULT '0' NULL,
+tgt_dpt_cd varchar (20) NULL,
+tgt_loc_cd varchar (20) NULL,
+loc_null_flg char (1) DEFAULT '0' NULL,
+io_trans_typ varchar (1) NULL,
+alc_ac_cd varchar (20) NULL,
+alc_amt_flg char (1) DEFAULT '0' NULL,
+alc_wg_cd varchar (10) NULL,
+dpt_flg char (1) DEFAULT '0' NULL,
+dpt_cd varchar (20) NULL,
+loc_flg char (1) DEFAULT '0' NULL,
+loc_cd varchar (20) NULL,
+oper_flg char (1) DEFAULT '0' NULL,
+oper_cd varchar (10) NULL,
+bp_flg char (1) DEFAULT '0' NULL,
+bp_cd varchar (20) NULL,
+ctg_flg char (1) DEFAULT '0' NULL,
+ctg_cd varchar (20) NULL,
+itm_flg char (1) DEFAULT '0' NULL,
+itm_cd varchar (40) NULL,
+itm_sub1 varchar (5) NULL,
+itm_sub2 varchar (5) NULL,
+itm_sub3 varchar (5) NULL,
+lot_no_flg char (1) DEFAULT '0' NULL,
+lot_no varchar (15) NULL,
+sublot_no_flg char (1) DEFAULT '0' NULL,
+sublot_no varchar (15) NULL,
+sno1_flg char (1) DEFAULT '0' NULL,
+sno1 varchar (15) NULL,
+sno2_flg char (1) DEFAULT '0' NULL,
+sno2 varchar (15) NULL,
+sno3_flg char (1) DEFAULT '0' NULL,
+sno3 varchar (15) NULL,
+sno4_flg char (1) DEFAULT '0' NULL,
+sno4 varchar (15) NULL,
+itm_mfg_inst_no_flg char (1) DEFAULT '0' NULL,
+inpt_loc_typ1 varchar (1) NULL,
+inpt_loc_typ2 varchar (1) NULL,
+inpt_loc_typ3 varchar (1) NULL,
+memo1 varchar (100) NULL,
+memo2 varchar (100) NULL,
+memo3 varchar (100) NULL,
+del_flg char (1) DEFAULT '0' NULL,
+del_usr_id varchar (500) NULL,
+del_usr_nm varchar (100) NULL,
+del_ts timestamp(3)  NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (100) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (100) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+
+
+
+ALTER TABLE mam_act_io_all_r ADD CONSTRAINT mam_act_io_all_r_pk PRIMARY KEY(hst_id);
+
+
+INSERT INTO fcm_history_table (history_table_name, table_name, trigger_name)
+VALUES ('mam_act_io_all_r', 'mam_act_io_all', 'mam_act_io_all_tr_r');
+

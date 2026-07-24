@@ -1,0 +1,79 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_xfr_inst(
+	xfr_inst_no,
+	trd_cd,
+	trd_ptn_typ,
+	wg_cd,
+	lg_grp_cd,
+	gr_loc_cd,
+	gr_stk_arrv_bp_cd,
+	xfr_schd_dt,
+	xfr_inst_dt,
+	inst_usr_cd,
+	inst_dpt_cd,
+	inst_prnt_flg,
+	inst_prnt_tm,
+	pick_prnt_flg,
+	pick_prnt_tm,
+	dlv_prnt_flg,
+	dlv_prnt_tm,
+	trd_rmrks,
+	inst_rmrks,
+	intr_rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_xfr_inst_mst_xfr_inst_all_org.xfr_inst_no,
+	mst_xfr_inst_mst_xfr_inst_all_org.trd_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.trd_ptn_typ,
+	mst_xfr_inst_mst_xfr_inst_all_org.wg_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.lg_grp_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.gr_loc_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.gr_stk_arrv_bp_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.xfr_schd_dt,
+	mst_xfr_inst_mst_xfr_inst_all_org.xfr_inst_dt,
+	mst_xfr_inst_mst_xfr_inst_all_org.inst_usr_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.inst_dpt_cd,
+	mst_xfr_inst_mst_xfr_inst_all_org.inst_prnt_flg,
+	mst_xfr_inst_mst_xfr_inst_all_org.inst_prnt_tm,
+	mst_xfr_inst_mst_xfr_inst_all_org.pick_prnt_flg,
+	mst_xfr_inst_mst_xfr_inst_all_org.pick_prnt_tm,
+	mst_xfr_inst_mst_xfr_inst_all_org.dlv_prnt_flg,
+	mst_xfr_inst_mst_xfr_inst_all_org.dlv_prnt_tm,
+	mst_xfr_inst_mst_xfr_inst_all_org.trd_rmrks,
+	mst_xfr_inst_mst_xfr_inst_all_org.inst_rmrks,
+	mst_xfr_inst_mst_xfr_inst_all_org.intr_rmrks,
+	mst_xfr_inst_mst_xfr_inst_all_org.sub_char1,
+	mst_xfr_inst_mst_xfr_inst_all_org.sub_char2,
+	mst_xfr_inst_mst_xfr_inst_all_org.sub_char3,
+	mst_xfr_inst_mst_xfr_inst_all_org.ins_usr_id,
+	mst_xfr_inst_mst_xfr_inst_all_org.ins_usr_nm,
+	mst_xfr_inst_mst_xfr_inst_all_org.ins_ts,
+	mst_xfr_inst_mst_xfr_inst_all_org.ins_func_id,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_cntr,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_usr_id,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_usr_nm,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_ts,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_func_id,
+	mst_xfr_inst_mst_xfr_inst_all_org.upd_srv_req_no
+FROM
+	mst_xfr_inst_all mst_xfr_inst_mst_xfr_inst_all_org
+WHERE
+	0 = 0
+	AND mst_xfr_inst_mst_xfr_inst_all_org.co_cd = (SELECT co_cd FROM fct_context mst_xfr_inst_fct_context WHERE pid = pg_backend_pid())
+;
+

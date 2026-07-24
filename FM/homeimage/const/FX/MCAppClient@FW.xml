@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--MCAppClient Constant-->
+<mcframe>
+	<!-- Setting for Programs(START) -->
+	<confirm><!-- 確認ダイアログ -->
+		<focus><!-- 初期フォーカスボタン -->
+			<FXBAP0005><!-- 削除確認 -->
+				<YES_NO_DIALOG><!-- いいえ（MCDialogButton.NO） -->NO</YES_NO_DIALOG>
+			</FXBAP0005>
+		</focus>
+	</confirm>
+
+	<FX>
+		<toolbar><!-- ToolBar -->
+			<preset_all><!-- 全体設定 -->
+			<!-- 画面毎の設定は各モジュールＩＤのフォルダ内のファイルに記載すること -->
+				<preset_screen_clear>
+					<type>SCREEN_CLEAR</type>
+					<order>20</order>
+					<ignore>false</ignore>
+				</preset_screen_clear>
+				<preset_excel_out>
+					<type>EXCEL_OUT</type>
+					<order>30</order>
+					<ignore>false</ignore>
+				</preset_excel_out>
+				<preset_tbl_zoom>
+					<type>TBL_ZOOM</type>
+					<order>40</order>
+					<ignore>false</ignore>
+				</preset_tbl_zoom>
+				<preset_memo>
+					<type>MEMO</type>
+					<order>50</order>
+					<ignore>false</ignore>
+				</preset_memo>
+				<barcode>
+					<type>BARCODE</type>
+					<order>70</order>
+					<ignore>false</ignore>
+				</barcode>
+                <move_xy>
+                    <type>MOVE_XY</type>
+                    <order>80</order>
+                    <ignore>false</ignore>
+                </move_xy>
+				<preset_sep02>
+					<type>NULL</type>
+					<order>95</order>
+					<ignore>false</ignore>
+				</preset_sep02>
+				<preset_bookmark>
+					<type>SCREEN_BOOKMARK</type>
+					<order>100</order>
+					<ignore>false</ignore>
+				</preset_bookmark>
+				<preset_sep03>
+					<type>NULL</type>
+					<order>105</order>
+					<ignore>false</ignore>
+				</preset_sep03>
+				<S_SWITCH>
+					<type>S_SWITCH</type>
+					<order>110</order>
+					<ignore>false</ignore>
+				</S_SWITCH>
+				<!--
+				<preset_sep04>
+					<type>NULL</type>
+					<order>115</order>
+					<ignore>false</ignore>
+				</preset_sep04>
+				-->
+				<ROBOT>
+					<type>ROBOT</type>
+					<order>118</order>
+					<ignore>false</ignore>
+				</ROBOT>
+				<SENARIO>
+					<type>SENARIO</type>
+					<order>120</order>
+					<ignore>true</ignore>
+				</SENARIO>
+				<preset_sep05>
+					<type>NULL</type>
+					<order>125</order>
+					<ignore>false</ignore>
+				</preset_sep05>
+				<DEV>
+					<type>DEV</type>
+					<order>130</order>
+					<ignore>false</ignore>
+				</DEV>
+			</preset_all>
+		</toolbar>
+		<PluralValue>
+			<ScreenID>X,FXUCP0100</ScreenID>
+		</PluralValue>
+		<paging><nontarget>SET</nontarget></paging>
+		
+		<FXBAP0010>
+			<confirm_focus>
+				<!-- confirmダイアログの初期フォーカスを設定する -->
+				<!-- 設定値が true の場合、「はい」にフォーカス。false の場合、「いいえ」にフォーカス -->
+				<!-- 必須タグ（ここから） -->
+				<!-- デフォルトのconfirmダイアログの初期フォーカス-->
+				<FXBAP_PanelBase><![CDATA[true]]></FXBAP_PanelBase>
+				<!-- FXBAP_Updaterのconfirmダイアログの初期フォーカス-->
+				<FXBAP_Updater><![CDATA[true]]></FXBAP_Updater>
+				<!-- FXBAP_Deleterのconfirmダイアログの初期フォーカス-->
+				<FXBAP_Deleter><![CDATA[false]]></FXBAP_Deleter>
+				<!-- FXBAP_Printerのconfirmダイアログの初期フォーカス-->
+				<FXBAP_Printer><![CDATA[true]]></FXBAP_Printer>
+				<!-- 必須タグ（ここまで） -->
+				<!-- 以下、任意タグ -->
+				<!-- メッセージＩＤでタグを作りその中に設定値を設定すると、その設定が優先される -->
+				<FXBAP0005><![CDATA[false]]></FXBAP0005>
+			</confirm_focus>
+			<sort_by_visible_column>false</sort_by_visible_column>
+		</FXBAP0010>
+		<FXBAP0020>
+			<!--リスト取得メソッドのキャッシュのタイプ-->
+			<!--指定できるタイプはMCCacheTypeで指定できるタイプ -->
+			<cache_typ><![CDATA[NONE]]></cache_typ>
+		</FXBAP0020>
+		<FXBAP0040>
+			<!--入力補助画面のキャッシュのタイプ-->
+			<!--指定できるタイプはMCCacheTypeで指定できるタイプ -->
+			<cache_typ><![CDATA[NONE]]></cache_typ>
+		</FXBAP0040>
+		<FXBAP0140>
+			<cond>
+				<!--検索枠の列幅-->
+				<colwidth>350</colwidth>
+				<!--検索枠のマージン-->
+				<margin>5</margin>
+			</cond>
+		</FXBAP0140>
+		<FXUCP0060>
+			<!-- 
+			使用可能な置換文字列
+			{yyyy} : 年４桁
+			{MM} ： 月
+			{dd} ： 日付
+			{HH} ： 時間
+			{mm} ： 分
+			{ss} ： 秒
+			{SSS}： ミリ秒
+			{USER} : ログインユーザ
+			{clientID} : クライアントＩＤ
+			{moduleID} : 出力対象の画面のモジュールＩＤ
+			{submoduleID} : 出力対象の画面のサブモジュールＩＤ
+			{screenID} : 出力対象の画面のスクリーンＩＤ
+			{screenName} : 出力対象の画面の画面名
+			{MCF_HOME} : MCF_HOME
+			-->
+			<!--
+			指定可能フォーマット一覧
+			BMP, jpeg, bmp, wbmp, png, JPG, PNG, jpg, WBMP, JPEG
+			-->
+			<ROOT_PANEL>
+				<FILE_NAME>
+					<!-- 文字列を指定（置換文字列使用可能） -->
+					{MCF_HOME}\printScreen\{HH}{mm}{ss}{SSS}_{screenID}.png
+				</FILE_NAME>
+				<FORMAT_NAME>
+					<!-- 使用可能フォーマットから指定 -->
+					png
+				</FORMAT_NAME>
+			</ROOT_PANEL>
+			<DESK_TOP>
+				<FILE_NAME>
+					<!-- 文字列を指定（置換文字列使用可能） -->
+					{MCF_HOME}\printScreen\{HH}{mm}{ss}{SSS}.png
+				</FILE_NAME>
+				<FORMAT_NAME>
+					<!-- 使用可能フォーマットから指定 -->
+					png
+				</FORMAT_NAME>
+			</DESK_TOP>
+			<PRINT_OUT>
+				<HEADER_STR>
+					<!-- 文字列を指定（置換文字列使用可能） -->
+					{screenID} {screenName}
+				</HEADER_STR>
+				<FOOTER_STR>
+					<!-- 文字列を指定（置換文字列使用可能） -->
+					{yyyy}/{MM}/{dd} {HH}:{mm} {USER}@{clientID}
+				</FOOTER_STR>
+			</PRINT_OUT>
+		</FXUCP0060>
+		<FXUCP0070>
+			<BTN_GRP_NM_DLM>:</BTN_GRP_NM_DLM>
+		</FXUCP0070>
+	</FX>
+	<!-- Setting for Programs(END) -->
+	<!-- 電文上限数の設定。0は未設定を表す。 -->
+	<FXBA>
+		<FXBAP0010>
+			<FXBAP_CallerNoPanel>
+				<limitDL>-1</limitDL>
+			</FXBAP_CallerNoPanel>
+			<FXBAP_BatchCaller>
+				<limitUL>-1</limitUL>
+				<limitDL>-1</limitDL>
+			</FXBAP_BatchCaller>
+			<FXBAP_Caller>
+				<limitUL>-1</limitUL>
+				<limitDL>-1</limitDL>
+			</FXBAP_Caller>
+			<FXBAP_Updater>
+				<limitUL>0</limitUL>
+			</FXBAP_Updater>
+			<FXBAP_Deleter>
+				<limitUL>0</limitUL>
+			</FXBAP_Deleter>
+			<FXBAP_Printer>
+				<limitUL>0</limitUL>
+			</FXBAP_Printer>
+			<FXBAP_Searcher>
+				<limitUL>0</limitUL>
+				<limitDL>0</limitDL>
+			</FXBAP_Searcher>
+		</FXBAP0010>
+	</FXBA>
+</mcframe>

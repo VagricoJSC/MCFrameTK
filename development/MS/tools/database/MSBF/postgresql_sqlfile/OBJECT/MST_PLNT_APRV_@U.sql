@@ -1,0 +1,79 @@
+\encoding UTF-8
+
+CREATE OR REPLACE VIEW mst_plnt_aprv_$u(
+	plnt_aprv_no,
+	itm_cd,
+	itm_sub1,
+	itm_sub2,
+	itm_sub3,
+	lot_no,
+	sublot_no,
+	skip_chk_ship_flg,
+	plnt_aprv_sts_typ,
+	aprv_dt,
+	aprv_tm,
+	plnt_aprv_role_cd,
+	aprv_dpt_cd,
+	aprv_usr_cd,
+	aprv_rsn,
+	plnt_aprv_prnt_flg,
+	plnt_aprv_prnt_tm,
+	seq,
+	site_cd,
+	intr_rmrks,
+	sub_char1,
+	sub_char2,
+	sub_char3,
+	ins_usr_id,
+	ins_usr_nm,
+	ins_ts,
+	ins_func_id,
+	upd_cntr,
+	upd_usr_id,
+	upd_usr_nm,
+	upd_ts,
+	upd_func_id,
+	upd_srv_req_no
+	)
+AS
+SELECT
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.plnt_aprv_no,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.itm_cd,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.itm_sub1,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.itm_sub2,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.itm_sub3,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.lot_no,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.sublot_no,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.skip_chk_ship_flg,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.plnt_aprv_sts_typ,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.aprv_dt,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.aprv_tm,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.plnt_aprv_role_cd,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.aprv_dpt_cd,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.aprv_usr_cd,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.aprv_rsn,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.plnt_aprv_prnt_flg,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.plnt_aprv_prnt_tm,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.seq,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.site_cd,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.intr_rmrks,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.sub_char1,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.sub_char2,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.sub_char3,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.ins_usr_id,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.ins_usr_nm,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.ins_ts,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.ins_func_id,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_cntr,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_usr_id,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_usr_nm,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_ts,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_func_id,
+	mst_plnt_aprv_$u_mst_plnt_aprv_all_org.upd_srv_req_no
+FROM
+	mst_plnt_aprv_all mst_plnt_aprv_$u_mst_plnt_aprv_all_org
+WHERE
+	0 = 0
+	AND mst_plnt_aprv_$u_mst_plnt_aprv_all_org.co_cd = fcpa_context$f_get_co_cd()
+;
+

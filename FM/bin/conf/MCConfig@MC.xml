@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mcframe Environment Configuration-->
+<mcframe>
+
+<log>
+	<admin>
+		<file></file>
+	</admin>
+	<debug>
+		<file>debug{USER}.log</file>
+		<level>DEBUG</level>
+		<fwlevel>APP</fwlevel>
+		<rotation>5MB</rotation>
+		<backup>10</backup>
+	</debug>
+	<header>[{DATE}][{REQNO}][{THREAD}][{LEVEL}][{MSGID}]\n</header>
+</log>
+
+<locale>
+	<entry>
+		<ja_JP>@</ja_JP>
+		<en_US>@</en_US>
+		<zh_CN>@</zh_CN>
+	</entry>
+	<list>ja_JP,en_US,zh_CN</list>
+</locale>
+
+<!-- FrameManager Default Value -->
+<FM>
+	<FTL_DIR>./template</FTL_DIR>
+		
+	<OUT_DIR>./out</OUT_DIR>
+	<BACKUP_DIR>./back/{YMDHMS}</BACKUP_DIR>
+	<BACKUP>10</BACKUP>
+	<ANALYZE_DIR>./out</ANALYZE_DIR>
+	<REPOSITORY_DIR>./repository</REPOSITORY_DIR>
+
+	<ID_CAP_CHECK>true</ID_CAP_CHECK>
+
+	<CONSOLE_VERBOSE>true</CONSOLE_VERBOSE>
+	<CONSOLE_MESSAGE_INDENT>true</CONSOLE_MESSAGE_INDENT>
+
+	<TIMEKEEPER>false</TIMEKEEPER>
+	<TIMEKEEPER_FILE>timekeeper.csv</TIMEKEEPER_FILE>
+
+	<GC_FRQ_AT_XLS2CSV>-1</GC_FRQ_AT_XLS2CSV>
+	<GC_FRQ_AT_GENERATE>-1</GC_FRQ_AT_GENERATE>
+
+	<EI_CLASS_DEV_MODE>false</EI_CLASS_DEV_MODE>
+	<EI_OVERWRITE>true</EI_OVERWRITE>
+
+	<AUTO_LAYOUT_TAG>true</AUTO_LAYOUT_TAG>
+	<AUTO_LAYOUT_TAG_OMEGA>
+		<MODE>false</MODE>
+		<LOCALE_ID_LIST>en_US,zh_CN</LOCALE_ID_LIST>
+		<PROJECT_ID></PROJECT_ID>
+		<!-- 書き出しリソースファイル名のプロジェクトIDの指定。無指定の場合には画面実装仕様書定義のプロジェクトIDを使用します。 -->
+	</AUTO_LAYOUT_TAG_OMEGA>
+
+	<SUPER_ID_CHECK>true</SUPER_ID_CHECK>
+
+	<!-- eclipsePluginとして稼働する場合には、このフラグが"true"となります。-->
+	<!--<ECLIPSE_PLUGIN_MODE>false</ECLIPSE_PLUGIN_MODE>-->
+
+	<OB><!-- OperationBuilder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<ANALYZE_DIR>{FM.ANALYZE_DIR}</ANALYZE_DIR>
+		<RES_OUT_DIR>{FM.OUT_DIR}</RES_OUT_DIR>
+		<RES_ANALYZE_DIR>{FM.ANALYZE_DIR]</RES_ANALYZE_DIR>
+		<GENE>SR</GENE>
+	</OB>
+
+	<SB><!-- ScreenBuilder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<ANALYZE_DIR>{FM.ANALYZE_DIR}</ANALYZE_DIR>
+		<RES_OUT_DIR>{FM.OUT_DIR}</RES_OUT_DIR>
+		<RES_ANALYZE_DIR>{FM.ANALYZE_DIR]</RES_ANALYZE_DIR>
+		<REF_RP_CPL_BUILD>true</REF_RP_CPL_BUILD><!-- reflect repository couple build -->
+		<GENE>SR</GENE>
+	</SB>
+
+	<MB><!-- MetaBuilder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<RES_OUT_DIR>{FM.OUT_DIR}</RES_OUT_DIR>
+		<RES2_OUT_DIR>{FM.OUT_DIR}</RES2_OUT_DIR>
+		<PLSQL_FILE_NAME>{{MODULE_ID}PA_META.sql</PLSQL_FILE_NAME>
+		<PLSQL_BODY_FILE_NAME>{{MODULE_ID}PA_META_BODY.sql</PLSQL_BODY_FILE_NAME>
+		<GENE>SR</GENE>
+	</MB>
+
+	<QB><!-- QueryBuilder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<GENE>SR</GENE>
+	</QB>
+	
+	<RB><!-- ReportBuilder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<ANALYZE_DIR>{FM.ANALYZE_DIR}</ANALYZE_DIR>
+		<RES_OUT_DIR>{FM.OUT_DIR}</RES_OUT_DIR>
+		<RES_ANALYZE_DIR>{FM.ANALYZE_DIR]</RES_ANALYZE_DIR>
+		<GENE>SR</GENE>
+		<!-- XAFM6311からのMCReport.xml,MCReportLabel.xmlの追加自動生成仕様のON/OFF -->
+		<!-- trueの場合に、追加自動生成仕様が有効（ON）になる。 -->
+		<!-- パッチで追加機能OFFのための定義はMCConfig@MCには記述しないこと。 -->
+		<!-- 追加機能OFFは定義せずに、FMツールからデフォルトOFF(false)で設定参照すること。-->
+		<!-- 「SPで追加機能ON」のためのMCConfig@SPには追加機能ON定義をする。-->
+		<RESOURCE_OUTPUT_ENHANCEMENT>true</RESOURCE_OUTPUT_ENHANCEMENT>
+	</RB>
+
+	<DB><!-- Database(Container)Builder -->
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<ANALYZE_DIR>{FM.ANALYZE_DIR}</ANALYZE_DIR>
+		<GENE>SR</GENE>
+	</DB>
+
+	<SE><!-- ScreenEditor -->
+		<JDK_DIR>{FM.JDK_DIR}</JDK_DIR>
+		<CLASS_PATH></CLASS_PATH>
+		<LIB_DIR>{FM.HOME_DIR}/fw_jar</LIB_DIR>
+	</SE>
+
+	<RP><!-- Repository -->
+		<XML_CACHE>true</XML_CACHE>
+		<SUPER_SCR_XML_CACHE>false</SUPER_SCR_XML_CACHE>
+		<REFARENCE_LOG>false</REFARENCE_LOG>
+	</RP>
+	
+	<RANA>
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<SPEC>OPE,SCR</SPEC>
+		<OUT_FILE>CSV,HTML</OUT_FILE>
+		<OPEFILTER></OPEFILTER><!-- 正規表現で表記 -->
+		<SCRFILTER></SCRFILTER><!-- 正規表現で表記 -->
+	</RANA>
+
+	<WB>
+		<OUT_DIR>{FM.OUT_DIR}</OUT_DIR>
+		<RES_OUT_DIR>{FM.OUT_DIR}</RES_OUT_DIR>
+	</WB>
+
+</FM>
+
+</mcframe>

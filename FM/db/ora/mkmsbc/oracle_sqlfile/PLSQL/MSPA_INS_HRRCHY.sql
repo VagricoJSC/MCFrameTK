@@ -1,0 +1,1564 @@
+SET SQLBLANKLINES ON
+
+CREATE OR REPLACE PACKAGE MSPA_INS_HRRCHY
+/*********************************************************
+<SYNOPSIS>
+	品目オーダ展開処理
+<REMARKS>
+<ARGUMENTS>
+<HISTORY>
+**********************************************************/
+IS
+--	TYPE IOH_TYPE IS TABLE OF MSW_ITM_ORD_HRRCHY%ROWTYPE;
+	TYPE IOFH_TYPE IS TABLE OF MSW_ITM_ORD_F_HRRCHY%ROWTYPE;
+	TYPE IORH_TYPE IS TABLE OF MSW_ITM_ORD_R_HRRCHY%ROWTYPE;
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_R(
+		I_RQMT_NO IN MAPA_META.RQMT_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	);
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの階層化データを（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_L(
+		I_SLO_D_NO IN MAPA_META.SLO_D_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	);
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの階層化データを（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_SLO_D_NO
+			受注明細ＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_ITM_ORD_R_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの逆展開結果を一時表（MSW_ITM_ORD_R_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_ITM_ORD_R_HRRCHY_S (
+		I_ITM_CD	IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1	IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2	IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3	IN MAPA_META.ITM_SUB3%TYPE,
+		I_LOT_NO	IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO	IN MAPA_META.SUBLOT_NO%TYPE,
+		I_LOC_CD	IN MAPA_META.LOC_CD%TYPE,
+		I_MAX_LVL	IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+	MRP所要を元に作成した品目オーダの階層化データをSW_ITM_ORD_R_HRRCHYに格納する。
+	<REMARKS>
+		オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_R (
+		I_RQMT_NO		IN MAPA_META.RQMT_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーションオーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_X (
+		I_RQMT_NO		IN MAPA_META.RQMT_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		納期回答を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーションオーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_P (
+		I_IO_SCHD_NO		IN MAPA_META.IO_SCHD_NO%TYPE,
+		I_IO_SCHD_TYP		IN MSPA_META.IO_SCHD_TYP%TYPE,
+		I_IO_SCHD_STS_TYP	IN MSPA_META.IO_SCHD_STS_TYP%TYPE,
+		I_SIM_MRP_NO		IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL			IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		納期回答を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーションオーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_IO_SCHD_NO
+			受払予定ＮＯ
+	<IN>	I_IO_SCHD_TYP
+			受払予定区分
+	<IN>	I_IO_SCHD_STS_TYP
+			受払予定状況区分
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_SIM_ORD_R_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの逆展開結果を一時表（MSW_ITM_ORD_R_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+	PROCEDURE P_INS_SIM_ORD_R_HRRCHY_S (
+		I_ITM_CD	IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1	IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2	IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3	IN MAPA_META.ITM_SUB3%TYPE,
+		I_LOT_NO	IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO	IN MAPA_META.SUBLOT_NO%TYPE,
+		I_LOC_CD	IN MAPA_META.LOC_CD%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	) ;
+	/*********************************************************
+	<SYNOPSIS>
+	MRP所要を元に作成したシミュレーション用品目オーダの階層化データをSW_ITM_ORD_R_HRRCHYに格納する。
+	<REMARKS>
+		シミュレーション用オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+
+END  MSPA_INS_HRRCHY ;
+
+/
+show errors;
+
+
+CREATE OR REPLACE PACKAGE BODY MSPA_INS_HRRCHY
+/*********************************************************
+<SYNOPSIS>
+	品目オーダ展開処理
+<REMARKS>
+<ARGUMENTS>
+<HISTORY>
+**********************************************************/
+IS
+	C_DEF_MAX_LVL CONSTANT INTEGER := 500 ;
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_IMPL (
+		I_LIST		IOFH_TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		P_INS_ITM_ORD_F_HRRCHY_...の実装
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_LIST
+			リスト
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LVL	INTEGER ;
+	BEGIN
+		IF I_LIST.COUNT() > 0 THEN
+			IF I_MAX_LVL IS NULL OR I_MAX_LVL <= 0 THEN
+				L_LVL := C_DEF_MAX_LVL ;
+			ELSE
+				L_LVL := I_MAX_LVL ;
+			END IF ;
+
+			FOR I IN I_LIST.FIRST..I_LIST.LAST LOOP
+				INSERT INTO MSW_ITM_ORD_F_HRRCHY VALUES I_LIST(I) ;
+				INSERT INTO MSW_ITM_ORD_F_HRRCHY
+				SELECT
+					T.ROOT_ID,
+					ROWNUM,
+					T.HRRCHY,
+					T.ITM_ORD_NO,
+					T.CHD_ITM_CD,
+					T.CHD_ITM_SUB1,
+					T.CHD_ITM_SUB2,
+					T.CHD_ITM_SUB3,
+					T.CHD_VER_NO,
+					T.CHD_LOC_CD,
+					T.CHD_IO_SCHD_PR_NO,
+					T.CHD_LOT_NO,
+					T.CHD_SUBLOT_NO,
+					T.CHD_SCHD_ALLOC_QTY,
+					T.CHD_GI_SCHD_DT,
+					T.CHD_SNO1,
+					T.CHD_SNO2,
+					T.CHD_SNO3,
+					T.CHD_SNO4,
+					T.WG_CD
+				FROM (
+					SELECT
+						I_LIST(I).ROOT_ID AS ROOT_ID,
+						LEVEL AS HRRCHY,
+						T1.IO_SCHD_PR_NO AS ITM_ORD_NO,
+						T0.ITM_CD AS CHD_ITM_CD,
+						T0.ITM_SUB1 AS CHD_ITM_SUB1,
+						T0.ITM_SUB2 AS CHD_ITM_SUB2,
+						T0.ITM_SUB3 AS CHD_ITM_SUB3,
+						T0.VER_NO AS CHD_VER_NO,
+						NVL(T1.LOC_CD, T0.LOC_CD) AS CHD_LOC_CD, -- 在庫管理しない場合は所要場所を格納場所とみなす
+						T1.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+						T1.LOT_NO AS CHD_LOT_NO,
+						T1.SUBLOT_NO AS CHD_SUBLOT_NO,
+						NVL(T1.SCHD_ALLOC_QTY, T0.NET_RQMT_QTY) AS CHD_SCHD_ALLOC_QTY, -- 在庫管理しない場合は所要数を引当予定数とする
+						T1.GI_SCHD_DT AS CHD_GI_SCHD_DT,
+						T1.SNO1 AS CHD_SNO1,
+						T1.SNO2 AS CHD_SNO2,
+						T1.SNO3 AS CHD_SNO3,
+						T1.SNO4 AS CHD_SNO4,
+						T0.WG_CD
+					FROM
+						MST_MRPRQMT T0
+						LEFT JOIN MST_ALLOC_PLN T1 ON (T0.RQMT_NO = T1.RQMT_NO)
+						JOIN MAVM_RD_WG T5 ON (T0.WG_CD = T5.WG_CD)
+					START WITH T0.ITM_ORD_NO = I_LIST(I).ROOT_ID
+					CONNECT BY NOCYCLE 0=0
+						AND PRIOR T1.IO_SCHD_PR_NO = T0.ITM_ORD_NO
+						AND LEVEL <= L_LVL
+					) T
+				;
+			END LOOP;
+		END IF;
+	END P_INS_ITM_ORD_F_HRRCHY_IMPL ;
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				I_ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				I_ITM_ORD_NO AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.STRG_LOC_CD AS CHD_LOC_CD,
+				T.ITM_ORD_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD AS WG_CD
+			FROM
+				MST_ITM_ORDER T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.ITM_ORD_NO = I_ITM_ORD_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_ITM_ORD_F_HRRCHY_IMPL(L_LIST, I_MAX_LVL) ;
+
+	END P_INS_ITM_ORD_F_HRRCHY_O ;
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_R(
+		I_RQMT_NO IN MAPA_META.RQMT_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの階層化データをMSW_ITM_ORD_F_HRRCHYに格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+  	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T.ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.STRG_LOC_CD AS CHD_LOC_CD,
+				T.ITM_ORD_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD AS WG_CD
+			FROM
+				MST_ITM_ORDER T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.RQMT_NO = I_RQMT_NO
+			UNION ALL
+			SELECT
+				NVL(T.IO_SCHD_PR_NO, T.RQMT_NO) AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T1.ITM_ORD_NO AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.LOC_CD AS CHD_LOC_CD,
+				T.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+				T.LOT_NO  AS CHD_LOT_NO,
+				T.SUBLOT_NO   AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD AS WG_CD
+			FROM
+				MST_ALLOC_PLN T
+				LEFT JOIN MST_ITM_ORDER T1 ON (T.IO_SCHD_PR_NO = T1.ITM_ORD_NO)
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.RQMT_NO = I_RQMT_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_ITM_ORD_F_HRRCHY_IMPL(L_LIST, I_MAX_LVL) ;
+
+	END P_INS_ITM_ORD_F_HRRCHY_R ;
+
+	PROCEDURE P_INS_ITM_ORD_F_HRRCHY_L (
+		I_SLO_D_NO IN MAPA_META.SLO_D_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_SLO_D_NO
+			受注明細ＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			-- 売上
+			SELECT
+				T3.ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T3.IO_SCHD_PR_NO AS ITM_ORD_NO,
+				T3.ITM_CD AS CHD_ITM_CD,
+				T3.ITM_SUB1 AS CHD_ITM_SUB1,
+				T3.ITM_SUB2 AS CHD_ITM_SUB2,
+				T3.ITM_SUB3 AS CHD_ITM_SUB3,
+				T3.VER_NO AS CHD_VER_NO,
+				T3.STRG_LOC_CD AS CHD_LOC_CD,
+				T3.ITM_ORD_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T3.SNO1 AS CHD_SNO1,
+				T3.SNO2 AS CHD_SNO2,
+				T3.SNO3 AS CHD_SNO3,
+				T3.SNO4 AS CHD_SNO4,
+				T3.WG_CD AS WG_CD
+			FROM
+				MST_IO_SCHD T1
+				LEFT OUTER JOIN MSVT_MRPRQMT_ALLOC_PLN T2 ON
+					(0=0
+					AND T1.IO_SCHD_TYP = T2.IO_SCHD_TYP
+					AND T1.IO_SCHD_STS_TYP = T2.IO_SCHD_STS_TYP
+					AND T1.IO_SCHD_NO = T2.IO_SCHD_NO
+					)
+				LEFT OUTER JOIN MST_ITM_ORDER T3 ON (T2.CHD_IO_SCHD_PR_NO = T3.ITM_ORD_NO)
+				JOIN MAVM_RD_WG T4 ON (T3.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T1.IO_TYP = MSC_IO_TYP.GI
+				AND T1.IO_SCHD_SUB_TYP2 = MSC_IO_SCHD_SUB_TYP.SLO_D_NO
+				AND T1.IO_SCHD_SUB_NO2 = I_SLO_D_NO
+				AND T2.CHD_IO_SCHD_PR_NO IS NOT NULL
+			-- 移送予定（WG間経由の売上）
+			UNION ALL
+			SELECT
+				T1.IO_SCHD_PR_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T1.IO_SCHD_PR_NO AS ITM_ORD_NO,
+				T1.ITM_CD AS CHD_ITM_CD,
+				T1.ITM_SUB1 AS CHD_ITM_SUB1,
+				T1.ITM_SUB2 AS CHD_ITM_SUB2,
+				T1.ITM_SUB3 AS CHD_ITM_SUB3,
+				T1.VER_NO AS CHD_VER_NO,
+				T3.GR_LOC_CD AS LOC_CD,
+				T1.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T1.SNO1 AS CHD_SNO1,
+				T1.SNO2 AS CHD_SNO2,
+				T1.SNO3 AS CHD_SNO3,
+				T1.SNO4 AS CHD_SNO4,
+				T1.WG_CD AS WG_CD
+			FROM
+				MST_IO_SCHD T1
+				LEFT OUTER JOIN MSVT_MRPRQMT_ALLOC_PLN T2 ON
+					(0=0
+					AND T1.IO_SCHD_TYP = T2.IO_SCHD_TYP
+					AND T1.IO_SCHD_STS_TYP = T2.IO_SCHD_STS_TYP
+					AND T1.IO_SCHD_NO = T2.IO_SCHD_NO
+					)
+				JOIN MST_XFR_SCHD T3 ON (T1.IO_SCHD_SUB_NO1 = T3.XFR_SCHD_NO AND T1.IO_SCHD_SUB_TYP1 = MSC_IO_SCHD_SUB_TYP.XFR_SCHD_NO)
+				JOIN MAVM_RD_WG T4 ON (T3.GI_WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T1.IO_TYP = MSC_IO_TYP.GI
+				AND T3.SLO_D_NO = I_SLO_D_NO
+				AND T2.CHD_IO_SCHD_PR_NO IS NOT NULL
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_ITM_ORD_F_HRRCHY_IMPL(L_LIST, I_MAX_LVL) ;
+
+	END P_INS_ITM_ORD_F_HRRCHY_L ;
+
+
+	PROCEDURE P_INS_ITM_ORD_R_HRRCHY_IMPL(
+		I_LIST IORH_TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		P_INS_ITM_ORD_R_HRRCHY_...の実装
+	<REMARKS>
+		オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_LIST
+			リスト
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LVL	INTEGER;
+	BEGIN
+		IF I_LIST.COUNT() > 0 THEN
+			IF I_MAX_LVL IS NULL OR I_MAX_LVL <= 0 THEN
+				L_LVL := C_DEF_MAX_LVL ;
+			ELSE
+				L_LVL := I_MAX_LVL ;
+			END IF;
+
+			FOR I IN I_LIST.FIRST..I_LIST.LAST LOOP
+				INSERT INTO MSW_ITM_ORD_R_HRRCHY VALUES I_LIST(I) ;
+				INSERT INTO MSW_ITM_ORD_R_HRRCHY
+				SELECT
+					I_LIST(I).ROOT_ID AS ROOT_ID,
+					ROWNUM,
+					T.HRRCHY,
+					T.RQMT_NO,
+					T.CHD_RQMT_NO,
+					T.ITM_CD,
+					T.ITM_SUB1,
+					T.ITM_SUB2,
+					T.ITM_SUB3,
+					T.VER_NO,
+					T.LOT_NO,
+					T.SUBLOT_NO,
+					T.LOC_CD,
+					T.ITM_ORD_NO,
+					T.IO_SCHD_TYP,
+					T.IO_SCHD_PR_NO,
+					T.SCHD_ALLOC_QTY,
+					T.GI_SCHD_DT,
+					T.SNO1,
+					T.SNO2,
+					T.SNO3,
+					T.SNO4,
+					T.WG_CD
+				FROM (
+					SELECT
+						LEVEL AS HRRCHY,
+						T1.RQMT_NO,
+						T4.RQMT_NO AS CHD_RQMT_NO,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_CD, T4.ITM_CD) AS ITM_CD,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB1, T4.ITM_SUB1) AS ITM_SUB1,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB2, T4.ITM_SUB2) AS ITM_SUB2,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB3, T4.ITM_SUB3) AS ITM_SUB3,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.VER_NO, T4.VER_NO) AS VER_NO,
+						NULL AS LOT_NO,
+						NULL AS SUBLOT_NO,
+						T4.LOC_CD,
+						T1.ITM_ORD_NO,
+						T1.IO_SCHD_TYP,
+						T1.ITM_ORD_NO AS IO_SCHD_PR_NO,
+						T4.SCHD_ALLOC_QTY,
+						T4.GI_SCHD_DT,
+						T1.SNO1,
+						T1.SNO2,
+						T1.SNO3,
+						T1.SNO4,
+						T1.WG_CD
+					FROM
+						MST_MRPRQMT T1
+						LEFT JOIN MST_ALLOC_PLN T4 ON (T1.ITM_ORD_NO = T4.IO_SCHD_PR_NO)
+						JOIN MAVM_RD_WG T5 ON (T1.WG_CD = T5.WG_CD)
+					START WITH T1.RQMT_NO = I_LIST(I).ROOT_ID
+					CONNECT BY NOCYCLE 0=0
+						AND PRIOR T4.RQMT_NO = T1.RQMT_NO
+						AND LEVEL <= L_LVL
+				) T
+				WHERE
+					0 = 0
+					-- 逆展開の場合最初の階層以外に在庫はなく、ITM_ORD_NOがない行は需要情報など関連する品目オーダ・受払予定のない情報
+					-- 画面の明細として適切に表示できないため省く
+					AND T.ITM_ORD_NO IS NOT NULL
+				;
+			END LOOP ;
+		END IF ;
+	END P_INS_ITM_ORD_R_HRRCHY_IMPL ;
+
+	PROCEDURE P_INS_ITM_ORD_R_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの逆展開結果を一時表（MSW_ITM_ORD_R_HRRCHY）に格納する。
+	<REMARKS>
+		オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IORH_TYPE;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_R_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.RQMT_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NULL AS RQMT_NO,
+				T.RQMT_NO AS CHD_RQMT_NO,
+				T.ITM_CD,
+				T.ITM_SUB1,
+				T.ITM_SUB2,
+				T.ITM_SUB3,
+				T.VER_NO,
+				T.LOT_NO,
+				T.SUBLOT_NO,
+				T.LOC_CD,
+				T.IO_SCHD_PR_NO ITM_ORD_NO,
+				NULL AS IO_SCHD_TYP,
+				NULL AS IO_SCHD_PR_NO,
+				T.SCHD_ALLOC_QTY,
+				T.GI_SCHD_DT,
+				T.SNO1,
+				T.SNO2,
+				T.SNO3,
+				T.SNO4,
+				T.WG_CD
+			FROM
+				MST_ALLOC_PLN T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.IO_SCHD_PR_NO = I_ITM_ORD_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_R_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_ITM_ORD_R_HRRCHY_IMPL(L_LIST, I_MAX_LVL) ;
+
+	END P_INS_ITM_ORD_R_HRRCHY_O ;
+
+	PROCEDURE P_INS_ITM_ORD_R_HRRCHY_S (
+		I_ITM_CD	IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1	IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2	IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3	IN MAPA_META.ITM_SUB3%TYPE,
+		I_LOT_NO	IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO	IN MAPA_META.SUBLOT_NO%TYPE,
+		I_LOC_CD	IN MAPA_META.LOC_CD%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成した品目オーダの階層化データをMSW_ITM_ORD_R_HRRCHYに格納する。
+	<REMARKS>
+		オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IORH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_R_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.RQMT_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NULL AS RQMT_NO,
+				T.RQMT_NO AS CHD_RQMT_NO,
+				T.ITM_CD,
+				T.ITM_SUB1,
+				T.ITM_SUB2,
+				T.ITM_SUB3,
+				T.VER_NO,
+				T.LOT_NO,
+				T.SUBLOT_NO,
+				T.LOC_CD,
+				NULL AS ITM_ORD_NO,
+				NULL AS IO_SCHD_TYP,
+				NULL AS IO_SCHD_PR_NO,
+				T.SCHD_ALLOC_QTY,
+				T.GI_SCHD_DT,
+				T.SNO1,
+				T.SNO2,
+				T.SNO3,
+				T.SNO4,
+				T.WG_CD
+			FROM
+				MST_ALLOC_PLN T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.ITM_CD = I_ITM_CD
+				AND T.ITM_SUB1 = I_ITM_SUB1
+				AND T.ITM_SUB2 = I_ITM_SUB2
+				AND T.ITM_SUB3 = I_ITM_SUB3
+				AND T.LOT_NO = I_LOT_NO
+				AND T.SUBLOT_NO = I_SUBLOT_NO
+				AND T.LOC_CD = I_LOC_CD
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_R_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_ITM_ORD_R_HRRCHY_IMPL(L_LIST, I_MAX_LVL) ;
+
+	END P_INS_ITM_ORD_R_HRRCHY_S ;
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_IMPL (
+		I_LIST		IOFH_TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		P_INS_SIM_ORD_F_HRRCHY_...の実装
+	<REMARKS>
+		シミュレーションオーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_LIST
+			リスト
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LVL	INTEGER ;
+	BEGIN
+		IF I_LIST.COUNT() > 0 THEN
+			IF I_MAX_LVL IS NULL OR I_MAX_LVL <= 0 THEN
+				L_LVL := C_DEF_MAX_LVL ;
+			ELSE
+				L_LVL := I_MAX_LVL ;
+			END IF ;
+
+			FOR I IN I_LIST.FIRST..I_LIST.LAST LOOP
+				INSERT INTO MSW_ITM_ORD_F_HRRCHY VALUES I_LIST(I) ;
+				INSERT INTO MSW_ITM_ORD_F_HRRCHY
+				SELECT
+					T.ROOT_ID,
+					ROWNUM,
+					T.HRRCHY,
+					T.ITM_ORD_NO,
+					T.CHD_ITM_CD,
+					T.CHD_ITM_SUB1,
+					T.CHD_ITM_SUB2,
+					T.CHD_ITM_SUB3,
+					T.CHD_VER_NO,
+					T.CHD_LOC_CD,
+					T.CHD_IO_SCHD_PR_NO,
+					T.CHD_LOT_NO,
+					T.CHD_SUBLOT_NO,
+					T.CHD_SCHD_ALLOC_QTY,
+					T.CHD_GI_SCHD_DT,
+					T.CHD_SNO1,
+					T.CHD_SNO2,
+					T.CHD_SNO3,
+					T.CHD_SNO4,
+					T.WG_CD
+				FROM
+					(
+					SELECT
+						I_LIST(I).ROOT_ID AS ROOT_ID,
+						LEVEL AS HRRCHY,
+						T1.IO_SCHD_PR_NO AS ITM_ORD_NO,
+						T0.ITM_CD AS CHD_ITM_CD,
+						T0.ITM_SUB1 AS CHD_ITM_SUB1,
+						T0.ITM_SUB2 AS CHD_ITM_SUB2,
+						T0.ITM_SUB3 AS CHD_ITM_SUB3,
+						T0.VER_NO AS CHD_VER_NO,
+						NVL(T1.LOC_CD, T0.LOC_CD) AS CHD_LOC_CD, -- 在庫管理しない場合は所要場所を格納場所とみなす
+						T1.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+						T1.LOT_NO AS CHD_LOT_NO,
+						T1.SUBLOT_NO AS CHD_SUBLOT_NO,
+						NVL(T1.SCHD_ALLOC_QTY, T0.NET_RQMT_QTY) AS CHD_SCHD_ALLOC_QTY, -- 在庫管理しない場合は所要数を引当予定数とする
+						T1.GI_SCHD_DT AS CHD_GI_SCHD_DT,
+						T1.SNO1 AS CHD_SNO1,
+						T1.SNO2 AS CHD_SNO2,
+						T1.SNO3 AS CHD_SNO3,
+						T1.SNO4 AS CHD_SNO4,
+						T0.WG_CD
+					FROM
+						MST_SIM_MRPRQMT T0
+						LEFT JOIN MST_SIM_ALLOC_PLN T1 ON (T0.RQMT_NO = T1.RQMT_NO AND T0.SIM_MRP_NO = T1.SIM_MRP_NO)
+						JOIN MAVM_RD_WG T5 ON (T0.WG_CD = T5.WG_CD)
+					START WITH T0.ITM_ORD_NO = I_LIST(I).ROOT_ID AND T0.SIM_MRP_NO = I_SIM_MRP_NO
+					CONNECT BY NOCYCLE 0=0
+						AND PRIOR T1.IO_SCHD_PR_NO = T0.ITM_ORD_NO
+						AND PRIOR T1.SIM_MRP_NO = T0.SIM_MRP_NO
+						AND LEVEL <= L_LVL
+					) T
+				;
+			END LOOP;
+		END IF;
+
+	END P_INS_SIM_ORD_F_HRRCHY_IMPL ;
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				I_ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				I_ITM_ORD_NO AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.STRG_LOC_CD AS CHD_LOC_CD,
+				T.ITM_ORD_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUB_LOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD
+			FROM
+				MST_SIM_ITM_ORDER T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.ITM_ORD_NO = I_ITM_ORD_NO
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			;
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_F_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_F_HRRCHY_O ;
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_R (
+		I_RQMT_NO		IN MAPA_META.RQMT_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T.ITM_ORD_NO AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.STRG_LOC_CD AS CHD_LOC_CD,
+				T.ITM_ORD_NO AS CHD_IO_SCHD_PR_NO,
+				NULL AS CHD_LOT_NO,
+				NULL AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD
+			FROM
+				MST_SIM_ITM_ORDER T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.RQMT_NO = I_RQMT_NO
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			UNION ALL
+			SELECT
+				NVL(T.IO_SCHD_PR_NO, T.RQMT_NO) AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NVL(T1.ITM_ORD_NO, T2.ITM_ORD_NO)  AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.LOC_CD AS CHD_LOC_CD,
+				T.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+				T.LOT_NO AS CHD_LOT_NO,
+				T.SUBLOT_NO AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD AS WG_CD
+			FROM
+				MST_SIM_ALLOC_PLN T
+				LEFT JOIN MST_SIM_ITM_ORDER T1 ON (T.IO_SCHD_PR_NO = T1.ITM_ORD_NO)
+				LEFT JOIN MST_ITM_ORDER T2 ON (T.IO_SCHD_PR_NO = T2.ITM_ORD_NO)
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.RQMT_NO = I_RQMT_NO
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_F_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_F_HRRCHY_R ;
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_X (
+		I_RQMT_NO		IN MAPA_META.RQMT_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		納期回答を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_RQMT_NO
+			所要ＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				NVL(T.IO_SCHD_PR_NO, T.RQMT_NO) AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NULL AS ITM_ORD_NO,
+				T.ITM_CD AS CHD_ITM_CD,
+				T.ITM_SUB1 AS CHD_ITM_SUB1,
+				T.ITM_SUB2 AS CHD_ITM_SUB2,
+				T.ITM_SUB3 AS CHD_ITM_SUB3,
+				T.VER_NO AS CHD_VER_NO,
+				T.LOC_CD AS CHD_LOC_CD,
+				T.IO_SCHD_PR_NO AS CHD_IO_SCHD_PR_NO,
+				T.LOT_NO AS CHD_LOT_NO,
+				T.SUBLOT_NO AS CHD_SUBLOT_NO,
+				NULL AS CHD_SCHD_ALLOC_QTY,
+				NULL AS CHD_GI_SCHD_DT,
+				T.SNO1 AS CHD_SNO1,
+				T.SNO2 AS CHD_SNO2,
+				T.SNO3 AS CHD_SNO3,
+				T.SNO4 AS CHD_SNO4,
+				T.WG_CD AS WG_CD
+			FROM
+				MST_SIM_ALLOC_PLN T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.RQMT_NO = I_RQMT_NO
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			UNION ALL
+			SELECT
+				T2.ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T2.CHD_IO_SCHD_PR_NO AS ITM_ORD_NO,
+				T2.CHD_ITM_CD,
+				T2.CHD_ITM_SUB1,
+				T2.CHD_ITM_SUB2,
+				T2.CHD_ITM_SUB3,
+				T2.CHD_VER_NO,
+				T2.CHD_LOC_CD,
+				T2.CHD_IO_SCHD_PR_NO,
+				T2.CHD_LOT_NO,
+				T2.CHD_SUBLOT_NO,
+				T2.CHD_SCHD_ALLOC_QTY,
+				T2.CHD_GI_SCHD_DT,
+				T2.CHD_SNO1,
+				T2.CHD_SNO2,
+				T2.CHD_SNO3,
+				T2.CHD_SNO4,
+				T1.WG_CD AS WG_CD
+			FROM	MST_IO_SCHD T1
+				LEFT OUTER JOIN MSVT_SIM_MRPRQMT_ALLOC_PLN T2 ON
+					(0=0
+					AND T1.IO_SCHD_TYP = T2.IO_SCHD_TYP
+					AND T1.IO_SCHD_NO = T2.IO_SCHD_NO
+					)
+			WHERE 0=0
+			AND T1.IO_TYP = MSC_IO_TYP.GI
+			AND T1.IO_SCHD_SUB_TYP2 = MSC_IO_SCHD_SUB_TYP.SLO_D_NO
+			AND T1.IO_SCHD_SUB_NO2 = I_RQMT_NO
+			UNION ALL
+			SELECT
+				T2.ITM_ORD_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T2.CHD_IO_SCHD_PR_NO AS ITM_ORD_NO,
+				T2.CHD_ITM_CD,
+				T2.CHD_ITM_SUB1,
+				T2.CHD_ITM_SUB2,
+				T2.CHD_ITM_SUB3,
+				T2.CHD_VER_NO,
+				T2.CHD_LOC_CD,
+				T2.CHD_IO_SCHD_PR_NO,
+				T2.CHD_LOT_NO,
+				T2.CHD_SUBLOT_NO,
+				T2.CHD_SCHD_ALLOC_QTY,
+				T2.CHD_GI_SCHD_DT,
+				T2.CHD_SNO1,
+				T2.CHD_SNO2,
+				T2.CHD_SNO3,
+				T2.CHD_SNO4,
+				T1.WG_CD AS WG_CD
+			FROM	MST_IO_SCHD T1
+				LEFT OUTER JOIN MSVT_SIM_MRPRQMT_ALLOC_PLN T2 ON
+					(0=0
+					AND T1.IO_SCHD_TYP = T2.IO_SCHD_TYP
+					AND T1.IO_SCHD_NO = T2.IO_SCHD_NO
+					)
+			WHERE 0=0
+			AND T1.IO_TYP = MSC_IO_TYP.GI
+			AND T1.IO_SCHD_SUB_TYP3 = MSC_IO_SCHD_SUB_TYP.SHIP_SCHD_NO
+			AND T1.IO_SCHD_SUB_NO3 = I_RQMT_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_F_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_F_HRRCHY_X ;
+
+	PROCEDURE P_INS_SIM_ORD_F_HRRCHY_P (
+		I_IO_SCHD_NO		IN MAPA_META.IO_SCHD_NO%TYPE,
+		I_IO_SCHD_TYP		IN MSPA_META.IO_SCHD_TYP%TYPE,
+		I_IO_SCHD_STS_TYP	IN MSPA_META.IO_SCHD_STS_TYP%TYPE,
+		I_SIM_MRP_NO		IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL			IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		納期回答を元に作成したシミュレーション用品目オーダの正展開結果を一時表（MSW_ITM_ORD_F_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ正展開用
+	<ARGUMENTS>
+	<IN>	I_IO_SCHD_NO
+			受払予定ＮＯ
+	<IN>	I_IO_SCHD_TYP
+			受払予定区分
+	<IN>	I_IO_SCHD_STS_TYP
+			受払予定状況区分
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IOFH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_F_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T1.CHD_IO_SCHD_PR_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				T1.CHD_IO_SCHD_PR_NO AS ITM_ORD_NO,
+				T1.CHD_ITM_CD,
+				T1.CHD_ITM_SUB1,
+				T1.CHD_ITM_SUB2,
+				T1.CHD_ITM_SUB3,
+				T1.CHD_VER_NO,
+				T1.CHD_LOC_CD,
+				T1.CHD_IO_SCHD_PR_NO,
+				T1.CHD_LOT_NO,
+				T1.CHD_SUBLOT_NO,
+				T1.CHD_SCHD_ALLOC_QTY,
+				T1.CHD_GI_SCHD_DT,
+				T1.CHD_SNO1,
+				T1.CHD_SNO2,
+				T1.CHD_SNO3,
+				T1.CHD_SNO4,
+				T1.WG_CD AS WG_CD
+			FROM
+				MSVT_SIM_MRPRQMT_ALLOC_PLN T1
+			WHERE 0=0
+			AND T1.IO_SCHD_TYP = I_IO_SCHD_TYP
+			AND T1.IO_SCHD_STS_TYP = I_IO_SCHD_STS_TYP
+			AND T1.IO_SCHD_NO = I_IO_SCHD_NO
+			AND T1.SIM_MRP_NO = I_SIM_MRP_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_F_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_F_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_F_HRRCHY_P ;
+
+	PROCEDURE P_INS_SIM_ORD_R_HRRCHY_IMPL (
+		I_LIST		IORH_TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL		IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		P_INS_SIM_ITM_ORD_R_HRRCHY_...の実装
+	<REMARKS>
+		シミュレーション用オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_LIST
+			リスト
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LVL	INTEGER ;
+	BEGIN
+		IF I_LIST.COUNT() > 0 THEN
+			IF I_MAX_LVL IS NULL OR I_MAX_LVL <= 0 THEN
+				L_LVL := C_DEF_MAX_LVL ;
+			ELSE
+				L_LVL := I_MAX_LVL ;
+			END IF ;
+
+			FOR I IN I_LIST.FIRST..I_LIST.LAST LOOP
+				INSERT INTO MSW_ITM_ORD_R_HRRCHY VALUES I_LIST(I) ;
+				INSERT INTO MSW_ITM_ORD_R_HRRCHY
+				SELECT
+					I_LIST(I).ROOT_ID AS ROOT_ID,
+					ROWNUM,
+					T.HRRCHY,
+					T.RQMT_NO,
+					T.CHD_RQMT_NO,
+					T.ITM_CD,
+					T.ITM_SUB1,
+					T.ITM_SUB2,
+					T.ITM_SUB3,
+					T.VER_NO,
+					T.LOT_NO,
+					T.SUBLOT_NO,
+					T.LOC_CD,
+					T.ITM_ORD_NO,
+					T.IO_SCHD_TYP,
+					T.IO_SCHD_PR_NO,
+					T.SCHD_ALLOC_QTY,
+					T.GI_SCHD_DT,
+					T.SNO1,
+					T.SNO2,
+					T.SNO3,
+					T.SNO4,
+					T.WG_CD
+				FROM (
+					SELECT
+						LEVEL AS HRRCHY,
+						T1.RQMT_NO,
+						T4.RQMT_NO AS CHD_RQMT_NO,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_CD, T4.ITM_CD) AS ITM_CD,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB1, T4.ITM_SUB1) AS ITM_SUB1,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB2, T4.ITM_SUB2) AS ITM_SUB2,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.ITM_SUB3, T4.ITM_SUB3) AS ITM_SUB3,
+						DECODE(T1.IO_SCHD_TYP, MSC_IO_SCHD_TYP.XFR_GI, T1.VER_NO, T4.VER_NO) AS VER_NO,
+						NULL AS LOT_NO,
+						NULL AS SUBLOT_NO,
+						T4.LOC_CD,
+						T1.ITM_ORD_NO,
+						T1.IO_SCHD_TYP,
+						T1.ITM_ORD_NO AS IO_SCHD_PR_NO,
+						T1.IO_SCHD_NO,
+						T4.SCHD_ALLOC_QTY,
+						T4.GI_SCHD_DT,
+						T1.SNO1,
+						T1.SNO2,
+						T1.SNO3,
+						T1.SNO4,
+						T1.WG_CD
+					FROM
+						MST_SIM_MRPRQMT T1
+						LEFT JOIN MST_SIM_ALLOC_PLN T4 ON (T1.ITM_ORD_NO = T4.IO_SCHD_PR_NO AND T1.SIM_MRP_NO = T4.SIM_MRP_NO)
+						JOIN MAVM_RD_WG T5 ON (T1.WG_CD = T5.WG_CD)
+					START WITH T1.RQMT_NO = I_LIST(I).ROOT_ID AND T1.SIM_MRP_NO = I_SIM_MRP_NO
+					CONNECT BY NOCYCLE 0=0
+						AND PRIOR T4.RQMT_NO = T1.RQMT_NO
+						AND PRIOR T4.SIM_MRP_NO = T1.SIM_MRP_NO
+						AND LEVEL <= L_LVL
+				) T
+				WHERE
+					0 = 0
+					-- 逆展開の場合最初の階層以外に在庫はなく、ITM_ORD_NOがない行は需要情報など関連する品目オーダ・受払予定のない情報
+					-- 画面の明細として適切に表示できないため省く
+					AND T.ITM_ORD_NO IS NOT NULL
+				;
+			END LOOP ;
+		END IF ;
+	END P_INS_SIM_ORD_R_HRRCHY_IMPL ;
+
+	PROCEDURE P_INS_SIM_ORD_R_HRRCHY_O (
+		I_ITM_ORD_NO	IN MAPA_META.ITM_ORD_NO%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+		MRP所要を元に作成したシミュレーション用品目オーダの逆展開結果を一時表（MSW_ITM_ORD_R_HRRCHY）に格納する。
+	<REMARKS>
+		シミュレーション用オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_ORD_NO
+			品目オーダＮＯ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IORH_TYPE;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_R_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.RQMT_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NULL AS RQMT_NO,
+				T.RQMT_NO AS CHD_RQMT_NO,
+				T.ITM_CD,
+				T.ITM_SUB1,
+				T.ITM_SUB2,
+				T.ITM_SUB3,
+				T.VER_NO,
+				T.LOT_NO,
+				T.SUBLOT_NO,
+				T.LOC_CD,
+				T.IO_SCHD_PR_NO ITM_ORD_NO,
+				NULL AS IO_SCHD_TYP,
+				NULL AS IO_SCHD_PR_NO,
+				T.SCHD_ALLOC_QTY,
+				T.GI_SCHD_DT,
+				T.SNO1,
+				T.SNO2,
+				T.SNO3,
+				T.SNO4,
+				T.WG_CD
+			FROM
+				MST_SIM_ALLOC_PLN T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.IO_SCHD_PR_NO = I_ITM_ORD_NO
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_R_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_R_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_R_HRRCHY_O ;
+
+	PROCEDURE P_INS_SIM_ORD_R_HRRCHY_S (
+		I_ITM_CD	IN MAPA_META.ITM_CD%TYPE,
+		I_ITM_SUB1	IN MAPA_META.ITM_SUB1%TYPE,
+		I_ITM_SUB2	IN MAPA_META.ITM_SUB2%TYPE,
+		I_ITM_SUB3	IN MAPA_META.ITM_SUB3%TYPE,
+		I_LOT_NO	IN MAPA_META.LOT_NO%TYPE,
+		I_SUBLOT_NO	IN MAPA_META.SUBLOT_NO%TYPE,
+		I_LOC_CD	IN MAPA_META.LOC_CD%TYPE,
+		I_SIM_MRP_NO	IN MAPA_META.SIM_MRP_NO%TYPE,
+		I_MAX_LVL	IN INTEGER
+	)
+	/*********************************************************
+	<SYNOPSIS>
+	MRP所要を元に作成したシミュレーション用品目オーダの階層化データをMSW_ITM_ORD_R_HRRCHYに格納する。
+	<REMARKS>
+		シミュレーション用オーダ逆展開用
+	<ARGUMENTS>
+	<IN>	I_ITM_CD
+			品目ＣＤ
+	<IN>	I_ITM_SUB1
+			枝番１
+	<IN>	I_ITM_SUB2
+			枝番２
+	<IN>	I_ITM_SUB3
+			枝番３
+	<IN>	I_LOT_NO
+			ロットＮＯ
+	<IN>	I_SUBLOT_NO
+			サブロットＮＯ
+	<IN>	I_LOC_CD
+			場所ＣＤ
+	<IN>	I_SIM_MRP_NO
+			シミュレーションＮＯ
+	<IN>	I_MAX_LVL
+			最大階層
+	<HISTORY>
+	**********************************************************/
+	AS
+		L_LIST IORH_TYPE ;
+		CURSOR L_CUR RETURN MSW_ITM_ORD_R_HRRCHY%ROWTYPE
+		IS
+			SELECT
+				T.RQMT_NO AS ROOT_ID,
+				0 AS SORT_NO,
+				0 AS HRRCHY,
+				NULL AS RQMT_NO,
+				T.RQMT_NO AS CHD_RQMT_NO,
+				T.ITM_CD,
+				T.ITM_SUB1,
+				T.ITM_SUB2,
+				T.ITM_SUB3,
+				T.VER_NO,
+				T.LOT_NO,
+				T.SUBLOT_NO,
+				T.LOC_CD,
+				NULL AS ITM_ORD_NO,
+				NULL AS IO_SCHD_TYP,
+				NULL AS IO_SCHD_PR_NO,
+				T.SCHD_ALLOC_QTY,
+				T.GI_SCHD_DT,
+				T.SNO1,
+				T.SNO2,
+				T.SNO3,
+				T.SNO4,
+				T.WG_CD
+			FROM
+				MST_SIM_ALLOC_PLN T
+				JOIN MAVM_RD_WG T4 ON (T.WG_CD = T4.WG_CD)
+			WHERE 0=0
+				AND T.ITM_CD = I_ITM_CD
+				AND T.ITM_SUB1 = I_ITM_SUB1
+				AND T.ITM_SUB2 = I_ITM_SUB2
+				AND T.ITM_SUB3 = I_ITM_SUB3
+				AND T.LOT_NO = I_LOT_NO
+				AND T.SUBLOT_NO = I_SUBLOT_NO
+				AND T.LOC_CD = I_LOC_CD
+				AND T.SIM_MRP_NO = I_SIM_MRP_NO
+			;
+
+	BEGIN
+		DELETE MSW_ITM_ORD_R_HRRCHY ;
+
+		OPEN L_CUR ;
+		FETCH L_CUR BULK COLLECT INTO L_LIST ;
+		CLOSE L_CUR ;
+
+		P_INS_SIM_ORD_R_HRRCHY_IMPL(L_LIST, I_SIM_MRP_NO, I_MAX_LVL) ;
+
+	END P_INS_SIM_ORD_R_HRRCHY_S ;
+
+END  MSPA_INS_HRRCHY ;
+
+/
+show errors;
+
+

@@ -1,0 +1,38 @@
+\encoding UTF-8
+
+CREATE TABLE fcm_mining_method
+(mining_id varchar (30) NOT NULL,
+col_id varchar (512) NOT NULL,
+col_nm varchar (1000) NOT NULL,
+list_order numeric (10) NOT NULL,
+sum_info_typ varchar (1) NOT NULL,
+sumcond varchar (1000) NULL,
+rank_flg char (1) DEFAULT '0' NOT NULL,
+rank_typ varchar (20) NULL,
+rank_size numeric (9,0) NULL,
+date_fmt varchar (1000) NULL,
+fill_dt_flg char (1) DEFAULT '0' NOT NULL,
+fill_dt_fm timestamp(3)  NULL,
+fill_dt_to timestamp(3)  NULL,
+formula varchar (1000) NULL,
+dec_place numeric (2) NULL,
+round_mode_typ varchar (1) NULL,
+null_zero char (1) DEFAULT '0' NOT NULL,
+sort_order numeric (10) NULL,
+sort_typ varchar (20) NULL,
+graph_typ numeric (2) NULL,
+graph_label_flg char (1) DEFAULT '0' NOT NULL,
+graph_color varchar (100) NULL,
+inv_flg char (1) DEFAULT '0' NOT NULL,
+ins_usr_id varchar (500) NULL,
+ins_usr_nm varchar (40) NULL,
+ins_ts timestamp(3)  NULL,
+ins_func_id varchar (50) NULL,
+upd_cntr numeric (9,0) DEFAULT 0 NULL,
+upd_usr_id varchar (500) NULL,
+upd_usr_nm varchar (40) NULL,
+upd_ts timestamp(3)  NULL,
+upd_func_id varchar (50) NULL,
+upd_srv_req_no varchar (50) NULL
+);
+

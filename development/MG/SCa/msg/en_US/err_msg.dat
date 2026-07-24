@@ -1,0 +1,253 @@
+#####    Message  File    #####
+ - %s/%c/%d/%ld/%hd are expanded to values (Other format specifiers are not allowed)
+ - If there are multiple rows with the same message id., the one that appears first is valid
+ - If xxxxx: is followed by a blank space, no message is shown (id. is not either).
+ - Any line that does not start with xxxxx: is treated as a comment
+
+50001: There is no valid record in t_arg.dat Process will be suspended.
+50002: t_arg.dat must be one record. Process will be suspended.
+50003: The period start month and period end month for t_arg.dat is invalid. Process will be suspended.
+
+50010: The record in the cost item master is duplicated. One of them will be ignored. (expns=%s)
+50011: The corresponding cost element master is not found. The record will be ignored. (%s %s=%s, expns=%s)
+50020: The record in the calculation pattern master is duplicated. One of them will be ignored. (calc_ptn=%s)
+50021: The corresponding calculation pattern master is not found. The record will be ignored. (item=%s, wg=%s, calc_ptn=%s)
+50030: For fraction adjustment cost element, only manufacturing cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+50031: For purchase cost element, only manufacturing cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+50032: For subcontracting cost element, only manufacturing cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+50033: For input cost element, only manufacturing cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+50034: For self supply cost element, only manufacturing cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+50035: For gain or loss of chargeable supply cost element, only the relevant cost element can be specified. The target calculation pattern data will be ignored. (calc_ptn=%s, expns=%s)
+
+51001: The record in the location master is duplicated. One of them will be ignored. (loc=%s)
+51002: Any location master does not match. The record will be ignored. (%s %s=%s)
+
+52000: The corresponding cost element information is not found. Any valid record is not entered to the cost element information and the item master. The record will be ignored. (%s %s=%s)
+52001: The record in the cost element information is duplicated. One of them will be ignored. (item=%s, wg=%s)
+52002: The corresponding cost element information is not found. Any valid record is not entered to the cost element information and the item master. The record will be ignored. (%s %s=%s, wg=%s)
+52003: Calculation pattern is not set. The record will be ignored. (item=%s, wg=%s)
+52004: Cost element information has an error on base quantity. Set the base quantity = 1 (item=%s, wg=%s)
+52005: The record on asset unmanaged item is invalid. The record will be ignored. (%s, %s=%s, wg=%s)
+
+52100: The record in the cost element details is duplicated. One of them will be ignored. (wg=%s, item=%s, loc=%s, bp=%s)
+52101: Can not process because there is no corresponding record in the cost item details. (wg=%s, item=%s, loc=%s, bp=%s)
+52102: An error occurs on the yield setting for the cost item details. Yield = 1 is temporally set. (wg=%s, item=%s, loc=%s)
+52103: No cost item information is set for the requested WG in the cost item details. The record of cost item details is ignored. (wg=%s, item=%s, rqst_wg=%s)
+52200: An error occurs on the yield setting for the cost item operation. Yield = 1 is temporally set. (wg=%s, item=%s, loc=%s, oper_ptn=%s, oper=%s)
+52300: The value for the parent quantity required of cost BOM has an error. The record is ignored. (wg=%s, p_item=%s, bom_ptn=%s, item=%s)
+52301: Forming a loop with cost BOM (%s). (wg=%s, p_item=%s, item=%s)
+52302: Parent item and child item of the cost BOM are the same. The record will be ignored. (wg=%s, item=%s, bom_ptn=%s)
+52303: Although configuration pattern is specified in the cost item details, there is no relevant record corresponding to the cost BOM. (wg=%s, item=%s)
+52304: There is no operation corresponding to the input operation of the cost BOM. Assuming to input at the beginning operation of the location. (wg=%s, loc=%s, p_item=%s, item=%s, oper=%s)
+52400: Although the item is categorized to purchasing item for the manufacturing and purchasing type, there is no relevant record corresponding to the cost item purchase unit price. (item=%s, wg=%s)
+
+53001: A loop of item category structure is found. (%s) The record will be ignored. (%s->%s)
+53002: Parent item and child item of the item category structure are the same. The record will be ignored. (categ=%s)
+53003: Item category and item are specified for the item category structure. Only one of them can be specified. The record will be ignored. (p_categ=%s, categ=%s, item=%s)
+53011: Department structure loop is found. (%s) The record will be ignored. (%s->%s, month=%s)
+53012: Parent item and child item of the department structure are the same. The record will be ignored. (dept=%s, month=%s)
+53013: Department and location are specified for the department structure. Only one of them can be specified. The record will be ignored. (p_dept=%s, dept=%s, loc=%s)
+
+54000: As there is no relevant record in the cost item details that corresponds to the item, quantity cannot be allocated. (month=%s, wg=%s, dept=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, num=%s)
+54001: Quantity has been allocated by priority; yet, there are some errors on quantity allocation because all records exceeded the maximum value. (month=%s, wg=%s, dept=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, num=%s)
+
+55000: The record in the allocation basis master is duplicated. One of them will be ignored. (alc_ptn=%s)
+55001: Allocated cost element in the allocation basis master is NULL. The record will be ignored. (alc_ptn=%s)
+55002: Allocation object type in the allocation basis master is NULL. The record will be ignored. (alc_ptn=%s)
+55003: Allocation basis type in the allocation basis master is NULL. The record will be ignored. (alc_ptn=%s)
+55004: Variance calculation type in the allocation basis master is NULL. The record will be ignored. (alc_ptn=%s)
+55005: The corresponding allocation basis master is not found. The record will be ignored. (%s, alc_ptn=%s)
+55006: Allocation pattern or cost element item is not set. Check the allocation pattern selection master, the allocation account master, or the allocation basis master. The record will be ignored. (%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, categ=%s, item=%s)
+55007: Although it is an allocation pattern that allocates man-hour, there is no relevant record valid for the man-hour allocation master. (alc_ptn=%s)
+55008: Although it is an allocation pattern that allocates cost by cost element and margin, there is no relevant record valid for the cost element allocation master. (alc_ptn=%s)
+55009: Although it is an allocation pattern that allocates input quantity allocation, there is no relevant record valid for the input allocation master. (alc_ptn=%s)
+55010: Although it is an allocation pattern that allocates optional allocation value, there is no relevant record valid for the optional value allocation master. (alc_ptn=%s)
+55011: A cost element other than manufacturing cost element is specified in the cost element allocation master. The record will be ignored. (alc_ptn=%s, expns=%s)
+55012: Although manufacturing or purchase is specified to the allocation object type, a cost element that is not for the manufacturing cost element is set at cost element type. The record will be ignored. (alc_ptn=%s, expns=%s, %s)
+55013: Although sales is specified to the allocation object type, a cost element that is not for the SGA cost element is set at cost element type. The record will be ignored. (alc_ptn=%s, expns=%s, %s)
+55014: Allocation destination cost element of the expense of cost allocation by cost element (alc_ac=%s, dept=%s, wg=%s, alc_ptn=%s) is entered in a cost element item of the cost element allocation master. The cost element item of the cost element allocation master will be ignored. (alc_ptn=%s, expns=%s)
+55015: Allocation rate calculation cannot be executed for the allocable expenses with allocation patterns that allocate cost by cost element and margin. Create the setting to perform costing simultaneously. (alc_ac=%s, alc_ptn=%s)
+55016: Allocation cannot be executed because there is no man-hour record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55017: Allocation cannot be executed because there is no input record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55018: Allocation cannot be executed because there is no manufacturing record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55019: Allocation cannot be executed because there is no purchasing record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55020: Allocation cannot be executed because there is no manufacturing/purchasing record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55021: Allocation cannot be executed because there is no sales record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55022: Tried transferring allocation by man-hour allocation; yet, allocation cannot be executed as its allocation pattern or cost element item cannot be acquired. (alc_ac=%s)
+55023: Allocation pattern / cost element item of the allocable expenses does not match with the allocation pattern / cost element item of the corresponding standard allocation rate. Allocation pattern / cost element item of the standard allocation rate is applied. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, alc_ptn=%s, std_alc_ptn=%s)
+55024: Unallocated amount occurs. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, amt=%s)
+55025: Calculated with the allocation rate 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s, amt=%s, tgt=%s)
+55026: Allocation destination cost element of allocable expenses created from the GI amount (alc_ac=%s, dept=%s, wg=%s, alc_ptn=%s) is entered in cost element items of the cost element allocation master. The cost element item of the cost element allocation master will be ignored. (alc_ptn=%s, expns=%s)
+55027: Although it is an allocation pattern that allocates general allocation, there is no relevant record valid for the general allocation master. (alc_ptn=%s)
+55028: Allocation cannot be executed because there is no general allocation record to be an allocation object or the total value of the allocation objects is 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, alc_ptn=%s)
+55029: Allocation pattern / cost element item of the allocable expenses does not match with the allocation pattern / cost element item of the corresponding standard allocation rate. The standard allocation rate is set to 0. (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, alc_ptn=%s, std_alc_ptn=%s)
+
+56000: The corresponding item manufacturing order information is not found. The record will be ignored. (%s item=%s, item_inst_no=%s, mfg_act_no=%s)
+56001: A data that uses the same price unit on manufacturing and input for the same item manufacturing order information exists. Input cost is set to zero evaluation. (wg=%s, item=%s, item_inst_no=%s, mfg_act_no=%s, rec_no=%s, rec_no_sub=%s)
+56002: The input data forms a loop with BOM/input data. (%s) The record will be ignored. (rec_no=%s, rec_no_sub=%s, p_item=%s, item=%s)
+56003: Allocation account cannot be entered for records whose cost GR/GI type is other than GI or which its transfer group has already been specified. Allocation account will be ignored. (rec_no=%s, rec_no_sub=%s)
+56004: Although the allocation account of the GR/GI result is set, its allocation pattern or cost element item cannot be acquired. The allocation account will be ignored. (rec_no=%s, rec_no_sub=%s)
+56005: Any cost elements which are categorized to the SGA cost element cannot be selected for the beginning inventory data. The record will be ignored. (item=%s, expns=%s)
+56006: Any cost elements other than those which are categorized to the manufacturing cost element cannot be selected for the beginning WIP data. The record will be ignored. (item=%s, expns=%s)
+56007: An invalid cost GR/GI type has been set. The record will be ignored. (rec_no=%s, rec_no_sub=%s)
+56008: There is no GR result transfer group that corresponds the GI result transfer group. The GR result transfer group will be ignored. (month=%s, trd_grp=%s, rec_no=%s, rec_no_sub=%s)
+56009: Transfer data is for those which in the same category, item, segment, project and asset type. No transfer will be executed, and the GR quantity will be deducted from the GI quantity. (month=%s, trd_grp=%s)
+56010: An item loop occurs between the item transfer data and the item transfer result of BOM, input and others. (%s) Transfer process is not executed. (month=%s, trd_grp=%s)
+56011: The sum of transfer ratios in the same transfer groups is 0. The GR result transfer group will be ignored. (month=%s, trd_grp=%s, rec_no=%s, rec_no_sub=%s)
+56012: For the input of chargeable supply item or self supply item, an asset type other than other company's asset is selected. Assuming the record as other company's asset. (rec_no=%s, rec_no_sub=%s)
+56013: For the input of other company's asset, any BP is not specified. The record will be ignored. (wg=%s, p_item=%s, item_inst_no=%s, mfg_act_no=%s, item=%s)
+56014: The same data exists in the manufacturing and input. Input quantity will be deducted from manufacturing quantity, and the input record will be invalid. (wg=%s, item=%s, item_inst_no=%s, mfg_act_no=%s, rec_no=%s, rec_no_sub=%s)
+56015: The same data exists in the manufacturing and input. Manufacturing quantity will be deducted from input quantity, and the manufacturing quantity will be 0. (wg=%s, item=%s, item_inst_no=%s, mfg_act_no=%s, rec_no=%s, rec_no_sub=%s)
+56016: The amount of manufacturing data (manufacturing plan/manufacturing result) has been entered; yet, any BP is not entered for the corresponding item manufacturing order information. The amount of manufacturing data will be ignored. (wg=%s, item=%s, item_inst_no=%s, mfg_act_no=%s, loc=%s)
+56017: The input result is required to use cost by cost element or standard unit price; yet, any corresponding information of those has not been entered. (rec_no=%s, rec_no_sub=%s, wg=%s, p_item=%s, item=%s)
+56018: The GR/GI result is required to use cost by cost element or standard unit price; yet, any corresponding information of those has not been entered. (rec_no=%s, rec_no_sub=%s, wg=%s, item=%s)
+56019: The sales result is required to use cost by cost element or standard unit price; yet, any corresponding information of those has not been entered. (rec_no=%s, rec_no_sub=%s, wg=%s, item=%s)
+56020: Since a loop has occurred, individual evaluation type for input data turns to valid. (rec_no=%s, rec_no_sub=%s)
+56021: Since a loop has occurred, individual evaluation type for GR data turns to valid. (rec_no=%s, rec_no_sub=%s)
+56022: Since a loop has occurred, individual evaluation type for GI data turns to valid. (rec_no=%s, rec_no_sub=%s)
+56023: Since a loop has occurred, the relevant input data is evaluated in standard unit price. (rec_no=%s, rec_no_sub=%s)
+56024: Since a loop has occurred, the relevant GR data is evaluated in standard unit price. (rec_no=%s, rec_no_sub=%s)
+56025: Since a loop has occurred, the relevant GI data is evaluated in standard unit price. (rec_no=%s, rec_no_sub=%s)
+56030: 
+56031: 
+56032: 
+56033: 
+
+56100: Purchasing cost element cannot be acquired. Cost for purchase amount will not be posted. (item=%s, wg=%s, calc_ptn=%s)
+56101: Subcontract cost element cannot be acquired. Cost for subcontracting amount will not be posted. (item=%s, wg=%s, calc_ptn=%s)
+56102: Input cost element for expense item cannot be acquired. Cost for expense item will not be posted. (item=%s, wg=%s, calc_ptn=%s)
+56103: Self supply cost element for self supply item cannot be acquired. Cost for self supply amount will not be posted. (item=%s, wg=%s, calc_ptn=%s)
+56104: Gain or loss of chargeable supply cost element cannot be acquired. Amount of the gain or loss of chargeable supply will not be posted. (item=%s, wg=%s, calc_ptn=%s)
+56105: Fraction adjustment cost element cannot be acquired. Standard amount will not be adjusted. (item=%s, wg=%s, calc_ptn=%s)
+56200: There are multiple records, which are included to standard unit price calculation, in the cost item details or the cost item purchasing unit price; and, a record whose standard unit price is 0 exists in them. Check standard unit price setting information.(wg=%s, item=%s, loc=%s, bp=%s)
+
+57000: The value for inventory quantity is set to negative. (item=%s, wg=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, bp=%s, asset=%s)
+57001: A loop occurs when calculating total average unit price. Check the input data for the GR/GI data transfer and the same item. (item=%s, rev=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, asset=%s, loop=%d)
+57002: Loop trace (item=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, asset=%s, loop=%d)
+57010: Evaluation cannot be executed because input/GI/sales data but no acceptance data exists. Unit price = 0 is set. (item=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, bp=%s, asset=%s)
+57011: Evaluation cannot be executed because input/GI/sales data but no acceptance data exists. Enter an assumable value for standard unit price. (item=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, bp=%s, asset=%s)
+57012: The sum of total average unit price by cost element is 0 or less. (item=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, bp=%s, asset=%s)
+57013: Although inventory quantity is 0, inventory amount is shown. (item=%s, rev=%s, wg=%s, dept=%s, month=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, bp=%s, asset=%s)
+
+59901: -> Start file reading process.
+59902: -> Start check process on input data.
+59903: -> Start item sorting process.
+59904: -> Start explosion calculation process.
+59905: -> Start allocation rate calculation.
+59906: -> Start cost cumulative calculation.
+59907: -> Start cost aggregation for manufacturing cost allocation or GR amount allocation.
+59908: -> Start cost aggregation for sales cost (profit) allocation.
+
+59980: -> Only check process on input data will be executed.
+
+59990: 
+59990: + allocable expenses (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, amt=%s, thread=%x)
+59991: 
+59991: + allocable expenses (input_type=%s, month=%s, alc_ac=%s, wg=%s, dept=%s, loc=%s, oper=%s, bp=%s, categ=%s, item=%s, lot_no=%s, sublot_no=%s, sno1=%s, sno2=%s, sno3=%s, sno4=%s, item_inst_no=%s, iv_no=%s, po_no=%s, slo_no=%s, amt=%s)
+59992: 
+59992: + allocation rate (rate=%s, amt=%s, tgt=%s)
+
+59998: 
+59998: + item=%s, wg=%s\t(seq=%d, level=%d, thread=%x)
+59999: 
+59999: + item=%s, wg=%s\t(seq=%d, level=%d)
+60000: Process will be suspended.
+
+60001: 
+60001: SLEEP: item=%s, wg=%s, thread=%x
+
+60010: Number of item records: %d
+60011: Number of proceeded items: %d / %d
+
+69999: 
+
+#######
+
+1001:  Start %s process.
+1002:  The %s process is completed normally.
+1003:  The %s process is abended.
+1004:  The %s is processing.
+1011:  Internal error: process strayed
+1012:  Internal error: argument invalid
+1101:  The same process has already been in executing.
+1111:  Startup option is invalid.
+1112:  Startup option %s is invalid.
+1201:  Internal error: mutex violation (%d->%d)
+2001:  Environment variable %s is not entered.
+2002:  Environment variable cannot be exploded. (%s)
+2011:  Internal error: %s not set
+2101:  Specified extended function: %s
+2102:  Environment variable specification (%sxxx): \n%s
+3000:  Internal error: file access violation
+3001:  Failed to open the file %s. (errno=%d, errmsg=%s)
+3002:  Failed to delete the file %s.
+3003:  Failed to access to the file %s.
+3011:  The file %s has an error format (no required row).
+3012:  The number of rows in the file %s is too large.
+3013:  The number of rows in the file %s is too small.
+3014:  The file %s has an error row format (%d row).
+3015:  The file %s has an error item format (%d row,%d item).
+3016:  The file %s has an error item value (%d row,%d item).
+3022:  Access to the file %s is invalid (mode does not match).
+3101:  Failed to create the directory %s.
+3102:  Cannot access to the directory %s.
+3201:  The data file attribute specification is invalid.
+5001:  Memory allocation error
+5011:  The number of %s is too large.
+6001:  Date format error
+6011:  Failed to set the time.
+7001:  Failed to fork the process.
+7002:  Failed to execute the process %s.
+7003:  Failed to execute the OS command. (cmd=%s,RC=%d)
+7101:  The child process %s is completed normally.
+7102:  The child process %s is abended. (RC=%d)
+8001:  Failed to generate a window.
+8011:  Cannot open the child process %s.
+8012:  Internal error: too many sub-processes
+8021:  Cannot open the dialog screen.
+8101:  Failed to send the message to %s. (msg=%d)
+9001:  Internal error: Error Stack Overflow
+9002:  Internal error: Error Stack Pop Unmatch
+9101:  Failed to format string.
+9901:  An unexpected exception occurred.
+9902:  An exception occurred during error handling.
+
+11001: Cannot extend array. (max.=%d)
+11011: Internal error: array out of bounds
+11012: Internal error: array value not found
+11013: Internal error: array access illegal
+12000: An error occurs in type conversion to %s class.
+12001: Attempted to execute an arithmetic operation to nil.
+12002: Attempted to divide by 0.
+12201: Digits exceeds the limit while converting to integer.
+
+14001: Failed to access to shared memory. (%s)
+14101: Failed to access to semaphore. (%s,rc=%d)
+15001: Host name %s is not entered.
+15002: Service name %s is not entered.
+15003: Failed to bind socket %s.
+15004: Failed to accept socket %s.
+15005: Failed to connect to socket %s.
+15006: The connection with socket %s is disconnected.
+15007: Failed to send socket %s.
+15008: Failed to recv from socket %s.
+15011: The bind socket %s is succeeded.
+16001: Failed to open queue %ld.
+16002: Queue %ld is overflowed.
+16003: Failed to read from queue %ld.
+16004: The size of message red from queue %ld has an error. (This will be ignored.)
+16011: Message type %d red from queue %ld is invalid.
+17001: There is an error with function %s.
+17002: An error occurred in function %s. (rc=%d)
+19001: Unimplemented function is called.
+
+# file
+40001: The input data at the previous category will be used for the %s data.
+40101: The file %s has an error on line %d. It will be skipped.
+40111: The file %s has multiple format errors. The process is stopped.
+40201: + Input=%s, Output=%s
+49999: + File %s.dat
+49998: + File %s.dat terminated
+49989: + File %s.dat(thread=%x)
+49988: + File %s.dat terminated(thread=%x)
+

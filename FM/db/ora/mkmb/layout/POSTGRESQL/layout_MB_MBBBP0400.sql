@@ -1,0 +1,3 @@
+delete from FCM_RESOURCE WHERE 0=0 AND RES_KEY LIKE 'system_location2.System.MB.MBBBP0400.%'; 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MB.MBBBP0400.list.item0','MBBBP0400,Cnd,Cnd.open_MABCP1000,true,true,false'); 
+insert into FCM_RESOURCE (USER_ID,PGM_ID,CO_CD,EXT_ATTR1,EXT_ATTR2,EXT_ATTR3,LOCALE,NAME,RES_KEY,RES_VAL) values ('?ALL','ALL',null,null,null,null,null,'MCAppClient','system_location2.System.MB.MBBBP0400.list.item1','MBBBP0400,Cnd,Cnd.open_MABCP0030_bank_branch,true,true,false'); 

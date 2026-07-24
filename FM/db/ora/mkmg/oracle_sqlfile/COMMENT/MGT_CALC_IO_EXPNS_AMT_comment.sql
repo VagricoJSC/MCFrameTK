@@ -1,0 +1,42 @@
+
+COMMENT ON TABLE MGT_CALC_IO_EXPNS_AMT IS '計算対象入出庫費目別原価追加情報 // (Calculation) Add cost by GR/GI cost element info.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.CALC_NO IS '原価計算ＮＯ // #MA.CALC_NO // Calculation No.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.CALC_GRP_CD IS '計算グループＣＤ // #MA.CALC_GRP_CD // Calculation group cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ITM_EXT IS '品目拡張 // #MG.ITM_EXT // Item extension';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ACT_IO_ID IS '入出庫実績ＩＤ // #MG.ACT_IO_ID // GR/GI result ID';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.ACT_IO_ID_SUB IS '入出庫実績ＩＤ枝番 // #MG.ACT_IO_ID_SUB // GR/GI result ID branch No.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.AMT_ADD_TYP IS '金額追加区分 // #MG.AMT_ADD_TYP // Amount addition type';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.EXPNS_CD IS '費目ＣＤ // #MA.EXPNS_CD // Cost element cd.';
+
+
+COMMENT ON COLUMN MGT_CALC_IO_EXPNS_AMT.AMT IS '金額 // #MA.MONEY // Amount';
+

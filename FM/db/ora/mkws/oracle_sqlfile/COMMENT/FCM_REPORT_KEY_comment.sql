@@ -1,0 +1,51 @@
+
+COMMENT ON TABLE FCM_REPORT_KEY IS '帳票キーマスタ // Report key master';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.REPORT_ID IS '帳票ＩＤ // #FC.REPORT_ID // Report ID';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.KEY1 IS 'キー１ // #FC.REPORT_KEY // Key 1';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.KEY2 IS 'キー２ // #FC.REPORT_KEY // Key 2';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.KEY3 IS 'キー３ // #FC.REPORT_KEY // Key 3';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.KEY4 IS 'キー４ // #FC.REPORT_KEY // Key 4';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.KEY5 IS 'キー５ // #FC.REPORT_KEY // Key 5';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.INS_USR_ID IS '登録ユーザＩＤ // #FC.USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.INS_USR_NM IS '登録ユーザ名 // #FC.USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.INS_TS IS '登録日時 // #FC.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.INS_FUNC_ID IS '登録機能ＩＤ // #FC.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_CNTR IS '更新カウンタ // #FC.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_USR_ID IS '更新ユーザＩＤ // #FC.USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_USR_NM IS '更新ユーザ名 // #FC.USR_NM // Update user name';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_TS IS '更新日時 // #FC.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_FUNC_ID IS '更新機能ＩＤ // #FC.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN FCM_REPORT_KEY.UPD_SRV_REQ_NO IS '更新サーバリクエストＮＯ // #FC.SRV_REQ_NO // Update server request No.';
+

@@ -1,0 +1,144 @@
+
+COMMENT ON TABLE MGVT_MST_DLY_DMND IS '日次需要情報ビュー // Daily demand view';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DLY_DMND_NO IS '日次需要ＮＯ // #MA.DLY_DMND_NO // Daily demand No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_NO IS '需要ＮＯ // #MA.DMND_NO // Demand No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_DT IS '需要日 // #MA.DT // Demand date';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_ST_DT IS '需要期間開始日 // #MA.DT // Demand period start date';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_END_DT IS '需要期間終了日 // #MA.DT // Demand period end date';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DLV_SCHD_ST_DT IS '納品予定期間開始日 // #MA.DT // Delivery schedule period start date';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DLV_SCHD_END_DT IS '納品予定期間終了日 // #MA.DT // Delivery schedule period end date';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_PERIOD_TYP IS '需要期間区分 // #MA.PERIOD_TYP // Demand period type';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.ITM_CD IS '品目ＣＤ // #MA.ITM_CD // Item cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.ITM_SUB1 IS '枝番１ // #MA.ITM_SUB1 // Branch No. 1';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.ITM_SUB2 IS '枝番２ // #MA.ITM_SUB2 // Branch No. 2';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.ITM_SUB3 IS '枝番３ // #MA.ITM_SUB3 // Branch No. 3';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SPLN_ITM_CD IS '計画品目ＣＤ // #MA.SPLN_ITM_CD // Plan item cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_TYP IS '需要区分 //  // Demand type';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_QTY IS '需要数量 // #MA.QTY // Demand qty.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_DPT_CD IS '需要元部門ＣＤ // #MA.DPT_CD // Demand source dept. cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.WRK_NO IS '案件ＮＯ // #MA.WRK_NO // Sales project No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_USR_CD IS '担当者ＣＤ // #MA.USR_CD // PIC cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.CST_CD IS '得意先ＣＤ // #MA.BP_CD // Customer cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DLV_CD IS '納品先ＣＤ // #MA.BP_CD // Delivery destination cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SLO_D_NO IS '受注明細ＮＯ // #MA.SLO_D_NO // Sales order details No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SLO_NO IS '受注ＮＯ // #MA.SLO_NO // Sales order No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.CST_FRCST_D_NO IS '顧客期間内示明細ＮＯ // #MA.CST_FRCST_D_NO // Sales forecast details No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.CST_FRCST_NO IS '顧客期間内示ＮＯ // #MA.CST_FRCST_NO // Sales forecast No.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.YM IS '計画月度 // #MA.YM // Plan month';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SPLN_VERS IS '販売計画バージョン //  // Sales plan version';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.CUR_CD IS '通貨ＣＤ // #MA.CUR_CD // Currency cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SNO1 IS '手配ＮＯ１ // #MA.SNO1 // SEIBAN No. 1';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SNO2 IS '手配ＮＯ２ // #MA.SNO2 // SEIBAN No. 2';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SNO3 IS '手配ＮＯ３ // #MA.SNO3 // SEIBAN No. 3';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SNO4 IS '手配ＮＯ４ // #MA.SNO4 // SEIBAN No. 4';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.DMND_LOC_CD IS '需要場所ＣＤ // #MA.LOC_CD // Demand location cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.WG_CD IS 'ワーキンググループＣＤ // #MA.WG_CD // WG cd.';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.INTR_RMRKS IS '内部備考 //  // Internal remarks';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SUB_CHAR1 IS '予備１ //  // Spare 1';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SUB_CHAR2 IS '予備２ //  // Spare 2';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.SUB_CHAR3 IS '予備３ //  // Spare 3';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.INS_USR_ID IS '登録ユーザＩＤ // #MA.FCM_USR_ID // Entry user ID';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.INS_USR_NM IS '登録ユーザ名 // #MA.FCM_USR_NM // Entry user name';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.INS_TS IS '登録日時 // #MA.SYS_TS // Entry date and time';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.INS_FUNC_ID IS '登録機能ＩＤ // #MA.FUNC_ID // Entry function ID';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_CNTR IS '更新カウンタ // #MA.UPD_CNT // Update counter';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_USR_ID IS '更新ユーザＩＤ // #MA.FCM_USR_ID // Update user ID';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_USR_NM IS '更新ユーザ名 // #MA.FCM_USR_NM // Update user name';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_TS IS '更新日時 // #MA.SYS_TS // Update date and time';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID // Update function ID';
+
+
+COMMENT ON COLUMN MGVT_MST_DLY_DMND.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
+

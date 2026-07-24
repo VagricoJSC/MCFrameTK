@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mcframe>
+
+	<dbc>mcframe.serverMS.dbc.MST_BILL_RECV_IF</dbc>
+
+	<cond>
+		<cols>
+			data_lno,data_no,data_crud_typ,exe_sts_typ,sdrv_sts_typ,ext_sys_cd,
+			ext_data_no,ext_data_lno,data_make_dt,imp_flg,bill_no,bill_d_no,dlv_slip_no,dlv_slip_d_no,
+			ship_dlv_slip_no,ship_dlv_slip_d_no,act_no,act_rev,act_d_no,po_no,po_d_no,bill_src_cd,bill_dt,
+			batch_log_no,log_sub_key1,log_sub_key2,ins_ts,upd_ts,upd_srv_req_no
+		</cols>
+	</cond>
+	<dtl>
+			<mode>
+				<recv_dt>E</recv_dt>
+				<data_make_dt>E</data_make_dt>
+			</mode>
+			<duplicate>true</duplicate>
+	</dtl>
+	<list>
+		<exe_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getExeStsTyp</logic>
+			<link>exe_sts_typ_nm</link>
+			<use>both</use>
+		</exe_sts_typ>
+
+		<data_crud_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getDataCrudTyp</logic>
+			<link>data_crud_typ_nm</link>
+			<use>both</use>
+		</data_crud_typ>
+
+		<sdrv_sts_typ>
+			<logic>mcframe.clientMAUA.MAUAP0010.MAUAP_List.getSdrvStsTyp</logic>
+			<link>sdrv_sts_typ_nm</link>
+			<use>both</use>
+		</sdrv_sts_typ>
+	</list>
+
+	<format>
+		<recv_dt>YMD</recv_dt>
+		<bill_cl_dt>YMD</bill_cl_dt>
+		<bill_dt>YMD</bill_dt>
+		<pre_bill_dt>YMD</pre_bill_dt>
+		<bill_st_dt>YMD</bill_st_dt>
+		<bill_end_dt>YMD</bill_end_dt>
+		<pay_schd_dt1>YMD</pay_schd_dt1>
+		<pay_schd_dt2>YMD</pay_schd_dt2>
+		<pay_schd_dt3>YMD</pay_schd_dt3>
+		<pay_schd_dt4>YMD</pay_schd_dt4>
+		<pay_schd_dt5>YMD</pay_schd_dt5>
+		<pay_schd_dt6>YMD</pay_schd_dt6>
+		<pay_schd_dt7>YMD</pay_schd_dt7>
+		<pay_schd_dt8>YMD</pay_schd_dt8>
+		<pay_schd_dt9>YMD</pay_schd_dt9>
+		<pay_schd_dt10>YMD</pay_schd_dt10>
+		<ac_dt>YMD</ac_dt>
+		<dlv_dt>YMD</dlv_dt>
+		<rcv_dt>YMD</rcv_dt>
+		<bill_basis_dt>YMD</bill_basis_dt>
+		<base_ac_dt>YMD</base_ac_dt>
+	</format>
+
+	<app>
+		<ifProcTyp>A0100</ifProcTyp>
+		<ins>true</ins>
+		<upd>true</upd>
+		<dataByGrp>ext_sys_cd</dataByGrp>
+		<imp>
+			<cols>ext_data_no,bill_src_cd</cols>
+			<trans>			
+				<toCol1>bp_cd</toCol1>
+				<frCol1>bill_src_cd</frCol1>
+			</trans>
+		</imp>
+		<chkCol>true</chkCol>
+		<chkByGrp>ext_data_no,bill_src_cd</chkByGrp>
+		<cols>
+			<excld_copy>data_lno,data_no,exe_sts_typ,exe_sts_typ_nm,check,sdrv_sts_typ_nm,sdrv_sts_typ,batch_log_no,log_sub_key1,log_sub_key2</excld_copy>
+		</cols>
+		<cond>
+			<move>
+				<col1>data_lno</col1>
+				<pos1>1</pos1>
+
+				<col2>data_no</col2>
+				<pos2>2</pos2>
+
+				<col3>data_crud_typ</col3>
+				<pos3>3</pos3>
+
+				<col4>exe_sts_typ</col4>
+				<pos4>4</pos4>
+
+				<col5>ext_sys_cd</col5>
+				<pos5>5</pos5>
+
+				<col6>ext_data_no</col6>
+				<pos6>6</pos6>
+
+				<col7>ext_data_lno</col7>
+				<pos7>7</pos7>
+
+				<col8>data_make_dt</col8>
+				<pos8>8</pos8>
+
+				<col9>imp_flg</col9>
+				<pos9>9</pos9>
+
+				<col10>bill_dt</col10>
+				<pos10>10</pos10>
+
+				<col11>bill_no</col11>
+				<pos11>11</pos11>
+
+				<col12>bill_d_no</col12>
+				<pos12>12</pos12>
+
+				<col13>bill_src_cd</col13>
+				<pos13>13</pos13>
+
+				<col14>dlv_slip_no</col14>
+				<pos14>14</pos14>
+
+				<col15>dlv_slip_d_no</col15>
+				<pos15>15</pos15>
+
+				<col16>ship_dlv_slip_no</col16>
+				<pos16>16</pos16>
+
+				<col17>ship_dlv_slip_d_no</col17>
+				<pos17>17</pos17>
+
+				<col18>act_no</col18>
+				<pos18>18</pos18>
+
+				<col19>act_rev</col19>
+				<pos19>19</pos19>
+
+				<col20>act_d_no</col20>
+				<pos20>20</pos20>
+
+				<col21>po_no</col21>
+				<pos21>21</pos21>
+
+				<col22>po_d_no</col22>
+				<pos22>22</pos22>
+
+				<col23>batch_log_no</col23>
+				<pos23>23</pos23>
+
+				<col24>log_sub_key1</col24>
+				<pos24>24</pos24>
+
+				<col25>log_sub_key2</col25>
+				<pos25>25</pos25>
+
+				<col26>ins_ts</col26>
+				<pos26>26</pos26>
+
+				<col27>upd_ts</col27>
+				<pos27>27</pos27>
+
+				<col28>upd_srv_req_no</col28>
+				<pos28>28</pos28>
+
+				<col29>sdrv_sts_typ</col29>
+				<pos29>29</pos29>
+			</move>
+		</cond>
+		<dtl>
+			<label>
+				<col1>exe_sts_typ_nm</col1>
+				<lbl1>ＰＧ実行状況区分名</lbl1>
+				<msg1>ＰＧ実行状況区分名</msg1>
+
+				<col2>data_crud_typ_nm</col2>
+				<lbl2>データ更新区分名</lbl2>
+				<msg2>データ更新区分名</msg2>
+				
+				<col3>sdrv_sts_typ_nm</col3>
+				<lbl3>送受信状況区分名</lbl3>
+				<msg3>送受信状況区分名</msg3>
+
+				<col4>bill_src_nm</col4>
+				<lbl4>請求元名</lbl4>
+				<msg4>請求元名</msg4>
+
+				<col5>trd_cur_nm</col5>
+				<lbl5>取引通貨名</lbl5>
+				<msg5>取引通貨名</msg5>
+
+				<col6>bank_ac_nm</col6>
+				<lbl6>口座名</lbl6>
+				<msg6>口座名</msg6>
+
+				<col7>pay_mtd_nm1</col7>
+				<lbl7>支払方法名１</lbl7>
+				<msg7>支払方法名１</msg7>
+
+				<col8>pay_mtd_nm2</col8>
+				<lbl8>支払方法名２</lbl8>
+				<msg8>支払方法名２</msg8>
+
+				<col9>pay_mtd_nm3</col9>
+				<lbl9>支払方法名３</lbl9>
+				<msg9>支払方法名３</msg9>
+
+				<col10>pay_mtd_nm4</col10>
+				<lbl10>支払方法名４</lbl10>
+				<msg10>支払方法名４</msg10>
+
+				<col11>pay_mtd_nm5</col11>
+				<lbl11>支払方法名５</lbl11>
+				<msg11>支払方法名５</msg11>
+
+				<col12>pay_mtd_nm6</col12>
+				<lbl12>支払方法名６</lbl12>
+				<msg12>支払方法名６</msg12>
+
+				<col13>pay_mtd_nm7</col13>
+				<lbl13>支払方法名７</lbl13>
+				<msg13>支払方法名７</msg13>
+
+				<col14>pay_mtd_nm8</col14>
+				<lbl14>支払方法名８</lbl14>
+				<msg14>支払方法名８</msg14>
+
+				<col15>pay_mtd_nm9</col15>
+				<lbl15>支払方法名９</lbl15>
+				<msg15>支払方法名９</msg15>
+
+				<col16>pay_mtd_nm10</col16>
+				<lbl16>支払方法名１０</lbl16>
+				<msg16>支払方法名１０</msg16>
+
+				<col17>trd_nm</col17>
+				<lbl17>取引名</lbl17>
+				<msg17>取引名</msg17>
+
+				<col18>itm_nm</col18>
+				<lbl18>品名</lbl18>
+				<msg18>品名</msg18>
+
+				<col19>trd_unit_nm</col19>
+				<lbl19>取引単位名</lbl19>
+				<msg19>取引単位名</msg19>
+
+				<col20>tax_nm</col20>
+				<lbl20>税名</lbl20>
+				<msg20>税名</msg20>
+			</label>
+			<move>
+				<col1>data_lno</col1>
+				<pos1>1</pos1>
+
+				<col2>data_no</col2>
+				<pos2>2</pos2>
+
+				<col3>sdrv_sts_typ</col3>
+				<pos3>3</pos3>
+
+				<col4>sdrv_sts_typ_nm</col4>
+				<pos4>4</pos4>
+
+				<col5>exe_sts_typ</col5>
+				<pos5>5</pos5>
+
+				<col6>exe_sts_typ_nm</col6>
+				<pos6>6</pos6>
+
+				<col7>ext_sys_cd</col7>
+				<pos7>7</pos7>
+
+				<col8>ext_data_no</col8>
+				<pos8>8</pos8>
+
+				<col9>ext_data_lno</col9>
+				<pos9>9</pos9>
+
+				<col10>data_make_dt</col10>
+				<pos10>10</pos10>
+
+				<col11>imp_flg</col11>
+				<pos11>11</pos11>
+
+				<col12>recv_dt</col12>
+				<pos12>12</pos12>
+
+				<col13>bill_no</col13>
+				<pos13>13</pos13>
+
+				<col14>bill_d_no</col14>
+				<pos14>14</pos14>
+
+				<col15>bill_src_cd</col15>
+				<pos15>15</pos15>
+
+				<col16>bill_src_nm</col16>
+				<pos16>16</pos16>
+
+				<col17>if_bill_src_cd</col17>
+				<pos17>17</pos17>
+
+				<col18>if_bill_src_nm</col18>
+				<pos18>18</pos18>
+
+				<col19>bill_src_ein</col19>
+				<pos19>19</pos19>
+
+				<col20>bill_src_biz_co_no</col20>
+				<pos20>20</pos20>
+
+				<col21>bill_src_zip_cd</col21>
+				<pos21>21</pos21>
+
+				<col22>bill_src_addr1</col22>
+				<pos22>22</pos22>
+
+				<col23>bill_src_addr2</col23>
+				<pos23>23</pos23>
+
+				<col24>bill_src_addr3</col24>
+				<pos24>24</pos24>
+
+				<col25>bill_src_addr4</col25>
+				<pos25>25</pos25>
+
+				<col26>bill_src_dpt</col26>
+				<pos26>26</pos26>
+
+				<col27>bill_src_tel</col27>
+				<pos27>27</pos27>
+
+				<col28>data_crud_typ</col28>
+				<pos28>28</pos28>
+
+				<col29>data_crud_typ_nm</col29>
+				<pos29>29</pos29>
+
+				<col30>bill_cl_dt</col30>
+				<pos30>30</pos30>
+
+				<col31>bill_dt</col31>
+				<pos31>31</pos31>
+
+				<col32>pre_bill_no</col32>
+				<pos32>32</pos32>
+
+				<col33>pre_bill_dt</col33>
+				<pos33>33</pos33>
+
+				<col34>bill_st_dt</col34>
+				<pos34>34</pos34>
+
+				<col35>bill_end_dt</col35>
+				<pos35>35</pos35>
+
+				<col36>iv_no</col36>
+				<pos36>36</pos36>
+
+				<col37>wrk_no</col37>
+				<pos37>37</pos37>
+
+				<col38>wrk_nm</col38>
+				<pos38>38</pos38>
+
+				<col39>trd_cur_cd</col39>
+				<pos39>39</pos39>
+
+				<col40>trd_cur_nm</col40>
+				<pos40>40</pos40>
+
+				<col41>if_trd_cur_cd</col41>
+				<pos41>41</pos41>
+
+				<col42>bill_xrate</col42>
+				<pos42>42</pos42>
+
+				<col43>last_bill_amt</col43>
+				<pos43>43</pos43>
+
+				<col44>rcv_amt</col44>
+				<pos44>44</pos44>
+
+				<col45>sw_amt</col45>
+				<pos45>45</pos45>
+
+				<col46>setoff_amt</col46>
+				<pos46>46</pos46>
+
+				<col47>bfw_amt</col47>
+				<pos47>47</pos47>
+
+				<col48>sls_amt</col48>
+				<pos48>48</pos48>
+
+				<col49>dscnt_amt</col49>
+				<pos49>49</pos49>
+
+				<col50>ret_amt</col50>
+				<pos50>50</pos50>
+
+				<col51>tax_amt</col51>
+				<pos51>51</pos51>
+
+				<col52>sw_to_amt</col52>
+				<pos52>52</pos52>
+
+				<col53>bill_amt</col53>
+				<pos53>53</pos53>
+
+				<col54>adv_amt_bal</col54>
+				<pos54>54</pos54>
+
+				<col55>adv_amt</col55>
+				<pos55>55</pos55>
+
+				<col56>adv_setoff_amt</col56>
+				<pos56>56</pos56>
+
+				<col57>adv_setoff_tax_amt</col57>
+				<pos57>57</pos57>
+
+				<col58>bank_ac_cd</col58>
+				<pos58>58</pos58>
+
+				<col59>bank_ac_nm</col59>
+				<pos59>59</pos59>
+
+				<col60>if_bank_ac_cd</col60>
+				<pos60>60</pos60>
+
+				<col61>bank_ac_typ</col61>
+				<pos61>61</pos61>
+
+				<col62>bank_ac_no</col62>
+				<pos62>62</pos62>
+
+				<col63>bank_ac_holder</col63>
+				<pos63>63</pos63>
+
+				<col64>bank_ac_holder_sub</col64>
+				<pos64>64</pos64>
+
+				<col65>bank_cd</col65>
+				<pos65>65</pos65>
+
+				<col66>bank_nm</col66>
+				<pos66>66</pos66>
+
+				<col67>branch_cd</col67>
+				<pos67>67</pos67>
+
+				<col68>branch_nm</col68>
+				<pos68>68</pos68>
+
+				<col69>tax_rate1</col69>
+				<pos69>69</pos69>
+
+				<col70>tax_rate_sls_amt1</col70>
+				<pos70>70</pos70>
+
+				<col71>tax_rate_tax_amt1</col71>
+				<pos71>71</pos71>
+
+				<col72>tax_rate_base_tax_amt1</col72>
+				<pos72>72</pos72>
+
+				<col73>tax_rate2</col73>
+				<pos73>73</pos73>
+
+				<col74>tax_rate_sls_amt2</col74>
+				<pos74>74</pos74>
+
+				<col75>tax_rate_tax_amt2</col75>
+				<pos75>75</pos75>
+
+				<col76>tax_rate_base_tax_amt2</col76>
+				<pos76>76</pos76>
+
+				<col77>tax_rate3</col77>
+				<pos77>77</pos77>
+
+				<col78>tax_rate_sls_amt3</col78>
+				<pos78>78</pos78>
+
+				<col79>tax_rate_tax_amt3</col79>
+				<pos79>79</pos79>
+
+				<col80>tax_rate_base_tax_amt3</col80>
+				<pos80>80</pos80>
+
+				<col81>tax_rate4</col81>
+				<pos81>81</pos81>
+
+				<col82>tax_rate_sls_amt4</col82>
+				<pos82>82</pos82>
+
+				<col83>tax_rate_tax_amt4</col83>
+				<pos83>83</pos83>
+
+				<col84>tax_rate_base_tax_amt4</col84>
+				<pos84>84</pos84>
+
+				<col85>tax_rate5</col85>
+				<pos85>85</pos85>
+
+				<col86>tax_rate_sls_amt5</col86>
+				<pos86>86</pos86>
+
+				<col87>tax_rate_tax_amt5</col87>
+				<pos87>87</pos87>
+
+				<col88>tax_rate_base_tax_amt5</col88>
+				<pos88>88</pos88>
+
+				<col89>tax_rate6</col89>
+				<pos89>89</pos89>
+
+				<col90>tax_rate_sls_amt6</col90>
+				<pos90>90</pos90>
+
+				<col91>tax_rate_tax_amt6</col91>
+				<pos91>91</pos91>
+
+				<col92>tax_rate_base_tax_amt6</col92>
+				<pos92>92</pos92>
+
+				<col93>tax_rate7</col93>
+				<pos93>93</pos93>
+
+				<col94>tax_rate_sls_amt7</col94>
+				<pos94>94</pos94>
+
+				<col95>tax_rate_tax_amt7</col95>
+				<pos95>95</pos95>
+
+				<col96>tax_rate_base_tax_amt7</col96>
+				<pos96>96</pos96>
+
+				<col97>tax_rate8</col97>
+				<pos97>97</pos97>
+
+				<col98>tax_rate_sls_amt8</col98>
+				<pos98>98</pos98>
+
+				<col99>tax_rate_tax_amt8</col99>
+				<pos99>99</pos99>
+
+				<col100>tax_rate_base_tax_amt8</col100>
+				<pos100>100</pos100>
+
+				<col101>tax_rate9</col101>
+				<pos101>101</pos101>
+
+				<col102>tax_rate_sls_amt9</col102>
+				<pos102>102</pos102>
+
+				<col103>tax_rate_tax_amt9</col103>
+				<pos103>103</pos103>
+
+				<col104>tax_rate_base_tax_amt9</col104>
+				<pos104>104</pos104>
+
+				<col105>tax_rate10</col105>
+				<pos105>105</pos105>
+
+				<col106>tax_rate_sls_amt10</col106>
+				<pos106>106</pos106>
+
+				<col107>tax_rate_tax_amt10</col107>
+				<pos107>107</pos107>
+
+				<col108>tax_rate_base_tax_amt10</col108>
+				<pos108>108</pos108>
+
+				<col109>pay_schd_dt1</col109>
+				<pos109>109</pos109>
+
+				<col110>pay_schd_amt1</col110>
+				<pos110>110</pos110>
+
+				<col111>pay_mtd_cd1</col111>
+				<pos111>111</pos111>
+
+				<col112>pay_mtd_nm1</col112>
+				<pos112>112</pos112>
+
+				<col113>if_pay_mtd_cd1</col113>
+				<pos113>113</pos113>
+
+				<col114>if_pay_mtd_nm1</col114>
+				<pos114>114</pos114>
+
+				<col115>pay_schd_dt2</col115>
+				<pos115>115</pos115>
+
+				<col116>pay_schd_amt2</col116>
+				<pos116>116</pos116>
+
+				<col117>pay_mtd_cd2</col117>
+				<pos117>117</pos117>
+
+				<col118>pay_mtd_nm2</col118>
+				<pos118>118</pos118>
+
+				<col119>if_pay_mtd_cd2</col119>
+				<pos119>119</pos119>
+
+				<col120>if_pay_mtd_nm2</col120>
+				<pos120>120</pos120>
+
+				<col121>pay_schd_dt3</col121>
+				<pos121>121</pos121>
+
+				<col122>pay_schd_amt3</col122>
+				<pos122>122</pos122>
+
+				<col123>pay_mtd_cd3</col123>
+				<pos123>123</pos123>
+
+				<col124>pay_mtd_nm3</col124>
+				<pos124>124</pos124>
+
+				<col125>if_pay_mtd_cd3</col125>
+				<pos125>125</pos125>
+
+				<col126>if_pay_mtd_nm3</col126>
+				<pos126>126</pos126>
+
+				<col127>pay_schd_dt4</col127>
+				<pos127>127</pos127>
+
+				<col128>pay_schd_amt4</col128>
+				<pos128>128</pos128>
+
+				<col129>pay_mtd_cd4</col129>
+				<pos129>129</pos129>
+
+				<col130>pay_mtd_nm4</col130>
+				<pos130>130</pos130>
+
+				<col131>if_pay_mtd_cd4</col131>
+				<pos131>131</pos131>
+
+				<col132>if_pay_mtd_nm4</col132>
+				<pos132>132</pos132>
+
+				<col133>pay_schd_dt5</col133>
+				<pos133>133</pos133>
+
+				<col134>pay_schd_amt5</col134>
+				<pos134>134</pos134>
+
+				<col135>pay_mtd_cd5</col135>
+				<pos135>135</pos135>
+
+				<col136>pay_mtd_nm5</col136>
+				<pos136>136</pos136>
+
+				<col137>if_pay_mtd_cd5</col137>
+				<pos137>137</pos137>
+
+				<col138>if_pay_mtd_nm5</col138>
+				<pos138>138</pos138>
+
+				<col139>pay_schd_dt6</col139>
+				<pos139>139</pos139>
+
+				<col140>pay_schd_amt6</col140>
+				<pos140>140</pos140>
+
+				<col141>pay_mtd_cd6</col141>
+				<pos141>141</pos141>
+
+				<col142>pay_mtd_nm6</col142>
+				<pos142>142</pos142>
+
+				<col143>if_pay_mtd_cd6</col143>
+				<pos143>143</pos143>
+
+				<col144>if_pay_mtd_nm6</col144>
+				<pos144>144</pos144>
+
+				<col145>pay_schd_dt7</col145>
+				<pos145>145</pos145>
+
+				<col146>pay_schd_amt7</col146>
+				<pos146>146</pos146>
+
+				<col147>pay_mtd_cd7</col147>
+				<pos147>147</pos147>
+
+				<col148>pay_mtd_nm7</col148>
+				<pos148>148</pos148>
+
+				<col149>if_pay_mtd_cd7</col149>
+				<pos149>149</pos149>
+
+				<col150>if_pay_mtd_nm7</col150>
+				<pos150>150</pos150>
+
+				<col151>pay_schd_dt8</col151>
+				<pos151>151</pos151>
+
+				<col152>pay_schd_amt8</col152>
+				<pos152>152</pos152>
+
+				<col153>pay_mtd_cd8</col153>
+				<pos153>153</pos153>
+
+				<col154>pay_mtd_nm8</col154>
+				<pos154>154</pos154>
+
+				<col155>if_pay_mtd_cd8</col155>
+				<pos155>155</pos155>
+
+				<col156>if_pay_mtd_nm8</col156>
+				<pos156>156</pos156>
+
+				<col157>pay_schd_dt9</col157>
+				<pos157>157</pos157>
+
+				<col158>pay_schd_amt9</col158>
+				<pos158>158</pos158>
+
+				<col159>pay_mtd_cd9</col159>
+				<pos159>159</pos159>
+
+				<col160>pay_mtd_nm9</col160>
+				<pos160>160</pos160>
+
+				<col161>if_pay_mtd_cd9</col161>
+				<pos161>161</pos161>
+
+				<col162>if_pay_mtd_nm9</col162>
+				<pos162>162</pos162>
+
+				<col163>pay_schd_dt10</col163>
+				<pos163>163</pos163>
+
+				<col164>pay_schd_amt10</col164>
+				<pos164>164</pos164>
+
+				<col165>pay_mtd_cd10</col165>
+				<pos165>165</pos165>
+
+				<col166>pay_mtd_nm10</col166>
+				<pos166>166</pos166>
+
+				<col167>if_pay_mtd_cd10</col167>
+				<pos167>167</pos167>
+
+				<col168>if_pay_mtd_nm10</col168>
+				<pos168>168</pos168>
+
+				<col169>trd_cd</col169>
+				<pos169>169</pos169>
+
+				<col170>trd_nm</col170>
+				<pos170>170</pos170>
+
+				<col171>if_trd_cd</col171>
+				<pos171>171</pos171>
+
+				<col172>if_trd_nm</col172>
+				<pos172>172</pos172>
+
+				<col173>trd_ptn_typ</col173>
+				<pos173>173</pos173>
+
+				<col174>slip_sts_typ</col174>
+				<pos174>174</pos174>
+
+				<col175>ac_dt</col175>
+				<pos175>175</pos175>
+
+				<col176>dlv_dt</col176>
+				<pos176>176</pos176>
+
+				<col177>rcv_dt</col177>
+				<pos177>177</pos177>
+
+				<col178>bill_basis_dt</col178>
+				<pos178>178</pos178>
+
+				<col179>base_ac_dt</col179>
+				<pos179>179</pos179>
+
+				<col180>dlv_slip_no</col180>
+				<pos180>180</pos180>
+
+				<col181>dlv_slip_d_no</col181>
+				<pos181>181</pos181>
+
+				<col182>ship_dlv_slip_no</col182>
+				<pos182>182</pos182>
+
+				<col183>ship_dlv_slip_d_no</col183>
+				<pos183>183</pos183>
+
+				<col184>act_no</col184>
+				<pos184>184</pos184>
+
+				<col185>act_rev</col185>
+				<pos185>185</pos185>
+
+				<col186>act_d_no</col186>
+				<pos186>186</pos186>
+
+				<col187>po_no</col187>
+				<pos187>187</pos187>
+
+				<col188>po_d_no</col188>
+				<pos188>188</pos188>
+
+				<col189>itm_cd</col189>
+				<pos189>189</pos189>
+
+				<col190>itm_sub1</col190>
+				<pos190>190</pos190>
+
+				<col191>itm_sub2</col191>
+				<pos191>191</pos191>
+
+				<col192>itm_sub3</col192>
+				<pos192>192</pos192>
+
+				<col193>itm_nm</col193>
+				<pos193>193</pos193>
+
+				<col194>if_itm_cd</col194>
+				<pos194>194</pos194>
+
+				<col195>if_itm_sub1</col195>
+				<pos195>195</pos195>
+
+				<col196>if_itm_sub2</col196>
+				<pos196>196</pos196>
+
+				<col197>if_itm_sub3</col197>
+				<pos197>197</pos197>
+
+				<col198>if_itm_nm</col198>
+				<pos198>198</pos198>
+
+				<col199>itm_alt_nm1</col199>
+				<pos199>199</pos199>
+
+				<col200>itm_alt_nm2</col200>
+				<pos200>200</pos200>
+
+				<col201>itm_alt_nm3</col201>
+				<pos201>201</pos201>
+
+				<col202>itm_alt_nm4</col202>
+				<pos202>202</pos202>
+
+				<col203>sno1</col203>
+				<pos203>203</pos203>
+
+				<col204>sno2</col204>
+				<pos204>204</pos204>
+
+				<col205>sno3</col205>
+				<pos205>205</pos205>
+
+				<col206>sno4</col206>
+				<pos206>206</pos206>
+
+				<col207>trd_unit_cd</col207>
+				<pos207>207</pos207>
+
+				<col208>trd_unit_nm</col208>
+				<pos208>208</pos208>
+
+				<col209>if_trd_unit_cd</col209>
+				<pos209>209</pos209>
+
+				<col210>if_trd_unit_nm</col210>
+				<pos210>210</pos210>
+
+				<col211>trd_unit_qty</col211>
+				<pos211>211</pos211>
+
+				<col212>trd_cur_upri</col212>
+				<pos212>212</pos212>
+
+				<col213>interim_flg</col213>
+				<pos213>213</pos213>
+
+				<col214>trd_cur_amt</col214>
+				<pos214>214</pos214>
+
+				<col215>tax_cd</col215>
+				<pos215>215</pos215>
+
+				<col216>tax_nm</col216>
+				<pos216>216</pos216>
+
+				<col217>if_tax_cd</col217>
+				<pos217>217</pos217>
+
+				<col218>if_tax_nm</col218>
+				<pos218>218</pos218>
+
+				<col219>tax_rate</col219>
+				<pos219>219</pos219>
+
+				<col220>trd_cur_tax_amt</col220>
+				<pos220>220</pos220>
+
+				<col221>inc_tax_flg</col221>
+				<pos221>221</pos221>
+
+				<col222>trd_cur_dscnt_amt</col222>
+				<pos222>222</pos222>
+
+				<col223>trd_d_rmrks</col223>
+				<pos223>223</pos223>
+
+				<col224>bill_bcst_nm</col224>
+				<pos224>224</pos224>
+
+				<col225>bill_ein</col225>
+				<pos225>225</pos225>
+
+				<col226>bill_biz_co_no</col226>
+				<pos226>226</pos226>
+
+				<col227>bill_zip_cd</col227>
+				<pos227>227</pos227>
+
+				<col228>bill_addr1</col228>
+				<pos228>228</pos228>
+
+				<col229>bill_addr2</col229>
+				<pos229>229</pos229>
+
+				<col230>bill_addr3</col230>
+				<pos230>230</pos230>
+
+				<col231>bill_addr4</col231>
+				<pos231>231</pos231>
+
+				<col232>bill_bcst_dpt</col232>
+				<pos232>232</pos232>
+
+				<col233>bill_tel</col233>
+				<pos233>233</pos233>
+
+				<col234>if_co_cd</col234>
+				<pos234>234</pos234>
+
+				<col235>if_co_nm</col235>
+				<pos235>235</pos235>
+
+				<col236>sub_char1</col236>
+				<pos236>236</pos236>
+
+				<col237>sub_char2</col237>
+				<pos237>237</pos237>
+
+				<col238>sub_char3</col238>
+				<pos238>238</pos238>
+
+				<col239>sub_char4</col239>
+				<pos239>239</pos239>
+
+				<col240>sub_char5</col240>
+				<pos240>240</pos240>
+
+				<col241>sub_char6</col241>
+				<pos241>241</pos241>
+
+				<col242>sub_char7</col242>
+				<pos242>242</pos242>
+
+				<col243>sub_char8</col243>
+				<pos243>243</pos243>
+
+				<col244>sub_char9</col244>
+				<pos244>244</pos244>
+
+				<col245>sub_char10</col245>
+				<pos245>245</pos245>
+
+				<col246>sub_char11</col246>
+				<pos246>246</pos246>
+
+				<col247>sub_char12</col247>
+				<pos247>247</pos247>
+
+				<col248>sub_char13</col248>
+				<pos248>248</pos248>
+
+				<col249>sub_char14</col249>
+				<pos249>249</pos249>
+
+				<col250>sub_char15</col250>
+				<pos250>250</pos250>
+
+				<col251>sub_char16</col251>
+				<pos251>251</pos251>
+
+				<col252>sub_char17</col252>
+				<pos252>252</pos252>
+
+				<col253>sub_char18</col253>
+				<pos253>253</pos253>
+
+				<col254>sub_char19</col254>
+				<pos254>254</pos254>
+
+				<col255>sub_char20</col255>
+				<pos255>255</pos255>
+
+				<col256>sub_char21</col256>
+				<pos256>256</pos256>
+
+				<col257>sub_char22</col257>
+				<pos257>257</pos257>
+
+				<col258>sub_char23</col258>
+				<pos258>258</pos258>
+
+				<col259>sub_char24</col259>
+				<pos259>259</pos259>
+
+				<col260>sub_char25</col260>
+				<pos260>260</pos260>
+
+				<col261>sub_char26</col261>
+				<pos261>261</pos261>
+
+				<col262>sub_char27</col262>
+				<pos262>262</pos262>
+
+				<col263>sub_char28</col263>
+				<pos263>263</pos263>
+
+				<col264>sub_char29</col264>
+				<pos264>264</pos264>
+
+				<col265>sub_char30</col265>
+				<pos265>265</pos265>
+
+				<col266>sub_num1</col266>
+				<pos266>266</pos266>
+
+				<col267>sub_num2</col267>
+				<pos267>267</pos267>
+
+				<col268>sub_num3</col268>
+				<pos268>268</pos268>
+
+				<col269>sub_num4</col269>
+				<pos269>269</pos269>
+
+				<col270>sub_num5</col270>
+				<pos270>270</pos270>
+
+				<col271>sub_dt1</col271>
+				<pos271>271</pos271>
+
+				<col272>sub_dt2</col272>
+				<pos272>272</pos272>
+
+				<col273>sub_dt3</col273>
+				<pos273>273</pos273>
+
+				<col274>sub_dt4</col274>
+				<pos274>274</pos274>
+
+				<col275>sub_dt5</col275>
+				<pos275>275</pos275>
+
+				<col276>batch_log_no</col276>
+				<pos276>276</pos276>
+
+				<col277>log_sub_key1</col277>
+				<pos277>277</pos277>
+
+				<col278>log_sub_key2</col278>
+				<pos278>278</pos278>
+
+				<col279>ins_usr_id</col279>
+				<pos279>279</pos279>
+
+				<col280>ins_usr_nm</col280>
+				<pos280>280</pos280>
+
+				<col281>ins_ts</col281>
+				<pos281>281</pos281>
+
+				<col282>ins_func_id</col282>
+				<pos282>282</pos282>
+
+				<col283>upd_cntr</col283>
+				<pos283>283</pos283>
+
+				<col284>upd_usr_id</col284>
+				<pos284>284</pos284>
+
+				<col285>upd_usr_nm</col285>
+				<pos285>285</pos285>
+
+				<col286>upd_ts</col286>
+				<pos286>286</pos286>
+
+				<col287>upd_func_id</col287>
+				<pos287>287</pos287>
+
+				<col288>upd_srv_req_no</col288>
+				<pos288>288</pos288>
+			</move>
+		</dtl>
+		<addSql>
+			<orderBy>
+				<col1>data_no,data_lno</col1>
+			</orderBy>
+		</addSql>
+	</app>
+</mcframe>

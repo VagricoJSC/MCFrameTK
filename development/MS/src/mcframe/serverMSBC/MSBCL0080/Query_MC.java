@@ -1,0 +1,1168 @@
+package mcframe.serverMSBC.MSBCL0080;
+
+import mcframe.commonCore.lang.MCNumber;
+import mcframe.commonCore.lang.MCDate;
+import mcframe.commonCore.lang.MCTimestamp;
+
+import mcframe.serverCore.cache.MCJoinerList;
+
+import static mcframe.commonCore.util.MCCollectionUtil.*;
+import static mcframe.serverCore.cache.MCJoinerList.*;
+import static mcframe.serverCore.queryapi.IFMCSQL.*;
+import static mcframe.serverCore.queryapi.MCQueryExecution.*;
+
+import mcframe.commonMA.constant.*;
+import mcframe.commonMB.constant.*;
+import mcframe.commonMS.constant.*;
+import mcframe.serverCore.dbc.*;
+import mcframe.serverMA.dbc.*;
+import mcframe.serverMB.dbc.*;
+import mcframe.serverPF.dbc.*;
+import mcframe.serverMS.dbc.*;
+
+import static mcframe.serverCore.dbc.CoreFunction.*;
+import static mcframe.serverMA.dbc.MAFunction.*;
+import static mcframe.serverMA.dbc.MABCFunction.*;
+import static mcframe.serverMA.dbc.MABGFunction.*;
+import static mcframe.serverMA.dbc.MABSFunction.*;
+import static mcframe.serverMA.dbc.MAUAFunction.*;
+import static mcframe.serverMB.dbc.MBBAFunction.*;
+import static mcframe.serverMB.dbc.MBBBFunction.*;
+import static mcframe.serverMB.dbc.MBBEFunction.*;
+import static mcframe.serverPF.dbc.PFFunction.*;
+import static mcframe.serverMS.dbc.MSFunction.*;
+import static mcframe.serverMS.dbc.MSBBFunction.*;
+import static mcframe.serverMS.dbc.MSBCFunction.*;
+import static mcframe.serverMS.dbc.MSBDFunction.*;
+import static mcframe.serverMS.dbc.MSBEFunction.*;
+import static mcframe.serverMS.dbc.MSBFFunction.*;
+import static mcframe.serverMS.dbc.MSBGFunction.*;
+import static mcframe.serverMS.dbc.MSBHFunction.*;
+import static mcframe.serverMS.dbc.MSBIFunction.*;
+import static mcframe.serverMS.dbc.MSLCFunction.*;
+import static mcframe.serverMS.dbc.MSUAFunction.*;
+
+public class Query_MC {
+	
+	/**
+	 * -- MSBCL0080_MST_ITM_ORDER_Query_S01
+	 */
+	static MCQueryPlan MSBCL0080_MST_ITM_ORDER_S01() {
+		MCTempView S0_T1 = createTempView("T1");
+		MAM_ITM_R S0_M1 = MAM_ITM_R.create("M1");
+		MAM_SUNDRY_ITM_R S0_M20 = MAM_SUNDRY_ITM_R.create("M20");
+		MAM_ITM_TYP_D_R S0_M2 = MAM_ITM_TYP_D_R.create("M2");
+		MAM_LOC_R S0_M5 = MAM_LOC_R.create("M5");
+		MAM_LOC_R S0_M6 = MAM_LOC_R.create("M6");
+		MAM_BP_R S0_M7 = MAM_BP_R.create("M7");
+		MAM_BP_R S0_M8 = MAM_BP_R.create("M8");
+		MAM_LOC_R S0_M9 = MAM_LOC_R.create("M9");
+		MAM_WG_R S0_M10 = MAM_WG_R.create("M10");
+		MAM_WG_R S0_M11 = MAM_WG_R.create("M11");
+		MAM_SITE_R S0_M12 = MAM_SITE_R.create("M12");
+		MAM_LOC_GRP_R S0_M13 = MAM_LOC_GRP_R.create("M13");
+		MAM_SITE_R S0_M14 = MAM_SITE_R.create("M14");
+		MAM_LOC_GRP_R S0_M15 = MAM_LOC_GRP_R.create("M15");
+		MAM_SITE_R S0_M16 = MAM_SITE_R.create("M16");
+		MAM_LOC_GRP_R S0_M17 = MAM_LOC_GRP_R.create("M17");
+		MSVT_WRK_SNO_R S0_V1 = MSVT_WRK_SNO_R.create("V1");
+		MAM_ITM_NOT_FIX_R S0_M18 = MAM_ITM_NOT_FIX_R.create("M18");
+		MAM_EXT_SYS_R S0_M19 = MAM_EXT_SYS_R.create("M19");
+		MAVM_RD_LOC_R S0_V2 = MAVM_RD_LOC_R.create("V2");
+		MAM_ITM_GRP_R S0_MM1 = MAM_ITM_GRP_R.create("MM1");
+		MAM_ITM_GRP_R S0_MM2 = MAM_ITM_GRP_R.create("MM2");
+		MAM_ITM_GRP_R S0_MM3 = MAM_ITM_GRP_R.create("MM3");
+		MAM_ITM_GRP_R S0_MM4 = MAM_ITM_GRP_R.create("MM4");
+		MAM_ITM_GRP_R S0_MM5 = MAM_ITM_GRP_R.create("MM5");
+		MAM_ITM_GRP_R S0_MM6 = MAM_ITM_GRP_R.create("MM6");
+		MAM_ITM_GRP_R S0_MM7 = MAM_ITM_GRP_R.create("MM7");
+		MAM_ITM_GRP_R S0_MM8 = MAM_ITM_GRP_R.create("MM8");
+		MAM_ITM_GRP_R S0_MM9 = MAM_ITM_GRP_R.create("MM9");
+		MAM_ITM_GRP_R S0_MM10 = MAM_ITM_GRP_R.create("MM10");
+		MAM_BP_GRP_R S0_BM1 = MAM_BP_GRP_R.create("BM1");
+		MAM_BP_GRP_R S0_BM2 = MAM_BP_GRP_R.create("BM2");
+		MAM_BP_GRP_R S0_BM3 = MAM_BP_GRP_R.create("BM3");
+		MAM_BP_GRP_R S0_BM4 = MAM_BP_GRP_R.create("BM4");
+		MAM_BP_GRP_R S0_BM5 = MAM_BP_GRP_R.create("BM5");
+		MAM_BP_GRP_R S0_BM6 = MAM_BP_GRP_R.create("BM6");
+		MAM_BP_GRP_R S0_BM7 = MAM_BP_GRP_R.create("BM7");
+		MAM_BP_GRP_R S0_BM8 = MAM_BP_GRP_R.create("BM8");
+		MAM_BP_GRP_R S0_BM9 = MAM_BP_GRP_R.create("BM9");
+		MAM_BP_GRP_R S0_BM10 = MAM_BP_GRP_R.create("BM10");
+		MST_ITM_ORDER_R S1_T01 = MST_ITM_ORDER_R.create("T01");
+		MCTempView S1_T02 = createTempView("T02");
+		MCTempView S1_T03 = createTempView("T03");
+		MST_ALLOC_PLN_R S2_T02 = MST_ALLOC_PLN_R.create("T02");
+		MST_PRCD_ALLOC_PLN_R S2_T11 = MST_PRCD_ALLOC_PLN_R.create("T11");
+		MCTempView S3_T07 = createTempView("T07");
+		MST_IO_SCHD_R S4_T03 = MST_IO_SCHD_R.create("T03");
+		MST_ORD_IO_SCHD_R S5_T04 = MST_ORD_IO_SCHD_R.create("T04");
+		MST_SAVORD_IO_SCHD_R S6_T05 = MST_SAVORD_IO_SCHD_R.create("T05");
+		MST_ALLOC_PLN_R S7_T06 = MST_ALLOC_PLN_R.create("T06");
+		MST_PRCD_ALLOC_PLN_R S7_T10 = MST_PRCD_ALLOC_PLN_R.create("T10");
+		MST_ITM_ORDER_R S8_T1 = MST_ITM_ORDER_R.create("T1");
+		MST_PO_SCHD_R S8_T2 = MST_PO_SCHD_R.create("T2");
+		MST_PO_D_R S8_T3 = MST_PO_D_R.create("T3");
+		MST_ARR_PR_R S8_T4 = MST_ARR_PR_R.create("T4");
+		MST_ITM_ORDER_R S9_T1 = MST_ITM_ORDER_R.create("T1");
+		MST_PO_SCHD_R S9_T2 = MST_PO_SCHD_R.create("T2");
+		MST_PO_D_R S9_T3 = MST_PO_D_R.create("T3");
+		MST_OPER_ORDER_R S10_T1 = MST_OPER_ORDER_R.create("T1");
+		MST_MRPRQMT_R mrprqst = MST_MRPRQMT_R.create("mrprqst");
+		MST_PRCD_MRPRQMT_R prcdmrprqst = MST_PRCD_MRPRQMT_R.create("prcdmrprqst");
+		
+		MCDynamicSQLID DS0C_ITM_GRP = createDynamicSQLID("DS0C_ITM_GRP");
+		MCDynamicSQLID DS0C_SPPL_GRP = createDynamicSQLID("DS0C_SPPL_GRP");
+		
+		return createQueryPlan()
+			.setQuery(
+				sql("MSBCL0080_MST_ITM_ORDER_Query_S01")
+					.mainQuery()
+					.select(
+						S0_T1.pr(S1_T01.itm_ord_no),
+						S0_T1.pr(S1_T01.itm_ord_typ),
+						S0_T1.pr(S1_T01.itm_ord_sts_typ),
+						S0_M1.itm_typ,
+						S0_M1.itm_typ_d_cd,
+						S0_T1.pr(S1_T01.itm_cd),
+						S0_T1.pr(S1_T01.itm_sub1),
+						S0_T1.pr(S1_T01.itm_sub2),
+						S0_T1.pr(S1_T01.itm_sub3),
+						nvl(
+							S0_M20.itm_nm,
+							S0_M1.itm_nm
+						).as("itm_nm"),
+						S0_T1.pr(S1_T01.ver_no),
+						S0_T1.pr(S1_T01.blk_flg).as("bndl_flg"),
+						S0_T1.pr(S1_T01.inst_qty),
+						S0_T1.pr(S1_T01.yield_schd_qty),
+						S0_T1.pr(S1_T01.inst_yield_schd_qty),
+						S0_T1.pr(S1_T01.yield_act_qty),
+						S0_T1.pr(S1_T01.purc_act_qty),
+						S0_T1.pr(S1_T01.insp_act_qty),
+						S0_T1.pr("yield_remain_qty"),
+						S0_T1.pr("purc_remain_qty"),
+						S0_T1.pr("insp_remain_qty"),
+						S0_M1.unit_cd.as("base_unit_cd"),
+						S0_T1.pr("schd_alloc_qty"),
+						cases()
+							.when(S0_T1.pr("yield_remain_qty").lt(value(0)))
+								.then(value(0).subtract(
+										nvl(
+												S0_T1.pr("schd_alloc_qty"),
+												value(0)
+												)
+										))
+							.otherwise(S0_T1.pr("yield_remain_qty").subtract(
+										nvl(
+												S0_T1.pr("schd_alloc_qty"),
+												value(0)
+												)
+										)).as("surplus_qty"),
+						S0_T1.pr("arr_yield_rate"),
+						S0_T1.pr("purc_rate"),
+						cases()
+							.when(S0_T1.pr(S1_T01.blk_flg).eq(value(true)))
+								.then(nullValue())
+							.when(S0_T1.pr(S1_T01.itm_ord_sts_typ).eq(value(MSC_ITM_ORD_STS_TYP.CMPL.value())))
+								.then(
+									decode(
+										sign(S0_T1.pr(S1_T01.yield_schd_qty).subtract(S0_T1.pr(S1_T01.yield_act_qty))),
+										value(-1),
+										nullValue(),
+										S0_T1.pr(S1_T01.yield_schd_qty).subtract(S0_T1.pr(S1_T01.yield_act_qty))
+									)
+							)
+							.otherwise(nullValue()).as("abort_qty"),
+						S0_M1.cont_fctr_unit_cd,
+						S0_M1.std_cont_fctr,
+						S0_T1.pr(S1_T01.mrp_po_schd_dt),
+						S0_T1.pr(S1_T01.po_schd_dt),
+						S0_T1.pr(S1_T01.po_dt).as("latest_po_d_dt"),
+						S0_T1.pr(S1_T01.mrp_gi_schd_dt),
+						S0_T1.pr(S1_T01.gi_schd_dt),
+						S0_T1.pr(S1_T01.inst_gi_schd_dt),
+						S0_T1.pr(S1_T01.gi_act_dt).as("latest_gi_act_dt"),
+						S0_T1.pr(S1_T01.mrp_mfg_st_schd_dt),
+						S0_T1.pr(S1_T01.mfg_st_schd_dt),
+						S0_T1.pr(S1_T01.inst_mfg_st_schd_dt),
+						S0_T1.pr(S1_T01.mfg_st_act_dt).as("latest_mfg_st_act_dt"),
+						S0_T1.pr(S1_T01.mrp_mfg_end_schd_dt),
+						S0_T1.pr(S1_T01.mfg_end_schd_dt),
+						S0_T1.pr(S1_T01.inst_mfg_end_schd_dt),
+						S0_T1.pr(S1_T01.mfg_end_act_dt).as("latest_mfg_end_act_dt"),
+						S0_T1.pr(S1_T01.mrp_mfg_lt),
+						S0_T1.pr(S1_T01.mfg_lt),
+						S0_T1.pr(S1_T01.act_mfg_lt),
+						S0_T1.pr(S1_T01.mrp_strg_schd_dt),
+						S0_T1.pr(S1_T01.strg_schd_dt),
+						S0_T1.pr(S1_T01.inst_strg_schd_dt),
+						S0_T1.pr(S1_T01.strg_act_dt).as("latest_strg_act_dt"),
+						S0_T1.pr(S1_T01.mrp_purc_lt),
+						S0_T1.pr(S1_T01.purc_lt),
+						S0_T1.pr(S1_T01.act_purc_lt),
+						S0_T1.pr(S1_T01.mrp_accpt_schd_dt),
+						S0_T1.pr(S1_T01.accpt_schd_dt),
+						S0_T1.pr(S1_T01.inst_accpt_schd_dt),
+						S0_T1.pr(S1_T01.accpt_act_dt).as("latest_accpt_act_dt"),
+						S0_T1.pr(S1_T01.mrp_insp_st_schd_dt),
+						S0_T1.pr(S1_T01.insp_st_schd_dt),
+						S0_T1.pr(S1_T01.inst_insp_st_schd_dt),
+						S0_T1.pr(S1_T01.insp_st_act_dt).as("latest_insp_st_act_dt"),
+						S0_T1.pr(S1_T01.insp_end_schd_dt),
+						S0_T1.pr(S1_T01.mrp_insp_end_schd_dt),
+						S0_T1.pr(S1_T01.inst_insp_end_schd_dt),
+						S0_T1.pr(S1_T01.insp_end_act_dt).as("latest_insp_end_act_dt"),
+						S0_T1.pr(S1_T01.mrp_avl_schd_dt),
+						S0_T1.pr(S1_T01.avl_schd_dt),
+						S0_T1.pr("io_avl_schd_dt"),
+						S0_T1.pr("schd_so_dt"),
+						decode(
+							S0_T1.pr("schd_so_dt"),
+							nullValue(),
+							value((MCNumber) null),
+							S0_T1.pr("schd_so_dt").subtractDate(S0_T1.pr("io_avl_schd_dt"))
+						).as("margin_days"),
+						S0_T1.pr(S1_T01.strg_loc_cd),
+						S0_T1.pr(S1_T01.mfg_loc_cd),
+						S0_T1.pr(S1_T01.sppl_cd),
+						S0_T1.pr(S1_T01.maker_cd),
+						S0_T1.pr(S1_T01.rqst_loc_cd),
+						S0_T1.pr(S1_T01.rqst_wg_cd),
+						S0_T1.pr(S1_T01.oper_ptn),
+						S0_T1.pr(S1_T01.bom_ptn),
+						S0_T1.pr(S1_T01.rqmt_no),
+						decode(
+							S0_M18.itm_cd,
+							nullValue(),
+							S0_T1.pr(S1_T01.not_fix_flg),
+							value(true)
+						).as("not_fix_flg"),
+						S0_T1.pr(S1_T01.sno1),
+						S0_T1.pr(S1_T01.sno2),
+						S0_T1.pr(S1_T01.sno3),
+						S0_T1.pr(S1_T01.sno4),
+						S0_T1.pr(S1_T01.ord_gnrt_typ),
+						S0_T1.pr(S1_T01.sim_mrp_no),
+						S0_T1.pr(S1_T01.wg_cd),
+						S0_T1.pr(S1_T01.intr_rmrks),
+						S0_T1.pr(S1_T01.fix_dt),
+						S0_T1.pr(S1_T01.sub_char1),
+						S0_T1.pr(S1_T01.sub_char2),
+						S0_T1.pr(S1_T01.sub_char3),
+						S0_T1.pr(S1_T01.ord_rcv_flg),
+						S0_T1.pr(S1_T01.ord_snd_flg),
+						S0_T1.pr(S1_T01.ext_sys_cd),
+						S0_T1.pr(S1_T01.ext_itm_ord_no),
+						S0_T1.pr(S1_T01.for_scheduler_frozen_flg),
+						S0_T1.pr("scheduler_frozen_flg"),
+						S0_M1.dec_place,
+						S0_M1.cont_fctr_flg,
+						S0_M1.cont_fctr_dec_place,
+						S0_M1.cont_fctr_rnd_typ,
+						S0_T1.pr(S1_T01.ins_usr_id),
+						S0_T1.pr(S1_T01.ins_usr_nm),
+						S0_T1.pr(S1_T01.ins_ts),
+						S0_T1.pr(S1_T01.ins_func_id),
+						S0_T1.pr(S1_T01.upd_cntr),
+						S0_T1.pr(S1_T01.upd_usr_id),
+						S0_T1.pr(S1_T01.upd_usr_nm),
+						S0_T1.pr(S1_T01.upd_ts),
+						S0_T1.pr(S1_T01.upd_func_id),
+						S0_T1.pr(S1_T01.upd_srv_req_no),
+						addDynamicSelect(DS0C_ITM_GRP),
+						addDynamicSelect(DS0C_SPPL_GRP)
+					)
+					.from(
+						subQuery()
+						.select(
+							S1_T01.itm_ord_no,
+							S1_T01.itm_ord_typ,
+							S1_T01.itm_ord_sts_typ,
+							S1_T01.itm_cd,
+							S1_T01.itm_sub1,
+							S1_T01.itm_sub2,
+							S1_T01.itm_sub3,
+							S1_T01.ver_no,
+							S1_T01.blk_flg,
+							S1_T01.inst_qty,
+							S1_T01.yield_schd_qty,
+							S1_T01.inst_yield_schd_qty,
+							S1_T01.yield_act_qty,
+							S1_T01.purc_act_qty,
+							S1_T01.insp_act_qty,
+							cases()
+								.when(S1_T01.blk_flg.eq(value(true)))
+									.then(nullValue())
+								.when(S1_T01.itm_ord_sts_typ.eq(value(MSC_ITM_ORD_STS_TYP.CMPL.value())))
+									.then(value(0))
+								.otherwise(
+									S1_T01.yield_schd_qty.subtract(
+										nvl(
+											S1_T01.yield_act_qty,
+											value(0)
+										)
+									)
+								).as("yield_remain_qty"),
+							cases()
+								.when(S1_T01.blk_flg.eq(value(true)))
+									.then(nullValue())
+								.when(
+									S1_T01.itm_ord_typ.eq(value(MSC_ITM_ORD_TYP.PURC.value()))
+									.or(S1_T01.itm_ord_typ.eq(value(MSC_ITM_ORD_TYP.OUTSRC.value())))
+								)
+									.then(
+										S1_T01.yield_act_qty.subtract(
+											nvl(
+												S1_T01.purc_act_qty,
+												value(0)
+											)
+										).subtract(
+											nvl(
+												S1_T02.pr("arr_pr_vmi_ffr_rcv_qty"),
+												value(0)
+											)
+										)
+									)
+								.otherwise(nullValue()).as("purc_remain_qty"),
+							cases()
+								.when(S1_T01.blk_flg.eq(value(true)))
+									.then(nullValue())
+								.when(
+									S1_T01.itm_ord_typ.eq(value(MSC_ITM_ORD_TYP.XFR.value()))
+									.or(S1_T01.itm_ord_typ.eq(value(MSC_ITM_ORD_TYP.WG_XFR.value())))
+								)
+									.then(nullValue())
+								.when(S1_T01.itm_ord_sts_typ.eq(value(MSC_ITM_ORD_STS_TYP.CMPL.value())))
+									.then(value(0))
+								.otherwise(
+									decode(
+										S1_T01.insp_st_schd_dt,
+										nullValue(),
+										value((MCNumber) null),
+										S1_T01.yield_schd_qty.subtract(
+											nvl(
+												S1_T01.insp_act_qty,
+												value(0)
+											)
+										)
+									)
+								).as("insp_remain_qty"),
+							cases()
+								.when(S1_T01.ord_gnrt_typ.eq(value(MSC_ORD_GNRT_TYP.PRCD.value())))
+								.then(
+									cases()	
+									.when(
+										exists(
+											subQuery()
+											.select(value("X"))
+											.from(S2_T02)
+											.where(
+												S1_T01.io_schd_pr_no.eq(S2_T02.io_schd_pr_no)
+											)
+										)
+									)
+									.then(
+										subQuery()
+										.select(sum(S2_T02.schd_alloc_qty))
+										.from(S2_T02)
+										.where(
+											S1_T01.io_schd_pr_no.eq(S2_T02.io_schd_pr_no)
+											.and(exists(subQuery()
+													.select(value("X"))
+													.from(mrprqst)
+													.where(mrprqst.rqmt_no.eq(S2_T02.rqmt_no))
+												)
+											)
+										)
+									)
+									.otherwise(
+										subQuery()
+										.select(sum(S2_T11.schd_alloc_qty))
+										.from(S2_T11)
+										.where(
+											S1_T01.io_schd_pr_no.eq(S2_T11.io_schd_pr_no)
+											.and(exists(subQuery()
+													.select(value("X"))
+													.from(prcdmrprqst)
+													.where(prcdmrprqst.rqmt_no.eq(S2_T11.rqmt_no))
+												)
+											)
+										)
+									)
+								)
+								.otherwise(
+									subQuery()
+									.select(sum(S2_T02.schd_alloc_qty))
+									.from(S2_T02)
+									.where(
+										S1_T01.io_schd_pr_no.eq(S2_T02.io_schd_pr_no)
+										.and(exists(subQuery()
+												.select(value("X"))
+												.from(mrprqst)
+												.where(mrprqst.rqmt_no.eq(S2_T02.rqmt_no))
+											)
+										)
+									)
+								).as("schd_alloc_qty"),
+							cases()
+								.when(S1_T01.blk_flg.eq(value(true)))
+									.then(nullValue())
+								.otherwise(
+									MAPA_CALC$F_CALC_PER(
+										S1_T01.yield_schd_qty,
+										S1_T01.yield_act_qty
+									)
+								).as("arr_yield_rate"),
+							cases()
+								.when(S1_T01.blk_flg.eq(value(true)))
+									.then(nullValue())
+								.when(S1_T03.pr("po_d_not_vmi_not_ffr_rcv_qty").isNull()
+									.and(S1_T01.purc_act_qty.isNotNull())
+								)
+									.then(value(0))
+								.otherwise(
+									MAPA_CALC$F_CALC_PER(
+										S1_T03.pr("po_d_not_vmi_not_ffr_rcv_qty"),
+										S1_T01.purc_act_qty
+									)
+								).as("purc_rate"),
+							S1_T01.mrp_po_schd_dt,
+							S1_T01.po_schd_dt,
+							S1_T01.po_dt,
+							S1_T01.mrp_gi_schd_dt,
+							S1_T01.gi_schd_dt,
+							S1_T01.inst_gi_schd_dt,
+							S1_T01.gi_act_dt,
+							S1_T01.mrp_mfg_st_schd_dt,
+							S1_T01.mfg_st_schd_dt,
+							S1_T01.inst_mfg_st_schd_dt,
+							S1_T01.mfg_st_act_dt,
+							S1_T01.mrp_mfg_end_schd_dt,
+							S1_T01.mfg_end_schd_dt,
+							S1_T01.inst_mfg_end_schd_dt,
+							S1_T01.mfg_end_act_dt,
+							S1_T01.mrp_mfg_lt,
+							S1_T01.mfg_lt,
+							S1_T01.act_mfg_lt,
+							S1_T01.mrp_strg_schd_dt,
+							S1_T01.strg_schd_dt,
+							S1_T01.inst_strg_schd_dt,
+							S1_T01.strg_act_dt,
+							S1_T01.mrp_purc_lt,
+							S1_T01.purc_lt,
+							S1_T01.act_purc_lt,
+							S1_T01.mrp_accpt_schd_dt,
+							S1_T01.accpt_schd_dt,
+							S1_T01.inst_accpt_schd_dt,
+							S1_T01.accpt_act_dt,
+							S1_T01.mrp_insp_st_schd_dt,
+							S1_T01.insp_st_schd_dt,
+							S1_T01.inst_insp_st_schd_dt,
+							S1_T01.insp_st_act_dt,
+							S1_T01.insp_end_schd_dt,
+							S1_T01.mrp_insp_end_schd_dt,
+							S1_T01.inst_insp_end_schd_dt,
+							S1_T01.insp_end_act_dt,
+							S1_T01.mrp_avl_schd_dt,
+							S1_T01.avl_schd_dt,
+							bracket(
+								subQuery()
+								.select(max(S3_T07.pr("io_avl_schd_dt")))
+								.from(
+									subQuery()
+									.select(
+										nvl(
+											S4_T03.avl_schd_dt,
+											S4_T03.schd_dt
+										).as("io_avl_schd_dt")
+									)
+									.from(S4_T03)
+									.where(
+										value(0).eq(value(0))
+										.and(S4_T03.io_schd_pr_no.eq(S1_T01.io_schd_pr_no))
+										.and(S4_T03.io_typ.eq(value(MSC_IO_TYP.GR.value())))
+										.and(S4_T03.in_xfr_typ.eq(value(MSC_IN_XFR_TYP.IN_LOC.value())))
+										.and(S4_T03.stk_insp_typ.eq(value(MSC_STK_INSP_TYP.FIN.value())))
+										.and(
+											S4_T03.stk_id_typ.in(
+												value(MSC_STK_ID_TYP.COSTK.value()),
+												value(MSC_STK_ID_TYP.CSTSTK.value()),
+												value(MSC_STK_ID_TYP.RNT_RCV.value()),
+												value(MSC_STK_ID_TYP.ONR_PROV.value()),
+												value(MSC_STK_ID_TYP.NCV_RCV.value())
+											)
+										)
+									)
+									.unionAll(
+										subQuery()
+										.select(
+											nvl(
+												S5_T04.avl_schd_dt,
+												S5_T04.schd_dt
+											).as("io_avl_schd_dt")
+										)
+										.from(S5_T04)
+										.where(
+											value(0).eq(value(0))
+											.and(S5_T04.io_schd_pr_no.eq(S1_T01.io_schd_pr_no))
+											.and(S5_T04.io_typ.eq(value(MSC_IO_TYP.GR.value())))
+											.and(S5_T04.in_xfr_typ.eq(value(MSC_IN_XFR_TYP.IN_LOC.value())))
+											.and(S5_T04.stk_insp_typ.eq(value(MSC_STK_INSP_TYP.FIN.value())))
+											.and(
+												S5_T04.stk_id_typ.in(
+													value(MSC_STK_ID_TYP.COSTK.value()),
+													value(MSC_STK_ID_TYP.CSTSTK.value()),
+													value(MSC_STK_ID_TYP.RNT_RCV.value()),
+													value(MSC_STK_ID_TYP.ONR_PROV.value()),
+													value(MSC_STK_ID_TYP.NCV_RCV.value())
+												)
+											)
+										)
+										.unionAll(
+											subQuery()
+											.select(
+												nvl(
+													S6_T05.avl_schd_dt,
+													S6_T05.schd_dt
+												).as("io_avl_schd_dt")
+											)
+											.from(S6_T05)
+											.where(
+												value(0).eq(value(0))
+												.and(S6_T05.io_schd_pr_no.eq(S1_T01.io_schd_pr_no))
+												.and(S6_T05.io_typ.eq(value(MSC_IO_TYP.GR.value())))
+												.and(S6_T05.in_xfr_typ.eq(value(MSC_IN_XFR_TYP.IN_LOC.value())))
+												.and(S6_T05.stk_insp_typ.eq(value(MSC_STK_INSP_TYP.FIN.value())))
+												.and(
+													S6_T05.stk_id_typ.in(
+														value(MSC_STK_ID_TYP.COSTK.value()),
+														value(MSC_STK_ID_TYP.CSTSTK.value()),
+														value(MSC_STK_ID_TYP.RNT_RCV.value()),
+														value(MSC_STK_ID_TYP.ONR_PROV.value()),
+														value(MSC_STK_ID_TYP.NCV_RCV.value())
+													)
+												)
+											)
+										)
+									).view(S3_T07)
+								)
+							).as("io_avl_schd_dt"),
+							cases()
+								.when(S1_T01.ord_gnrt_typ.eq(value(MSC_ORD_GNRT_TYP.PRCD.value())))
+								.then(
+									cases()
+									.when(
+										exists(
+											subQuery()
+											.select(value("X"))
+											.from(S7_T06)
+											.where(
+												S1_T01.io_schd_pr_no.eq(S7_T06.io_schd_pr_no)
+											)
+										)
+									)
+									.then(
+										subQuery()
+										.select(min(S7_T06.gi_schd_dt))
+										.from(S7_T06)
+										.where(
+											S1_T01.io_schd_pr_no.eq(S7_T06.io_schd_pr_no)
+										)
+									)
+									.otherwise(
+										subQuery()
+										.select(min(S7_T10.gi_schd_dt))
+										.from(S7_T10)
+										.where(
+											S1_T01.io_schd_pr_no.eq(S7_T10.io_schd_pr_no)
+										)
+									)
+								)
+								.otherwise(
+									subQuery()
+									.select(min(S7_T06.gi_schd_dt))
+									.from(S7_T06)
+									.where(
+										S1_T01.io_schd_pr_no.eq(S7_T06.io_schd_pr_no)
+									)
+								).as("schd_so_dt"),
+							S1_T01.strg_loc_cd,
+							S1_T01.mfg_loc_cd,
+							S1_T01.sppl_cd,
+							S1_T01.maker_cd,
+							S1_T01.rqst_loc_cd,
+							S1_T01.rqst_wg_cd,
+							S1_T01.oper_ptn,
+							S1_T01.bom_ptn,
+							S1_T01.rqmt_no,
+							S1_T01.not_fix_flg,
+							S1_T01.sno1,
+							S1_T01.sno2,
+							S1_T01.sno3,
+							S1_T01.sno4,
+							S1_T01.ord_gnrt_typ,
+							S1_T01.sim_mrp_no,
+							S1_T01.wg_cd,
+							S1_T01.intr_rmrks,
+							S1_T01.fix_dt,
+							S1_T01.sub_char1,
+							S1_T01.sub_char2,
+							S1_T01.sub_char3,
+							S1_T01.ord_rcv_flg,
+							S1_T01.ord_snd_flg,
+							S1_T01.ext_sys_cd,
+							S1_T01.ext_itm_ord_no,
+							S1_T01.for_scheduler_frozen_flg,
+							cases()
+								.when(
+									notExists(
+										subQuery()
+										.select(value("X"))
+										.from(S10_T1)
+										.where(
+											S1_T01.itm_ord_no.eq(S10_T1.itm_ord_no)
+											.and(S10_T1.scheduler_frozen_flg.eq(value(false)))
+										)
+									)
+									.and(S1_T01.for_scheduler_frozen_flg.eq(value(true)))
+								)
+								.then(
+									value(true)
+								)
+								.otherwise(
+									value(false)
+								).as("scheduler_frozen_flg"),
+							S1_T01.ins_usr_id,
+							S1_T01.ins_usr_nm,
+							S1_T01.ins_ts,
+							S1_T01.ins_func_id,
+							S1_T01.upd_cntr,
+							S1_T01.upd_usr_id,
+							S1_T01.upd_usr_nm,
+							S1_T01.upd_ts,
+							S1_T01.upd_func_id,
+							S1_T01.upd_srv_req_no
+						)
+						.from(
+							S1_T01
+							.leftOuterJoin(
+								subQuery()
+								.select(
+									S8_T1.itm_ord_no.as("itm_ord_no"),
+									sum(S8_T4.arr_qty).as("arr_pr_vmi_ffr_rcv_qty")
+								)
+								.from(
+									S8_T1
+									.leftOuterJoin(S8_T2).on(
+										bracket(
+											S8_T1.itm_ord_no.eq(S8_T2.pln_itm_ord_no)
+											.and(S8_T2.can_flg.eq(value(false)))
+										)
+									)
+									.leftOuterJoin(S8_T3).on(
+										bracket(
+											S8_T2.po_no.eq(S8_T3.po_no)
+											.and(S8_T2.po_d_no.eq(S8_T3.po_d_no))
+											.and(S8_T3.can_flg.eq(value(false)))
+										)
+									)
+									.leftOuterJoin(S8_T4).on(
+										bracket(
+											S8_T3.po_d_no.eq(S8_T4.po_d_no)
+										)
+									)
+								)
+								.where(
+									S8_T3.purc_id_typ.eq(value(MAC_PURC_ID_TYP.VMI.value()))
+									.or(S8_T3.purc_id_typ.eq(value(MAC_PURC_ID_TYP.FFR_RCV.value())))
+								)
+								.groupBy(S8_T1.itm_ord_no).view(S1_T02)
+							).on(
+								bracket(
+									S1_T01.itm_ord_no.eq(S1_T02.pr("itm_ord_no"))
+								)
+							)
+							.leftOuterJoin(
+								subQuery()
+								.select(
+									S9_T1.itm_ord_no.as("itm_ord_no"),
+									sum(S9_T3.base_unit_qty).as("po_d_not_vmi_not_ffr_rcv_qty")
+								)
+								.from(
+									S9_T1
+									.leftOuterJoin(S9_T2).on(
+										bracket(
+											S9_T1.itm_ord_no.eq(S9_T2.pln_itm_ord_no)
+											.and(S9_T2.can_flg.eq(value(false)))
+										)
+									)
+									.leftOuterJoin(S9_T3).on(
+										bracket(
+											S9_T2.po_no.eq(S9_T3.po_no)
+											.and(S9_T2.po_d_no.eq(S9_T3.po_d_no))
+											.and(S9_T3.can_flg.eq(value(false)))
+										)
+									)
+								)
+								.where(
+									S9_T3.purc_id_typ.neq(value(MAC_PURC_ID_TYP.VMI.value()))
+									.and(S9_T3.purc_id_typ.neq(value(MAC_PURC_ID_TYP.FFR_RCV.value())))
+								)
+								.groupBy(S9_T1.itm_ord_no).view(S1_T03)
+							).on(
+								bracket(
+									S1_T01.itm_ord_no.eq(S1_T03.pr("itm_ord_no"))
+								)
+							)
+						)
+						.where(
+							value(0).eq(value(0))
+							.and(MSC_ORD_GNRT_TYP$IS_UPLND(S1_T01.ord_gnrt_typ).eq(value(false)))
+						).view(S0_T1)
+						.leftOuterJoin(S0_M1).on(
+							bracket(
+								value(0).eq(value(0))
+								.and(S0_T1.pr(S1_T01.itm_cd).eq(S0_M1.itm_cd))
+								.and(S0_T1.pr(S1_T01.itm_sub1).eq(S0_M1.itm_sub1))
+								.and(S0_T1.pr(S1_T01.itm_sub2).eq(S0_M1.itm_sub2))
+								.and(S0_T1.pr(S1_T01.itm_sub3).eq(S0_M1.itm_sub3))
+							)
+						)
+						.leftOuterJoin(S0_M20).on(
+							bracket(
+								S0_T1.pr(S1_T01.itm_cd).eq(S0_M20.itm_cd)
+								.and(S0_T1.pr(S1_T01.itm_sub1).eq(S0_M20.itm_sub1))
+								.and(S0_T1.pr(S1_T01.itm_sub2).eq(S0_M20.itm_sub2))
+								.and(S0_T1.pr(S1_T01.itm_sub3).eq(S0_M20.itm_sub3))
+								.and(S0_T1.pr(S1_T01.sno1).eq(S0_M20.sno1))
+								.and(S0_T1.pr(S1_T01.sno2).eq(S0_M20.sno2))
+								.and(S0_T1.pr(S1_T01.sno3).eq(S0_M20.sno3))
+								.and(S0_T1.pr(S1_T01.sno4).eq(S0_M20.sno4))
+							)
+						)
+						.leftOuterJoin(S0_M18).on(
+							bracket(
+								S0_T1.pr(S1_T01.itm_cd).eq(S0_M18.itm_cd)
+								.and(S0_T1.pr(S1_T01.itm_sub1).eq(S0_M18.itm_sub1))
+								.and(S0_T1.pr(S1_T01.itm_sub2).eq(S0_M18.itm_sub2))
+								.and(S0_T1.pr(S1_T01.itm_sub3).eq(S0_M18.itm_sub3))
+								.and(S0_T1.pr(S1_T01.sno1).eq(S0_M18.sno1))
+								.and(S0_T1.pr(S1_T01.sno2).eq(S0_M18.sno2))
+								.and(S0_T1.pr(S1_T01.sno3).eq(S0_M18.sno3))
+								.and(S0_T1.pr(S1_T01.sno4).eq(S0_M18.sno4))
+								.and(S0_T1.pr(S1_T01.wg_cd).eq(S0_M18.wg_cd))
+								.and(S0_M18.del_flg.eq(value(false)))
+							)
+						)
+						.innerJoin(S0_V2).on(
+							bracket(
+								S0_T1.pr(S1_T01.strg_loc_cd).eq(S0_V2.loc_cd)
+							)
+						)
+						.addDynamicView()
+						.addDynamicView(DS0C_ITM_GRP)
+						.addDynamicView(DS0C_SPPL_GRP)
+					)
+					.where(
+						value(0).eq(value(0))
+						.and(
+							S0_T1.pr(S1_T01.itm_ord_sts_typ).in(
+								bind("wk_opn"),
+								bind("wk_sav"),
+								bind("wk_fix"),
+								bind("wk_part_inst"),
+								bind("wk_inst"),
+								bind("wk_cmpl")
+							)
+						)
+						.and(
+							S0_T1.pr(S1_T01.itm_ord_typ).in(
+								bind("wk_mfg"),
+								bind("wk_purc"),
+								bind("wk_outsrc"),
+								bind("wk_xfr"),
+								bind("wk_wg_xfr")
+							)
+						)
+						.cutoff$and(S0_T1.pr(S1_T01.po_schd_dt).gte(bind("po_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.po_schd_dt).lte(bind("po_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.gi_schd_dt).gte(bind("gi_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.gi_schd_dt).lte(bind("gi_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.mfg_st_schd_dt).gte(bind("mfg_st_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.mfg_st_schd_dt).lte(bind("mfg_st_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.mfg_end_schd_dt).gte(bind("mfg_end_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.mfg_end_schd_dt).lte(bind("mfg_end_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.avl_schd_dt).gte(bind("avl_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.avl_schd_dt).lte(bind("avl_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.strg_schd_dt).gte(bind("strg_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.strg_schd_dt).lte(bind("strg_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.accpt_schd_dt).gte(bind("accpt_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.accpt_schd_dt).lte(bind("accpt_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.insp_st_schd_dt).gte(bind("insp_st_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.insp_st_schd_dt).lte(bind("insp_st_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.insp_end_schd_dt).gte(bind("insp_end_schd_dt_fr")))
+						.cutoff$and(S0_T1.pr(S1_T01.insp_end_schd_dt).lte(bind("insp_end_schd_dt_to")))
+						.cutoff$and(S0_T1.pr(S1_T01.wg_cd).like(bind("wg_cd")))
+						.addDynamicPredicate()
+						.cutoff$and(S0_T1.pr(S1_T01.strg_loc_cd).like(bind("strg_loc_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.mfg_loc_cd).like(bind("mfg_loc_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.sppl_cd).like(bind("sppl_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.maker_cd).like(bind("maker_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.rqst_wg_cd).like(bind("rqst_wg_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.rqst_loc_cd).like(bind("rqst_loc_cd")))
+						.cutoff$and(S0_M1.itm_typ.like(bind("itm_typ")))
+						.cutoff$and(S0_M1.itm_typ_d_cd.like(bind("itm_typ_d_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.itm_cd).like(bind("itm_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.itm_sub1).like(bind("itm_sub1")))
+						.cutoff$and(S0_T1.pr(S1_T01.itm_sub2).like(bind("itm_sub2")))
+						.cutoff$and(S0_T1.pr(S1_T01.itm_sub3).like(bind("itm_sub3")))
+						.cutoff$and(
+							nvl(
+								S0_M20.itm_nm,
+								S0_M1.itm_nm
+							).like(bind("itm_nm"))
+						)
+						.cutoff$and(S0_T1.pr(S1_T01.ver_no).like(bind("ver_no")))
+						.cutoff$and(S0_T1.pr(S1_T01.sno1).like(bind("sno1")))
+						.cutoff$and(S0_T1.pr(S1_T01.sno2).like(bind("sno2")))
+						.cutoff$and(S0_T1.pr(S1_T01.sno3).like(bind("sno3")))
+						.cutoff$and(S0_T1.pr(S1_T01.sno4).like(bind("sno4")))
+						.cutoff$and(S0_T1.pr(S1_T01.ord_gnrt_typ).like(bind("ord_gnrt_typ")))
+						.cutoff$and(S0_T1.pr(S1_T01.itm_ord_no).like(bind("itm_ord_no")))
+						.cutoff$and(S0_T1.pr(S1_T01.rqmt_no).like(bind("rqmt_no")))
+						.cutoff$and(S0_T1.pr(S1_T01.sim_mrp_no).like(bind("sim_mrp_no")))
+						.cutoff$and(S0_T1.pr(S1_T01.intr_rmrks).like(bind("intr_rmrks")))
+						.cutoff$and(S0_T1.pr(S1_T01.sub_char1).like(bind("sub_char1")))
+						.cutoff$and(S0_T1.pr(S1_T01.sub_char2).like(bind("sub_char2")))
+						.cutoff$and(S0_T1.pr(S1_T01.sub_char3).like(bind("sub_char3")))
+						.cutoff$and(S0_T1.pr(S1_T01.ext_sys_cd).like(bind("ext_sys_cd")))
+						.cutoff$and(S0_T1.pr(S1_T01.ext_itm_ord_no).like(bind("ext_itm_ord_no")))
+						.cutoff$and(
+							decode(
+								S0_M18.itm_cd,
+								nullValue(),
+								S0_T1.pr(S1_T01.not_fix_flg),
+								value(true)
+							).eq(bind("wk_not_fix_flg"))
+						)
+						.cutoff$and(S0_T1.pr(S1_T01.ord_rcv_flg).eq(bind("wk_ord_rcv_tgt_flg")))
+						.cutoff$and(S0_T1.pr(S1_T01.ord_snd_flg).eq(bind("wk_ord_snd_tgt_flg")))
+						.cutoff$and(
+							nvl(
+								S0_T1.pr("arr_yield_rate"),
+								value(0)
+							).gte(bind("arr_yield_rate_fr"))
+						)
+						.cutoff$and(
+							nvl(
+								S0_T1.pr("arr_yield_rate"),
+								value(0)
+							).lte(bind("arr_yield_rate_to"))
+						)
+						.cutoff$and(
+							nvl(
+								S0_T1.pr("purc_rate"),
+								value(0)
+							).lte(bind("purc_rate_to"))
+						)
+						.cutoff$and(
+							nvl(
+								S0_T1.pr("purc_rate"),
+								value(0)
+							).gte(bind("purc_rate_fr"))
+						)
+						.cutoff$and(
+							bracket(
+								S0_T1.pr("yield_remain_qty").subtract(
+									nvl(
+										S0_T1.pr("schd_alloc_qty"),
+										value(0)
+									)
+								)
+							).gt(bind("rqrd_qty_excess"))
+						)
+						.cutoff$and(
+							decode(
+								S0_T1.pr("schd_so_dt"),
+								nullValue(),
+								value((MCNumber) null),
+								S0_T1.pr("schd_so_dt").subtractDate(S0_T1.pr("io_avl_schd_dt"))
+							).gt(bind("avl_schd_days_excess"))
+						)
+						.addDynamicPredicate(DS0C_ITM_GRP)
+						.addDynamicPredicate(DS0C_SPPL_GRP)
+					)
+					.orderBy(S0_T1.pr(S1_T01.itm_ord_no).asc())
+			)
+			.setDynamicSQLInfo(
+				when(boundOr("itm_typ_d_nm"))
+					.view(v -> v.leftOuterJoin(S0_M2).on(bracket(S0_M1.itm_typ.eq(S0_M2.itm_typ).and(S0_M1.itm_typ_d_cd.eq(S0_M2.itm_typ_d_cd)))))
+					.predicate(p -> p.cutoff$and(S0_M2.itm_typ_d_nm.like(bind("itm_typ_d_nm")))),
+				when(boundOr("strg_site_nm", "strg_loc_grp_nm", "strg_site_cd", "strg_loc_grp_cd", "strg_loc_nm"))
+					.view(v -> v.leftOuterJoin(S0_M5).on(bracket(S0_T1.pr(S1_T01.strg_loc_cd).eq(S0_M5.loc_cd))))
+					.predicate(p -> p.cutoff$and(S0_M5.site_cd.like(bind("strg_site_cd"))).cutoff$and(S0_M5.loc_grp_cd.like(bind("strg_loc_grp_cd"))).cutoff$and(S0_M5.loc_nm.like(bind("strg_loc_nm")))),
+				when(boundOr("mfg_site_nm", "mfg_loc_grp_nm", "mfg_site_cd", "mfg_loc_grp_cd", "mfg_loc_nm"))
+					.view(v -> v.leftOuterJoin(S0_M6).on(bracket(S0_T1.pr(S1_T01.mfg_loc_cd).eq(S0_M6.loc_cd))))
+					.predicate(p -> p.cutoff$and(S0_M6.site_cd.like(bind("mfg_site_cd"))).cutoff$and(S0_M6.loc_grp_cd.like(bind("mfg_loc_grp_cd"))).cutoff$and(S0_M6.loc_nm.like(bind("mfg_loc_nm")))),
+				when(boundOr("sppl_grp_flg1", "sppl_grp_flg2", "sppl_grp_flg3", "sppl_grp_flg4", "sppl_grp_flg5", "sppl_grp_flg6", "sppl_grp_flg7", "sppl_grp_flg8", "sppl_grp_flg9", "sppl_grp_flg10", "sppl_nm"))
+					.view(v -> v.leftOuterJoin(S0_M7).on(bracket(S0_T1.pr(S1_T01.sppl_cd).eq(S0_M7.bp_cd))))
+					.predicate(p -> p.cutoff$and(S0_M7.bp_nm.like(bind("sppl_nm")))),
+				when(boundOr("maker_nm"))
+					.view(v -> v.leftOuterJoin(S0_M8).on(bracket(S0_T1.pr(S1_T01.maker_cd).eq(S0_M8.bp_cd))))
+					.predicate(p -> p.cutoff$and(S0_M8.bp_nm.like(bind("maker_nm")))),
+				when(boundOr("rqst_site_nm", "rqst_loc_grp_nm", "rqst_site_cd", "rqst_loc_grp_cd", "rqst_loc_nm"))
+					.view(v -> v.leftOuterJoin(S0_M9).on(bracket(S0_T1.pr(S1_T01.rqst_loc_cd).eq(S0_M9.loc_cd))))
+					.predicate(p -> p.cutoff$and(S0_M9.site_cd.like(bind("rqst_site_cd"))).cutoff$and(S0_M9.loc_grp_cd.like(bind("rqst_loc_grp_cd"))).cutoff$and(S0_M9.loc_nm.like(bind("rqst_loc_nm")))),
+				when(boundOr("rqst_wg_nm"))
+					.view(v -> v.leftOuterJoin(S0_M10).on(bracket(S0_T1.pr(S1_T01.rqst_wg_cd).eq(S0_M10.wg_cd))))
+					.predicate(p -> p.cutoff$and(S0_M10.wg_nm.like(bind("rqst_wg_nm")))),
+				when(boundOr("wg_nm"))
+					.view(v -> v.leftOuterJoin(S0_M11).on(bracket(S0_T1.pr(S1_T01.wg_cd).eq(S0_M11.wg_cd))))
+					.predicate(p -> p.cutoff$and(S0_M11.wg_nm.like(bind("wg_nm")))),
+				when(boundOr("strg_site_nm"))
+					.view(v -> v.leftOuterJoin(S0_M12).on(bracket(S0_M5.site_cd.eq(S0_M12.site_cd))))
+					.predicate(p -> p.cutoff$and(S0_M12.site_nm.like(bind("strg_site_nm")))),
+				when(boundOr("strg_loc_grp_nm"))
+					.view(v -> v.leftOuterJoin(S0_M13).on(bracket(S0_M5.loc_grp_cd.eq(S0_M13.loc_grp_cd))))
+					.predicate(p -> p.cutoff$and(S0_M13.loc_grp_nm.like(bind("strg_loc_grp_nm")))),
+				when(boundOr("mfg_site_nm"))
+					.view(v -> v.leftOuterJoin(S0_M14).on(bracket(S0_M6.site_cd.eq(S0_M14.site_cd))))
+					.predicate(p -> p.cutoff$and(S0_M14.site_nm.like(bind("mfg_site_nm")))),
+				when(boundOr("mfg_loc_grp_nm"))
+					.view(v -> v.leftOuterJoin(S0_M15).on(bracket(S0_M6.loc_grp_cd.eq(S0_M15.loc_grp_cd))))
+					.predicate(p -> p.cutoff$and(S0_M15.loc_grp_nm.like(bind("mfg_loc_grp_nm")))),
+				when(boundOr("rqst_site_nm"))
+					.view(v -> v.leftOuterJoin(S0_M16).on(bracket(S0_M9.site_cd.eq(S0_M16.site_cd))))
+					.predicate(p -> p.cutoff$and(S0_M16.site_nm.like(bind("rqst_site_nm")))),
+				when(boundOr("rqst_loc_grp_nm"))
+					.view(v -> v.leftOuterJoin(S0_M17).on(bracket(S0_M9.loc_grp_cd.eq(S0_M17.loc_grp_cd))))
+					.predicate(p -> p.cutoff$and(S0_M17.loc_grp_nm.like(bind("rqst_loc_grp_nm")))),
+				when(boundOr("ext_sys_nm"))
+					.view(v -> v.leftOuterJoin(S0_M19).on(bracket(S0_T1.pr(S1_T01.ext_sys_cd).eq(S0_M19.ext_sys_cd))))
+					.predicate(p -> p.cutoff$and(S0_M19.ext_sys_nm.like(bind("ext_sys_nm")))),
+				when(boundOr("wrk_no", "wrk_nm"))
+					.view(v -> v.leftOuterJoin(S0_V1).on(bracket(S0_T1.pr(S1_T01.sno1).eq(S0_V1.sno1))))
+					.predicate(p -> p.cutoff$and(S0_V1.wrk_no.like(bind("wrk_no"))).cutoff$and(S0_V1.wrk_nm.like(bind("wrk_nm")))),
+				when(boundOr("itm_grp_flg1"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd1.as("itm_grp_cd1"), S0_MM1.itm_grp_nm.as("itm_grp_nm1"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM1).on(S0_M1.itm_grp_cd1.eq(S0_MM1.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP1.value()).eq(S0_MM1.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd1.like(bind("itm_grp_cd1"))).cutoff$and(S0_MM1.itm_grp_nm.like(bind("itm_grp_nm1")))),
+				when(boundOr("itm_grp_flg2"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd2.as("itm_grp_cd2"), S0_MM2.itm_grp_nm.as("itm_grp_nm2"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM2).on(S0_M1.itm_grp_cd2.eq(S0_MM2.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP2.value()).eq(S0_MM2.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd2.like(bind("itm_grp_cd2"))).cutoff$and(S0_MM2.itm_grp_nm.like(bind("itm_grp_nm2")))),
+				when(boundOr("itm_grp_flg3"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd3.as("itm_grp_cd3"), S0_MM3.itm_grp_nm.as("itm_grp_nm3"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM3).on(S0_M1.itm_grp_cd3.eq(S0_MM3.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP3.value()).eq(S0_MM3.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd3.like(bind("itm_grp_cd3"))).cutoff$and(S0_MM3.itm_grp_nm.like(bind("itm_grp_nm3")))),
+				when(boundOr("itm_grp_flg4"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd4.as("itm_grp_cd4"), S0_MM4.itm_grp_nm.as("itm_grp_nm4"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM4).on(S0_M1.itm_grp_cd4.eq(S0_MM4.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP4.value()).eq(S0_MM4.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd4.like(bind("itm_grp_cd4"))).cutoff$and(S0_MM4.itm_grp_nm.like(bind("itm_grp_nm4")))),
+				when(boundOr("itm_grp_flg5"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd5.as("itm_grp_cd5"), S0_MM5.itm_grp_nm.as("itm_grp_nm5"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM5).on(S0_M1.itm_grp_cd5.eq(S0_MM5.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP5.value()).eq(S0_MM5.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd5.like(bind("itm_grp_cd5"))).cutoff$and(S0_MM5.itm_grp_nm.like(bind("itm_grp_nm5")))),
+				when(boundOr("itm_grp_flg6"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd6.as("itm_grp_cd6"), S0_MM6.itm_grp_nm.as("itm_grp_nm6"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM6).on(S0_M1.itm_grp_cd6.eq(S0_MM6.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP6.value()).eq(S0_MM6.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd6.like(bind("itm_grp_cd6"))).cutoff$and(S0_MM6.itm_grp_nm.like(bind("itm_grp_nm6")))),
+				when(boundOr("itm_grp_flg7"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd7.as("itm_grp_cd7"), S0_MM7.itm_grp_nm.as("itm_grp_nm7"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM7).on(S0_M1.itm_grp_cd7.eq(S0_MM7.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP7.value()).eq(S0_MM7.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd7.like(bind("itm_grp_cd7"))).cutoff$and(S0_MM7.itm_grp_nm.like(bind("itm_grp_nm7")))),
+				when(boundOr("itm_grp_flg8"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd8.as("itm_grp_cd8"), S0_MM8.itm_grp_nm.as("itm_grp_nm8"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM8).on(S0_M1.itm_grp_cd8.eq(S0_MM8.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP8.value()).eq(S0_MM8.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd8.like(bind("itm_grp_cd8"))).cutoff$and(S0_MM8.itm_grp_nm.like(bind("itm_grp_nm8")))),
+				when(boundOr("itm_grp_flg9"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd9.as("itm_grp_cd9"), S0_MM9.itm_grp_nm.as("itm_grp_nm9"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM9).on(S0_M1.itm_grp_cd9.eq(S0_MM9.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP9.value()).eq(S0_MM9.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd9.like(bind("itm_grp_cd9"))).cutoff$and(S0_MM9.itm_grp_nm.like(bind("itm_grp_nm9")))),
+				when(boundOr("itm_grp_flg10"))
+					.select(DS0C_ITM_GRP, S0_M1.itm_grp_cd10.as("itm_grp_cd10"), S0_MM10.itm_grp_nm.as("itm_grp_nm10"))
+					.view(DS0C_ITM_GRP, v -> v.leftOuterJoin(S0_MM10).on(S0_M1.itm_grp_cd10.eq(S0_MM10.itm_grp_cd).and(value(MAC_ITM_GRP_TYP.GRP10.value()).eq(S0_MM10.itm_grp_typ))))
+					.predicate(DS0C_ITM_GRP, p -> p.cutoff$and(S0_M1.itm_grp_cd10.like(bind("itm_grp_cd10"))).cutoff$and(S0_MM10.itm_grp_nm.like(bind("itm_grp_nm10")))),
+				when(boundOr("sppl_grp_flg1"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd1.as("sppl_grp_cd1"), S0_BM1.bp_grp_nm.as("sppl_grp_nm1"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM1).on(S0_M7.bp_grp_cd1.eq(S0_BM1.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP1.value()).eq(S0_BM1.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd1.like(bind("sppl_grp_cd1"))).cutoff$and(S0_BM1.bp_grp_nm.like(bind("sppl_grp_nm1")))),
+				when(boundOr("sppl_grp_flg2"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd2.as("sppl_grp_cd2"), S0_BM2.bp_grp_nm.as("sppl_grp_nm2"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM2).on(S0_M7.bp_grp_cd2.eq(S0_BM2.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP2.value()).eq(S0_BM2.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd2.like(bind("sppl_grp_cd2"))).cutoff$and(S0_BM2.bp_grp_nm.like(bind("sppl_grp_nm2")))),
+				when(boundOr("sppl_grp_flg3"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd3.as("sppl_grp_cd3"), S0_BM3.bp_grp_nm.as("sppl_grp_nm3"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM3).on(S0_M7.bp_grp_cd3.eq(S0_BM3.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP3.value()).eq(S0_BM3.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd3.like(bind("sppl_grp_cd3"))).cutoff$and(S0_BM3.bp_grp_nm.like(bind("sppl_grp_nm3")))),
+				when(boundOr("sppl_grp_flg4"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd4.as("sppl_grp_cd4"), S0_BM4.bp_grp_nm.as("sppl_grp_nm4"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM4).on(S0_M7.bp_grp_cd4.eq(S0_BM4.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP4.value()).eq(S0_BM4.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd4.like(bind("sppl_grp_cd4"))).cutoff$and(S0_BM4.bp_grp_nm.like(bind("sppl_grp_nm4")))),
+				when(boundOr("sppl_grp_flg5"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd5.as("sppl_grp_cd5"), S0_BM5.bp_grp_nm.as("sppl_grp_nm5"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM5).on(S0_M7.bp_grp_cd5.eq(S0_BM5.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP5.value()).eq(S0_BM5.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd5.like(bind("sppl_grp_cd5"))).cutoff$and(S0_BM5.bp_grp_nm.like(bind("sppl_grp_nm5")))),
+				when(boundOr("sppl_grp_flg6"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd6.as("sppl_grp_cd6"), S0_BM6.bp_grp_nm.as("sppl_grp_nm6"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM6).on(S0_M7.bp_grp_cd6.eq(S0_BM6.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP6.value()).eq(S0_BM6.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd6.like(bind("sppl_grp_cd6"))).cutoff$and(S0_BM6.bp_grp_nm.like(bind("sppl_grp_nm6")))),
+				when(boundOr("sppl_grp_flg7"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd7.as("sppl_grp_cd7"), S0_BM7.bp_grp_nm.as("sppl_grp_nm7"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM7).on(S0_M7.bp_grp_cd7.eq(S0_BM7.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP7.value()).eq(S0_BM7.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd7.like(bind("sppl_grp_cd7"))).cutoff$and(S0_BM7.bp_grp_nm.like(bind("sppl_grp_nm7")))),
+				when(boundOr("sppl_grp_flg8"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd8.as("sppl_grp_cd8"), S0_BM8.bp_grp_nm.as("sppl_grp_nm8"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM8).on(S0_M7.bp_grp_cd8.eq(S0_BM8.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP8.value()).eq(S0_BM8.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd8.like(bind("sppl_grp_cd8"))).cutoff$and(S0_BM8.bp_grp_nm.like(bind("sppl_grp_nm8")))),
+				when(boundOr("sppl_grp_flg9"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd9.as("sppl_grp_cd9"), S0_BM9.bp_grp_nm.as("sppl_grp_nm9"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM9).on(S0_M7.bp_grp_cd9.eq(S0_BM9.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP9.value()).eq(S0_BM9.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd9.like(bind("sppl_grp_cd9"))).cutoff$and(S0_BM9.bp_grp_nm.like(bind("sppl_grp_nm9")))),
+				when(boundOr("sppl_grp_flg10"))
+					.select(DS0C_SPPL_GRP, S0_M7.bp_grp_cd10.as("sppl_grp_cd10"), S0_BM10.bp_grp_nm.as("sppl_grp_nm10"))
+					.view(DS0C_SPPL_GRP, v -> v.leftOuterJoin(S0_BM10).on(S0_M7.bp_grp_cd10.eq(S0_BM10.bp_grp_cd).and(value(MAC_BP_GRP_TYP.GRP10.value()).eq(S0_BM10.bp_grp_typ))))
+					.predicate(DS0C_SPPL_GRP, p -> p.cutoff$and(S0_M7.bp_grp_cd10.like(bind("sppl_grp_cd10"))).cutoff$and(S0_BM10.bp_grp_nm.like(bind("sppl_grp_nm10"))))
+			)
+			.setJoinInfo(
+				joinInfo(
+					j -> j
+						.add(MAM_ITM_TYP_D_R.class, r -> toCondition(
+							r.getStringNE("itm_typ"),
+							r.getStringNE("itm_typ_d_cd")
+						))
+						.addSelect(m -> toArray(
+							m.itm_typ_d_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("itm_typ_d_nm", m.itm_typ_d_nm());
+					}),
+					j -> j
+						.add(MAM_UNIT_R.class, r -> toCondition(
+							r.getStringNE("base_unit_cd")
+						))
+						.addSelect(m -> toArray(
+							m.unit_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("base_unit_nm", m.unit_nm());
+					}),
+					j -> j
+						.add(MAM_UNIT_R.class, r -> toCondition(
+							r.getStringNE("cont_fctr_unit_cd")
+						))
+						.addSelect(m -> toArray(
+							m.unit_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("cont_fctr_unit_nm", m.unit_nm());
+					}),
+					j -> j
+						.add(MAM_LOC_R.class, r -> toCondition(
+							r.getStringNE("strg_loc_cd")
+						))
+						.addSelect(m -> toArray(
+							m.loc_grp_cd,
+							m.loc_nm,
+							m.site_cd
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("strg_loc_nm", m.loc_nm());
+							r.setStringNE("join_site_cd_", m.site_cd());
+							r.setStringNE("join_loc_grp_cd_", m.loc_grp_cd());
+					}),
+					j -> j
+						.add(MAM_LOC_R.class, r -> toCondition(
+							r.getStringNE("mfg_loc_cd")
+						))
+						.addSelect(m -> toArray(
+							m.loc_grp_cd,
+							m.loc_nm,
+							m.site_cd
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("mfg_loc_nm", m.loc_nm());
+							r.setStringNE("join_site_cd_", m.site_cd());
+							r.setStringNE("join_loc_grp_cd_", m.loc_grp_cd());
+					}),
+					j -> j
+						.add(MAM_BP_R.class, r -> toCondition(
+							r.getStringNE("sppl_cd")
+						))
+						.addSelect(m -> toArray(
+							m.bp_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("sppl_nm", m.bp_nm());
+					}),
+					j -> j
+						.add(MAM_BP_R.class, r -> toCondition(
+							r.getStringNE("maker_cd")
+						))
+						.addSelect(m -> toArray(
+							m.bp_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("maker_nm", m.bp_nm());
+					}),
+					j -> j
+						.add(MAM_LOC_R.class, r -> toCondition(
+							r.getStringNE("rqst_loc_cd")
+						))
+						.addSelect(m -> toArray(
+							m.loc_grp_cd,
+							m.loc_nm,
+							m.site_cd
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("rqst_loc_nm", m.loc_nm());
+							r.setStringNE("join_site_cd_", m.site_cd());
+							r.setStringNE("join_loc_grp_cd_", m.loc_grp_cd());
+					}),
+					j -> j
+						.add(MAM_WG_R.class, r -> toCondition(
+							r.getStringNE("rqst_wg_cd")
+						))
+						.addSelect(m -> toArray(
+							m.wg_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("rqst_wg_nm", m.wg_nm());
+					}),
+					j -> j
+						.add(MAM_WG_R.class, r -> toCondition(
+							r.getStringNE("wg_cd")
+						))
+						.addSelect(m -> toArray(
+							m.wg_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("wg_nm", m.wg_nm());
+					}),
+					j -> j
+						.add(MSVT_WRK_SNO_R.class, r -> toCondition(
+							r.getStringNE("sno1")
+						))
+						.addSelect(m -> toArray(
+							m.wrk_nm,
+							m.wrk_no
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("wrk_no", m.wrk_no());
+							r.setStringNE("wrk_nm", m.wrk_nm());
+					}),
+					j -> j
+						.add(MAM_EXT_SYS_R.class, r -> toCondition(
+							r.getStringNE("ext_sys_cd")
+						))
+						.addSelect(m -> toArray(
+							m.ext_sys_nm
+						))
+						.addMap((r, m) -> {
+							r.setStringNE("ext_sys_nm", m.ext_sys_nm());
+					})
+				)
+			);
+	}
+}

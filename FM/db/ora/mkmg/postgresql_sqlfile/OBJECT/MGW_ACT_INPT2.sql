@@ -1,0 +1,391 @@
+\encoding UTF-8
+
+CREATE OR REPLACE FUNCTION mgw_act_inpt2()
+RETURNS TABLE (
+	act_io_id varchar,
+	act_io_id_sub varchar,
+	calc_ctg_cd varchar,
+	wg_cd varchar,
+	ym timestamp(0),
+	ac_dt timestamp(0),
+	par_itm_cd varchar,
+	par_itm_sub1 varchar,
+	par_itm_sub2 varchar,
+	par_itm_sub3 varchar,
+	itm_mfg_inst_no varchar,
+	mfg_act_no varchar,
+	oper_act_no varchar,
+	loc_cd varchar,
+	str_ln_cd varchar,
+	mng_dpt_cd varchar,
+	itm_cd varchar,
+	itm_sub1 varchar,
+	itm_sub2 varchar,
+	itm_sub3 varchar,
+	lot_no varchar,
+	sublot_no varchar,
+	sno1 varchar,
+	sno2 varchar,
+	sno3 varchar,
+	sno4 varchar,
+	ac_slip_typ varchar,
+	ac_rsn_cd varchar,
+	bp_cd varchar,
+	stk_bp_cd varchar,
+	asst_typ varchar,
+	mfg_act_grp varchar,
+	qty numeric,
+	amt numeric,
+	trd_cur_cd varchar,
+	trd_cur_amt numeric,
+	xrate numeric,
+	rec_eval_typ varchar,
+	expns_cd varchar
+) AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_act_inpt2$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_act_inpt2$temp(
+				act_io_id varchar (20) NOT NULL,
+				act_io_id_sub varchar (3) NOT NULL,
+				calc_ctg_cd varchar (10) NOT NULL,
+				wg_cd varchar (10) NOT NULL,
+				ym timestamp(0)  NOT NULL,
+				ac_dt timestamp(0)  NOT NULL,
+				par_itm_cd varchar (40) NOT NULL,
+				par_itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+				par_itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+				par_itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+				itm_mfg_inst_no varchar (15) NOT NULL,
+				mfg_act_no varchar (15) DEFAULT '*' NOT NULL,
+				oper_act_no varchar (15) DEFAULT '*' NOT NULL,
+				loc_cd varchar (20) NOT NULL,
+				str_ln_cd varchar (10) DEFAULT '*' NOT NULL,
+				mng_dpt_cd varchar (20) NOT NULL,
+				itm_cd varchar (40) NOT NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+				lot_no varchar (15) DEFAULT '*' NOT NULL,
+				sublot_no varchar (15) DEFAULT '*' NOT NULL,
+				sno1 varchar (15) DEFAULT '*' NOT NULL,
+				sno2 varchar (15) DEFAULT '*' NOT NULL,
+				sno3 varchar (15) DEFAULT '*' NOT NULL,
+				sno4 varchar (15) DEFAULT '*' NOT NULL,
+				ac_slip_typ varchar (5) NOT NULL,
+				ac_rsn_cd varchar (10) NULL,
+				bp_cd varchar (20) NULL,
+				stk_bp_cd varchar (20) NULL,
+				asst_typ varchar (1) NOT NULL,
+				mfg_act_grp varchar (100) NULL,
+				qty numeric (21,8) NOT NULL,
+				amt numeric (21,8) NULL,
+				trd_cur_cd varchar (3) NULL,
+				trd_cur_amt numeric (21,8) NULL,
+				xrate numeric (21,8) NULL,
+				rec_eval_typ varchar (1) NULL,
+				expns_cd varchar (20) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_act_inpt2$func', 'is_init', '1'::varchar);
+	END IF;
+	RETURN QUERY SELECT * FROM mgw_act_inpt2$temp;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE VIEW mgw_act_inpt2
+AS
+SELECT *
+FROM mgw_act_inpt2();
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN par_itm_sub1 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN par_itm_sub2 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN par_itm_sub3 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN mfg_act_no SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN oper_act_no SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN str_ln_cd SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN itm_sub1 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN itm_sub2 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN itm_sub3 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN lot_no SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN sublot_no SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN sno1 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN sno2 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN sno3 SET DEFAULT '*';
+ALTER VIEW mgw_act_inpt2 ALTER COLUMN sno4 SET DEFAULT '*';
+
+CREATE OR REPLACE FUNCTION mgw_act_inpt2$func()
+RETURNS TRIGGER AS $BODY$
+BEGIN
+	IF COALESCE(fcpa_postgres_util$get_var('mgw_act_inpt2$func', 'is_init'), '0') = '0' THEN
+		BEGIN
+			CREATE TEMPORARY TABLE mgw_act_inpt2$temp(
+				act_io_id varchar (20) NOT NULL,
+				act_io_id_sub varchar (3) NOT NULL,
+				calc_ctg_cd varchar (10) NOT NULL,
+				wg_cd varchar (10) NOT NULL,
+				ym timestamp(0)  NOT NULL,
+				ac_dt timestamp(0)  NOT NULL,
+				par_itm_cd varchar (40) NOT NULL,
+				par_itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+				par_itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+				par_itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+				itm_mfg_inst_no varchar (15) NOT NULL,
+				mfg_act_no varchar (15) DEFAULT '*' NOT NULL,
+				oper_act_no varchar (15) DEFAULT '*' NOT NULL,
+				loc_cd varchar (20) NOT NULL,
+				str_ln_cd varchar (10) DEFAULT '*' NOT NULL,
+				mng_dpt_cd varchar (20) NOT NULL,
+				itm_cd varchar (40) NOT NULL,
+				itm_sub1 varchar (5) DEFAULT '*' NOT NULL,
+				itm_sub2 varchar (5) DEFAULT '*' NOT NULL,
+				itm_sub3 varchar (5) DEFAULT '*' NOT NULL,
+				lot_no varchar (15) DEFAULT '*' NOT NULL,
+				sublot_no varchar (15) DEFAULT '*' NOT NULL,
+				sno1 varchar (15) DEFAULT '*' NOT NULL,
+				sno2 varchar (15) DEFAULT '*' NOT NULL,
+				sno3 varchar (15) DEFAULT '*' NOT NULL,
+				sno4 varchar (15) DEFAULT '*' NOT NULL,
+				ac_slip_typ varchar (5) NOT NULL,
+				ac_rsn_cd varchar (10) NULL,
+				bp_cd varchar (20) NULL,
+				stk_bp_cd varchar (20) NULL,
+				asst_typ varchar (1) NOT NULL,
+				mfg_act_grp varchar (100) NULL,
+				qty numeric (21,8) NOT NULL,
+				amt numeric (21,8) NULL,
+				trd_cur_cd varchar (3) NULL,
+				trd_cur_amt numeric (21,8) NULL,
+				xrate numeric (21,8) NULL,
+				rec_eval_typ varchar (1) NULL,
+				expns_cd varchar (20) NULL
+			) WITH (
+				OIDS=FALSE
+			)
+			ON COMMIT DELETE ROWS;
+		EXCEPTION
+			WHEN OTHERS THEN
+		END;
+		PERFORM fcpa_postgres_util$set_var('mgw_act_inpt2$func', 'is_init', '1'::varchar);
+	END IF;
+	IF TG_OP = 'INSERT' THEN
+		INSERT INTO mgw_act_inpt2$temp(
+			act_io_id,
+			act_io_id_sub,
+			calc_ctg_cd,
+			wg_cd,
+			ym,
+			ac_dt,
+			par_itm_cd,
+			par_itm_sub1,
+			par_itm_sub2,
+			par_itm_sub3,
+			itm_mfg_inst_no,
+			mfg_act_no,
+			oper_act_no,
+			loc_cd,
+			str_ln_cd,
+			mng_dpt_cd,
+			itm_cd,
+			itm_sub1,
+			itm_sub2,
+			itm_sub3,
+			lot_no,
+			sublot_no,
+			sno1,
+			sno2,
+			sno3,
+			sno4,
+			ac_slip_typ,
+			ac_rsn_cd,
+			bp_cd,
+			stk_bp_cd,
+			asst_typ,
+			mfg_act_grp,
+			qty,
+			amt,
+			trd_cur_cd,
+			trd_cur_amt,
+			xrate,
+			rec_eval_typ,
+			expns_cd
+		)VALUES (
+			NEW.act_io_id,
+			NEW.act_io_id_sub,
+			NEW.calc_ctg_cd,
+			NEW.wg_cd,
+			NEW.ym,
+			NEW.ac_dt,
+			NEW.par_itm_cd,
+			NEW.par_itm_sub1,
+			NEW.par_itm_sub2,
+			NEW.par_itm_sub3,
+			NEW.itm_mfg_inst_no,
+			NEW.mfg_act_no,
+			NEW.oper_act_no,
+			NEW.loc_cd,
+			NEW.str_ln_cd,
+			NEW.mng_dpt_cd,
+			NEW.itm_cd,
+			NEW.itm_sub1,
+			NEW.itm_sub2,
+			NEW.itm_sub3,
+			NEW.lot_no,
+			NEW.sublot_no,
+			NEW.sno1,
+			NEW.sno2,
+			NEW.sno3,
+			NEW.sno4,
+			NEW.ac_slip_typ,
+			NEW.ac_rsn_cd,
+			NEW.bp_cd,
+			NEW.stk_bp_cd,
+			NEW.asst_typ,
+			NEW.mfg_act_grp,
+			NEW.qty,
+			NEW.amt,
+			NEW.trd_cur_cd,
+			NEW.trd_cur_amt,
+			NEW.xrate,
+			NEW.rec_eval_typ,
+			NEW.expns_cd
+		);
+		RETURN NEW;
+	ELSEIF TG_OP = 'UPDATE' THEN
+		UPDATE mgw_act_inpt2$temp
+		SET 
+			act_io_id = NEW.act_io_id,
+			act_io_id_sub = NEW.act_io_id_sub,
+			calc_ctg_cd = NEW.calc_ctg_cd,
+			wg_cd = NEW.wg_cd,
+			ym = NEW.ym,
+			ac_dt = NEW.ac_dt,
+			par_itm_cd = NEW.par_itm_cd,
+			par_itm_sub1 = NEW.par_itm_sub1,
+			par_itm_sub2 = NEW.par_itm_sub2,
+			par_itm_sub3 = NEW.par_itm_sub3,
+			itm_mfg_inst_no = NEW.itm_mfg_inst_no,
+			mfg_act_no = NEW.mfg_act_no,
+			oper_act_no = NEW.oper_act_no,
+			loc_cd = NEW.loc_cd,
+			str_ln_cd = NEW.str_ln_cd,
+			mng_dpt_cd = NEW.mng_dpt_cd,
+			itm_cd = NEW.itm_cd,
+			itm_sub1 = NEW.itm_sub1,
+			itm_sub2 = NEW.itm_sub2,
+			itm_sub3 = NEW.itm_sub3,
+			lot_no = NEW.lot_no,
+			sublot_no = NEW.sublot_no,
+			sno1 = NEW.sno1,
+			sno2 = NEW.sno2,
+			sno3 = NEW.sno3,
+			sno4 = NEW.sno4,
+			ac_slip_typ = NEW.ac_slip_typ,
+			ac_rsn_cd = NEW.ac_rsn_cd,
+			bp_cd = NEW.bp_cd,
+			stk_bp_cd = NEW.stk_bp_cd,
+			asst_typ = NEW.asst_typ,
+			mfg_act_grp = NEW.mfg_act_grp,
+			qty = NEW.qty,
+			amt = NEW.amt,
+			trd_cur_cd = NEW.trd_cur_cd,
+			trd_cur_amt = NEW.trd_cur_amt,
+			xrate = NEW.xrate,
+			rec_eval_typ = NEW.rec_eval_typ,
+			expns_cd = NEW.expns_cd
+		WHERE 0=0
+		AND act_io_id = OLD.act_io_id
+		AND act_io_id_sub = OLD.act_io_id_sub
+		AND calc_ctg_cd = OLD.calc_ctg_cd
+		AND wg_cd = OLD.wg_cd
+		AND ym = OLD.ym
+		AND ac_dt = OLD.ac_dt
+		AND par_itm_cd = OLD.par_itm_cd
+		AND par_itm_sub1 = OLD.par_itm_sub1
+		AND par_itm_sub2 = OLD.par_itm_sub2
+		AND par_itm_sub3 = OLD.par_itm_sub3
+		AND itm_mfg_inst_no = OLD.itm_mfg_inst_no
+		AND mfg_act_no = OLD.mfg_act_no
+		AND oper_act_no = OLD.oper_act_no
+		AND loc_cd = OLD.loc_cd
+		AND str_ln_cd = OLD.str_ln_cd
+		AND mng_dpt_cd = OLD.mng_dpt_cd
+		AND itm_cd = OLD.itm_cd
+		AND itm_sub1 = OLD.itm_sub1
+		AND itm_sub2 = OLD.itm_sub2
+		AND itm_sub3 = OLD.itm_sub3
+		AND lot_no = OLD.lot_no
+		AND sublot_no = OLD.sublot_no
+		AND sno1 = OLD.sno1
+		AND sno2 = OLD.sno2
+		AND sno3 = OLD.sno3
+		AND sno4 = OLD.sno4
+		AND ac_slip_typ = OLD.ac_slip_typ
+		AND (ac_rsn_cd = OLD.ac_rsn_cd OR ac_rsn_cd IS NULL AND OLD.ac_rsn_cd IS NULL)
+		AND (bp_cd = OLD.bp_cd OR bp_cd IS NULL AND OLD.bp_cd IS NULL)
+		AND (stk_bp_cd = OLD.stk_bp_cd OR stk_bp_cd IS NULL AND OLD.stk_bp_cd IS NULL)
+		AND asst_typ = OLD.asst_typ
+		AND (mfg_act_grp = OLD.mfg_act_grp OR mfg_act_grp IS NULL AND OLD.mfg_act_grp IS NULL)
+		AND qty = OLD.qty
+		AND (amt = OLD.amt OR amt IS NULL AND OLD.amt IS NULL)
+		AND (trd_cur_cd = OLD.trd_cur_cd OR trd_cur_cd IS NULL AND OLD.trd_cur_cd IS NULL)
+		AND (trd_cur_amt = OLD.trd_cur_amt OR trd_cur_amt IS NULL AND OLD.trd_cur_amt IS NULL)
+		AND (xrate = OLD.xrate OR xrate IS NULL AND OLD.xrate IS NULL)
+		AND (rec_eval_typ = OLD.rec_eval_typ OR rec_eval_typ IS NULL AND OLD.rec_eval_typ IS NULL)
+		AND (expns_cd = OLD.expns_cd OR expns_cd IS NULL AND OLD.expns_cd IS NULL);
+		RETURN NEW;
+	ELSEIF TG_OP = 'DELETE' THEN
+		DELETE FROM mgw_act_inpt2$temp
+		WHERE 0=0
+		AND act_io_id = OLD.act_io_id
+		AND act_io_id_sub = OLD.act_io_id_sub
+		AND calc_ctg_cd = OLD.calc_ctg_cd
+		AND wg_cd = OLD.wg_cd
+		AND ym = OLD.ym
+		AND ac_dt = OLD.ac_dt
+		AND par_itm_cd = OLD.par_itm_cd
+		AND par_itm_sub1 = OLD.par_itm_sub1
+		AND par_itm_sub2 = OLD.par_itm_sub2
+		AND par_itm_sub3 = OLD.par_itm_sub3
+		AND itm_mfg_inst_no = OLD.itm_mfg_inst_no
+		AND mfg_act_no = OLD.mfg_act_no
+		AND oper_act_no = OLD.oper_act_no
+		AND loc_cd = OLD.loc_cd
+		AND str_ln_cd = OLD.str_ln_cd
+		AND mng_dpt_cd = OLD.mng_dpt_cd
+		AND itm_cd = OLD.itm_cd
+		AND itm_sub1 = OLD.itm_sub1
+		AND itm_sub2 = OLD.itm_sub2
+		AND itm_sub3 = OLD.itm_sub3
+		AND lot_no = OLD.lot_no
+		AND sublot_no = OLD.sublot_no
+		AND sno1 = OLD.sno1
+		AND sno2 = OLD.sno2
+		AND sno3 = OLD.sno3
+		AND sno4 = OLD.sno4
+		AND ac_slip_typ = OLD.ac_slip_typ
+		AND (ac_rsn_cd = OLD.ac_rsn_cd OR ac_rsn_cd IS NULL AND OLD.ac_rsn_cd IS NULL)
+		AND (bp_cd = OLD.bp_cd OR bp_cd IS NULL AND OLD.bp_cd IS NULL)
+		AND (stk_bp_cd = OLD.stk_bp_cd OR stk_bp_cd IS NULL AND OLD.stk_bp_cd IS NULL)
+		AND asst_typ = OLD.asst_typ
+		AND (mfg_act_grp = OLD.mfg_act_grp OR mfg_act_grp IS NULL AND OLD.mfg_act_grp IS NULL)
+		AND qty = OLD.qty
+		AND (amt = OLD.amt OR amt IS NULL AND OLD.amt IS NULL)
+		AND (trd_cur_cd = OLD.trd_cur_cd OR trd_cur_cd IS NULL AND OLD.trd_cur_cd IS NULL)
+		AND (trd_cur_amt = OLD.trd_cur_amt OR trd_cur_amt IS NULL AND OLD.trd_cur_amt IS NULL)
+		AND (xrate = OLD.xrate OR xrate IS NULL AND OLD.xrate IS NULL)
+		AND (rec_eval_typ = OLD.rec_eval_typ OR rec_eval_typ IS NULL AND OLD.rec_eval_typ IS NULL)
+		AND (expns_cd = OLD.expns_cd OR expns_cd IS NULL AND OLD.expns_cd IS NULL);
+		RETURN OLD;
+	END IF;
+END $BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER mgw_act_inpt2$func
+INSTEAD OF INSERT OR DELETE OR UPDATE ON mgw_act_inpt2
+FOR EACH ROW
+EXECUTE PROCEDURE mgw_act_inpt2$func();
+;
+
