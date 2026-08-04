@@ -8,5 +8,5 @@ import mcframe.commonCore.annotation.EI;
  * 実装仕様書から自動生成されるクラスです。
  */
 @EI
-public class MA_META extends MA_META_MC_A {
+public class MA_META extends MA_META_PJ_A {
 }

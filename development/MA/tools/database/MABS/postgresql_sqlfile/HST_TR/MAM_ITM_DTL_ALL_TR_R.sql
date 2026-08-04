@@ -113,7 +113,15 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			mater_usr_cd,
+			cat_typ,
+			wk_typ,
+			drwng_outp_flg,
+			sp_rmrks1,
+			sp_rmrks2,
+			sp_rmrks3,
+			constr_cond
 		)
 			VALUES (
 				h_id,
@@ -190,7 +198,15 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.mater_usr_cd,
+				NEW.cat_typ,
+				NEW.wk_typ,
+				NEW.drwng_outp_flg,
+				NEW.sp_rmrks1,
+				NEW.sp_rmrks2,
+				NEW.sp_rmrks3,
+				NEW.constr_cond
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'UPDATE') THEN
@@ -286,7 +302,15 @@ BEGIN
 				upd_usr_nm,
 				upd_ts,
 				upd_func_id,
-				upd_srv_req_no
+				upd_srv_req_no,
+				mater_usr_cd,
+				cat_typ,
+				wk_typ,
+				drwng_outp_flg,
+				sp_rmrks1,
+				sp_rmrks2,
+				sp_rmrks3,
+				constr_cond
 			)
 				VALUES (
 					h_id,
@@ -363,7 +387,15 @@ BEGIN
 					OLD.upd_usr_nm,
 					OLD.upd_ts,
 					OLD.upd_func_id,
-					OLD.upd_srv_req_no
+					OLD.upd_srv_req_no,
+					OLD.mater_usr_cd,
+					OLD.cat_typ,
+					OLD.wk_typ,
+					OLD.drwng_outp_flg,
+					OLD.sp_rmrks1,
+					OLD.sp_rmrks2,
+					OLD.sp_rmrks3,
+					OLD.constr_cond
 			);
 			h_typ := 'I';
 		ELSE
@@ -459,7 +491,15 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			mater_usr_cd,
+			cat_typ,
+			wk_typ,
+			drwng_outp_flg,
+			sp_rmrks1,
+			sp_rmrks2,
+			sp_rmrks3,
+			constr_cond
 		)
 			VALUES (
 				h_id,
@@ -536,7 +576,15 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.mater_usr_cd,
+				NEW.cat_typ,
+				NEW.wk_typ,
+				NEW.drwng_outp_flg,
+				NEW.sp_rmrks1,
+				NEW.sp_rmrks2,
+				NEW.sp_rmrks3,
+				NEW.constr_cond
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'DELETE') THEN
@@ -631,7 +679,15 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			mater_usr_cd,
+			cat_typ,
+			wk_typ,
+			drwng_outp_flg,
+			sp_rmrks1,
+			sp_rmrks2,
+			sp_rmrks3,
+			constr_cond
 		)
 			VALUES (
 				h_id,
@@ -708,7 +764,15 @@ BEGIN
 				OLD.upd_usr_nm,
 				OLD.upd_ts,
 				OLD.upd_func_id,
-				OLD.upd_srv_req_no
+				OLD.upd_srv_req_no,
+				OLD.mater_usr_cd,
+				OLD.cat_typ,
+				OLD.wk_typ,
+				OLD.drwng_outp_flg,
+				OLD.sp_rmrks1,
+				OLD.sp_rmrks2,
+				OLD.sp_rmrks3,
+				OLD.constr_cond
 		);
 		RETURN OLD;
 	END IF;

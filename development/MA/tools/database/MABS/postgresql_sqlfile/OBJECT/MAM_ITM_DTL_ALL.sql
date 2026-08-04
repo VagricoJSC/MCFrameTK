@@ -51,7 +51,7 @@ rsrc_std_qty1 numeric (21,8) NULL,
 rsrc_unit_qty1 numeric (21,8) NULL,
 rsrc_std_qty2 numeric (21,8) NULL,
 rsrc_unit_qty2 numeric (21,8) NULL,
-sno1 varchar (15) NULL,
+sno1 varchar (20) NULL,
 sno2 varchar (15) NULL,
 sno3 varchar (15) NULL,
 sno4 varchar (15) NULL,
@@ -73,7 +73,15 @@ upd_usr_id varchar (500) NULL,
 upd_usr_nm varchar (100) NULL,
 upd_ts timestamp(3)  NULL,
 upd_func_id varchar (50) NULL,
-upd_srv_req_no varchar (50) NULL
+upd_srv_req_no varchar (50) NULL,
+mater_usr_cd varchar (500) NULL,
+cat_typ varchar (2) NULL,
+wk_typ varchar (2) NULL,
+drwng_outp_flg char (1) DEFAULT '0' NOT NULL,
+sp_rmrks1 varchar (100) NULL,
+sp_rmrks2 varchar (100) NULL,
+sp_rmrks3 varchar (100) NULL,
+constr_cond varchar (3) NULL
 );
 
 

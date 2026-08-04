@@ -296,7 +296,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>C</td>
  *  	<td>min_sno1</td>
  *  	<td>C</td>
- *  	<td>15</td>
+ *  	<td>20</td>
  *  	<td>Y</td>
  *  	<td></td>
  *  	<td>下限手配ＮＯ１</td>
@@ -306,7 +306,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>C</td>
  *  	<td>max_sno1</td>
  *  	<td>C</td>
- *  	<td>15</td>
+ *  	<td>20</td>
  *  	<td>Y</td>
  *  	<td></td>
  *  	<td>上限手配ＮＯ１</td>
