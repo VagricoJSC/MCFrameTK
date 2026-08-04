@@ -218,3 +218,27 @@ COMMENT ON COLUMN mavm_itm_dtl_purc.upd_func_id IS '更新機能ＩＤ // #MA.FU
 
 COMMENT ON COLUMN mavm_itm_dtl_purc.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.mater_usr_cd IS '資材担当者ＣＤ // #MA.USR_CD // Materials User cd.';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.cat_typ IS '分類 // #MA.CAT_TYP // Category Type cd.';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.wk_typ IS '作業区分 // #MA.WK_TYP // Work Type';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.drwng_outp_flg IS '図面出力要否 // #MA.FLG // Drawing Output Flag';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.sp_rmrks1 IS '記事１ // #MA.SP_RMRKS1 // Special Remarks 1';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.sp_rmrks2 IS '記事２ // #MA.SP_RMRKS2 // Special Remarks 2';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.sp_rmrks3 IS '記事３ // #MA.SP_RMRKS3 // Special Remarks 3';
+
+
+COMMENT ON COLUMN mavm_itm_dtl_purc.constr_cond IS '制約条件 // #MA.CONSTR_COND // Constraint Condition';
+

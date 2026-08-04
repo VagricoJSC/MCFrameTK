@@ -1,3 +1,5 @@
+SET ESCCHAR @
+
 CREATE TABLE MAM_BOM_ALL_BAK AS SELECT * FROM MAM_BOM_ALL;
 CREATE TABLE MAM_GP_BOM_ALL_BAK AS SELECT * FROM MAM_GP_BOM_ALL;
 CREATE TABLE MAM_ITM_DTL_ALL_BAK AS SELECT * FROM MAM_ITM_DTL_ALL;
@@ -39,6 +41,19 @@ DROP TABLE MAM_ITM_OPER_ALL_R CASCADE CONSTRAINTS PURGE;
 
 @development/MA/tools/database/MABS/oracle_sqlfile/CHECK/MAM_ITM_DTL_ALL_CK08.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/CHECK/MAM_ITM_DTL_ALL_CK09.sql
+
+@development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_ITM_DTL.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_ITM_DTL_@S.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_ITM_DTL_@U.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/other/MAM_ITM_DTL_.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/other/MAVM_ITM_DTL_MFG.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/other/MAVM_ITM_DTL_PURC.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/other/MAVM_ITM_DTL_RQST.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAM_ITM_DTL__comment.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAM_ITM_DTL_comment.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAVM_ITM_DTL_MFG_comment.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAVM_ITM_DTL_PURC_comment.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAVM_ITM_DTL_RQST_comment.sql
 
 --MAM_BOM_ALL
 INSERT INTO MAM_BOM_ALL (

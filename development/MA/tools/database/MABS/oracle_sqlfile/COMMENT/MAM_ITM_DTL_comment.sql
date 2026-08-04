@@ -217,3 +217,27 @@ COMMENT ON COLUMN MAM_ITM_DTL.UPD_FUNC_ID IS '更新機能ＩＤ // #MA.FUNC_ID 
 
 COMMENT ON COLUMN MAM_ITM_DTL.UPD_SRV_REQ_NO IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
+
+COMMENT ON COLUMN MAM_ITM_DTL.MATER_USR_CD IS '資材担当者ＣＤ // #MA.USR_CD // Materials User cd.';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.CAT_TYP IS '分類 // #MA.CAT_TYP // Category Type cd.';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.WK_TYP IS '作業区分 // #MA.WK_TYP // Work Type';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.DRWNG_OUTP_FLG IS '図面出力要否 // #MA.FLG // Drawing Output Flag';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.SP_RMRKS1 IS '記事１ // #MA.SP_RMRKS1 // Special Remarks 1';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.SP_RMRKS2 IS '記事２ // #MA.SP_RMRKS2 // Special Remarks 2';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.SP_RMRKS3 IS '記事３ // #MA.SP_RMRKS3 // Special Remarks 3';
+
+
+COMMENT ON COLUMN MAM_ITM_DTL.CONSTR_COND IS '制約条件 // #MA.CONSTR_COND // Constraint Condition';
+
