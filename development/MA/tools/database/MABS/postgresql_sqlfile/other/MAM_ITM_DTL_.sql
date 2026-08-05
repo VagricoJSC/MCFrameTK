@@ -156,14 +156,14 @@ SELECT
 	mam_itm_dtl__mam_itm_dtl_all_org.upd_ts,
 	mam_itm_dtl__mam_itm_dtl_all_org.upd_func_id,
 	mam_itm_dtl__mam_itm_dtl_all_org.upd_srv_req_no,
-	mam_itm_dtl_mam_itm_dtl_all_org.mater_usr_cd,
-	mam_itm_dtl_mam_itm_dtl_all_org.cat_typ,
-	mam_itm_dtl_mam_itm_dtl_all_org.wk_typ,
-	mam_itm_dtl_mam_itm_dtl_all_org.drwng_outp_flg,
-	mam_itm_dtl_mam_itm_dtl_all_org.sp_rmrks1,
-	mam_itm_dtl_mam_itm_dtl_all_org.sp_rmrks2,
-	mam_itm_dtl_mam_itm_dtl_all_org.sp_rmrks3,
-	mam_itm_dtl_mam_itm_dtl_all_org.constr_cond
+	mam_itm_dtl__mam_itm_dtl_all_org.mater_usr_cd,
+	mam_itm_dtl__mam_itm_dtl_all_org.cat_typ,
+	mam_itm_dtl__mam_itm_dtl_all_org.wk_typ,
+	mam_itm_dtl__mam_itm_dtl_all_org.drwng_outp_flg,
+	mam_itm_dtl__mam_itm_dtl_all_org.sp_rmrks1,
+	mam_itm_dtl__mam_itm_dtl_all_org.sp_rmrks2,
+	mam_itm_dtl__mam_itm_dtl_all_org.sp_rmrks3,
+	mam_itm_dtl__mam_itm_dtl_all_org.constr_cond
 FROM 
 	mam_itm_dtl_all mam_itm_dtl__mam_itm_dtl_all_org
 WHERE 
