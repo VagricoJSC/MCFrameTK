@@ -14,3 +14,5 @@ SET ESCCHAR @
 
 @".\U_TR\MST_FRCST_SUM_ALL_TR_U.sql"
 
+@".\U_TR\MST_AWK_ACT_ALL_TR_U.sql"
+

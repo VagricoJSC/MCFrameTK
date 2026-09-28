@@ -8,7 +8,7 @@ table_name = 'mam_lot_inh_src_all'
 	 OR table_name = 'mam_wg_rqst_ctl_all'
 	 OR table_name = 'mam_itm_lg_grp_all'
 	 OR table_name = 'mam_itm_str_ln_all'
-	 OR table_name = 'mam_purc_upri_all'
-	 OR table_name = 'mam_purc_upri_apl_all'
+	 OR table_name = 'mam_a_wrk_no_issue_all'
+	 OR table_name = 'mam_item_ship_comp_all'
 	;
 

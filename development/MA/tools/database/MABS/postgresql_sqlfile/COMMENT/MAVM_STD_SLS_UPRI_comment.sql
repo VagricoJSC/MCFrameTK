@@ -102,5 +102,8 @@ COMMENT ON COLUMN mavm_std_sls_upri.upd_func_id IS '更新機能ＩＤ // #MA.FU
 COMMENT ON COLUMN mavm_std_sls_upri.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
 
+COMMENT ON COLUMN mavm_std_sls_upri.wl_sale_upri IS '仕切単価 // #MA.MONEY // Wholesale unit price';
+
+
 COMMENT ON COLUMN mavm_std_sls_upri.row_id IS 'ROWID // #MA.ROW_ID // ROW ID';
 

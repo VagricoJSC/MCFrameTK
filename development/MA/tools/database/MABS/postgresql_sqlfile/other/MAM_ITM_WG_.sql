@@ -34,7 +34,9 @@ upd_usr_id,
 upd_usr_nm,
 upd_ts,
 upd_func_id,
-upd_srv_req_no
+upd_srv_req_no,
+trace_tgt_typ,
+unit_exp_flg
 )
 AS
 SELECT 

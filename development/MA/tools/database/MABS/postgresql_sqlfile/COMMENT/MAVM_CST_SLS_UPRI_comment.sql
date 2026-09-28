@@ -129,5 +129,8 @@ COMMENT ON COLUMN mavm_cst_sls_upri.upd_func_id IS '更新機能ＩＤ // #MA.FU
 COMMENT ON COLUMN mavm_cst_sls_upri.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
 
+COMMENT ON COLUMN mavm_cst_sls_upri.upri_typ IS '単価区分 // #MA.UPRI_TYP // Unit price type';
+
+
 COMMENT ON COLUMN mavm_cst_sls_upri.row_id IS 'ROWID // #MA.ROW_ID // ROW ID';
 

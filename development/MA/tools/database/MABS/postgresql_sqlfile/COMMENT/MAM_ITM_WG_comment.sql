@@ -104,3 +104,9 @@ COMMENT ON COLUMN mam_itm_wg.upd_func_id IS '更新機能ＩＤ // #MA.FUNC_ID /
 
 COMMENT ON COLUMN mam_itm_wg.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
+
+COMMENT ON COLUMN mam_itm_wg.trace_tgt_typ IS 'トレサビ対象区分 // #MA.TRACE_TGT_TYP // Traceability target type';
+
+
+COMMENT ON COLUMN mam_itm_wg.unit_exp_flg IS 'ユニット展開ＦＬＧ // #MA.FLG // ';
+

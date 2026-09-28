@@ -33,7 +33,8 @@ CREATE OR REPLACE VIEW mam_std_sls_upri(
 	upd_usr_nm,
 	upd_ts,
 	upd_func_id,
-	upd_srv_req_no
+	upd_srv_req_no,
+	wl_sale_upri
 	)
 AS
 SELECT
@@ -69,7 +70,8 @@ SELECT
 	mam_std_sls_upri_mam_std_sls_upri_all_org.upd_usr_nm,
 	mam_std_sls_upri_mam_std_sls_upri_all_org.upd_ts,
 	mam_std_sls_upri_mam_std_sls_upri_all_org.upd_func_id,
-	mam_std_sls_upri_mam_std_sls_upri_all_org.upd_srv_req_no
+	mam_std_sls_upri_mam_std_sls_upri_all_org.upd_srv_req_no,
+	mam_std_sls_upri_mam_std_sls_upri_all_org.wl_sale_upri
 FROM
 	mam_std_sls_upri_all mam_std_sls_upri_mam_std_sls_upri_all_org
 WHERE

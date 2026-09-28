@@ -42,7 +42,8 @@ CREATE OR REPLACE VIEW mam_cst_sls_upri_$u(
 	upd_usr_nm,
 	upd_ts,
 	upd_func_id,
-	upd_srv_req_no
+	upd_srv_req_no,
+	upri_typ
 	)
 AS
 SELECT
@@ -87,7 +88,8 @@ SELECT
 	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upd_usr_nm,
 	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upd_ts,
 	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upd_func_id,
-	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upd_srv_req_no
+	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upd_srv_req_no,
+	mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org.upri_typ
 FROM
 	mam_cst_sls_upri_all mam_cst_sls_upri_$u_mam_cst_sls_upri_all_org
 WHERE

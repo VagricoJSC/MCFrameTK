@@ -46,7 +46,7 @@ upd_srv_req_no varchar (50) NULL,
 apl_no varchar (15) NULL,
 st_dt_bf timestamp(0)  NULL,
 aprv_no varchar (15) NULL,
-ref_flg char (1) DEFAULT '0' NULL,
+ref_flg char (1) DEFAULT 0' NULL,
 mst_apl_memo varchar (100) NULL
 );
 

@@ -37,7 +37,8 @@ upd_usr_id varchar (500) NULL,
 upd_usr_nm varchar (100) NULL,
 upd_ts timestamp(3)  NULL,
 upd_func_id varchar (50) NULL,
-upd_srv_req_no varchar (50) NULL
+upd_srv_req_no varchar (50) NULL,
+wl_sale_upri numeric (21,8) NULL
 );
 
 

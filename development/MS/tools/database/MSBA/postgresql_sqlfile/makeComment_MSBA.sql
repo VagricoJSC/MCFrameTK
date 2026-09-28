@@ -14,6 +14,8 @@
 
 \i ./COMMENT/MST_FRCST_SUM_ALL_comment.sql
 
+\i ./COMMENT/MST_AWK_ACT_ALL_comment.sql
+
 \i ./COMMENT/MST_DMND_comment.sql
 
 \i ./COMMENT/MST_DLY_DMND_comment.sql

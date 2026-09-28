@@ -34,7 +34,9 @@ CREATE OR REPLACE VIEW mam_itm_wg_$s(
 	upd_usr_nm,
 	upd_ts,
 	upd_func_id,
-	upd_srv_req_no
+	upd_srv_req_no,
+	trace_tgt_typ,
+	unit_exp_flg
 	)
 AS
 SELECT
@@ -71,7 +73,9 @@ SELECT
 	mam_itm_wg_$s_mam_itm_wg_all_org.upd_usr_nm,
 	mam_itm_wg_$s_mam_itm_wg_all_org.upd_ts,
 	mam_itm_wg_$s_mam_itm_wg_all_org.upd_func_id,
-	mam_itm_wg_$s_mam_itm_wg_all_org.upd_srv_req_no
+	mam_itm_wg_$s_mam_itm_wg_all_org.upd_srv_req_no,
+	mam_itm_wg_$s_mam_itm_wg_all_org.trace_tgt_typ,
+	mam_itm_wg_$s_mam_itm_wg_all_org.unit_exp_flg
 FROM
 	mam_itm_wg_all mam_itm_wg_$s_mam_itm_wg_all_org
 WHERE

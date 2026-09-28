@@ -52,6 +52,12 @@
 
 \i ./COMMENT/MAM_ITM_STR_LN_ALL_comment.sql
 
+\i ./COMMENT/MAM_A_WRK_NO_ISSUE_ALL_comment.sql
+
+\i ./COMMENT/MAM_ITEM_SHIP_COMP_ALL_comment.sql
+
+\i ./COMMENT/MAM_OUT_APPR_ALL_comment.sql
+
 \i ./COMMENT/MAM_PURC_UPRI_ALL_comment.sql
 
 \i ./COMMENT/MAM_PURC_UPRI_APL_ALL_comment.sql
@@ -243,6 +249,10 @@
 \i ./COMMENT/MAM_ITM_LG_GRP_comment.sql
 
 \i ./COMMENT/MAM_ITM_STR_LN_comment.sql
+
+\i ./COMMENT/MAM_A_WRK_NO_ISSUE_comment.sql
+
+\i ./COMMENT/MAM_ITEM_SHIP_COMP_comment.sql
 
 \i ./COMMENT/MAM_PURC_UPRI_comment.sql
 

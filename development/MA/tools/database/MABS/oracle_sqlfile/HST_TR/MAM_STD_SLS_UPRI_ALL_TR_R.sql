@@ -79,7 +79,8 @@ BEGIN
 			UPD_USR_NM,
 			UPD_TS,
 			UPD_FUNC_ID,
-			UPD_SRV_REQ_NO
+			UPD_SRV_REQ_NO,
+			WL_SALE_UPRI
 		)
 			VALUES (
 				H_ID,
@@ -117,7 +118,8 @@ BEGIN
 				:NEW.UPD_USR_NM,
 				:NEW.UPD_TS,
 				:NEW.UPD_FUNC_ID,
-				:NEW.UPD_SRV_REQ_NO
+				:NEW.UPD_SRV_REQ_NO,
+				:NEW.WL_SALE_UPRI
 		);
 	ELSIF UPDATING THEN
 --keyに変更があるかどうかの判定
@@ -175,7 +177,8 @@ BEGIN
 				UPD_USR_NM,
 				UPD_TS,
 				UPD_FUNC_ID,
-				UPD_SRV_REQ_NO
+				UPD_SRV_REQ_NO,
+				WL_SALE_UPRI
 			)
 				VALUES (
 					H_ID,
@@ -213,7 +216,8 @@ BEGIN
 					:OLD.UPD_USR_NM,
 					:OLD.UPD_TS,
 					:OLD.UPD_FUNC_ID,
-					:OLD.UPD_SRV_REQ_NO
+					:OLD.UPD_SRV_REQ_NO,
+					:OLD.WL_SALE_UPRI
 			);
 			H_TYP := 'I';
 		ELSE
@@ -270,7 +274,8 @@ BEGIN
 			UPD_USR_NM,
 			UPD_TS,
 			UPD_FUNC_ID,
-			UPD_SRV_REQ_NO
+			UPD_SRV_REQ_NO,
+			WL_SALE_UPRI
 		)
 			VALUES (
 				H_ID,
@@ -308,7 +313,8 @@ BEGIN
 				:NEW.UPD_USR_NM,
 				:NEW.UPD_TS,
 				:NEW.UPD_FUNC_ID,
-				:NEW.UPD_SRV_REQ_NO
+				:NEW.UPD_SRV_REQ_NO,
+				:NEW.WL_SALE_UPRI
 		);
 	ELSIF DELETING THEN
 		H_TYP := 'D';
@@ -363,7 +369,8 @@ BEGIN
 			UPD_USR_NM,
 			UPD_TS,
 			UPD_FUNC_ID,
-			UPD_SRV_REQ_NO
+			UPD_SRV_REQ_NO,
+			WL_SALE_UPRI
 		)
 			VALUES (
 				H_ID,
@@ -401,7 +408,8 @@ BEGIN
 				:OLD.UPD_USR_NM,
 				:OLD.UPD_TS,
 				:OLD.UPD_FUNC_ID,
-				:OLD.UPD_SRV_REQ_NO
+				:OLD.UPD_SRV_REQ_NO,
+				:OLD.WL_SALE_UPRI
 		);
 	END IF;
 END;

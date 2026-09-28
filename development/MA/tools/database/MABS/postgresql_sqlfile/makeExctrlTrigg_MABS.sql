@@ -50,6 +50,12 @@
 
 \i ./U_TR/MAM_ITM_STR_LN_ALL_TR_U.sql
 
+\i ./U_TR/MAM_A_WRK_NO_ISSUE_ALL_TR_U.sql
+
+\i ./U_TR/MAM_ITEM_SHIP_COMP_ALL_TR_U.sql
+
+\i ./U_TR/MAM_OUT_APPR_ALL_TR_U.sql
+
 \i ./U_TR/MAM_PURC_UPRI_ALL_TR_U.sql
 
 \i ./U_TR/MAM_PURC_UPRI_APL_ALL_TR_U.sql

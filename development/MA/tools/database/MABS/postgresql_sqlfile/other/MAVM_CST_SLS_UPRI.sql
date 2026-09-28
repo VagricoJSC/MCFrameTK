@@ -43,6 +43,7 @@ upd_usr_nm,
 upd_ts,
 upd_func_id,
 upd_srv_req_no,
+upri_typ,
 row_id
 )
 AS

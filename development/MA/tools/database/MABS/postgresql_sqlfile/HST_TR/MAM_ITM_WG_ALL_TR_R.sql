@@ -75,7 +75,9 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			trace_tgt_typ,
+			unit_exp_flg
 		)
 			VALUES (
 				h_id,
@@ -114,7 +116,9 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.trace_tgt_typ,
+				NEW.unit_exp_flg
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'UPDATE') THEN
@@ -172,7 +176,9 @@ BEGIN
 				upd_usr_nm,
 				upd_ts,
 				upd_func_id,
-				upd_srv_req_no
+				upd_srv_req_no,
+				trace_tgt_typ,
+				unit_exp_flg
 			)
 				VALUES (
 					h_id,
@@ -211,7 +217,9 @@ BEGIN
 					OLD.upd_usr_nm,
 					OLD.upd_ts,
 					OLD.upd_func_id,
-					OLD.upd_srv_req_no
+					OLD.upd_srv_req_no,
+					OLD.trace_tgt_typ,
+					OLD.unit_exp_flg
 			);
 			h_typ := 'I';
 		ELSE
@@ -269,7 +277,9 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			trace_tgt_typ,
+			unit_exp_flg
 		)
 			VALUES (
 				h_id,
@@ -308,7 +318,9 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.trace_tgt_typ,
+				NEW.unit_exp_flg
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'DELETE') THEN
@@ -365,7 +377,9 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			trace_tgt_typ,
+			unit_exp_flg
 		)
 			VALUES (
 				h_id,
@@ -404,7 +418,9 @@ BEGIN
 				OLD.upd_usr_nm,
 				OLD.upd_ts,
 				OLD.upd_func_id,
-				OLD.upd_srv_req_no
+				OLD.upd_srv_req_no,
+				OLD.trace_tgt_typ,
+				OLD.unit_exp_flg
 		);
 		RETURN OLD;
 	END IF;

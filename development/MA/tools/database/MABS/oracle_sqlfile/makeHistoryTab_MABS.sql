@@ -16,6 +16,8 @@ SET ESCCHAR @
 
 @".\HST_TAB\deleteHistoryTab_MABS8.sql"
 
+@".\HST_TAB\deleteHistoryTab_MABS9.sql"
+
 @".\HST_TAB\MAM_ITM_WG_ALL_R.sql"
 
 @".\HST_TAB\MAM_ITM_SITE_ALL_R.sql"
@@ -65,6 +67,12 @@ SET ESCCHAR @
 @".\HST_TAB\MAM_ITM_LG_GRP_ALL_R.sql"
 
 @".\HST_TAB\MAM_ITM_STR_LN_ALL_R.sql"
+
+@".\HST_TAB\MAM_A_WRK_NO_ISSUE_ALL_R.sql"
+
+@".\HST_TAB\MAM_ITEM_SHIP_COMP_ALL_R.sql"
+
+@".\HST_TAB\MAM_OUT_APPR_ALL_R.sql"
 
 @".\HST_TAB\MAM_PURC_UPRI_ALL_R.sql"
 

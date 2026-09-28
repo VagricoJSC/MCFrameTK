@@ -26,3 +26,7 @@
 
 \i ./OBJECT/MST_FRCST_SUM_ALL.sql
 
+\i ./OBJECT/MST_AWK_ACT_ALL.sql
+
+\i ./OBJECT/MSW_AWK_ACT_KEY.sql
+

@@ -83,7 +83,8 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			upri_typ
 		)
 			VALUES (
 				h_id,
@@ -130,7 +131,8 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.upri_typ
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'UPDATE') THEN
@@ -196,7 +198,8 @@ BEGIN
 				upd_usr_nm,
 				upd_ts,
 				upd_func_id,
-				upd_srv_req_no
+				upd_srv_req_no,
+				upri_typ
 			)
 				VALUES (
 					h_id,
@@ -243,7 +246,8 @@ BEGIN
 					OLD.upd_usr_nm,
 					OLD.upd_ts,
 					OLD.upd_func_id,
-					OLD.upd_srv_req_no
+					OLD.upd_srv_req_no,
+					OLD.upri_typ
 			);
 			h_typ := 'I';
 		ELSE
@@ -309,7 +313,8 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			upri_typ
 		)
 			VALUES (
 				h_id,
@@ -356,7 +361,8 @@ BEGIN
 				NEW.upd_usr_nm,
 				NEW.upd_ts,
 				NEW.upd_func_id,
-				NEW.upd_srv_req_no
+				NEW.upd_srv_req_no,
+				NEW.upri_typ
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'DELETE') THEN
@@ -421,7 +427,8 @@ BEGIN
 			upd_usr_nm,
 			upd_ts,
 			upd_func_id,
-			upd_srv_req_no
+			upd_srv_req_no,
+			upri_typ
 		)
 			VALUES (
 				h_id,
@@ -468,7 +475,8 @@ BEGIN
 				OLD.upd_usr_nm,
 				OLD.upd_ts,
 				OLD.upd_func_id,
-				OLD.upd_srv_req_no
+				OLD.upd_srv_req_no,
+				OLD.upri_typ
 		);
 		RETURN OLD;
 	END IF;

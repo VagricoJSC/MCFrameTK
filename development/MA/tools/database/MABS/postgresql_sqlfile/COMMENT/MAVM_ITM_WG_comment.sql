@@ -423,6 +423,12 @@ COMMENT ON COLUMN mavm_itm_wg.cost_std_qty IS '原価基準数 // #MA.QTY // Cos
 COMMENT ON COLUMN mavm_itm_wg.itm_alc_grp IS '品目配賦グループ // #MA.ITM_ALC_GRP // Item allocation group';
 
 
+COMMENT ON COLUMN mavm_itm_wg.trace_tgt_typ IS 'トレサビ対象区分 // #MA.TRACE_TGT_TYP // Traceability target type';
+
+
+COMMENT ON COLUMN mavm_itm_wg.unit_exp_flg IS 'ユニット展開ＦＬＧ // #MA.FLG // ';
+
+
 COMMENT ON COLUMN mavm_itm_wg.release_flg IS 'リリースＦＬＧ // #MA.FLG // Release flg.';
 
 

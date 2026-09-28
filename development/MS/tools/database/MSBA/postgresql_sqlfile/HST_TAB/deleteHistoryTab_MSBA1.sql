@@ -8,5 +8,6 @@ table_name = 'mst_dmnd_all'
 	 OR table_name = 'mst_wg_rqst_all'
 	 OR table_name = 'mst_wg_rqst_prms_all'
 	 OR table_name = 'mst_frcst_sum_all'
+	 OR table_name = 'mst_awk_act_all'
 	;
 

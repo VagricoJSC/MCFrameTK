@@ -155,15 +155,7 @@ SELECT
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_usr_nm,
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_ts,
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_func_id,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_srv_req_no,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.mater_usr_cd,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.cat_typ,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.wk_typ,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.drwng_outp_flg,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks1,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks2,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks3,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.constr_cond
+	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_srv_req_no
 FROM 
 	mam_itm_dtl_all mavm_itm_dtl_purc_mam_itm_dtl_all_org
 WHERE 
@@ -245,15 +237,7 @@ SELECT
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_usr_nm,
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_ts,
 	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_func_id,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_srv_req_no,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.mater_usr_cd,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.cat_typ,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.wk_typ,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.drwng_outp_flg,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks1,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks2,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.sp_rmrks3,
-	mavm_itm_dtl_purc_mam_itm_dtl_all_org.constr_cond
+	mavm_itm_dtl_purc_mam_itm_dtl_all_org.upd_srv_req_no
 FROM 
 	mam_wg mavm_itm_dtl_purc_mam_wg_wg,
 	mam_itm_dtl_all mavm_itm_dtl_purc_mam_itm_dtl_all_org
