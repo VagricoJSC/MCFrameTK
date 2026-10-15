@@ -45,7 +45,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>K</td>
  *  	<td>sno1</td>
  *  	<td>C</td>
- *  	<td>15</td>
+ *  	<td>20</td>
  *  	<td>N</td>
  *  	<td></td>
  *  	<td>手配ＮＯ１</td>

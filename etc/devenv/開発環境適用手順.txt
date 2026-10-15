@@ -1,0 +1,39 @@
+①git管理対象の資源を【DEV_HOME】フォルダにダウンロード
+	URL：https://github.com/VagricoJSC/MCFrameTK
+	※【DEV_HOME】はローカルPCにある任意のフォルダ
+
+②git管理対象外のgitをダウンロードし、以下のように解凍
+	eclipse.zip			【DEV_HOME】\eclipse\
+								eclipse.exe
+								...略...
+
+	AW_HOME.zip			【DEV_HOME】\development\AW_HOME\
+								conf
+								...略...
+
+	MCF_HOME.zip		【MCF_HOME】\development\MCF_HOME\
+								conf
+								...略...
+③以下のbatを実行
+	【MCF_HOME】\development\MCF_HOME\createJunction.bat
+
+④パスの置換
+■grep 1
+	検索	C:/Work/PJ/TK/dev/
+	ファイル	*.project;*.classpath
+	フォルダ	【DEV_HOME】/eclipse/workspace/
+
+	→grep置換
+		変更前：C:/Work/PJ/TK/dev/
+		変更後：【DEV_HOME】/
+
+■grep 2
+	検索	C\:/Work/PJ/TK/dev/
+	ファイル	org.eclipse.jdt.core.prefs
+	フォルダ	【DEV_HOME】/eclipse/workspace/
+
+	→grep置換
+		変更前：C\:/Work/PJ/TK/dev/
+		変更後：【DEV_HOME】内のドライブに"\"をつけた文字列
+			例：C\:/Work/PJ/TK/TEST_DEV_ENV/MCFrameTK/
+

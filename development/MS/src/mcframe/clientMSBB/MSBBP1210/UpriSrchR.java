@@ -2,6 +2,9 @@ package mcframe.clientMSBB.MSBBP1210;
 
 import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.annotation.EI;
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * ブロック"UpriSrch"コンテナRowクラスです。<p>
@@ -190,4 +193,7 @@ public class UpriSrchR extends UpriSrchR_MC_A {
 	public UpriSrchR(ConstMetaList<? extends UpriSrchR> metas) {
 		super(metas);
 	}
+//FMCB CUSTOM START
+
+//FMCB CUSTOM END
 }

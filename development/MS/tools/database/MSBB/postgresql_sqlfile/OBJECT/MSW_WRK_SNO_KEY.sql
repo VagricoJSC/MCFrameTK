@@ -8,7 +8,7 @@ BEGIN
 	IF COALESCE(fcpa_postgres_util$get_var('msw_wrk_sno_key$func', 'is_init'), '0') = '0' THEN
 		BEGIN
 			CREATE TEMPORARY TABLE msw_wrk_sno_key$temp(
-				sno1 varchar (15) NULL
+				sno1 varchar (20) NULL
 			) WITH (
 				OIDS=FALSE
 			)
@@ -34,7 +34,7 @@ BEGIN
 	IF COALESCE(fcpa_postgres_util$get_var('msw_wrk_sno_key$func', 'is_init'), '0') = '0' THEN
 		BEGIN
 			CREATE TEMPORARY TABLE msw_wrk_sno_key$temp(
-				sno1 varchar (15) NULL
+				sno1 varchar (20) NULL
 			) WITH (
 				OIDS=FALSE
 			)

@@ -754,6 +754,16 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $dlv_day_week_typ_nm = "dlv_day_week_typ_nm";
+	/**
+	 * Free reason 無償理由ＣＤ.<p>
+	 *
+	 */
+	public static final String $frc_rsn_cd = "frc_rsn_cd";
+	/**
+	 * Free reason name 無償理由.<p>
+	 *
+	 */
+	public static final String $frc_rsn_cd_nm = "frc_rsn_cd_nm";
 
 	public static final String $dlv_cd = $dlv_p + ".bp_cd";
 	public static final String $dlv_nm = $dlv_p + ".bp_nm";
@@ -968,6 +978,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta dlv_rqst_p_META = createInnerRowMeta($dlv_rqst_p, mcframe.clientMAUB.MAUBP0110.YmdHmR.class);
 	public static final MCMeta dlv_day_week_typ_META = createCommonMeta($dlv_day_week_typ, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP);
 	public static final MCMeta dlv_day_week_typ_nm_META = createCommonMeta($dlv_day_week_typ_nm, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP_NM);
+	public static final MCMeta frc_rsn_cd_META = createCommonMeta($frc_rsn_cd, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
+	public static final MCMeta frc_rsn_cd_nm_META = createCommonMeta($frc_rsn_cd_nm, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
 
 	protected static final ConstMetaList<HdrR> constMetas = new ConstMetaList<HdrR>(
 		MCConstRow.constMetas,
@@ -1131,7 +1143,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ship_rqst_p_META,
 			dlv_rqst_p_META,
 			dlv_day_week_typ_META,
-			dlv_day_week_typ_nm_META
+			dlv_day_week_typ_nm_META,
+			frc_rsn_cd_META,
+			frc_rsn_cd_nm_META
 		},
 		new String[][]{
 			{
@@ -4527,6 +4541,40 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 
+	/**
+	 * Free reason 無償理由ＣＤ.<p>
+	 *
+	 */
+	public String frc_rsn_cd() {
+		return getConstString(offset + 160, $frc_rsn_cd);
+	}
+
+	/**
+	 * Free reason 無償理由ＣＤ.<p>
+	 *
+	 */
+	public void frc_rsn_cd(String value) {
+		setConstString(offset + 160, $frc_rsn_cd, value);
+	}
+
+
+	/**
+	 * Free reason name 無償理由.<p>
+	 *
+	 */
+	public String frc_rsn_cd_nm() {
+		return getConstString(offset + 161, $frc_rsn_cd_nm);
+	}
+
+	/**
+	 * Free reason name 無償理由.<p>
+	 *
+	 */
+	public void frc_rsn_cd_nm(String value) {
+		setConstString(offset + 161, $frc_rsn_cd_nm, value);
+	}
+
+
 	public String getString(String name) {
 		if ($trd_cd.equalsIgnoreCase(name)) {
 			return trd_cd();
@@ -4833,6 +4881,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ_nm();
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			return frc_rsn_cd();
+		}
+		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
+			return frc_rsn_cd_nm();
 		}
 		return super.getString(name);
 	}
@@ -5284,6 +5338,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ_nm();
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			return frc_rsn_cd();
+		}
+		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
+			return frc_rsn_cd_nm();
 		}
 		return super.getStringNE(name);
 	}
@@ -5836,6 +5896,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			dlv_day_week_typ_nm(value);
+			return;
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			frc_rsn_cd(value);
+			return;
+		}
+		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
+			frc_rsn_cd_nm(value);
 			return;
 		}
 		super.setString(name, value);
@@ -6700,6 +6768,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			dlv_day_week_typ_nm(value);
+			return;
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			frc_rsn_cd(value);
+			return;
+		}
+		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
+			frc_rsn_cd_nm(value);
 			return;
 		}
 		super.setStringNE(name, value);

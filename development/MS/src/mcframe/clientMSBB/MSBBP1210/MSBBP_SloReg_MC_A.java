@@ -19,12 +19,12 @@ import mcframe.clientCore.beans.table.*;
 import mcframe.clientCore.beans.tree.*;
 import mcframe.clientCore.beans.popup.MCTextPopupMenuItem;
 import mcframe.clientCore.beans.text.MCInputMethodType;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller;
-import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Srch01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Srch02Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Ins01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Upd01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Del01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Sprt01Caller;
 
 /**
  * 画面"MSBBP_SloReg"パネルクラスです。<p>
@@ -913,6 +913,17 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextComboBox Hdr_dlv_day_week_typ_nm = null;
+	public MCLabel Hdr_frc_rsn_cd_Label = null;
+	/**
+	 * Free reason 無償理由ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_frc_rsn_cd = null;
+	/**
+	 * Free reason name 無償理由.<p>
+	 *
+	 */
+	public MCTextField Hdr_frc_rsn_cd_nm = null;
 	// [Hdr2]ブロック関連のField定義
 	public MCPanel Hdr2Panel = null;
 	// [Hdr2]ブロックの項目のField定義
@@ -1833,10 +1844,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public static final String[] statusArray = new String[]{SRCH, REF, UPD, UPD_QTN, UPD_APRV, UPD_TRNST, FIX_U, INS, INS_QTN, FIX_I, DEL, FIX_D};
 	
 	/** [MS_MSBBL1210_Srch01]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller createMS_MSBBL1210_Srch01() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MS_MSBBL1210_Srch01Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MS_MSBBL1210_Srch01Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Srch01Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Srch01Caller createMS_MSBBL1210_Srch01() {
+		MSBBP_SloReg.MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Srch01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Srch01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Srch01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Srch01Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Srch01]の呼び出し */
@@ -1845,10 +1856,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		caller.exec();
 	}
 	/** [MS_MSBBL1210_Srch02]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller createMS_MSBBL1210_Srch02() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MS_MSBBL1210_Srch02Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MS_MSBBL1210_Srch02Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Srch02Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Srch02Caller createMS_MSBBL1210_Srch02() {
+		MSBBP_SloReg.MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Srch02Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Srch02Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Srch02Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Srch02Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Srch02]の呼び出し */
@@ -1857,10 +1868,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		caller.exec();
 	}
 	/** [MS_MSBBL1210_Ins01]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller createMS_MSBBL1210_Ins01() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MS_MSBBL1210_Ins01Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MS_MSBBL1210_Ins01Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Ins01Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Ins01Caller createMS_MSBBL1210_Ins01() {
+		MSBBP_SloReg.MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Ins01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Ins01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Ins01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Ins01Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Ins01]の呼び出し */
@@ -1869,10 +1880,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		caller.exec();
 	}
 	/** [MS_MSBBL1210_Upd01]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller createMS_MSBBL1210_Upd01() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MS_MSBBL1210_Upd01Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MS_MSBBL1210_Upd01Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Upd01Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Upd01Caller createMS_MSBBL1210_Upd01() {
+		MSBBP_SloReg.MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Upd01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Upd01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Upd01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Upd01Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Upd01]の呼び出し */
@@ -1881,10 +1892,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		caller.exec();
 	}
 	/** [MS_MSBBL1210_Del01]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller createMS_MSBBL1210_Del01() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MS_MSBBL1210_Del01Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MS_MSBBL1210_Del01Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Del01Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Del01Caller createMS_MSBBL1210_Del01() {
+		MSBBP_SloReg.MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Del01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Del01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Del01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Del01Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Del01]の呼び出し */
@@ -1893,10 +1904,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		caller.exec();
 	}
 	/** [MS_MSBBL1210_Sprt01]のCallerの作成 */
-	protected MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller createMS_MSBBL1210_Sprt01() {
-		MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MS_MSBBL1210_Sprt01Bridge>
-		caller = ((MSBBP_SloReg_MC)this).new MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MS_MSBBL1210_Sprt01Bridge>(
-					(MSBBP_SloReg)this, new MS_MSBBL1210_Sprt01Bridge());
+	protected MSBBP_SloReg.MS_MSBBL1210_Sprt01Caller createMS_MSBBL1210_Sprt01() {
+		MSBBP_SloReg.MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Sprt01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_Sprt01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_Sprt01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_Sprt01Bridge());
 		return caller;
 	}
 	/** [MS_MSBBL1210_Sprt01]の呼び出し */
@@ -3991,6 +4002,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ_nm_Label = p.beansFactory.createLabel("Hdr.dlv_day_week_typ_nm_Label");
 		p.Hdr_dlv_day_week_typ_nm = p.beansFactory.createTextComboBox("Hdr.dlv_day_week_typ_nm");
 		p.Hdr_dlv_day_week_typ_nm.setLabel(p.Hdr_dlv_day_week_typ_nm_Label);
+		p.Hdr_frc_rsn_cd_Label = p.beansFactory.createLabel("Hdr.frc_rsn_cd_Label");
+		p.Hdr_frc_rsn_cd = p.beansFactory.createTextField("Hdr.frc_rsn_cd");
+		p.Hdr_frc_rsn_cd.setLabel(p.Hdr_frc_rsn_cd_Label);
+		p.Hdr_frc_rsn_cd_nm = p.beansFactory.createTextField("Hdr.frc_rsn_cd_nm");
 	}
 
 	/**
@@ -4779,6 +4794,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_can_rsn_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.can_rsn_nm_META);
 		p.HdrPanel.add(p.Hdr_can_rmrks_Label);
 		p.HdrPanel.add(p.Hdr_can_rmrks);
+		p.Hdr_can_rmrks.setNextBeans(p.Hdr_frc_rsn_cd);
 		p.Hdr_can_rmrks.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.can_rmrks_META);
 		p.Hdr2Panel.add(p.Hdr_ins_usr_id_Label);
 		p.Hdr2Panel.add(p.Hdr_ins_usr_id);
@@ -4835,6 +4851,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm_Label);
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm);
 		p.Hdr_dlv_day_week_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_frc_rsn_cd_Label);
+		p.HdrPanel.add(p.Hdr_frc_rsn_cd);
+		p.Hdr_frc_rsn_cd.setNextBeans(p.Hdr_frc_rsn_cd_nm);
+		p.Hdr_frc_rsn_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_META);
+		p.HdrPanel.add(p.Hdr_frc_rsn_cd_nm);
+		p.Hdr_frc_rsn_cd_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_nm_META);
 	}
 
 	/**
@@ -5417,6 +5439,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.addAllListener(p);
 		p.Hdr_dlv_day_week_typ_nm.setListListener(p);
 		p.Hdr_dlv_day_week_typ_nm.addAllListener(p);
+		p.Hdr_frc_rsn_cd.setListListener(p);
+		p.Hdr_frc_rsn_cd.addAllListener(p);
+		p.Hdr_frc_rsn_cd_nm.setListListener(p);
+		p.Hdr_frc_rsn_cd_nm.addAllListener(p);
 	}
 
 	/**
@@ -12243,6 +12269,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_upd_srv_req_no) return doHdr_upd_srv_req_no_VC(info);
 		if (vc == Hdr_dlv_day_week_typ) return doHdr_dlv_day_week_typ_VC(info);
 		if (vc == Hdr_dlv_day_week_typ_nm) return doHdr_dlv_day_week_typ_nm_VC(info);
+		if (vc == Hdr_frc_rsn_cd) return doHdr_frc_rsn_cd_VC(info);
+		if (vc == Hdr_frc_rsn_cd_nm) return doHdr_frc_rsn_cd_nm_VC(info);
 		if (vc == columnDtl_abort_flg) return doDtl_abort_flg_VC(info);
 		if (vc == columnDtl_sls_sts_typ) return doDtl_sls_sts_typ_VC(info);
 		if (vc == columnDtl_sls_sts_typ_nm) return doDtl_sls_sts_typ_nm_VC(info);
@@ -13814,6 +13842,26 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[frc_rsn_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_frc_rsn_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_frc_rsn_cd_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -15334,6 +15382,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NC(info);
 		else if (nc == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NC(info);
 		else if (nc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NC(info);
+		else if (nc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NC(info);
+		else if (nc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NC(info);
 		else if (nc == columnDtl_abort_flg) doDtl_abort_flg_NC(info);
 		else if (nc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NC(info);
 		else if (nc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NC(info);
@@ -16618,6 +16668,22 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[frc_rsn_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_nm_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -17864,6 +17930,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NE(info);
 		else if (ne == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NE(info);
 		else if (ne == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NE(info);
+		else if (ne == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NE(info);
+		else if (ne == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NE(info);
 		else if (ne == columnDtl_abort_flg) doDtl_abort_flg_NE(info);
 		else if (ne == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NE(info);
 		else if (ne == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NE(info);
@@ -19148,6 +19216,22 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[frc_rsn_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_nm_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -20394,6 +20478,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_NX(info);
 		else if (nx == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_NX(info);
 		else if (nx == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NX(info);
+		else if (nx == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NX(info);
+		else if (nx == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NX(info);
 		else if (nx == columnDtl_abort_flg) doDtl_abort_flg_NX(info);
 		else if (nx == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NX(info);
 		else if (nx == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NX(info);
@@ -21678,6 +21764,22 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[frc_rsn_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_nm_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -22905,6 +23007,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_upd_srv_req_no) doHdr_upd_srv_req_no_LC(info);
 		else if (lc == Hdr_dlv_day_week_typ) doHdr_dlv_day_week_typ_LC(info);
 		else if (lc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_LC(info);
+		else if (lc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_LC(info);
+		else if (lc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_LC(info);
 		else if (lc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_LC(info);
 		else if (lc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_LC(info);
 		else if (lc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_LC(info);
@@ -24010,6 +24114,22 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_dlv_day_week_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[frc_rsn_cd_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_frc_rsn_cd_nm_LC(MCEventInfo info){
 	}
 
 	/**

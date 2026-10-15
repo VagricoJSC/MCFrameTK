@@ -4,7 +4,7 @@ CREATE TABLE mst_sls_itm_spec_all
 (sls_itm_spec_no varchar (15) NOT NULL,
 co_cd varchar (10) NOT NULL,
 sls_itm_no varchar (15) NOT NULL,
-sno1 varchar (15) DEFAULT '*' NOT NULL,
+sno1 varchar (20) DEFAULT '*' NOT NULL,
 sno2 varchar (15) DEFAULT '*' NOT NULL,
 sno3 varchar (15) DEFAULT '*' NOT NULL,
 sno4 varchar (15) DEFAULT '*' NOT NULL,

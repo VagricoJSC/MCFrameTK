@@ -2,6 +2,9 @@ package mcframe.clientMSBB.MSBBP1210;
 
 import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.annotation.EI;
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * ブロック"DtlSpec"コンテナRowクラスです。<p>
@@ -174,4 +177,7 @@ public class DtlSpecR extends DtlSpecR_MC_A {
 	public DtlSpecR(ConstMetaList<? extends DtlSpecR> metas) {
 		super(metas);
 	}
+//FMCB CUSTOM START
+
+//FMCB CUSTOM END
 }

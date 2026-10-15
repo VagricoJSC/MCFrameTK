@@ -784,6 +784,696 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>更新リクエストＮＯ</td>
  *  	<td>Update request No.</td>
  *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sls_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>売上日</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_aprv_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受注日</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>aprv_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>更新日</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ship_prnt_no_cst_nm_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>出荷帳票得意先名印字しないＦＬＧ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>src_wrk_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>元案件ＮＯ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>zoho_sls_schd_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>ＺＯＨＯ販売予定ＮＯ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_last_sls_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>受注出荷最終売上</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>prod_itm_cd</td>
+ *  	<td>C</td>
+ *  	<td>40</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>製品ＣＤ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>prod_itm_sub1</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>製品枝番１</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>prod_itm_sub2</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>製品枝番２</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>prod_itm_sub3</td>
+ *  	<td>C</td>
+ *  	<td>5</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>製品枝番３</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>prod_itm_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>製品名</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>surv_line_qty</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>測線数</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>diameter</td>
+ *  	<td>C</td>
+ *  	<td>4</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>口径</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>match_key</td>
+ *  	<td>C</td>
+ *  	<td>30</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>照合ＫＥＹ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>rcpt_no</td>
+ *  	<td>C</td>
+ *  	<td>16</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受付番号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>appl_doc_no</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>申請書番号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>dlv_draw_no</td>
+ *  	<td>C</td>
+ *  	<td>12</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>納入図番号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_num_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>注番区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_num</td>
+ *  	<td>C</td>
+ *  	<td>16</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>注文番号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>hdr_qty</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>数量（ヘッダ）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>hdr_amt</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>金額（ヘッダ）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>paint_clr</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>塗色</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sales_cond</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>売上条件区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ship_sp_instr_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>出荷特別指示区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>spec_dlv_note_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>指定納品書区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ord_dlv_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>注文書納期</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>mrkt_cd</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>市場ＣＤ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>cntry_sign</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>国別符号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ves_natl</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>船籍</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>shipyard_cd</td>
+ *  	<td>C</td>
+ *  	<td>4</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>造船所</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ves_no</td>
+ *  	<td>C</td>
+ *  	<td>30</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>船番</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ves_nm</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>船名</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>tonnage</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>屯数</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ves_typ</td>
+ *  	<td>C</td>
+ *  	<td>30</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>船種</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>insp_std</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>検査規格</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>royalty_trg_amt</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>ロイヤリティ対象金額</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>royalty_psppl</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>ロイヤリティ支払先</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>ins_loc_1</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>設置場所1</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ins_loc_2</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>設置場所2</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sfi_no</td>
+ *  	<td>C</td>
+ *  	<td>15</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>SFI番号</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>ps_sal_aft_dt</td>
+ *  	<td>D</td>
+ *  	<td></td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>装備後売上日</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>wit_insp_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>立会検査有無区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>equip_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>装備要否区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>spec_doc_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕様書区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>model_jp_en_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>型式和英区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>insp_rep_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>検査成績書（検査成績書区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>insp_rep_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>検査成績書（検査成績書部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>cons_draw_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>協議図（協議図区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>cons_draw_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>協議図（協議図部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>const_draw_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>工事図（工事図区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>const_draw_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>工事図（工事図部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>comp_draw_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>完成図（完成図区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>comp_draw_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>完成図（完成図部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>inst_manual_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>取扱説明書（取扱説明書区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>inst_manual_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>取扱説明書（取扱説明書部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>aprv_draw_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>承認図（承認図区分）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>aprv_draw_qty</td>
+ *  	<td>N</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>承認図（承認図部数）</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_cng_rsn</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受注変更理由</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>frc_rsn_cd</td>
+ *  	<td>C</td>
+ *  	<td>10</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>無償理由ＣＤ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>main_draw_no</td>
+ *  	<td>C</td>
+ *  	<td>50</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>代表図番</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_cmnt_1</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント１</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_cmnt_2</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント２</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_cmnt_3</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント３</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_cmnt_4</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント４</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_cmnt_5</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント５</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>src_ship_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>元出荷基準ＦＬＧ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>jip_slo_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受注種別</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>jip_cst_cd</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>客先コード</td>
+ *  	<td></td>
+ *  </tr>
  * </table>
  *
  * <br>
@@ -1392,6 +2082,558 @@ public class MST_SLO_R extends MCDBContainer {
 	private static final MCPermColumnInfo _upd_srv_req_no = createColumnInfo("upd_srv_req_no");
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
+	/**
+	 * 売上日. .<p>
+	 *
+	 */
+	public static final String $sls_dt = "sls_dt";
+	private static final MCPermColumnInfo _sls_dt = createColumnInfo("sls_dt");
+	public final MCDatePermColumn sls_dt = createDateColumn(_sls_dt);
+	
+	/**
+	 * 受注日. .<p>
+	 *
+	 */
+	public static final String $slo_aprv_dt = "slo_aprv_dt";
+	private static final MCPermColumnInfo _slo_aprv_dt = createColumnInfo("slo_aprv_dt");
+	public final MCDatePermColumn slo_aprv_dt = createDateColumn(_slo_aprv_dt);
+	
+	/**
+	 * 更新日. .<p>
+	 *
+	 */
+	public static final String $aprv_dt = "aprv_dt";
+	private static final MCPermColumnInfo _aprv_dt = createColumnInfo("aprv_dt");
+	public final MCDatePermColumn aprv_dt = createDateColumn(_aprv_dt);
+	
+	/**
+	 * 出荷帳票得意先名印字しないＦＬＧ. .<p>
+	 *
+	 */
+	public static final String $ship_prnt_no_cst_nm_flg = "ship_prnt_no_cst_nm_flg";
+	private static final MCPermColumnInfo _ship_prnt_no_cst_nm_flg = createColumnInfo("ship_prnt_no_cst_nm_flg");
+	public final MCBooleanPermColumn ship_prnt_no_cst_nm_flg = createBooleanColumn(_ship_prnt_no_cst_nm_flg);
+	
+	/**
+	 * 元案件ＮＯ. .<p>
+	 *
+	 */
+	public static final String $src_wrk_no = "src_wrk_no";
+	private static final MCPermColumnInfo _src_wrk_no = createColumnInfo("src_wrk_no");
+	public final MCStringPermColumn src_wrk_no = createStringColumn(_src_wrk_no);
+	
+	/**
+	 * ＺＯＨＯ販売予定ＮＯ. .<p>
+	 *
+	 */
+	public static final String $zoho_sls_schd_no = "zoho_sls_schd_no";
+	private static final MCPermColumnInfo _zoho_sls_schd_no = createColumnInfo("zoho_sls_schd_no");
+	public final MCStringPermColumn zoho_sls_schd_no = createStringColumn(_zoho_sls_schd_no);
+	
+	/**
+	 * 受注出荷最終売上. .<p>
+	 *
+	 */
+	public static final String $slo_last_sls_flg = "slo_last_sls_flg";
+	private static final MCPermColumnInfo _slo_last_sls_flg = createColumnInfo("slo_last_sls_flg");
+	public final MCBooleanPermColumn slo_last_sls_flg = createBooleanColumn(_slo_last_sls_flg);
+	
+	/**
+	 * 製品ＣＤ. .<p>
+	 *
+	 */
+	public static final String $prod_itm_cd = "prod_itm_cd";
+	private static final MCPermColumnInfo _prod_itm_cd = createColumnInfo("prod_itm_cd");
+	public final MCStringPermColumn prod_itm_cd = createStringColumn(_prod_itm_cd);
+	
+	/**
+	 * 製品枝番１. .<p>
+	 *
+	 */
+	public static final String $prod_itm_sub1 = "prod_itm_sub1";
+	private static final MCPermColumnInfo _prod_itm_sub1 = createColumnInfo("prod_itm_sub1");
+	public final MCStringPermColumn prod_itm_sub1 = createStringColumn(_prod_itm_sub1);
+	
+	/**
+	 * 製品枝番２. .<p>
+	 *
+	 */
+	public static final String $prod_itm_sub2 = "prod_itm_sub2";
+	private static final MCPermColumnInfo _prod_itm_sub2 = createColumnInfo("prod_itm_sub2");
+	public final MCStringPermColumn prod_itm_sub2 = createStringColumn(_prod_itm_sub2);
+	
+	/**
+	 * 製品枝番３. .<p>
+	 *
+	 */
+	public static final String $prod_itm_sub3 = "prod_itm_sub3";
+	private static final MCPermColumnInfo _prod_itm_sub3 = createColumnInfo("prod_itm_sub3");
+	public final MCStringPermColumn prod_itm_sub3 = createStringColumn(_prod_itm_sub3);
+	
+	/**
+	 * 製品名. .<p>
+	 *
+	 */
+	public static final String $prod_itm_nm = "prod_itm_nm";
+	private static final MCPermColumnInfo _prod_itm_nm = createColumnInfo("prod_itm_nm");
+	public final MCStringPermColumn prod_itm_nm = createStringColumn(_prod_itm_nm);
+	
+	/**
+	 * 測線数. .<p>
+	 *
+	 */
+	public static final String $surv_line_qty = "surv_line_qty";
+	private static final MCPermColumnInfo _surv_line_qty = createColumnInfo("surv_line_qty");
+	public final MCStringPermColumn surv_line_qty = createStringColumn(_surv_line_qty);
+	
+	/**
+	 * 口径. .<p>
+	 *
+	 */
+	public static final String $diameter = "diameter";
+	private static final MCPermColumnInfo _diameter = createColumnInfo("diameter");
+	public final MCStringPermColumn diameter = createStringColumn(_diameter);
+	
+	/**
+	 * 照合ＫＥＹ. .<p>
+	 *
+	 */
+	public static final String $match_key = "match_key";
+	private static final MCPermColumnInfo _match_key = createColumnInfo("match_key");
+	public final MCStringPermColumn match_key = createStringColumn(_match_key);
+	
+	/**
+	 * 受付番号. .<p>
+	 *
+	 */
+	public static final String $rcpt_no = "rcpt_no";
+	private static final MCPermColumnInfo _rcpt_no = createColumnInfo("rcpt_no");
+	public final MCStringPermColumn rcpt_no = createStringColumn(_rcpt_no);
+	
+	/**
+	 * 申請書番号. .<p>
+	 *
+	 */
+	public static final String $appl_doc_no = "appl_doc_no";
+	private static final MCPermColumnInfo _appl_doc_no = createColumnInfo("appl_doc_no");
+	public final MCStringPermColumn appl_doc_no = createStringColumn(_appl_doc_no);
+	
+	/**
+	 * 納入図番号. .<p>
+	 *
+	 */
+	public static final String $dlv_draw_no = "dlv_draw_no";
+	private static final MCPermColumnInfo _dlv_draw_no = createColumnInfo("dlv_draw_no");
+	public final MCStringPermColumn dlv_draw_no = createStringColumn(_dlv_draw_no);
+	
+	/**
+	 * 注番区分. .<p>
+	 *
+	 */
+	public static final String $slo_num_typ = "slo_num_typ";
+	private static final MCPermColumnInfo _slo_num_typ = createColumnInfo("slo_num_typ");
+	public final MCStringPermColumn slo_num_typ = createStringColumn(_slo_num_typ);
+	
+	/**
+	 * 注文番号. .<p>
+	 *
+	 */
+	public static final String $slo_num = "slo_num";
+	private static final MCPermColumnInfo _slo_num = createColumnInfo("slo_num");
+	public final MCStringPermColumn slo_num = createStringColumn(_slo_num);
+	
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public static final String $hdr_qty = "hdr_qty";
+	private static final MCPermColumnInfo _hdr_qty = createColumnInfo("hdr_qty");
+	public final MCNumberPermColumn hdr_qty = createNumberColumn(_hdr_qty);
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public static final String $hdr_amt = "hdr_amt";
+	private static final MCPermColumnInfo _hdr_amt = createColumnInfo("hdr_amt");
+	public final MCNumberPermColumn hdr_amt = createNumberColumn(_hdr_amt);
+	
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public static final String $paint_clr = "paint_clr";
+	private static final MCPermColumnInfo _paint_clr = createColumnInfo("paint_clr");
+	public final MCStringPermColumn paint_clr = createStringColumn(_paint_clr);
+	
+	/**
+	 * 売上条件区分. .<p>
+	 *
+	 */
+	public static final String $sales_cond = "sales_cond";
+	private static final MCPermColumnInfo _sales_cond = createColumnInfo("sales_cond");
+	public final MCStringPermColumn sales_cond = createStringColumn(_sales_cond);
+	
+	/**
+	 * 出荷特別指示区分. .<p>
+	 *
+	 */
+	public static final String $ship_sp_instr_typ = "ship_sp_instr_typ";
+	private static final MCPermColumnInfo _ship_sp_instr_typ = createColumnInfo("ship_sp_instr_typ");
+	public final MCStringPermColumn ship_sp_instr_typ = createStringColumn(_ship_sp_instr_typ);
+	
+	/**
+	 * 指定納品書区分. .<p>
+	 *
+	 */
+	public static final String $spec_dlv_note_typ = "spec_dlv_note_typ";
+	private static final MCPermColumnInfo _spec_dlv_note_typ = createColumnInfo("spec_dlv_note_typ");
+	public final MCStringPermColumn spec_dlv_note_typ = createStringColumn(_spec_dlv_note_typ);
+	
+	/**
+	 * 注文書納期. .<p>
+	 *
+	 */
+	public static final String $ord_dlv_dt = "ord_dlv_dt";
+	private static final MCPermColumnInfo _ord_dlv_dt = createColumnInfo("ord_dlv_dt");
+	public final MCDatePermColumn ord_dlv_dt = createDateColumn(_ord_dlv_dt);
+	
+	/**
+	 * 市場ＣＤ. .<p>
+	 *
+	 */
+	public static final String $mrkt_cd = "mrkt_cd";
+	private static final MCPermColumnInfo _mrkt_cd = createColumnInfo("mrkt_cd");
+	public final MCStringPermColumn mrkt_cd = createStringColumn(_mrkt_cd);
+	
+	/**
+	 * 国別符号. .<p>
+	 *
+	 */
+	public static final String $cntry_sign = "cntry_sign";
+	private static final MCPermColumnInfo _cntry_sign = createColumnInfo("cntry_sign");
+	public final MCStringPermColumn cntry_sign = createStringColumn(_cntry_sign);
+	
+	/**
+	 * 船籍. .<p>
+	 *
+	 */
+	public static final String $ves_natl = "ves_natl";
+	private static final MCPermColumnInfo _ves_natl = createColumnInfo("ves_natl");
+	public final MCStringPermColumn ves_natl = createStringColumn(_ves_natl);
+	
+	/**
+	 * 造船所. .<p>
+	 *
+	 */
+	public static final String $shipyard_cd = "shipyard_cd";
+	private static final MCPermColumnInfo _shipyard_cd = createColumnInfo("shipyard_cd");
+	public final MCStringPermColumn shipyard_cd = createStringColumn(_shipyard_cd);
+	
+	/**
+	 * 船番. .<p>
+	 *
+	 */
+	public static final String $ves_no = "ves_no";
+	private static final MCPermColumnInfo _ves_no = createColumnInfo("ves_no");
+	public final MCStringPermColumn ves_no = createStringColumn(_ves_no);
+	
+	/**
+	 * 船名. .<p>
+	 *
+	 */
+	public static final String $ves_nm = "ves_nm";
+	private static final MCPermColumnInfo _ves_nm = createColumnInfo("ves_nm");
+	public final MCStringPermColumn ves_nm = createStringColumn(_ves_nm);
+	
+	/**
+	 * 屯数. .<p>
+	 *
+	 */
+	public static final String $tonnage = "tonnage";
+	private static final MCPermColumnInfo _tonnage = createColumnInfo("tonnage");
+	public final MCStringPermColumn tonnage = createStringColumn(_tonnage);
+	
+	/**
+	 * 船種. .<p>
+	 *
+	 */
+	public static final String $ves_typ = "ves_typ";
+	private static final MCPermColumnInfo _ves_typ = createColumnInfo("ves_typ");
+	public final MCStringPermColumn ves_typ = createStringColumn(_ves_typ);
+	
+	/**
+	 * 検査規格. .<p>
+	 *
+	 */
+	public static final String $insp_std = "insp_std";
+	private static final MCPermColumnInfo _insp_std = createColumnInfo("insp_std");
+	public final MCStringPermColumn insp_std = createStringColumn(_insp_std);
+	
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public static final String $royalty_trg_amt = "royalty_trg_amt";
+	private static final MCPermColumnInfo _royalty_trg_amt = createColumnInfo("royalty_trg_amt");
+	public final MCNumberPermColumn royalty_trg_amt = createNumberColumn(_royalty_trg_amt);
+	
+	/**
+	 * ロイヤリティ支払先. .<p>
+	 *
+	 */
+	public static final String $royalty_psppl = "royalty_psppl";
+	private static final MCPermColumnInfo _royalty_psppl = createColumnInfo("royalty_psppl");
+	public final MCStringPermColumn royalty_psppl = createStringColumn(_royalty_psppl);
+	
+	/**
+	 * 設置場所1. .<p>
+	 *
+	 */
+	public static final String $ins_loc_1 = "ins_loc_1";
+	private static final MCPermColumnInfo _ins_loc_1 = createColumnInfo("ins_loc_1");
+	public final MCStringPermColumn ins_loc_1 = createStringColumn(_ins_loc_1);
+	
+	/**
+	 * 設置場所2. .<p>
+	 *
+	 */
+	public static final String $ins_loc_2 = "ins_loc_2";
+	private static final MCPermColumnInfo _ins_loc_2 = createColumnInfo("ins_loc_2");
+	public final MCStringPermColumn ins_loc_2 = createStringColumn(_ins_loc_2);
+	
+	/**
+	 * SFI番号. .<p>
+	 *
+	 */
+	public static final String $sfi_no = "sfi_no";
+	private static final MCPermColumnInfo _sfi_no = createColumnInfo("sfi_no");
+	public final MCStringPermColumn sfi_no = createStringColumn(_sfi_no);
+	
+	/**
+	 * 装備後売上日. .<p>
+	 *
+	 */
+	public static final String $ps_sal_aft_dt = "ps_sal_aft_dt";
+	private static final MCPermColumnInfo _ps_sal_aft_dt = createColumnInfo("ps_sal_aft_dt");
+	public final MCDatePermColumn ps_sal_aft_dt = createDateColumn(_ps_sal_aft_dt);
+	
+	/**
+	 * 立会検査有無区分. .<p>
+	 *
+	 */
+	public static final String $wit_insp_typ = "wit_insp_typ";
+	private static final MCPermColumnInfo _wit_insp_typ = createColumnInfo("wit_insp_typ");
+	public final MCStringPermColumn wit_insp_typ = createStringColumn(_wit_insp_typ);
+	
+	/**
+	 * 装備要否区分. .<p>
+	 *
+	 */
+	public static final String $equip_typ = "equip_typ";
+	private static final MCPermColumnInfo _equip_typ = createColumnInfo("equip_typ");
+	public final MCStringPermColumn equip_typ = createStringColumn(_equip_typ);
+	
+	/**
+	 * 仕様書区分. .<p>
+	 *
+	 */
+	public static final String $spec_doc_typ = "spec_doc_typ";
+	private static final MCPermColumnInfo _spec_doc_typ = createColumnInfo("spec_doc_typ");
+	public final MCStringPermColumn spec_doc_typ = createStringColumn(_spec_doc_typ);
+	
+	/**
+	 * 型式和英区分. .<p>
+	 *
+	 */
+	public static final String $model_jp_en_typ = "model_jp_en_typ";
+	private static final MCPermColumnInfo _model_jp_en_typ = createColumnInfo("model_jp_en_typ");
+	public final MCStringPermColumn model_jp_en_typ = createStringColumn(_model_jp_en_typ);
+	
+	/**
+	 * 検査成績書（検査成績書区分）. .<p>
+	 *
+	 */
+	public static final String $insp_rep_typ = "insp_rep_typ";
+	private static final MCPermColumnInfo _insp_rep_typ = createColumnInfo("insp_rep_typ");
+	public final MCStringPermColumn insp_rep_typ = createStringColumn(_insp_rep_typ);
+	
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public static final String $insp_rep_qty = "insp_rep_qty";
+	private static final MCPermColumnInfo _insp_rep_qty = createColumnInfo("insp_rep_qty");
+	public final MCNumberPermColumn insp_rep_qty = createNumberColumn(_insp_rep_qty);
+	
+	/**
+	 * 協議図（協議図区分）. .<p>
+	 *
+	 */
+	public static final String $cons_draw_typ = "cons_draw_typ";
+	private static final MCPermColumnInfo _cons_draw_typ = createColumnInfo("cons_draw_typ");
+	public final MCStringPermColumn cons_draw_typ = createStringColumn(_cons_draw_typ);
+	
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public static final String $cons_draw_qty = "cons_draw_qty";
+	private static final MCPermColumnInfo _cons_draw_qty = createColumnInfo("cons_draw_qty");
+	public final MCNumberPermColumn cons_draw_qty = createNumberColumn(_cons_draw_qty);
+	
+	/**
+	 * 工事図（工事図区分）. .<p>
+	 *
+	 */
+	public static final String $const_draw_typ = "const_draw_typ";
+	private static final MCPermColumnInfo _const_draw_typ = createColumnInfo("const_draw_typ");
+	public final MCStringPermColumn const_draw_typ = createStringColumn(_const_draw_typ);
+	
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public static final String $const_draw_qty = "const_draw_qty";
+	private static final MCPermColumnInfo _const_draw_qty = createColumnInfo("const_draw_qty");
+	public final MCNumberPermColumn const_draw_qty = createNumberColumn(_const_draw_qty);
+	
+	/**
+	 * 完成図（完成図区分）. .<p>
+	 *
+	 */
+	public static final String $comp_draw_typ = "comp_draw_typ";
+	private static final MCPermColumnInfo _comp_draw_typ = createColumnInfo("comp_draw_typ");
+	public final MCStringPermColumn comp_draw_typ = createStringColumn(_comp_draw_typ);
+	
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public static final String $comp_draw_qty = "comp_draw_qty";
+	private static final MCPermColumnInfo _comp_draw_qty = createColumnInfo("comp_draw_qty");
+	public final MCNumberPermColumn comp_draw_qty = createNumberColumn(_comp_draw_qty);
+	
+	/**
+	 * 取扱説明書（取扱説明書区分）. .<p>
+	 *
+	 */
+	public static final String $inst_manual_typ = "inst_manual_typ";
+	private static final MCPermColumnInfo _inst_manual_typ = createColumnInfo("inst_manual_typ");
+	public final MCStringPermColumn inst_manual_typ = createStringColumn(_inst_manual_typ);
+	
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public static final String $inst_manual_qty = "inst_manual_qty";
+	private static final MCPermColumnInfo _inst_manual_qty = createColumnInfo("inst_manual_qty");
+	public final MCNumberPermColumn inst_manual_qty = createNumberColumn(_inst_manual_qty);
+	
+	/**
+	 * 承認図（承認図区分）. .<p>
+	 *
+	 */
+	public static final String $aprv_draw_typ = "aprv_draw_typ";
+	private static final MCPermColumnInfo _aprv_draw_typ = createColumnInfo("aprv_draw_typ");
+	public final MCStringPermColumn aprv_draw_typ = createStringColumn(_aprv_draw_typ);
+	
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public static final String $aprv_draw_qty = "aprv_draw_qty";
+	private static final MCPermColumnInfo _aprv_draw_qty = createColumnInfo("aprv_draw_qty");
+	public final MCNumberPermColumn aprv_draw_qty = createNumberColumn(_aprv_draw_qty);
+	
+	/**
+	 * 受注変更理由. .<p>
+	 *
+	 */
+	public static final String $slo_cng_rsn = "slo_cng_rsn";
+	private static final MCPermColumnInfo _slo_cng_rsn = createColumnInfo("slo_cng_rsn");
+	public final MCStringPermColumn slo_cng_rsn = createStringColumn(_slo_cng_rsn);
+	
+	/**
+	 * 無償理由ＣＤ. .<p>
+	 *
+	 */
+	public static final String $frc_rsn_cd = "frc_rsn_cd";
+	private static final MCPermColumnInfo _frc_rsn_cd = createColumnInfo("frc_rsn_cd");
+	public final MCStringPermColumn frc_rsn_cd = createStringColumn(_frc_rsn_cd);
+	
+	/**
+	 * 代表図番. .<p>
+	 *
+	 */
+	public static final String $main_draw_no = "main_draw_no";
+	private static final MCPermColumnInfo _main_draw_no = createColumnInfo("main_draw_no");
+	public final MCStringPermColumn main_draw_no = createStringColumn(_main_draw_no);
+	
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public static final String $slo_cmnt_1 = "slo_cmnt_1";
+	private static final MCPermColumnInfo _slo_cmnt_1 = createColumnInfo("slo_cmnt_1");
+	public final MCStringPermColumn slo_cmnt_1 = createStringColumn(_slo_cmnt_1);
+	
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public static final String $slo_cmnt_2 = "slo_cmnt_2";
+	private static final MCPermColumnInfo _slo_cmnt_2 = createColumnInfo("slo_cmnt_2");
+	public final MCStringPermColumn slo_cmnt_2 = createStringColumn(_slo_cmnt_2);
+	
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public static final String $slo_cmnt_3 = "slo_cmnt_3";
+	private static final MCPermColumnInfo _slo_cmnt_3 = createColumnInfo("slo_cmnt_3");
+	public final MCStringPermColumn slo_cmnt_3 = createStringColumn(_slo_cmnt_3);
+	
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public static final String $slo_cmnt_4 = "slo_cmnt_4";
+	private static final MCPermColumnInfo _slo_cmnt_4 = createColumnInfo("slo_cmnt_4");
+	public final MCStringPermColumn slo_cmnt_4 = createStringColumn(_slo_cmnt_4);
+	
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public static final String $slo_cmnt_5 = "slo_cmnt_5";
+	private static final MCPermColumnInfo _slo_cmnt_5 = createColumnInfo("slo_cmnt_5");
+	public final MCStringPermColumn slo_cmnt_5 = createStringColumn(_slo_cmnt_5);
+	
+	/**
+	 * 元出荷基準ＦＬＧ. .<p>
+	 *
+	 */
+	public static final String $src_ship_flg = "src_ship_flg";
+	private static final MCPermColumnInfo _src_ship_flg = createColumnInfo("src_ship_flg");
+	public final MCBooleanPermColumn src_ship_flg = createBooleanColumn(_src_ship_flg);
+	
+	/**
+	 * 受注種別. .<p>
+	 *
+	 */
+	public static final String $jip_slo_typ = "jip_slo_typ";
+	private static final MCPermColumnInfo _jip_slo_typ = createColumnInfo("jip_slo_typ");
+	public final MCStringPermColumn jip_slo_typ = createStringColumn(_jip_slo_typ);
+	
+	/**
+	 * 客先コード. .<p>
+	 *
+	 */
+	public static final String $jip_cst_cd = "jip_cst_cd";
+	private static final MCPermColumnInfo _jip_cst_cd = createColumnInfo("jip_cst_cd");
+	public final MCStringPermColumn jip_cst_cd = createStringColumn(_jip_cst_cd);
+	
 	public static final MCMeta slo_no_META = createCommonMeta($slo_no, mcframe.commonMA.meta.MA_META.SLO_NO);
 	public static final MCMeta slo_rev_META = createCommonMeta($slo_rev, mcframe.commonMA.meta.MA_META.SLIP_REV);
 	public static final MCMeta trd_cd_META = createCommonMeta($trd_cd, mcframe.commonMA.meta.MA_META.TRD_CD);
@@ -1466,6 +2708,75 @@ public class MST_SLO_R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta sls_dt_META = createCommonMeta($sls_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta slo_aprv_dt_META = createCommonMeta($slo_aprv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta aprv_dt_META = createCommonMeta($aprv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta ship_prnt_no_cst_nm_flg_META = createCommonMeta($ship_prnt_no_cst_nm_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta src_wrk_no_META = createCommonMeta($src_wrk_no, mcframe.commonMA.meta.MA_META.WRK_NO);
+	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
+	public static final MCMeta slo_last_sls_flg_META = createCommonMeta($slo_last_sls_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta prod_itm_cd_META = createCommonMeta($prod_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta prod_itm_sub1_META = createCommonMeta($prod_itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta prod_itm_sub2_META = createCommonMeta($prod_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta prod_itm_sub3_META = createCommonMeta($prod_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta prod_itm_nm_META = createCommonMeta($prod_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
+	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
+	public static final MCMeta match_key_META = createCommonMeta($match_key, mcframe.commonMA.meta.MA_META.MATCH_KEY);
+	public static final MCMeta rcpt_no_META = createCommonMeta($rcpt_no, mcframe.commonMA.meta.MA_META.RCPT_NO);
+	public static final MCMeta appl_doc_no_META = createCommonMeta($appl_doc_no, mcframe.commonMA.meta.MA_META.APPL_DOC_NO);
+	public static final MCMeta dlv_draw_no_META = createCommonMeta($dlv_draw_no, mcframe.commonMA.meta.MA_META.DLV_DRAW_NO);
+	public static final MCMeta slo_num_typ_META = createCommonMeta($slo_num_typ, mcframe.commonMA.meta.MA_META.SLO_NUM_TYP);
+	public static final MCMeta slo_num_META = createCommonMeta($slo_num, mcframe.commonMA.meta.MA_META.SLO_NUM);
+	public static final MCMeta hdr_qty_META = createCommonMeta($hdr_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta hdr_amt_META = createCommonMeta($hdr_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta paint_clr_META = createCommonMeta($paint_clr, mcframe.commonMA.meta.MA_META.PAINT_CLR);
+	public static final MCMeta sales_cond_META = createCommonMeta($sales_cond, mcframe.commonMA.meta.MA_META.SALES_COND);
+	public static final MCMeta ship_sp_instr_typ_META = createCommonMeta($ship_sp_instr_typ, mcframe.commonMA.meta.MA_META.SHIP_SP_INSTR_TYP);
+	public static final MCMeta spec_dlv_note_typ_META = createCommonMeta($spec_dlv_note_typ, mcframe.commonMA.meta.MA_META.SPEC_DLV_NOTE_TYP);
+	public static final MCMeta ord_dlv_dt_META = createCommonMeta($ord_dlv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta mrkt_cd_META = createCommonMeta($mrkt_cd, mcframe.commonMA.meta.MA_META.MRKT_CD);
+	public static final MCMeta cntry_sign_META = createCommonMeta($cntry_sign, mcframe.commonMA.meta.MA_META.CNTRY_SIGN);
+	public static final MCMeta ves_natl_META = createCommonMeta($ves_natl, mcframe.commonMA.meta.MA_META.VES_NATL);
+	public static final MCMeta shipyard_cd_META = createCommonMeta($shipyard_cd, mcframe.commonMA.meta.MA_META.SHIPYARD_CD);
+	public static final MCMeta ves_no_META = createCommonMeta($ves_no, mcframe.commonMA.meta.MA_META.VES_NO);
+	public static final MCMeta ves_nm_META = createCommonMeta($ves_nm, mcframe.commonMA.meta.MA_META.VES_NM);
+	public static final MCMeta tonnage_META = createCommonMeta($tonnage, mcframe.commonMA.meta.MA_META.TONNAGE);
+	public static final MCMeta ves_typ_META = createCommonMeta($ves_typ, mcframe.commonMA.meta.MA_META.VES_TYP);
+	public static final MCMeta insp_std_META = createCommonMeta($insp_std, mcframe.commonMA.meta.MA_META.INSP_STD);
+	public static final MCMeta royalty_trg_amt_META = createCommonMeta($royalty_trg_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta royalty_psppl_META = createCommonMeta($royalty_psppl, mcframe.commonMA.meta.MA_META.ROYALTY_PSPPL);
+	public static final MCMeta ins_loc_1_META = createCommonMeta($ins_loc_1, mcframe.commonMA.meta.MA_META.INS_LOC_CD);
+	public static final MCMeta ins_loc_2_META = createCommonMeta($ins_loc_2, mcframe.commonMA.meta.MA_META.INS_LOC_CD);
+	public static final MCMeta sfi_no_META = createCommonMeta($sfi_no, mcframe.commonMA.meta.MA_META.SFI_NO);
+	public static final MCMeta ps_sal_aft_dt_META = createCommonMeta($ps_sal_aft_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta wit_insp_typ_META = createCommonMeta($wit_insp_typ, mcframe.commonMA.meta.MA_META.WIT_INSP_TYP);
+	public static final MCMeta equip_typ_META = createCommonMeta($equip_typ, mcframe.commonMA.meta.MA_META.EQUIP_TYP);
+	public static final MCMeta spec_doc_typ_META = createCommonMeta($spec_doc_typ, mcframe.commonMA.meta.MA_META.SPEC_DOC_TYP);
+	public static final MCMeta model_jp_en_typ_META = createCommonMeta($model_jp_en_typ, mcframe.commonMA.meta.MA_META.MODEL_JP_EN_TYP);
+	public static final MCMeta insp_rep_typ_META = createCommonMeta($insp_rep_typ, mcframe.commonMA.meta.MA_META.INSP_REP_TYP);
+	public static final MCMeta insp_rep_qty_META = createCommonMeta($insp_rep_qty, mcframe.commonMA.meta.MA_META.INSP_REP_QTY);
+	public static final MCMeta cons_draw_typ_META = createCommonMeta($cons_draw_typ, mcframe.commonMA.meta.MA_META.CONS_DRAW_TYP);
+	public static final MCMeta cons_draw_qty_META = createCommonMeta($cons_draw_qty, mcframe.commonMA.meta.MA_META.CONS_DRAW_QTY);
+	public static final MCMeta const_draw_typ_META = createCommonMeta($const_draw_typ, mcframe.commonMA.meta.MA_META.CONST_DRAW_TYP);
+	public static final MCMeta const_draw_qty_META = createCommonMeta($const_draw_qty, mcframe.commonMA.meta.MA_META.CONST_DRAW_QTY);
+	public static final MCMeta comp_draw_typ_META = createCommonMeta($comp_draw_typ, mcframe.commonMA.meta.MA_META.COMP_DRAW_TYP);
+	public static final MCMeta comp_draw_qty_META = createCommonMeta($comp_draw_qty, mcframe.commonMA.meta.MA_META.COMP_DRAW_QTY);
+	public static final MCMeta inst_manual_typ_META = createCommonMeta($inst_manual_typ, mcframe.commonMA.meta.MA_META.INST_MANUAL_TYP);
+	public static final MCMeta inst_manual_qty_META = createCommonMeta($inst_manual_qty, mcframe.commonMA.meta.MA_META.INST_MANUAL_QTY);
+	public static final MCMeta aprv_draw_typ_META = createCommonMeta($aprv_draw_typ, mcframe.commonMA.meta.MA_META.APRV_DRAW_TYP);
+	public static final MCMeta aprv_draw_qty_META = createCommonMeta($aprv_draw_qty, mcframe.commonMA.meta.MA_META.APRV_DRAW_QTY);
+	public static final MCMeta slo_cng_rsn_META = createCommonMeta($slo_cng_rsn, mcframe.commonMA.meta.MA_META.SLO_CNG_RSN);
+	public static final MCMeta frc_rsn_cd_META = createCommonMeta($frc_rsn_cd, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
+	public static final MCMeta main_draw_no_META = createCommonMeta($main_draw_no, mcframe.commonMA.meta.MA_META.MAIN_DRAW_NO);
+	public static final MCMeta slo_cmnt_1_META = createCommonMeta($slo_cmnt_1, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta slo_cmnt_2_META = createCommonMeta($slo_cmnt_2, mcframe.commonMA.meta.MA_META.MST_MEMO2);
+	public static final MCMeta slo_cmnt_3_META = createCommonMeta($slo_cmnt_3, mcframe.commonMA.meta.MA_META.MST_MEMO3);
+	public static final MCMeta slo_cmnt_4_META = createCommonMeta($slo_cmnt_4, mcframe.commonMA.meta.MA_META.MST_MEMO4);
+	public static final MCMeta slo_cmnt_5_META = createCommonMeta($slo_cmnt_5, mcframe.commonMA.meta.MA_META.MST_MEMO5);
+	public static final MCMeta src_ship_flg_META = createCommonMeta($src_ship_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta jip_slo_typ_META = createCommonMeta($jip_slo_typ, mcframe.commonMA.meta.MA_META.JIP_SLO_TYP);
+	public static final MCMeta jip_cst_cd_META = createCommonMeta($jip_cst_cd, mcframe.commonMA.meta.MA_META.CST_CD);
 
 	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
 	static {
@@ -1547,7 +2858,76 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_usr_nm_META,
 			upd_ts_META,
 			upd_func_id_META,
-			upd_srv_req_no_META
+			upd_srv_req_no_META,
+			sls_dt_META,
+			slo_aprv_dt_META,
+			aprv_dt_META,
+			ship_prnt_no_cst_nm_flg_META,
+			src_wrk_no_META,
+			zoho_sls_schd_no_META,
+			slo_last_sls_flg_META,
+			prod_itm_cd_META,
+			prod_itm_sub1_META,
+			prod_itm_sub2_META,
+			prod_itm_sub3_META,
+			prod_itm_nm_META,
+			surv_line_qty_META,
+			diameter_META,
+			match_key_META,
+			rcpt_no_META,
+			appl_doc_no_META,
+			dlv_draw_no_META,
+			slo_num_typ_META,
+			slo_num_META,
+			hdr_qty_META,
+			hdr_amt_META,
+			paint_clr_META,
+			sales_cond_META,
+			ship_sp_instr_typ_META,
+			spec_dlv_note_typ_META,
+			ord_dlv_dt_META,
+			mrkt_cd_META,
+			cntry_sign_META,
+			ves_natl_META,
+			shipyard_cd_META,
+			ves_no_META,
+			ves_nm_META,
+			tonnage_META,
+			ves_typ_META,
+			insp_std_META,
+			royalty_trg_amt_META,
+			royalty_psppl_META,
+			ins_loc_1_META,
+			ins_loc_2_META,
+			sfi_no_META,
+			ps_sal_aft_dt_META,
+			wit_insp_typ_META,
+			equip_typ_META,
+			spec_doc_typ_META,
+			model_jp_en_typ_META,
+			insp_rep_typ_META,
+			insp_rep_qty_META,
+			cons_draw_typ_META,
+			cons_draw_qty_META,
+			const_draw_typ_META,
+			const_draw_qty_META,
+			comp_draw_typ_META,
+			comp_draw_qty_META,
+			inst_manual_typ_META,
+			inst_manual_qty_META,
+			aprv_draw_typ_META,
+			aprv_draw_qty_META,
+			slo_cng_rsn_META,
+			frc_rsn_cd_META,
+			main_draw_no_META,
+			slo_cmnt_1_META,
+			slo_cmnt_2_META,
+			slo_cmnt_3_META,
+			slo_cmnt_4_META,
+			slo_cmnt_5_META,
+			src_ship_flg_META,
+			jip_slo_typ_META,
+			jip_cst_cd_META
 		},
 		new String[][]{
 			{
@@ -2706,6 +4086,1041 @@ public class MST_SLO_R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$sls_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_R.$sls_dt,
+				"sls_dt",
+				sls_dt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_aprv_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_R.$slo_aprv_dt,
+				"slo_aprv_dt",
+				slo_aprv_dt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$aprv_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_R.$aprv_dt,
+				"aprv_dt",
+				aprv_dt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ship_prnt_no_cst_nm_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_R.$ship_prnt_no_cst_nm_flg,
+				"ship_prnt_no_cst_nm_flg",
+				ship_prnt_no_cst_nm_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$src_wrk_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$src_wrk_no,
+				"src_wrk_no",
+				src_wrk_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$zoho_sls_schd_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$zoho_sls_schd_no,
+				"zoho_sls_schd_no",
+				zoho_sls_schd_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_last_sls_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_R.$slo_last_sls_flg,
+				"slo_last_sls_flg",
+				slo_last_sls_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$prod_itm_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$prod_itm_cd,
+				"prod_itm_cd",
+				prod_itm_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$prod_itm_sub1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$prod_itm_sub1,
+				"prod_itm_sub1",
+				prod_itm_sub1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$prod_itm_sub2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$prod_itm_sub2,
+				"prod_itm_sub2",
+				prod_itm_sub2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$prod_itm_sub3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$prod_itm_sub3,
+				"prod_itm_sub3",
+				prod_itm_sub3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$prod_itm_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$prod_itm_nm,
+				"prod_itm_nm",
+				prod_itm_nm,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$surv_line_qty,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$surv_line_qty,
+				"surv_line_qty",
+				surv_line_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$diameter,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$diameter,
+				"diameter",
+				diameter,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$match_key,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$match_key,
+				"match_key",
+				match_key,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$rcpt_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$rcpt_no,
+				"rcpt_no",
+				rcpt_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$appl_doc_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$appl_doc_no,
+				"appl_doc_no",
+				appl_doc_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$dlv_draw_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$dlv_draw_no,
+				"dlv_draw_no",
+				dlv_draw_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_num_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_num_typ,
+				"slo_num_typ",
+				slo_num_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_num,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_num,
+				"slo_num",
+				slo_num,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$hdr_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$hdr_qty,
+				"hdr_qty",
+				hdr_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$hdr_amt,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$hdr_amt,
+				"hdr_amt",
+				hdr_amt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$paint_clr,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$paint_clr,
+				"paint_clr",
+				paint_clr,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$sales_cond,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$sales_cond,
+				"sales_cond",
+				sales_cond,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ship_sp_instr_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ship_sp_instr_typ,
+				"ship_sp_instr_typ",
+				ship_sp_instr_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$spec_dlv_note_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$spec_dlv_note_typ,
+				"spec_dlv_note_typ",
+				spec_dlv_note_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ord_dlv_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_R.$ord_dlv_dt,
+				"ord_dlv_dt",
+				ord_dlv_dt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$mrkt_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$mrkt_cd,
+				"mrkt_cd",
+				mrkt_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$cntry_sign,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$cntry_sign,
+				"cntry_sign",
+				cntry_sign,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ves_natl,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ves_natl,
+				"ves_natl",
+				ves_natl,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$shipyard_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$shipyard_cd,
+				"shipyard_cd",
+				shipyard_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ves_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ves_no,
+				"ves_no",
+				ves_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ves_nm,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ves_nm,
+				"ves_nm",
+				ves_nm,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$tonnage,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$tonnage,
+				"tonnage",
+				tonnage,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ves_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ves_typ,
+				"ves_typ",
+				ves_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$insp_std,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$insp_std,
+				"insp_std",
+				insp_std,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$royalty_trg_amt,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$royalty_trg_amt,
+				"royalty_trg_amt",
+				royalty_trg_amt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$royalty_psppl,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$royalty_psppl,
+				"royalty_psppl",
+				royalty_psppl,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ins_loc_1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ins_loc_1,
+				"ins_loc_1",
+				ins_loc_1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ins_loc_2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$ins_loc_2,
+				"ins_loc_2",
+				ins_loc_2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$sfi_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$sfi_no,
+				"sfi_no",
+				sfi_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$ps_sal_aft_dt,
+			new MCDBContainerColulmnInfo<MCDatePermColumn>(
+				MCDataType.DATE,
+				MST_SLO_R.$ps_sal_aft_dt,
+				"ps_sal_aft_dt",
+				ps_sal_aft_dt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$wit_insp_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$wit_insp_typ,
+				"wit_insp_typ",
+				wit_insp_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$equip_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$equip_typ,
+				"equip_typ",
+				equip_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$spec_doc_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$spec_doc_typ,
+				"spec_doc_typ",
+				spec_doc_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$model_jp_en_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$model_jp_en_typ,
+				"model_jp_en_typ",
+				model_jp_en_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$insp_rep_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$insp_rep_typ,
+				"insp_rep_typ",
+				insp_rep_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$insp_rep_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$insp_rep_qty,
+				"insp_rep_qty",
+				insp_rep_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$cons_draw_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$cons_draw_typ,
+				"cons_draw_typ",
+				cons_draw_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$cons_draw_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$cons_draw_qty,
+				"cons_draw_qty",
+				cons_draw_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$const_draw_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$const_draw_typ,
+				"const_draw_typ",
+				const_draw_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$const_draw_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$const_draw_qty,
+				"const_draw_qty",
+				const_draw_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$comp_draw_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$comp_draw_typ,
+				"comp_draw_typ",
+				comp_draw_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$comp_draw_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$comp_draw_qty,
+				"comp_draw_qty",
+				comp_draw_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$inst_manual_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$inst_manual_typ,
+				"inst_manual_typ",
+				inst_manual_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$inst_manual_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$inst_manual_qty,
+				"inst_manual_qty",
+				inst_manual_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$aprv_draw_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$aprv_draw_typ,
+				"aprv_draw_typ",
+				aprv_draw_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$aprv_draw_qty,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_R.$aprv_draw_qty,
+				"aprv_draw_qty",
+				aprv_draw_qty,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cng_rsn,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cng_rsn,
+				"slo_cng_rsn",
+				slo_cng_rsn,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$frc_rsn_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$frc_rsn_cd,
+				"frc_rsn_cd",
+				frc_rsn_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$main_draw_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$main_draw_no,
+				"main_draw_no",
+				main_draw_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cmnt_1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cmnt_1,
+				"slo_cmnt_1",
+				slo_cmnt_1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cmnt_2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cmnt_2,
+				"slo_cmnt_2",
+				slo_cmnt_2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cmnt_3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cmnt_3,
+				"slo_cmnt_3",
+				slo_cmnt_3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cmnt_4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cmnt_4,
+				"slo_cmnt_4",
+				slo_cmnt_4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$slo_cmnt_5,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$slo_cmnt_5,
+				"slo_cmnt_5",
+				slo_cmnt_5,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$src_ship_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MST_SLO_R.$src_ship_flg,
+				"src_ship_flg",
+				src_ship_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$jip_slo_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$jip_slo_typ,
+				"jip_slo_typ",
+				jip_slo_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_R.$jip_cst_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_R.$jip_cst_cd,
+				"jip_cst_cd",
+				jip_cst_cd,
+				false,
+				true,
+				false,
 				false,
 				false,
 				""
@@ -4305,6 +6720,1398 @@ public class MST_SLO_R extends MCDBContainer {
 		setConstString(offset + 73, $upd_srv_req_no, value);
 	}
 
+	/**
+	 * 売上日. .<p>
+	 *
+	 */
+	public MCDate sls_dt() {
+		return getConstDate(offset + 74, $sls_dt);
+	}
+
+	/**
+	 * 売上日. .<p>
+	 *
+	 */
+	public void sls_dt(MCDate value) {
+		setConstDate(offset + 74, $sls_dt, value);
+	}
+
+	/**
+	 * 受注日. .<p>
+	 *
+	 */
+	public MCDate slo_aprv_dt() {
+		return getConstDate(offset + 75, $slo_aprv_dt);
+	}
+
+	/**
+	 * 受注日. .<p>
+	 *
+	 */
+	public void slo_aprv_dt(MCDate value) {
+		setConstDate(offset + 75, $slo_aprv_dt, value);
+	}
+
+	/**
+	 * 更新日. .<p>
+	 *
+	 */
+	public MCDate aprv_dt() {
+		return getConstDate(offset + 76, $aprv_dt);
+	}
+
+	/**
+	 * 更新日. .<p>
+	 *
+	 */
+	public void aprv_dt(MCDate value) {
+		setConstDate(offset + 76, $aprv_dt, value);
+	}
+
+	/**
+	 * 出荷帳票得意先名印字しないＦＬＧ. .<p>
+	 *
+	 */
+	public boolean ship_prnt_no_cst_nm_flg() {
+		return getConstBoolean(offset + 77, $ship_prnt_no_cst_nm_flg);
+	}
+
+	/**
+	 * 出荷帳票得意先名印字しないＦＬＧ. .<p>
+	 *
+	 */
+	public void ship_prnt_no_cst_nm_flg(boolean value) {
+		setConstBoolean(offset + 77, $ship_prnt_no_cst_nm_flg, value);
+	}
+
+	/**
+	 * 元案件ＮＯ. .<p>
+	 *
+	 */
+	public String src_wrk_no() {
+		return getConstString(offset + 78, $src_wrk_no);
+	}
+
+	/**
+	 * 元案件ＮＯ. .<p>
+	 *
+	 */
+	public void src_wrk_no(String value) {
+		setConstString(offset + 78, $src_wrk_no, value);
+	}
+
+	/**
+	 * ＺＯＨＯ販売予定ＮＯ. .<p>
+	 *
+	 */
+	public String zoho_sls_schd_no() {
+		return getConstString(offset + 79, $zoho_sls_schd_no);
+	}
+
+	/**
+	 * ＺＯＨＯ販売予定ＮＯ. .<p>
+	 *
+	 */
+	public void zoho_sls_schd_no(String value) {
+		setConstString(offset + 79, $zoho_sls_schd_no, value);
+	}
+
+	/**
+	 * 受注出荷最終売上. .<p>
+	 *
+	 */
+	public boolean slo_last_sls_flg() {
+		return getConstBoolean(offset + 80, $slo_last_sls_flg);
+	}
+
+	/**
+	 * 受注出荷最終売上. .<p>
+	 *
+	 */
+	public void slo_last_sls_flg(boolean value) {
+		setConstBoolean(offset + 80, $slo_last_sls_flg, value);
+	}
+
+	/**
+	 * 製品ＣＤ. .<p>
+	 *
+	 */
+	public String prod_itm_cd() {
+		return getConstString(offset + 81, $prod_itm_cd);
+	}
+
+	/**
+	 * 製品ＣＤ. .<p>
+	 *
+	 */
+	public void prod_itm_cd(String value) {
+		setConstString(offset + 81, $prod_itm_cd, value);
+	}
+
+	/**
+	 * 製品枝番１. .<p>
+	 *
+	 */
+	public String prod_itm_sub1() {
+		return getConstString(offset + 82, $prod_itm_sub1);
+	}
+
+	/**
+	 * 製品枝番１. .<p>
+	 *
+	 */
+	public void prod_itm_sub1(String value) {
+		setConstString(offset + 82, $prod_itm_sub1, value);
+	}
+
+	/**
+	 * 製品枝番２. .<p>
+	 *
+	 */
+	public String prod_itm_sub2() {
+		return getConstString(offset + 83, $prod_itm_sub2);
+	}
+
+	/**
+	 * 製品枝番２. .<p>
+	 *
+	 */
+	public void prod_itm_sub2(String value) {
+		setConstString(offset + 83, $prod_itm_sub2, value);
+	}
+
+	/**
+	 * 製品枝番３. .<p>
+	 *
+	 */
+	public String prod_itm_sub3() {
+		return getConstString(offset + 84, $prod_itm_sub3);
+	}
+
+	/**
+	 * 製品枝番３. .<p>
+	 *
+	 */
+	public void prod_itm_sub3(String value) {
+		setConstString(offset + 84, $prod_itm_sub3, value);
+	}
+
+	/**
+	 * 製品名. .<p>
+	 *
+	 */
+	public String prod_itm_nm() {
+		return getConstString(offset + 85, $prod_itm_nm);
+	}
+
+	/**
+	 * 製品名. .<p>
+	 *
+	 */
+	public void prod_itm_nm(String value) {
+		setConstString(offset + 85, $prod_itm_nm, value);
+	}
+
+	/**
+	 * 測線数. .<p>
+	 *
+	 */
+	public String surv_line_qty() {
+		return getConstString(offset + 86, $surv_line_qty);
+	}
+
+	/**
+	 * 測線数. .<p>
+	 *
+	 */
+	public void surv_line_qty(String value) {
+		setConstString(offset + 86, $surv_line_qty, value);
+	}
+
+	/**
+	 * 口径. .<p>
+	 *
+	 */
+	public String diameter() {
+		return getConstString(offset + 87, $diameter);
+	}
+
+	/**
+	 * 口径. .<p>
+	 *
+	 */
+	public void diameter(String value) {
+		setConstString(offset + 87, $diameter, value);
+	}
+
+	/**
+	 * 照合ＫＥＹ. .<p>
+	 *
+	 */
+	public String match_key() {
+		return getConstString(offset + 88, $match_key);
+	}
+
+	/**
+	 * 照合ＫＥＹ. .<p>
+	 *
+	 */
+	public void match_key(String value) {
+		setConstString(offset + 88, $match_key, value);
+	}
+
+	/**
+	 * 受付番号. .<p>
+	 *
+	 */
+	public String rcpt_no() {
+		return getConstString(offset + 89, $rcpt_no);
+	}
+
+	/**
+	 * 受付番号. .<p>
+	 *
+	 */
+	public void rcpt_no(String value) {
+		setConstString(offset + 89, $rcpt_no, value);
+	}
+
+	/**
+	 * 申請書番号. .<p>
+	 *
+	 */
+	public String appl_doc_no() {
+		return getConstString(offset + 90, $appl_doc_no);
+	}
+
+	/**
+	 * 申請書番号. .<p>
+	 *
+	 */
+	public void appl_doc_no(String value) {
+		setConstString(offset + 90, $appl_doc_no, value);
+	}
+
+	/**
+	 * 納入図番号. .<p>
+	 *
+	 */
+	public String dlv_draw_no() {
+		return getConstString(offset + 91, $dlv_draw_no);
+	}
+
+	/**
+	 * 納入図番号. .<p>
+	 *
+	 */
+	public void dlv_draw_no(String value) {
+		setConstString(offset + 91, $dlv_draw_no, value);
+	}
+
+	/**
+	 * 注番区分. .<p>
+	 *
+	 */
+	public String slo_num_typ() {
+		return getConstString(offset + 92, $slo_num_typ);
+	}
+
+	/**
+	 * 注番区分. .<p>
+	 *
+	 */
+	public void slo_num_typ(String value) {
+		setConstString(offset + 92, $slo_num_typ, value);
+	}
+
+	/**
+	 * 注文番号. .<p>
+	 *
+	 */
+	public String slo_num() {
+		return getConstString(offset + 93, $slo_num);
+	}
+
+	/**
+	 * 注文番号. .<p>
+	 *
+	 */
+	public void slo_num(String value) {
+		setConstString(offset + 93, $slo_num, value);
+	}
+
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public MCNumber hdr_qty() {
+		return getConstNumber(offset + 94, $hdr_qty);
+	}
+
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_qty(MCNumber value) {
+		setConstNumber(offset + 94, $hdr_qty, value);
+	}
+	
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_qty(int value) {
+		setConstNumber(offset + 94, $hdr_qty, value);
+	}
+	
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_qty(long value) {
+		setConstNumber(offset + 94, $hdr_qty, value);
+	}
+	
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_qty(float value) {
+		setConstNumber(offset + 94, $hdr_qty, value);
+	}
+	
+	/**
+	 * 数量（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_qty(double value) {
+		setConstNumber(offset + 94, $hdr_qty, value);
+	}
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public MCNumber hdr_amt() {
+		return getConstNumber(offset + 95, $hdr_amt);
+	}
+
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_amt(MCNumber value) {
+		setConstNumber(offset + 95, $hdr_amt, value);
+	}
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_amt(int value) {
+		setConstNumber(offset + 95, $hdr_amt, value);
+	}
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_amt(long value) {
+		setConstNumber(offset + 95, $hdr_amt, value);
+	}
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_amt(float value) {
+		setConstNumber(offset + 95, $hdr_amt, value);
+	}
+	
+	/**
+	 * 金額（ヘッダ）. .<p>
+	 *
+	 */
+	public void hdr_amt(double value) {
+		setConstNumber(offset + 95, $hdr_amt, value);
+	}
+	
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public String paint_clr() {
+		return getConstString(offset + 96, $paint_clr);
+	}
+
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public void paint_clr(String value) {
+		setConstString(offset + 96, $paint_clr, value);
+	}
+
+	/**
+	 * 売上条件区分. .<p>
+	 *
+	 */
+	public String sales_cond() {
+		return getConstString(offset + 97, $sales_cond);
+	}
+
+	/**
+	 * 売上条件区分. .<p>
+	 *
+	 */
+	public void sales_cond(String value) {
+		setConstString(offset + 97, $sales_cond, value);
+	}
+
+	/**
+	 * 出荷特別指示区分. .<p>
+	 *
+	 */
+	public String ship_sp_instr_typ() {
+		return getConstString(offset + 98, $ship_sp_instr_typ);
+	}
+
+	/**
+	 * 出荷特別指示区分. .<p>
+	 *
+	 */
+	public void ship_sp_instr_typ(String value) {
+		setConstString(offset + 98, $ship_sp_instr_typ, value);
+	}
+
+	/**
+	 * 指定納品書区分. .<p>
+	 *
+	 */
+	public String spec_dlv_note_typ() {
+		return getConstString(offset + 99, $spec_dlv_note_typ);
+	}
+
+	/**
+	 * 指定納品書区分. .<p>
+	 *
+	 */
+	public void spec_dlv_note_typ(String value) {
+		setConstString(offset + 99, $spec_dlv_note_typ, value);
+	}
+
+	/**
+	 * 注文書納期. .<p>
+	 *
+	 */
+	public MCDate ord_dlv_dt() {
+		return getConstDate(offset + 100, $ord_dlv_dt);
+	}
+
+	/**
+	 * 注文書納期. .<p>
+	 *
+	 */
+	public void ord_dlv_dt(MCDate value) {
+		setConstDate(offset + 100, $ord_dlv_dt, value);
+	}
+
+	/**
+	 * 市場ＣＤ. .<p>
+	 *
+	 */
+	public String mrkt_cd() {
+		return getConstString(offset + 101, $mrkt_cd);
+	}
+
+	/**
+	 * 市場ＣＤ. .<p>
+	 *
+	 */
+	public void mrkt_cd(String value) {
+		setConstString(offset + 101, $mrkt_cd, value);
+	}
+
+	/**
+	 * 国別符号. .<p>
+	 *
+	 */
+	public String cntry_sign() {
+		return getConstString(offset + 102, $cntry_sign);
+	}
+
+	/**
+	 * 国別符号. .<p>
+	 *
+	 */
+	public void cntry_sign(String value) {
+		setConstString(offset + 102, $cntry_sign, value);
+	}
+
+	/**
+	 * 船籍. .<p>
+	 *
+	 */
+	public String ves_natl() {
+		return getConstString(offset + 103, $ves_natl);
+	}
+
+	/**
+	 * 船籍. .<p>
+	 *
+	 */
+	public void ves_natl(String value) {
+		setConstString(offset + 103, $ves_natl, value);
+	}
+
+	/**
+	 * 造船所. .<p>
+	 *
+	 */
+	public String shipyard_cd() {
+		return getConstString(offset + 104, $shipyard_cd);
+	}
+
+	/**
+	 * 造船所. .<p>
+	 *
+	 */
+	public void shipyard_cd(String value) {
+		setConstString(offset + 104, $shipyard_cd, value);
+	}
+
+	/**
+	 * 船番. .<p>
+	 *
+	 */
+	public String ves_no() {
+		return getConstString(offset + 105, $ves_no);
+	}
+
+	/**
+	 * 船番. .<p>
+	 *
+	 */
+	public void ves_no(String value) {
+		setConstString(offset + 105, $ves_no, value);
+	}
+
+	/**
+	 * 船名. .<p>
+	 *
+	 */
+	public String ves_nm() {
+		return getConstString(offset + 106, $ves_nm);
+	}
+
+	/**
+	 * 船名. .<p>
+	 *
+	 */
+	public void ves_nm(String value) {
+		setConstString(offset + 106, $ves_nm, value);
+	}
+
+	/**
+	 * 屯数. .<p>
+	 *
+	 */
+	public String tonnage() {
+		return getConstString(offset + 107, $tonnage);
+	}
+
+	/**
+	 * 屯数. .<p>
+	 *
+	 */
+	public void tonnage(String value) {
+		setConstString(offset + 107, $tonnage, value);
+	}
+
+	/**
+	 * 船種. .<p>
+	 *
+	 */
+	public String ves_typ() {
+		return getConstString(offset + 108, $ves_typ);
+	}
+
+	/**
+	 * 船種. .<p>
+	 *
+	 */
+	public void ves_typ(String value) {
+		setConstString(offset + 108, $ves_typ, value);
+	}
+
+	/**
+	 * 検査規格. .<p>
+	 *
+	 */
+	public String insp_std() {
+		return getConstString(offset + 109, $insp_std);
+	}
+
+	/**
+	 * 検査規格. .<p>
+	 *
+	 */
+	public void insp_std(String value) {
+		setConstString(offset + 109, $insp_std, value);
+	}
+
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public MCNumber royalty_trg_amt() {
+		return getConstNumber(offset + 110, $royalty_trg_amt);
+	}
+
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public void royalty_trg_amt(MCNumber value) {
+		setConstNumber(offset + 110, $royalty_trg_amt, value);
+	}
+	
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public void royalty_trg_amt(int value) {
+		setConstNumber(offset + 110, $royalty_trg_amt, value);
+	}
+	
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public void royalty_trg_amt(long value) {
+		setConstNumber(offset + 110, $royalty_trg_amt, value);
+	}
+	
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public void royalty_trg_amt(float value) {
+		setConstNumber(offset + 110, $royalty_trg_amt, value);
+	}
+	
+	/**
+	 * ロイヤリティ対象金額. .<p>
+	 *
+	 */
+	public void royalty_trg_amt(double value) {
+		setConstNumber(offset + 110, $royalty_trg_amt, value);
+	}
+	
+	/**
+	 * ロイヤリティ支払先. .<p>
+	 *
+	 */
+	public String royalty_psppl() {
+		return getConstString(offset + 111, $royalty_psppl);
+	}
+
+	/**
+	 * ロイヤリティ支払先. .<p>
+	 *
+	 */
+	public void royalty_psppl(String value) {
+		setConstString(offset + 111, $royalty_psppl, value);
+	}
+
+	/**
+	 * 設置場所1. .<p>
+	 *
+	 */
+	public String ins_loc_1() {
+		return getConstString(offset + 112, $ins_loc_1);
+	}
+
+	/**
+	 * 設置場所1. .<p>
+	 *
+	 */
+	public void ins_loc_1(String value) {
+		setConstString(offset + 112, $ins_loc_1, value);
+	}
+
+	/**
+	 * 設置場所2. .<p>
+	 *
+	 */
+	public String ins_loc_2() {
+		return getConstString(offset + 113, $ins_loc_2);
+	}
+
+	/**
+	 * 設置場所2. .<p>
+	 *
+	 */
+	public void ins_loc_2(String value) {
+		setConstString(offset + 113, $ins_loc_2, value);
+	}
+
+	/**
+	 * SFI番号. .<p>
+	 *
+	 */
+	public String sfi_no() {
+		return getConstString(offset + 114, $sfi_no);
+	}
+
+	/**
+	 * SFI番号. .<p>
+	 *
+	 */
+	public void sfi_no(String value) {
+		setConstString(offset + 114, $sfi_no, value);
+	}
+
+	/**
+	 * 装備後売上日. .<p>
+	 *
+	 */
+	public MCDate ps_sal_aft_dt() {
+		return getConstDate(offset + 115, $ps_sal_aft_dt);
+	}
+
+	/**
+	 * 装備後売上日. .<p>
+	 *
+	 */
+	public void ps_sal_aft_dt(MCDate value) {
+		setConstDate(offset + 115, $ps_sal_aft_dt, value);
+	}
+
+	/**
+	 * 立会検査有無区分. .<p>
+	 *
+	 */
+	public String wit_insp_typ() {
+		return getConstString(offset + 116, $wit_insp_typ);
+	}
+
+	/**
+	 * 立会検査有無区分. .<p>
+	 *
+	 */
+	public void wit_insp_typ(String value) {
+		setConstString(offset + 116, $wit_insp_typ, value);
+	}
+
+	/**
+	 * 装備要否区分. .<p>
+	 *
+	 */
+	public String equip_typ() {
+		return getConstString(offset + 117, $equip_typ);
+	}
+
+	/**
+	 * 装備要否区分. .<p>
+	 *
+	 */
+	public void equip_typ(String value) {
+		setConstString(offset + 117, $equip_typ, value);
+	}
+
+	/**
+	 * 仕様書区分. .<p>
+	 *
+	 */
+	public String spec_doc_typ() {
+		return getConstString(offset + 118, $spec_doc_typ);
+	}
+
+	/**
+	 * 仕様書区分. .<p>
+	 *
+	 */
+	public void spec_doc_typ(String value) {
+		setConstString(offset + 118, $spec_doc_typ, value);
+	}
+
+	/**
+	 * 型式和英区分. .<p>
+	 *
+	 */
+	public String model_jp_en_typ() {
+		return getConstString(offset + 119, $model_jp_en_typ);
+	}
+
+	/**
+	 * 型式和英区分. .<p>
+	 *
+	 */
+	public void model_jp_en_typ(String value) {
+		setConstString(offset + 119, $model_jp_en_typ, value);
+	}
+
+	/**
+	 * 検査成績書（検査成績書区分）. .<p>
+	 *
+	 */
+	public String insp_rep_typ() {
+		return getConstString(offset + 120, $insp_rep_typ);
+	}
+
+	/**
+	 * 検査成績書（検査成績書区分）. .<p>
+	 *
+	 */
+	public void insp_rep_typ(String value) {
+		setConstString(offset + 120, $insp_rep_typ, value);
+	}
+
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public MCNumber insp_rep_qty() {
+		return getConstNumber(offset + 121, $insp_rep_qty);
+	}
+
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public void insp_rep_qty(MCNumber value) {
+		setConstNumber(offset + 121, $insp_rep_qty, value);
+	}
+	
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public void insp_rep_qty(int value) {
+		setConstNumber(offset + 121, $insp_rep_qty, value);
+	}
+	
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public void insp_rep_qty(long value) {
+		setConstNumber(offset + 121, $insp_rep_qty, value);
+	}
+	
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public void insp_rep_qty(float value) {
+		setConstNumber(offset + 121, $insp_rep_qty, value);
+	}
+	
+	/**
+	 * 検査成績書（検査成績書部数）. .<p>
+	 *
+	 */
+	public void insp_rep_qty(double value) {
+		setConstNumber(offset + 121, $insp_rep_qty, value);
+	}
+	
+	/**
+	 * 協議図（協議図区分）. .<p>
+	 *
+	 */
+	public String cons_draw_typ() {
+		return getConstString(offset + 122, $cons_draw_typ);
+	}
+
+	/**
+	 * 協議図（協議図区分）. .<p>
+	 *
+	 */
+	public void cons_draw_typ(String value) {
+		setConstString(offset + 122, $cons_draw_typ, value);
+	}
+
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public MCNumber cons_draw_qty() {
+		return getConstNumber(offset + 123, $cons_draw_qty);
+	}
+
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public void cons_draw_qty(MCNumber value) {
+		setConstNumber(offset + 123, $cons_draw_qty, value);
+	}
+	
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public void cons_draw_qty(int value) {
+		setConstNumber(offset + 123, $cons_draw_qty, value);
+	}
+	
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public void cons_draw_qty(long value) {
+		setConstNumber(offset + 123, $cons_draw_qty, value);
+	}
+	
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public void cons_draw_qty(float value) {
+		setConstNumber(offset + 123, $cons_draw_qty, value);
+	}
+	
+	/**
+	 * 協議図（協議図部数）. .<p>
+	 *
+	 */
+	public void cons_draw_qty(double value) {
+		setConstNumber(offset + 123, $cons_draw_qty, value);
+	}
+	
+	/**
+	 * 工事図（工事図区分）. .<p>
+	 *
+	 */
+	public String const_draw_typ() {
+		return getConstString(offset + 124, $const_draw_typ);
+	}
+
+	/**
+	 * 工事図（工事図区分）. .<p>
+	 *
+	 */
+	public void const_draw_typ(String value) {
+		setConstString(offset + 124, $const_draw_typ, value);
+	}
+
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public MCNumber const_draw_qty() {
+		return getConstNumber(offset + 125, $const_draw_qty);
+	}
+
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public void const_draw_qty(MCNumber value) {
+		setConstNumber(offset + 125, $const_draw_qty, value);
+	}
+	
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public void const_draw_qty(int value) {
+		setConstNumber(offset + 125, $const_draw_qty, value);
+	}
+	
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public void const_draw_qty(long value) {
+		setConstNumber(offset + 125, $const_draw_qty, value);
+	}
+	
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public void const_draw_qty(float value) {
+		setConstNumber(offset + 125, $const_draw_qty, value);
+	}
+	
+	/**
+	 * 工事図（工事図部数）. .<p>
+	 *
+	 */
+	public void const_draw_qty(double value) {
+		setConstNumber(offset + 125, $const_draw_qty, value);
+	}
+	
+	/**
+	 * 完成図（完成図区分）. .<p>
+	 *
+	 */
+	public String comp_draw_typ() {
+		return getConstString(offset + 126, $comp_draw_typ);
+	}
+
+	/**
+	 * 完成図（完成図区分）. .<p>
+	 *
+	 */
+	public void comp_draw_typ(String value) {
+		setConstString(offset + 126, $comp_draw_typ, value);
+	}
+
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public MCNumber comp_draw_qty() {
+		return getConstNumber(offset + 127, $comp_draw_qty);
+	}
+
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public void comp_draw_qty(MCNumber value) {
+		setConstNumber(offset + 127, $comp_draw_qty, value);
+	}
+	
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public void comp_draw_qty(int value) {
+		setConstNumber(offset + 127, $comp_draw_qty, value);
+	}
+	
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public void comp_draw_qty(long value) {
+		setConstNumber(offset + 127, $comp_draw_qty, value);
+	}
+	
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public void comp_draw_qty(float value) {
+		setConstNumber(offset + 127, $comp_draw_qty, value);
+	}
+	
+	/**
+	 * 完成図（完成図部数）. .<p>
+	 *
+	 */
+	public void comp_draw_qty(double value) {
+		setConstNumber(offset + 127, $comp_draw_qty, value);
+	}
+	
+	/**
+	 * 取扱説明書（取扱説明書区分）. .<p>
+	 *
+	 */
+	public String inst_manual_typ() {
+		return getConstString(offset + 128, $inst_manual_typ);
+	}
+
+	/**
+	 * 取扱説明書（取扱説明書区分）. .<p>
+	 *
+	 */
+	public void inst_manual_typ(String value) {
+		setConstString(offset + 128, $inst_manual_typ, value);
+	}
+
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public MCNumber inst_manual_qty() {
+		return getConstNumber(offset + 129, $inst_manual_qty);
+	}
+
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public void inst_manual_qty(MCNumber value) {
+		setConstNumber(offset + 129, $inst_manual_qty, value);
+	}
+	
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public void inst_manual_qty(int value) {
+		setConstNumber(offset + 129, $inst_manual_qty, value);
+	}
+	
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public void inst_manual_qty(long value) {
+		setConstNumber(offset + 129, $inst_manual_qty, value);
+	}
+	
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public void inst_manual_qty(float value) {
+		setConstNumber(offset + 129, $inst_manual_qty, value);
+	}
+	
+	/**
+	 * 取扱説明書（取扱説明書部数）. .<p>
+	 *
+	 */
+	public void inst_manual_qty(double value) {
+		setConstNumber(offset + 129, $inst_manual_qty, value);
+	}
+	
+	/**
+	 * 承認図（承認図区分）. .<p>
+	 *
+	 */
+	public String aprv_draw_typ() {
+		return getConstString(offset + 130, $aprv_draw_typ);
+	}
+
+	/**
+	 * 承認図（承認図区分）. .<p>
+	 *
+	 */
+	public void aprv_draw_typ(String value) {
+		setConstString(offset + 130, $aprv_draw_typ, value);
+	}
+
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public MCNumber aprv_draw_qty() {
+		return getConstNumber(offset + 131, $aprv_draw_qty);
+	}
+
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public void aprv_draw_qty(MCNumber value) {
+		setConstNumber(offset + 131, $aprv_draw_qty, value);
+	}
+	
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public void aprv_draw_qty(int value) {
+		setConstNumber(offset + 131, $aprv_draw_qty, value);
+	}
+	
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public void aprv_draw_qty(long value) {
+		setConstNumber(offset + 131, $aprv_draw_qty, value);
+	}
+	
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public void aprv_draw_qty(float value) {
+		setConstNumber(offset + 131, $aprv_draw_qty, value);
+	}
+	
+	/**
+	 * 承認図（承認図部数）. .<p>
+	 *
+	 */
+	public void aprv_draw_qty(double value) {
+		setConstNumber(offset + 131, $aprv_draw_qty, value);
+	}
+	
+	/**
+	 * 受注変更理由. .<p>
+	 *
+	 */
+	public String slo_cng_rsn() {
+		return getConstString(offset + 132, $slo_cng_rsn);
+	}
+
+	/**
+	 * 受注変更理由. .<p>
+	 *
+	 */
+	public void slo_cng_rsn(String value) {
+		setConstString(offset + 132, $slo_cng_rsn, value);
+	}
+
+	/**
+	 * 無償理由ＣＤ. .<p>
+	 *
+	 */
+	public String frc_rsn_cd() {
+		return getConstString(offset + 133, $frc_rsn_cd);
+	}
+
+	/**
+	 * 無償理由ＣＤ. .<p>
+	 *
+	 */
+	public void frc_rsn_cd(String value) {
+		setConstString(offset + 133, $frc_rsn_cd, value);
+	}
+
+	/**
+	 * 代表図番. .<p>
+	 *
+	 */
+	public String main_draw_no() {
+		return getConstString(offset + 134, $main_draw_no);
+	}
+
+	/**
+	 * 代表図番. .<p>
+	 *
+	 */
+	public void main_draw_no(String value) {
+		setConstString(offset + 134, $main_draw_no, value);
+	}
+
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public String slo_cmnt_1() {
+		return getConstString(offset + 135, $slo_cmnt_1);
+	}
+
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public void slo_cmnt_1(String value) {
+		setConstString(offset + 135, $slo_cmnt_1, value);
+	}
+
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public String slo_cmnt_2() {
+		return getConstString(offset + 136, $slo_cmnt_2);
+	}
+
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public void slo_cmnt_2(String value) {
+		setConstString(offset + 136, $slo_cmnt_2, value);
+	}
+
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public String slo_cmnt_3() {
+		return getConstString(offset + 137, $slo_cmnt_3);
+	}
+
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public void slo_cmnt_3(String value) {
+		setConstString(offset + 137, $slo_cmnt_3, value);
+	}
+
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public String slo_cmnt_4() {
+		return getConstString(offset + 138, $slo_cmnt_4);
+	}
+
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public void slo_cmnt_4(String value) {
+		setConstString(offset + 138, $slo_cmnt_4, value);
+	}
+
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public String slo_cmnt_5() {
+		return getConstString(offset + 139, $slo_cmnt_5);
+	}
+
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public void slo_cmnt_5(String value) {
+		setConstString(offset + 139, $slo_cmnt_5, value);
+	}
+
+	/**
+	 * 元出荷基準ＦＬＧ. .<p>
+	 *
+	 */
+	public boolean src_ship_flg() {
+		return getConstBoolean(offset + 140, $src_ship_flg);
+	}
+
+	/**
+	 * 元出荷基準ＦＬＧ. .<p>
+	 *
+	 */
+	public void src_ship_flg(boolean value) {
+		setConstBoolean(offset + 140, $src_ship_flg, value);
+	}
+
+	/**
+	 * 受注種別. .<p>
+	 *
+	 */
+	public String jip_slo_typ() {
+		return getConstString(offset + 141, $jip_slo_typ);
+	}
+
+	/**
+	 * 受注種別. .<p>
+	 *
+	 */
+	public void jip_slo_typ(String value) {
+		setConstString(offset + 141, $jip_slo_typ, value);
+	}
+
+	/**
+	 * 客先コード. .<p>
+	 *
+	 */
+	public String jip_cst_cd() {
+		return getConstString(offset + 142, $jip_cst_cd);
+	}
+
+	/**
+	 * 客先コード. .<p>
+	 *
+	 */
+	public void jip_cst_cd(String value) {
+		setConstString(offset + 142, $jip_cst_cd, value);
+	}
+
 	public String getString(String name) {
 		if ($slo_no.equalsIgnoreCase(name)) {
 			return slo_no();
@@ -4459,6 +8266,162 @@ public class MST_SLO_R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			return src_wrk_no();
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			return diameter();
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			return match_key();
+		}
+		if ($rcpt_no.equalsIgnoreCase(name)) {
+			return rcpt_no();
+		}
+		if ($appl_doc_no.equalsIgnoreCase(name)) {
+			return appl_doc_no();
+		}
+		if ($dlv_draw_no.equalsIgnoreCase(name)) {
+			return dlv_draw_no();
+		}
+		if ($slo_num_typ.equalsIgnoreCase(name)) {
+			return slo_num_typ();
+		}
+		if ($slo_num.equalsIgnoreCase(name)) {
+			return slo_num();
+		}
+		if ($paint_clr.equalsIgnoreCase(name)) {
+			return paint_clr();
+		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			return sales_cond();
+		}
+		if ($ship_sp_instr_typ.equalsIgnoreCase(name)) {
+			return ship_sp_instr_typ();
+		}
+		if ($spec_dlv_note_typ.equalsIgnoreCase(name)) {
+			return spec_dlv_note_typ();
+		}
+		if ($mrkt_cd.equalsIgnoreCase(name)) {
+			return mrkt_cd();
+		}
+		if ($cntry_sign.equalsIgnoreCase(name)) {
+			return cntry_sign();
+		}
+		if ($ves_natl.equalsIgnoreCase(name)) {
+			return ves_natl();
+		}
+		if ($shipyard_cd.equalsIgnoreCase(name)) {
+			return shipyard_cd();
+		}
+		if ($ves_no.equalsIgnoreCase(name)) {
+			return ves_no();
+		}
+		if ($ves_nm.equalsIgnoreCase(name)) {
+			return ves_nm();
+		}
+		if ($tonnage.equalsIgnoreCase(name)) {
+			return tonnage();
+		}
+		if ($ves_typ.equalsIgnoreCase(name)) {
+			return ves_typ();
+		}
+		if ($insp_std.equalsIgnoreCase(name)) {
+			return insp_std();
+		}
+		if ($royalty_psppl.equalsIgnoreCase(name)) {
+			return royalty_psppl();
+		}
+		if ($ins_loc_1.equalsIgnoreCase(name)) {
+			return ins_loc_1();
+		}
+		if ($ins_loc_2.equalsIgnoreCase(name)) {
+			return ins_loc_2();
+		}
+		if ($sfi_no.equalsIgnoreCase(name)) {
+			return sfi_no();
+		}
+		if ($wit_insp_typ.equalsIgnoreCase(name)) {
+			return wit_insp_typ();
+		}
+		if ($equip_typ.equalsIgnoreCase(name)) {
+			return equip_typ();
+		}
+		if ($spec_doc_typ.equalsIgnoreCase(name)) {
+			return spec_doc_typ();
+		}
+		if ($model_jp_en_typ.equalsIgnoreCase(name)) {
+			return model_jp_en_typ();
+		}
+		if ($insp_rep_typ.equalsIgnoreCase(name)) {
+			return insp_rep_typ();
+		}
+		if ($cons_draw_typ.equalsIgnoreCase(name)) {
+			return cons_draw_typ();
+		}
+		if ($const_draw_typ.equalsIgnoreCase(name)) {
+			return const_draw_typ();
+		}
+		if ($comp_draw_typ.equalsIgnoreCase(name)) {
+			return comp_draw_typ();
+		}
+		if ($inst_manual_typ.equalsIgnoreCase(name)) {
+			return inst_manual_typ();
+		}
+		if ($aprv_draw_typ.equalsIgnoreCase(name)) {
+			return aprv_draw_typ();
+		}
+		if ($slo_cng_rsn.equalsIgnoreCase(name)) {
+			return slo_cng_rsn();
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			return frc_rsn_cd();
+		}
+		if ($main_draw_no.equalsIgnoreCase(name)) {
+			return main_draw_no();
+		}
+		if ($slo_cmnt_1.equalsIgnoreCase(name)) {
+			return slo_cmnt_1();
+		}
+		if ($slo_cmnt_2.equalsIgnoreCase(name)) {
+			return slo_cmnt_2();
+		}
+		if ($slo_cmnt_3.equalsIgnoreCase(name)) {
+			return slo_cmnt_3();
+		}
+		if ($slo_cmnt_4.equalsIgnoreCase(name)) {
+			return slo_cmnt_4();
+		}
+		if ($slo_cmnt_5.equalsIgnoreCase(name)) {
+			return slo_cmnt_5();
+		}
+		if ($jip_slo_typ.equalsIgnoreCase(name)) {
+			return jip_slo_typ();
+		}
+		if ($jip_cst_cd.equalsIgnoreCase(name)) {
+			return jip_cst_cd();
+		}
 		return super.getString(name);
 	}
 
@@ -4493,6 +8456,33 @@ public class MST_SLO_R extends MCDBContainer {
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			return hdr_qty();
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			return hdr_amt();
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			return royalty_trg_amt();
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			return insp_rep_qty();
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			return cons_draw_qty();
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			return const_draw_qty();
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			return comp_draw_qty();
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			return inst_manual_qty();
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			return aprv_draw_qty();
+		}
 		return super.getNumber(name);
 	}
 
@@ -4514,6 +8504,21 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			return edi_sub_dt1();
+		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			return sls_dt();
+		}
+		if ($slo_aprv_dt.equalsIgnoreCase(name)) {
+			return slo_aprv_dt();
+		}
+		if ($aprv_dt.equalsIgnoreCase(name)) {
+			return aprv_dt();
+		}
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			return ord_dlv_dt();
+		}
+		if ($ps_sal_aft_dt.equalsIgnoreCase(name)) {
+			return ps_sal_aft_dt();
 		}
 		return super.getDate(name);
 	}
@@ -4543,6 +8548,15 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($can_flg.equalsIgnoreCase(name)) {
 			return can_flg();
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			return ship_prnt_no_cst_nm_flg();
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			return slo_last_sls_flg();
+		}
+		if ($src_ship_flg.equalsIgnoreCase(name)) {
+			return src_ship_flg();
 		}
 		return super.getBoolean(name);
 	}
@@ -4701,6 +8715,162 @@ public class MST_SLO_R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			return src_wrk_no();
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			return diameter();
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			return match_key();
+		}
+		if ($rcpt_no.equalsIgnoreCase(name)) {
+			return rcpt_no();
+		}
+		if ($appl_doc_no.equalsIgnoreCase(name)) {
+			return appl_doc_no();
+		}
+		if ($dlv_draw_no.equalsIgnoreCase(name)) {
+			return dlv_draw_no();
+		}
+		if ($slo_num_typ.equalsIgnoreCase(name)) {
+			return slo_num_typ();
+		}
+		if ($slo_num.equalsIgnoreCase(name)) {
+			return slo_num();
+		}
+		if ($paint_clr.equalsIgnoreCase(name)) {
+			return paint_clr();
+		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			return sales_cond();
+		}
+		if ($ship_sp_instr_typ.equalsIgnoreCase(name)) {
+			return ship_sp_instr_typ();
+		}
+		if ($spec_dlv_note_typ.equalsIgnoreCase(name)) {
+			return spec_dlv_note_typ();
+		}
+		if ($mrkt_cd.equalsIgnoreCase(name)) {
+			return mrkt_cd();
+		}
+		if ($cntry_sign.equalsIgnoreCase(name)) {
+			return cntry_sign();
+		}
+		if ($ves_natl.equalsIgnoreCase(name)) {
+			return ves_natl();
+		}
+		if ($shipyard_cd.equalsIgnoreCase(name)) {
+			return shipyard_cd();
+		}
+		if ($ves_no.equalsIgnoreCase(name)) {
+			return ves_no();
+		}
+		if ($ves_nm.equalsIgnoreCase(name)) {
+			return ves_nm();
+		}
+		if ($tonnage.equalsIgnoreCase(name)) {
+			return tonnage();
+		}
+		if ($ves_typ.equalsIgnoreCase(name)) {
+			return ves_typ();
+		}
+		if ($insp_std.equalsIgnoreCase(name)) {
+			return insp_std();
+		}
+		if ($royalty_psppl.equalsIgnoreCase(name)) {
+			return royalty_psppl();
+		}
+		if ($ins_loc_1.equalsIgnoreCase(name)) {
+			return ins_loc_1();
+		}
+		if ($ins_loc_2.equalsIgnoreCase(name)) {
+			return ins_loc_2();
+		}
+		if ($sfi_no.equalsIgnoreCase(name)) {
+			return sfi_no();
+		}
+		if ($wit_insp_typ.equalsIgnoreCase(name)) {
+			return wit_insp_typ();
+		}
+		if ($equip_typ.equalsIgnoreCase(name)) {
+			return equip_typ();
+		}
+		if ($spec_doc_typ.equalsIgnoreCase(name)) {
+			return spec_doc_typ();
+		}
+		if ($model_jp_en_typ.equalsIgnoreCase(name)) {
+			return model_jp_en_typ();
+		}
+		if ($insp_rep_typ.equalsIgnoreCase(name)) {
+			return insp_rep_typ();
+		}
+		if ($cons_draw_typ.equalsIgnoreCase(name)) {
+			return cons_draw_typ();
+		}
+		if ($const_draw_typ.equalsIgnoreCase(name)) {
+			return const_draw_typ();
+		}
+		if ($comp_draw_typ.equalsIgnoreCase(name)) {
+			return comp_draw_typ();
+		}
+		if ($inst_manual_typ.equalsIgnoreCase(name)) {
+			return inst_manual_typ();
+		}
+		if ($aprv_draw_typ.equalsIgnoreCase(name)) {
+			return aprv_draw_typ();
+		}
+		if ($slo_cng_rsn.equalsIgnoreCase(name)) {
+			return slo_cng_rsn();
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			return frc_rsn_cd();
+		}
+		if ($main_draw_no.equalsIgnoreCase(name)) {
+			return main_draw_no();
+		}
+		if ($slo_cmnt_1.equalsIgnoreCase(name)) {
+			return slo_cmnt_1();
+		}
+		if ($slo_cmnt_2.equalsIgnoreCase(name)) {
+			return slo_cmnt_2();
+		}
+		if ($slo_cmnt_3.equalsIgnoreCase(name)) {
+			return slo_cmnt_3();
+		}
+		if ($slo_cmnt_4.equalsIgnoreCase(name)) {
+			return slo_cmnt_4();
+		}
+		if ($slo_cmnt_5.equalsIgnoreCase(name)) {
+			return slo_cmnt_5();
+		}
+		if ($jip_slo_typ.equalsIgnoreCase(name)) {
+			return jip_slo_typ();
+		}
+		if ($jip_cst_cd.equalsIgnoreCase(name)) {
+			return jip_cst_cd();
+		}
 		return super.getStringNE(name);
 	}
 
@@ -4735,6 +8905,33 @@ public class MST_SLO_R extends MCDBContainer {
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			return hdr_qty();
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			return hdr_amt();
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			return royalty_trg_amt();
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			return insp_rep_qty();
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			return cons_draw_qty();
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			return const_draw_qty();
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			return comp_draw_qty();
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			return inst_manual_qty();
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			return aprv_draw_qty();
+		}
 		return super.getNumberNE(name);
 	}
 
@@ -4756,6 +8953,21 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			return edi_sub_dt1();
+		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			return sls_dt();
+		}
+		if ($slo_aprv_dt.equalsIgnoreCase(name)) {
+			return slo_aprv_dt();
+		}
+		if ($aprv_dt.equalsIgnoreCase(name)) {
+			return aprv_dt();
+		}
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			return ord_dlv_dt();
+		}
+		if ($ps_sal_aft_dt.equalsIgnoreCase(name)) {
+			return ps_sal_aft_dt();
 		}
 		return super.getDateNE(name);
 	}
@@ -4785,6 +8997,15 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($can_flg.equalsIgnoreCase(name)) {
 			return can_flg();
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			return ship_prnt_no_cst_nm_flg();
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			return slo_last_sls_flg();
+		}
+		if ($src_ship_flg.equalsIgnoreCase(name)) {
+			return src_ship_flg();
 		}
 		return super.getBooleanNE(name);
 	}
@@ -4994,6 +9215,214 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_srv_req_no(value);
 			return;
 		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			src_wrk_no(value);
+			return;
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
+			return;
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
+			return;
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
+			return;
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
+			return;
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
+			return;
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			diameter(value);
+			return;
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			match_key(value);
+			return;
+		}
+		if ($rcpt_no.equalsIgnoreCase(name)) {
+			rcpt_no(value);
+			return;
+		}
+		if ($appl_doc_no.equalsIgnoreCase(name)) {
+			appl_doc_no(value);
+			return;
+		}
+		if ($dlv_draw_no.equalsIgnoreCase(name)) {
+			dlv_draw_no(value);
+			return;
+		}
+		if ($slo_num_typ.equalsIgnoreCase(name)) {
+			slo_num_typ(value);
+			return;
+		}
+		if ($slo_num.equalsIgnoreCase(name)) {
+			slo_num(value);
+			return;
+		}
+		if ($paint_clr.equalsIgnoreCase(name)) {
+			paint_clr(value);
+			return;
+		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			sales_cond(value);
+			return;
+		}
+		if ($ship_sp_instr_typ.equalsIgnoreCase(name)) {
+			ship_sp_instr_typ(value);
+			return;
+		}
+		if ($spec_dlv_note_typ.equalsIgnoreCase(name)) {
+			spec_dlv_note_typ(value);
+			return;
+		}
+		if ($mrkt_cd.equalsIgnoreCase(name)) {
+			mrkt_cd(value);
+			return;
+		}
+		if ($cntry_sign.equalsIgnoreCase(name)) {
+			cntry_sign(value);
+			return;
+		}
+		if ($ves_natl.equalsIgnoreCase(name)) {
+			ves_natl(value);
+			return;
+		}
+		if ($shipyard_cd.equalsIgnoreCase(name)) {
+			shipyard_cd(value);
+			return;
+		}
+		if ($ves_no.equalsIgnoreCase(name)) {
+			ves_no(value);
+			return;
+		}
+		if ($ves_nm.equalsIgnoreCase(name)) {
+			ves_nm(value);
+			return;
+		}
+		if ($tonnage.equalsIgnoreCase(name)) {
+			tonnage(value);
+			return;
+		}
+		if ($ves_typ.equalsIgnoreCase(name)) {
+			ves_typ(value);
+			return;
+		}
+		if ($insp_std.equalsIgnoreCase(name)) {
+			insp_std(value);
+			return;
+		}
+		if ($royalty_psppl.equalsIgnoreCase(name)) {
+			royalty_psppl(value);
+			return;
+		}
+		if ($ins_loc_1.equalsIgnoreCase(name)) {
+			ins_loc_1(value);
+			return;
+		}
+		if ($ins_loc_2.equalsIgnoreCase(name)) {
+			ins_loc_2(value);
+			return;
+		}
+		if ($sfi_no.equalsIgnoreCase(name)) {
+			sfi_no(value);
+			return;
+		}
+		if ($wit_insp_typ.equalsIgnoreCase(name)) {
+			wit_insp_typ(value);
+			return;
+		}
+		if ($equip_typ.equalsIgnoreCase(name)) {
+			equip_typ(value);
+			return;
+		}
+		if ($spec_doc_typ.equalsIgnoreCase(name)) {
+			spec_doc_typ(value);
+			return;
+		}
+		if ($model_jp_en_typ.equalsIgnoreCase(name)) {
+			model_jp_en_typ(value);
+			return;
+		}
+		if ($insp_rep_typ.equalsIgnoreCase(name)) {
+			insp_rep_typ(value);
+			return;
+		}
+		if ($cons_draw_typ.equalsIgnoreCase(name)) {
+			cons_draw_typ(value);
+			return;
+		}
+		if ($const_draw_typ.equalsIgnoreCase(name)) {
+			const_draw_typ(value);
+			return;
+		}
+		if ($comp_draw_typ.equalsIgnoreCase(name)) {
+			comp_draw_typ(value);
+			return;
+		}
+		if ($inst_manual_typ.equalsIgnoreCase(name)) {
+			inst_manual_typ(value);
+			return;
+		}
+		if ($aprv_draw_typ.equalsIgnoreCase(name)) {
+			aprv_draw_typ(value);
+			return;
+		}
+		if ($slo_cng_rsn.equalsIgnoreCase(name)) {
+			slo_cng_rsn(value);
+			return;
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			frc_rsn_cd(value);
+			return;
+		}
+		if ($main_draw_no.equalsIgnoreCase(name)) {
+			main_draw_no(value);
+			return;
+		}
+		if ($slo_cmnt_1.equalsIgnoreCase(name)) {
+			slo_cmnt_1(value);
+			return;
+		}
+		if ($slo_cmnt_2.equalsIgnoreCase(name)) {
+			slo_cmnt_2(value);
+			return;
+		}
+		if ($slo_cmnt_3.equalsIgnoreCase(name)) {
+			slo_cmnt_3(value);
+			return;
+		}
+		if ($slo_cmnt_4.equalsIgnoreCase(name)) {
+			slo_cmnt_4(value);
+			return;
+		}
+		if ($slo_cmnt_5.equalsIgnoreCase(name)) {
+			slo_cmnt_5(value);
+			return;
+		}
+		if ($jip_slo_typ.equalsIgnoreCase(name)) {
+			jip_slo_typ(value);
+			return;
+		}
+		if ($jip_cst_cd.equalsIgnoreCase(name)) {
+			jip_cst_cd(value);
+			return;
+		}
 		super.setString(name, value);
 	}
 
@@ -5036,6 +9465,42 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -5082,6 +9547,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -5124,6 +9625,42 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -5170,6 +9707,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -5214,6 +9787,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -5240,6 +9849,26 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			edi_sub_dt1(value);
+			return;
+		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			sls_dt(value);
+			return;
+		}
+		if ($slo_aprv_dt.equalsIgnoreCase(name)) {
+			slo_aprv_dt(value);
+			return;
+		}
+		if ($aprv_dt.equalsIgnoreCase(name)) {
+			aprv_dt(value);
+			return;
+		}
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			ord_dlv_dt(value);
+			return;
+		}
+		if ($ps_sal_aft_dt.equalsIgnoreCase(name)) {
+			ps_sal_aft_dt(value);
 			return;
 		}
 		super.setDate(name, value);
@@ -5276,6 +9905,18 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($can_flg.equalsIgnoreCase(name)) {
 			can_flg(value);
+			return;
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			ship_prnt_no_cst_nm_flg(value);
+			return;
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			slo_last_sls_flg(value);
+			return;
+		}
+		if ($src_ship_flg.equalsIgnoreCase(name)) {
+			src_ship_flg(value);
 			return;
 		}
 		super.setBoolean(name, value);
@@ -5486,6 +10127,214 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_srv_req_no(value);
 			return;
 		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			src_wrk_no(value);
+			return;
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
+			return;
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
+			return;
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
+			return;
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
+			return;
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
+			return;
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			diameter(value);
+			return;
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			match_key(value);
+			return;
+		}
+		if ($rcpt_no.equalsIgnoreCase(name)) {
+			rcpt_no(value);
+			return;
+		}
+		if ($appl_doc_no.equalsIgnoreCase(name)) {
+			appl_doc_no(value);
+			return;
+		}
+		if ($dlv_draw_no.equalsIgnoreCase(name)) {
+			dlv_draw_no(value);
+			return;
+		}
+		if ($slo_num_typ.equalsIgnoreCase(name)) {
+			slo_num_typ(value);
+			return;
+		}
+		if ($slo_num.equalsIgnoreCase(name)) {
+			slo_num(value);
+			return;
+		}
+		if ($paint_clr.equalsIgnoreCase(name)) {
+			paint_clr(value);
+			return;
+		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			sales_cond(value);
+			return;
+		}
+		if ($ship_sp_instr_typ.equalsIgnoreCase(name)) {
+			ship_sp_instr_typ(value);
+			return;
+		}
+		if ($spec_dlv_note_typ.equalsIgnoreCase(name)) {
+			spec_dlv_note_typ(value);
+			return;
+		}
+		if ($mrkt_cd.equalsIgnoreCase(name)) {
+			mrkt_cd(value);
+			return;
+		}
+		if ($cntry_sign.equalsIgnoreCase(name)) {
+			cntry_sign(value);
+			return;
+		}
+		if ($ves_natl.equalsIgnoreCase(name)) {
+			ves_natl(value);
+			return;
+		}
+		if ($shipyard_cd.equalsIgnoreCase(name)) {
+			shipyard_cd(value);
+			return;
+		}
+		if ($ves_no.equalsIgnoreCase(name)) {
+			ves_no(value);
+			return;
+		}
+		if ($ves_nm.equalsIgnoreCase(name)) {
+			ves_nm(value);
+			return;
+		}
+		if ($tonnage.equalsIgnoreCase(name)) {
+			tonnage(value);
+			return;
+		}
+		if ($ves_typ.equalsIgnoreCase(name)) {
+			ves_typ(value);
+			return;
+		}
+		if ($insp_std.equalsIgnoreCase(name)) {
+			insp_std(value);
+			return;
+		}
+		if ($royalty_psppl.equalsIgnoreCase(name)) {
+			royalty_psppl(value);
+			return;
+		}
+		if ($ins_loc_1.equalsIgnoreCase(name)) {
+			ins_loc_1(value);
+			return;
+		}
+		if ($ins_loc_2.equalsIgnoreCase(name)) {
+			ins_loc_2(value);
+			return;
+		}
+		if ($sfi_no.equalsIgnoreCase(name)) {
+			sfi_no(value);
+			return;
+		}
+		if ($wit_insp_typ.equalsIgnoreCase(name)) {
+			wit_insp_typ(value);
+			return;
+		}
+		if ($equip_typ.equalsIgnoreCase(name)) {
+			equip_typ(value);
+			return;
+		}
+		if ($spec_doc_typ.equalsIgnoreCase(name)) {
+			spec_doc_typ(value);
+			return;
+		}
+		if ($model_jp_en_typ.equalsIgnoreCase(name)) {
+			model_jp_en_typ(value);
+			return;
+		}
+		if ($insp_rep_typ.equalsIgnoreCase(name)) {
+			insp_rep_typ(value);
+			return;
+		}
+		if ($cons_draw_typ.equalsIgnoreCase(name)) {
+			cons_draw_typ(value);
+			return;
+		}
+		if ($const_draw_typ.equalsIgnoreCase(name)) {
+			const_draw_typ(value);
+			return;
+		}
+		if ($comp_draw_typ.equalsIgnoreCase(name)) {
+			comp_draw_typ(value);
+			return;
+		}
+		if ($inst_manual_typ.equalsIgnoreCase(name)) {
+			inst_manual_typ(value);
+			return;
+		}
+		if ($aprv_draw_typ.equalsIgnoreCase(name)) {
+			aprv_draw_typ(value);
+			return;
+		}
+		if ($slo_cng_rsn.equalsIgnoreCase(name)) {
+			slo_cng_rsn(value);
+			return;
+		}
+		if ($frc_rsn_cd.equalsIgnoreCase(name)) {
+			frc_rsn_cd(value);
+			return;
+		}
+		if ($main_draw_no.equalsIgnoreCase(name)) {
+			main_draw_no(value);
+			return;
+		}
+		if ($slo_cmnt_1.equalsIgnoreCase(name)) {
+			slo_cmnt_1(value);
+			return;
+		}
+		if ($slo_cmnt_2.equalsIgnoreCase(name)) {
+			slo_cmnt_2(value);
+			return;
+		}
+		if ($slo_cmnt_3.equalsIgnoreCase(name)) {
+			slo_cmnt_3(value);
+			return;
+		}
+		if ($slo_cmnt_4.equalsIgnoreCase(name)) {
+			slo_cmnt_4(value);
+			return;
+		}
+		if ($slo_cmnt_5.equalsIgnoreCase(name)) {
+			slo_cmnt_5(value);
+			return;
+		}
+		if ($jip_slo_typ.equalsIgnoreCase(name)) {
+			jip_slo_typ(value);
+			return;
+		}
+		if ($jip_cst_cd.equalsIgnoreCase(name)) {
+			jip_cst_cd(value);
+			return;
+		}
 		super.setStringNE(name, value);
 	}
 
@@ -5528,6 +10377,42 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -5574,6 +10459,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -5616,6 +10537,42 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -5662,6 +10619,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -5706,6 +10699,42 @@ public class MST_SLO_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
+		if ($hdr_amt.equalsIgnoreCase(name)) {
+			hdr_amt(value);
+			return;
+		}
+		if ($royalty_trg_amt.equalsIgnoreCase(name)) {
+			royalty_trg_amt(value);
+			return;
+		}
+		if ($insp_rep_qty.equalsIgnoreCase(name)) {
+			insp_rep_qty(value);
+			return;
+		}
+		if ($cons_draw_qty.equalsIgnoreCase(name)) {
+			cons_draw_qty(value);
+			return;
+		}
+		if ($const_draw_qty.equalsIgnoreCase(name)) {
+			const_draw_qty(value);
+			return;
+		}
+		if ($comp_draw_qty.equalsIgnoreCase(name)) {
+			comp_draw_qty(value);
+			return;
+		}
+		if ($inst_manual_qty.equalsIgnoreCase(name)) {
+			inst_manual_qty(value);
+			return;
+		}
+		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
+			aprv_draw_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -5732,6 +10761,26 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			edi_sub_dt1(value);
+			return;
+		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			sls_dt(value);
+			return;
+		}
+		if ($slo_aprv_dt.equalsIgnoreCase(name)) {
+			slo_aprv_dt(value);
+			return;
+		}
+		if ($aprv_dt.equalsIgnoreCase(name)) {
+			aprv_dt(value);
+			return;
+		}
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			ord_dlv_dt(value);
+			return;
+		}
+		if ($ps_sal_aft_dt.equalsIgnoreCase(name)) {
+			ps_sal_aft_dt(value);
 			return;
 		}
 		super.setDateNE(name, value);
@@ -5768,6 +10817,18 @@ public class MST_SLO_R extends MCDBContainer {
 		}
 		if ($can_flg.equalsIgnoreCase(name)) {
 			can_flg(value);
+			return;
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			ship_prnt_no_cst_nm_flg(value);
+			return;
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			slo_last_sls_flg(value);
+			return;
+		}
+		if ($src_ship_flg.equalsIgnoreCase(name)) {
+			src_ship_flg(value);
 			return;
 		}
 		super.setBooleanNE(name, value);

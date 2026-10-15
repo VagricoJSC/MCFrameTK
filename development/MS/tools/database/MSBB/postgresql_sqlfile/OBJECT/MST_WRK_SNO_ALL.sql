@@ -1,7 +1,7 @@
 \encoding UTF-8
 
 CREATE TABLE mst_wrk_sno_all
-(sno1 varchar (15) NOT NULL,
+(sno1 varchar (20) NOT NULL,
 co_cd varchar (10) NOT NULL,
 wrk_no varchar (15) NOT NULL,
 ins_usr_id varchar (500) NULL,

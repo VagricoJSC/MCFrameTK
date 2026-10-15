@@ -57,6 +57,9 @@ import mcframe.commonMS.constant.*;
 import static mcframe.commonMS.notice.MS_Msg.*;
 import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * 画面"MSBBP_SloReg"パネルクラスです。<p>
@@ -95,4 +98,65 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	public class MS_MSBBL1210_Sprt01Bridge extends MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Bridge {
 	}
 
+//FMCB CUSTOM START
+	/**
+	 * [MS_MSBBL1210_Srch01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Srch01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Srch01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller<P, B> {
+
+		protected MS_MSBBL1210_Srch01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
+	/**
+	 * [MS_MSBBL1210_Srch02]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Srch02Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Srch02Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Srch02Caller<P, B> {
+
+		protected MS_MSBBL1210_Srch02Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
+	/**
+	 * [MS_MSBBL1210_Ins01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Ins01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Ins01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Ins01Caller<P, B> {
+
+		protected MS_MSBBL1210_Ins01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
+	/**
+	 * [MS_MSBBL1210_Upd01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Upd01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Upd01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Upd01Caller<P, B> {
+
+		protected MS_MSBBL1210_Upd01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
+	/**
+	 * [MS_MSBBL1210_Del01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Del01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Del01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Del01Caller<P, B> {
+
+		protected MS_MSBBL1210_Del01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
+	/**
+	 * [MS_MSBBL1210_Sprt01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_Sprt01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Sprt01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Caller<P, B> {
+
+		protected MS_MSBBL1210_Sprt01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+//FMCB CUSTOM END
 }

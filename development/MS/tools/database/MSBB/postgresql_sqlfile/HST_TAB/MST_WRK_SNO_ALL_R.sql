@@ -4,7 +4,7 @@ CREATE TABLE mst_wrk_sno_all_r
 (
 hst_id numeric(24,0) DEFAULT 0 NOT NULL,
 hst_type varchar(2) NOT NULL,
-sno1 varchar (15) NULL,
+sno1 varchar (20) NULL,
 co_cd varchar (10) NULL,
 wrk_no varchar (15) NULL,
 ins_usr_id varchar (500) NULL,

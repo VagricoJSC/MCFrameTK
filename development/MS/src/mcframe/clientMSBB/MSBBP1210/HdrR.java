@@ -2,6 +2,9 @@ package mcframe.clientMSBB.MSBBP1210;
 
 import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.annotation.EI;
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * ブロック"Hdr"コンテナRowクラスです。<p>
@@ -1298,6 +1301,22 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DAY_WEEK_TYP_NM DAY_WEEK_TYP_NM}]</td>
  *  	<td><br></td>
  *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>frc_rsn_cd</td>
+ *  	<td>Free reason</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FRC_RSN_CD FRC_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>frc_rsn_cd_nm</td>
+ *  	<td>Free reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FRC_RSN_CD FRC_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
  * </table>
  *
  * <br>
@@ -1334,4 +1353,7 @@ public class HdrR extends HdrR_MC_A {
 	public HdrR(ConstMetaList<? extends HdrR> metas) {
 		super(metas);
 	}
+//FMCB CUSTOM START
+
+//FMCB CUSTOM END
 }
