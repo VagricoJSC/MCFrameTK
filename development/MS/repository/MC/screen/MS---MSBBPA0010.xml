@@ -647,7 +647,7 @@
                     <ID>fix_f_flg</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
                     <COLUMN ID="NAME" TYPE="STRING">Unfirm</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">未確定</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">登録済</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -656,7 +656,7 @@
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">未確定</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">登録済</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
@@ -680,7 +680,7 @@
                     <ID>fix_t_flg</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
                     <COLUMN ID="NAME" TYPE="STRING">Firm</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">確定</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">未登録</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -689,7 +689,7 @@
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">確定</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">未登録</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
@@ -745,8 +745,8 @@
                 <ITEM>
                     <ID>cst_frcst_prnt_dt_fr</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer forecast list issued date FROM</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先内示書発行日ＦＲＯＭ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Order delivery date FROM</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">注文書納期ＦＲＯＭ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -755,7 +755,7 @@
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">得意先内示書発行日</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">注文書納期</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
@@ -778,8 +778,8 @@
                 <ITEM>
                     <ID>cst_frcst_prnt_dt_to</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer forecast list issued date TO</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先内示書発行日ＴＯ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Order delivery date TO</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">注文書納期ＴＯ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -811,8 +811,8 @@
                 <ITEM>
                     <ID>rcpt_dt_fr</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Receiving date FROM</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">受付日ＦＲＯＭ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Post-installation sales date FROM</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">装備後売上ＦＲＯＭ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -821,7 +821,7 @@
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">受付日</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">装備後売上</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
@@ -844,8 +844,8 @@
                 <ITEM>
                     <ID>rcpt_dt_to</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Receiving date TO</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">受付日ＴＯ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Post-installation sales date TO</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">装備後売上ＴＯ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
@@ -875,276 +875,111 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>frcst_st_dt_fr</ID>
+                    <ID>zoho_sls_schd_no</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Start date of forecast period FROM</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間開始日ＦＲＯＭ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">内示期間開始日</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_st_dt_to</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Start date of forecast period TO</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間開始日ＴＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">～</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_end_dt_fr</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">End date of forecast period FROM</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間終了日ＦＲＯＭ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">内示期間終了日</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_end_dt_to</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">End date of forecast period TO</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間終了日ＴＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">～</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_dt_fr</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Forecast period FROM</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間ＦＲＯＭ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">内示期間</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_dt_to</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Forecast period TO</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間ＴＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DT</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">～</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_period_typ</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Forecast period type</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間区分</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MS.PERIOD_TYP</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">内示期間区分</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">C2A</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.PeriodTyp</COLUMN>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">frcst_period_typ_nm</COLUMN>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>frcst_period_typ_nm</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Forecast period type name</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">内示期間区分名</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MS.PERIOD_TYP_NM</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_cd</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer cd.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先ＣＤ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Zoho sales schedule No.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">ZOHO販売予定NO</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="LABEL" TYPE="STRING">ZOHO販売予定NO</COLUMN>
+                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
+                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                    <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
+                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
+                    <COLUMN ID="EVENT" TYPE="STRING"/>
+                    <COLUMN ID="IN" TYPE="STRING"/>
+                    <COLUMN ID="OUT" TYPE="STRING"/>
+                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
+                    <COLUMN ID="ICON" TYPE="STRING"/>
+                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+                    <COLUMN ID="ID_AT" TYPE="STRING"/>
+                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
+                    <COLUMN ID="XY" TYPE="STRING"/>
+                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
+                    <COLUMN ID="IME" TYPE="STRING"/>
+                    <J_ITM ID="returnFlag">false</J_ITM>
+                    <J_ITM ID="scrollFixed">false</J_ITM>
+                </ITEM>
+                <ITEM>
+                    <ID>deal_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery destination cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">商談ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="LABEL" TYPE="STRING">商談ＣＤ</COLUMN>
+                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
+                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                    <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
+                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
+                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.Bp</COLUMN>
+                    <COLUMN ID="IN" TYPE="STRING"/>
+                    <COLUMN ID="OUT" TYPE="STRING">dlv_nm</COLUMN>
+                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
+                    <COLUMN ID="ICON" TYPE="STRING"/>
+                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+                    <COLUMN ID="ID_AT" TYPE="STRING"/>
+                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
+                    <COLUMN ID="XY" TYPE="STRING"/>
+                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
+                    <COLUMN ID="IME" TYPE="STRING"/>
+                    <J_ITM ID="returnFlag">false</J_ITM>
+                    <J_ITM ID="scrollFixed">false</J_ITM>
+                </ITEM>
+                <ITEM>
+                    <ID>deal_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Delivery destination name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">商談名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="LABEL" TYPE="STRING">商談名</COLUMN>
+                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
+                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
+                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
+                    <COLUMN ID="EVENT" TYPE="STRING"/>
+                    <COLUMN ID="IN" TYPE="STRING"/>
+                    <COLUMN ID="OUT" TYPE="STRING"/>
+                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
+                    <COLUMN ID="ICON" TYPE="STRING"/>
+                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+                    <COLUMN ID="ID_AT" TYPE="STRING"/>
+                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
+                    <COLUMN ID="XY" TYPE="STRING"/>
+                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
+                    <COLUMN ID="IME" TYPE="STRING"/>
+                    <J_ITM ID="returnFlag">false</J_ITM>
+                    <J_ITM ID="scrollFixed">false</J_ITM>
+                </ITEM>
+                <ITEM>
+                    <ID>cst_itm_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Customer item cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_ITM_CD</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1157,9 +992,9 @@
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.Bp</COLUMN>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0010.CstItm</COLUMN>
                     <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">cst_nm</COLUMN>
+                    <COLUMN ID="OUT" TYPE="STRING">cst_itm_nm</COLUMN>
                     <COLUMN ID="FUNCTION" TYPE="STRING"/>
                     <COLUMN ID="ICON" TYPE="STRING"/>
                     <COLUMN ID="ACTYPE" TYPE="STRING"/>
@@ -1172,12 +1007,78 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>cst_nm</ID>
+                    <ID>cst_itm_nm</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer name</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Customer item name</COLUMN>
                     <COLUMN ID="MESSAGE" TYPE="STRING">得意先名</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_NM</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_ITM_NM</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="LABEL" TYPE="STRING"/>
+                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
+                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
+                    <COLUMN ID="EVENT" TYPE="STRING"/>
+                    <COLUMN ID="IN" TYPE="STRING"/>
+                    <COLUMN ID="OUT" TYPE="STRING"/>
+                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
+                    <COLUMN ID="ICON" TYPE="STRING"/>
+                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+                    <COLUMN ID="ID_AT" TYPE="STRING"/>
+                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
+                    <COLUMN ID="XY" TYPE="STRING"/>
+                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
+                    <COLUMN ID="IME" TYPE="STRING"/>
+                    <J_ITM ID="returnFlag">false</J_ITM>
+                    <J_ITM ID="scrollFixed">false</J_ITM>
+                </ITEM>
+                <ITEM>
+                    <ID>can_rsn_cd</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">請求先ＣＤ</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
+                    <COLUMN ID="DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="MEMO" TYPE="STRING"/>
+                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
+                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
+                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
+                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
+                    <COLUMN ID="LABEL" TYPE="STRING">請求先</COLUMN>
+                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
+                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
+                    <COLUMN ID="FORMAT" TYPE="STRING"/>
+                    <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
+                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
+                    <COLUMN ID="IN" TYPE="STRING"/>
+                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
+                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
+                    <COLUMN ID="ICON" TYPE="STRING"/>
+                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
+                    <COLUMN ID="ID_AT" TYPE="STRING"/>
+                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
+                    <COLUMN ID="XY" TYPE="STRING"/>
+                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
+                    <COLUMN ID="IME" TYPE="STRING"/>
+                    <J_ITM ID="returnFlag">false</J_ITM>
+                    <J_ITM ID="scrollFixed">false</J_ITM>
+                </ITEM>
+                <ITEM>
+                    <ID>can_rsn_nm</ID>
+                    <COLUMN ID="KEY" TYPE="STRING"/>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">請求先名</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1207,10 +1108,10 @@
                 <ITEM>
                     <ID>dlv_cd</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Delivery destination cd.</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
                     <COLUMN ID="MESSAGE" TYPE="STRING">納品先ＣＤ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_CD</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1223,9 +1124,9 @@
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.Bp</COLUMN>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
                     <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">dlv_nm</COLUMN>
+                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
                     <COLUMN ID="FUNCTION" TYPE="STRING"/>
                     <COLUMN ID="ICON" TYPE="STRING"/>
                     <COLUMN ID="ACTYPE" TYPE="STRING"/>
@@ -1240,10 +1141,10 @@
                 <ITEM>
                     <ID>dlv_nm</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Delivery destination name</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
                     <COLUMN ID="MESSAGE" TYPE="STRING">納品先名</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_NM</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1271,27 +1172,27 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>frcst_usr_cd</ID>
+                    <ID>sls_dpt_cd</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">PIC cd.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">担当者ＣＤ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">売上部門ＣＤ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.USR_CD</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">担当者</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">売上部門</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.Usr</COLUMN>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
                     <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">frcst_usr_nm</COLUMN>
+                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
                     <COLUMN ID="FUNCTION" TYPE="STRING"/>
                     <COLUMN ID="ICON" TYPE="STRING"/>
                     <COLUMN ID="ACTYPE" TYPE="STRING"/>
@@ -1304,12 +1205,12 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>frcst_usr_nm</ID>
+                    <ID>sls_dpt_nm</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">PIC name</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">担当者名</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">売上部門名</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.USR_NM</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1337,27 +1238,27 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>frcst_dpt_cd</ID>
+                    <ID>pj_usr_cd</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Dept. in charge cd.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">担当部門ＣＤ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">案件担当者ＣＤ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_CD</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">担当部門</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">案件担当者</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MA.MAUAP0010.Dpt</COLUMN>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
                     <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">frcst_dpt_nm</COLUMN>
+                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
                     <COLUMN ID="FUNCTION" TYPE="STRING"/>
                     <COLUMN ID="ICON" TYPE="STRING"/>
                     <COLUMN ID="ACTYPE" TYPE="STRING"/>
@@ -1370,12 +1271,12 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>frcst_dpt_nm</ID>
+                    <ID>pj_usr_nm</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Dept. in charge name</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">担当部門名</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">案件担当者名</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.DPT_NM</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1403,489 +1304,27 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>wrk_no_p</ID>
+                    <ID>market_cd</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING">MS.MSUBP0010.WrkNo</COLUMN>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">SC</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>wrk_no_p.wrk_no</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING">wrk_no</COLUMN>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">CI#FFA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.WrkNo</COLUMN>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">wrk_nm</COLUMN>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>wrk_no_p.wrk_nm</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING">wrk_nm</COLUMN>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">CI#FA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_frcst_no</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Sales forecast No.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">顧客期間内示ＮＯ</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">市場ＣＤ</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CST_FRCST_NO</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
                     <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
                     <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
                     <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">顧客期間内示ＮＯ</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_frcst_d_no</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Sales forecast details No.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">顧客期間内示明細ＮＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CST_FRCST_D_NO</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">顧客期間内示明細ＮＯ</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_frcst_slip_no</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer forecast list No.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先内示書ＮＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CST_FRCST_SLIP_NO</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">得意先内示書ＮＯ</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_frcst_slip_d_no</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer forecast list details No.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先内示書明細ＮＯ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.CST_FRCST_SLIP_D_NO</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">得意先内示書明細ＮＯ</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">FA</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>latest_flg</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Latest only</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">最新のみ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">最新のみ</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">K</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>except_frcst_stop_flg</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Except lower priority</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">下位優先除く</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">下位優先除く</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">K</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>inc_can_flg</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Include cancel</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">取消含む</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.FLG</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">取消含む</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">K</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>itm_typ_p</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">R</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING">MA.MAUBP0100.ItmTyp</COLUMN>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">SC</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>itm_typ_p.itm_typ</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING">itm_typ</COLUMN>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">CI</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>itm_typ_p.itm_typ_d_cd</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING">itm_typ_d_cd</COLUMN>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">CI</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>itm_typ_p.itm_typ_d_nm</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING">itm_typ_d_nm</COLUMN>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">CI</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>cst_itm_cd</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer item cd.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先品目ＣＤ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_ITM_CD</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">得意先品目</COLUMN>
+                    <COLUMN ID="LABEL" TYPE="STRING">市場</COLUMN>
                     <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">FFA</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0010.CstItm</COLUMN>
+                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
                     <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">cst_itm_nm</COLUMN>
+                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
                     <COLUMN ID="FUNCTION" TYPE="STRING"/>
                     <COLUMN ID="ICON" TYPE="STRING"/>
                     <COLUMN ID="ACTYPE" TYPE="STRING"/>
@@ -1898,12 +1337,12 @@
                     <J_ITM ID="scrollFixed">false</J_ITM>
                 </ITEM>
                 <ITEM>
-                    <ID>cst_itm_nm</ID>
+                    <ID>market_nm</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Customer item name</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">得意先品名</COLUMN>
+                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">市場名</COLUMN>
                     <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MA.BP_ITM_NM</COLUMN>
+                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
                     <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
@@ -1967,8 +1406,8 @@
                     <ID>itm_p.itm_cd</ID>
                     <COLUMN ID="KEY" TYPE="STRING"/>
                     <COLUMN ID="NAME" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE" TYPE="STRING"/>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING">$inherit$</COLUMN>
+                    <COLUMN ID="MESSAGE" TYPE="STRING">品目</COLUMN>
+                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
                     <COLUMN ID="TYPE" TYPE="STRING">RI</COLUMN>
                     <COLUMN ID="DIGIT" TYPE="STRING"/>
                     <COLUMN ID="MEMO" TYPE="STRING"/>
@@ -2113,72 +1552,6 @@
                     <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
                     <COLUMN ID="FORMAT" TYPE="STRING"/>
                     <COLUMN ID="COMPONENT" TYPE="STRING">CI</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING"/>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING"/>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>can_rsn_cd</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason cd.</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">取消理由ＣＤ</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_CD</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING">取消理由</COLUMN>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING"/>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">C2A</COLUMN>
-                    <COLUMN ID="COMP_CODE" TYPE="STRING"/>
-                    <COLUMN ID="EVENT" TYPE="STRING">MS.MSUAP0030.SloCanRsn</COLUMN>
-                    <COLUMN ID="IN" TYPE="STRING"/>
-                    <COLUMN ID="OUT" TYPE="STRING">can_rsn_nm</COLUMN>
-                    <COLUMN ID="FUNCTION" TYPE="STRING"/>
-                    <COLUMN ID="ICON" TYPE="STRING"/>
-                    <COLUMN ID="ACTYPE" TYPE="STRING"/>
-                    <COLUMN ID="ID_AT" TYPE="STRING"/>
-                    <COLUMN ID="NEXT_BEAN" TYPE="STRING"/>
-                    <COLUMN ID="XY" TYPE="STRING"/>
-                    <COLUMN ID="GUI_GROUP" TYPE="STRING"/>
-                    <COLUMN ID="IME" TYPE="STRING"/>
-                    <J_ITM ID="returnFlag">false</J_ITM>
-                    <J_ITM ID="scrollFixed">false</J_ITM>
-                </ITEM>
-                <ITEM>
-                    <ID>can_rsn_nm</ID>
-                    <COLUMN ID="KEY" TYPE="STRING"/>
-                    <COLUMN ID="NAME" TYPE="STRING">Canceling reason name</COLUMN>
-                    <COLUMN ID="MESSAGE" TYPE="STRING">取消理由名</COLUMN>
-                    <COLUMN ID="MESSAGE_CTL" TYPE="STRING"/>
-                    <COLUMN ID="TYPE" TYPE="STRING">#MS.SLO_RSN_NM</COLUMN>
-                    <COLUMN ID="DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="MEMO" TYPE="STRING"/>
-                    <COLUMN ID="_LENGTH" TYPE="NUMBER"/>
-                    <COLUMN ID="_DECIMAL" TYPE="NUMBER"/>
-                    <COLUMN ID="_MINUS" TYPE="BOOLEAN">false</COLUMN>
-                    <COLUMN ID="CP_ALIAS" TYPE="STRING"/>
-                    <COLUMN ID="LABEL" TYPE="STRING"/>
-                    <COLUMN ID="LABEL_CTL" TYPE="STRING">$inherit$</COLUMN>
-                    <COLUMN ID="VIEW_DIGIT" TYPE="STRING"/>
-                    <COLUMN ID="FORMAT" TYPE="STRING"/>
-                    <COLUMN ID="COMPONENT" TYPE="STRING">F</COLUMN>
                     <COLUMN ID="COMP_CODE" TYPE="STRING"/>
                     <COLUMN ID="EVENT" TYPE="STRING"/>
                     <COLUMN ID="IN" TYPE="STRING"/>
@@ -7543,123 +6916,15 @@
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">period_typ_nm</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING">bp_nm</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>dlv_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">bp_nm</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>dlv_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">usr_nm</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">dpt_nm</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -7668,6 +6933,46 @@
                             </ITEM>
                             <ITEM>
                                 <ID>cst_itm_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -7692,14 +6997,6 @@
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">slo_rsn_nm</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -8481,123 +7778,15 @@
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">MAC_BP_IS_SRCH_TYP.CST_NOT_SUNDRY</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>dlv_cd</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING">MAC_BP_IS_SRCH_TYP.DLV</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>dlv_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">MAC_DPT_IS_SRCH_TYP.SLS;true</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -8606,6 +7795,46 @@
                             </ITEM>
                             <ITEM>
                                 <ID>cst_itm_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -8630,14 +7859,6 @@
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -9419,123 +8640,15 @@
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING">bp_is_srch_typ</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>dlv_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">bp_is_srch_typ</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>dlv_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_usr_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING">dpt_is_srch_typ;mode_today_flg</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dpt_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -9544,6 +8657,46 @@
                             </ITEM>
                             <ITEM>
                                 <ID>cst_itm_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>dlv_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>sls_dpt_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>pj_usr_nm</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_cd</ID>
+                                <COLUMN ID="CODE" TYPE="STRING"/>
+                            </ITEM>
+                            <ITEM>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -9568,14 +8721,6 @@
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -10357,43 +9502,31 @@
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_to</ID>
+                                <ID>cst_itm_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_fr</ID>
+                                <ID>cst_itm_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_to</ID>
+                                <ID>can_rsn_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_nm</ID>
+                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -10405,83 +9538,27 @@
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
+                                <ID>sls_dpt_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
+                                <ID>sls_dpt_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
+                                <ID>pj_usr_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
+                                <ID>pj_usr_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
+                                <ID>market_cd</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -10506,14 +9583,6 @@
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="CODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="CODE" TYPE="STRING"/>
                             </ITEM>
                             <ITEM>
@@ -11299,43 +10368,31 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_to</ID>
+                                <ID>cst_itm_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_fr</ID>
+                                <ID>cst_itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_to</ID>
+                                <ID>can_rsn_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_nm</ID>
+                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -11347,83 +10404,27 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
+                                <ID>sls_dpt_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
+                                <ID>sls_dpt_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
+                                <ID>pj_usr_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
+                                <ID>pj_usr_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE_SRCH</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
+                                <ID>market_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -11449,14 +10450,6 @@
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>can_rmrks</ID>
@@ -12239,43 +11232,31 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_nm</ID>
+                                <ID>deal_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>deal_nm</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cst_itm_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cst_itm_nm</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -12287,84 +11268,28 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
+                                <ID>sls_dpt_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
+                                <ID>sls_dpt_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
+                                <ID>pj_usr_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
+                                <ID>pj_usr_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE_SRCH</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
+                                <ID>market_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">READ_ONLY</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p</ID>
@@ -12389,14 +11314,6 @@
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>can_rmrks</ID>
@@ -13179,43 +12096,31 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
+                                <ID>deal_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
+                                <ID>deal_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_to</ID>
+                                <ID>cst_itm_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_fr</ID>
+                                <ID>cst_itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_to</ID>
+                                <ID>can_rsn_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_nm</ID>
+                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -13227,83 +12132,27 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
+                                <ID>sls_dpt_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
+                                <ID>sls_dpt_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
+                                <ID>pj_usr_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
+                                <ID>pj_usr_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE_SRCH</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
+                                <ID>market_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -13329,14 +12178,6 @@
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>can_rmrks</ID>
@@ -14119,43 +12960,31 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
+                                <ID>zoho_sls_schd_no</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_nm</ID>
+                                <ID>deal_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>deal_nm</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cst_itm_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>cst_itm_nm</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
+                            </ITEM>
+                            <ITEM>
+                                <ID>can_rsn_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -14167,84 +12996,28 @@
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
+                                <ID>sls_dpt_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
+                                <ID>sls_dpt_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
+                                <ID>pj_usr_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
+                                <ID>pj_usr_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">ENABLE_SRCH</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
+                                <ID>market_cd</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
+                                <ID>market_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">R</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">READ_ONLY</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">RO</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>itm_p</ID>
@@ -14269,14 +13042,6 @@
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
                                 <COLUMN ID="MODE" TYPE="STRING"/>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
-                                <COLUMN ID="MODE" TYPE="STRING">E</COLUMN>
                             </ITEM>
                             <ITEM>
                                 <ID>can_rmrks</ID>
@@ -15111,53 +13876,38 @@
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_fr</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_st_dt_fr</COLUMN>
+                                <ID>zoho_sls_schd_no</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">zoho_sls_schd_no</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_st_dt_to</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_st_dt_to</COLUMN>
+                                <ID>deal_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">deal_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_fr</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_end_dt_fr</COLUMN>
+                                <ID>deal_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">deal_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_end_dt_to</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_end_dt_to</COLUMN>
+                                <ID>cst_itm_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_itm_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_fr</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_dt_fr</COLUMN>
+                                <ID>cst_itm_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_itm_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dt_to</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_dt_to</COLUMN>
+                                <ID>can_rsn_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">can_rsn_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_period_typ</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_period_typ</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>frcst_period_typ_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_cd</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_nm</COLUMN>
+                                <ID>can_rsn_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">can_rsn_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -15171,103 +13921,33 @@
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_usr_cd</COLUMN>
+                                <ID>sls_dpt_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">sls_dpt_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_usr_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_usr_nm</COLUMN>
+                                <ID>sls_dpt_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">sls_dpt_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_dpt_cd</COLUMN>
+                                <ID>pj_usr_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">pj_usr_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>frcst_dpt_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">frcst_dpt_nm</COLUMN>
+                                <ID>pj_usr_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">pj_usr_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
+                                <ID>market_cd</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">market_cd</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
-                                <ID>wrk_no_p.wrk_no</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">wrk_no</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>wrk_no_p.wrk_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">wrk_nm</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_no</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_frcst_no</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_d_no</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_frcst_d_no</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_no</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_frcst_slip_no</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_frcst_slip_d_no</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_frcst_slip_d_no</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>latest_flg</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">latest_flg</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>except_frcst_stop_flg</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">except_frcst_stop_flg</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>inc_can_flg</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">inc_can_flg</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">-</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">itm_typ</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">itm_typ_d_cd</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>itm_typ_p.itm_typ_d_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">itm_typ_d_nm</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_itm_cd</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>cst_itm_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">cst_itm_nm</COLUMN>
+                                <ID>market_nm</ID>
+                                <COLUMN ID="UP_CODE" TYPE="STRING">market_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>
@@ -15298,16 +13978,6 @@
                             <ITEM>
                                 <ID>itm_p.itm_nm</ID>
                                 <COLUMN ID="UP_CODE" TYPE="STRING">itm_nm</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_cd</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">can_rsn_cd</COLUMN>
-                                <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
-                            </ITEM>
-                            <ITEM>
-                                <ID>can_rsn_nm</ID>
-                                <COLUMN ID="UP_CODE" TYPE="STRING">can_rsn_nm</COLUMN>
                                 <COLUMN ID="DOWN_CODE" TYPE="STRING">-</COLUMN>
                             </ITEM>
                             <ITEM>

@@ -20,10 +20,8 @@ import mcframe.clientCore.beans.list.MCLinkBeans;
 import mcframe.commonCore.annotation.EI;
 import mcframe.clientFXBA.FXBAP0130.*;
 import mcframe.clientMAUB.MAUBP0030.*;
-import mcframe.clientMAUB.MAUBP0100.*;
 import mcframe.clientMAUB.MAUBP0250.*;
 import mcframe.clientMAUB.MAUBP0260.*;
-import mcframe.clientMSUB.MSUBP0010.*;
 
 import mcframe.commonMA.constant.*;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;

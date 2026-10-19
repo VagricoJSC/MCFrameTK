@@ -48,7 +48,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>cst_frcst_prnt_dt_fr</td>
- *  	<td>Customer forecast list issued date FROM</td>
+ *  	<td>Order delivery date FROM</td>
  *  	<td>Date</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
@@ -56,7 +56,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>cst_frcst_prnt_dt_to</td>
- *  	<td>Customer forecast list issued date TO</td>
+ *  	<td>Order delivery date TO</td>
  *  	<td>Date</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
@@ -64,7 +64,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>rcpt_dt_fr</td>
- *  	<td>Receiving date FROM</td>
+ *  	<td>Post-installation sales date FROM</td>
  *  	<td>Date</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
@@ -72,210 +72,34 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>rcpt_dt_to</td>
- *  	<td>Receiving date TO</td>
+ *  	<td>Post-installation sales date TO</td>
  *  	<td>Date</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>frcst_st_dt_fr</td>
- *  	<td>Start date of forecast period FROM</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_st_dt_to</td>
- *  	<td>Start date of forecast period TO</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>frcst_end_dt_fr</td>
- *  	<td>End date of forecast period FROM</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_end_dt_to</td>
- *  	<td>End date of forecast period TO</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>frcst_dt_fr</td>
- *  	<td>Forecast period FROM</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_dt_to</td>
- *  	<td>Forecast period TO</td>
- *  	<td>Date</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>frcst_period_typ</td>
- *  	<td>Forecast period type</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#PERIOD_TYP PERIOD_TYP}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_period_typ_nm</td>
- *  	<td>Forecast period type name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#PERIOD_TYP_NM PERIOD_TYP_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>cst_cd</td>
- *  	<td>Customer cd.</td>
+ *  	<td>zoho_sls_schd_no</td>
+ *  	<td>Zoho sales schedule No.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
  *  	<td><br></td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>cst_nm</td>
- *  	<td>Customer name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_NM BP_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>dlv_cd</td>
+ *  	<td>deal_cd</td>
  *  	<td>Delivery destination cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
- *  	<td>dlv_nm</td>
+ *  	<td>deal_nm</td>
  *  	<td>Delivery destination name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_NM BP_NM}]</td>
  *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>frcst_usr_cd</td>
- *  	<td>PIC cd.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_usr_nm</td>
- *  	<td>PIC name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>frcst_dpt_cd</td>
- *  	<td>Dept. in charge cd.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_CD DPT_CD}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>frcst_dpt_nm</td>
- *  	<td>Dept. in charge name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_NM DPT_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>wrk_no_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMSUB.MSUBP0010.WrkNoR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>cst_frcst_no</td>
- *  	<td>Sales forecast No.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_FRCST_NO CST_FRCST_NO}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>cst_frcst_d_no</td>
- *  	<td>Sales forecast details No.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_FRCST_D_NO CST_FRCST_D_NO}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>cst_frcst_slip_no</td>
- *  	<td>Customer forecast list No.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_FRCST_SLIP_NO CST_FRCST_SLIP_NO}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>cst_frcst_slip_d_no</td>
- *  	<td>Customer forecast list details No.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_FRCST_SLIP_D_NO CST_FRCST_SLIP_D_NO}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>latest_flg</td>
- *  	<td>Latest only</td>
- *  	<td>Boolean</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>except_frcst_stop_flg</td>
- *  	<td>Except lower priority</td>
- *  	<td>Boolean</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>inc_can_flg</td>
- *  	<td>Include cancel</td>
- *  	<td>Boolean</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>itm_typ_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP0100.ItmTypR}</td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
@@ -295,27 +119,91 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>itm_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP0030.ItmR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
  *  	<td>can_rsn_cd</td>
  *  	<td>Canceling reason cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>can_rsn_nm</td>
  *  	<td>Canceling reason name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>dlv_cd</td>
+ *  	<td>Canceling reason cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>dlv_nm</td>
+ *  	<td>Canceling reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sls_dpt_cd</td>
+ *  	<td>Canceling reason cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sls_dpt_nm</td>
+ *  	<td>Canceling reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>pj_usr_cd</td>
+ *  	<td>Canceling reason cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>pj_usr_nm</td>
+ *  	<td>Canceling reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>market_cd</td>
+ *  	<td>Canceling reason cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>market_nm</td>
+ *  	<td>Canceling reason name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>itm_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP0030.ItmR}</td>
  *  </tr>
  *  <tr >
  *  	<td><br></td>

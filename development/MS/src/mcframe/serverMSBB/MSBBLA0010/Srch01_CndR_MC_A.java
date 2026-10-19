@@ -106,25 +106,80 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 */
 	public static final String $latest_flg = "latest_flg";
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public static final String $cst_cd = "cst_cd";
+	public static final String $zoho_sls_schd_no = "zoho_sls_schd_no";
 	/**
-	 * Customer name 得意先名.<p>
+	 * Delivery destination cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public static final String $cst_nm = "cst_nm";
+	public static final String $deal_cd = "deal_cd";
 	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
+	 * Delivery destination name 商談名.<p>
+	 *
+	 */
+	public static final String $deal_nm = "deal_nm";
+	/**
+	 * Customer item cd. 得意先ＣＤ.<p>
+	 *
+	 */
+	public static final String $cst_itm_cd = "cst_itm_cd";
+	/**
+	 * Customer item name 得意先名.<p>
+	 *
+	 */
+	public static final String $cst_itm_nm = "cst_itm_nm";
+	/**
+	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public static final String $can_rsn_cd = "can_rsn_cd";
+	/**
+	 * Canceling reason name 請求先名.<p>
+	 *
+	 */
+	public static final String $can_rsn_nm = "can_rsn_nm";
+	/**
+	 * Canceling reason cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public static final String $dlv_cd = "dlv_cd";
 	/**
-	 * Delivery destination name 納品先名.<p>
+	 * Canceling reason name 納品先名.<p>
 	 *
 	 */
 	public static final String $dlv_nm = "dlv_nm";
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public static final String $sls_dpt_cd = "sls_dpt_cd";
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public static final String $sls_dpt_nm = "sls_dpt_nm";
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public static final String $pj_usr_cd = "pj_usr_cd";
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public static final String $pj_usr_nm = "pj_usr_nm";
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public static final String $market_cd = "market_cd";
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public static final String $market_nm = "market_nm";
 	/**
 	 * PIC cd. 担当者ＣＤ.<p>
 	 *
@@ -155,16 +210,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $wrk_nm = "wrk_nm";
-	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
-	 *
-	 */
-	public static final String $can_rsn_cd = "can_rsn_cd";
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public static final String $can_rsn_nm = "can_rsn_nm";
 	/**
 	 * Cancel remarks 取消備考.<p>
 	 *
@@ -235,16 +280,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $itm_nm = "itm_nm";
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
-	 *
-	 */
-	public static final String $cst_itm_cd = "cst_itm_cd";
-	/**
-	 * Customer item name 得意先品名.<p>
-	 *
-	 */
-	public static final String $cst_itm_nm = "cst_itm_nm";
 	/**
 	 * Customer forecast list No. 得意先内示書ＮＯ.<p>
 	 *
@@ -753,18 +788,27 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	public static final MCMeta frcst_dt_to_META = createCommonMeta($frcst_dt_to, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta cst_frcst_no_META = createCommonMeta($cst_frcst_no, mcframe.commonMA.meta.MA_META.CST_FRCST_NO);
 	public static final MCMeta latest_flg_META = createCommonMeta($latest_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta dlv_cd_META = createCommonMeta($dlv_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta deal_cd_META = createCommonMeta($deal_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta cst_itm_cd_META = createCommonMeta($cst_itm_cd, mcframe.commonMA.meta.MA_META.BP_ITM_CD);
+	public static final MCMeta cst_itm_nm_META = createCommonMeta($cst_itm_nm, mcframe.commonMA.meta.MA_META.BP_ITM_NM);
+	public static final MCMeta can_rsn_cd_META = createCommonMeta($can_rsn_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta can_rsn_nm_META = createCommonMeta($can_rsn_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta dlv_cd_META = createCommonMeta($dlv_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta sls_dpt_cd_META = createCommonMeta($sls_dpt_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta sls_dpt_nm_META = createCommonMeta($sls_dpt_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta pj_usr_cd_META = createCommonMeta($pj_usr_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta pj_usr_nm_META = createCommonMeta($pj_usr_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta market_cd_META = createCommonMeta($market_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta market_nm_META = createCommonMeta($market_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
 	public static final MCMeta frcst_usr_cd_META = createCommonMeta($frcst_usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
 	public static final MCMeta frcst_usr_nm_META = createCommonMeta($frcst_usr_nm, mcframe.commonMA.meta.MA_META.USR_NM);
 	public static final MCMeta frcst_dpt_cd_META = createCommonMeta($frcst_dpt_cd, mcframe.commonMA.meta.MA_META.DPT_CD);
 	public static final MCMeta frcst_dpt_nm_META = createCommonMeta($frcst_dpt_nm, mcframe.commonMA.meta.MA_META.DPT_NM);
 	public static final MCMeta wrk_no_META = createCommonMeta($wrk_no, mcframe.commonMA.meta.MA_META.WRK_NO);
 	public static final MCMeta wrk_nm_META = createCommonMeta($wrk_nm, mcframe.commonMA.meta.MA_META.WRK_NM);
-	public static final MCMeta can_rsn_cd_META = createCommonMeta($can_rsn_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
-	public static final MCMeta can_rsn_nm_META = createCommonMeta($can_rsn_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
 	public static final MCMeta can_rmrks_META = createCommonMeta($can_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_CAN_RMRKS);
 	public static final MCMeta intr_rmrks_META = createCommonMeta($intr_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_INTR_RMRKS);
 	public static final MCMeta sub_char1_META = createCommonMeta($sub_char1, mcframe.commonMS.meta.MS_META.CST_FRCST_SUB_CHAR1);
@@ -779,8 +823,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
 	public static final MCMeta itm_sub3_META = createCommonMeta($itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
 	public static final MCMeta itm_nm_META = createCommonMeta($itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
-	public static final MCMeta cst_itm_cd_META = createCommonMeta($cst_itm_cd, mcframe.commonMA.meta.MA_META.BP_ITM_CD);
-	public static final MCMeta cst_itm_nm_META = createCommonMeta($cst_itm_nm, mcframe.commonMA.meta.MA_META.BP_ITM_NM);
 	public static final MCMeta cst_frcst_slip_no_META = createCommonMeta($cst_frcst_slip_no, mcframe.commonMA.meta.MA_META.CST_FRCST_SLIP_NO);
 	public static final MCMeta cst_frcst_d_no_META = createCommonMeta($cst_frcst_d_no, mcframe.commonMA.meta.MA_META.CST_FRCST_D_NO);
 	public static final MCMeta cst_frcst_slip_d_no_META = createCommonMeta($cst_frcst_slip_d_no, mcframe.commonMA.meta.MA_META.CST_FRCST_SLIP_D_NO);
@@ -899,18 +941,27 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			frcst_dt_to_META,
 			cst_frcst_no_META,
 			latest_flg_META,
-			cst_cd_META,
-			cst_nm_META,
+			zoho_sls_schd_no_META,
+			deal_cd_META,
+			deal_nm_META,
+			cst_itm_cd_META,
+			cst_itm_nm_META,
+			can_rsn_cd_META,
+			can_rsn_nm_META,
 			dlv_cd_META,
 			dlv_nm_META,
+			sls_dpt_cd_META,
+			sls_dpt_nm_META,
+			pj_usr_cd_META,
+			pj_usr_nm_META,
+			market_cd_META,
+			market_nm_META,
 			frcst_usr_cd_META,
 			frcst_usr_nm_META,
 			frcst_dpt_cd_META,
 			frcst_dpt_nm_META,
 			wrk_no_META,
 			wrk_nm_META,
-			can_rsn_cd_META,
-			can_rsn_nm_META,
 			can_rmrks_META,
 			intr_rmrks_META,
 			sub_char1_META,
@@ -925,8 +976,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			itm_sub2_META,
 			itm_sub3_META,
 			itm_nm_META,
-			cst_itm_cd_META,
-			cst_itm_nm_META,
 			cst_frcst_slip_no_META,
 			cst_frcst_d_no_META,
 			cst_frcst_slip_d_no_META,
@@ -1410,70 +1459,257 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public String cst_cd() {
-		return getConstString(offset + 16, $cst_cd);
+	public String zoho_sls_schd_no() {
+		return getConstString(offset + 16, $zoho_sls_schd_no);
 	}
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public void cst_cd(String value) {
-		setConstString(offset + 16, $cst_cd, value);
-	}
-
-
-	/**
-	 * Customer name 得意先名.<p>
-	 *
-	 */
-	public String cst_nm() {
-		return getConstString(offset + 17, $cst_nm);
-	}
-
-	/**
-	 * Customer name 得意先名.<p>
-	 *
-	 */
-	public void cst_nm(String value) {
-		setConstString(offset + 17, $cst_nm, value);
+	public void zoho_sls_schd_no(String value) {
+		setConstString(offset + 16, $zoho_sls_schd_no, value);
 	}
 
 
 	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
+	 * Delivery destination cd. 商談ＣＤ.<p>
+	 *
+	 */
+	public String deal_cd() {
+		return getConstString(offset + 17, $deal_cd);
+	}
+
+	/**
+	 * Delivery destination cd. 商談ＣＤ.<p>
+	 *
+	 */
+	public void deal_cd(String value) {
+		setConstString(offset + 17, $deal_cd, value);
+	}
+
+
+	/**
+	 * Delivery destination name 商談名.<p>
+	 *
+	 */
+	public String deal_nm() {
+		return getConstString(offset + 18, $deal_nm);
+	}
+
+	/**
+	 * Delivery destination name 商談名.<p>
+	 *
+	 */
+	public void deal_nm(String value) {
+		setConstString(offset + 18, $deal_nm, value);
+	}
+
+
+	/**
+	 * Customer item cd. 得意先ＣＤ.<p>
+	 *
+	 */
+	public String cst_itm_cd() {
+		return getConstString(offset + 19, $cst_itm_cd);
+	}
+
+	/**
+	 * Customer item cd. 得意先ＣＤ.<p>
+	 *
+	 */
+	public void cst_itm_cd(String value) {
+		setConstString(offset + 19, $cst_itm_cd, value);
+	}
+
+
+	/**
+	 * Customer item name 得意先名.<p>
+	 *
+	 */
+	public String cst_itm_nm() {
+		return getConstString(offset + 20, $cst_itm_nm);
+	}
+
+	/**
+	 * Customer item name 得意先名.<p>
+	 *
+	 */
+	public void cst_itm_nm(String value) {
+		setConstString(offset + 20, $cst_itm_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public String can_rsn_cd() {
+		return getConstString(offset + 21, $can_rsn_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public void can_rsn_cd(String value) {
+		setConstString(offset + 21, $can_rsn_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 請求先名.<p>
+	 *
+	 */
+	public String can_rsn_nm() {
+		return getConstString(offset + 22, $can_rsn_nm);
+	}
+
+	/**
+	 * Canceling reason name 請求先名.<p>
+	 *
+	 */
+	public void can_rsn_nm(String value) {
+		setConstString(offset + 22, $can_rsn_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public String dlv_cd() {
-		return getConstString(offset + 18, $dlv_cd);
+		return getConstString(offset + 23, $dlv_cd);
 	}
 
 	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
+	 * Canceling reason cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public void dlv_cd(String value) {
-		setConstString(offset + 18, $dlv_cd, value);
+		setConstString(offset + 23, $dlv_cd, value);
 	}
 
 
 	/**
-	 * Delivery destination name 納品先名.<p>
+	 * Canceling reason name 納品先名.<p>
 	 *
 	 */
 	public String dlv_nm() {
-		return getConstString(offset + 19, $dlv_nm);
+		return getConstString(offset + 24, $dlv_nm);
 	}
 
 	/**
-	 * Delivery destination name 納品先名.<p>
+	 * Canceling reason name 納品先名.<p>
 	 *
 	 */
 	public void dlv_nm(String value) {
-		setConstString(offset + 19, $dlv_nm, value);
+		setConstString(offset + 24, $dlv_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public String sls_dpt_cd() {
+		return getConstString(offset + 25, $sls_dpt_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public void sls_dpt_cd(String value) {
+		setConstString(offset + 25, $sls_dpt_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public String sls_dpt_nm() {
+		return getConstString(offset + 26, $sls_dpt_nm);
+	}
+
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public void sls_dpt_nm(String value) {
+		setConstString(offset + 26, $sls_dpt_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public String pj_usr_cd() {
+		return getConstString(offset + 27, $pj_usr_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public void pj_usr_cd(String value) {
+		setConstString(offset + 27, $pj_usr_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public String pj_usr_nm() {
+		return getConstString(offset + 28, $pj_usr_nm);
+	}
+
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public void pj_usr_nm(String value) {
+		setConstString(offset + 28, $pj_usr_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public String market_cd() {
+		return getConstString(offset + 29, $market_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public void market_cd(String value) {
+		setConstString(offset + 29, $market_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public String market_nm() {
+		return getConstString(offset + 30, $market_nm);
+	}
+
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public void market_nm(String value) {
+		setConstString(offset + 30, $market_nm, value);
 	}
 
 
@@ -1482,7 +1718,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frcst_usr_cd() {
-		return getConstString(offset + 20, $frcst_usr_cd);
+		return getConstString(offset + 31, $frcst_usr_cd);
 	}
 
 	/**
@@ -1490,7 +1726,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frcst_usr_cd(String value) {
-		setConstString(offset + 20, $frcst_usr_cd, value);
+		setConstString(offset + 31, $frcst_usr_cd, value);
 	}
 
 
@@ -1499,7 +1735,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frcst_usr_nm() {
-		return getConstString(offset + 21, $frcst_usr_nm);
+		return getConstString(offset + 32, $frcst_usr_nm);
 	}
 
 	/**
@@ -1507,7 +1743,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frcst_usr_nm(String value) {
-		setConstString(offset + 21, $frcst_usr_nm, value);
+		setConstString(offset + 32, $frcst_usr_nm, value);
 	}
 
 
@@ -1516,7 +1752,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frcst_dpt_cd() {
-		return getConstString(offset + 22, $frcst_dpt_cd);
+		return getConstString(offset + 33, $frcst_dpt_cd);
 	}
 
 	/**
@@ -1524,7 +1760,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frcst_dpt_cd(String value) {
-		setConstString(offset + 22, $frcst_dpt_cd, value);
+		setConstString(offset + 33, $frcst_dpt_cd, value);
 	}
 
 
@@ -1533,7 +1769,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frcst_dpt_nm() {
-		return getConstString(offset + 23, $frcst_dpt_nm);
+		return getConstString(offset + 34, $frcst_dpt_nm);
 	}
 
 	/**
@@ -1541,7 +1777,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frcst_dpt_nm(String value) {
-		setConstString(offset + 23, $frcst_dpt_nm, value);
+		setConstString(offset + 34, $frcst_dpt_nm, value);
 	}
 
 
@@ -1550,7 +1786,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wrk_no() {
-		return getConstString(offset + 24, $wrk_no);
+		return getConstString(offset + 35, $wrk_no);
 	}
 
 	/**
@@ -1558,7 +1794,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wrk_no(String value) {
-		setConstString(offset + 24, $wrk_no, value);
+		setConstString(offset + 35, $wrk_no, value);
 	}
 
 
@@ -1567,7 +1803,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wrk_nm() {
-		return getConstString(offset + 25, $wrk_nm);
+		return getConstString(offset + 36, $wrk_nm);
 	}
 
 	/**
@@ -1575,41 +1811,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wrk_nm(String value) {
-		setConstString(offset + 25, $wrk_nm, value);
-	}
-
-
-	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
-	 *
-	 */
-	public String can_rsn_cd() {
-		return getConstString(offset + 26, $can_rsn_cd);
-	}
-
-	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
-	 *
-	 */
-	public void can_rsn_cd(String value) {
-		setConstString(offset + 26, $can_rsn_cd, value);
-	}
-
-
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public String can_rsn_nm() {
-		return getConstString(offset + 27, $can_rsn_nm);
-	}
-
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public void can_rsn_nm(String value) {
-		setConstString(offset + 27, $can_rsn_nm, value);
+		setConstString(offset + 36, $wrk_nm, value);
 	}
 
 
@@ -1618,7 +1820,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rmrks() {
-		return getConstString(offset + 28, $can_rmrks);
+		return getConstString(offset + 37, $can_rmrks);
 	}
 
 	/**
@@ -1626,7 +1828,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rmrks(String value) {
-		setConstString(offset + 28, $can_rmrks, value);
+		setConstString(offset + 37, $can_rmrks, value);
 	}
 
 
@@ -1635,7 +1837,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String intr_rmrks() {
-		return getConstString(offset + 29, $intr_rmrks);
+		return getConstString(offset + 38, $intr_rmrks);
 	}
 
 	/**
@@ -1643,7 +1845,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void intr_rmrks(String value) {
-		setConstString(offset + 29, $intr_rmrks, value);
+		setConstString(offset + 38, $intr_rmrks, value);
 	}
 
 
@@ -1652,7 +1854,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char1() {
-		return getConstString(offset + 30, $sub_char1);
+		return getConstString(offset + 39, $sub_char1);
 	}
 
 	/**
@@ -1660,7 +1862,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char1(String value) {
-		setConstString(offset + 30, $sub_char1, value);
+		setConstString(offset + 39, $sub_char1, value);
 	}
 
 
@@ -1669,7 +1871,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char2() {
-		return getConstString(offset + 31, $sub_char2);
+		return getConstString(offset + 40, $sub_char2);
 	}
 
 	/**
@@ -1677,7 +1879,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char2(String value) {
-		setConstString(offset + 31, $sub_char2, value);
+		setConstString(offset + 40, $sub_char2, value);
 	}
 
 
@@ -1686,7 +1888,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char3() {
-		return getConstString(offset + 32, $sub_char3);
+		return getConstString(offset + 41, $sub_char3);
 	}
 
 	/**
@@ -1694,7 +1896,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char3(String value) {
-		setConstString(offset + 32, $sub_char3, value);
+		setConstString(offset + 41, $sub_char3, value);
 	}
 
 
@@ -1703,7 +1905,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frcst_period_typ() {
-		return getConstString(offset + 33, $frcst_period_typ);
+		return getConstString(offset + 42, $frcst_period_typ);
 	}
 
 	/**
@@ -1711,7 +1913,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frcst_period_typ(String value) {
-		setConstString(offset + 33, $frcst_period_typ, value);
+		setConstString(offset + 42, $frcst_period_typ, value);
 	}
 
 
@@ -1720,7 +1922,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_typ() {
-		return getConstString(offset + 34, $itm_typ);
+		return getConstString(offset + 43, $itm_typ);
 	}
 
 	/**
@@ -1728,7 +1930,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_typ(String value) {
-		setConstString(offset + 34, $itm_typ, value);
+		setConstString(offset + 43, $itm_typ, value);
 	}
 
 
@@ -1737,7 +1939,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_typ_d_cd() {
-		return getConstString(offset + 35, $itm_typ_d_cd);
+		return getConstString(offset + 44, $itm_typ_d_cd);
 	}
 
 	/**
@@ -1745,7 +1947,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_typ_d_cd(String value) {
-		setConstString(offset + 35, $itm_typ_d_cd, value);
+		setConstString(offset + 44, $itm_typ_d_cd, value);
 	}
 
 
@@ -1754,7 +1956,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_typ_d_nm() {
-		return getConstString(offset + 36, $itm_typ_d_nm);
+		return getConstString(offset + 45, $itm_typ_d_nm);
 	}
 
 	/**
@@ -1762,7 +1964,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_typ_d_nm(String value) {
-		setConstString(offset + 36, $itm_typ_d_nm, value);
+		setConstString(offset + 45, $itm_typ_d_nm, value);
 	}
 
 
@@ -1771,7 +1973,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_cd() {
-		return getConstString(offset + 37, $itm_cd);
+		return getConstString(offset + 46, $itm_cd);
 	}
 
 	/**
@@ -1779,7 +1981,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_cd(String value) {
-		setConstString(offset + 37, $itm_cd, value);
+		setConstString(offset + 46, $itm_cd, value);
 	}
 
 
@@ -1788,7 +1990,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub1() {
-		return getConstString(offset + 38, $itm_sub1);
+		return getConstString(offset + 47, $itm_sub1);
 	}
 
 	/**
@@ -1796,7 +1998,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub1(String value) {
-		setConstString(offset + 38, $itm_sub1, value);
+		setConstString(offset + 47, $itm_sub1, value);
 	}
 
 
@@ -1805,7 +2007,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub2() {
-		return getConstString(offset + 39, $itm_sub2);
+		return getConstString(offset + 48, $itm_sub2);
 	}
 
 	/**
@@ -1813,7 +2015,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub2(String value) {
-		setConstString(offset + 39, $itm_sub2, value);
+		setConstString(offset + 48, $itm_sub2, value);
 	}
 
 
@@ -1822,7 +2024,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub3() {
-		return getConstString(offset + 40, $itm_sub3);
+		return getConstString(offset + 49, $itm_sub3);
 	}
 
 	/**
@@ -1830,7 +2032,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub3(String value) {
-		setConstString(offset + 40, $itm_sub3, value);
+		setConstString(offset + 49, $itm_sub3, value);
 	}
 
 
@@ -1839,7 +2041,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 41, $itm_nm);
+		return getConstString(offset + 50, $itm_nm);
 	}
 
 	/**
@@ -1847,41 +2049,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 41, $itm_nm, value);
-	}
-
-
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
-	 *
-	 */
-	public String cst_itm_cd() {
-		return getConstString(offset + 42, $cst_itm_cd);
-	}
-
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
-	 *
-	 */
-	public void cst_itm_cd(String value) {
-		setConstString(offset + 42, $cst_itm_cd, value);
-	}
-
-
-	/**
-	 * Customer item name 得意先品名.<p>
-	 *
-	 */
-	public String cst_itm_nm() {
-		return getConstString(offset + 43, $cst_itm_nm);
-	}
-
-	/**
-	 * Customer item name 得意先品名.<p>
-	 *
-	 */
-	public void cst_itm_nm(String value) {
-		setConstString(offset + 43, $cst_itm_nm, value);
+		setConstString(offset + 50, $itm_nm, value);
 	}
 
 
@@ -1890,7 +2058,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_frcst_slip_no() {
-		return getConstString(offset + 44, $cst_frcst_slip_no);
+		return getConstString(offset + 51, $cst_frcst_slip_no);
 	}
 
 	/**
@@ -1898,7 +2066,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_frcst_slip_no(String value) {
-		setConstString(offset + 44, $cst_frcst_slip_no, value);
+		setConstString(offset + 51, $cst_frcst_slip_no, value);
 	}
 
 
@@ -1907,7 +2075,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_frcst_d_no() {
-		return getConstString(offset + 45, $cst_frcst_d_no);
+		return getConstString(offset + 52, $cst_frcst_d_no);
 	}
 
 	/**
@@ -1915,7 +2083,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_frcst_d_no(String value) {
-		setConstString(offset + 45, $cst_frcst_d_no, value);
+		setConstString(offset + 52, $cst_frcst_d_no, value);
 	}
 
 
@@ -1924,7 +2092,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_frcst_slip_d_no() {
-		return getConstString(offset + 46, $cst_frcst_slip_d_no);
+		return getConstString(offset + 53, $cst_frcst_slip_d_no);
 	}
 
 	/**
@@ -1932,7 +2100,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_frcst_slip_d_no(String value) {
-		setConstString(offset + 46, $cst_frcst_slip_d_no, value);
+		setConstString(offset + 53, $cst_frcst_slip_d_no, value);
 	}
 
 
@@ -1941,7 +2109,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_intr_rmrks() {
-		return getConstString(offset + 47, $dtl_intr_rmrks);
+		return getConstString(offset + 54, $dtl_intr_rmrks);
 	}
 
 	/**
@@ -1949,7 +2117,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_intr_rmrks(String value) {
-		setConstString(offset + 47, $dtl_intr_rmrks, value);
+		setConstString(offset + 54, $dtl_intr_rmrks, value);
 	}
 
 
@@ -1958,7 +2126,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char1() {
-		return getConstString(offset + 48, $dtl_sub_char1);
+		return getConstString(offset + 55, $dtl_sub_char1);
 	}
 
 	/**
@@ -1966,7 +2134,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char1(String value) {
-		setConstString(offset + 48, $dtl_sub_char1, value);
+		setConstString(offset + 55, $dtl_sub_char1, value);
 	}
 
 
@@ -1975,7 +2143,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char2() {
-		return getConstString(offset + 49, $dtl_sub_char2);
+		return getConstString(offset + 56, $dtl_sub_char2);
 	}
 
 	/**
@@ -1983,7 +2151,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char2(String value) {
-		setConstString(offset + 49, $dtl_sub_char2, value);
+		setConstString(offset + 56, $dtl_sub_char2, value);
 	}
 
 
@@ -1992,7 +2160,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char3() {
-		return getConstString(offset + 50, $dtl_sub_char3);
+		return getConstString(offset + 57, $dtl_sub_char3);
 	}
 
 	/**
@@ -2000,7 +2168,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char3(String value) {
-		setConstString(offset + 50, $dtl_sub_char3, value);
+		setConstString(offset + 57, $dtl_sub_char3, value);
 	}
 
 
@@ -2009,7 +2177,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean inc_can_flg() {
-		return getConstBoolean(offset + 51, $inc_can_flg);
+		return getConstBoolean(offset + 58, $inc_can_flg);
 	}
 
 	/**
@@ -2017,7 +2185,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void inc_can_flg(boolean value) {
-		setConstBoolean(offset + 51, $inc_can_flg, value);
+		setConstBoolean(offset + 58, $inc_can_flg, value);
 	}
 
 
@@ -2026,7 +2194,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg1() {
-		return getConstBoolean(offset + 52, $dlv_grp_flg1);
+		return getConstBoolean(offset + 59, $dlv_grp_flg1);
 	}
 
 	/**
@@ -2034,7 +2202,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg1(boolean value) {
-		setConstBoolean(offset + 52, $dlv_grp_flg1, value);
+		setConstBoolean(offset + 59, $dlv_grp_flg1, value);
 	}
 
 
@@ -2043,7 +2211,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd1() {
-		return getConstString(offset + 53, $dlv_grp_cd1);
+		return getConstString(offset + 60, $dlv_grp_cd1);
 	}
 
 	/**
@@ -2051,7 +2219,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd1(String value) {
-		setConstString(offset + 53, $dlv_grp_cd1, value);
+		setConstString(offset + 60, $dlv_grp_cd1, value);
 	}
 
 
@@ -2060,7 +2228,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm1() {
-		return getConstString(offset + 54, $dlv_grp_nm1);
+		return getConstString(offset + 61, $dlv_grp_nm1);
 	}
 
 	/**
@@ -2068,7 +2236,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm1(String value) {
-		setConstString(offset + 54, $dlv_grp_nm1, value);
+		setConstString(offset + 61, $dlv_grp_nm1, value);
 	}
 
 
@@ -2077,7 +2245,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg2() {
-		return getConstBoolean(offset + 55, $dlv_grp_flg2);
+		return getConstBoolean(offset + 62, $dlv_grp_flg2);
 	}
 
 	/**
@@ -2085,7 +2253,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg2(boolean value) {
-		setConstBoolean(offset + 55, $dlv_grp_flg2, value);
+		setConstBoolean(offset + 62, $dlv_grp_flg2, value);
 	}
 
 
@@ -2094,7 +2262,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd2() {
-		return getConstString(offset + 56, $dlv_grp_cd2);
+		return getConstString(offset + 63, $dlv_grp_cd2);
 	}
 
 	/**
@@ -2102,7 +2270,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd2(String value) {
-		setConstString(offset + 56, $dlv_grp_cd2, value);
+		setConstString(offset + 63, $dlv_grp_cd2, value);
 	}
 
 
@@ -2111,7 +2279,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm2() {
-		return getConstString(offset + 57, $dlv_grp_nm2);
+		return getConstString(offset + 64, $dlv_grp_nm2);
 	}
 
 	/**
@@ -2119,7 +2287,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm2(String value) {
-		setConstString(offset + 57, $dlv_grp_nm2, value);
+		setConstString(offset + 64, $dlv_grp_nm2, value);
 	}
 
 
@@ -2128,7 +2296,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg3() {
-		return getConstBoolean(offset + 58, $dlv_grp_flg3);
+		return getConstBoolean(offset + 65, $dlv_grp_flg3);
 	}
 
 	/**
@@ -2136,7 +2304,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg3(boolean value) {
-		setConstBoolean(offset + 58, $dlv_grp_flg3, value);
+		setConstBoolean(offset + 65, $dlv_grp_flg3, value);
 	}
 
 
@@ -2145,7 +2313,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd3() {
-		return getConstString(offset + 59, $dlv_grp_cd3);
+		return getConstString(offset + 66, $dlv_grp_cd3);
 	}
 
 	/**
@@ -2153,7 +2321,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd3(String value) {
-		setConstString(offset + 59, $dlv_grp_cd3, value);
+		setConstString(offset + 66, $dlv_grp_cd3, value);
 	}
 
 
@@ -2162,7 +2330,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm3() {
-		return getConstString(offset + 60, $dlv_grp_nm3);
+		return getConstString(offset + 67, $dlv_grp_nm3);
 	}
 
 	/**
@@ -2170,7 +2338,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm3(String value) {
-		setConstString(offset + 60, $dlv_grp_nm3, value);
+		setConstString(offset + 67, $dlv_grp_nm3, value);
 	}
 
 
@@ -2179,7 +2347,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg4() {
-		return getConstBoolean(offset + 61, $dlv_grp_flg4);
+		return getConstBoolean(offset + 68, $dlv_grp_flg4);
 	}
 
 	/**
@@ -2187,7 +2355,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg4(boolean value) {
-		setConstBoolean(offset + 61, $dlv_grp_flg4, value);
+		setConstBoolean(offset + 68, $dlv_grp_flg4, value);
 	}
 
 
@@ -2196,7 +2364,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd4() {
-		return getConstString(offset + 62, $dlv_grp_cd4);
+		return getConstString(offset + 69, $dlv_grp_cd4);
 	}
 
 	/**
@@ -2204,7 +2372,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd4(String value) {
-		setConstString(offset + 62, $dlv_grp_cd4, value);
+		setConstString(offset + 69, $dlv_grp_cd4, value);
 	}
 
 
@@ -2213,7 +2381,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm4() {
-		return getConstString(offset + 63, $dlv_grp_nm4);
+		return getConstString(offset + 70, $dlv_grp_nm4);
 	}
 
 	/**
@@ -2221,7 +2389,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm4(String value) {
-		setConstString(offset + 63, $dlv_grp_nm4, value);
+		setConstString(offset + 70, $dlv_grp_nm4, value);
 	}
 
 
@@ -2230,7 +2398,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg5() {
-		return getConstBoolean(offset + 64, $dlv_grp_flg5);
+		return getConstBoolean(offset + 71, $dlv_grp_flg5);
 	}
 
 	/**
@@ -2238,7 +2406,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg5(boolean value) {
-		setConstBoolean(offset + 64, $dlv_grp_flg5, value);
+		setConstBoolean(offset + 71, $dlv_grp_flg5, value);
 	}
 
 
@@ -2247,7 +2415,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd5() {
-		return getConstString(offset + 65, $dlv_grp_cd5);
+		return getConstString(offset + 72, $dlv_grp_cd5);
 	}
 
 	/**
@@ -2255,7 +2423,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd5(String value) {
-		setConstString(offset + 65, $dlv_grp_cd5, value);
+		setConstString(offset + 72, $dlv_grp_cd5, value);
 	}
 
 
@@ -2264,7 +2432,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm5() {
-		return getConstString(offset + 66, $dlv_grp_nm5);
+		return getConstString(offset + 73, $dlv_grp_nm5);
 	}
 
 	/**
@@ -2272,7 +2440,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm5(String value) {
-		setConstString(offset + 66, $dlv_grp_nm5, value);
+		setConstString(offset + 73, $dlv_grp_nm5, value);
 	}
 
 
@@ -2281,7 +2449,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg6() {
-		return getConstBoolean(offset + 67, $dlv_grp_flg6);
+		return getConstBoolean(offset + 74, $dlv_grp_flg6);
 	}
 
 	/**
@@ -2289,7 +2457,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg6(boolean value) {
-		setConstBoolean(offset + 67, $dlv_grp_flg6, value);
+		setConstBoolean(offset + 74, $dlv_grp_flg6, value);
 	}
 
 
@@ -2298,7 +2466,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd6() {
-		return getConstString(offset + 68, $dlv_grp_cd6);
+		return getConstString(offset + 75, $dlv_grp_cd6);
 	}
 
 	/**
@@ -2306,7 +2474,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd6(String value) {
-		setConstString(offset + 68, $dlv_grp_cd6, value);
+		setConstString(offset + 75, $dlv_grp_cd6, value);
 	}
 
 
@@ -2315,7 +2483,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm6() {
-		return getConstString(offset + 69, $dlv_grp_nm6);
+		return getConstString(offset + 76, $dlv_grp_nm6);
 	}
 
 	/**
@@ -2323,7 +2491,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm6(String value) {
-		setConstString(offset + 69, $dlv_grp_nm6, value);
+		setConstString(offset + 76, $dlv_grp_nm6, value);
 	}
 
 
@@ -2332,7 +2500,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg7() {
-		return getConstBoolean(offset + 70, $dlv_grp_flg7);
+		return getConstBoolean(offset + 77, $dlv_grp_flg7);
 	}
 
 	/**
@@ -2340,7 +2508,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg7(boolean value) {
-		setConstBoolean(offset + 70, $dlv_grp_flg7, value);
+		setConstBoolean(offset + 77, $dlv_grp_flg7, value);
 	}
 
 
@@ -2349,7 +2517,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd7() {
-		return getConstString(offset + 71, $dlv_grp_cd7);
+		return getConstString(offset + 78, $dlv_grp_cd7);
 	}
 
 	/**
@@ -2357,7 +2525,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd7(String value) {
-		setConstString(offset + 71, $dlv_grp_cd7, value);
+		setConstString(offset + 78, $dlv_grp_cd7, value);
 	}
 
 
@@ -2366,7 +2534,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm7() {
-		return getConstString(offset + 72, $dlv_grp_nm7);
+		return getConstString(offset + 79, $dlv_grp_nm7);
 	}
 
 	/**
@@ -2374,7 +2542,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm7(String value) {
-		setConstString(offset + 72, $dlv_grp_nm7, value);
+		setConstString(offset + 79, $dlv_grp_nm7, value);
 	}
 
 
@@ -2383,7 +2551,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg8() {
-		return getConstBoolean(offset + 73, $dlv_grp_flg8);
+		return getConstBoolean(offset + 80, $dlv_grp_flg8);
 	}
 
 	/**
@@ -2391,7 +2559,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg8(boolean value) {
-		setConstBoolean(offset + 73, $dlv_grp_flg8, value);
+		setConstBoolean(offset + 80, $dlv_grp_flg8, value);
 	}
 
 
@@ -2400,7 +2568,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd8() {
-		return getConstString(offset + 74, $dlv_grp_cd8);
+		return getConstString(offset + 81, $dlv_grp_cd8);
 	}
 
 	/**
@@ -2408,7 +2576,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd8(String value) {
-		setConstString(offset + 74, $dlv_grp_cd8, value);
+		setConstString(offset + 81, $dlv_grp_cd8, value);
 	}
 
 
@@ -2417,7 +2585,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm8() {
-		return getConstString(offset + 75, $dlv_grp_nm8);
+		return getConstString(offset + 82, $dlv_grp_nm8);
 	}
 
 	/**
@@ -2425,7 +2593,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm8(String value) {
-		setConstString(offset + 75, $dlv_grp_nm8, value);
+		setConstString(offset + 82, $dlv_grp_nm8, value);
 	}
 
 
@@ -2434,7 +2602,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg9() {
-		return getConstBoolean(offset + 76, $dlv_grp_flg9);
+		return getConstBoolean(offset + 83, $dlv_grp_flg9);
 	}
 
 	/**
@@ -2442,7 +2610,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg9(boolean value) {
-		setConstBoolean(offset + 76, $dlv_grp_flg9, value);
+		setConstBoolean(offset + 83, $dlv_grp_flg9, value);
 	}
 
 
@@ -2451,7 +2619,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd9() {
-		return getConstString(offset + 77, $dlv_grp_cd9);
+		return getConstString(offset + 84, $dlv_grp_cd9);
 	}
 
 	/**
@@ -2459,7 +2627,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd9(String value) {
-		setConstString(offset + 77, $dlv_grp_cd9, value);
+		setConstString(offset + 84, $dlv_grp_cd9, value);
 	}
 
 
@@ -2468,7 +2636,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm9() {
-		return getConstString(offset + 78, $dlv_grp_nm9);
+		return getConstString(offset + 85, $dlv_grp_nm9);
 	}
 
 	/**
@@ -2476,7 +2644,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm9(String value) {
-		setConstString(offset + 78, $dlv_grp_nm9, value);
+		setConstString(offset + 85, $dlv_grp_nm9, value);
 	}
 
 
@@ -2485,7 +2653,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean dlv_grp_flg10() {
-		return getConstBoolean(offset + 79, $dlv_grp_flg10);
+		return getConstBoolean(offset + 86, $dlv_grp_flg10);
 	}
 
 	/**
@@ -2493,7 +2661,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_flg10(boolean value) {
-		setConstBoolean(offset + 79, $dlv_grp_flg10, value);
+		setConstBoolean(offset + 86, $dlv_grp_flg10, value);
 	}
 
 
@@ -2502,7 +2670,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_cd10() {
-		return getConstString(offset + 80, $dlv_grp_cd10);
+		return getConstString(offset + 87, $dlv_grp_cd10);
 	}
 
 	/**
@@ -2510,7 +2678,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_cd10(String value) {
-		setConstString(offset + 80, $dlv_grp_cd10, value);
+		setConstString(offset + 87, $dlv_grp_cd10, value);
 	}
 
 
@@ -2519,7 +2687,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_grp_nm10() {
-		return getConstString(offset + 81, $dlv_grp_nm10);
+		return getConstString(offset + 88, $dlv_grp_nm10);
 	}
 
 	/**
@@ -2527,7 +2695,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_grp_nm10(String value) {
-		setConstString(offset + 81, $dlv_grp_nm10, value);
+		setConstString(offset + 88, $dlv_grp_nm10, value);
 	}
 
 
@@ -2536,7 +2704,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg1() {
-		return getConstBoolean(offset + 82, $cst_grp_flg1);
+		return getConstBoolean(offset + 89, $cst_grp_flg1);
 	}
 
 	/**
@@ -2544,7 +2712,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg1(boolean value) {
-		setConstBoolean(offset + 82, $cst_grp_flg1, value);
+		setConstBoolean(offset + 89, $cst_grp_flg1, value);
 	}
 
 
@@ -2553,7 +2721,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd1() {
-		return getConstString(offset + 83, $cst_grp_cd1);
+		return getConstString(offset + 90, $cst_grp_cd1);
 	}
 
 	/**
@@ -2561,7 +2729,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd1(String value) {
-		setConstString(offset + 83, $cst_grp_cd1, value);
+		setConstString(offset + 90, $cst_grp_cd1, value);
 	}
 
 
@@ -2570,7 +2738,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm1() {
-		return getConstString(offset + 84, $cst_grp_nm1);
+		return getConstString(offset + 91, $cst_grp_nm1);
 	}
 
 	/**
@@ -2578,7 +2746,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm1(String value) {
-		setConstString(offset + 84, $cst_grp_nm1, value);
+		setConstString(offset + 91, $cst_grp_nm1, value);
 	}
 
 
@@ -2587,7 +2755,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg2() {
-		return getConstBoolean(offset + 85, $cst_grp_flg2);
+		return getConstBoolean(offset + 92, $cst_grp_flg2);
 	}
 
 	/**
@@ -2595,7 +2763,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg2(boolean value) {
-		setConstBoolean(offset + 85, $cst_grp_flg2, value);
+		setConstBoolean(offset + 92, $cst_grp_flg2, value);
 	}
 
 
@@ -2604,7 +2772,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd2() {
-		return getConstString(offset + 86, $cst_grp_cd2);
+		return getConstString(offset + 93, $cst_grp_cd2);
 	}
 
 	/**
@@ -2612,7 +2780,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd2(String value) {
-		setConstString(offset + 86, $cst_grp_cd2, value);
+		setConstString(offset + 93, $cst_grp_cd2, value);
 	}
 
 
@@ -2621,7 +2789,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm2() {
-		return getConstString(offset + 87, $cst_grp_nm2);
+		return getConstString(offset + 94, $cst_grp_nm2);
 	}
 
 	/**
@@ -2629,7 +2797,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm2(String value) {
-		setConstString(offset + 87, $cst_grp_nm2, value);
+		setConstString(offset + 94, $cst_grp_nm2, value);
 	}
 
 
@@ -2638,7 +2806,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg3() {
-		return getConstBoolean(offset + 88, $cst_grp_flg3);
+		return getConstBoolean(offset + 95, $cst_grp_flg3);
 	}
 
 	/**
@@ -2646,7 +2814,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg3(boolean value) {
-		setConstBoolean(offset + 88, $cst_grp_flg3, value);
+		setConstBoolean(offset + 95, $cst_grp_flg3, value);
 	}
 
 
@@ -2655,7 +2823,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd3() {
-		return getConstString(offset + 89, $cst_grp_cd3);
+		return getConstString(offset + 96, $cst_grp_cd3);
 	}
 
 	/**
@@ -2663,7 +2831,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd3(String value) {
-		setConstString(offset + 89, $cst_grp_cd3, value);
+		setConstString(offset + 96, $cst_grp_cd3, value);
 	}
 
 
@@ -2672,7 +2840,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm3() {
-		return getConstString(offset + 90, $cst_grp_nm3);
+		return getConstString(offset + 97, $cst_grp_nm3);
 	}
 
 	/**
@@ -2680,7 +2848,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm3(String value) {
-		setConstString(offset + 90, $cst_grp_nm3, value);
+		setConstString(offset + 97, $cst_grp_nm3, value);
 	}
 
 
@@ -2689,7 +2857,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg4() {
-		return getConstBoolean(offset + 91, $cst_grp_flg4);
+		return getConstBoolean(offset + 98, $cst_grp_flg4);
 	}
 
 	/**
@@ -2697,7 +2865,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg4(boolean value) {
-		setConstBoolean(offset + 91, $cst_grp_flg4, value);
+		setConstBoolean(offset + 98, $cst_grp_flg4, value);
 	}
 
 
@@ -2706,7 +2874,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd4() {
-		return getConstString(offset + 92, $cst_grp_cd4);
+		return getConstString(offset + 99, $cst_grp_cd4);
 	}
 
 	/**
@@ -2714,7 +2882,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd4(String value) {
-		setConstString(offset + 92, $cst_grp_cd4, value);
+		setConstString(offset + 99, $cst_grp_cd4, value);
 	}
 
 
@@ -2723,7 +2891,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm4() {
-		return getConstString(offset + 93, $cst_grp_nm4);
+		return getConstString(offset + 100, $cst_grp_nm4);
 	}
 
 	/**
@@ -2731,7 +2899,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm4(String value) {
-		setConstString(offset + 93, $cst_grp_nm4, value);
+		setConstString(offset + 100, $cst_grp_nm4, value);
 	}
 
 
@@ -2740,7 +2908,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg5() {
-		return getConstBoolean(offset + 94, $cst_grp_flg5);
+		return getConstBoolean(offset + 101, $cst_grp_flg5);
 	}
 
 	/**
@@ -2748,7 +2916,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg5(boolean value) {
-		setConstBoolean(offset + 94, $cst_grp_flg5, value);
+		setConstBoolean(offset + 101, $cst_grp_flg5, value);
 	}
 
 
@@ -2757,7 +2925,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd5() {
-		return getConstString(offset + 95, $cst_grp_cd5);
+		return getConstString(offset + 102, $cst_grp_cd5);
 	}
 
 	/**
@@ -2765,7 +2933,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd5(String value) {
-		setConstString(offset + 95, $cst_grp_cd5, value);
+		setConstString(offset + 102, $cst_grp_cd5, value);
 	}
 
 
@@ -2774,7 +2942,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm5() {
-		return getConstString(offset + 96, $cst_grp_nm5);
+		return getConstString(offset + 103, $cst_grp_nm5);
 	}
 
 	/**
@@ -2782,7 +2950,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm5(String value) {
-		setConstString(offset + 96, $cst_grp_nm5, value);
+		setConstString(offset + 103, $cst_grp_nm5, value);
 	}
 
 
@@ -2791,7 +2959,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg6() {
-		return getConstBoolean(offset + 97, $cst_grp_flg6);
+		return getConstBoolean(offset + 104, $cst_grp_flg6);
 	}
 
 	/**
@@ -2799,7 +2967,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg6(boolean value) {
-		setConstBoolean(offset + 97, $cst_grp_flg6, value);
+		setConstBoolean(offset + 104, $cst_grp_flg6, value);
 	}
 
 
@@ -2808,7 +2976,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd6() {
-		return getConstString(offset + 98, $cst_grp_cd6);
+		return getConstString(offset + 105, $cst_grp_cd6);
 	}
 
 	/**
@@ -2816,7 +2984,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd6(String value) {
-		setConstString(offset + 98, $cst_grp_cd6, value);
+		setConstString(offset + 105, $cst_grp_cd6, value);
 	}
 
 
@@ -2825,7 +2993,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm6() {
-		return getConstString(offset + 99, $cst_grp_nm6);
+		return getConstString(offset + 106, $cst_grp_nm6);
 	}
 
 	/**
@@ -2833,7 +3001,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm6(String value) {
-		setConstString(offset + 99, $cst_grp_nm6, value);
+		setConstString(offset + 106, $cst_grp_nm6, value);
 	}
 
 
@@ -2842,7 +3010,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg7() {
-		return getConstBoolean(offset + 100, $cst_grp_flg7);
+		return getConstBoolean(offset + 107, $cst_grp_flg7);
 	}
 
 	/**
@@ -2850,7 +3018,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg7(boolean value) {
-		setConstBoolean(offset + 100, $cst_grp_flg7, value);
+		setConstBoolean(offset + 107, $cst_grp_flg7, value);
 	}
 
 
@@ -2859,7 +3027,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd7() {
-		return getConstString(offset + 101, $cst_grp_cd7);
+		return getConstString(offset + 108, $cst_grp_cd7);
 	}
 
 	/**
@@ -2867,7 +3035,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd7(String value) {
-		setConstString(offset + 101, $cst_grp_cd7, value);
+		setConstString(offset + 108, $cst_grp_cd7, value);
 	}
 
 
@@ -2876,7 +3044,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm7() {
-		return getConstString(offset + 102, $cst_grp_nm7);
+		return getConstString(offset + 109, $cst_grp_nm7);
 	}
 
 	/**
@@ -2884,7 +3052,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm7(String value) {
-		setConstString(offset + 102, $cst_grp_nm7, value);
+		setConstString(offset + 109, $cst_grp_nm7, value);
 	}
 
 
@@ -2893,7 +3061,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg8() {
-		return getConstBoolean(offset + 103, $cst_grp_flg8);
+		return getConstBoolean(offset + 110, $cst_grp_flg8);
 	}
 
 	/**
@@ -2901,7 +3069,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg8(boolean value) {
-		setConstBoolean(offset + 103, $cst_grp_flg8, value);
+		setConstBoolean(offset + 110, $cst_grp_flg8, value);
 	}
 
 
@@ -2910,7 +3078,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd8() {
-		return getConstString(offset + 104, $cst_grp_cd8);
+		return getConstString(offset + 111, $cst_grp_cd8);
 	}
 
 	/**
@@ -2918,7 +3086,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd8(String value) {
-		setConstString(offset + 104, $cst_grp_cd8, value);
+		setConstString(offset + 111, $cst_grp_cd8, value);
 	}
 
 
@@ -2927,7 +3095,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm8() {
-		return getConstString(offset + 105, $cst_grp_nm8);
+		return getConstString(offset + 112, $cst_grp_nm8);
 	}
 
 	/**
@@ -2935,7 +3103,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm8(String value) {
-		setConstString(offset + 105, $cst_grp_nm8, value);
+		setConstString(offset + 112, $cst_grp_nm8, value);
 	}
 
 
@@ -2944,7 +3112,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg9() {
-		return getConstBoolean(offset + 106, $cst_grp_flg9);
+		return getConstBoolean(offset + 113, $cst_grp_flg9);
 	}
 
 	/**
@@ -2952,7 +3120,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg9(boolean value) {
-		setConstBoolean(offset + 106, $cst_grp_flg9, value);
+		setConstBoolean(offset + 113, $cst_grp_flg9, value);
 	}
 
 
@@ -2961,7 +3129,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd9() {
-		return getConstString(offset + 107, $cst_grp_cd9);
+		return getConstString(offset + 114, $cst_grp_cd9);
 	}
 
 	/**
@@ -2969,7 +3137,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd9(String value) {
-		setConstString(offset + 107, $cst_grp_cd9, value);
+		setConstString(offset + 114, $cst_grp_cd9, value);
 	}
 
 
@@ -2978,7 +3146,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm9() {
-		return getConstString(offset + 108, $cst_grp_nm9);
+		return getConstString(offset + 115, $cst_grp_nm9);
 	}
 
 	/**
@@ -2986,7 +3154,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm9(String value) {
-		setConstString(offset + 108, $cst_grp_nm9, value);
+		setConstString(offset + 115, $cst_grp_nm9, value);
 	}
 
 
@@ -2995,7 +3163,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean cst_grp_flg10() {
-		return getConstBoolean(offset + 109, $cst_grp_flg10);
+		return getConstBoolean(offset + 116, $cst_grp_flg10);
 	}
 
 	/**
@@ -3003,7 +3171,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_flg10(boolean value) {
-		setConstBoolean(offset + 109, $cst_grp_flg10, value);
+		setConstBoolean(offset + 116, $cst_grp_flg10, value);
 	}
 
 
@@ -3012,7 +3180,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_cd10() {
-		return getConstString(offset + 110, $cst_grp_cd10);
+		return getConstString(offset + 117, $cst_grp_cd10);
 	}
 
 	/**
@@ -3020,7 +3188,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_cd10(String value) {
-		setConstString(offset + 110, $cst_grp_cd10, value);
+		setConstString(offset + 117, $cst_grp_cd10, value);
 	}
 
 
@@ -3029,7 +3197,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_grp_nm10() {
-		return getConstString(offset + 111, $cst_grp_nm10);
+		return getConstString(offset + 118, $cst_grp_nm10);
 	}
 
 	/**
@@ -3037,7 +3205,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_grp_nm10(String value) {
-		setConstString(offset + 111, $cst_grp_nm10, value);
+		setConstString(offset + 118, $cst_grp_nm10, value);
 	}
 
 
@@ -3046,7 +3214,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg1() {
-		return getConstBoolean(offset + 112, $itm_grp_flg1);
+		return getConstBoolean(offset + 119, $itm_grp_flg1);
 	}
 
 	/**
@@ -3054,7 +3222,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg1(boolean value) {
-		setConstBoolean(offset + 112, $itm_grp_flg1, value);
+		setConstBoolean(offset + 119, $itm_grp_flg1, value);
 	}
 
 
@@ -3063,7 +3231,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd1() {
-		return getConstString(offset + 113, $itm_grp_cd1);
+		return getConstString(offset + 120, $itm_grp_cd1);
 	}
 
 	/**
@@ -3071,7 +3239,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd1(String value) {
-		setConstString(offset + 113, $itm_grp_cd1, value);
+		setConstString(offset + 120, $itm_grp_cd1, value);
 	}
 
 
@@ -3080,7 +3248,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm1() {
-		return getConstString(offset + 114, $itm_grp_nm1);
+		return getConstString(offset + 121, $itm_grp_nm1);
 	}
 
 	/**
@@ -3088,7 +3256,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm1(String value) {
-		setConstString(offset + 114, $itm_grp_nm1, value);
+		setConstString(offset + 121, $itm_grp_nm1, value);
 	}
 
 
@@ -3097,7 +3265,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg2() {
-		return getConstBoolean(offset + 115, $itm_grp_flg2);
+		return getConstBoolean(offset + 122, $itm_grp_flg2);
 	}
 
 	/**
@@ -3105,7 +3273,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg2(boolean value) {
-		setConstBoolean(offset + 115, $itm_grp_flg2, value);
+		setConstBoolean(offset + 122, $itm_grp_flg2, value);
 	}
 
 
@@ -3114,7 +3282,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd2() {
-		return getConstString(offset + 116, $itm_grp_cd2);
+		return getConstString(offset + 123, $itm_grp_cd2);
 	}
 
 	/**
@@ -3122,7 +3290,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd2(String value) {
-		setConstString(offset + 116, $itm_grp_cd2, value);
+		setConstString(offset + 123, $itm_grp_cd2, value);
 	}
 
 
@@ -3131,7 +3299,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm2() {
-		return getConstString(offset + 117, $itm_grp_nm2);
+		return getConstString(offset + 124, $itm_grp_nm2);
 	}
 
 	/**
@@ -3139,7 +3307,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm2(String value) {
-		setConstString(offset + 117, $itm_grp_nm2, value);
+		setConstString(offset + 124, $itm_grp_nm2, value);
 	}
 
 
@@ -3148,7 +3316,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg3() {
-		return getConstBoolean(offset + 118, $itm_grp_flg3);
+		return getConstBoolean(offset + 125, $itm_grp_flg3);
 	}
 
 	/**
@@ -3156,7 +3324,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg3(boolean value) {
-		setConstBoolean(offset + 118, $itm_grp_flg3, value);
+		setConstBoolean(offset + 125, $itm_grp_flg3, value);
 	}
 
 
@@ -3165,7 +3333,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd3() {
-		return getConstString(offset + 119, $itm_grp_cd3);
+		return getConstString(offset + 126, $itm_grp_cd3);
 	}
 
 	/**
@@ -3173,7 +3341,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd3(String value) {
-		setConstString(offset + 119, $itm_grp_cd3, value);
+		setConstString(offset + 126, $itm_grp_cd3, value);
 	}
 
 
@@ -3182,7 +3350,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm3() {
-		return getConstString(offset + 120, $itm_grp_nm3);
+		return getConstString(offset + 127, $itm_grp_nm3);
 	}
 
 	/**
@@ -3190,7 +3358,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm3(String value) {
-		setConstString(offset + 120, $itm_grp_nm3, value);
+		setConstString(offset + 127, $itm_grp_nm3, value);
 	}
 
 
@@ -3199,7 +3367,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg4() {
-		return getConstBoolean(offset + 121, $itm_grp_flg4);
+		return getConstBoolean(offset + 128, $itm_grp_flg4);
 	}
 
 	/**
@@ -3207,7 +3375,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg4(boolean value) {
-		setConstBoolean(offset + 121, $itm_grp_flg4, value);
+		setConstBoolean(offset + 128, $itm_grp_flg4, value);
 	}
 
 
@@ -3216,7 +3384,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd4() {
-		return getConstString(offset + 122, $itm_grp_cd4);
+		return getConstString(offset + 129, $itm_grp_cd4);
 	}
 
 	/**
@@ -3224,7 +3392,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd4(String value) {
-		setConstString(offset + 122, $itm_grp_cd4, value);
+		setConstString(offset + 129, $itm_grp_cd4, value);
 	}
 
 
@@ -3233,7 +3401,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm4() {
-		return getConstString(offset + 123, $itm_grp_nm4);
+		return getConstString(offset + 130, $itm_grp_nm4);
 	}
 
 	/**
@@ -3241,7 +3409,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm4(String value) {
-		setConstString(offset + 123, $itm_grp_nm4, value);
+		setConstString(offset + 130, $itm_grp_nm4, value);
 	}
 
 
@@ -3250,7 +3418,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg5() {
-		return getConstBoolean(offset + 124, $itm_grp_flg5);
+		return getConstBoolean(offset + 131, $itm_grp_flg5);
 	}
 
 	/**
@@ -3258,7 +3426,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg5(boolean value) {
-		setConstBoolean(offset + 124, $itm_grp_flg5, value);
+		setConstBoolean(offset + 131, $itm_grp_flg5, value);
 	}
 
 
@@ -3267,7 +3435,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd5() {
-		return getConstString(offset + 125, $itm_grp_cd5);
+		return getConstString(offset + 132, $itm_grp_cd5);
 	}
 
 	/**
@@ -3275,7 +3443,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd5(String value) {
-		setConstString(offset + 125, $itm_grp_cd5, value);
+		setConstString(offset + 132, $itm_grp_cd5, value);
 	}
 
 
@@ -3284,7 +3452,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm5() {
-		return getConstString(offset + 126, $itm_grp_nm5);
+		return getConstString(offset + 133, $itm_grp_nm5);
 	}
 
 	/**
@@ -3292,7 +3460,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm5(String value) {
-		setConstString(offset + 126, $itm_grp_nm5, value);
+		setConstString(offset + 133, $itm_grp_nm5, value);
 	}
 
 
@@ -3301,7 +3469,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg6() {
-		return getConstBoolean(offset + 127, $itm_grp_flg6);
+		return getConstBoolean(offset + 134, $itm_grp_flg6);
 	}
 
 	/**
@@ -3309,7 +3477,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg6(boolean value) {
-		setConstBoolean(offset + 127, $itm_grp_flg6, value);
+		setConstBoolean(offset + 134, $itm_grp_flg6, value);
 	}
 
 
@@ -3318,7 +3486,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd6() {
-		return getConstString(offset + 128, $itm_grp_cd6);
+		return getConstString(offset + 135, $itm_grp_cd6);
 	}
 
 	/**
@@ -3326,7 +3494,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd6(String value) {
-		setConstString(offset + 128, $itm_grp_cd6, value);
+		setConstString(offset + 135, $itm_grp_cd6, value);
 	}
 
 
@@ -3335,7 +3503,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm6() {
-		return getConstString(offset + 129, $itm_grp_nm6);
+		return getConstString(offset + 136, $itm_grp_nm6);
 	}
 
 	/**
@@ -3343,7 +3511,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm6(String value) {
-		setConstString(offset + 129, $itm_grp_nm6, value);
+		setConstString(offset + 136, $itm_grp_nm6, value);
 	}
 
 
@@ -3352,7 +3520,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg7() {
-		return getConstBoolean(offset + 130, $itm_grp_flg7);
+		return getConstBoolean(offset + 137, $itm_grp_flg7);
 	}
 
 	/**
@@ -3360,7 +3528,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg7(boolean value) {
-		setConstBoolean(offset + 130, $itm_grp_flg7, value);
+		setConstBoolean(offset + 137, $itm_grp_flg7, value);
 	}
 
 
@@ -3369,7 +3537,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd7() {
-		return getConstString(offset + 131, $itm_grp_cd7);
+		return getConstString(offset + 138, $itm_grp_cd7);
 	}
 
 	/**
@@ -3377,7 +3545,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd7(String value) {
-		setConstString(offset + 131, $itm_grp_cd7, value);
+		setConstString(offset + 138, $itm_grp_cd7, value);
 	}
 
 
@@ -3386,7 +3554,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm7() {
-		return getConstString(offset + 132, $itm_grp_nm7);
+		return getConstString(offset + 139, $itm_grp_nm7);
 	}
 
 	/**
@@ -3394,7 +3562,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm7(String value) {
-		setConstString(offset + 132, $itm_grp_nm7, value);
+		setConstString(offset + 139, $itm_grp_nm7, value);
 	}
 
 
@@ -3403,7 +3571,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg8() {
-		return getConstBoolean(offset + 133, $itm_grp_flg8);
+		return getConstBoolean(offset + 140, $itm_grp_flg8);
 	}
 
 	/**
@@ -3411,7 +3579,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg8(boolean value) {
-		setConstBoolean(offset + 133, $itm_grp_flg8, value);
+		setConstBoolean(offset + 140, $itm_grp_flg8, value);
 	}
 
 
@@ -3420,7 +3588,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd8() {
-		return getConstString(offset + 134, $itm_grp_cd8);
+		return getConstString(offset + 141, $itm_grp_cd8);
 	}
 
 	/**
@@ -3428,7 +3596,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd8(String value) {
-		setConstString(offset + 134, $itm_grp_cd8, value);
+		setConstString(offset + 141, $itm_grp_cd8, value);
 	}
 
 
@@ -3437,7 +3605,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm8() {
-		return getConstString(offset + 135, $itm_grp_nm8);
+		return getConstString(offset + 142, $itm_grp_nm8);
 	}
 
 	/**
@@ -3445,7 +3613,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm8(String value) {
-		setConstString(offset + 135, $itm_grp_nm8, value);
+		setConstString(offset + 142, $itm_grp_nm8, value);
 	}
 
 
@@ -3454,7 +3622,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg9() {
-		return getConstBoolean(offset + 136, $itm_grp_flg9);
+		return getConstBoolean(offset + 143, $itm_grp_flg9);
 	}
 
 	/**
@@ -3462,7 +3630,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg9(boolean value) {
-		setConstBoolean(offset + 136, $itm_grp_flg9, value);
+		setConstBoolean(offset + 143, $itm_grp_flg9, value);
 	}
 
 
@@ -3471,7 +3639,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd9() {
-		return getConstString(offset + 137, $itm_grp_cd9);
+		return getConstString(offset + 144, $itm_grp_cd9);
 	}
 
 	/**
@@ -3479,7 +3647,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd9(String value) {
-		setConstString(offset + 137, $itm_grp_cd9, value);
+		setConstString(offset + 144, $itm_grp_cd9, value);
 	}
 
 
@@ -3488,7 +3656,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm9() {
-		return getConstString(offset + 138, $itm_grp_nm9);
+		return getConstString(offset + 145, $itm_grp_nm9);
 	}
 
 	/**
@@ -3496,7 +3664,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm9(String value) {
-		setConstString(offset + 138, $itm_grp_nm9, value);
+		setConstString(offset + 145, $itm_grp_nm9, value);
 	}
 
 
@@ -3505,7 +3673,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean itm_grp_flg10() {
-		return getConstBoolean(offset + 139, $itm_grp_flg10);
+		return getConstBoolean(offset + 146, $itm_grp_flg10);
 	}
 
 	/**
@@ -3513,7 +3681,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_flg10(boolean value) {
-		setConstBoolean(offset + 139, $itm_grp_flg10, value);
+		setConstBoolean(offset + 146, $itm_grp_flg10, value);
 	}
 
 
@@ -3522,7 +3690,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_cd10() {
-		return getConstString(offset + 140, $itm_grp_cd10);
+		return getConstString(offset + 147, $itm_grp_cd10);
 	}
 
 	/**
@@ -3530,7 +3698,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_cd10(String value) {
-		setConstString(offset + 140, $itm_grp_cd10, value);
+		setConstString(offset + 147, $itm_grp_cd10, value);
 	}
 
 
@@ -3539,7 +3707,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_grp_nm10() {
-		return getConstString(offset + 141, $itm_grp_nm10);
+		return getConstString(offset + 148, $itm_grp_nm10);
 	}
 
 	/**
@@ -3547,7 +3715,7 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_grp_nm10(String value) {
-		setConstString(offset + 141, $itm_grp_nm10, value);
+		setConstString(offset + 148, $itm_grp_nm10, value);
 	}
 
 
@@ -3558,17 +3726,50 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		if ($cst_frcst_no.equalsIgnoreCase(name)) {
 			return cst_frcst_no();
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			return cst_cd();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			return cst_nm();
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
+		}
+		if ($cst_itm_cd.equalsIgnoreCase(name)) {
+			return cst_itm_cd();
+		}
+		if ($cst_itm_nm.equalsIgnoreCase(name)) {
+			return cst_itm_nm();
+		}
+		if ($can_rsn_cd.equalsIgnoreCase(name)) {
+			return can_rsn_cd();
+		}
+		if ($can_rsn_nm.equalsIgnoreCase(name)) {
+			return can_rsn_nm();
 		}
 		if ($dlv_cd.equalsIgnoreCase(name)) {
 			return dlv_cd();
 		}
 		if ($dlv_nm.equalsIgnoreCase(name)) {
 			return dlv_nm();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			return pj_usr_cd();
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			return pj_usr_nm();
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			return market_cd();
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			return market_nm();
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
 			return frcst_usr_cd();
@@ -3587,12 +3788,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
-		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			return can_rsn_cd();
-		}
-		if ($can_rsn_nm.equalsIgnoreCase(name)) {
-			return can_rsn_nm();
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
 			return can_rmrks();
@@ -3635,12 +3830,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
-		}
-		if ($cst_itm_cd.equalsIgnoreCase(name)) {
-			return cst_itm_cd();
-		}
-		if ($cst_itm_nm.equalsIgnoreCase(name)) {
-			return cst_itm_nm();
 		}
 		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
 			return cst_frcst_slip_no();
@@ -3994,17 +4183,50 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		if ($cst_frcst_no.equalsIgnoreCase(name)) {
 			return cst_frcst_no();
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			return cst_cd();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			return cst_nm();
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
+		}
+		if ($cst_itm_cd.equalsIgnoreCase(name)) {
+			return cst_itm_cd();
+		}
+		if ($cst_itm_nm.equalsIgnoreCase(name)) {
+			return cst_itm_nm();
+		}
+		if ($can_rsn_cd.equalsIgnoreCase(name)) {
+			return can_rsn_cd();
+		}
+		if ($can_rsn_nm.equalsIgnoreCase(name)) {
+			return can_rsn_nm();
 		}
 		if ($dlv_cd.equalsIgnoreCase(name)) {
 			return dlv_cd();
 		}
 		if ($dlv_nm.equalsIgnoreCase(name)) {
 			return dlv_nm();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			return pj_usr_cd();
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			return pj_usr_nm();
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			return market_cd();
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			return market_nm();
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
 			return frcst_usr_cd();
@@ -4023,12 +4245,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
-		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			return can_rsn_cd();
-		}
-		if ($can_rsn_nm.equalsIgnoreCase(name)) {
-			return can_rsn_nm();
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
 			return can_rmrks();
@@ -4071,12 +4287,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
-		}
-		if ($cst_itm_cd.equalsIgnoreCase(name)) {
-			return cst_itm_cd();
-		}
-		if ($cst_itm_nm.equalsIgnoreCase(name)) {
-			return cst_itm_nm();
 		}
 		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
 			return cst_frcst_slip_no();
@@ -4432,12 +4642,32 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			cst_frcst_no(value);
 			return;
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			cst_cd(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			cst_nm(value);
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
+			return;
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
+			return;
+		}
+		if ($cst_itm_cd.equalsIgnoreCase(name)) {
+			cst_itm_cd(value);
+			return;
+		}
+		if ($cst_itm_nm.equalsIgnoreCase(name)) {
+			cst_itm_nm(value);
+			return;
+		}
+		if ($can_rsn_cd.equalsIgnoreCase(name)) {
+			can_rsn_cd(value);
+			return;
+		}
+		if ($can_rsn_nm.equalsIgnoreCase(name)) {
+			can_rsn_nm(value);
 			return;
 		}
 		if ($dlv_cd.equalsIgnoreCase(name)) {
@@ -4446,6 +4676,30 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($dlv_nm.equalsIgnoreCase(name)) {
 			dlv_nm(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
+			return;
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			pj_usr_cd(value);
+			return;
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			pj_usr_nm(value);
+			return;
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			market_cd(value);
+			return;
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			market_nm(value);
 			return;
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
@@ -4470,14 +4724,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			wrk_nm(value);
-			return;
-		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			can_rsn_cd(value);
-			return;
-		}
-		if ($can_rsn_nm.equalsIgnoreCase(name)) {
-			can_rsn_nm(value);
 			return;
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
@@ -4534,14 +4780,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			itm_nm(value);
-			return;
-		}
-		if ($cst_itm_cd.equalsIgnoreCase(name)) {
-			cst_itm_cd(value);
-			return;
-		}
-		if ($cst_itm_nm.equalsIgnoreCase(name)) {
-			cst_itm_nm(value);
 			return;
 		}
 		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
@@ -5010,12 +5248,32 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			cst_frcst_no(value);
 			return;
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			cst_cd(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			cst_nm(value);
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
+			return;
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
+			return;
+		}
+		if ($cst_itm_cd.equalsIgnoreCase(name)) {
+			cst_itm_cd(value);
+			return;
+		}
+		if ($cst_itm_nm.equalsIgnoreCase(name)) {
+			cst_itm_nm(value);
+			return;
+		}
+		if ($can_rsn_cd.equalsIgnoreCase(name)) {
+			can_rsn_cd(value);
+			return;
+		}
+		if ($can_rsn_nm.equalsIgnoreCase(name)) {
+			can_rsn_nm(value);
 			return;
 		}
 		if ($dlv_cd.equalsIgnoreCase(name)) {
@@ -5024,6 +5282,30 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($dlv_nm.equalsIgnoreCase(name)) {
 			dlv_nm(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
+			return;
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			pj_usr_cd(value);
+			return;
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			pj_usr_nm(value);
+			return;
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			market_cd(value);
+			return;
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			market_nm(value);
 			return;
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
@@ -5048,14 +5330,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			wrk_nm(value);
-			return;
-		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			can_rsn_cd(value);
-			return;
-		}
-		if ($can_rsn_nm.equalsIgnoreCase(name)) {
-			can_rsn_nm(value);
 			return;
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
@@ -5112,14 +5386,6 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			itm_nm(value);
-			return;
-		}
-		if ($cst_itm_cd.equalsIgnoreCase(name)) {
-			cst_itm_cd(value);
-			return;
-		}
-		if ($cst_itm_nm.equalsIgnoreCase(name)) {
-			cst_itm_nm(value);
 			return;
 		}
 		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {

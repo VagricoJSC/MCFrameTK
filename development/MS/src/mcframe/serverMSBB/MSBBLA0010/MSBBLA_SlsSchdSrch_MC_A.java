@@ -226,18 +226,27 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>frcst_dt_to</td></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_no</td></tr>
 		 * 	<tr><td><br></td><td>latest_flg</td></tr>
-		 * 	<tr><td><br></td><td>cst_cd</td></tr>
-		 * 	<tr><td><br></td><td>cst_nm</td></tr>
+		 * 	<tr><td><br></td><td>zoho_sls_schd_no</td></tr>
+		 * 	<tr><td><br></td><td>deal_cd</td></tr>
+		 * 	<tr><td><br></td><td>deal_nm</td></tr>
+		 * 	<tr><td><br></td><td>cst_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>cst_itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>can_rsn_cd</td></tr>
+		 * 	<tr><td><br></td><td>can_rsn_nm</td></tr>
 		 * 	<tr><td><br></td><td>dlv_cd</td></tr>
 		 * 	<tr><td><br></td><td>dlv_nm</td></tr>
+		 * 	<tr><td><br></td><td>sls_dpt_cd</td></tr>
+		 * 	<tr><td><br></td><td>sls_dpt_nm</td></tr>
+		 * 	<tr><td><br></td><td>pj_usr_cd</td></tr>
+		 * 	<tr><td><br></td><td>pj_usr_nm</td></tr>
+		 * 	<tr><td><br></td><td>market_cd</td></tr>
+		 * 	<tr><td><br></td><td>market_nm</td></tr>
 		 * 	<tr><td><br></td><td>frcst_usr_cd</td></tr>
 		 * 	<tr><td><br></td><td>frcst_usr_nm</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dpt_cd</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dpt_nm</td></tr>
 		 * 	<tr><td><br></td><td>wrk_no</td></tr>
 		 * 	<tr><td><br></td><td>wrk_nm</td></tr>
-		 * 	<tr><td><br></td><td>can_rsn_cd</td></tr>
-		 * 	<tr><td><br></td><td>can_rsn_nm</td></tr>
 		 * 	<tr><td><br></td><td>can_rmrks</td></tr>
 		 * 	<tr><td><br></td><td>intr_rmrks</td></tr>
 		 * 	<tr><td><br></td><td>sub_char1</td></tr>
@@ -252,8 +261,6 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>itm_sub2</td></tr>
 		 * 	<tr><td><br></td><td>itm_sub3</td></tr>
 		 * 	<tr><td><br></td><td>itm_nm</td></tr>
-		 * 	<tr><td><br></td><td>cst_itm_cd</td></tr>
-		 * 	<tr><td><br></td><td>cst_itm_nm</td></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_slip_no</td></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_d_no</td></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_slip_d_no</td></tr>

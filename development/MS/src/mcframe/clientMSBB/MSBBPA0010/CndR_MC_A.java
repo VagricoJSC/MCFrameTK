@@ -27,12 +27,12 @@ import mcframe.commonCore.lang.MCBinary;
 abstract class CndR_MC_A extends MCConstRow {
 
 	/**
-	 * Unfirm 未確定.<p>
+	 * Unfirm 登録済.<p>
 	 *
 	 */
 	public static final String $fix_f_flg = "fix_f_flg";
 	/**
-	 * Firm 確定.<p>
+	 * Firm 未登録.<p>
 	 *
 	 */
 	public static final String $fix_t_flg = "fix_t_flg";
@@ -42,163 +42,101 @@ abstract class CndR_MC_A extends MCConstRow {
 	 */
 	public static final String $mode = "mode";
 	/**
-	 * Customer forecast list issued date FROM 得意先内示書発行日ＦＲＯＭ.<p>
+	 * Order delivery date FROM 注文書納期ＦＲＯＭ.<p>
 	 *
 	 */
 	public static final String $cst_frcst_prnt_dt_fr = "cst_frcst_prnt_dt_fr";
 	/**
-	 * Customer forecast list issued date TO 得意先内示書発行日ＴＯ.<p>
+	 * Order delivery date TO 注文書納期ＴＯ.<p>
 	 *
 	 */
 	public static final String $cst_frcst_prnt_dt_to = "cst_frcst_prnt_dt_to";
 	/**
-	 * Receiving date FROM 受付日ＦＲＯＭ.<p>
+	 * Post-installation sales date FROM 装備後売上ＦＲＯＭ.<p>
 	 *
 	 */
 	public static final String $rcpt_dt_fr = "rcpt_dt_fr";
 	/**
-	 * Receiving date TO 受付日ＴＯ.<p>
+	 * Post-installation sales date TO 装備後売上ＴＯ.<p>
 	 *
 	 */
 	public static final String $rcpt_dt_to = "rcpt_dt_to";
 	/**
-	 * Start date of forecast period FROM 内示期間開始日ＦＲＯＭ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public static final String $frcst_st_dt_fr = "frcst_st_dt_fr";
+	public static final String $zoho_sls_schd_no = "zoho_sls_schd_no";
 	/**
-	 * Start date of forecast period TO 内示期間開始日ＴＯ.<p>
+	 * Delivery destination cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public static final String $frcst_st_dt_to = "frcst_st_dt_to";
+	public static final String $deal_cd = "deal_cd";
 	/**
-	 * End date of forecast period FROM 内示期間終了日ＦＲＯＭ.<p>
+	 * Delivery destination name 商談名.<p>
 	 *
 	 */
-	public static final String $frcst_end_dt_fr = "frcst_end_dt_fr";
+	public static final String $deal_nm = "deal_nm";
 	/**
-	 * End date of forecast period TO 内示期間終了日ＴＯ.<p>
-	 *
-	 */
-	public static final String $frcst_end_dt_to = "frcst_end_dt_to";
-	/**
-	 * Forecast period FROM 内示期間ＦＲＯＭ.<p>
-	 *
-	 */
-	public static final String $frcst_dt_fr = "frcst_dt_fr";
-	/**
-	 * Forecast period TO 内示期間ＴＯ.<p>
-	 *
-	 */
-	public static final String $frcst_dt_to = "frcst_dt_to";
-	/**
-	 * Forecast period type 内示期間区分.<p>
-	 *
-	 */
-	public static final String $frcst_period_typ = "frcst_period_typ";
-	/**
-	 * Forecast period type name 内示期間区分名.<p>
-	 *
-	 */
-	public static final String $frcst_period_typ_nm = "frcst_period_typ_nm";
-	/**
-	 * Customer cd. 得意先ＣＤ.<p>
-	 *
-	 */
-	public static final String $cst_cd = "cst_cd";
-	/**
-	 * Customer name 得意先名.<p>
-	 *
-	 */
-	public static final String $cst_nm = "cst_nm";
-	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
-	 *
-	 */
-	public static final String $dlv_cd = "dlv_cd";
-	/**
-	 * Delivery destination name 納品先名.<p>
-	 *
-	 */
-	public static final String $dlv_nm = "dlv_nm";
-	/**
-	 * PIC cd. 担当者ＣＤ.<p>
-	 *
-	 */
-	public static final String $frcst_usr_cd = "frcst_usr_cd";
-	/**
-	 * PIC name 担当者名.<p>
-	 *
-	 */
-	public static final String $frcst_usr_nm = "frcst_usr_nm";
-	/**
-	 * Dept. in charge cd. 担当部門ＣＤ.<p>
-	 *
-	 */
-	public static final String $frcst_dpt_cd = "frcst_dpt_cd";
-	/**
-	 * Dept. in charge name 担当部門名.<p>
-	 *
-	 */
-	public static final String $frcst_dpt_nm = "frcst_dpt_nm";
-	public static final String $wrk_no_p = "wrk_no_p";
-	/**
-	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
-	 *
-	 */
-	public static final String $cst_frcst_no = "cst_frcst_no";
-	/**
-	 * Sales forecast details No. 顧客期間内示明細ＮＯ.<p>
-	 *
-	 */
-	public static final String $cst_frcst_d_no = "cst_frcst_d_no";
-	/**
-	 * Customer forecast list No. 得意先内示書ＮＯ.<p>
-	 *
-	 */
-	public static final String $cst_frcst_slip_no = "cst_frcst_slip_no";
-	/**
-	 * Customer forecast list details No. 得意先内示書明細ＮＯ.<p>
-	 *
-	 */
-	public static final String $cst_frcst_slip_d_no = "cst_frcst_slip_d_no";
-	/**
-	 * Latest only 最新のみ.<p>
-	 *
-	 */
-	public static final String $latest_flg = "latest_flg";
-	/**
-	 * Except lower priority 下位優先除く.<p>
-	 *
-	 */
-	public static final String $except_frcst_stop_flg = "except_frcst_stop_flg";
-	/**
-	 * Include cancel 取消含む.<p>
-	 *
-	 */
-	public static final String $inc_can_flg = "inc_can_flg";
-	public static final String $itm_typ_p = "itm_typ_p";
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
+	 * Customer item cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public static final String $cst_itm_cd = "cst_itm_cd";
 	/**
-	 * Customer item name 得意先品名.<p>
+	 * Customer item name 得意先名.<p>
 	 *
 	 */
 	public static final String $cst_itm_nm = "cst_itm_nm";
-	public static final String $itm_p = "itm_p";
 	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
+	 * Canceling reason cd. 請求先ＣＤ.<p>
 	 *
 	 */
 	public static final String $can_rsn_cd = "can_rsn_cd";
 	/**
-	 * Canceling reason name 取消理由名.<p>
+	 * Canceling reason name 請求先名.<p>
 	 *
 	 */
 	public static final String $can_rsn_nm = "can_rsn_nm";
+	/**
+	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 *
+	 */
+	public static final String $dlv_cd = "dlv_cd";
+	/**
+	 * Canceling reason name 納品先名.<p>
+	 *
+	 */
+	public static final String $dlv_nm = "dlv_nm";
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public static final String $sls_dpt_cd = "sls_dpt_cd";
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public static final String $sls_dpt_nm = "sls_dpt_nm";
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public static final String $pj_usr_cd = "pj_usr_cd";
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public static final String $pj_usr_nm = "pj_usr_nm";
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public static final String $market_cd = "market_cd";
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public static final String $market_nm = "market_nm";
+	public static final String $itm_p = "itm_p";
 	/**
 	 * Cancel remarks 取消備考.<p>
 	 *
@@ -248,11 +186,6 @@ abstract class CndR_MC_A extends MCConstRow {
 	public static final String $cst_grp_p = "cst_grp_p";
 	public static final String $itm_grp_p = "itm_grp_p";
 
-	public static final String $wrk_no = $wrk_no_p + ".wrk_no";
-	public static final String $wrk_nm = $wrk_no_p + ".wrk_nm";
-	public static final String $itm_typ = $itm_typ_p + ".itm_typ";
-	public static final String $itm_typ_d_cd = $itm_typ_p + ".itm_typ_d_cd";
-	public static final String $itm_typ_d_nm = $itm_typ_p + ".itm_typ_d_nm";
 	public static final String $itm_cd = $itm_p + ".itm_cd";
 	public static final String $itm_sub1 = $itm_p + ".itm_sub1";
 	public static final String $itm_sub2 = $itm_p + ".itm_sub2";
@@ -386,36 +319,22 @@ abstract class CndR_MC_A extends MCConstRow {
 	public static final MCMeta cst_frcst_prnt_dt_to_META = createCommonMeta($cst_frcst_prnt_dt_to, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta rcpt_dt_fr_META = createCommonMeta($rcpt_dt_fr, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta rcpt_dt_to_META = createCommonMeta($rcpt_dt_to, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_st_dt_fr_META = createCommonMeta($frcst_st_dt_fr, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_st_dt_to_META = createCommonMeta($frcst_st_dt_to, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_end_dt_fr_META = createCommonMeta($frcst_end_dt_fr, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_end_dt_to_META = createCommonMeta($frcst_end_dt_to, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_dt_fr_META = createCommonMeta($frcst_dt_fr, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_dt_to_META = createCommonMeta($frcst_dt_to, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta frcst_period_typ_META = createCommonMeta($frcst_period_typ, mcframe.commonMS.meta.MS_META.PERIOD_TYP);
-	public static final MCMeta frcst_period_typ_nm_META = createCommonMeta($frcst_period_typ_nm, mcframe.commonMS.meta.MS_META.PERIOD_TYP_NM);
-	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta dlv_cd_META = createCommonMeta($dlv_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta frcst_usr_cd_META = createCommonMeta($frcst_usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
-	public static final MCMeta frcst_usr_nm_META = createCommonMeta($frcst_usr_nm, mcframe.commonMA.meta.MA_META.USR_NM);
-	public static final MCMeta frcst_dpt_cd_META = createCommonMeta($frcst_dpt_cd, mcframe.commonMA.meta.MA_META.DPT_CD);
-	public static final MCMeta frcst_dpt_nm_META = createCommonMeta($frcst_dpt_nm, mcframe.commonMA.meta.MA_META.DPT_NM);
-	public static final MCMeta wrk_no_p_META = createInnerRowMeta($wrk_no_p, mcframe.clientMSUB.MSUBP0010.WrkNoR.class);
-	public static final MCMeta cst_frcst_no_META = createCommonMeta($cst_frcst_no, mcframe.commonMA.meta.MA_META.CST_FRCST_NO);
-	public static final MCMeta cst_frcst_d_no_META = createCommonMeta($cst_frcst_d_no, mcframe.commonMA.meta.MA_META.CST_FRCST_D_NO);
-	public static final MCMeta cst_frcst_slip_no_META = createCommonMeta($cst_frcst_slip_no, mcframe.commonMA.meta.MA_META.CST_FRCST_SLIP_NO);
-	public static final MCMeta cst_frcst_slip_d_no_META = createCommonMeta($cst_frcst_slip_d_no, mcframe.commonMA.meta.MA_META.CST_FRCST_SLIP_D_NO);
-	public static final MCMeta latest_flg_META = createCommonMeta($latest_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta except_frcst_stop_flg_META = createCommonMeta($except_frcst_stop_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta inc_can_flg_META = createCommonMeta($inc_can_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta itm_typ_p_META = createInnerRowMeta($itm_typ_p, mcframe.clientMAUB.MAUBP0100.ItmTypR.class);
+	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta deal_cd_META = createCommonMeta($deal_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta cst_itm_cd_META = createCommonMeta($cst_itm_cd, mcframe.commonMA.meta.MA_META.BP_ITM_CD);
 	public static final MCMeta cst_itm_nm_META = createCommonMeta($cst_itm_nm, mcframe.commonMA.meta.MA_META.BP_ITM_NM);
-	public static final MCMeta itm_p_META = createInnerRowMeta($itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
 	public static final MCMeta can_rsn_cd_META = createCommonMeta($can_rsn_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
 	public static final MCMeta can_rsn_nm_META = createCommonMeta($can_rsn_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta dlv_cd_META = createCommonMeta($dlv_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta sls_dpt_cd_META = createCommonMeta($sls_dpt_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta sls_dpt_nm_META = createCommonMeta($sls_dpt_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta pj_usr_cd_META = createCommonMeta($pj_usr_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta pj_usr_nm_META = createCommonMeta($pj_usr_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta market_cd_META = createCommonMeta($market_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta market_nm_META = createCommonMeta($market_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
+	public static final MCMeta itm_p_META = createInnerRowMeta($itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
 	public static final MCMeta can_rmrks_META = createCommonMeta($can_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_CAN_RMRKS);
 	public static final MCMeta intr_rmrks_META = createCommonMeta($intr_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_INTR_RMRKS);
 	public static final MCMeta sub_char1_META = createCommonMeta($sub_char1, mcframe.commonMS.meta.MS_META.CST_FRCST_SUB_CHAR1);
@@ -439,36 +358,22 @@ abstract class CndR_MC_A extends MCConstRow {
 			cst_frcst_prnt_dt_to_META,
 			rcpt_dt_fr_META,
 			rcpt_dt_to_META,
-			frcst_st_dt_fr_META,
-			frcst_st_dt_to_META,
-			frcst_end_dt_fr_META,
-			frcst_end_dt_to_META,
-			frcst_dt_fr_META,
-			frcst_dt_to_META,
-			frcst_period_typ_META,
-			frcst_period_typ_nm_META,
-			cst_cd_META,
-			cst_nm_META,
-			dlv_cd_META,
-			dlv_nm_META,
-			frcst_usr_cd_META,
-			frcst_usr_nm_META,
-			frcst_dpt_cd_META,
-			frcst_dpt_nm_META,
-			wrk_no_p_META,
-			cst_frcst_no_META,
-			cst_frcst_d_no_META,
-			cst_frcst_slip_no_META,
-			cst_frcst_slip_d_no_META,
-			latest_flg_META,
-			except_frcst_stop_flg_META,
-			inc_can_flg_META,
-			itm_typ_p_META,
+			zoho_sls_schd_no_META,
+			deal_cd_META,
+			deal_nm_META,
 			cst_itm_cd_META,
 			cst_itm_nm_META,
-			itm_p_META,
 			can_rsn_cd_META,
 			can_rsn_nm_META,
+			dlv_cd_META,
+			dlv_nm_META,
+			sls_dpt_cd_META,
+			sls_dpt_nm_META,
+			pj_usr_cd_META,
+			pj_usr_nm_META,
+			market_cd_META,
+			market_nm_META,
+			itm_p_META,
 			can_rmrks_META,
 			intr_rmrks_META,
 			sub_char1_META,
@@ -484,11 +389,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		},
 		new String[][]{
 			{
-				"wrk_no",
-				"wrk_nm",
-				"itm_typ",
-				"itm_typ_d_cd",
-				"itm_typ_d_nm",
 				"itm_cd",
 				"itm_sub1",
 				"itm_sub2",
@@ -586,11 +486,6 @@ abstract class CndR_MC_A extends MCConstRow {
 				"itm_grp_nm10"
 			},
 			{
-				$wrk_no,
-				$wrk_nm,
-				$itm_typ,
-				$itm_typ_d_cd,
-				$itm_typ_d_nm,
 				$itm_cd,
 				$itm_sub1,
 				$itm_sub2,
@@ -715,27 +610,23 @@ abstract class CndR_MC_A extends MCConstRow {
 		null,
 		new MCExtMap.Entry($$LIST_OUT_BASE, new MCExtList(
 			new String[][]{
-				{$frcst_period_typ, "period_typ_nm"},	// frcst_period_typ
-				{$cst_cd, "bp_nm"},	// cst_cd
-				{$dlv_cd, "bp_nm"},	// dlv_cd
-				{$frcst_usr_cd, "usr_nm"},	// frcst_usr_cd
-				{$frcst_dpt_cd, "dpt_nm"},	// frcst_dpt_cd
+				{$deal_cd, "bp_nm"},	// deal_cd
 				{$cst_itm_cd, "bp_itm_nm"},	// cst_itm_cd
-				{$can_rsn_cd, "slo_rsn_nm"}	// can_rsn_cd
+				{$can_rsn_cd, "slo_rsn_nm"},	// can_rsn_cd
+				{$dlv_cd, "slo_rsn_nm"},	// dlv_cd
+				{$sls_dpt_cd, "slo_rsn_nm"},	// sls_dpt_cd
+				{$pj_usr_cd, "slo_rsn_nm"},	// pj_usr_cd
+				{$market_cd, "slo_rsn_nm"}	// market_cd
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
 			new String[][]{
-				{$cst_cd, "MAC_BP_IS_SRCH_TYP.CST_NOT_SUNDRY"},	// cst_cd
-				{$dlv_cd, "MAC_BP_IS_SRCH_TYP.DLV"},	// dlv_cd
-				{$frcst_dpt_cd, "MAC_DPT_IS_SRCH_TYP.SLS;true"}	// frcst_dpt_cd
+				{$deal_cd, "MAC_BP_IS_SRCH_TYP.DLV"}	// deal_cd
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
 			new String[][]{
-				{$cst_cd, "bp_is_srch_typ"},	// cst_cd
-				{$dlv_cd, "bp_is_srch_typ"},	// dlv_cd
-				{$frcst_dpt_cd, "dpt_is_srch_typ;mode_today_flg"}	// frcst_dpt_cd
+				{$deal_cd, "bp_is_srch_typ"}	// deal_cd
 			}
 		)),
 		new MCExtMap.Entry($$DISP_CTL, new MCExtList(
@@ -835,7 +726,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Unfirm 未確定.<p>
+	 * Unfirm 登録済.<p>
 	 *
 	 */
 	public boolean fix_f_flg() {
@@ -843,7 +734,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Unfirm 未確定.<p>
+	 * Unfirm 登録済.<p>
 	 *
 	 */
 	public void fix_f_flg(boolean value) {
@@ -852,7 +743,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Firm 確定.<p>
+	 * Firm 未登録.<p>
 	 *
 	 */
 	public boolean fix_t_flg() {
@@ -860,7 +751,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Firm 確定.<p>
+	 * Firm 未登録.<p>
 	 *
 	 */
 	public void fix_t_flg(boolean value) {
@@ -886,7 +777,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Customer forecast list issued date FROM 得意先内示書発行日ＦＲＯＭ.<p>
+	 * Order delivery date FROM 注文書納期ＦＲＯＭ.<p>
 	 *
 	 */
 	public MCDate cst_frcst_prnt_dt_fr() {
@@ -894,7 +785,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Customer forecast list issued date FROM 得意先内示書発行日ＦＲＯＭ.<p>
+	 * Order delivery date FROM 注文書納期ＦＲＯＭ.<p>
 	 *
 	 */
 	public void cst_frcst_prnt_dt_fr(MCDate value) {
@@ -903,7 +794,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Customer forecast list issued date TO 得意先内示書発行日ＴＯ.<p>
+	 * Order delivery date TO 注文書納期ＴＯ.<p>
 	 *
 	 */
 	public MCDate cst_frcst_prnt_dt_to() {
@@ -911,7 +802,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Customer forecast list issued date TO 得意先内示書発行日ＴＯ.<p>
+	 * Order delivery date TO 注文書納期ＴＯ.<p>
 	 *
 	 */
 	public void cst_frcst_prnt_dt_to(MCDate value) {
@@ -920,7 +811,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Receiving date FROM 受付日ＦＲＯＭ.<p>
+	 * Post-installation sales date FROM 装備後売上ＦＲＯＭ.<p>
 	 *
 	 */
 	public MCDate rcpt_dt_fr() {
@@ -928,7 +819,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Receiving date FROM 受付日ＦＲＯＭ.<p>
+	 * Post-installation sales date FROM 装備後売上ＦＲＯＭ.<p>
 	 *
 	 */
 	public void rcpt_dt_fr(MCDate value) {
@@ -937,7 +828,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Receiving date TO 受付日ＴＯ.<p>
+	 * Post-installation sales date TO 装備後売上ＴＯ.<p>
 	 *
 	 */
 	public MCDate rcpt_dt_to() {
@@ -945,7 +836,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Receiving date TO 受付日ＴＯ.<p>
+	 * Post-installation sales date TO 装備後売上ＴＯ.<p>
 	 *
 	 */
 	public void rcpt_dt_to(MCDate value) {
@@ -954,488 +845,266 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Start date of forecast period FROM 内示期間開始日ＦＲＯＭ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public MCDate frcst_st_dt_fr() {
-		return getConstDate(offset + 7, $frcst_st_dt_fr);
+	public String zoho_sls_schd_no() {
+		return getConstString(offset + 7, $zoho_sls_schd_no);
 	}
 
 	/**
-	 * Start date of forecast period FROM 内示期間開始日ＦＲＯＭ.<p>
+	 * Zoho sales schedule No. ZOHO販売予定NO.<p>
 	 *
 	 */
-	public void frcst_st_dt_fr(MCDate value) {
-		setConstDate(offset + 7, $frcst_st_dt_fr, value);
-	}
-
-
-	/**
-	 * Start date of forecast period TO 内示期間開始日ＴＯ.<p>
-	 *
-	 */
-	public MCDate frcst_st_dt_to() {
-		return getConstDate(offset + 8, $frcst_st_dt_to);
-	}
-
-	/**
-	 * Start date of forecast period TO 内示期間開始日ＴＯ.<p>
-	 *
-	 */
-	public void frcst_st_dt_to(MCDate value) {
-		setConstDate(offset + 8, $frcst_st_dt_to, value);
+	public void zoho_sls_schd_no(String value) {
+		setConstString(offset + 7, $zoho_sls_schd_no, value);
 	}
 
 
 	/**
-	 * End date of forecast period FROM 内示期間終了日ＦＲＯＭ.<p>
+	 * Delivery destination cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public MCDate frcst_end_dt_fr() {
-		return getConstDate(offset + 9, $frcst_end_dt_fr);
+	public String deal_cd() {
+		return getConstString(offset + 8, $deal_cd);
 	}
 
 	/**
-	 * End date of forecast period FROM 内示期間終了日ＦＲＯＭ.<p>
+	 * Delivery destination cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public void frcst_end_dt_fr(MCDate value) {
-		setConstDate(offset + 9, $frcst_end_dt_fr, value);
-	}
-
-
-	/**
-	 * End date of forecast period TO 内示期間終了日ＴＯ.<p>
-	 *
-	 */
-	public MCDate frcst_end_dt_to() {
-		return getConstDate(offset + 10, $frcst_end_dt_to);
-	}
-
-	/**
-	 * End date of forecast period TO 内示期間終了日ＴＯ.<p>
-	 *
-	 */
-	public void frcst_end_dt_to(MCDate value) {
-		setConstDate(offset + 10, $frcst_end_dt_to, value);
+	public void deal_cd(String value) {
+		setConstString(offset + 8, $deal_cd, value);
 	}
 
 
 	/**
-	 * Forecast period FROM 内示期間ＦＲＯＭ.<p>
+	 * Delivery destination name 商談名.<p>
 	 *
 	 */
-	public MCDate frcst_dt_fr() {
-		return getConstDate(offset + 11, $frcst_dt_fr);
+	public String deal_nm() {
+		return getConstString(offset + 9, $deal_nm);
 	}
 
 	/**
-	 * Forecast period FROM 内示期間ＦＲＯＭ.<p>
+	 * Delivery destination name 商談名.<p>
 	 *
 	 */
-	public void frcst_dt_fr(MCDate value) {
-		setConstDate(offset + 11, $frcst_dt_fr, value);
-	}
-
-
-	/**
-	 * Forecast period TO 内示期間ＴＯ.<p>
-	 *
-	 */
-	public MCDate frcst_dt_to() {
-		return getConstDate(offset + 12, $frcst_dt_to);
-	}
-
-	/**
-	 * Forecast period TO 内示期間ＴＯ.<p>
-	 *
-	 */
-	public void frcst_dt_to(MCDate value) {
-		setConstDate(offset + 12, $frcst_dt_to, value);
+	public void deal_nm(String value) {
+		setConstString(offset + 9, $deal_nm, value);
 	}
 
 
 	/**
-	 * Forecast period type 内示期間区分.<p>
-	 *
-	 */
-	public String frcst_period_typ() {
-		return getConstString(offset + 13, $frcst_period_typ);
-	}
-
-	/**
-	 * Forecast period type 内示期間区分.<p>
-	 *
-	 */
-	public void frcst_period_typ(String value) {
-		setConstString(offset + 13, $frcst_period_typ, value);
-	}
-
-
-	/**
-	 * Forecast period type name 内示期間区分名.<p>
-	 *
-	 */
-	public String frcst_period_typ_nm() {
-		return getConstString(offset + 14, $frcst_period_typ_nm);
-	}
-
-	/**
-	 * Forecast period type name 内示期間区分名.<p>
-	 *
-	 */
-	public void frcst_period_typ_nm(String value) {
-		setConstString(offset + 14, $frcst_period_typ_nm, value);
-	}
-
-
-	/**
-	 * Customer cd. 得意先ＣＤ.<p>
-	 *
-	 */
-	public String cst_cd() {
-		return getConstString(offset + 15, $cst_cd);
-	}
-
-	/**
-	 * Customer cd. 得意先ＣＤ.<p>
-	 *
-	 */
-	public void cst_cd(String value) {
-		setConstString(offset + 15, $cst_cd, value);
-	}
-
-
-	/**
-	 * Customer name 得意先名.<p>
-	 *
-	 */
-	public String cst_nm() {
-		return getConstString(offset + 16, $cst_nm);
-	}
-
-	/**
-	 * Customer name 得意先名.<p>
-	 *
-	 */
-	public void cst_nm(String value) {
-		setConstString(offset + 16, $cst_nm, value);
-	}
-
-
-	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
-	 *
-	 */
-	public String dlv_cd() {
-		return getConstString(offset + 17, $dlv_cd);
-	}
-
-	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
-	 *
-	 */
-	public void dlv_cd(String value) {
-		setConstString(offset + 17, $dlv_cd, value);
-	}
-
-
-	/**
-	 * Delivery destination name 納品先名.<p>
-	 *
-	 */
-	public String dlv_nm() {
-		return getConstString(offset + 18, $dlv_nm);
-	}
-
-	/**
-	 * Delivery destination name 納品先名.<p>
-	 *
-	 */
-	public void dlv_nm(String value) {
-		setConstString(offset + 18, $dlv_nm, value);
-	}
-
-
-	/**
-	 * PIC cd. 担当者ＣＤ.<p>
-	 *
-	 */
-	public String frcst_usr_cd() {
-		return getConstString(offset + 19, $frcst_usr_cd);
-	}
-
-	/**
-	 * PIC cd. 担当者ＣＤ.<p>
-	 *
-	 */
-	public void frcst_usr_cd(String value) {
-		setConstString(offset + 19, $frcst_usr_cd, value);
-	}
-
-
-	/**
-	 * PIC name 担当者名.<p>
-	 *
-	 */
-	public String frcst_usr_nm() {
-		return getConstString(offset + 20, $frcst_usr_nm);
-	}
-
-	/**
-	 * PIC name 担当者名.<p>
-	 *
-	 */
-	public void frcst_usr_nm(String value) {
-		setConstString(offset + 20, $frcst_usr_nm, value);
-	}
-
-
-	/**
-	 * Dept. in charge cd. 担当部門ＣＤ.<p>
-	 *
-	 */
-	public String frcst_dpt_cd() {
-		return getConstString(offset + 21, $frcst_dpt_cd);
-	}
-
-	/**
-	 * Dept. in charge cd. 担当部門ＣＤ.<p>
-	 *
-	 */
-	public void frcst_dpt_cd(String value) {
-		setConstString(offset + 21, $frcst_dpt_cd, value);
-	}
-
-
-	/**
-	 * Dept. in charge name 担当部門名.<p>
-	 *
-	 */
-	public String frcst_dpt_nm() {
-		return getConstString(offset + 22, $frcst_dpt_nm);
-	}
-
-	/**
-	 * Dept. in charge name 担当部門名.<p>
-	 *
-	 */
-	public void frcst_dpt_nm(String value) {
-		setConstString(offset + 22, $frcst_dpt_nm, value);
-	}
-
-
-	public mcframe.clientMSUB.MSUBP0010.WrkNoR wrk_no_p(){
-		return (mcframe.clientMSUB.MSUBP0010.WrkNoR) getConstInnerRow(offset + 23, $wrk_no_p);
-	}
-	
-	public void wrk_no_p(mcframe.clientMSUB.MSUBP0010.WrkNoR row){
-		setConstInnerRow(offset + 23, $wrk_no_p, row);
-	}
-
-
-	/**
-	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
-	 *
-	 */
-	public String cst_frcst_no() {
-		return getConstString(offset + 24, $cst_frcst_no);
-	}
-
-	/**
-	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
-	 *
-	 */
-	public void cst_frcst_no(String value) {
-		setConstString(offset + 24, $cst_frcst_no, value);
-	}
-
-
-	/**
-	 * Sales forecast details No. 顧客期間内示明細ＮＯ.<p>
-	 *
-	 */
-	public String cst_frcst_d_no() {
-		return getConstString(offset + 25, $cst_frcst_d_no);
-	}
-
-	/**
-	 * Sales forecast details No. 顧客期間内示明細ＮＯ.<p>
-	 *
-	 */
-	public void cst_frcst_d_no(String value) {
-		setConstString(offset + 25, $cst_frcst_d_no, value);
-	}
-
-
-	/**
-	 * Customer forecast list No. 得意先内示書ＮＯ.<p>
-	 *
-	 */
-	public String cst_frcst_slip_no() {
-		return getConstString(offset + 26, $cst_frcst_slip_no);
-	}
-
-	/**
-	 * Customer forecast list No. 得意先内示書ＮＯ.<p>
-	 *
-	 */
-	public void cst_frcst_slip_no(String value) {
-		setConstString(offset + 26, $cst_frcst_slip_no, value);
-	}
-
-
-	/**
-	 * Customer forecast list details No. 得意先内示書明細ＮＯ.<p>
-	 *
-	 */
-	public String cst_frcst_slip_d_no() {
-		return getConstString(offset + 27, $cst_frcst_slip_d_no);
-	}
-
-	/**
-	 * Customer forecast list details No. 得意先内示書明細ＮＯ.<p>
-	 *
-	 */
-	public void cst_frcst_slip_d_no(String value) {
-		setConstString(offset + 27, $cst_frcst_slip_d_no, value);
-	}
-
-
-	/**
-	 * Latest only 最新のみ.<p>
-	 *
-	 */
-	public boolean latest_flg() {
-		return getConstBoolean(offset + 28, $latest_flg);
-	}
-
-	/**
-	 * Latest only 最新のみ.<p>
-	 *
-	 */
-	public void latest_flg(boolean value) {
-		setConstBoolean(offset + 28, $latest_flg, value);
-	}
-
-
-	/**
-	 * Except lower priority 下位優先除く.<p>
-	 *
-	 */
-	public boolean except_frcst_stop_flg() {
-		return getConstBoolean(offset + 29, $except_frcst_stop_flg);
-	}
-
-	/**
-	 * Except lower priority 下位優先除く.<p>
-	 *
-	 */
-	public void except_frcst_stop_flg(boolean value) {
-		setConstBoolean(offset + 29, $except_frcst_stop_flg, value);
-	}
-
-
-	/**
-	 * Include cancel 取消含む.<p>
-	 *
-	 */
-	public boolean inc_can_flg() {
-		return getConstBoolean(offset + 30, $inc_can_flg);
-	}
-
-	/**
-	 * Include cancel 取消含む.<p>
-	 *
-	 */
-	public void inc_can_flg(boolean value) {
-		setConstBoolean(offset + 30, $inc_can_flg, value);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP0100.ItmTypR itm_typ_p(){
-		return (mcframe.clientMAUB.MAUBP0100.ItmTypR) getConstInnerRow(offset + 31, $itm_typ_p);
-	}
-	
-	public void itm_typ_p(mcframe.clientMAUB.MAUBP0100.ItmTypR row){
-		setConstInnerRow(offset + 31, $itm_typ_p, row);
-	}
-
-
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
+	 * Customer item cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public String cst_itm_cd() {
-		return getConstString(offset + 32, $cst_itm_cd);
+		return getConstString(offset + 10, $cst_itm_cd);
 	}
 
 	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
+	 * Customer item cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public void cst_itm_cd(String value) {
-		setConstString(offset + 32, $cst_itm_cd, value);
+		setConstString(offset + 10, $cst_itm_cd, value);
 	}
 
 
 	/**
-	 * Customer item name 得意先品名.<p>
+	 * Customer item name 得意先名.<p>
 	 *
 	 */
 	public String cst_itm_nm() {
-		return getConstString(offset + 33, $cst_itm_nm);
+		return getConstString(offset + 11, $cst_itm_nm);
 	}
 
 	/**
-	 * Customer item name 得意先品名.<p>
+	 * Customer item name 得意先名.<p>
 	 *
 	 */
 	public void cst_itm_nm(String value) {
-		setConstString(offset + 33, $cst_itm_nm, value);
+		setConstString(offset + 11, $cst_itm_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public String can_rsn_cd() {
+		return getConstString(offset + 12, $can_rsn_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public void can_rsn_cd(String value) {
+		setConstString(offset + 12, $can_rsn_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 請求先名.<p>
+	 *
+	 */
+	public String can_rsn_nm() {
+		return getConstString(offset + 13, $can_rsn_nm);
+	}
+
+	/**
+	 * Canceling reason name 請求先名.<p>
+	 *
+	 */
+	public void can_rsn_nm(String value) {
+		setConstString(offset + 13, $can_rsn_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 *
+	 */
+	public String dlv_cd() {
+		return getConstString(offset + 14, $dlv_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 *
+	 */
+	public void dlv_cd(String value) {
+		setConstString(offset + 14, $dlv_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 納品先名.<p>
+	 *
+	 */
+	public String dlv_nm() {
+		return getConstString(offset + 15, $dlv_nm);
+	}
+
+	/**
+	 * Canceling reason name 納品先名.<p>
+	 *
+	 */
+	public void dlv_nm(String value) {
+		setConstString(offset + 15, $dlv_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public String sls_dpt_cd() {
+		return getConstString(offset + 16, $sls_dpt_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 *
+	 */
+	public void sls_dpt_cd(String value) {
+		setConstString(offset + 16, $sls_dpt_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public String sls_dpt_nm() {
+		return getConstString(offset + 17, $sls_dpt_nm);
+	}
+
+	/**
+	 * Canceling reason name 売上部門名.<p>
+	 *
+	 */
+	public void sls_dpt_nm(String value) {
+		setConstString(offset + 17, $sls_dpt_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public String pj_usr_cd() {
+		return getConstString(offset + 18, $pj_usr_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 *
+	 */
+	public void pj_usr_cd(String value) {
+		setConstString(offset + 18, $pj_usr_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public String pj_usr_nm() {
+		return getConstString(offset + 19, $pj_usr_nm);
+	}
+
+	/**
+	 * Canceling reason name 案件担当者名.<p>
+	 *
+	 */
+	public void pj_usr_nm(String value) {
+		setConstString(offset + 19, $pj_usr_nm, value);
+	}
+
+
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public String market_cd() {
+		return getConstString(offset + 20, $market_cd);
+	}
+
+	/**
+	 * Canceling reason cd. 市場ＣＤ.<p>
+	 *
+	 */
+	public void market_cd(String value) {
+		setConstString(offset + 20, $market_cd, value);
+	}
+
+
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public String market_nm() {
+		return getConstString(offset + 21, $market_nm);
+	}
+
+	/**
+	 * Canceling reason name 市場名.<p>
+	 *
+	 */
+	public void market_nm(String value) {
+		setConstString(offset + 21, $market_nm, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0030.ItmR itm_p(){
-		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 34, $itm_p);
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 22, $itm_p);
 	}
 	
 	public void itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
-		setConstInnerRow(offset + 34, $itm_p, row);
-	}
-
-
-	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
-	 *
-	 */
-	public String can_rsn_cd() {
-		return getConstString(offset + 35, $can_rsn_cd);
-	}
-
-	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
-	 *
-	 */
-	public void can_rsn_cd(String value) {
-		setConstString(offset + 35, $can_rsn_cd, value);
-	}
-
-
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public String can_rsn_nm() {
-		return getConstString(offset + 36, $can_rsn_nm);
-	}
-
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public void can_rsn_nm(String value) {
-		setConstString(offset + 36, $can_rsn_nm, value);
+		setConstInnerRow(offset + 22, $itm_p, row);
 	}
 
 
@@ -1444,7 +1113,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rmrks() {
-		return getConstString(offset + 37, $can_rmrks);
+		return getConstString(offset + 23, $can_rmrks);
 	}
 
 	/**
@@ -1452,7 +1121,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rmrks(String value) {
-		setConstString(offset + 37, $can_rmrks, value);
+		setConstString(offset + 23, $can_rmrks, value);
 	}
 
 
@@ -1461,7 +1130,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String intr_rmrks() {
-		return getConstString(offset + 38, $intr_rmrks);
+		return getConstString(offset + 24, $intr_rmrks);
 	}
 
 	/**
@@ -1469,7 +1138,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void intr_rmrks(String value) {
-		setConstString(offset + 38, $intr_rmrks, value);
+		setConstString(offset + 24, $intr_rmrks, value);
 	}
 
 
@@ -1478,7 +1147,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char1() {
-		return getConstString(offset + 39, $sub_char1);
+		return getConstString(offset + 25, $sub_char1);
 	}
 
 	/**
@@ -1486,7 +1155,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char1(String value) {
-		setConstString(offset + 39, $sub_char1, value);
+		setConstString(offset + 25, $sub_char1, value);
 	}
 
 
@@ -1495,7 +1164,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char2() {
-		return getConstString(offset + 40, $sub_char2);
+		return getConstString(offset + 26, $sub_char2);
 	}
 
 	/**
@@ -1503,7 +1172,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char2(String value) {
-		setConstString(offset + 40, $sub_char2, value);
+		setConstString(offset + 26, $sub_char2, value);
 	}
 
 
@@ -1512,7 +1181,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char3() {
-		return getConstString(offset + 41, $sub_char3);
+		return getConstString(offset + 27, $sub_char3);
 	}
 
 	/**
@@ -1520,7 +1189,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char3(String value) {
-		setConstString(offset + 41, $sub_char3, value);
+		setConstString(offset + 27, $sub_char3, value);
 	}
 
 
@@ -1529,7 +1198,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_intr_rmrks() {
-		return getConstString(offset + 42, $dtl_intr_rmrks);
+		return getConstString(offset + 28, $dtl_intr_rmrks);
 	}
 
 	/**
@@ -1537,7 +1206,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_intr_rmrks(String value) {
-		setConstString(offset + 42, $dtl_intr_rmrks, value);
+		setConstString(offset + 28, $dtl_intr_rmrks, value);
 	}
 
 
@@ -1546,7 +1215,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char1() {
-		return getConstString(offset + 43, $dtl_sub_char1);
+		return getConstString(offset + 29, $dtl_sub_char1);
 	}
 
 	/**
@@ -1554,7 +1223,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char1(String value) {
-		setConstString(offset + 43, $dtl_sub_char1, value);
+		setConstString(offset + 29, $dtl_sub_char1, value);
 	}
 
 
@@ -1563,7 +1232,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char2() {
-		return getConstString(offset + 44, $dtl_sub_char2);
+		return getConstString(offset + 30, $dtl_sub_char2);
 	}
 
 	/**
@@ -1571,7 +1240,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char2(String value) {
-		setConstString(offset + 44, $dtl_sub_char2, value);
+		setConstString(offset + 30, $dtl_sub_char2, value);
 	}
 
 
@@ -1580,7 +1249,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dtl_sub_char3() {
-		return getConstString(offset + 45, $dtl_sub_char3);
+		return getConstString(offset + 31, $dtl_sub_char3);
 	}
 
 	/**
@@ -1588,34 +1257,34 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dtl_sub_char3(String value) {
-		setConstString(offset + 45, $dtl_sub_char3, value);
+		setConstString(offset + 31, $dtl_sub_char3, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR dlv_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 46, $dlv_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 32, $dlv_grp_p);
 	}
 	
 	public void dlv_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 46, $dlv_grp_p, row);
+		setConstInnerRow(offset + 32, $dlv_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR cst_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 47, $cst_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 33, $cst_grp_p);
 	}
 	
 	public void cst_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 47, $cst_grp_p, row);
+		setConstInnerRow(offset + 33, $cst_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0250.ItmGrpR itm_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 48, $itm_grp_p);
+		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 34, $itm_grp_p);
 	}
 	
 	public void itm_grp_p(mcframe.clientMAUB.MAUBP0250.ItmGrpR row){
-		setConstInnerRow(offset + 48, $itm_grp_p, row);
+		setConstInnerRow(offset + 34, $itm_grp_p, row);
 	}
 
 
@@ -1623,47 +1292,14 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($mode.equalsIgnoreCase(name)) {
 			return mode();
 		}
-		if ($frcst_period_typ.equalsIgnoreCase(name)) {
-			return frcst_period_typ();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
-		if ($frcst_period_typ_nm.equalsIgnoreCase(name)) {
-			return frcst_period_typ_nm();
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			return cst_cd();
-		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			return cst_nm();
-		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			return dlv_cd();
-		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			return dlv_nm();
-		}
-		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
-			return frcst_usr_cd();
-		}
-		if ($frcst_usr_nm.equalsIgnoreCase(name)) {
-			return frcst_usr_nm();
-		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			return frcst_dpt_cd();
-		}
-		if ($frcst_dpt_nm.equalsIgnoreCase(name)) {
-			return frcst_dpt_nm();
-		}
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			return cst_frcst_no();
-		}
-		if ($cst_frcst_d_no.equalsIgnoreCase(name)) {
-			return cst_frcst_d_no();
-		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_no();
-		}
-		if ($cst_frcst_slip_d_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_d_no();
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
 		}
 		if ($cst_itm_cd.equalsIgnoreCase(name)) {
 			return cst_itm_cd();
@@ -1676,6 +1312,30 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($can_rsn_nm.equalsIgnoreCase(name)) {
 			return can_rsn_nm();
+		}
+		if ($dlv_cd.equalsIgnoreCase(name)) {
+			return dlv_cd();
+		}
+		if ($dlv_nm.equalsIgnoreCase(name)) {
+			return dlv_nm();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			return pj_usr_cd();
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			return pj_usr_nm();
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			return market_cd();
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			return market_nm();
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
 			return can_rmrks();
@@ -1719,24 +1379,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($rcpt_dt_to.equalsIgnoreCase(name)) {
 			return rcpt_dt_to();
 		}
-		if ($frcst_st_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_st_dt_fr();
-		}
-		if ($frcst_st_dt_to.equalsIgnoreCase(name)) {
-			return frcst_st_dt_to();
-		}
-		if ($frcst_end_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_end_dt_fr();
-		}
-		if ($frcst_end_dt_to.equalsIgnoreCase(name)) {
-			return frcst_end_dt_to();
-		}
-		if ($frcst_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_dt_fr();
-		}
-		if ($frcst_dt_to.equalsIgnoreCase(name)) {
-			return frcst_dt_to();
-		}
 		return super.getDate(name);
 	}
 	public boolean getBoolean(String name) {
@@ -1746,15 +1388,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($fix_t_flg.equalsIgnoreCase(name)) {
 			return fix_t_flg();
 		}
-		if ($latest_flg.equalsIgnoreCase(name)) {
-			return latest_flg();
-		}
-		if ($except_frcst_stop_flg.equalsIgnoreCase(name)) {
-			return except_frcst_stop_flg();
-		}
-		if ($inc_can_flg.equalsIgnoreCase(name)) {
-			return inc_can_flg();
-		}
 		return super.getBoolean(name);
 	}
 
@@ -1762,47 +1395,14 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($mode.equalsIgnoreCase(name)) {
 			return mode();
 		}
-		if ($frcst_period_typ.equalsIgnoreCase(name)) {
-			return frcst_period_typ();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
-		if ($frcst_period_typ_nm.equalsIgnoreCase(name)) {
-			return frcst_period_typ_nm();
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			return cst_cd();
-		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			return cst_nm();
-		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			return dlv_cd();
-		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			return dlv_nm();
-		}
-		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
-			return frcst_usr_cd();
-		}
-		if ($frcst_usr_nm.equalsIgnoreCase(name)) {
-			return frcst_usr_nm();
-		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			return frcst_dpt_cd();
-		}
-		if ($frcst_dpt_nm.equalsIgnoreCase(name)) {
-			return frcst_dpt_nm();
-		}
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			return cst_frcst_no();
-		}
-		if ($cst_frcst_d_no.equalsIgnoreCase(name)) {
-			return cst_frcst_d_no();
-		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_no();
-		}
-		if ($cst_frcst_slip_d_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_d_no();
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
 		}
 		if ($cst_itm_cd.equalsIgnoreCase(name)) {
 			return cst_itm_cd();
@@ -1815,6 +1415,30 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($can_rsn_nm.equalsIgnoreCase(name)) {
 			return can_rsn_nm();
+		}
+		if ($dlv_cd.equalsIgnoreCase(name)) {
+			return dlv_cd();
+		}
+		if ($dlv_nm.equalsIgnoreCase(name)) {
+			return dlv_nm();
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			return pj_usr_cd();
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			return pj_usr_nm();
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			return market_cd();
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			return market_nm();
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
 			return can_rmrks();
@@ -1858,24 +1482,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($rcpt_dt_to.equalsIgnoreCase(name)) {
 			return rcpt_dt_to();
 		}
-		if ($frcst_st_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_st_dt_fr();
-		}
-		if ($frcst_st_dt_to.equalsIgnoreCase(name)) {
-			return frcst_st_dt_to();
-		}
-		if ($frcst_end_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_end_dt_fr();
-		}
-		if ($frcst_end_dt_to.equalsIgnoreCase(name)) {
-			return frcst_end_dt_to();
-		}
-		if ($frcst_dt_fr.equalsIgnoreCase(name)) {
-			return frcst_dt_fr();
-		}
-		if ($frcst_dt_to.equalsIgnoreCase(name)) {
-			return frcst_dt_to();
-		}
 		return super.getDateNE(name);
 	}
 	public boolean getBooleanNE(String name) {
@@ -1885,15 +1491,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($fix_t_flg.equalsIgnoreCase(name)) {
 			return fix_t_flg();
 		}
-		if ($latest_flg.equalsIgnoreCase(name)) {
-			return latest_flg();
-		}
-		if ($except_frcst_stop_flg.equalsIgnoreCase(name)) {
-			return except_frcst_stop_flg();
-		}
-		if ($inc_can_flg.equalsIgnoreCase(name)) {
-			return inc_can_flg();
-		}
 		return super.getBooleanNE(name);
 	}
 
@@ -1902,60 +1499,16 @@ abstract class CndR_MC_A extends MCConstRow {
 			mode(value);
 			return;
 		}
-		if ($frcst_period_typ.equalsIgnoreCase(name)) {
-			frcst_period_typ(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
-		if ($frcst_period_typ_nm.equalsIgnoreCase(name)) {
-			frcst_period_typ_nm(value);
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
 			return;
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			cst_cd(value);
-			return;
-		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			cst_nm(value);
-			return;
-		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			dlv_cd(value);
-			return;
-		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			dlv_nm(value);
-			return;
-		}
-		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
-			frcst_usr_cd(value);
-			return;
-		}
-		if ($frcst_usr_nm.equalsIgnoreCase(name)) {
-			frcst_usr_nm(value);
-			return;
-		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			frcst_dpt_cd(value);
-			return;
-		}
-		if ($frcst_dpt_nm.equalsIgnoreCase(name)) {
-			frcst_dpt_nm(value);
-			return;
-		}
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			cst_frcst_no(value);
-			return;
-		}
-		if ($cst_frcst_d_no.equalsIgnoreCase(name)) {
-			cst_frcst_d_no(value);
-			return;
-		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_no(value);
-			return;
-		}
-		if ($cst_frcst_slip_d_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_d_no(value);
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
 			return;
 		}
 		if ($cst_itm_cd.equalsIgnoreCase(name)) {
@@ -1972,6 +1525,38 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($can_rsn_nm.equalsIgnoreCase(name)) {
 			can_rsn_nm(value);
+			return;
+		}
+		if ($dlv_cd.equalsIgnoreCase(name)) {
+			dlv_cd(value);
+			return;
+		}
+		if ($dlv_nm.equalsIgnoreCase(name)) {
+			dlv_nm(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
+			return;
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			pj_usr_cd(value);
+			return;
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			pj_usr_nm(value);
+			return;
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			market_cd(value);
+			return;
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			market_nm(value);
 			return;
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
@@ -2029,30 +1614,6 @@ abstract class CndR_MC_A extends MCConstRow {
 			rcpt_dt_to(value);
 			return;
 		}
-		if ($frcst_st_dt_fr.equalsIgnoreCase(name)) {
-			frcst_st_dt_fr(value);
-			return;
-		}
-		if ($frcst_st_dt_to.equalsIgnoreCase(name)) {
-			frcst_st_dt_to(value);
-			return;
-		}
-		if ($frcst_end_dt_fr.equalsIgnoreCase(name)) {
-			frcst_end_dt_fr(value);
-			return;
-		}
-		if ($frcst_end_dt_to.equalsIgnoreCase(name)) {
-			frcst_end_dt_to(value);
-			return;
-		}
-		if ($frcst_dt_fr.equalsIgnoreCase(name)) {
-			frcst_dt_fr(value);
-			return;
-		}
-		if ($frcst_dt_to.equalsIgnoreCase(name)) {
-			frcst_dt_to(value);
-			return;
-		}
 		super.setDate(name, value);
 	}
 	public void setBoolean(String name, boolean value) {
@@ -2064,18 +1625,6 @@ abstract class CndR_MC_A extends MCConstRow {
 			fix_t_flg(value);
 			return;
 		}
-		if ($latest_flg.equalsIgnoreCase(name)) {
-			latest_flg(value);
-			return;
-		}
-		if ($except_frcst_stop_flg.equalsIgnoreCase(name)) {
-			except_frcst_stop_flg(value);
-			return;
-		}
-		if ($inc_can_flg.equalsIgnoreCase(name)) {
-			inc_can_flg(value);
-			return;
-		}
 		super.setBoolean(name, value);
 	}
 
@@ -2084,60 +1633,16 @@ abstract class CndR_MC_A extends MCConstRow {
 			mode(value);
 			return;
 		}
-		if ($frcst_period_typ.equalsIgnoreCase(name)) {
-			frcst_period_typ(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
-		if ($frcst_period_typ_nm.equalsIgnoreCase(name)) {
-			frcst_period_typ_nm(value);
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
 			return;
 		}
-		if ($cst_cd.equalsIgnoreCase(name)) {
-			cst_cd(value);
-			return;
-		}
-		if ($cst_nm.equalsIgnoreCase(name)) {
-			cst_nm(value);
-			return;
-		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			dlv_cd(value);
-			return;
-		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			dlv_nm(value);
-			return;
-		}
-		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
-			frcst_usr_cd(value);
-			return;
-		}
-		if ($frcst_usr_nm.equalsIgnoreCase(name)) {
-			frcst_usr_nm(value);
-			return;
-		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			frcst_dpt_cd(value);
-			return;
-		}
-		if ($frcst_dpt_nm.equalsIgnoreCase(name)) {
-			frcst_dpt_nm(value);
-			return;
-		}
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			cst_frcst_no(value);
-			return;
-		}
-		if ($cst_frcst_d_no.equalsIgnoreCase(name)) {
-			cst_frcst_d_no(value);
-			return;
-		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_no(value);
-			return;
-		}
-		if ($cst_frcst_slip_d_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_d_no(value);
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
 			return;
 		}
 		if ($cst_itm_cd.equalsIgnoreCase(name)) {
@@ -2154,6 +1659,38 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($can_rsn_nm.equalsIgnoreCase(name)) {
 			can_rsn_nm(value);
+			return;
+		}
+		if ($dlv_cd.equalsIgnoreCase(name)) {
+			dlv_cd(value);
+			return;
+		}
+		if ($dlv_nm.equalsIgnoreCase(name)) {
+			dlv_nm(value);
+			return;
+		}
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
+			return;
+		}
+		if ($pj_usr_cd.equalsIgnoreCase(name)) {
+			pj_usr_cd(value);
+			return;
+		}
+		if ($pj_usr_nm.equalsIgnoreCase(name)) {
+			pj_usr_nm(value);
+			return;
+		}
+		if ($market_cd.equalsIgnoreCase(name)) {
+			market_cd(value);
+			return;
+		}
+		if ($market_nm.equalsIgnoreCase(name)) {
+			market_nm(value);
 			return;
 		}
 		if ($can_rmrks.equalsIgnoreCase(name)) {
@@ -2211,30 +1748,6 @@ abstract class CndR_MC_A extends MCConstRow {
 			rcpt_dt_to(value);
 			return;
 		}
-		if ($frcst_st_dt_fr.equalsIgnoreCase(name)) {
-			frcst_st_dt_fr(value);
-			return;
-		}
-		if ($frcst_st_dt_to.equalsIgnoreCase(name)) {
-			frcst_st_dt_to(value);
-			return;
-		}
-		if ($frcst_end_dt_fr.equalsIgnoreCase(name)) {
-			frcst_end_dt_fr(value);
-			return;
-		}
-		if ($frcst_end_dt_to.equalsIgnoreCase(name)) {
-			frcst_end_dt_to(value);
-			return;
-		}
-		if ($frcst_dt_fr.equalsIgnoreCase(name)) {
-			frcst_dt_fr(value);
-			return;
-		}
-		if ($frcst_dt_to.equalsIgnoreCase(name)) {
-			frcst_dt_to(value);
-			return;
-		}
 		super.setDateNE(name, value);
 	}
 	public void setBooleanNE(String name, boolean value) {
@@ -2246,28 +1759,10 @@ abstract class CndR_MC_A extends MCConstRow {
 			fix_t_flg(value);
 			return;
 		}
-		if ($latest_flg.equalsIgnoreCase(name)) {
-			latest_flg(value);
-			return;
-		}
-		if ($except_frcst_stop_flg.equalsIgnoreCase(name)) {
-			except_frcst_stop_flg(value);
-			return;
-		}
-		if ($inc_can_flg.equalsIgnoreCase(name)) {
-			inc_can_flg(value);
-			return;
-		}
 		super.setBooleanNE(name, value);
 	}
 
 	public MCRow getInnerRow(String name) {
-		if ($wrk_no_p.equalsIgnoreCase(name)) {
-			return wrk_no_p();
-		}
-		if ($itm_typ_p.equalsIgnoreCase(name)) {
-			return itm_typ_p();
-		}
 		if ($itm_p.equalsIgnoreCase(name)) {
 			return itm_p();
 		}
@@ -2284,18 +1779,6 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public void setInnerRow(String name, MCRow value) {
-		if ($wrk_no_p.equalsIgnoreCase(name)) {
-			wrk_no_p(
-				((MCContainerMeta) wrk_no_p_META).castInnerRow(mcframe.clientMSUB.MSUBP0010.WrkNoR.class, value)
-			);
-			return;
-		}
-		if ($itm_typ_p.equalsIgnoreCase(name)) {
-			itm_typ_p(
-				((MCContainerMeta) itm_typ_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0100.ItmTypR.class, value)
-			);
-			return;
-		}
 		if ($itm_p.equalsIgnoreCase(name)) {
 			itm_p(
 				((MCContainerMeta) itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
@@ -2324,50 +1807,18 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 
-	public String wrk_no() {
-		return wrk_no_p().wrk_no();
-	}
-
-	public void wrk_no(String value) {
-		wrk_no_p().wrk_no(value);
-	}
-
-	public String wrk_nm() {
-		return wrk_no_p().wrk_nm();
-	}
-
-	public void wrk_nm(String value) {
-		wrk_no_p().wrk_nm(value);
-	}
-
-	public String itm_typ() {
-		return itm_typ_p().itm_typ();
-	}
-
-	public void itm_typ(String value) {
-		itm_typ_p().itm_typ(value);
-	}
-
-	public String itm_typ_d_cd() {
-		return itm_typ_p().itm_typ_d_cd();
-	}
-
-	public void itm_typ_d_cd(String value) {
-		itm_typ_p().itm_typ_d_cd(value);
-	}
-
-	public String itm_typ_d_nm() {
-		return itm_typ_p().itm_typ_d_nm();
-	}
-
-	public void itm_typ_d_nm(String value) {
-		itm_typ_p().itm_typ_d_nm(value);
-	}
-
+	/**
+	 *  品目.<p>
+	 *
+	 */
 	public String itm_cd() {
 		return itm_p().itm_cd();
 	}
 
+	/**
+	 *  品目.<p>
+	 *
+	 */
 	public void itm_cd(String value) {
 		itm_p().itm_cd(value);
 	}
