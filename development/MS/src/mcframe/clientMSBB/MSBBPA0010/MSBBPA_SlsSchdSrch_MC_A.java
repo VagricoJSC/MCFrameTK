@@ -223,60 +223,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	public MCTextComboBox Cnd_itm_sub2;	// [Cnd]の[itm_p.itm_sub2]を[Cnd_itm_sub2]としてエイリアス定義。
 	public MCTextComboBox Cnd_itm_sub3;	// [Cnd]の[itm_p.itm_sub3]を[Cnd_itm_sub3]としてエイリアス定義。
 	public MCTextField Cnd_itm_nm;	// [Cnd]の[itm_p.itm_nm]を[Cnd_itm_nm]としてエイリアス定義。
-	public MCLabel Cnd_can_rmrks_Label = null;
-	/**
-	 * Cancel remarks 取消備考.<p>
-	 *
-	 */
-	public MCTextField Cnd_can_rmrks = null;
-	public MCLabel Cnd_intr_rmrks_Label = null;
-	/**
-	 * Internal remarks 内部備考.<p>
-	 *
-	 */
-	public MCTextField Cnd_intr_rmrks = null;
-	public MCLabel Cnd_sub_char1_Label = null;
-	/**
-	 * Spare 1 予備１.<p>
-	 *
-	 */
-	public MCTextField Cnd_sub_char1 = null;
-	public MCLabel Cnd_sub_char2_Label = null;
-	/**
-	 * Spare 2 予備２.<p>
-	 *
-	 */
-	public MCTextField Cnd_sub_char2 = null;
-	public MCLabel Cnd_sub_char3_Label = null;
-	/**
-	 * Spare 3 予備３.<p>
-	 *
-	 */
-	public MCTextField Cnd_sub_char3 = null;
-	public MCLabel Cnd_dtl_intr_rmrks_Label = null;
-	/**
-	 * Details internal remarks 明細内部備考.<p>
-	 *
-	 */
-	public MCTextField Cnd_dtl_intr_rmrks = null;
-	public MCLabel Cnd_dtl_sub_char1_Label = null;
-	/**
-	 * Details spare 1 明細予備１.<p>
-	 *
-	 */
-	public MCTextField Cnd_dtl_sub_char1 = null;
-	public MCLabel Cnd_dtl_sub_char2_Label = null;
-	/**
-	 * Details spare 2 明細予備２.<p>
-	 *
-	 */
-	public MCTextField Cnd_dtl_sub_char2 = null;
-	public MCLabel Cnd_dtl_sub_char3_Label = null;
-	/**
-	 * Details spare 3 明細予備３.<p>
-	 *
-	 */
-	public MCTextField Cnd_dtl_sub_char3 = null;
 	public mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S Cnd_dlv_grp_p_PPanel;
 	public MCLabel Cnd_dlv_grp_lab1;	// [Cnd]の[dlv_grp_p.bp_grp_lab1]を[Cnd_dlv_grp_lab1]としてエイリアス定義。
 	public MCCheckBox Cnd_dlv_grp_flg1;	// [Cnd]の[dlv_grp_p.bp_grp_flg1]を[Cnd_dlv_grp_flg1]としてエイリアス定義。
@@ -1429,33 +1375,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd = p.beansFactory.createTextField("Cnd.market_cd");
 		p.Cnd_market_cd.setLabel(p.Cnd_market_cd_Label);
 		p.Cnd_market_nm = p.beansFactory.createTextField("Cnd.market_nm");
-		p.Cnd_can_rmrks_Label = p.beansFactory.createLabel("Cnd.can_rmrks_Label");
-		p.Cnd_can_rmrks = p.beansFactory.createTextField("Cnd.can_rmrks");
-		p.Cnd_can_rmrks.setLabel(p.Cnd_can_rmrks_Label);
-		p.Cnd_intr_rmrks_Label = p.beansFactory.createLabel("Cnd.intr_rmrks_Label");
-		p.Cnd_intr_rmrks = p.beansFactory.createTextField("Cnd.intr_rmrks");
-		p.Cnd_intr_rmrks.setLabel(p.Cnd_intr_rmrks_Label);
-		p.Cnd_sub_char1_Label = p.beansFactory.createLabel("Cnd.sub_char1_Label");
-		p.Cnd_sub_char1 = p.beansFactory.createTextField("Cnd.sub_char1");
-		p.Cnd_sub_char1.setLabel(p.Cnd_sub_char1_Label);
-		p.Cnd_sub_char2_Label = p.beansFactory.createLabel("Cnd.sub_char2_Label");
-		p.Cnd_sub_char2 = p.beansFactory.createTextField("Cnd.sub_char2");
-		p.Cnd_sub_char2.setLabel(p.Cnd_sub_char2_Label);
-		p.Cnd_sub_char3_Label = p.beansFactory.createLabel("Cnd.sub_char3_Label");
-		p.Cnd_sub_char3 = p.beansFactory.createTextField("Cnd.sub_char3");
-		p.Cnd_sub_char3.setLabel(p.Cnd_sub_char3_Label);
-		p.Cnd_dtl_intr_rmrks_Label = p.beansFactory.createLabel("Cnd.dtl_intr_rmrks_Label");
-		p.Cnd_dtl_intr_rmrks = p.beansFactory.createTextField("Cnd.dtl_intr_rmrks");
-		p.Cnd_dtl_intr_rmrks.setLabel(p.Cnd_dtl_intr_rmrks_Label);
-		p.Cnd_dtl_sub_char1_Label = p.beansFactory.createLabel("Cnd.dtl_sub_char1_Label");
-		p.Cnd_dtl_sub_char1 = p.beansFactory.createTextField("Cnd.dtl_sub_char1");
-		p.Cnd_dtl_sub_char1.setLabel(p.Cnd_dtl_sub_char1_Label);
-		p.Cnd_dtl_sub_char2_Label = p.beansFactory.createLabel("Cnd.dtl_sub_char2_Label");
-		p.Cnd_dtl_sub_char2 = p.beansFactory.createTextField("Cnd.dtl_sub_char2");
-		p.Cnd_dtl_sub_char2.setLabel(p.Cnd_dtl_sub_char2_Label);
-		p.Cnd_dtl_sub_char3_Label = p.beansFactory.createLabel("Cnd.dtl_sub_char3_Label");
-		p.Cnd_dtl_sub_char3 = p.beansFactory.createTextField("Cnd.dtl_sub_char3");
-		p.Cnd_dtl_sub_char3.setLabel(p.Cnd_dtl_sub_char3_Label);
 	}
 
 	/**
@@ -1800,51 +1719,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.market_nm_META);
 		p.setPluralValueEnable(p.Cnd_market_nm, true);
 		p.CndPanel.add(p.Cnd_itm_p_PPanel);
-		p.Cnd_itm_p_PPanel.setNextBeans(p.Cnd_can_rmrks);
-		p.CndPanel.add(p.Cnd_can_rmrks_Label);
-		p.CndPanel.add(p.Cnd_can_rmrks);
-		p.Cnd_can_rmrks.setNextBeans(p.Cnd_intr_rmrks);
-		p.Cnd_can_rmrks.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.can_rmrks_META);
-		p.setPluralValueEnable(p.Cnd_can_rmrks, true);
-		p.CndPanel.add(p.Cnd_intr_rmrks_Label);
-		p.CndPanel.add(p.Cnd_intr_rmrks);
-		p.Cnd_intr_rmrks.setNextBeans(p.Cnd_sub_char1);
-		p.Cnd_intr_rmrks.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.intr_rmrks_META);
-		p.setPluralValueEnable(p.Cnd_intr_rmrks, true);
-		p.CndPanel.add(p.Cnd_sub_char1_Label);
-		p.CndPanel.add(p.Cnd_sub_char1);
-		p.Cnd_sub_char1.setNextBeans(p.Cnd_sub_char2);
-		p.Cnd_sub_char1.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.sub_char1_META);
-		p.setPluralValueEnable(p.Cnd_sub_char1, true);
-		p.CndPanel.add(p.Cnd_sub_char2_Label);
-		p.CndPanel.add(p.Cnd_sub_char2);
-		p.Cnd_sub_char2.setNextBeans(p.Cnd_sub_char3);
-		p.Cnd_sub_char2.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.sub_char2_META);
-		p.setPluralValueEnable(p.Cnd_sub_char2, true);
-		p.CndPanel.add(p.Cnd_sub_char3_Label);
-		p.CndPanel.add(p.Cnd_sub_char3);
-		p.Cnd_sub_char3.setNextBeans(p.Cnd_dtl_intr_rmrks);
-		p.Cnd_sub_char3.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.sub_char3_META);
-		p.setPluralValueEnable(p.Cnd_sub_char3, true);
-		p.CndPanel.add(p.Cnd_dtl_intr_rmrks_Label);
-		p.CndPanel.add(p.Cnd_dtl_intr_rmrks);
-		p.Cnd_dtl_intr_rmrks.setNextBeans(p.Cnd_dtl_sub_char1);
-		p.Cnd_dtl_intr_rmrks.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.dtl_intr_rmrks_META);
-		p.setPluralValueEnable(p.Cnd_dtl_intr_rmrks, true);
-		p.CndPanel.add(p.Cnd_dtl_sub_char1_Label);
-		p.CndPanel.add(p.Cnd_dtl_sub_char1);
-		p.Cnd_dtl_sub_char1.setNextBeans(p.Cnd_dtl_sub_char2);
-		p.Cnd_dtl_sub_char1.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.dtl_sub_char1_META);
-		p.setPluralValueEnable(p.Cnd_dtl_sub_char1, true);
-		p.CndPanel.add(p.Cnd_dtl_sub_char2_Label);
-		p.CndPanel.add(p.Cnd_dtl_sub_char2);
-		p.Cnd_dtl_sub_char2.setNextBeans(p.Cnd_dtl_sub_char3);
-		p.Cnd_dtl_sub_char2.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.dtl_sub_char2_META);
-		p.setPluralValueEnable(p.Cnd_dtl_sub_char2, true);
-		p.CndPanel.add(p.Cnd_dtl_sub_char3_Label);
-		p.CndPanel.add(p.Cnd_dtl_sub_char3);
-		p.Cnd_dtl_sub_char3.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.dtl_sub_char3_META);
-		p.setPluralValueEnable(p.Cnd_dtl_sub_char3, true);
 		p.DlvCndPanel.add(p.Cnd_dlv_grp_p_PPanel);
 		p.DlvCndPanel.setLastBeans(p.Cnd_dlv_grp_p_PPanel);
 		p.CstCndPanel.add(p.Cnd_cst_grp_p_PPanel);
@@ -2147,24 +2021,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.addAllListener(p);
 		p.Cnd_market_nm.setListListener(p);
 		p.Cnd_market_nm.addAllListener(p);
-		p.Cnd_can_rmrks.setListListener(p);
-		p.Cnd_can_rmrks.addAllListener(p);
-		p.Cnd_intr_rmrks.setListListener(p);
-		p.Cnd_intr_rmrks.addAllListener(p);
-		p.Cnd_sub_char1.setListListener(p);
-		p.Cnd_sub_char1.addAllListener(p);
-		p.Cnd_sub_char2.setListListener(p);
-		p.Cnd_sub_char2.addAllListener(p);
-		p.Cnd_sub_char3.setListListener(p);
-		p.Cnd_sub_char3.addAllListener(p);
-		p.Cnd_dtl_intr_rmrks.setListListener(p);
-		p.Cnd_dtl_intr_rmrks.addAllListener(p);
-		p.Cnd_dtl_sub_char1.setListListener(p);
-		p.Cnd_dtl_sub_char1.addAllListener(p);
-		p.Cnd_dtl_sub_char2.setListListener(p);
-		p.Cnd_dtl_sub_char2.addAllListener(p);
-		p.Cnd_dtl_sub_char3.setListListener(p);
-		p.Cnd_dtl_sub_char3.addAllListener(p);
 	}
 
 	/**
@@ -2332,15 +2188,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.putMode(p, SRCH_DTL, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, SRCH_DTL, MCMode.ENABLE);
 		p.Cnd_itm_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_can_rmrks.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_intr_rmrks.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char1.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char2.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char3.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_intr_rmrks.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char1.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char2.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char3.putMode(p, SRCH_DTL, MCMode.ENABLE);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.ENABLE);
@@ -2498,15 +2345,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.putMode(p, SRCH_HDR, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, SRCH_HDR, MCMode.ENABLE);
 		p.Cnd_itm_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
-		p.Cnd_can_rmrks.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_intr_rmrks.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char1.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char2.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char3.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_dtl_intr_rmrks.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char1.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char2.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char3.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.READ_ONLY);
@@ -2664,15 +2502,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Cnd_itm_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_can_rmrks.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_intr_rmrks.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char1.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char2.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_sub_char3.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_intr_rmrks.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char1.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char2.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_dtl_sub_char3.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.ENABLE);
@@ -2830,15 +2659,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.putMode(p, REF_HDR, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, REF_HDR, MCMode.ENABLE);
 		p.Cnd_itm_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
-		p.Cnd_can_rmrks.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_intr_rmrks.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char1.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char2.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_sub_char3.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_dtl_intr_rmrks.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char1.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char2.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.Cnd_dtl_sub_char3.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.READ_ONLY);
@@ -3195,15 +3015,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if (vc == Cnd_pj_usr_nm) return doCnd_pj_usr_nm_VC(info);
 		if (vc == Cnd_market_cd) return doCnd_market_cd_VC(info);
 		if (vc == Cnd_market_nm) return doCnd_market_nm_VC(info);
-		if (vc == Cnd_can_rmrks) return doCnd_can_rmrks_VC(info);
-		if (vc == Cnd_intr_rmrks) return doCnd_intr_rmrks_VC(info);
-		if (vc == Cnd_sub_char1) return doCnd_sub_char1_VC(info);
-		if (vc == Cnd_sub_char2) return doCnd_sub_char2_VC(info);
-		if (vc == Cnd_sub_char3) return doCnd_sub_char3_VC(info);
-		if (vc == Cnd_dtl_intr_rmrks) return doCnd_dtl_intr_rmrks_VC(info);
-		if (vc == Cnd_dtl_sub_char1) return doCnd_dtl_sub_char1_VC(info);
-		if (vc == Cnd_dtl_sub_char2) return doCnd_dtl_sub_char2_VC(info);
-		if (vc == Cnd_dtl_sub_char3) return doCnd_dtl_sub_char3_VC(info);
 		if (vc == columnRslt_cst_frcst_no) return doRslt_cst_frcst_no_VC(info);
 		if (vc == columnRslt_deal_cd) return doRslt_deal_cd_VC(info);
 		if (vc == columnRslt_deal_nm) return doRslt_deal_nm_VC(info);
@@ -3465,96 +3276,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Cnd]パネルの[can_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_can_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_intr_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_sub_char1_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_sub_char2_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_sub_char3_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_dtl_intr_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_dtl_sub_char1_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_dtl_sub_char2_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doCnd_dtl_sub_char3_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
 	 * [Rslt]パネルの[cst_frcst_no]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -3756,15 +3477,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nc == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NC(info);
 		else if (nc == Cnd_market_cd) doCnd_market_cd_NC(info);
 		else if (nc == Cnd_market_nm) doCnd_market_nm_NC(info);
-		else if (nc == Cnd_can_rmrks) doCnd_can_rmrks_NC(info);
-		else if (nc == Cnd_intr_rmrks) doCnd_intr_rmrks_NC(info);
-		else if (nc == Cnd_sub_char1) doCnd_sub_char1_NC(info);
-		else if (nc == Cnd_sub_char2) doCnd_sub_char2_NC(info);
-		else if (nc == Cnd_sub_char3) doCnd_sub_char3_NC(info);
-		else if (nc == Cnd_dtl_intr_rmrks) doCnd_dtl_intr_rmrks_NC(info);
-		else if (nc == Cnd_dtl_sub_char1) doCnd_dtl_sub_char1_NC(info);
-		else if (nc == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NC(info);
-		else if (nc == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NC(info);
 		else if (nc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NC(info);
 		else if (nc == columnRslt_deal_cd) doRslt_deal_cd_NC(info);
 		else if (nc == columnRslt_deal_nm) doRslt_deal_nm_NC(info);
@@ -3977,78 +3689,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Cnd]パネルの[can_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_can_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_intr_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char1_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char2_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char3_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_intr_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char1_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char2_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char3_NC(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[cst_frcst_no]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -4216,15 +3856,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (ne == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NE(info);
 		else if (ne == Cnd_market_cd) doCnd_market_cd_NE(info);
 		else if (ne == Cnd_market_nm) doCnd_market_nm_NE(info);
-		else if (ne == Cnd_can_rmrks) doCnd_can_rmrks_NE(info);
-		else if (ne == Cnd_intr_rmrks) doCnd_intr_rmrks_NE(info);
-		else if (ne == Cnd_sub_char1) doCnd_sub_char1_NE(info);
-		else if (ne == Cnd_sub_char2) doCnd_sub_char2_NE(info);
-		else if (ne == Cnd_sub_char3) doCnd_sub_char3_NE(info);
-		else if (ne == Cnd_dtl_intr_rmrks) doCnd_dtl_intr_rmrks_NE(info);
-		else if (ne == Cnd_dtl_sub_char1) doCnd_dtl_sub_char1_NE(info);
-		else if (ne == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NE(info);
-		else if (ne == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NE(info);
 		else if (ne == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NE(info);
 		else if (ne == columnRslt_deal_cd) doRslt_deal_cd_NE(info);
 		else if (ne == columnRslt_deal_nm) doRslt_deal_nm_NE(info);
@@ -4437,78 +4068,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Cnd]パネルの[can_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_can_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_intr_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char1_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char2_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char3_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_intr_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char1_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char2_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char3_NE(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[cst_frcst_no]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -4676,15 +4235,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nx == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NX(info);
 		else if (nx == Cnd_market_cd) doCnd_market_cd_NX(info);
 		else if (nx == Cnd_market_nm) doCnd_market_nm_NX(info);
-		else if (nx == Cnd_can_rmrks) doCnd_can_rmrks_NX(info);
-		else if (nx == Cnd_intr_rmrks) doCnd_intr_rmrks_NX(info);
-		else if (nx == Cnd_sub_char1) doCnd_sub_char1_NX(info);
-		else if (nx == Cnd_sub_char2) doCnd_sub_char2_NX(info);
-		else if (nx == Cnd_sub_char3) doCnd_sub_char3_NX(info);
-		else if (nx == Cnd_dtl_intr_rmrks) doCnd_dtl_intr_rmrks_NX(info);
-		else if (nx == Cnd_dtl_sub_char1) doCnd_dtl_sub_char1_NX(info);
-		else if (nx == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NX(info);
-		else if (nx == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NX(info);
 		else if (nx == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NX(info);
 		else if (nx == columnRslt_deal_cd) doRslt_deal_cd_NX(info);
 		else if (nx == columnRslt_deal_nm) doRslt_deal_nm_NX(info);
@@ -4897,78 +4447,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Cnd]パネルの[can_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_can_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_intr_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char1_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char2_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char3_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_intr_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char1_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char2_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char3_NX(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[cst_frcst_no]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -5131,15 +4609,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (lc == Cnd_pj_usr_nm) doCnd_pj_usr_nm_LC(info);
 		else if (lc == Cnd_market_cd) doCnd_market_cd_LC(info);
 		else if (lc == Cnd_market_nm) doCnd_market_nm_LC(info);
-		else if (lc == Cnd_can_rmrks) doCnd_can_rmrks_LC(info);
-		else if (lc == Cnd_intr_rmrks) doCnd_intr_rmrks_LC(info);
-		else if (lc == Cnd_sub_char1) doCnd_sub_char1_LC(info);
-		else if (lc == Cnd_sub_char2) doCnd_sub_char2_LC(info);
-		else if (lc == Cnd_sub_char3) doCnd_sub_char3_LC(info);
-		else if (lc == Cnd_dtl_intr_rmrks) doCnd_dtl_intr_rmrks_LC(info);
-		else if (lc == Cnd_dtl_sub_char1) doCnd_dtl_sub_char1_LC(info);
-		else if (lc == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_LC(info);
-		else if (lc == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_LC(info);
 		else if (lc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_LC(info);
 		else if (lc == columnRslt_deal_cd) doRslt_deal_cd_LC(info);
 		else if (lc == columnRslt_deal_nm) doRslt_deal_nm_LC(info);
@@ -5309,78 +4778,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * @param info イベント情報
 	 */
 	public void doCnd_market_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[can_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_can_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_intr_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char1]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char1_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char2]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char2_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[sub_char3]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_sub_char3_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_intr_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char1]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char1_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char2]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char2_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Cnd]パネルの[dtl_sub_char3]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doCnd_dtl_sub_char3_LC(MCEventInfo info){
 	}
 
 	/**

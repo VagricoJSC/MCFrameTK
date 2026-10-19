@@ -137,51 +137,6 @@ abstract class CndR_MC_A extends MCConstRow {
 	 */
 	public static final String $market_nm = "market_nm";
 	public static final String $itm_p = "itm_p";
-	/**
-	 * Cancel remarks 取消備考.<p>
-	 *
-	 */
-	public static final String $can_rmrks = "can_rmrks";
-	/**
-	 * Internal remarks 内部備考.<p>
-	 *
-	 */
-	public static final String $intr_rmrks = "intr_rmrks";
-	/**
-	 * Spare 1 予備１.<p>
-	 *
-	 */
-	public static final String $sub_char1 = "sub_char1";
-	/**
-	 * Spare 2 予備２.<p>
-	 *
-	 */
-	public static final String $sub_char2 = "sub_char2";
-	/**
-	 * Spare 3 予備３.<p>
-	 *
-	 */
-	public static final String $sub_char3 = "sub_char3";
-	/**
-	 * Details internal remarks 明細内部備考.<p>
-	 *
-	 */
-	public static final String $dtl_intr_rmrks = "dtl_intr_rmrks";
-	/**
-	 * Details spare 1 明細予備１.<p>
-	 *
-	 */
-	public static final String $dtl_sub_char1 = "dtl_sub_char1";
-	/**
-	 * Details spare 2 明細予備２.<p>
-	 *
-	 */
-	public static final String $dtl_sub_char2 = "dtl_sub_char2";
-	/**
-	 * Details spare 3 明細予備３.<p>
-	 *
-	 */
-	public static final String $dtl_sub_char3 = "dtl_sub_char3";
 	public static final String $dlv_grp_p = "dlv_grp_p";
 	public static final String $cst_grp_p = "cst_grp_p";
 	public static final String $itm_grp_p = "itm_grp_p";
@@ -335,15 +290,6 @@ abstract class CndR_MC_A extends MCConstRow {
 	public static final MCMeta market_cd_META = createCommonMeta($market_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
 	public static final MCMeta market_nm_META = createCommonMeta($market_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
 	public static final MCMeta itm_p_META = createInnerRowMeta($itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
-	public static final MCMeta can_rmrks_META = createCommonMeta($can_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_CAN_RMRKS);
-	public static final MCMeta intr_rmrks_META = createCommonMeta($intr_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_INTR_RMRKS);
-	public static final MCMeta sub_char1_META = createCommonMeta($sub_char1, mcframe.commonMS.meta.MS_META.CST_FRCST_SUB_CHAR1);
-	public static final MCMeta sub_char2_META = createCommonMeta($sub_char2, mcframe.commonMS.meta.MS_META.CST_FRCST_SUB_CHAR2);
-	public static final MCMeta sub_char3_META = createCommonMeta($sub_char3, mcframe.commonMS.meta.MS_META.CST_FRCST_SUB_CHAR3);
-	public static final MCMeta dtl_intr_rmrks_META = createCommonMeta($dtl_intr_rmrks, mcframe.commonMS.meta.MS_META.CST_FRCST_D_INTR_RMRKS);
-	public static final MCMeta dtl_sub_char1_META = createCommonMeta($dtl_sub_char1, mcframe.commonMS.meta.MS_META.CST_FRCST_D_SUB_CHAR1);
-	public static final MCMeta dtl_sub_char2_META = createCommonMeta($dtl_sub_char2, mcframe.commonMS.meta.MS_META.CST_FRCST_D_SUB_CHAR2);
-	public static final MCMeta dtl_sub_char3_META = createCommonMeta($dtl_sub_char3, mcframe.commonMS.meta.MS_META.CST_FRCST_D_SUB_CHAR3);
 	public static final MCMeta dlv_grp_p_META = createInnerRowMeta($dlv_grp_p, mcframe.clientMAUB.MAUBP0260.BpGrpR.class);
 	public static final MCMeta cst_grp_p_META = createInnerRowMeta($cst_grp_p, mcframe.clientMAUB.MAUBP0260.BpGrpR.class);
 	public static final MCMeta itm_grp_p_META = createInnerRowMeta($itm_grp_p, mcframe.clientMAUB.MAUBP0250.ItmGrpR.class);
@@ -374,15 +320,6 @@ abstract class CndR_MC_A extends MCConstRow {
 			market_cd_META,
 			market_nm_META,
 			itm_p_META,
-			can_rmrks_META,
-			intr_rmrks_META,
-			sub_char1_META,
-			sub_char2_META,
-			sub_char3_META,
-			dtl_intr_rmrks_META,
-			dtl_sub_char1_META,
-			dtl_sub_char2_META,
-			dtl_sub_char3_META,
 			dlv_grp_p_META,
 			cst_grp_p_META,
 			itm_grp_p_META
@@ -1108,183 +1045,30 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 
-	/**
-	 * Cancel remarks 取消備考.<p>
-	 *
-	 */
-	public String can_rmrks() {
-		return getConstString(offset + 23, $can_rmrks);
-	}
-
-	/**
-	 * Cancel remarks 取消備考.<p>
-	 *
-	 */
-	public void can_rmrks(String value) {
-		setConstString(offset + 23, $can_rmrks, value);
-	}
-
-
-	/**
-	 * Internal remarks 内部備考.<p>
-	 *
-	 */
-	public String intr_rmrks() {
-		return getConstString(offset + 24, $intr_rmrks);
-	}
-
-	/**
-	 * Internal remarks 内部備考.<p>
-	 *
-	 */
-	public void intr_rmrks(String value) {
-		setConstString(offset + 24, $intr_rmrks, value);
-	}
-
-
-	/**
-	 * Spare 1 予備１.<p>
-	 *
-	 */
-	public String sub_char1() {
-		return getConstString(offset + 25, $sub_char1);
-	}
-
-	/**
-	 * Spare 1 予備１.<p>
-	 *
-	 */
-	public void sub_char1(String value) {
-		setConstString(offset + 25, $sub_char1, value);
-	}
-
-
-	/**
-	 * Spare 2 予備２.<p>
-	 *
-	 */
-	public String sub_char2() {
-		return getConstString(offset + 26, $sub_char2);
-	}
-
-	/**
-	 * Spare 2 予備２.<p>
-	 *
-	 */
-	public void sub_char2(String value) {
-		setConstString(offset + 26, $sub_char2, value);
-	}
-
-
-	/**
-	 * Spare 3 予備３.<p>
-	 *
-	 */
-	public String sub_char3() {
-		return getConstString(offset + 27, $sub_char3);
-	}
-
-	/**
-	 * Spare 3 予備３.<p>
-	 *
-	 */
-	public void sub_char3(String value) {
-		setConstString(offset + 27, $sub_char3, value);
-	}
-
-
-	/**
-	 * Details internal remarks 明細内部備考.<p>
-	 *
-	 */
-	public String dtl_intr_rmrks() {
-		return getConstString(offset + 28, $dtl_intr_rmrks);
-	}
-
-	/**
-	 * Details internal remarks 明細内部備考.<p>
-	 *
-	 */
-	public void dtl_intr_rmrks(String value) {
-		setConstString(offset + 28, $dtl_intr_rmrks, value);
-	}
-
-
-	/**
-	 * Details spare 1 明細予備１.<p>
-	 *
-	 */
-	public String dtl_sub_char1() {
-		return getConstString(offset + 29, $dtl_sub_char1);
-	}
-
-	/**
-	 * Details spare 1 明細予備１.<p>
-	 *
-	 */
-	public void dtl_sub_char1(String value) {
-		setConstString(offset + 29, $dtl_sub_char1, value);
-	}
-
-
-	/**
-	 * Details spare 2 明細予備２.<p>
-	 *
-	 */
-	public String dtl_sub_char2() {
-		return getConstString(offset + 30, $dtl_sub_char2);
-	}
-
-	/**
-	 * Details spare 2 明細予備２.<p>
-	 *
-	 */
-	public void dtl_sub_char2(String value) {
-		setConstString(offset + 30, $dtl_sub_char2, value);
-	}
-
-
-	/**
-	 * Details spare 3 明細予備３.<p>
-	 *
-	 */
-	public String dtl_sub_char3() {
-		return getConstString(offset + 31, $dtl_sub_char3);
-	}
-
-	/**
-	 * Details spare 3 明細予備３.<p>
-	 *
-	 */
-	public void dtl_sub_char3(String value) {
-		setConstString(offset + 31, $dtl_sub_char3, value);
-	}
-
-
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR dlv_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 32, $dlv_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 23, $dlv_grp_p);
 	}
 	
 	public void dlv_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 32, $dlv_grp_p, row);
+		setConstInnerRow(offset + 23, $dlv_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR cst_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 33, $cst_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 24, $cst_grp_p);
 	}
 	
 	public void cst_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 33, $cst_grp_p, row);
+		setConstInnerRow(offset + 24, $cst_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0250.ItmGrpR itm_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 34, $itm_grp_p);
+		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 25, $itm_grp_p);
 	}
 	
 	public void itm_grp_p(mcframe.clientMAUB.MAUBP0250.ItmGrpR row){
-		setConstInnerRow(offset + 34, $itm_grp_p, row);
+		setConstInnerRow(offset + 25, $itm_grp_p, row);
 	}
 
 
@@ -1336,33 +1120,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($market_nm.equalsIgnoreCase(name)) {
 			return market_nm();
-		}
-		if ($can_rmrks.equalsIgnoreCase(name)) {
-			return can_rmrks();
-		}
-		if ($intr_rmrks.equalsIgnoreCase(name)) {
-			return intr_rmrks();
-		}
-		if ($sub_char1.equalsIgnoreCase(name)) {
-			return sub_char1();
-		}
-		if ($sub_char2.equalsIgnoreCase(name)) {
-			return sub_char2();
-		}
-		if ($sub_char3.equalsIgnoreCase(name)) {
-			return sub_char3();
-		}
-		if ($dtl_intr_rmrks.equalsIgnoreCase(name)) {
-			return dtl_intr_rmrks();
-		}
-		if ($dtl_sub_char1.equalsIgnoreCase(name)) {
-			return dtl_sub_char1();
-		}
-		if ($dtl_sub_char2.equalsIgnoreCase(name)) {
-			return dtl_sub_char2();
-		}
-		if ($dtl_sub_char3.equalsIgnoreCase(name)) {
-			return dtl_sub_char3();
 		}
 		return super.getString(name);
 	}
@@ -1439,33 +1196,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($market_nm.equalsIgnoreCase(name)) {
 			return market_nm();
-		}
-		if ($can_rmrks.equalsIgnoreCase(name)) {
-			return can_rmrks();
-		}
-		if ($intr_rmrks.equalsIgnoreCase(name)) {
-			return intr_rmrks();
-		}
-		if ($sub_char1.equalsIgnoreCase(name)) {
-			return sub_char1();
-		}
-		if ($sub_char2.equalsIgnoreCase(name)) {
-			return sub_char2();
-		}
-		if ($sub_char3.equalsIgnoreCase(name)) {
-			return sub_char3();
-		}
-		if ($dtl_intr_rmrks.equalsIgnoreCase(name)) {
-			return dtl_intr_rmrks();
-		}
-		if ($dtl_sub_char1.equalsIgnoreCase(name)) {
-			return dtl_sub_char1();
-		}
-		if ($dtl_sub_char2.equalsIgnoreCase(name)) {
-			return dtl_sub_char2();
-		}
-		if ($dtl_sub_char3.equalsIgnoreCase(name)) {
-			return dtl_sub_char3();
 		}
 		return super.getStringNE(name);
 	}
@@ -1557,42 +1287,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($market_nm.equalsIgnoreCase(name)) {
 			market_nm(value);
-			return;
-		}
-		if ($can_rmrks.equalsIgnoreCase(name)) {
-			can_rmrks(value);
-			return;
-		}
-		if ($intr_rmrks.equalsIgnoreCase(name)) {
-			intr_rmrks(value);
-			return;
-		}
-		if ($sub_char1.equalsIgnoreCase(name)) {
-			sub_char1(value);
-			return;
-		}
-		if ($sub_char2.equalsIgnoreCase(name)) {
-			sub_char2(value);
-			return;
-		}
-		if ($sub_char3.equalsIgnoreCase(name)) {
-			sub_char3(value);
-			return;
-		}
-		if ($dtl_intr_rmrks.equalsIgnoreCase(name)) {
-			dtl_intr_rmrks(value);
-			return;
-		}
-		if ($dtl_sub_char1.equalsIgnoreCase(name)) {
-			dtl_sub_char1(value);
-			return;
-		}
-		if ($dtl_sub_char2.equalsIgnoreCase(name)) {
-			dtl_sub_char2(value);
-			return;
-		}
-		if ($dtl_sub_char3.equalsIgnoreCase(name)) {
-			dtl_sub_char3(value);
 			return;
 		}
 		super.setString(name, value);
@@ -1691,42 +1385,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($market_nm.equalsIgnoreCase(name)) {
 			market_nm(value);
-			return;
-		}
-		if ($can_rmrks.equalsIgnoreCase(name)) {
-			can_rmrks(value);
-			return;
-		}
-		if ($intr_rmrks.equalsIgnoreCase(name)) {
-			intr_rmrks(value);
-			return;
-		}
-		if ($sub_char1.equalsIgnoreCase(name)) {
-			sub_char1(value);
-			return;
-		}
-		if ($sub_char2.equalsIgnoreCase(name)) {
-			sub_char2(value);
-			return;
-		}
-		if ($sub_char3.equalsIgnoreCase(name)) {
-			sub_char3(value);
-			return;
-		}
-		if ($dtl_intr_rmrks.equalsIgnoreCase(name)) {
-			dtl_intr_rmrks(value);
-			return;
-		}
-		if ($dtl_sub_char1.equalsIgnoreCase(name)) {
-			dtl_sub_char1(value);
-			return;
-		}
-		if ($dtl_sub_char2.equalsIgnoreCase(name)) {
-			dtl_sub_char2(value);
-			return;
-		}
-		if ($dtl_sub_char3.equalsIgnoreCase(name)) {
-			dtl_sub_char3(value);
 			return;
 		}
 		super.setStringNE(name, value);

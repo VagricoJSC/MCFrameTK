@@ -207,85 +207,13 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>can_rmrks</td>
- *  	<td>Cancel remarks</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_CAN_RMRKS CST_FRCST_CAN_RMRKS}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>intr_rmrks</td>
- *  	<td>Internal remarks</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_INTR_RMRKS CST_FRCST_INTR_RMRKS}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>sub_char1</td>
- *  	<td>Spare 1</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_SUB_CHAR1 CST_FRCST_SUB_CHAR1}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>sub_char2</td>
- *  	<td>Spare 2</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_SUB_CHAR2 CST_FRCST_SUB_CHAR2}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>sub_char3</td>
- *  	<td>Spare 3</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_SUB_CHAR3 CST_FRCST_SUB_CHAR3}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>dtl_intr_rmrks</td>
- *  	<td>Details internal remarks</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_D_INTR_RMRKS CST_FRCST_D_INTR_RMRKS}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>dtl_sub_char1</td>
- *  	<td>Details spare 1</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_D_SUB_CHAR1 CST_FRCST_D_SUB_CHAR1}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>dtl_sub_char2</td>
- *  	<td>Details spare 2</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_D_SUB_CHAR2 CST_FRCST_D_SUB_CHAR2}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>dtl_sub_char3</td>
- *  	<td>Details spare 3</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_FRCST_D_SUB_CHAR3 CST_FRCST_D_SUB_CHAR3}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
  *  	<td>dlv_grp_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0260.BpGrpR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>cst_grp_p</td>
  *  	<td><br></td>
@@ -293,7 +221,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0260.BpGrpR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>itm_grp_p</td>
  *  	<td><br></td>
