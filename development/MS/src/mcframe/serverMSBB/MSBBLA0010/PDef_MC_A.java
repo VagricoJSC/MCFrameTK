@@ -57,7 +57,6 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("frcst_end_dt_to", "frcst_end_dt_to"),
 				MCItemDef.create("frcst_dt_fr", "frcst_dt_fr"),
 				MCItemDef.create("frcst_dt_to", "frcst_dt_to"),
-				MCItemDef.create("cst_frcst_no", "cst_frcst_no"),
 				MCItemDef.create("latest_flg", "latest_flg"),
 				MCItemDef.create("zoho_sls_schd_no", "zoho_sls_schd_no"),
 				MCItemDef.create("deal_cd", "deal_cd"),
@@ -208,7 +207,7 @@ abstract public class PDef_MC_A extends MCDef {
 
 		return new MCGeneralContainerDef("MS", "MSBBLA0010", "Srch01",
 			new MCItemDef[]{
-				MCItemDef.create("cst_frcst_no", "cst_frcst_no"),
+				MCItemDef.create("zoho_sls_schd_no", "zoho_sls_schd_no"),
 				MCItemDef.create("deal_cd", "deal_cd"),
 				MCItemDef.create("deal_nm", "deal_nm"),
 				MCItemDef.create("cst_cd", "cst_cd"),

@@ -23,26 +23,26 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>cst_frcst_no</td>
+ *  	<td>zoho_sls_schd_no</td>
  *  	<td>Sales forecast No.</td>
  *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_FRCST_NO CST_FRCST_NO}]</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ZOHO_SLS_SCHD_NO ZOHO_SLS_SCHD_NO}]</td>
  *  	<td><br></td>
  *  </tr>
  *  <tr >
  *  	<td><br></td>
  *  	<td>deal_cd</td>
- *  	<td>Customer cd.</td>
+ *  	<td>Deal cd.</td>
  *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEAL_CD DEAL_CD}]</td>
  *  	<td><br></td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>deal_nm</td>
- *  	<td>Customer name</td>
+ *  	<td>Deal name</td>
  *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_NM BP_NM}]</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DEAL_NM DEAL_NM}]</td>
  *  	<td><br></td>
  *  </tr>
  *  <tr >

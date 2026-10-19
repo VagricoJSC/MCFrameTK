@@ -98,11 +98,71 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		createMS_MSBBLA0010_Srch01().execDL();
 	}
 
+	@Override
+	public void doRslt_NC(MCEventInfo info) {
+		super.doRslt_NC(info);
+		setOpenBtnMode();
+	}
+
+	protected void setOpenBtnMode() {
+		RsltR r = RsltTable.getSelectedMCRow();
+		if (isNull(r)) {
+			Btn_open_MSBBP1210.setMode(MCMode.DISABLE);
+		}
+		else {
+			Btn_open_MSBBP1210.setMode(MCMode.ENABLE);
+		}
+	}
+	
 	/**
 	 * Panel[Btn]のボタン[open_MSBBP1210]の押下時の処理
 	 */
 	@Override
 	public void doBtn_open_MSBBP1210(MCEventInfo info) {
+		MCRow bind = MCRow.create();
+		MCList<MCRow> list = MCList.create(MCRow.class);
+		setMSBBP1210Hdr(bind);
+		setMSBBP1210Dtl(list);
+		openPanel("MS", "MSBBP1210", T1, bind, list);	
 	}
+	
+	/**
+	 * 遷移先(受注登録画面)のヘッダ項目の設定
+	 */
+	protected void setMSBBP1210Hdr(MCRow bind) {
+		int index = RsltTable.getMCSelectedRow();
+		 if (index > -1) {
+			 RsltR r = getRsltL().get(index);
+			 bind.addStringColumn("cst_cd", r.cst_cd());
+//			 bind.addStringColumn("dlv_cd", r.dlv_cd());
+			 bind.addStringColumn("sls_usr_cd", r.frcst_usr_cd());
+//			 bind.addStringColumn("sls_dpt_cd", r.frcst_dpt_cd());
+			 bind.addStringColumn("wrk_no", r.wrk_no());
+		 }
+	}
+	
+	/**
+	 * 遷移先(受注登録画面)の明細項目設定
+	 */
+	protected void setMSBBP1210Dtl(MCList<MCRow> list) {
+		
+		int index = RsltTable.getMCSelectedRow();
+		if (index > -1) {
+			RsltR r = getRsltL().get(index);
+			
+			MCRow row = MCRow.create();
+//			row.addStringColumn("itm_cd", r.itm_cd());
+//			row.addStringColumn("itm_sub1", r.itm_sub1());
+//			row.addStringColumn("itm_sub2", r.itm_sub2());
+//			row.addStringColumn("itm_sub3", r.itm_sub3());
+//			row.addStringColumn("trd_unit_cd", r.trd_unit_cd());
+//			row.addNumberColumn("trd_unit_qty", r.trd_unit_qty());
+//			row.addStringColumn("cst_itm_cd", r.cst_itm_cd());
+//			row.addStringColumn("cst_itm_nm", r.cst_itm_nm());
+			
+			list.add(row);
+		}
+	}
+	
 //FMCB CUSTOM END
 }

@@ -376,7 +376,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * Zoho sales schedule No. ＺＯＨＯ販売予定ＮＯ.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_cst_frcst_no = null;
+	public MCColumnConfig columnRslt_zoho_sls_schd_no = null;
 	/**
 	 * Deal cd. 商談ＣＤ.<p>
 	 *
@@ -1432,7 +1432,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.RsltScrollPane = p.beansFactory.createScrollPane("Rslt.scroll");
 		p.createRsltTable();
 		// ブロックの項目の初期化
-		p.columnRslt_cst_frcst_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_no", MCColumnType.TEXT);
+		p.columnRslt_zoho_sls_schd_no = p.beansFactory.createTableColumn("Rslt.zoho_sls_schd_no", MCColumnType.TEXT);
 		p.columnRslt_deal_cd = p.beansFactory.createTableColumn("Rslt.deal_cd", MCColumnType.TEXT);
 		p.columnRslt_deal_nm = p.beansFactory.createTableColumn("Rslt.deal_nm", MCColumnType.TEXT);
 		p.columnRslt_cst_cd = p.beansFactory.createTableColumn("Rslt.cst_cd", MCColumnType.TEXT);
@@ -2061,8 +2061,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	protected static void mcInitRslt(MSBBPA_SlsSchdSrch p) {
 		p.RsltTable.addAllListener(p);
-		p.columnRslt_cst_frcst_no.addAllListener(p);
-		p.columnRslt_cst_frcst_no.setListListener(p);
+		p.columnRslt_zoho_sls_schd_no.addAllListener(p);
+		p.columnRslt_zoho_sls_schd_no.setListListener(p);
 		p.columnRslt_deal_cd.addAllListener(p);
 		p.columnRslt_deal_cd.setListListener(p);
 		p.columnRslt_deal_nm.addAllListener(p);
@@ -2234,7 +2234,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [SRCH_DTL]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH__DTL_Rslt(MSBBPA_SlsSchdSrch p){
-		p.columnRslt_cst_frcst_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_zoho_sls_schd_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_deal_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_deal_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
@@ -2391,7 +2391,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [SRCH_HDR]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH__HDR_Rslt(MSBBPA_SlsSchdSrch p){
-		p.columnRslt_cst_frcst_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_zoho_sls_schd_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_deal_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_deal_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
@@ -2548,7 +2548,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [REF_DTL]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitREF__DTL_Rslt(MSBBPA_SlsSchdSrch p){
-		p.columnRslt_cst_frcst_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_zoho_sls_schd_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_deal_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_deal_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
@@ -2705,7 +2705,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [REF_HDR]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitREF__HDR_Rslt(MSBBPA_SlsSchdSrch p){
-		p.columnRslt_cst_frcst_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_zoho_sls_schd_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_deal_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_deal_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
@@ -2752,8 +2752,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [Rslt]ブロックのTableの設定
 	 */
 	protected static void setTableConfigRslt(MSBBPA_SlsSchdSrch p) {
-		p.columnRslt_cst_frcst_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_no_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_no);
+		p.columnRslt_zoho_sls_schd_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.zoho_sls_schd_no_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_zoho_sls_schd_no);
 		p.columnRslt_deal_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.deal_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_deal_cd);
 		p.columnRslt_deal_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.deal_nm_META);
@@ -3015,7 +3015,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if (vc == Cnd_pj_usr_nm) return doCnd_pj_usr_nm_VC(info);
 		if (vc == Cnd_market_cd) return doCnd_market_cd_VC(info);
 		if (vc == Cnd_market_nm) return doCnd_market_nm_VC(info);
-		if (vc == columnRslt_cst_frcst_no) return doRslt_cst_frcst_no_VC(info);
+		if (vc == columnRslt_zoho_sls_schd_no) return doRslt_zoho_sls_schd_no_VC(info);
 		if (vc == columnRslt_deal_cd) return doRslt_deal_cd_VC(info);
 		if (vc == columnRslt_deal_nm) return doRslt_deal_nm_VC(info);
 		if (vc == columnRslt_cst_cd) return doRslt_cst_cd_VC(info);
@@ -3276,12 +3276,12 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[zoho_sls_schd_no]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_cst_frcst_no_VC(MCEventInfo info){
+	public boolean doRslt_zoho_sls_schd_no_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -3477,7 +3477,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nc == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NC(info);
 		else if (nc == Cnd_market_cd) doCnd_market_cd_NC(info);
 		else if (nc == Cnd_market_nm) doCnd_market_nm_NC(info);
-		else if (nc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NC(info);
+		else if (nc == columnRslt_zoho_sls_schd_no) doRslt_zoho_sls_schd_no_NC(info);
 		else if (nc == columnRslt_deal_cd) doRslt_deal_cd_NC(info);
 		else if (nc == columnRslt_deal_nm) doRslt_deal_nm_NC(info);
 		else if (nc == columnRslt_cst_cd) doRslt_cst_cd_NC(info);
@@ -3689,11 +3689,11 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[zoho_sls_schd_no]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_no_NC(MCEventInfo info){
+	public void doRslt_zoho_sls_schd_no_NC(MCEventInfo info){
 	}
 
 	/**
@@ -3856,7 +3856,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (ne == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NE(info);
 		else if (ne == Cnd_market_cd) doCnd_market_cd_NE(info);
 		else if (ne == Cnd_market_nm) doCnd_market_nm_NE(info);
-		else if (ne == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NE(info);
+		else if (ne == columnRslt_zoho_sls_schd_no) doRslt_zoho_sls_schd_no_NE(info);
 		else if (ne == columnRslt_deal_cd) doRslt_deal_cd_NE(info);
 		else if (ne == columnRslt_deal_nm) doRslt_deal_nm_NE(info);
 		else if (ne == columnRslt_cst_cd) doRslt_cst_cd_NE(info);
@@ -4068,11 +4068,11 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[zoho_sls_schd_no]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_no_NE(MCEventInfo info){
+	public void doRslt_zoho_sls_schd_no_NE(MCEventInfo info){
 	}
 
 	/**
@@ -4235,7 +4235,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nx == Cnd_pj_usr_nm) doCnd_pj_usr_nm_NX(info);
 		else if (nx == Cnd_market_cd) doCnd_market_cd_NX(info);
 		else if (nx == Cnd_market_nm) doCnd_market_nm_NX(info);
-		else if (nx == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NX(info);
+		else if (nx == columnRslt_zoho_sls_schd_no) doRslt_zoho_sls_schd_no_NX(info);
 		else if (nx == columnRslt_deal_cd) doRslt_deal_cd_NX(info);
 		else if (nx == columnRslt_deal_nm) doRslt_deal_nm_NX(info);
 		else if (nx == columnRslt_cst_cd) doRslt_cst_cd_NX(info);
@@ -4447,11 +4447,11 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[zoho_sls_schd_no]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_no_NX(MCEventInfo info){
+	public void doRslt_zoho_sls_schd_no_NX(MCEventInfo info){
 	}
 
 	/**
@@ -4609,7 +4609,7 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (lc == Cnd_pj_usr_nm) doCnd_pj_usr_nm_LC(info);
 		else if (lc == Cnd_market_cd) doCnd_market_cd_LC(info);
 		else if (lc == Cnd_market_nm) doCnd_market_nm_LC(info);
-		else if (lc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_LC(info);
+		else if (lc == columnRslt_zoho_sls_schd_no) doRslt_zoho_sls_schd_no_LC(info);
 		else if (lc == columnRslt_deal_cd) doRslt_deal_cd_LC(info);
 		else if (lc == columnRslt_deal_nm) doRslt_deal_nm_LC(info);
 		else if (lc == columnRslt_cst_cd) doRslt_cst_cd_LC(info);
@@ -4781,11 +4781,11 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_no]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[zoho_sls_schd_no]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_no_LC(MCEventInfo info){
+	public void doRslt_zoho_sls_schd_no_LC(MCEventInfo info){
 	}
 
 	/**

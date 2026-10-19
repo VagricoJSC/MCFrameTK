@@ -224,7 +224,6 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>frcst_end_dt_to</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dt_fr</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dt_to</td></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_no</td></tr>
 		 * 	<tr><td><br></td><td>latest_flg</td></tr>
 		 * 	<tr><td><br></td><td>zoho_sls_schd_no</td></tr>
 		 * 	<tr><td><br></td><td>deal_cd</td></tr>
@@ -379,7 +378,7 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * <table border=1 cellspacing=0 cellpadding=2 >
 		 *  <caption>[下り第0ブロック項目]</caption>
 		 * 	<tr bgcolor="#cccccc"><th>必須</th><th>項目名</th></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_no</td></tr>
+		 * 	<tr><td><br></td><td>zoho_sls_schd_no</td></tr>
 		 * 	<tr><td><br></td><td>deal_cd</td></tr>
 		 * 	<tr><td><br></td><td>deal_nm</td></tr>
 		 * 	<tr><td><br></td><td>cst_cd</td></tr>

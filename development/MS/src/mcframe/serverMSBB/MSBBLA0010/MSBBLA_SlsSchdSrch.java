@@ -122,6 +122,13 @@ public class MSBBLA_SlsSchdSrch extends MSBBLA_SlsSchdSrch_MC {
 			searchForDL(cstFrcstHSql, up0(), down0());
 		}
 		
+		@Override
+		protected void editListMain() {
+			if (isSame(up0().mode(), "0")) {
+//				srchOtherDtl();
+			}
+		}
+		
 		
 		
 	}

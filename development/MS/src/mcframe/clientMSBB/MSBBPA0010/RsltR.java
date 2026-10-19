@@ -23,7 +23,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>cst_frcst_no</td>
+ *  	<td>zoho_sls_schd_no</td>
  *  	<td>Zoho sales schedule No.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ZOHO_SLS_SCHD_NO ZOHO_SLS_SCHD_NO}]</td>

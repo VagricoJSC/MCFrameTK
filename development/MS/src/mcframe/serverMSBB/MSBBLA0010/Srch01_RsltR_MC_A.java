@@ -29,14 +29,14 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
 	 *
 	 */
-	public static final String $cst_frcst_no = "cst_frcst_no";
+	public static final String $zoho_sls_schd_no = "zoho_sls_schd_no";
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
 	public static final String $deal_cd = "deal_cd";
 	/**
-	 * Customer name 得意先名.<p>
+	 * Deal name 商談名.<p>
 	 *
 	 */
 	public static final String $deal_nm = "deal_nm";
@@ -177,9 +177,9 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	public static final String $upd_srv_req_no = "upd_srv_req_no";
 
 
-	public static final MCMeta cst_frcst_no_META = createCommonMeta($cst_frcst_no, mcframe.commonMA.meta.MA_META.CST_FRCST_NO);
-	public static final MCMeta deal_cd_META = createCommonMeta($deal_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
+	public static final MCMeta deal_cd_META = createCommonMeta($deal_cd, mcframe.commonMA.meta.MA_META.DEAL_CD);
+	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.DEAL_NM);
 	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
 	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta bill_cst_cd_META = createCommonMeta($bill_cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
@@ -211,7 +211,7 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	protected static final ConstMetaList<Srch01_RsltR> constMetas = new ConstMetaList<Srch01_RsltR>(
 		MCConstRow.constMetas,
 		new MCMeta[]{
-			cst_frcst_no_META,
+			zoho_sls_schd_no_META,
 			deal_cd_META,
 			deal_nm_META,
 			cst_cd_META,
@@ -357,21 +357,21 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
 	 *
 	 */
-	public String cst_frcst_no() {
-		return getConstString(offset + 0, $cst_frcst_no);
+	public String zoho_sls_schd_no() {
+		return getConstString(offset + 0, $zoho_sls_schd_no);
 	}
 
 	/**
 	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
 	 *
 	 */
-	public void cst_frcst_no(String value) {
-		setConstString(offset + 0, $cst_frcst_no, value);
+	public void zoho_sls_schd_no(String value) {
+		setConstString(offset + 0, $zoho_sls_schd_no, value);
 	}
 
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
 	public String deal_cd() {
@@ -379,7 +379,7 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
 	public void deal_cd(String value) {
@@ -388,7 +388,7 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Customer name 得意先名.<p>
+	 * Deal name 商談名.<p>
 	 *
 	 */
 	public String deal_nm() {
@@ -396,7 +396,7 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Customer name 得意先名.<p>
+	 * Deal name 商談名.<p>
 	 *
 	 */
 	public void deal_nm(String value) {
@@ -864,8 +864,8 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 
 
 	public String getString(String name) {
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			return cst_frcst_no();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
 		if ($deal_cd.equalsIgnoreCase(name)) {
 			return deal_cd();
@@ -964,8 +964,8 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	}
 
 	public String getStringNE(String name) {
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			return cst_frcst_no();
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
 		}
 		if ($deal_cd.equalsIgnoreCase(name)) {
 			return deal_cd();
@@ -1064,8 +1064,8 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	}
 
 	public void setString(String name, String value) {
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			cst_frcst_no(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
 		if ($deal_cd.equalsIgnoreCase(name)) {
@@ -1194,8 +1194,8 @@ abstract class Srch01_RsltR_MC_A extends MCConstRow {
 	}
 
 	public void setStringNE(String name, String value) {
-		if ($cst_frcst_no.equalsIgnoreCase(name)) {
-			cst_frcst_no(value);
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
 			return;
 		}
 		if ($deal_cd.equalsIgnoreCase(name)) {
