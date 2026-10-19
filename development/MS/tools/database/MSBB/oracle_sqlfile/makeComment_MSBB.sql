@@ -56,6 +56,10 @@ SET ESCCHAR @
 
 @".\COMMENT\MST_QTN_ITM_COMP_ALL_comment.sql"
 
+@".\COMMENT\MST_ZOHO_SLS_SCHD_ALL_comment.sql"
+
+@".\COMMENT\MST_ZOHO_SLS_SCHD_D_ALL_comment.sql"
+
 @".\COMMENT\MST_SLO_ALL_comment.sql"
 
 @".\COMMENT\MST_SLO_P_ALL_comment.sql"
@@ -237,4 +241,8 @@ SET ESCCHAR @
 @".\COMMENT\MST_ACCPT_RECV_IF_comment.sql"
 
 @".\COMMENT\MST_SLS_BDG_comment.sql"
+
+@".\COMMENT\MST_ZOHO_SLS_SCHD_comment.sql"
+
+@".\COMMENT\MST_ZOHO_SLS_SCHD_D_comment.sql"
 

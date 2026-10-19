@@ -9,6 +9,6 @@ table_name = 'mst_cst_wrk_all'
 	 OR table_name = 'mst_qtn_all'
 	 OR table_name = 'mst_qtn_d_all'
 	 OR table_name = 'mst_qtn_itm_comp_all'
-	 OR table_name = 'mst_slo_all'
+	 OR table_name = 'mst_zoho_sls_schd_all'
 	;
 

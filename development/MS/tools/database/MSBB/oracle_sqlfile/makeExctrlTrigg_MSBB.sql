@@ -52,6 +52,10 @@ SET ESCCHAR @
 
 @".\U_TR\MST_QTN_ITM_COMP_ALL_TR_U.sql"
 
+@".\U_TR\MST_ZOHO_SLS_SCHD_ALL_TR_U.sql"
+
+@".\U_TR\MST_ZOHO_SLS_SCHD_D_ALL_TR_U.sql"
+
 @".\U_TR\MST_SLO_ALL_TR_U.sql"
 
 @".\U_TR\MST_SLO_P_ALL_TR_U.sql"
