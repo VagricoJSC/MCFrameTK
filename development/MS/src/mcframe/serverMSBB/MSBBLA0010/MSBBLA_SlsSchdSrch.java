@@ -54,7 +54,7 @@ import static mcframe.serverMS.dbc.MSBHFunction.*;
 import static mcframe.serverMS.dbc.MSBIFunction.*;
 
 //FMCB IMPORT START
-
+import static mcframe.serverMSBB.MSBBLA0010.Query.*;
 //FMCB IMPORT END
 
 /**
@@ -76,6 +76,54 @@ public class MSBBLA_SlsSchdSrch extends MSBBLA_SlsSchdSrch_MC {
 		protected void call() {
 			super.call();
 		}
+		
+		@Override
+		protected void doSearchMain() {
+			super.doSearchMain();
+			
+			editCnd();
+			srchCstFrcst();
+			if (down0().size() == 0) {
+				return;
+			}
+		}
+		
+		/**
+		 * 検索条件を加工する
+		 */
+		protected void editCnd() {
+			
+//			if (up0().fix_t_flg() && !up0().fix_f_flg()) {
+//				up0().addStringColumn("fix_flg_str", MCBooleanUtil.booleanToDBString(true));
+//			}
+//			else if (!up0().fix_t_flg() && up0().fix_f_flg()) {
+//				up0().addStringColumn("fix_flg_str", MCBooleanUtil.booleanToDBString(false));
+//			}
+//			
+//			if (up0().except_frcst_stop_flg()) {
+//				up0().addStringColumn("frcst_stop_flg_str", MCBooleanUtil.booleanToDBString(false));
+//			}
+		}
+		
+		/**
+		 * 販売予定ヘッダ・明細を検索する
+		 */
+		protected void srchCstFrcst(){
+			MCQueryPlan cstFrcstHSql= null;
+			
+			// 明細
+			if (isSame(up0().mode(), "0")) {
+				cstFrcstHSql = MSBBLA0010_MST_SLS_SCHD_D_S01();
+			}
+			// ヘッダ
+			else if (isSame(up0().mode(), "1")) {
+				cstFrcstHSql = MSBBLA0010_MST_SLS_SCHD_S01();
+			}
+			searchForDL(cstFrcstHSql, up0(), down0());
+		}
+		
+		
+		
 	}
 //FMCB CUSTOM END
 }

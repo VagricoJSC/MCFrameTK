@@ -88,12 +88,14 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 	 */
 	@Override
 	public void doCtrl_ctrl_Ope_srch(MCEventInfo info) {
+		callMS_MSBBLA0010_Srch01();
 	}
 	/**
 	 * Panel[RPnl]のボタン[dwnld]の押下時の処理
 	 */
 	@Override
 	public void doRPnl_dwnld(MCEventInfo info) {
+		createMS_MSBBLA0010_Srch01().execDL();
 	}
 
 	/**
