@@ -72,12 +72,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 */
 	public static final String $sls_dpt_nm = "sls_dpt_nm";
 	/**
-	 * PIC cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public static final String $frcst_usr_cd = "frcst_usr_cd";
 	/**
-	 * PIC name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public static final String $frcst_usr_nm = "frcst_usr_nm";
@@ -447,7 +447,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 
 
 	/**
-	 * PIC cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public String frcst_usr_cd() {
@@ -455,7 +455,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * PIC cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public void frcst_usr_cd(String value) {
@@ -464,7 +464,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 
 
 	/**
-	 * PIC name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public String frcst_usr_nm() {
@@ -472,7 +472,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * PIC name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public void frcst_usr_nm(String value) {

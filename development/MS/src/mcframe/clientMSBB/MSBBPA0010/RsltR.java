@@ -96,7 +96,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>frcst_usr_cd</td>
- *  	<td>PIC cd.</td>
+ *  	<td>Project manager user cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
  *  	<td><br></td>
@@ -104,7 +104,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>frcst_usr_nm</td>
- *  	<td>PIC name</td>
+ *  	<td>Project manager user name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
  *  	<td><br></td>

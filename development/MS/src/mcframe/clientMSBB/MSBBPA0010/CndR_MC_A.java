@@ -87,52 +87,52 @@ abstract class CndR_MC_A extends MCConstRow {
 	 */
 	public static final String $cst_itm_nm = "cst_itm_nm";
 	/**
-	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
 	public static final String $can_rsn_cd = "can_rsn_cd";
 	/**
-	 * Canceling reason name 請求先名.<p>
+	 * Billing customer name 請求先名.<p>
 	 *
 	 */
 	public static final String $can_rsn_nm = "can_rsn_nm";
 	/**
-	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 * Delivery destination cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public static final String $dlv_cd = "dlv_cd";
 	/**
-	 * Canceling reason name 納品先名.<p>
+	 * Delivery destination name 納品先名.<p>
 	 *
 	 */
 	public static final String $dlv_nm = "dlv_nm";
 	/**
-	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
 	public static final String $sls_dpt_cd = "sls_dpt_cd";
 	/**
-	 * Canceling reason name 売上部門名.<p>
+	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
 	public static final String $sls_dpt_nm = "sls_dpt_nm";
 	/**
-	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public static final String $pj_usr_cd = "pj_usr_cd";
 	/**
-	 * Canceling reason name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public static final String $pj_usr_nm = "pj_usr_nm";
 	/**
-	 * Canceling reason cd. 市場ＣＤ.<p>
+	 * Market cd. 市場ＣＤ.<p>
 	 *
 	 */
 	public static final String $market_cd = "market_cd";
 	/**
-	 * Canceling reason name 市場名.<p>
+	 * Market name 市場名.<p>
 	 *
 	 */
 	public static final String $market_nm = "market_nm";
@@ -867,7 +867,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
 	public String can_rsn_cd() {
@@ -875,7 +875,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
 	public void can_rsn_cd(String value) {
@@ -884,7 +884,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason name 請求先名.<p>
+	 * Billing customer name 請求先名.<p>
 	 *
 	 */
 	public String can_rsn_nm() {
@@ -892,7 +892,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason name 請求先名.<p>
+	 * Billing customer name 請求先名.<p>
 	 *
 	 */
 	public void can_rsn_nm(String value) {
@@ -901,7 +901,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 * Delivery destination cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public String dlv_cd() {
@@ -909,7 +909,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 * Delivery destination cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public void dlv_cd(String value) {
@@ -918,7 +918,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason name 納品先名.<p>
+	 * Delivery destination name 納品先名.<p>
 	 *
 	 */
 	public String dlv_nm() {
@@ -926,7 +926,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason name 納品先名.<p>
+	 * Delivery destination name 納品先名.<p>
 	 *
 	 */
 	public void dlv_nm(String value) {
@@ -935,7 +935,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
 	public String sls_dpt_cd() {
@@ -943,7 +943,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
 	public void sls_dpt_cd(String value) {
@@ -952,7 +952,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason name 売上部門名.<p>
+	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
 	public String sls_dpt_nm() {
@@ -960,7 +960,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason name 売上部門名.<p>
+	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
 	public void sls_dpt_nm(String value) {
@@ -969,7 +969,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public String pj_usr_cd() {
@@ -977,7 +977,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public void pj_usr_cd(String value) {
@@ -986,7 +986,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public String pj_usr_nm() {
@@ -994,7 +994,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public void pj_usr_nm(String value) {
@@ -1003,7 +1003,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason cd. 市場ＣＤ.<p>
+	 * Market cd. 市場ＣＤ.<p>
 	 *
 	 */
 	public String market_cd() {
@@ -1011,7 +1011,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason cd. 市場ＣＤ.<p>
+	 * Market cd. 市場ＣＤ.<p>
 	 *
 	 */
 	public void market_cd(String value) {
@@ -1020,7 +1020,7 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Canceling reason name 市場名.<p>
+	 * Market name 市場名.<p>
 	 *
 	 */
 	public String market_nm() {
@@ -1028,7 +1028,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Canceling reason name 市場名.<p>
+	 * Market name 市場名.<p>
 	 *
 	 */
 	public void market_nm(String value) {

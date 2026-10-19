@@ -120,7 +120,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>can_rsn_cd</td>
- *  	<td>Canceling reason cd.</td>
+ *  	<td>Billing customer cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
@@ -128,7 +128,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>can_rsn_nm</td>
- *  	<td>Canceling reason name</td>
+ *  	<td>Billing customer name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
@@ -136,7 +136,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>dlv_cd</td>
- *  	<td>Canceling reason cd.</td>
+ *  	<td>Delivery destination cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
@@ -144,7 +144,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>dlv_nm</td>
- *  	<td>Canceling reason name</td>
+ *  	<td>Delivery destination name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
@@ -152,7 +152,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>sls_dpt_cd</td>
- *  	<td>Canceling reason cd.</td>
+ *  	<td>Sales dept. cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
@@ -160,7 +160,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>sls_dpt_nm</td>
- *  	<td>Canceling reason name</td>
+ *  	<td>Sales dept. name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
@@ -168,7 +168,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>pj_usr_cd</td>
- *  	<td>Canceling reason cd.</td>
+ *  	<td>Project manager user cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
@@ -176,7 +176,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>pj_usr_nm</td>
- *  	<td>Canceling reason name</td>
+ *  	<td>Project manager user name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
@@ -184,7 +184,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>market_cd</td>
- *  	<td>Canceling reason cd.</td>
+ *  	<td>Market cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
@@ -192,7 +192,7 @@ import mcframe.commonCore.annotation.EI;
  *  <tr >
  *  	<td><br></td>
  *  	<td>market_nm</td>
- *  	<td>Canceling reason name</td>
+ *  	<td>Market name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>

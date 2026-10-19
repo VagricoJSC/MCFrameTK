@@ -164,56 +164,56 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	public MCTextField Cnd_cst_itm_nm = null;
 	public MCLabel Cnd_can_rsn_cd_Label = null;
 	/**
-	 * Canceling reason cd. 請求先ＣＤ.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
 	public MCTextField Cnd_can_rsn_cd = null;
 	/**
-	 * Canceling reason name 請求先名.<p>
+	 * Billing customer name 請求先名.<p>
 	 *
 	 */
 	public MCTextField Cnd_can_rsn_nm = null;
 	public MCLabel Cnd_dlv_cd_Label = null;
 	/**
-	 * Canceling reason cd. 納品先ＣＤ.<p>
+	 * Delivery destination cd. 納品先ＣＤ.<p>
 	 *
 	 */
 	public MCTextField Cnd_dlv_cd = null;
 	/**
-	 * Canceling reason name 納品先名.<p>
+	 * Delivery destination name 納品先名.<p>
 	 *
 	 */
 	public MCTextField Cnd_dlv_nm = null;
 	public MCLabel Cnd_sls_dpt_cd_Label = null;
 	/**
-	 * Canceling reason cd. 売上部門ＣＤ.<p>
+	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
 	public MCTextField Cnd_sls_dpt_cd = null;
 	/**
-	 * Canceling reason name 売上部門名.<p>
+	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
 	public MCTextField Cnd_sls_dpt_nm = null;
 	public MCLabel Cnd_pj_usr_cd_Label = null;
 	/**
-	 * Canceling reason cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public MCTextField Cnd_pj_usr_cd = null;
 	/**
-	 * Canceling reason name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public MCTextField Cnd_pj_usr_nm = null;
 	public MCLabel Cnd_market_cd_Label = null;
 	/**
-	 * Canceling reason cd. 市場ＣＤ.<p>
+	 * Market cd. 市場ＣＤ.<p>
 	 *
 	 */
 	public MCTextField Cnd_market_cd = null;
 	/**
-	 * Canceling reason name 市場名.<p>
+	 * Market name 市場名.<p>
 	 *
 	 */
 	public MCTextField Cnd_market_nm = null;
@@ -418,12 +418,12 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	public MCColumnConfig columnRslt_sls_dpt_nm = null;
 	/**
-	 * PIC cd. 案件担当者ＣＤ.<p>
+	 * Project manager user cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_frcst_usr_cd = null;
 	/**
-	 * PIC name 案件担当者名.<p>
+	 * Project manager user name 案件担当者名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_frcst_usr_nm = null;

@@ -380,7 +380,6 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 *  <caption>[下り第0ブロック項目]</caption>
 		 * 	<tr bgcolor="#cccccc"><th>必須</th><th>項目名</th></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_no</td></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_prnt_dt</td></tr>
 		 * 	<tr><td><br></td><td>deal_cd</td></tr>
 		 * 	<tr><td><br></td><td>deal_nm</td></tr>
 		 * 	<tr><td><br></td><td>cst_cd</td></tr>
@@ -399,114 +398,6 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>prd_itm_nm</td></tr>
 		 * 	<tr><td><br></td><td>order_dlv_dt</td></tr>
 		 * 	<tr><td><br></td><td>pst_inst_sls_dt</td></tr>
-		 * 	<tr><td><br></td><td>can_rsn_nm</td></tr>
-		 * 	<tr><td><br></td><td>can_rmrks</td></tr>
-		 * 	<tr><td><br></td><td>intr_rmrks</td></tr>
-		 * 	<tr><td><br></td><td>sub_char1</td></tr>
-		 * 	<tr><td><br></td><td>sub_char2</td></tr>
-		 * 	<tr><td><br></td><td>sub_char3</td></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_d_no</td></tr>
-		 * 	<tr><td><br></td><td>fix_flg</td></tr>
-		 * 	<tr><td><br></td><td>itm_cd</td></tr>
-		 * 	<tr><td><br></td><td>itm_sub1</td></tr>
-		 * 	<tr><td><br></td><td>itm_sub2</td></tr>
-		 * 	<tr><td><br></td><td>itm_sub3</td></tr>
-		 * 	<tr><td><br></td><td>itm_nm</td></tr>
-		 * 	<tr><td><br></td><td>frcst_period_typ</td></tr>
-		 * 	<tr><td><br></td><td>frcst_period_typ_nm</td></tr>
-		 * 	<tr><td><br></td><td>frcst_st_dt</td></tr>
-		 * 	<tr><td><br></td><td>frcst_end_dt</td></tr>
-		 * 	<tr><td><br></td><td>frcst_dt</td></tr>
-		 * 	<tr><td><br></td><td>trd_unit_qty</td></tr>
-		 * 	<tr><td><br></td><td>trd_unit_cd</td></tr>
-		 * 	<tr><td><br></td><td>trd_unit_nm</td></tr>
-		 * 	<tr><td><br></td><td>qty_dec_place</td></tr>
-		 * 	<tr><td><br></td><td>base_unit_qty</td></tr>
-		 * 	<tr><td><br></td><td>base_unit_cd</td></tr>
-		 * 	<tr><td><br></td><td>base_unit_nm</td></tr>
-		 * 	<tr><td><br></td><td>base_qty_dec_place</td></tr>
-		 * 	<tr><td><br></td><td>last_qty</td></tr>
-		 * 	<tr><td><br></td><td>last_cst_frcst_prnt_dt</td></tr>
-		 * 	<tr><td><br></td><td>last_rcpt_dt</td></tr>
-		 * 	<tr><td><br></td><td>spln_qty</td></tr>
-		 * 	<tr><td><br></td><td>slo_qty</td></tr>
-		 * 	<tr><td><br></td><td>mly_net_frcst_qty</td></tr>
-		 * 	<tr><td><br></td><td>gi_loc_cd</td></tr>
-		 * 	<tr><td><br></td><td>gi_loc_nm</td></tr>
-		 * 	<tr><td><br></td><td>cst_itm_cd</td></tr>
-		 * 	<tr><td><br></td><td>cst_itm_nm</td></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_slip_d_no</td></tr>
-		 * 	<tr><td><br></td><td>prms_qty</td></tr>
-		 * 	<tr><td><br></td><td>frcst_stop_flg</td></tr>
-		 * 	<tr><td><br></td><td>disp_seq</td></tr>
-		 * 	<tr><td><br></td><td>dtl_intr_rmrks</td></tr>
-		 * 	<tr><td><br></td><td>dtl_sub_char1</td></tr>
-		 * 	<tr><td><br></td><td>dtl_sub_char2</td></tr>
-		 * 	<tr><td><br></td><td>dtl_sub_char3</td></tr>
-		 * 	<tr><td><br></td><td>itm_typ</td></tr>
-		 * 	<tr><td><br></td><td>itm_typ_nm</td></tr>
-		 * 	<tr><td><br></td><td>itm_typ_d_cd</td></tr>
-		 * 	<tr><td><br></td><td>itm_typ_d_nm</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd1</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm1</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd2</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm2</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd3</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm3</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd4</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm4</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd5</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm5</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd6</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm6</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd7</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm7</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd8</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm8</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd9</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm9</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_cd10</td></tr>
-		 * 	<tr><td><br></td><td>dlv_grp_nm10</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd1</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm1</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd2</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm2</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd3</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm3</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd4</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm4</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd5</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm5</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd6</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm6</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd7</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm7</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd8</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm8</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd9</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm9</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_cd10</td></tr>
-		 * 	<tr><td><br></td><td>cst_grp_nm10</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd1</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm1</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd2</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm2</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd3</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm3</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd4</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm4</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd5</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm5</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd6</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm6</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd7</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm7</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd8</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm8</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd9</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm9</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_cd10</td></tr>
-		 * 	<tr><td><br></td><td>itm_grp_nm10</td></tr>
 		 * 	<tr><td><br></td><td>ins_usr_id</td></tr>
 		 * 	<tr><td><br></td><td>ins_usr_nm</td></tr>
 		 * 	<tr><td><br></td><td>ins_func_id</td></tr>
