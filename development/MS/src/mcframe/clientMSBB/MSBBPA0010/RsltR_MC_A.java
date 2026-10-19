@@ -35,39 +35,49 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public static final String $cst_frcst_prnt_dt = "cst_frcst_prnt_dt";
+	public static final String $deal_cd = "deal_cd";
 	/**
 	 * Deal name 商談名.<p>
 	 *
 	 */
-	public static final String $cst_cd = "cst_cd";
+	public static final String $deal_nm = "deal_nm";
 	/**
 	 * Customer cd. 得意先ＣＤ.<p>
 	 *
 	 */
-	public static final String $cst_nm = "cst_nm";
+	public static final String $cst_cd = "cst_cd";
 	/**
 	 * Customer name 得意先名.<p>
 	 *
 	 */
-	public static final String $dlv_cd = "dlv_cd";
+	public static final String $cst_nm = "cst_nm";
+	/**
+	 * Billing customer cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public static final String $bill_cst_cd = "bill_cst_cd";
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public static final String $bill_cst_nm = "bill_cst_nm";
 	/**
 	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
-	public static final String $dlv_nm = "dlv_nm";
+	public static final String $sls_dpt_cd = "sls_dpt_cd";
 	/**
 	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
-	public static final String $frcst_dpt_cd = "frcst_dpt_cd";
+	public static final String $sls_dpt_nm = "sls_dpt_nm";
 	/**
-	 * PIC cd. 担当者ＣＤ.<p>
+	 * PIC cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public static final String $frcst_usr_cd = "frcst_usr_cd";
 	/**
-	 * PIC name 担当者名.<p>
+	 * PIC name 案件担当者名.<p>
 	 *
 	 */
 	public static final String $frcst_usr_nm = "frcst_usr_nm";
@@ -82,61 +92,65 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 */
 	public static final String $wrk_nm = "wrk_nm";
 	/**
-	 * Receiving date 製品ＣＤ.<p>
+	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public static final String $rcpt_dt = "rcpt_dt";
+	public static final String $prd_itm_cd = "prd_itm_cd";
 	/**
-	 * Customer forecast list No. 製品名.<p>
+	 * Product item name 製品名.<p>
 	 *
 	 */
-	public static final String $cst_frcst_slip_no = "cst_frcst_slip_no";
+	public static final String $prd_itm_nm = "prd_itm_nm";
 	/**
-	 * Cancel 注文書納期.<p>
+	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public static final String $can_flg = "can_flg";
+	public static final String $order_dlv_dt = "order_dlv_dt";
 	/**
-	 * Canceling reason cd. 装備後売上日.<p>
+	 * Post-installation sales date 装備後売上日.<p>
 	 *
 	 */
-	public static final String $can_rsn_cd = "can_rsn_cd";
+	public static final String $pst_inst_sls_dt = "pst_inst_sls_dt";
 
 
-	public static final MCMeta cst_frcst_no_META = createCommonMeta($cst_frcst_no, mcframe.commonMA.meta.MA_META.CST_FRCST_NO);
-	public static final MCMeta cst_frcst_prnt_dt_META = createCommonMeta($cst_frcst_prnt_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta cst_frcst_no_META = createCommonMeta($cst_frcst_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
+	public static final MCMeta deal_cd_META = createCommonMeta($deal_cd, mcframe.commonMA.meta.MA_META.DEAL_CD);
+	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.DEAL_NM);
 	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
 	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta dlv_cd_META = createCommonMeta($dlv_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta frcst_dpt_cd_META = createCommonMeta($frcst_dpt_cd, mcframe.commonMA.meta.MA_META.DPT_CD);
+	public static final MCMeta bill_cst_cd_META = createCommonMeta($bill_cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta bill_cst_nm_META = createCommonMeta($bill_cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta sls_dpt_cd_META = createCommonMeta($sls_dpt_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta sls_dpt_nm_META = createCommonMeta($sls_dpt_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta frcst_usr_cd_META = createCommonMeta($frcst_usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
 	public static final MCMeta frcst_usr_nm_META = createCommonMeta($frcst_usr_nm, mcframe.commonMA.meta.MA_META.USR_NM);
-	public static final MCMeta wrk_no_META = createCommonMeta($wrk_no, mcframe.commonMA.meta.MA_META.WRK_NO);
+	public static final MCMeta wrk_no_META = createCommonMeta($wrk_no, mcframe.commonMA.meta.MA_META.MRKT_CD);
 	public static final MCMeta wrk_nm_META = createCommonMeta($wrk_nm, mcframe.commonMA.meta.MA_META.WRK_NM);
-	public static final MCMeta rcpt_dt_META = createCommonMeta($rcpt_dt, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta cst_frcst_slip_no_META = createCommonMeta($cst_frcst_slip_no, mcframe.commonMA.meta.MA_META.CST_FRCST_SLIP_NO);
-	public static final MCMeta can_flg_META = createCommonMeta($can_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta can_rsn_cd_META = createCommonMeta($can_rsn_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
+	public static final MCMeta prd_itm_cd_META = createCommonMeta($prd_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta prd_itm_nm_META = createCommonMeta($prd_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta order_dlv_dt_META = createCommonMeta($order_dlv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta pst_inst_sls_dt_META = createCommonMeta($pst_inst_sls_dt, mcframe.commonMA.meta.MA_META.DT);
 
 	protected static final ConstMetaList<RsltR> constMetas = new ConstMetaList<RsltR>(
 		MCConstRow.constMetas,
 		new MCMeta[]{
 			cst_frcst_no_META,
-			cst_frcst_prnt_dt_META,
+			deal_cd_META,
+			deal_nm_META,
 			cst_cd_META,
 			cst_nm_META,
-			dlv_cd_META,
-			dlv_nm_META,
-			frcst_dpt_cd_META,
+			bill_cst_cd_META,
+			bill_cst_nm_META,
+			sls_dpt_cd_META,
+			sls_dpt_nm_META,
 			frcst_usr_cd_META,
 			frcst_usr_nm_META,
 			wrk_no_META,
 			wrk_nm_META,
-			rcpt_dt_META,
-			cst_frcst_slip_no_META,
-			can_flg_META,
-			can_rsn_cd_META
+			prd_itm_cd_META,
+			prd_itm_nm_META,
+			order_dlv_dt_META,
+			pst_inst_sls_dt_META
 		},
 		new String[][]{
 			{
@@ -300,67 +314,101 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public MCDate cst_frcst_prnt_dt() {
-		return getConstDate(offset + 1, $cst_frcst_prnt_dt);
+	public String deal_cd() {
+		return getConstString(offset + 1, $deal_cd);
 	}
 
 	/**
 	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public void cst_frcst_prnt_dt(MCDate value) {
-		setConstDate(offset + 1, $cst_frcst_prnt_dt, value);
+	public void deal_cd(String value) {
+		setConstString(offset + 1, $deal_cd, value);
 	}
 
 
 	/**
 	 * Deal name 商談名.<p>
+	 *
+	 */
+	public String deal_nm() {
+		return getConstString(offset + 2, $deal_nm);
+	}
+
+	/**
+	 * Deal name 商談名.<p>
+	 *
+	 */
+	public void deal_nm(String value) {
+		setConstString(offset + 2, $deal_nm, value);
+	}
+
+
+	/**
+	 * Customer cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public String cst_cd() {
-		return getConstString(offset + 2, $cst_cd);
+		return getConstString(offset + 3, $cst_cd);
 	}
 
 	/**
-	 * Deal name 商談名.<p>
+	 * Customer cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public void cst_cd(String value) {
-		setConstString(offset + 2, $cst_cd, value);
+		setConstString(offset + 3, $cst_cd, value);
 	}
 
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Customer name 得意先名.<p>
 	 *
 	 */
 	public String cst_nm() {
-		return getConstString(offset + 3, $cst_nm);
+		return getConstString(offset + 4, $cst_nm);
 	}
 
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Customer name 得意先名.<p>
 	 *
 	 */
 	public void cst_nm(String value) {
-		setConstString(offset + 3, $cst_nm, value);
+		setConstString(offset + 4, $cst_nm, value);
 	}
 
 
 	/**
-	 * Customer name 得意先名.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
-	public String dlv_cd() {
-		return getConstString(offset + 4, $dlv_cd);
+	public String bill_cst_cd() {
+		return getConstString(offset + 5, $bill_cst_cd);
 	}
 
 	/**
-	 * Customer name 得意先名.<p>
+	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
-	public void dlv_cd(String value) {
-		setConstString(offset + 4, $dlv_cd, value);
+	public void bill_cst_cd(String value) {
+		setConstString(offset + 5, $bill_cst_cd, value);
+	}
+
+
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public String bill_cst_nm() {
+		return getConstString(offset + 6, $bill_cst_nm);
+	}
+
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public void bill_cst_nm(String value) {
+		setConstString(offset + 6, $bill_cst_nm, value);
 	}
 
 
@@ -368,16 +416,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
-	public String dlv_nm() {
-		return getConstString(offset + 5, $dlv_nm);
+	public String sls_dpt_cd() {
+		return getConstString(offset + 7, $sls_dpt_cd);
 	}
 
 	/**
 	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
-	public void dlv_nm(String value) {
-		setConstString(offset + 5, $dlv_nm, value);
+	public void sls_dpt_cd(String value) {
+		setConstString(offset + 7, $sls_dpt_cd, value);
 	}
 
 
@@ -385,50 +433,50 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
-	public String frcst_dpt_cd() {
-		return getConstString(offset + 6, $frcst_dpt_cd);
+	public String sls_dpt_nm() {
+		return getConstString(offset + 8, $sls_dpt_nm);
 	}
 
 	/**
 	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
-	public void frcst_dpt_cd(String value) {
-		setConstString(offset + 6, $frcst_dpt_cd, value);
+	public void sls_dpt_nm(String value) {
+		setConstString(offset + 8, $sls_dpt_nm, value);
 	}
 
 
 	/**
-	 * PIC cd. 担当者ＣＤ.<p>
+	 * PIC cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public String frcst_usr_cd() {
-		return getConstString(offset + 7, $frcst_usr_cd);
+		return getConstString(offset + 9, $frcst_usr_cd);
 	}
 
 	/**
-	 * PIC cd. 担当者ＣＤ.<p>
+	 * PIC cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public void frcst_usr_cd(String value) {
-		setConstString(offset + 7, $frcst_usr_cd, value);
+		setConstString(offset + 9, $frcst_usr_cd, value);
 	}
 
 
 	/**
-	 * PIC name 担当者名.<p>
+	 * PIC name 案件担当者名.<p>
 	 *
 	 */
 	public String frcst_usr_nm() {
-		return getConstString(offset + 8, $frcst_usr_nm);
+		return getConstString(offset + 10, $frcst_usr_nm);
 	}
 
 	/**
-	 * PIC name 担当者名.<p>
+	 * PIC name 案件担当者名.<p>
 	 *
 	 */
 	public void frcst_usr_nm(String value) {
-		setConstString(offset + 8, $frcst_usr_nm, value);
+		setConstString(offset + 10, $frcst_usr_nm, value);
 	}
 
 
@@ -437,7 +485,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wrk_no() {
-		return getConstString(offset + 9, $wrk_no);
+		return getConstString(offset + 11, $wrk_no);
 	}
 
 	/**
@@ -445,7 +493,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wrk_no(String value) {
-		setConstString(offset + 9, $wrk_no, value);
+		setConstString(offset + 11, $wrk_no, value);
 	}
 
 
@@ -454,7 +502,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wrk_nm() {
-		return getConstString(offset + 10, $wrk_nm);
+		return getConstString(offset + 12, $wrk_nm);
 	}
 
 	/**
@@ -462,75 +510,75 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wrk_nm(String value) {
-		setConstString(offset + 10, $wrk_nm, value);
+		setConstString(offset + 12, $wrk_nm, value);
 	}
 
 
 	/**
-	 * Receiving date 製品ＣＤ.<p>
+	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public MCDate rcpt_dt() {
-		return getConstDate(offset + 11, $rcpt_dt);
+	public String prd_itm_cd() {
+		return getConstString(offset + 13, $prd_itm_cd);
 	}
 
 	/**
-	 * Receiving date 製品ＣＤ.<p>
+	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public void rcpt_dt(MCDate value) {
-		setConstDate(offset + 11, $rcpt_dt, value);
-	}
-
-
-	/**
-	 * Customer forecast list No. 製品名.<p>
-	 *
-	 */
-	public String cst_frcst_slip_no() {
-		return getConstString(offset + 12, $cst_frcst_slip_no);
-	}
-
-	/**
-	 * Customer forecast list No. 製品名.<p>
-	 *
-	 */
-	public void cst_frcst_slip_no(String value) {
-		setConstString(offset + 12, $cst_frcst_slip_no, value);
+	public void prd_itm_cd(String value) {
+		setConstString(offset + 13, $prd_itm_cd, value);
 	}
 
 
 	/**
-	 * Cancel 注文書納期.<p>
+	 * Product item name 製品名.<p>
 	 *
 	 */
-	public boolean can_flg() {
-		return getConstBoolean(offset + 13, $can_flg);
+	public String prd_itm_nm() {
+		return getConstString(offset + 14, $prd_itm_nm);
 	}
 
 	/**
-	 * Cancel 注文書納期.<p>
+	 * Product item name 製品名.<p>
 	 *
 	 */
-	public void can_flg(boolean value) {
-		setConstBoolean(offset + 13, $can_flg, value);
+	public void prd_itm_nm(String value) {
+		setConstString(offset + 14, $prd_itm_nm, value);
 	}
 
 
 	/**
-	 * Canceling reason cd. 装備後売上日.<p>
+	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public String can_rsn_cd() {
-		return getConstString(offset + 14, $can_rsn_cd);
+	public MCDate order_dlv_dt() {
+		return getConstDate(offset + 15, $order_dlv_dt);
 	}
 
 	/**
-	 * Canceling reason cd. 装備後売上日.<p>
+	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public void can_rsn_cd(String value) {
-		setConstString(offset + 14, $can_rsn_cd, value);
+	public void order_dlv_dt(MCDate value) {
+		setConstDate(offset + 15, $order_dlv_dt, value);
+	}
+
+
+	/**
+	 * Post-installation sales date 装備後売上日.<p>
+	 *
+	 */
+	public MCDate pst_inst_sls_dt() {
+		return getConstDate(offset + 16, $pst_inst_sls_dt);
+	}
+
+	/**
+	 * Post-installation sales date 装備後売上日.<p>
+	 *
+	 */
+	public void pst_inst_sls_dt(MCDate value) {
+		setConstDate(offset + 16, $pst_inst_sls_dt, value);
 	}
 
 
@@ -538,20 +586,29 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($cst_frcst_no.equalsIgnoreCase(name)) {
 			return cst_frcst_no();
 		}
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
+		}
 		if ($cst_cd.equalsIgnoreCase(name)) {
 			return cst_cd();
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
 		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			return dlv_cd();
+		if ($bill_cst_cd.equalsIgnoreCase(name)) {
+			return bill_cst_cd();
 		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			return dlv_nm();
+		if ($bill_cst_nm.equalsIgnoreCase(name)) {
+			return bill_cst_nm();
 		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			return frcst_dpt_cd();
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
 			return frcst_usr_cd();
@@ -565,48 +622,51 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
 		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_no();
+		if ($prd_itm_cd.equalsIgnoreCase(name)) {
+			return prd_itm_cd();
 		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			return can_rsn_cd();
+		if ($prd_itm_nm.equalsIgnoreCase(name)) {
+			return prd_itm_nm();
 		}
 		return super.getString(name);
 	}
 	public MCDate getDate(String name) {
-		if ($cst_frcst_prnt_dt.equalsIgnoreCase(name)) {
-			return cst_frcst_prnt_dt();
+		if ($order_dlv_dt.equalsIgnoreCase(name)) {
+			return order_dlv_dt();
 		}
-		if ($rcpt_dt.equalsIgnoreCase(name)) {
-			return rcpt_dt();
+		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
+			return pst_inst_sls_dt();
 		}
 		return super.getDate(name);
-	}
-	public boolean getBoolean(String name) {
-		if ($can_flg.equalsIgnoreCase(name)) {
-			return can_flg();
-		}
-		return super.getBoolean(name);
 	}
 
 	public String getStringNE(String name) {
 		if ($cst_frcst_no.equalsIgnoreCase(name)) {
 			return cst_frcst_no();
 		}
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			return deal_cd();
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			return deal_nm();
+		}
 		if ($cst_cd.equalsIgnoreCase(name)) {
 			return cst_cd();
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
 		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			return dlv_cd();
+		if ($bill_cst_cd.equalsIgnoreCase(name)) {
+			return bill_cst_cd();
 		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			return dlv_nm();
+		if ($bill_cst_nm.equalsIgnoreCase(name)) {
+			return bill_cst_nm();
 		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			return frcst_dpt_cd();
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			return sls_dpt_cd();
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			return sls_dpt_nm();
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
 			return frcst_usr_cd();
@@ -620,28 +680,22 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
 		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			return cst_frcst_slip_no();
+		if ($prd_itm_cd.equalsIgnoreCase(name)) {
+			return prd_itm_cd();
 		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			return can_rsn_cd();
+		if ($prd_itm_nm.equalsIgnoreCase(name)) {
+			return prd_itm_nm();
 		}
 		return super.getStringNE(name);
 	}
 	public MCDate getDateNE(String name) {
-		if ($cst_frcst_prnt_dt.equalsIgnoreCase(name)) {
-			return cst_frcst_prnt_dt();
+		if ($order_dlv_dt.equalsIgnoreCase(name)) {
+			return order_dlv_dt();
 		}
-		if ($rcpt_dt.equalsIgnoreCase(name)) {
-			return rcpt_dt();
+		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
+			return pst_inst_sls_dt();
 		}
 		return super.getDateNE(name);
-	}
-	public boolean getBooleanNE(String name) {
-		if ($can_flg.equalsIgnoreCase(name)) {
-			return can_flg();
-		}
-		return super.getBooleanNE(name);
 	}
 
 	public void setString(String name, String value) {
@@ -649,6 +703,14 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_frcst_no(value);
 			return;
 		}
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
+			return;
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
+			return;
+		}
 		if ($cst_cd.equalsIgnoreCase(name)) {
 			cst_cd(value);
 			return;
@@ -657,16 +719,20 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_nm(value);
 			return;
 		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			dlv_cd(value);
+		if ($bill_cst_cd.equalsIgnoreCase(name)) {
+			bill_cst_cd(value);
 			return;
 		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			dlv_nm(value);
+		if ($bill_cst_nm.equalsIgnoreCase(name)) {
+			bill_cst_nm(value);
 			return;
 		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			frcst_dpt_cd(value);
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
 			return;
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
@@ -685,33 +751,26 @@ abstract class RsltR_MC_A extends MCConstRow {
 			wrk_nm(value);
 			return;
 		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_no(value);
+		if ($prd_itm_cd.equalsIgnoreCase(name)) {
+			prd_itm_cd(value);
 			return;
 		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			can_rsn_cd(value);
+		if ($prd_itm_nm.equalsIgnoreCase(name)) {
+			prd_itm_nm(value);
 			return;
 		}
 		super.setString(name, value);
 	}
 	public void setDate(String name, MCDate value) {
-		if ($cst_frcst_prnt_dt.equalsIgnoreCase(name)) {
-			cst_frcst_prnt_dt(value);
+		if ($order_dlv_dt.equalsIgnoreCase(name)) {
+			order_dlv_dt(value);
 			return;
 		}
-		if ($rcpt_dt.equalsIgnoreCase(name)) {
-			rcpt_dt(value);
+		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
+			pst_inst_sls_dt(value);
 			return;
 		}
 		super.setDate(name, value);
-	}
-	public void setBoolean(String name, boolean value) {
-		if ($can_flg.equalsIgnoreCase(name)) {
-			can_flg(value);
-			return;
-		}
-		super.setBoolean(name, value);
 	}
 
 	public void setStringNE(String name, String value) {
@@ -719,6 +778,14 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_frcst_no(value);
 			return;
 		}
+		if ($deal_cd.equalsIgnoreCase(name)) {
+			deal_cd(value);
+			return;
+		}
+		if ($deal_nm.equalsIgnoreCase(name)) {
+			deal_nm(value);
+			return;
+		}
 		if ($cst_cd.equalsIgnoreCase(name)) {
 			cst_cd(value);
 			return;
@@ -727,16 +794,20 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_nm(value);
 			return;
 		}
-		if ($dlv_cd.equalsIgnoreCase(name)) {
-			dlv_cd(value);
+		if ($bill_cst_cd.equalsIgnoreCase(name)) {
+			bill_cst_cd(value);
 			return;
 		}
-		if ($dlv_nm.equalsIgnoreCase(name)) {
-			dlv_nm(value);
+		if ($bill_cst_nm.equalsIgnoreCase(name)) {
+			bill_cst_nm(value);
 			return;
 		}
-		if ($frcst_dpt_cd.equalsIgnoreCase(name)) {
-			frcst_dpt_cd(value);
+		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
+			sls_dpt_cd(value);
+			return;
+		}
+		if ($sls_dpt_nm.equalsIgnoreCase(name)) {
+			sls_dpt_nm(value);
 			return;
 		}
 		if ($frcst_usr_cd.equalsIgnoreCase(name)) {
@@ -755,33 +826,26 @@ abstract class RsltR_MC_A extends MCConstRow {
 			wrk_nm(value);
 			return;
 		}
-		if ($cst_frcst_slip_no.equalsIgnoreCase(name)) {
-			cst_frcst_slip_no(value);
+		if ($prd_itm_cd.equalsIgnoreCase(name)) {
+			prd_itm_cd(value);
 			return;
 		}
-		if ($can_rsn_cd.equalsIgnoreCase(name)) {
-			can_rsn_cd(value);
+		if ($prd_itm_nm.equalsIgnoreCase(name)) {
+			prd_itm_nm(value);
 			return;
 		}
 		super.setStringNE(name, value);
 	}
 	public void setDateNE(String name, MCDate value) {
-		if ($cst_frcst_prnt_dt.equalsIgnoreCase(name)) {
-			cst_frcst_prnt_dt(value);
+		if ($order_dlv_dt.equalsIgnoreCase(name)) {
+			order_dlv_dt(value);
 			return;
 		}
-		if ($rcpt_dt.equalsIgnoreCase(name)) {
-			rcpt_dt(value);
+		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
+			pst_inst_sls_dt(value);
 			return;
 		}
 		super.setDateNE(name, value);
-	}
-	public void setBooleanNE(String name, boolean value) {
-		if ($can_flg.equalsIgnoreCase(name)) {
-			can_flg(value);
-			return;
-		}
-		super.setBooleanNE(name, value);
 	}
 
 

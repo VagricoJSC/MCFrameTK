@@ -77,6 +77,5 @@ public class MSBBLA_SlsSchdSrch extends MSBBLA_SlsSchdSrch_MC {
 			super.call();
 		}
 	}
-
 //FMCB CUSTOM END
 }

@@ -369,20 +369,24 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr bgcolor="#cccccc"><th>必須</th><th>項目名</th></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_no</td></tr>
 		 * 	<tr><td><br></td><td>cst_frcst_prnt_dt</td></tr>
+		 * 	<tr><td><br></td><td>deal_cd</td></tr>
+		 * 	<tr><td><br></td><td>deal_nm</td></tr>
 		 * 	<tr><td><br></td><td>cst_cd</td></tr>
 		 * 	<tr><td><br></td><td>cst_nm</td></tr>
-		 * 	<tr><td><br></td><td>dlv_cd</td></tr>
-		 * 	<tr><td><br></td><td>dlv_nm</td></tr>
+		 * 	<tr><td><br></td><td>bill_cst_cd</td></tr>
+		 * 	<tr><td><br></td><td>bill_cst_nm</td></tr>
+		 * 	<tr><td><br></td><td>sls_dpt_cd</td></tr>
+		 * 	<tr><td><br></td><td>sls_dpt_nm</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dpt_cd</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dpt_nm</td></tr>
 		 * 	<tr><td><br></td><td>frcst_usr_cd</td></tr>
 		 * 	<tr><td><br></td><td>frcst_usr_nm</td></tr>
 		 * 	<tr><td><br></td><td>wrk_no</td></tr>
 		 * 	<tr><td><br></td><td>wrk_nm</td></tr>
-		 * 	<tr><td><br></td><td>rcpt_dt</td></tr>
-		 * 	<tr><td><br></td><td>cst_frcst_slip_no</td></tr>
-		 * 	<tr><td><br></td><td>can_flg</td></tr>
-		 * 	<tr><td><br></td><td>can_rsn_cd</td></tr>
+		 * 	<tr><td><br></td><td>prd_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prd_itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>order_dlv_dt</td></tr>
+		 * 	<tr><td><br></td><td>pst_inst_sls_dt</td></tr>
 		 * 	<tr><td><br></td><td>can_rsn_nm</td></tr>
 		 * 	<tr><td><br></td><td>can_rmrks</td></tr>
 		 * 	<tr><td><br></td><td>intr_rmrks</td></tr>

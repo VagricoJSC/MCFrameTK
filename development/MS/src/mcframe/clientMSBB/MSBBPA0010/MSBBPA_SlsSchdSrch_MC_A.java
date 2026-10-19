@@ -510,39 +510,49 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_cst_frcst_prnt_dt = null;
+	public MCColumnConfig columnRslt_deal_cd = null;
 	/**
 	 * Deal name 商談名.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_cst_cd = null;
+	public MCColumnConfig columnRslt_deal_nm = null;
 	/**
 	 * Customer cd. 得意先ＣＤ.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_cst_nm = null;
+	public MCColumnConfig columnRslt_cst_cd = null;
 	/**
 	 * Customer name 得意先名.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_dlv_cd = null;
+	public MCColumnConfig columnRslt_cst_nm = null;
+	/**
+	 * Billing customer cd. 請求先ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnRslt_bill_cst_cd = null;
+	/**
+	 * Billing customer name 請求先名.<p>
+	 *
+	 */
+	public MCColumnConfig columnRslt_bill_cst_nm = null;
 	/**
 	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_dlv_nm = null;
+	public MCColumnConfig columnRslt_sls_dpt_cd = null;
 	/**
 	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_frcst_dpt_cd = null;
+	public MCColumnConfig columnRslt_sls_dpt_nm = null;
 	/**
-	 * PIC cd. 担当者ＣＤ.<p>
+	 * PIC cd. 案件担当者ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_frcst_usr_cd = null;
 	/**
-	 * PIC name 担当者名.<p>
+	 * PIC name 案件担当者名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_frcst_usr_nm = null;
@@ -557,25 +567,25 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	public MCColumnConfig columnRslt_wrk_nm = null;
 	/**
-	 * Receiving date 製品ＣＤ.<p>
+	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_rcpt_dt = null;
+	public MCColumnConfig columnRslt_prd_itm_cd = null;
 	/**
-	 * Customer forecast list No. 製品名.<p>
+	 * Product item name 製品名.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_cst_frcst_slip_no = null;
+	public MCColumnConfig columnRslt_prd_itm_nm = null;
 	/**
-	 * Cancel 注文書納期.<p>
+	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_can_flg = null;
+	public MCColumnConfig columnRslt_order_dlv_dt = null;
 	/**
-	 * Canceling reason cd. 装備後売上日.<p>
+	 * Post-installation sales date 装備後売上日.<p>
 	 *
 	 */
-	public MCColumnConfig columnRslt_can_rsn_cd = null;
+	public MCColumnConfig columnRslt_pst_inst_sls_dt = null;
 	// [Btn]ブロック関連のField定義
 	public MCPanel BtnPanel = null;
 	// [Btn]ブロックの項目のField定義
@@ -1620,20 +1630,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.createRsltTable();
 		// ブロックの項目の初期化
 		p.columnRslt_cst_frcst_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_no", MCColumnType.TEXT);
-		p.columnRslt_cst_frcst_prnt_dt = p.beansFactory.createTableColumn("Rslt.cst_frcst_prnt_dt", MCColumnType.DATE);
+		p.columnRslt_deal_cd = p.beansFactory.createTableColumn("Rslt.deal_cd", MCColumnType.TEXT);
+		p.columnRslt_deal_nm = p.beansFactory.createTableColumn("Rslt.deal_nm", MCColumnType.TEXT);
 		p.columnRslt_cst_cd = p.beansFactory.createTableColumn("Rslt.cst_cd", MCColumnType.TEXT);
 		p.columnRslt_cst_nm = p.beansFactory.createTableColumn("Rslt.cst_nm", MCColumnType.TEXT);
-		p.columnRslt_dlv_cd = p.beansFactory.createTableColumn("Rslt.dlv_cd", MCColumnType.TEXT);
-		p.columnRslt_dlv_nm = p.beansFactory.createTableColumn("Rslt.dlv_nm", MCColumnType.TEXT);
-		p.columnRslt_frcst_dpt_cd = p.beansFactory.createTableColumn("Rslt.frcst_dpt_cd", MCColumnType.TEXT);
+		p.columnRslt_bill_cst_cd = p.beansFactory.createTableColumn("Rslt.bill_cst_cd", MCColumnType.TEXT);
+		p.columnRslt_bill_cst_nm = p.beansFactory.createTableColumn("Rslt.bill_cst_nm", MCColumnType.TEXT);
+		p.columnRslt_sls_dpt_cd = p.beansFactory.createTableColumn("Rslt.sls_dpt_cd", MCColumnType.TEXT);
+		p.columnRslt_sls_dpt_nm = p.beansFactory.createTableColumn("Rslt.sls_dpt_nm", MCColumnType.TEXT);
 		p.columnRslt_frcst_usr_cd = p.beansFactory.createTableColumn("Rslt.frcst_usr_cd", MCColumnType.TEXT);
 		p.columnRslt_frcst_usr_nm = p.beansFactory.createTableColumn("Rslt.frcst_usr_nm", MCColumnType.TEXT);
 		p.columnRslt_wrk_no = p.beansFactory.createTableColumn("Rslt.wrk_no", MCColumnType.TEXT);
 		p.columnRslt_wrk_nm = p.beansFactory.createTableColumn("Rslt.wrk_nm", MCColumnType.TEXT);
-		p.columnRslt_rcpt_dt = p.beansFactory.createTableColumn("Rslt.rcpt_dt", MCColumnType.DATE);
-		p.columnRslt_cst_frcst_slip_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_slip_no", MCColumnType.TEXT);
-		p.columnRslt_can_flg = p.beansFactory.createTableColumn("Rslt.can_flg", MCColumnType.CHECK);
-		p.columnRslt_can_rsn_cd = p.beansFactory.createTableColumn("Rslt.can_rsn_cd", MCColumnType.TEXT);
+		p.columnRslt_prd_itm_cd = p.beansFactory.createTableColumn("Rslt.prd_itm_cd", MCColumnType.TEXT);
+		p.columnRslt_prd_itm_nm = p.beansFactory.createTableColumn("Rslt.prd_itm_nm", MCColumnType.TEXT);
+		p.columnRslt_order_dlv_dt = p.beansFactory.createTableColumn("Rslt.order_dlv_dt", MCColumnType.DATE);
+		p.columnRslt_pst_inst_sls_dt = p.beansFactory.createTableColumn("Rslt.pst_inst_sls_dt", MCColumnType.DATE);
 	}
 
 	/**
@@ -2391,18 +2403,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.RsltTable.addAllListener(p);
 		p.columnRslt_cst_frcst_no.addAllListener(p);
 		p.columnRslt_cst_frcst_no.setListListener(p);
-		p.columnRslt_cst_frcst_prnt_dt.addAllListener(p);
-		p.columnRslt_cst_frcst_prnt_dt.setListListener(p);
+		p.columnRslt_deal_cd.addAllListener(p);
+		p.columnRslt_deal_cd.setListListener(p);
+		p.columnRslt_deal_nm.addAllListener(p);
+		p.columnRslt_deal_nm.setListListener(p);
 		p.columnRslt_cst_cd.addAllListener(p);
 		p.columnRslt_cst_cd.setListListener(p);
 		p.columnRslt_cst_nm.addAllListener(p);
 		p.columnRslt_cst_nm.setListListener(p);
-		p.columnRslt_dlv_cd.addAllListener(p);
-		p.columnRslt_dlv_cd.setListListener(p);
-		p.columnRslt_dlv_nm.addAllListener(p);
-		p.columnRslt_dlv_nm.setListListener(p);
-		p.columnRslt_frcst_dpt_cd.addAllListener(p);
-		p.columnRslt_frcst_dpt_cd.setListListener(p);
+		p.columnRslt_bill_cst_cd.addAllListener(p);
+		p.columnRslt_bill_cst_cd.setListListener(p);
+		p.columnRslt_bill_cst_nm.addAllListener(p);
+		p.columnRslt_bill_cst_nm.setListListener(p);
+		p.columnRslt_sls_dpt_cd.addAllListener(p);
+		p.columnRslt_sls_dpt_cd.setListListener(p);
+		p.columnRslt_sls_dpt_nm.addAllListener(p);
+		p.columnRslt_sls_dpt_nm.setListListener(p);
 		p.columnRslt_frcst_usr_cd.addAllListener(p);
 		p.columnRslt_frcst_usr_cd.setListListener(p);
 		p.columnRslt_frcst_usr_nm.addAllListener(p);
@@ -2411,13 +2427,14 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_wrk_no.setListListener(p);
 		p.columnRslt_wrk_nm.addAllListener(p);
 		p.columnRslt_wrk_nm.setListListener(p);
-		p.columnRslt_rcpt_dt.addAllListener(p);
-		p.columnRslt_rcpt_dt.setListListener(p);
-		p.columnRslt_cst_frcst_slip_no.addAllListener(p);
-		p.columnRslt_cst_frcst_slip_no.setListListener(p);
-		p.columnRslt_can_flg.addAllListener(p);
-		p.columnRslt_can_rsn_cd.addAllListener(p);
-		p.columnRslt_can_rsn_cd.setListListener(p);
+		p.columnRslt_prd_itm_cd.addAllListener(p);
+		p.columnRslt_prd_itm_cd.setListListener(p);
+		p.columnRslt_prd_itm_nm.addAllListener(p);
+		p.columnRslt_prd_itm_nm.setListListener(p);
+		p.columnRslt_order_dlv_dt.addAllListener(p);
+		p.columnRslt_order_dlv_dt.setListListener(p);
+		p.columnRslt_pst_inst_sls_dt.addAllListener(p);
+		p.columnRslt_pst_inst_sls_dt.setListListener(p);
 	}
 
 	/**
@@ -2581,20 +2598,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	protected static void statusInitSRCH__DTL_Rslt(MSBBPA_SlsSchdSrch p){
 		p.columnRslt_cst_frcst_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_prnt_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_deal_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_deal_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dlv_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dlv_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_rcpt_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_flg.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_order_dlv_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
+		p.columnRslt_pst_inst_sls_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 
 	}
 
@@ -2759,20 +2778,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	protected static void statusInitSRCH__HDR_Rslt(MSBBPA_SlsSchdSrch p){
 		p.columnRslt_cst_frcst_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_prnt_dt.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_deal_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_deal_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_dlv_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_dlv_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_rcpt_dt.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_flg.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_order_dlv_dt.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
+		p.columnRslt_pst_inst_sls_dt.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 
 	}
 
@@ -2937,20 +2958,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	protected static void statusInitREF__DTL_Rslt(MSBBPA_SlsSchdSrch p){
 		p.columnRslt_cst_frcst_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_prnt_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_deal_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_deal_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_cst_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dlv_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dlv_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_rcpt_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_flg.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_order_dlv_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
+		p.columnRslt_pst_inst_sls_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
 
 	}
 
@@ -3115,20 +3138,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	protected static void statusInitREF__HDR_Rslt(MSBBPA_SlsSchdSrch p){
 		p.columnRslt_cst_frcst_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_prnt_dt.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_deal_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_deal_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_cst_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_dlv_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_dlv_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_bill_cst_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_sls_dpt_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_rcpt_dt.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_flg.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_prd_itm_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_order_dlv_dt.putMode(p, REF_HDR, MCMode.READ_ONLY);
+		p.columnRslt_pst_inst_sls_dt.putMode(p, REF_HDR, MCMode.READ_ONLY);
 
 	}
 
@@ -3161,19 +3186,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	protected static void setTableConfigRslt(MSBBPA_SlsSchdSrch p) {
 		p.columnRslt_cst_frcst_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_no_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_no);
-		p.columnRslt_cst_frcst_prnt_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_prnt_dt_META);
-		p.columnRslt_cst_frcst_prnt_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_prnt_dt);
+		p.columnRslt_deal_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.deal_cd_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_deal_cd);
+		p.columnRslt_deal_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.deal_nm_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_deal_nm);
 		p.columnRslt_cst_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_cst_cd);
 		p.columnRslt_cst_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_cst_nm);
-		p.columnRslt_dlv_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dlv_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dlv_cd);
-		p.columnRslt_dlv_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dlv_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dlv_nm);
-		p.columnRslt_frcst_dpt_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_dpt_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_dpt_cd);
+		p.columnRslt_bill_cst_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.bill_cst_cd_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_bill_cst_cd);
+		p.columnRslt_bill_cst_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.bill_cst_nm_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_bill_cst_nm);
+		p.columnRslt_sls_dpt_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.sls_dpt_cd_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_sls_dpt_cd);
+		p.columnRslt_sls_dpt_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.sls_dpt_nm_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_sls_dpt_nm);
 		p.columnRslt_frcst_usr_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_usr_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_frcst_usr_cd);
 		p.columnRslt_frcst_usr_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_usr_nm_META);
@@ -3182,15 +3210,16 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.RsltTable.addColumnConfig(p.columnRslt_wrk_no);
 		p.columnRslt_wrk_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.wrk_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_wrk_nm);
-		p.columnRslt_rcpt_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.rcpt_dt_META);
-		p.columnRslt_rcpt_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_rcpt_dt);
-		p.columnRslt_cst_frcst_slip_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_slip_no_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_slip_no);
-		p.columnRslt_can_flg.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.can_flg_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_can_flg);
-		p.columnRslt_can_rsn_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.can_rsn_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_can_rsn_cd);
+		p.columnRslt_prd_itm_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.prd_itm_cd_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_prd_itm_cd);
+		p.columnRslt_prd_itm_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.prd_itm_nm_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_prd_itm_nm);
+		p.columnRslt_order_dlv_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.order_dlv_dt_META);
+		p.columnRslt_order_dlv_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.RsltTable.addColumnConfig(p.columnRslt_order_dlv_dt);
+		p.columnRslt_pst_inst_sls_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.pst_inst_sls_dt_META);
+		p.columnRslt_pst_inst_sls_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.RsltTable.addColumnConfig(p.columnRslt_pst_inst_sls_dt);
 	}
 
 	/**
@@ -3442,20 +3471,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if (vc == Cnd_dtl_sub_char2) return doCnd_dtl_sub_char2_VC(info);
 		if (vc == Cnd_dtl_sub_char3) return doCnd_dtl_sub_char3_VC(info);
 		if (vc == columnRslt_cst_frcst_no) return doRslt_cst_frcst_no_VC(info);
-		if (vc == columnRslt_cst_frcst_prnt_dt) return doRslt_cst_frcst_prnt_dt_VC(info);
+		if (vc == columnRslt_deal_cd) return doRslt_deal_cd_VC(info);
+		if (vc == columnRslt_deal_nm) return doRslt_deal_nm_VC(info);
 		if (vc == columnRslt_cst_cd) return doRslt_cst_cd_VC(info);
 		if (vc == columnRslt_cst_nm) return doRslt_cst_nm_VC(info);
-		if (vc == columnRslt_dlv_cd) return doRslt_dlv_cd_VC(info);
-		if (vc == columnRslt_dlv_nm) return doRslt_dlv_nm_VC(info);
-		if (vc == columnRslt_frcst_dpt_cd) return doRslt_frcst_dpt_cd_VC(info);
+		if (vc == columnRslt_bill_cst_cd) return doRslt_bill_cst_cd_VC(info);
+		if (vc == columnRslt_bill_cst_nm) return doRslt_bill_cst_nm_VC(info);
+		if (vc == columnRslt_sls_dpt_cd) return doRslt_sls_dpt_cd_VC(info);
+		if (vc == columnRslt_sls_dpt_nm) return doRslt_sls_dpt_nm_VC(info);
 		if (vc == columnRslt_frcst_usr_cd) return doRslt_frcst_usr_cd_VC(info);
 		if (vc == columnRslt_frcst_usr_nm) return doRslt_frcst_usr_nm_VC(info);
 		if (vc == columnRslt_wrk_no) return doRslt_wrk_no_VC(info);
 		if (vc == columnRslt_wrk_nm) return doRslt_wrk_nm_VC(info);
-		if (vc == columnRslt_rcpt_dt) return doRslt_rcpt_dt_VC(info);
-		if (vc == columnRslt_cst_frcst_slip_no) return doRslt_cst_frcst_slip_no_VC(info);
-		if (vc == columnRslt_can_flg) return doRslt_can_flg_VC(info);
-		if (vc == columnRslt_can_rsn_cd) return doRslt_can_rsn_cd_VC(info);
+		if (vc == columnRslt_prd_itm_cd) return doRslt_prd_itm_cd_VC(info);
+		if (vc == columnRslt_prd_itm_nm) return doRslt_prd_itm_nm_VC(info);
+		if (vc == columnRslt_order_dlv_dt) return doRslt_order_dlv_dt_VC(info);
+		if (vc == columnRslt_pst_inst_sls_dt) return doRslt_pst_inst_sls_dt_VC(info);
 		return true;
 	}
 
@@ -3920,12 +3951,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_prnt_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[deal_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_cst_frcst_prnt_dt_VC(MCEventInfo info){
+	public boolean doRslt_deal_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Rslt]パネルの[deal_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doRslt_deal_nm_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -3950,32 +3991,42 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_dlv_cd_VC(MCEventInfo info){
+	public boolean doRslt_bill_cst_cd_VC(MCEventInfo info){
 		return true;
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_nm]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_dlv_nm_VC(MCEventInfo info){
+	public boolean doRslt_bill_cst_nm_VC(MCEventInfo info){
 		return true;
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[sls_dpt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_frcst_dpt_cd_VC(MCEventInfo info){
+	public boolean doRslt_sls_dpt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Rslt]パネルの[sls_dpt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doRslt_sls_dpt_nm_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -4020,42 +4071,42 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[rcpt_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_rcpt_dt_VC(MCEventInfo info){
+	public boolean doRslt_prd_itm_cd_VC(MCEventInfo info){
 		return true;
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_slip_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_nm]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_cst_frcst_slip_no_VC(MCEventInfo info){
+	public boolean doRslt_prd_itm_nm_VC(MCEventInfo info){
 		return true;
 	}
 
 	/**
-	 * [Rslt]パネルの[can_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[order_dlv_dt]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_can_flg_VC(MCEventInfo info){
+	public boolean doRslt_order_dlv_dt_VC(MCEventInfo info){
 		return true;
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[pst_inst_sls_dt]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doRslt_can_rsn_cd_VC(MCEventInfo info){
+	public boolean doRslt_pst_inst_sls_dt_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -4113,20 +4164,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nc == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NC(info);
 		else if (nc == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NC(info);
 		else if (nc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NC(info);
-		else if (nc == columnRslt_cst_frcst_prnt_dt) doRslt_cst_frcst_prnt_dt_NC(info);
+		else if (nc == columnRslt_deal_cd) doRslt_deal_cd_NC(info);
+		else if (nc == columnRslt_deal_nm) doRslt_deal_nm_NC(info);
 		else if (nc == columnRslt_cst_cd) doRslt_cst_cd_NC(info);
 		else if (nc == columnRslt_cst_nm) doRslt_cst_nm_NC(info);
-		else if (nc == columnRslt_dlv_cd) doRslt_dlv_cd_NC(info);
-		else if (nc == columnRslt_dlv_nm) doRslt_dlv_nm_NC(info);
-		else if (nc == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NC(info);
+		else if (nc == columnRslt_bill_cst_cd) doRslt_bill_cst_cd_NC(info);
+		else if (nc == columnRslt_bill_cst_nm) doRslt_bill_cst_nm_NC(info);
+		else if (nc == columnRslt_sls_dpt_cd) doRslt_sls_dpt_cd_NC(info);
+		else if (nc == columnRslt_sls_dpt_nm) doRslt_sls_dpt_nm_NC(info);
 		else if (nc == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NC(info);
 		else if (nc == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NC(info);
 		else if (nc == columnRslt_wrk_no) doRslt_wrk_no_NC(info);
 		else if (nc == columnRslt_wrk_nm) doRslt_wrk_nm_NC(info);
-		else if (nc == columnRslt_rcpt_dt) doRslt_rcpt_dt_NC(info);
-		else if (nc == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NC(info);
-		else if (nc == columnRslt_can_flg) doRslt_can_flg_NC(info);
-		else if (nc == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NC(info);
+		else if (nc == columnRslt_prd_itm_cd) doRslt_prd_itm_cd_NC(info);
+		else if (nc == columnRslt_prd_itm_nm) doRslt_prd_itm_nm_NC(info);
+		else if (nc == columnRslt_order_dlv_dt) doRslt_order_dlv_dt_NC(info);
+		else if (nc == columnRslt_pst_inst_sls_dt) doRslt_pst_inst_sls_dt_NC(info);
 	}
 
 	/**
@@ -4498,11 +4551,19 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_prnt_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[deal_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_prnt_dt_NC(MCEventInfo info){
+	public void doRslt_deal_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[deal_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_deal_nm_NC(MCEventInfo info){
 	}
 
 	/**
@@ -4522,27 +4583,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_cd_NC(MCEventInfo info){
+	public void doRslt_bill_cst_cd_NC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_nm_NC(MCEventInfo info){
+	public void doRslt_bill_cst_nm_NC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[sls_dpt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_frcst_dpt_cd_NC(MCEventInfo info){
+	public void doRslt_sls_dpt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[sls_dpt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_sls_dpt_nm_NC(MCEventInfo info){
 	}
 
 	/**
@@ -4578,35 +4647,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[rcpt_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_rcpt_dt_NC(MCEventInfo info){
+	public void doRslt_prd_itm_cd_NC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_slip_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_slip_no_NC(MCEventInfo info){
+	public void doRslt_prd_itm_nm_NC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[order_dlv_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_flg_NC(MCEventInfo info){
+	public void doRslt_order_dlv_dt_NC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[pst_inst_sls_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_rsn_cd_NC(MCEventInfo info){
+	public void doRslt_pst_inst_sls_dt_NC(MCEventInfo info){
 	}
 
 	/**
@@ -4663,20 +4732,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (ne == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NE(info);
 		else if (ne == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NE(info);
 		else if (ne == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NE(info);
-		else if (ne == columnRslt_cst_frcst_prnt_dt) doRslt_cst_frcst_prnt_dt_NE(info);
+		else if (ne == columnRslt_deal_cd) doRslt_deal_cd_NE(info);
+		else if (ne == columnRslt_deal_nm) doRslt_deal_nm_NE(info);
 		else if (ne == columnRslt_cst_cd) doRslt_cst_cd_NE(info);
 		else if (ne == columnRslt_cst_nm) doRslt_cst_nm_NE(info);
-		else if (ne == columnRslt_dlv_cd) doRslt_dlv_cd_NE(info);
-		else if (ne == columnRslt_dlv_nm) doRslt_dlv_nm_NE(info);
-		else if (ne == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NE(info);
+		else if (ne == columnRslt_bill_cst_cd) doRslt_bill_cst_cd_NE(info);
+		else if (ne == columnRslt_bill_cst_nm) doRslt_bill_cst_nm_NE(info);
+		else if (ne == columnRslt_sls_dpt_cd) doRslt_sls_dpt_cd_NE(info);
+		else if (ne == columnRslt_sls_dpt_nm) doRslt_sls_dpt_nm_NE(info);
 		else if (ne == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NE(info);
 		else if (ne == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NE(info);
 		else if (ne == columnRslt_wrk_no) doRslt_wrk_no_NE(info);
 		else if (ne == columnRslt_wrk_nm) doRslt_wrk_nm_NE(info);
-		else if (ne == columnRslt_rcpt_dt) doRslt_rcpt_dt_NE(info);
-		else if (ne == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NE(info);
-		else if (ne == columnRslt_can_flg) doRslt_can_flg_NE(info);
-		else if (ne == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NE(info);
+		else if (ne == columnRslt_prd_itm_cd) doRslt_prd_itm_cd_NE(info);
+		else if (ne == columnRslt_prd_itm_nm) doRslt_prd_itm_nm_NE(info);
+		else if (ne == columnRslt_order_dlv_dt) doRslt_order_dlv_dt_NE(info);
+		else if (ne == columnRslt_pst_inst_sls_dt) doRslt_pst_inst_sls_dt_NE(info);
 	}
 
 	/**
@@ -5048,11 +5119,19 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_prnt_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[deal_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_prnt_dt_NE(MCEventInfo info){
+	public void doRslt_deal_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[deal_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_deal_nm_NE(MCEventInfo info){
 	}
 
 	/**
@@ -5072,27 +5151,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_cd_NE(MCEventInfo info){
+	public void doRslt_bill_cst_cd_NE(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_nm_NE(MCEventInfo info){
+	public void doRslt_bill_cst_nm_NE(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[sls_dpt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_frcst_dpt_cd_NE(MCEventInfo info){
+	public void doRslt_sls_dpt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[sls_dpt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_sls_dpt_nm_NE(MCEventInfo info){
 	}
 
 	/**
@@ -5128,35 +5215,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[rcpt_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_rcpt_dt_NE(MCEventInfo info){
+	public void doRslt_prd_itm_cd_NE(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_slip_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_slip_no_NE(MCEventInfo info){
+	public void doRslt_prd_itm_nm_NE(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[order_dlv_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_flg_NE(MCEventInfo info){
+	public void doRslt_order_dlv_dt_NE(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[pst_inst_sls_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_rsn_cd_NE(MCEventInfo info){
+	public void doRslt_pst_inst_sls_dt_NE(MCEventInfo info){
 	}
 
 	/**
@@ -5213,20 +5300,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nx == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_NX(info);
 		else if (nx == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_NX(info);
 		else if (nx == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_NX(info);
-		else if (nx == columnRslt_cst_frcst_prnt_dt) doRslt_cst_frcst_prnt_dt_NX(info);
+		else if (nx == columnRslt_deal_cd) doRslt_deal_cd_NX(info);
+		else if (nx == columnRslt_deal_nm) doRslt_deal_nm_NX(info);
 		else if (nx == columnRslt_cst_cd) doRslt_cst_cd_NX(info);
 		else if (nx == columnRslt_cst_nm) doRslt_cst_nm_NX(info);
-		else if (nx == columnRslt_dlv_cd) doRslt_dlv_cd_NX(info);
-		else if (nx == columnRslt_dlv_nm) doRslt_dlv_nm_NX(info);
-		else if (nx == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NX(info);
+		else if (nx == columnRslt_bill_cst_cd) doRslt_bill_cst_cd_NX(info);
+		else if (nx == columnRslt_bill_cst_nm) doRslt_bill_cst_nm_NX(info);
+		else if (nx == columnRslt_sls_dpt_cd) doRslt_sls_dpt_cd_NX(info);
+		else if (nx == columnRslt_sls_dpt_nm) doRslt_sls_dpt_nm_NX(info);
 		else if (nx == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NX(info);
 		else if (nx == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NX(info);
 		else if (nx == columnRslt_wrk_no) doRslt_wrk_no_NX(info);
 		else if (nx == columnRslt_wrk_nm) doRslt_wrk_nm_NX(info);
-		else if (nx == columnRslt_rcpt_dt) doRslt_rcpt_dt_NX(info);
-		else if (nx == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NX(info);
-		else if (nx == columnRslt_can_flg) doRslt_can_flg_NX(info);
-		else if (nx == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NX(info);
+		else if (nx == columnRslt_prd_itm_cd) doRslt_prd_itm_cd_NX(info);
+		else if (nx == columnRslt_prd_itm_nm) doRslt_prd_itm_nm_NX(info);
+		else if (nx == columnRslt_order_dlv_dt) doRslt_order_dlv_dt_NX(info);
+		else if (nx == columnRslt_pst_inst_sls_dt) doRslt_pst_inst_sls_dt_NX(info);
 	}
 
 	/**
@@ -5598,11 +5687,19 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_prnt_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[deal_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_prnt_dt_NX(MCEventInfo info){
+	public void doRslt_deal_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[deal_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_deal_nm_NX(MCEventInfo info){
 	}
 
 	/**
@@ -5622,27 +5719,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_cd_NX(MCEventInfo info){
+	public void doRslt_bill_cst_cd_NX(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_nm]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_nm_NX(MCEventInfo info){
+	public void doRslt_bill_cst_nm_NX(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[sls_dpt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_frcst_dpt_cd_NX(MCEventInfo info){
+	public void doRslt_sls_dpt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[sls_dpt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_sls_dpt_nm_NX(MCEventInfo info){
 	}
 
 	/**
@@ -5678,35 +5783,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[rcpt_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_rcpt_dt_NX(MCEventInfo info){
+	public void doRslt_prd_itm_cd_NX(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_slip_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_nm]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_slip_no_NX(MCEventInfo info){
+	public void doRslt_prd_itm_nm_NX(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[order_dlv_dt]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_flg_NX(MCEventInfo info){
+	public void doRslt_order_dlv_dt_NX(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[pst_inst_sls_dt]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_rsn_cd_NX(MCEventInfo info){
+	public void doRslt_pst_inst_sls_dt_NX(MCEventInfo info){
 	}
 
 	/**
@@ -5755,19 +5860,22 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (lc == Cnd_dtl_sub_char2) doCnd_dtl_sub_char2_LC(info);
 		else if (lc == Cnd_dtl_sub_char3) doCnd_dtl_sub_char3_LC(info);
 		else if (lc == columnRslt_cst_frcst_no) doRslt_cst_frcst_no_LC(info);
-		else if (lc == columnRslt_cst_frcst_prnt_dt) doRslt_cst_frcst_prnt_dt_LC(info);
+		else if (lc == columnRslt_deal_cd) doRslt_deal_cd_LC(info);
+		else if (lc == columnRslt_deal_nm) doRslt_deal_nm_LC(info);
 		else if (lc == columnRslt_cst_cd) doRslt_cst_cd_LC(info);
 		else if (lc == columnRslt_cst_nm) doRslt_cst_nm_LC(info);
-		else if (lc == columnRslt_dlv_cd) doRslt_dlv_cd_LC(info);
-		else if (lc == columnRslt_dlv_nm) doRslt_dlv_nm_LC(info);
-		else if (lc == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_LC(info);
+		else if (lc == columnRslt_bill_cst_cd) doRslt_bill_cst_cd_LC(info);
+		else if (lc == columnRslt_bill_cst_nm) doRslt_bill_cst_nm_LC(info);
+		else if (lc == columnRslt_sls_dpt_cd) doRslt_sls_dpt_cd_LC(info);
+		else if (lc == columnRslt_sls_dpt_nm) doRslt_sls_dpt_nm_LC(info);
 		else if (lc == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_LC(info);
 		else if (lc == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_LC(info);
 		else if (lc == columnRslt_wrk_no) doRslt_wrk_no_LC(info);
 		else if (lc == columnRslt_wrk_nm) doRslt_wrk_nm_LC(info);
-		else if (lc == columnRslt_rcpt_dt) doRslt_rcpt_dt_LC(info);
-		else if (lc == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_LC(info);
-		else if (lc == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_LC(info);
+		else if (lc == columnRslt_prd_itm_cd) doRslt_prd_itm_cd_LC(info);
+		else if (lc == columnRslt_prd_itm_nm) doRslt_prd_itm_nm_LC(info);
+		else if (lc == columnRslt_order_dlv_dt) doRslt_order_dlv_dt_LC(info);
+		else if (lc == columnRslt_pst_inst_sls_dt) doRslt_pst_inst_sls_dt_LC(info);
 	}
 
 	/**
@@ -6075,11 +6183,19 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_prnt_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[deal_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_prnt_dt_LC(MCEventInfo info){
+	public void doRslt_deal_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[deal_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_deal_nm_LC(MCEventInfo info){
 	}
 
 	/**
@@ -6099,27 +6215,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_cd_LC(MCEventInfo info){
+	public void doRslt_bill_cst_cd_LC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[dlv_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[bill_cst_nm]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_dlv_nm_LC(MCEventInfo info){
+	public void doRslt_bill_cst_nm_LC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[sls_dpt_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_frcst_dpt_cd_LC(MCEventInfo info){
+	public void doRslt_sls_dpt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[sls_dpt_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_sls_dpt_nm_LC(MCEventInfo info){
 	}
 
 	/**
@@ -6155,27 +6279,35 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[rcpt_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_rcpt_dt_LC(MCEventInfo info){
+	public void doRslt_prd_itm_cd_LC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[cst_frcst_slip_no]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[prd_itm_nm]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_cst_frcst_slip_no_LC(MCEventInfo info){
+	public void doRslt_prd_itm_nm_LC(MCEventInfo info){
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Rslt]パネルの[order_dlv_dt]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doRslt_can_rsn_cd_LC(MCEventInfo info){
+	public void doRslt_order_dlv_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[pst_inst_sls_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_pst_inst_sls_dt_LC(MCEventInfo info){
 	}
 
 	/**
