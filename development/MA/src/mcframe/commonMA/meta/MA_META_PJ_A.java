@@ -2518,6 +2518,9 @@ abstract public class MA_META_PJ_A extends mcframe.commonMA.meta.MA_META_MC_A{
 	 * <tr>
 	 * 	<td bgcolor="#cccccc">桁</td><td>15</td>
 	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
 	 * </table>
 	 */
 	public static final MCMeta ZOHO_SLS_SCHD_NO = MCMeta.createStringMeta("ZOHO_SLS_SCHD_NO", "", 15);
@@ -2532,9 +2535,63 @@ abstract public class MA_META_PJ_A extends mcframe.commonMA.meta.MA_META_MC_A{
 	 * <tr>
 	 * 	<td bgcolor="#cccccc">桁</td><td>100</td>
 	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
 	 * </table>
 	 */
 	public static final MCMeta INS_LOC_CD = MCMeta.createStringMeta("INS_LOC_CD", "", 100);
+
+	/**
+	 * 商談ＣＤ.<p>
+	 *
+	 * <table border=1 cellspacing=0 cellpadding=2 >
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">型</td><td>String</td>
+	 * </tr>
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">桁</td><td>100</td>
+	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
+	 * </table>
+	 */
+	public static final MCMeta DEAL_CD = MCMeta.createStringMeta("DEAL_CD", "", 100);
+
+	/**
+	 * 商談名.<p>
+	 *
+	 * <table border=1 cellspacing=0 cellpadding=2 >
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">型</td><td>String</td>
+	 * </tr>
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">桁</td><td>100</td>
+	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
+	 * </table>
+	 */
+	public static final MCMeta DEAL_NM = MCMeta.createStringMeta("DEAL_NM", "", 100);
+
+	/**
+	 * ＺＯＨＯ販売予定枝番.<p>
+	 *
+	 * <table border=1 cellspacing=0 cellpadding=2 >
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">型</td><td>String</td>
+	 * </tr>
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">桁</td><td>5</td>
+	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
+	 * </table>
+	 */
+	public static final MCMeta ZOHO_SLS_SCHD_BR_NO = MCMeta.createStringMeta("ZOHO_SLS_SCHD_BR_NO", "", 5);
 
 }
 
