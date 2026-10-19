@@ -502,45 +502,40 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	public MCTable2<mcframe.clientMSBB.MSBBPA0010.RsltR> RsltTable = null;
 	// [Rslt]ブロックの項目のField定義
 	/**
-	 * Sales forecast No. 顧客期間内示ＮＯ.<p>
+	 * Zoho sales schedule No. ＺＯＨＯ販売予定ＮＯ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_cst_frcst_no = null;
 	/**
-	 * Customer forecast list issue date 得意先内示書発行日.<p>
+	 * Deal cd. 商談ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_cst_frcst_prnt_dt = null;
 	/**
-	 * Customer cd. 得意先ＣＤ.<p>
+	 * Deal name 商談名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_cst_cd = null;
 	/**
-	 * Customer name 得意先名.<p>
+	 * Customer cd. 得意先ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_cst_nm = null;
 	/**
-	 * Delivery destination cd. 納品先ＣＤ.<p>
+	 * Customer name 得意先名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_dlv_cd = null;
 	/**
-	 * Delivery destination name 納品先名.<p>
+	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_dlv_nm = null;
 	/**
-	 * Dept. in charge cd. 担当部門ＣＤ.<p>
+	 * Sales dept. name 売上部門名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_frcst_dpt_cd = null;
-	/**
-	 * Dept. in charge name 担当部門名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_dpt_nm = null;
 	/**
 	 * PIC cd. 担当者ＣＤ.<p>
 	 *
@@ -552,361 +547,38 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	public MCColumnConfig columnRslt_frcst_usr_nm = null;
 	/**
-	 * Sales project No. 案件ＮＯ.<p>
+	 * Market cd. 市場ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_wrk_no = null;
 	/**
-	 * Sales project name 案件名.<p>
+	 * Market name 市場名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_wrk_nm = null;
 	/**
-	 * Receiving date 受付日.<p>
+	 * Receiving date 製品ＣＤ.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_rcpt_dt = null;
 	/**
-	 * Customer forecast list No. 得意先内示書ＮＯ.<p>
+	 * Customer forecast list No. 製品名.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_cst_frcst_slip_no = null;
 	/**
-	 * Cancel 取消.<p>
+	 * Cancel 注文書納期.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_can_flg = null;
 	/**
-	 * Canceling reason cd. 取消理由ＣＤ.<p>
+	 * Canceling reason cd. 装備後売上日.<p>
 	 *
 	 */
 	public MCColumnConfig columnRslt_can_rsn_cd = null;
-	/**
-	 * Canceling reason name 取消理由名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_can_rsn_nm = null;
-	/**
-	 * Cancel remarks 取消備考.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_can_rmrks = null;
-	/**
-	 * Internal remarks 内部備考.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_intr_rmrks = null;
-	/**
-	 * Spare 1 予備１.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_sub_char1 = null;
-	/**
-	 * Spare 2 予備２.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_sub_char2 = null;
-	/**
-	 * Spare 3 予備３.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_sub_char3 = null;
-	/**
-	 * Firm 確定.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_fix_flg = null;
-	/**
-	 * Customer item cd. 得意先品目ＣＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_cst_itm_cd = null;
-	/**
-	 * Customer item name 得意先品名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_cst_itm_nm = null;
-	public mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D Rslt_itm_p_PPanel;
-	public MCColumnConfig columnRslt_itm_cd;// [Rslt]の[itm_p.itm_cd]を[columnRslt_itm_cd]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_sub1;// [Rslt]の[itm_p.itm_sub1]を[columnRslt_itm_sub1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_sub2;// [Rslt]の[itm_p.itm_sub2]を[columnRslt_itm_sub2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_sub3;// [Rslt]の[itm_p.itm_sub3]を[columnRslt_itm_sub3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_nm;// [Rslt]の[itm_p.itm_nm]を[columnRslt_itm_nm]としてエイリアス定義。
-	/**
-	 * Forecast period type 内示期間区分.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_period_typ = null;
-	/**
-	 * Forecast period type name 内示期間区分名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_period_typ_nm = null;
-	/**
-	 * Forecast period start date 内示期間開始日.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_st_dt = null;
-	/**
-	 * Forecast period end date 内示期間終了日.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_end_dt = null;
-	/**
-	 * Forecast period 内示期間.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_dt = null;
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_trd_qty_p_PPanel;
-	public MCColumnConfig columnRslt_trd_unit_qty;// [Rslt]の[trd_qty_p.qty]を[columnRslt_trd_unit_qty]としてエイリアス定義。
-	/**
-	 * Transaction unit cd. 取引単位ＣＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_trd_unit_cd = null;
-	/**
-	 * Transaction unit name 取引単位名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_trd_unit_nm = null;
-	/**
-	 * Transaction unit number of decimal places 取引単位小数部有効桁数.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_qty_dec_place = null;
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_base_qty_p_PPanel;
-	public MCColumnConfig columnRslt_base_unit_qty;// [Rslt]の[base_qty_p.qty]を[columnRslt_base_unit_qty]としてエイリアス定義。
-	/**
-	 * Base unit cd. 基準単位ＣＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_base_unit_cd = null;
-	/**
-	 * Base unit name 基準単位名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_base_unit_nm = null;
-	/**
-	 * Base unit number of decimal places 基準単位小数部有効桁数.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_base_qty_dec_place = null;
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_last_qty_p_PPanel;
-	public MCColumnConfig columnRslt_last_qty;// [Rslt]の[last_qty_p.qty]を[columnRslt_last_qty]としてエイリアス定義。
-	/**
-	 * Last customer forecast list issue date 前回得意先内示書発行日.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_last_cst_frcst_prnt_dt = null;
-	/**
-	 * Last reception date 前回受付日.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_last_rcpt_dt = null;
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_spln_qty_p_PPanel;
-	public MCColumnConfig columnRslt_spln_qty;// [Rslt]の[spln_qty_p.qty]を[columnRslt_spln_qty]としてエイリアス定義。
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_slo_qty_p_PPanel;
-	public MCColumnConfig columnRslt_slo_qty;// [Rslt]の[slo_qty_p.qty]を[columnRslt_slo_qty]としてエイリアス定義。
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_mly_net_frcst_qty_p_PPanel;
-	public MCColumnConfig columnRslt_mly_net_frcst_qty;// [Rslt]の[mly_net_frcst_qty_p.qty]を[columnRslt_mly_net_frcst_qty]としてエイリアス定義。
-	/**
-	 * GI source location cd. 出庫元場所ＣＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_gi_loc_cd = null;
-	/**
-	 * GI source location name 出庫元場所名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_gi_loc_nm = null;
-	/**
-	 * Customer forecast list details No. 得意先内示書明細ＮＯ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_cst_frcst_slip_d_no = null;
-	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Rslt_prms_qty_p_PPanel;
-	public MCColumnConfig columnRslt_prms_qty;// [Rslt]の[prms_qty_p.qty]を[columnRslt_prms_qty]としてエイリアス定義。
-	/**
-	 * Lower priority 下位優先.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_frcst_stop_flg = null;
-	/**
-	 * Display order 表示順.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_disp_seq = null;
-	/**
-	 * Details internal remarks 明細内部備考.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_dtl_intr_rmrks = null;
-	/**
-	 * Details spare 1 明細予備１.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_dtl_sub_char1 = null;
-	/**
-	 * Details spare 2 明細予備２.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_dtl_sub_char2 = null;
-	/**
-	 * Details spare 3 明細予備３.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_dtl_sub_char3 = null;
-	/**
-	 * Item type 品目区分.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_itm_typ = null;
-	/**
-	 * Item type name 品目区分名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_itm_typ_nm = null;
-	/**
-	 * Item type details cd. 品目区分詳細ＣＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_itm_typ_d_cd = null;
-	/**
-	 * Item type details name 品目区分詳細名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_itm_typ_d_nm = null;
-	/**
-	 * Sales forecast details No. 顧客期間内示明細ＮＯ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_cst_frcst_d_no = null;
-	public mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D Rslt_dlv_grp_p_PPanel;
-	public MCColumnConfig columnRslt_dlv_grp_cd1;// [Rslt]の[dlv_grp_p.bp_grp_cd1]を[columnRslt_dlv_grp_cd1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm1;// [Rslt]の[dlv_grp_p.bp_grp_nm1]を[columnRslt_dlv_grp_nm1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd2;// [Rslt]の[dlv_grp_p.bp_grp_cd2]を[columnRslt_dlv_grp_cd2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm2;// [Rslt]の[dlv_grp_p.bp_grp_nm2]を[columnRslt_dlv_grp_nm2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd3;// [Rslt]の[dlv_grp_p.bp_grp_cd3]を[columnRslt_dlv_grp_cd3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm3;// [Rslt]の[dlv_grp_p.bp_grp_nm3]を[columnRslt_dlv_grp_nm3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd4;// [Rslt]の[dlv_grp_p.bp_grp_cd4]を[columnRslt_dlv_grp_cd4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm4;// [Rslt]の[dlv_grp_p.bp_grp_nm4]を[columnRslt_dlv_grp_nm4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd5;// [Rslt]の[dlv_grp_p.bp_grp_cd5]を[columnRslt_dlv_grp_cd5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm5;// [Rslt]の[dlv_grp_p.bp_grp_nm5]を[columnRslt_dlv_grp_nm5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd6;// [Rslt]の[dlv_grp_p.bp_grp_cd6]を[columnRslt_dlv_grp_cd6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm6;// [Rslt]の[dlv_grp_p.bp_grp_nm6]を[columnRslt_dlv_grp_nm6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd7;// [Rslt]の[dlv_grp_p.bp_grp_cd7]を[columnRslt_dlv_grp_cd7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm7;// [Rslt]の[dlv_grp_p.bp_grp_nm7]を[columnRslt_dlv_grp_nm7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd8;// [Rslt]の[dlv_grp_p.bp_grp_cd8]を[columnRslt_dlv_grp_cd8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm8;// [Rslt]の[dlv_grp_p.bp_grp_nm8]を[columnRslt_dlv_grp_nm8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd9;// [Rslt]の[dlv_grp_p.bp_grp_cd9]を[columnRslt_dlv_grp_cd9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm9;// [Rslt]の[dlv_grp_p.bp_grp_nm9]を[columnRslt_dlv_grp_nm9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_cd10;// [Rslt]の[dlv_grp_p.bp_grp_cd10]を[columnRslt_dlv_grp_cd10]としてエイリアス定義。
-	public MCColumnConfig columnRslt_dlv_grp_nm10;// [Rslt]の[dlv_grp_p.bp_grp_nm10]を[columnRslt_dlv_grp_nm10]としてエイリアス定義。
-	public mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D Rslt_cst_grp_p_PPanel;
-	public MCColumnConfig columnRslt_cst_grp_cd1;// [Rslt]の[cst_grp_p.bp_grp_cd1]を[columnRslt_cst_grp_cd1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm1;// [Rslt]の[cst_grp_p.bp_grp_nm1]を[columnRslt_cst_grp_nm1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd2;// [Rslt]の[cst_grp_p.bp_grp_cd2]を[columnRslt_cst_grp_cd2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm2;// [Rslt]の[cst_grp_p.bp_grp_nm2]を[columnRslt_cst_grp_nm2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd3;// [Rslt]の[cst_grp_p.bp_grp_cd3]を[columnRslt_cst_grp_cd3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm3;// [Rslt]の[cst_grp_p.bp_grp_nm3]を[columnRslt_cst_grp_nm3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd4;// [Rslt]の[cst_grp_p.bp_grp_cd4]を[columnRslt_cst_grp_cd4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm4;// [Rslt]の[cst_grp_p.bp_grp_nm4]を[columnRslt_cst_grp_nm4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd5;// [Rslt]の[cst_grp_p.bp_grp_cd5]を[columnRslt_cst_grp_cd5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm5;// [Rslt]の[cst_grp_p.bp_grp_nm5]を[columnRslt_cst_grp_nm5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd6;// [Rslt]の[cst_grp_p.bp_grp_cd6]を[columnRslt_cst_grp_cd6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm6;// [Rslt]の[cst_grp_p.bp_grp_nm6]を[columnRslt_cst_grp_nm6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd7;// [Rslt]の[cst_grp_p.bp_grp_cd7]を[columnRslt_cst_grp_cd7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm7;// [Rslt]の[cst_grp_p.bp_grp_nm7]を[columnRslt_cst_grp_nm7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd8;// [Rslt]の[cst_grp_p.bp_grp_cd8]を[columnRslt_cst_grp_cd8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm8;// [Rslt]の[cst_grp_p.bp_grp_nm8]を[columnRslt_cst_grp_nm8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd9;// [Rslt]の[cst_grp_p.bp_grp_cd9]を[columnRslt_cst_grp_cd9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm9;// [Rslt]の[cst_grp_p.bp_grp_nm9]を[columnRslt_cst_grp_nm9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_cd10;// [Rslt]の[cst_grp_p.bp_grp_cd10]を[columnRslt_cst_grp_cd10]としてエイリアス定義。
-	public MCColumnConfig columnRslt_cst_grp_nm10;// [Rslt]の[cst_grp_p.bp_grp_nm10]を[columnRslt_cst_grp_nm10]としてエイリアス定義。
-	public mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D Rslt_itm_grp_p_PPanel;
-	public MCColumnConfig columnRslt_itm_grp_cd1;// [Rslt]の[itm_grp_p.itm_grp_cd1]を[columnRslt_itm_grp_cd1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm1;// [Rslt]の[itm_grp_p.itm_grp_nm1]を[columnRslt_itm_grp_nm1]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd2;// [Rslt]の[itm_grp_p.itm_grp_cd2]を[columnRslt_itm_grp_cd2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm2;// [Rslt]の[itm_grp_p.itm_grp_nm2]を[columnRslt_itm_grp_nm2]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd3;// [Rslt]の[itm_grp_p.itm_grp_cd3]を[columnRslt_itm_grp_cd3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm3;// [Rslt]の[itm_grp_p.itm_grp_nm3]を[columnRslt_itm_grp_nm3]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd4;// [Rslt]の[itm_grp_p.itm_grp_cd4]を[columnRslt_itm_grp_cd4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm4;// [Rslt]の[itm_grp_p.itm_grp_nm4]を[columnRslt_itm_grp_nm4]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd5;// [Rslt]の[itm_grp_p.itm_grp_cd5]を[columnRslt_itm_grp_cd5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm5;// [Rslt]の[itm_grp_p.itm_grp_nm5]を[columnRslt_itm_grp_nm5]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd6;// [Rslt]の[itm_grp_p.itm_grp_cd6]を[columnRslt_itm_grp_cd6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm6;// [Rslt]の[itm_grp_p.itm_grp_nm6]を[columnRslt_itm_grp_nm6]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd7;// [Rslt]の[itm_grp_p.itm_grp_cd7]を[columnRslt_itm_grp_cd7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm7;// [Rslt]の[itm_grp_p.itm_grp_nm7]を[columnRslt_itm_grp_nm7]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd8;// [Rslt]の[itm_grp_p.itm_grp_cd8]を[columnRslt_itm_grp_cd8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm8;// [Rslt]の[itm_grp_p.itm_grp_nm8]を[columnRslt_itm_grp_nm8]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd9;// [Rslt]の[itm_grp_p.itm_grp_cd9]を[columnRslt_itm_grp_cd9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm9;// [Rslt]の[itm_grp_p.itm_grp_nm9]を[columnRslt_itm_grp_nm9]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_cd10;// [Rslt]の[itm_grp_p.itm_grp_cd10]を[columnRslt_itm_grp_cd10]としてエイリアス定義。
-	public MCColumnConfig columnRslt_itm_grp_nm10;// [Rslt]の[itm_grp_p.itm_grp_nm10]を[columnRslt_itm_grp_nm10]としてエイリアス定義。
-	/**
-	 * Entry user ID 登録ユーザＩＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_ins_usr_id = null;
-	/**
-	 * Entry user name 登録ユーザ名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_ins_usr_nm = null;
-	/**
-	 * Entry function ID 登録機能ＩＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_ins_func_id = null;
-	/**
-	 * Entry function name 登録機能名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_ins_func_nm = null;
-	/**
-	 * Entry date and time 登録日時.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_ins_ts = null;
-	/**
-	 * Update user ID 更新ユーザＩＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_usr_id = null;
-	/**
-	 * Update user name 更新ユーザ名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_usr_nm = null;
-	/**
-	 * Update function ID 更新機能ＩＤ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_func_id = null;
-	/**
-	 * Update function name 更新機能名.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_func_nm = null;
-	/**
-	 * Update date and time 更新日時.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_ts = null;
-	/**
-	 * Update request No. 更新リクエストＮＯ.<p>
-	 *
-	 */
-	public MCColumnConfig columnRslt_upd_srv_req_no = null;
 	// [Btn]ブロック関連のField定義
 	public MCPanel BtnPanel = null;
 	// [Btn]ブロックの項目のField定義
-	/**
-	 * Sales forecast entry 顧客期間内示登録.<p>
-	 *
-	 */
-	public MCButton Btn_open_MSBBP0010 = null;
 	/**
 	 * Sales order entry 受注登録.<p>
 	 *
@@ -1500,172 +1172,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [Rslt]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateRslt(MSBBPA_SlsSchdSrch p) {
-		p.Rslt_itm_p_PPanel = mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$itm_p);
-		p.Rslt_itm_p_PPanel.setName("Rslt.itm_p");
-		p.columnRslt_itm_cd = p.Rslt_itm_p_PPanel.columnItm_itm_cd;
-		p.columnRslt_itm_cd.addAliasName("Rslt.itm_cd", p);
-		p.columnRslt_itm_sub1 = p.Rslt_itm_p_PPanel.columnItm_itm_sub1;
-		p.columnRslt_itm_sub1.addAliasName("Rslt.itm_sub1", p);
-		p.columnRslt_itm_sub2 = p.Rslt_itm_p_PPanel.columnItm_itm_sub2;
-		p.columnRslt_itm_sub2.addAliasName("Rslt.itm_sub2", p);
-		p.columnRslt_itm_sub3 = p.Rslt_itm_p_PPanel.columnItm_itm_sub3;
-		p.columnRslt_itm_sub3.addAliasName("Rslt.itm_sub3", p);
-		p.columnRslt_itm_nm = p.Rslt_itm_p_PPanel.columnItm_itm_nm;
-		p.columnRslt_itm_nm.addAliasName("Rslt.itm_nm", p);
-		p.Rslt_trd_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$trd_qty_p);
-		p.Rslt_trd_qty_p_PPanel.setName("Rslt.trd_qty_p");
-		p.columnRslt_trd_unit_qty = p.Rslt_trd_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_trd_unit_qty.addAliasName("Rslt.trd_unit_qty", p);
-		p.Rslt_base_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$base_qty_p);
-		p.Rslt_base_qty_p_PPanel.setName("Rslt.base_qty_p");
-		p.columnRslt_base_unit_qty = p.Rslt_base_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_base_unit_qty.addAliasName("Rslt.base_unit_qty", p);
-		p.Rslt_last_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$last_qty_p);
-		p.Rslt_last_qty_p_PPanel.setName("Rslt.last_qty_p");
-		p.columnRslt_last_qty = p.Rslt_last_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_last_qty.addAliasName("Rslt.last_qty", p);
-		p.Rslt_spln_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$spln_qty_p);
-		p.Rslt_spln_qty_p_PPanel.setName("Rslt.spln_qty_p");
-		p.columnRslt_spln_qty = p.Rslt_spln_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_spln_qty.addAliasName("Rslt.spln_qty", p);
-		p.Rslt_slo_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$slo_qty_p);
-		p.Rslt_slo_qty_p_PPanel.setName("Rslt.slo_qty_p");
-		p.columnRslt_slo_qty = p.Rslt_slo_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_slo_qty.addAliasName("Rslt.slo_qty", p);
-		p.Rslt_mly_net_frcst_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$mly_net_frcst_qty_p);
-		p.Rslt_mly_net_frcst_qty_p_PPanel.setName("Rslt.mly_net_frcst_qty_p");
-		p.columnRslt_mly_net_frcst_qty = p.Rslt_mly_net_frcst_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_mly_net_frcst_qty.addAliasName("Rslt.mly_net_frcst_qty", p);
-		p.Rslt_prms_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$prms_qty_p);
-		p.Rslt_prms_qty_p_PPanel.setName("Rslt.prms_qty_p");
-		p.columnRslt_prms_qty = p.Rslt_prms_qty_p_PPanel.columnQty_qty;
-		p.columnRslt_prms_qty.addAliasName("Rslt.prms_qty", p);
-		p.Rslt_dlv_grp_p_PPanel = mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$dlv_grp_p);
-		p.Rslt_dlv_grp_p_PPanel.setName("Rslt.dlv_grp_p");
-		p.columnRslt_dlv_grp_cd1 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd1;
-		p.columnRslt_dlv_grp_cd1.addAliasName("Rslt.dlv_grp_cd1", p);
-		p.columnRslt_dlv_grp_nm1 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm1;
-		p.columnRslt_dlv_grp_nm1.addAliasName("Rslt.dlv_grp_nm1", p);
-		p.columnRslt_dlv_grp_cd2 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd2;
-		p.columnRslt_dlv_grp_cd2.addAliasName("Rslt.dlv_grp_cd2", p);
-		p.columnRslt_dlv_grp_nm2 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm2;
-		p.columnRslt_dlv_grp_nm2.addAliasName("Rslt.dlv_grp_nm2", p);
-		p.columnRslt_dlv_grp_cd3 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd3;
-		p.columnRslt_dlv_grp_cd3.addAliasName("Rslt.dlv_grp_cd3", p);
-		p.columnRslt_dlv_grp_nm3 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm3;
-		p.columnRslt_dlv_grp_nm3.addAliasName("Rslt.dlv_grp_nm3", p);
-		p.columnRslt_dlv_grp_cd4 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd4;
-		p.columnRslt_dlv_grp_cd4.addAliasName("Rslt.dlv_grp_cd4", p);
-		p.columnRslt_dlv_grp_nm4 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm4;
-		p.columnRslt_dlv_grp_nm4.addAliasName("Rslt.dlv_grp_nm4", p);
-		p.columnRslt_dlv_grp_cd5 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd5;
-		p.columnRslt_dlv_grp_cd5.addAliasName("Rslt.dlv_grp_cd5", p);
-		p.columnRslt_dlv_grp_nm5 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm5;
-		p.columnRslt_dlv_grp_nm5.addAliasName("Rslt.dlv_grp_nm5", p);
-		p.columnRslt_dlv_grp_cd6 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd6;
-		p.columnRslt_dlv_grp_cd6.addAliasName("Rslt.dlv_grp_cd6", p);
-		p.columnRslt_dlv_grp_nm6 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm6;
-		p.columnRslt_dlv_grp_nm6.addAliasName("Rslt.dlv_grp_nm6", p);
-		p.columnRslt_dlv_grp_cd7 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd7;
-		p.columnRslt_dlv_grp_cd7.addAliasName("Rslt.dlv_grp_cd7", p);
-		p.columnRslt_dlv_grp_nm7 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm7;
-		p.columnRslt_dlv_grp_nm7.addAliasName("Rslt.dlv_grp_nm7", p);
-		p.columnRslt_dlv_grp_cd8 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd8;
-		p.columnRslt_dlv_grp_cd8.addAliasName("Rslt.dlv_grp_cd8", p);
-		p.columnRslt_dlv_grp_nm8 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm8;
-		p.columnRslt_dlv_grp_nm8.addAliasName("Rslt.dlv_grp_nm8", p);
-		p.columnRslt_dlv_grp_cd9 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd9;
-		p.columnRslt_dlv_grp_cd9.addAliasName("Rslt.dlv_grp_cd9", p);
-		p.columnRslt_dlv_grp_nm9 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm9;
-		p.columnRslt_dlv_grp_nm9.addAliasName("Rslt.dlv_grp_nm9", p);
-		p.columnRslt_dlv_grp_cd10 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_cd10;
-		p.columnRslt_dlv_grp_cd10.addAliasName("Rslt.dlv_grp_cd10", p);
-		p.columnRslt_dlv_grp_nm10 = p.Rslt_dlv_grp_p_PPanel.columnBpGrp_bp_grp_nm10;
-		p.columnRslt_dlv_grp_nm10.addAliasName("Rslt.dlv_grp_nm10", p);
-		p.Rslt_cst_grp_p_PPanel = mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$cst_grp_p);
-		p.Rslt_cst_grp_p_PPanel.setName("Rslt.cst_grp_p");
-		p.columnRslt_cst_grp_cd1 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd1;
-		p.columnRslt_cst_grp_cd1.addAliasName("Rslt.cst_grp_cd1", p);
-		p.columnRslt_cst_grp_nm1 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm1;
-		p.columnRslt_cst_grp_nm1.addAliasName("Rslt.cst_grp_nm1", p);
-		p.columnRslt_cst_grp_cd2 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd2;
-		p.columnRslt_cst_grp_cd2.addAliasName("Rslt.cst_grp_cd2", p);
-		p.columnRslt_cst_grp_nm2 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm2;
-		p.columnRslt_cst_grp_nm2.addAliasName("Rslt.cst_grp_nm2", p);
-		p.columnRslt_cst_grp_cd3 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd3;
-		p.columnRslt_cst_grp_cd3.addAliasName("Rslt.cst_grp_cd3", p);
-		p.columnRslt_cst_grp_nm3 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm3;
-		p.columnRslt_cst_grp_nm3.addAliasName("Rslt.cst_grp_nm3", p);
-		p.columnRslt_cst_grp_cd4 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd4;
-		p.columnRslt_cst_grp_cd4.addAliasName("Rslt.cst_grp_cd4", p);
-		p.columnRslt_cst_grp_nm4 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm4;
-		p.columnRslt_cst_grp_nm4.addAliasName("Rslt.cst_grp_nm4", p);
-		p.columnRslt_cst_grp_cd5 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd5;
-		p.columnRslt_cst_grp_cd5.addAliasName("Rslt.cst_grp_cd5", p);
-		p.columnRslt_cst_grp_nm5 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm5;
-		p.columnRslt_cst_grp_nm5.addAliasName("Rslt.cst_grp_nm5", p);
-		p.columnRslt_cst_grp_cd6 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd6;
-		p.columnRslt_cst_grp_cd6.addAliasName("Rslt.cst_grp_cd6", p);
-		p.columnRslt_cst_grp_nm6 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm6;
-		p.columnRslt_cst_grp_nm6.addAliasName("Rslt.cst_grp_nm6", p);
-		p.columnRslt_cst_grp_cd7 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd7;
-		p.columnRslt_cst_grp_cd7.addAliasName("Rslt.cst_grp_cd7", p);
-		p.columnRslt_cst_grp_nm7 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm7;
-		p.columnRslt_cst_grp_nm7.addAliasName("Rslt.cst_grp_nm7", p);
-		p.columnRslt_cst_grp_cd8 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd8;
-		p.columnRslt_cst_grp_cd8.addAliasName("Rslt.cst_grp_cd8", p);
-		p.columnRslt_cst_grp_nm8 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm8;
-		p.columnRslt_cst_grp_nm8.addAliasName("Rslt.cst_grp_nm8", p);
-		p.columnRslt_cst_grp_cd9 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd9;
-		p.columnRslt_cst_grp_cd9.addAliasName("Rslt.cst_grp_cd9", p);
-		p.columnRslt_cst_grp_nm9 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm9;
-		p.columnRslt_cst_grp_nm9.addAliasName("Rslt.cst_grp_nm9", p);
-		p.columnRslt_cst_grp_cd10 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_cd10;
-		p.columnRslt_cst_grp_cd10.addAliasName("Rslt.cst_grp_cd10", p);
-		p.columnRslt_cst_grp_nm10 = p.Rslt_cst_grp_p_PPanel.columnBpGrp_bp_grp_nm10;
-		p.columnRslt_cst_grp_nm10.addAliasName("Rslt.cst_grp_nm10", p);
-		p.Rslt_itm_grp_p_PPanel = mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.create(mcframe.clientMSBB.MSBBPA0010.RsltR.$itm_grp_p);
-		p.Rslt_itm_grp_p_PPanel.setName("Rslt.itm_grp_p");
-		p.columnRslt_itm_grp_cd1 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd1;
-		p.columnRslt_itm_grp_cd1.addAliasName("Rslt.itm_grp_cd1", p);
-		p.columnRslt_itm_grp_nm1 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm1;
-		p.columnRslt_itm_grp_nm1.addAliasName("Rslt.itm_grp_nm1", p);
-		p.columnRslt_itm_grp_cd2 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd2;
-		p.columnRslt_itm_grp_cd2.addAliasName("Rslt.itm_grp_cd2", p);
-		p.columnRslt_itm_grp_nm2 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm2;
-		p.columnRslt_itm_grp_nm2.addAliasName("Rslt.itm_grp_nm2", p);
-		p.columnRslt_itm_grp_cd3 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd3;
-		p.columnRslt_itm_grp_cd3.addAliasName("Rslt.itm_grp_cd3", p);
-		p.columnRslt_itm_grp_nm3 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm3;
-		p.columnRslt_itm_grp_nm3.addAliasName("Rslt.itm_grp_nm3", p);
-		p.columnRslt_itm_grp_cd4 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd4;
-		p.columnRslt_itm_grp_cd4.addAliasName("Rslt.itm_grp_cd4", p);
-		p.columnRslt_itm_grp_nm4 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm4;
-		p.columnRslt_itm_grp_nm4.addAliasName("Rslt.itm_grp_nm4", p);
-		p.columnRslt_itm_grp_cd5 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd5;
-		p.columnRslt_itm_grp_cd5.addAliasName("Rslt.itm_grp_cd5", p);
-		p.columnRslt_itm_grp_nm5 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm5;
-		p.columnRslt_itm_grp_nm5.addAliasName("Rslt.itm_grp_nm5", p);
-		p.columnRslt_itm_grp_cd6 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd6;
-		p.columnRslt_itm_grp_cd6.addAliasName("Rslt.itm_grp_cd6", p);
-		p.columnRslt_itm_grp_nm6 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm6;
-		p.columnRslt_itm_grp_nm6.addAliasName("Rslt.itm_grp_nm6", p);
-		p.columnRslt_itm_grp_cd7 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd7;
-		p.columnRslt_itm_grp_cd7.addAliasName("Rslt.itm_grp_cd7", p);
-		p.columnRslt_itm_grp_nm7 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm7;
-		p.columnRslt_itm_grp_nm7.addAliasName("Rslt.itm_grp_nm7", p);
-		p.columnRslt_itm_grp_cd8 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd8;
-		p.columnRslt_itm_grp_cd8.addAliasName("Rslt.itm_grp_cd8", p);
-		p.columnRslt_itm_grp_nm8 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm8;
-		p.columnRslt_itm_grp_nm8.addAliasName("Rslt.itm_grp_nm8", p);
-		p.columnRslt_itm_grp_cd9 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd9;
-		p.columnRslt_itm_grp_cd9.addAliasName("Rslt.itm_grp_cd9", p);
-		p.columnRslt_itm_grp_nm9 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm9;
-		p.columnRslt_itm_grp_nm9.addAliasName("Rslt.itm_grp_nm9", p);
-		p.columnRslt_itm_grp_cd10 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd10;
-		p.columnRslt_itm_grp_cd10.addAliasName("Rslt.itm_grp_cd10", p);
-		p.columnRslt_itm_grp_nm10 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_nm10;
-		p.columnRslt_itm_grp_nm10.addAliasName("Rslt.itm_grp_nm10", p);
 	}
 
 	/**
@@ -2120,7 +1626,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_cd = p.beansFactory.createTableColumn("Rslt.dlv_cd", MCColumnType.TEXT);
 		p.columnRslt_dlv_nm = p.beansFactory.createTableColumn("Rslt.dlv_nm", MCColumnType.TEXT);
 		p.columnRslt_frcst_dpt_cd = p.beansFactory.createTableColumn("Rslt.frcst_dpt_cd", MCColumnType.TEXT);
-		p.columnRslt_frcst_dpt_nm = p.beansFactory.createTableColumn("Rslt.frcst_dpt_nm", MCColumnType.TEXT);
 		p.columnRslt_frcst_usr_cd = p.beansFactory.createTableColumn("Rslt.frcst_usr_cd", MCColumnType.TEXT);
 		p.columnRslt_frcst_usr_nm = p.beansFactory.createTableColumn("Rslt.frcst_usr_nm", MCColumnType.TEXT);
 		p.columnRslt_wrk_no = p.beansFactory.createTableColumn("Rslt.wrk_no", MCColumnType.TEXT);
@@ -2129,53 +1634,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_cst_frcst_slip_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_slip_no", MCColumnType.TEXT);
 		p.columnRslt_can_flg = p.beansFactory.createTableColumn("Rslt.can_flg", MCColumnType.CHECK);
 		p.columnRslt_can_rsn_cd = p.beansFactory.createTableColumn("Rslt.can_rsn_cd", MCColumnType.TEXT);
-		p.columnRslt_can_rsn_nm = p.beansFactory.createTableColumn("Rslt.can_rsn_nm", MCColumnType.TEXT);
-		p.columnRslt_can_rmrks = p.beansFactory.createTableColumn("Rslt.can_rmrks", MCColumnType.TEXT);
-		p.columnRslt_intr_rmrks = p.beansFactory.createTableColumn("Rslt.intr_rmrks", MCColumnType.TEXT);
-		p.columnRslt_sub_char1 = p.beansFactory.createTableColumn("Rslt.sub_char1", MCColumnType.TEXT);
-		p.columnRslt_sub_char2 = p.beansFactory.createTableColumn("Rslt.sub_char2", MCColumnType.TEXT);
-		p.columnRslt_sub_char3 = p.beansFactory.createTableColumn("Rslt.sub_char3", MCColumnType.TEXT);
-		p.columnRslt_fix_flg = p.beansFactory.createTableColumn("Rslt.fix_flg", MCColumnType.CHECK);
-		p.columnRslt_cst_itm_cd = p.beansFactory.createTableColumn("Rslt.cst_itm_cd", MCColumnType.TEXT);
-		p.columnRslt_cst_itm_nm = p.beansFactory.createTableColumn("Rslt.cst_itm_nm", MCColumnType.TEXT);
-		p.columnRslt_frcst_period_typ = p.beansFactory.createTableColumn("Rslt.frcst_period_typ", MCColumnType.TEXT);
-		p.columnRslt_frcst_period_typ_nm = p.beansFactory.createTableColumn("Rslt.frcst_period_typ_nm", MCColumnType.TEXT);
-		p.columnRslt_frcst_st_dt = p.beansFactory.createTableColumn("Rslt.frcst_st_dt", MCColumnType.DATE);
-		p.columnRslt_frcst_end_dt = p.beansFactory.createTableColumn("Rslt.frcst_end_dt", MCColumnType.DATE);
-		p.columnRslt_frcst_dt = p.beansFactory.createTableColumn("Rslt.frcst_dt", MCColumnType.DATE);
-		p.columnRslt_trd_unit_cd = p.beansFactory.createTableColumn("Rslt.trd_unit_cd", MCColumnType.TEXT);
-		p.columnRslt_trd_unit_nm = p.beansFactory.createTableColumn("Rslt.trd_unit_nm", MCColumnType.TEXT);
-		p.columnRslt_qty_dec_place = p.beansFactory.createTableColumn("Rslt.qty_dec_place", MCColumnType.NUMBER);
-		p.columnRslt_base_unit_cd = p.beansFactory.createTableColumn("Rslt.base_unit_cd", MCColumnType.TEXT);
-		p.columnRslt_base_unit_nm = p.beansFactory.createTableColumn("Rslt.base_unit_nm", MCColumnType.TEXT);
-		p.columnRslt_base_qty_dec_place = p.beansFactory.createTableColumn("Rslt.base_qty_dec_place", MCColumnType.NUMBER);
-		p.columnRslt_last_cst_frcst_prnt_dt = p.beansFactory.createTableColumn("Rslt.last_cst_frcst_prnt_dt", MCColumnType.DATE);
-		p.columnRslt_last_rcpt_dt = p.beansFactory.createTableColumn("Rslt.last_rcpt_dt", MCColumnType.DATE);
-		p.columnRslt_gi_loc_cd = p.beansFactory.createTableColumn("Rslt.gi_loc_cd", MCColumnType.TEXT);
-		p.columnRslt_gi_loc_nm = p.beansFactory.createTableColumn("Rslt.gi_loc_nm", MCColumnType.TEXT);
-		p.columnRslt_cst_frcst_slip_d_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_slip_d_no", MCColumnType.TEXT);
-		p.columnRslt_frcst_stop_flg = p.beansFactory.createTableColumn("Rslt.frcst_stop_flg", MCColumnType.CHECK);
-		p.columnRslt_disp_seq = p.beansFactory.createTableColumn("Rslt.disp_seq", MCColumnType.NUMBER);
-		p.columnRslt_dtl_intr_rmrks = p.beansFactory.createTableColumn("Rslt.dtl_intr_rmrks", MCColumnType.TEXT);
-		p.columnRslt_dtl_sub_char1 = p.beansFactory.createTableColumn("Rslt.dtl_sub_char1", MCColumnType.TEXT);
-		p.columnRslt_dtl_sub_char2 = p.beansFactory.createTableColumn("Rslt.dtl_sub_char2", MCColumnType.TEXT);
-		p.columnRslt_dtl_sub_char3 = p.beansFactory.createTableColumn("Rslt.dtl_sub_char3", MCColumnType.TEXT);
-		p.columnRslt_itm_typ = p.beansFactory.createTableColumn("Rslt.itm_typ", MCColumnType.TEXT);
-		p.columnRslt_itm_typ_nm = p.beansFactory.createTableColumn("Rslt.itm_typ_nm", MCColumnType.TEXT);
-		p.columnRslt_itm_typ_d_cd = p.beansFactory.createTableColumn("Rslt.itm_typ_d_cd", MCColumnType.TEXT);
-		p.columnRslt_itm_typ_d_nm = p.beansFactory.createTableColumn("Rslt.itm_typ_d_nm", MCColumnType.TEXT);
-		p.columnRslt_cst_frcst_d_no = p.beansFactory.createTableColumn("Rslt.cst_frcst_d_no", MCColumnType.TEXT);
-		p.columnRslt_ins_usr_id = p.beansFactory.createTableColumn("Rslt.ins_usr_id", MCColumnType.TEXT);
-		p.columnRslt_ins_usr_nm = p.beansFactory.createTableColumn("Rslt.ins_usr_nm", MCColumnType.TEXT);
-		p.columnRslt_ins_func_id = p.beansFactory.createTableColumn("Rslt.ins_func_id", MCColumnType.TEXT);
-		p.columnRslt_ins_func_nm = p.beansFactory.createTableColumn("Rslt.ins_func_nm", MCColumnType.TEXT);
-		p.columnRslt_ins_ts = p.beansFactory.createTableColumn("Rslt.ins_ts", MCColumnType.TIMESTAMP);
-		p.columnRslt_upd_usr_id = p.beansFactory.createTableColumn("Rslt.upd_usr_id", MCColumnType.TEXT);
-		p.columnRslt_upd_usr_nm = p.beansFactory.createTableColumn("Rslt.upd_usr_nm", MCColumnType.TEXT);
-		p.columnRslt_upd_func_id = p.beansFactory.createTableColumn("Rslt.upd_func_id", MCColumnType.TEXT);
-		p.columnRslt_upd_func_nm = p.beansFactory.createTableColumn("Rslt.upd_func_nm", MCColumnType.TEXT);
-		p.columnRslt_upd_ts = p.beansFactory.createTableColumn("Rslt.upd_ts", MCColumnType.TIMESTAMP);
-		p.columnRslt_upd_srv_req_no = p.beansFactory.createTableColumn("Rslt.upd_srv_req_no", MCColumnType.TEXT);
 	}
 
 	/**
@@ -2185,7 +1643,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		// ブロック関連の初期化
 		p.BtnPanel = p.beansFactory.createPanel("Btn");
 		// ブロックの項目の初期化
-		p.Btn_open_MSBBP0010 = p.beansFactory.createButton("Btn.open_MSBBP0010", "open");
 		p.Btn_open_MSBBP1210 = p.beansFactory.createButton("Btn.open_MSBBP1210", "open");
 	}
 
@@ -2641,12 +2098,9 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.add(p.BtnPanel);
 		p.BtnPanel.setLayoutPosition("S");
 		// ブロックの項目の初期化
-		p.Btn_open_MSBBP0010.setFunctionKey(MCFunctionKey.F3);
-		p.BtnPanel.add(p.Btn_open_MSBBP0010);
-		p.BtnPanel.setLastBeans(p.Btn_open_MSBBP0010);
-		p.Btn_open_MSBBP0010.setNextBeans(p.Btn_open_MSBBP1210);
 		p.Btn_open_MSBBP1210.setFunctionKey(MCFunctionKey.F4);
 		p.BtnPanel.add(p.Btn_open_MSBBP1210);
+		p.BtnPanel.setLastBeans(p.Btn_open_MSBBP1210);
 	}
 
 	/**
@@ -2949,8 +2403,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_nm.setListListener(p);
 		p.columnRslt_frcst_dpt_cd.addAllListener(p);
 		p.columnRslt_frcst_dpt_cd.setListListener(p);
-		p.columnRslt_frcst_dpt_nm.addAllListener(p);
-		p.columnRslt_frcst_dpt_nm.setListListener(p);
 		p.columnRslt_frcst_usr_cd.addAllListener(p);
 		p.columnRslt_frcst_usr_cd.setListListener(p);
 		p.columnRslt_frcst_usr_nm.addAllListener(p);
@@ -2966,106 +2418,12 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_can_flg.addAllListener(p);
 		p.columnRslt_can_rsn_cd.addAllListener(p);
 		p.columnRslt_can_rsn_cd.setListListener(p);
-		p.columnRslt_can_rsn_nm.addAllListener(p);
-		p.columnRslt_can_rsn_nm.setListListener(p);
-		p.columnRslt_can_rmrks.addAllListener(p);
-		p.columnRslt_can_rmrks.setListListener(p);
-		p.columnRslt_intr_rmrks.addAllListener(p);
-		p.columnRslt_intr_rmrks.setListListener(p);
-		p.columnRslt_sub_char1.addAllListener(p);
-		p.columnRslt_sub_char1.setListListener(p);
-		p.columnRslt_sub_char2.addAllListener(p);
-		p.columnRslt_sub_char2.setListListener(p);
-		p.columnRslt_sub_char3.addAllListener(p);
-		p.columnRslt_sub_char3.setListListener(p);
-		p.columnRslt_fix_flg.addAllListener(p);
-		p.columnRslt_cst_itm_cd.addAllListener(p);
-		p.columnRslt_cst_itm_cd.setListListener(p);
-		p.columnRslt_cst_itm_nm.addAllListener(p);
-		p.columnRslt_cst_itm_nm.setListListener(p);
-		p.columnRslt_frcst_period_typ.addAllListener(p);
-		p.columnRslt_frcst_period_typ.setListListener(p);
-		p.columnRslt_frcst_period_typ_nm.addAllListener(p);
-		p.columnRslt_frcst_period_typ_nm.setListListener(p);
-		p.columnRslt_frcst_st_dt.addAllListener(p);
-		p.columnRslt_frcst_st_dt.setListListener(p);
-		p.columnRslt_frcst_end_dt.addAllListener(p);
-		p.columnRslt_frcst_end_dt.setListListener(p);
-		p.columnRslt_frcst_dt.addAllListener(p);
-		p.columnRslt_frcst_dt.setListListener(p);
-		p.columnRslt_trd_unit_cd.addAllListener(p);
-		p.columnRslt_trd_unit_cd.setListListener(p);
-		p.columnRslt_trd_unit_nm.addAllListener(p);
-		p.columnRslt_trd_unit_nm.setListListener(p);
-		p.columnRslt_qty_dec_place.addAllListener(p);
-		p.columnRslt_qty_dec_place.setListListener(p);
-		p.columnRslt_base_unit_cd.addAllListener(p);
-		p.columnRslt_base_unit_cd.setListListener(p);
-		p.columnRslt_base_unit_nm.addAllListener(p);
-		p.columnRslt_base_unit_nm.setListListener(p);
-		p.columnRslt_base_qty_dec_place.addAllListener(p);
-		p.columnRslt_base_qty_dec_place.setListListener(p);
-		p.columnRslt_last_cst_frcst_prnt_dt.addAllListener(p);
-		p.columnRslt_last_cst_frcst_prnt_dt.setListListener(p);
-		p.columnRslt_last_rcpt_dt.addAllListener(p);
-		p.columnRslt_last_rcpt_dt.setListListener(p);
-		p.columnRslt_gi_loc_cd.addAllListener(p);
-		p.columnRslt_gi_loc_cd.setListListener(p);
-		p.columnRslt_gi_loc_nm.addAllListener(p);
-		p.columnRslt_gi_loc_nm.setListListener(p);
-		p.columnRslt_cst_frcst_slip_d_no.addAllListener(p);
-		p.columnRslt_cst_frcst_slip_d_no.setListListener(p);
-		p.columnRslt_frcst_stop_flg.addAllListener(p);
-		p.columnRslt_disp_seq.addAllListener(p);
-		p.columnRslt_disp_seq.setListListener(p);
-		p.columnRslt_dtl_intr_rmrks.addAllListener(p);
-		p.columnRslt_dtl_intr_rmrks.setListListener(p);
-		p.columnRslt_dtl_sub_char1.addAllListener(p);
-		p.columnRslt_dtl_sub_char1.setListListener(p);
-		p.columnRslt_dtl_sub_char2.addAllListener(p);
-		p.columnRslt_dtl_sub_char2.setListListener(p);
-		p.columnRslt_dtl_sub_char3.addAllListener(p);
-		p.columnRslt_dtl_sub_char3.setListListener(p);
-		p.columnRslt_itm_typ.addAllListener(p);
-		p.columnRslt_itm_typ.setListListener(p);
-		p.columnRslt_itm_typ_nm.addAllListener(p);
-		p.columnRslt_itm_typ_nm.setListListener(p);
-		p.columnRslt_itm_typ_d_cd.addAllListener(p);
-		p.columnRslt_itm_typ_d_cd.setListListener(p);
-		p.columnRslt_itm_typ_d_nm.addAllListener(p);
-		p.columnRslt_itm_typ_d_nm.setListListener(p);
-		p.columnRslt_cst_frcst_d_no.addAllListener(p);
-		p.columnRslt_cst_frcst_d_no.setListListener(p);
-		p.columnRslt_ins_usr_id.addAllListener(p);
-		p.columnRslt_ins_usr_id.setListListener(p);
-		p.columnRslt_ins_usr_nm.addAllListener(p);
-		p.columnRslt_ins_usr_nm.setListListener(p);
-		p.columnRslt_ins_func_id.addAllListener(p);
-		p.columnRslt_ins_func_id.setListListener(p);
-		p.columnRslt_ins_func_nm.addAllListener(p);
-		p.columnRslt_ins_func_nm.setListListener(p);
-		p.columnRslt_ins_ts.addAllListener(p);
-		p.columnRslt_ins_ts.setListListener(p);
-		p.columnRslt_upd_usr_id.addAllListener(p);
-		p.columnRslt_upd_usr_id.setListListener(p);
-		p.columnRslt_upd_usr_nm.addAllListener(p);
-		p.columnRslt_upd_usr_nm.setListListener(p);
-		p.columnRslt_upd_func_id.addAllListener(p);
-		p.columnRslt_upd_func_id.setListListener(p);
-		p.columnRslt_upd_func_nm.addAllListener(p);
-		p.columnRslt_upd_func_nm.setListListener(p);
-		p.columnRslt_upd_ts.addAllListener(p);
-		p.columnRslt_upd_ts.setListListener(p);
-		p.columnRslt_upd_srv_req_no.addAllListener(p);
-		p.columnRslt_upd_srv_req_no.setListListener(p);
 	}
 
 	/**
 	 *  [Btn]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitBtn(MSBBPA_SlsSchdSrch p) {
-		p.Btn_open_MSBBP0010.addAllListener(p);
-		p.Btn_open_MSBBP0010.setAPMethodName("doBtn_open_MSBBP0010");
 		p.Btn_open_MSBBP1210.addAllListener(p);
 		p.Btn_open_MSBBP1210.setAPMethodName("doBtn_open_MSBBP1210");
 	}
@@ -3229,7 +2587,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_dlv_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_dpt_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
@@ -3238,65 +2595,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_cst_frcst_slip_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_can_flg.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 		p.columnRslt_can_rsn_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rmrks.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_intr_rmrks.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char1.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char2.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char3.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_fix_flg.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_itm_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_itm_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.Rslt_itm_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
-		p.columnRslt_frcst_period_typ.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_period_typ_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_st_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_end_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.Rslt_trd_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_trd_unit_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_trd_unit_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_qty_dec_place.putMode(p, SRCH_DTL, MCMode.INVISIBLE);
-		p.Rslt_base_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_base_qty_p_PPanel.columnQty_qty.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_unit_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_unit_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_qty_dec_place.putMode(p, SRCH_DTL, MCMode.INVISIBLE);
-		p.Rslt_last_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_last_cst_frcst_prnt_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_last_rcpt_dt.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.Rslt_spln_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_slo_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_mly_net_frcst_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_gi_loc_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_gi_loc_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_d_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.Rslt_prms_qty_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_frcst_stop_flg.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_disp_seq.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_intr_rmrks.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char1.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char2.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char3.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_d_cd.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_d_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_d_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.Rslt_dlv_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_cst_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_itm_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.READ_ONLY);
-		p.columnRslt_ins_usr_id.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_usr_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_id.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_ts.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_id.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_id.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_nm.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_ts.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_srv_req_no.putMode(p, SRCH_DTL, MCMode.READ_ONLY);
 
 	}
 
@@ -3304,7 +2602,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [SRCH_DTL]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH__DTL_Btn(MSBBPA_SlsSchdSrch p){
-		p.Btn_open_MSBBP0010.putMode(p, SRCH_DTL, MCMode.DISABLE);
 		p.Btn_open_MSBBP1210.putMode(p, SRCH_DTL, MCMode.DISABLE);
 
 	}
@@ -3468,7 +2765,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_dlv_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_dpt_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
@@ -3477,64 +2773,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_cst_frcst_slip_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_can_flg.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 		p.columnRslt_can_rsn_cd.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rmrks.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_intr_rmrks.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char1.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char2.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char3.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_fix_flg.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_itm_cd.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_itm_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_itm_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.INVISIBLE);
-		p.columnRslt_frcst_period_typ.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_period_typ_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_st_dt.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_end_dt.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_dt.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_trd_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_trd_unit_cd.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_trd_unit_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_qty_dec_place.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_base_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_base_unit_cd.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_base_unit_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_base_qty_dec_place.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_last_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_last_cst_frcst_prnt_dt.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_last_rcpt_dt.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_spln_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.Rslt_slo_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.Rslt_mly_net_frcst_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_gi_loc_cd.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_gi_loc_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_frcst_slip_d_no.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_prms_qty_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_frcst_stop_flg.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_disp_seq.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_intr_rmrks.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char1.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char2.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char3.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_d_cd.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_d_nm.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_frcst_d_no.putMode(p, SRCH_HDR, MCMode.INVISIBLE);
-		p.Rslt_dlv_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_cst_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_itm_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.READ_ONLY);
-		p.columnRslt_ins_usr_id.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_usr_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_id.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_ts.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_id.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_id.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_nm.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_ts.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_srv_req_no.putMode(p, SRCH_HDR, MCMode.READ_ONLY);
 
 	}
 
@@ -3542,7 +2780,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [SRCH_HDR]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH__HDR_Btn(MSBBPA_SlsSchdSrch p){
-		p.Btn_open_MSBBP0010.putMode(p, SRCH_HDR, MCMode.DISABLE);
 		p.Btn_open_MSBBP1210.putMode(p, SRCH_HDR, MCMode.DISABLE);
 
 	}
@@ -3706,7 +2943,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_dlv_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_dpt_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
@@ -3715,65 +2951,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_cst_frcst_slip_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_can_flg.putMode(p, REF_DTL, MCMode.READ_ONLY);
 		p.columnRslt_can_rsn_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_can_rmrks.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_intr_rmrks.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char1.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char2.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_sub_char3.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_fix_flg.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_itm_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_itm_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.Rslt_itm_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
-		p.columnRslt_frcst_period_typ.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_period_typ_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_st_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_end_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.Rslt_trd_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_trd_unit_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_trd_unit_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_qty_dec_place.putMode(p, REF_DTL, MCMode.INVISIBLE);
-		p.Rslt_base_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_base_qty_p_PPanel.columnQty_qty.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_unit_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_unit_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_base_qty_dec_place.putMode(p, REF_DTL, MCMode.INVISIBLE);
-		p.Rslt_last_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_last_cst_frcst_prnt_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_last_rcpt_dt.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.Rslt_spln_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_slo_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.Rslt_mly_net_frcst_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_gi_loc_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_gi_loc_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_slip_d_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.Rslt_prms_qty_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
-		p.columnRslt_frcst_stop_flg.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_disp_seq.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_intr_rmrks.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char1.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char2.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_dtl_sub_char3.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_d_cd.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_itm_typ_d_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_cst_frcst_d_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.Rslt_dlv_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_cst_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_itm_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.READ_ONLY);
-		p.columnRslt_ins_usr_id.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_usr_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_id.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_ins_ts.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_id.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_id.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_nm.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_ts.putMode(p, REF_DTL, MCMode.READ_ONLY);
-		p.columnRslt_upd_srv_req_no.putMode(p, REF_DTL, MCMode.READ_ONLY);
 
 	}
 
@@ -3781,7 +2958,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [REF_DTL]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitREF__DTL_Btn(MSBBPA_SlsSchdSrch p){
-		p.Btn_open_MSBBP0010.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Btn_open_MSBBP1210.putMode(p, REF_DTL, MCMode.ENABLE);
 
 	}
@@ -3945,7 +3121,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_dlv_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_dlv_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_dpt_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_frcst_dpt_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_frcst_usr_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_wrk_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
@@ -3954,64 +3129,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.columnRslt_cst_frcst_slip_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_can_flg.putMode(p, REF_HDR, MCMode.READ_ONLY);
 		p.columnRslt_can_rsn_cd.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rsn_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_can_rmrks.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_intr_rmrks.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char1.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char2.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_sub_char3.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_fix_flg.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_itm_cd.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_itm_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_itm_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.INVISIBLE);
-		p.columnRslt_frcst_period_typ.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_period_typ_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_st_dt.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_end_dt.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_frcst_dt.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_trd_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_trd_unit_cd.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_trd_unit_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_qty_dec_place.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_base_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_base_unit_cd.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_base_unit_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_base_qty_dec_place.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_last_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_last_cst_frcst_prnt_dt.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_last_rcpt_dt.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_spln_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.Rslt_slo_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.Rslt_mly_net_frcst_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_gi_loc_cd.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_gi_loc_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_frcst_slip_d_no.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_prms_qty_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.INVISIBLE);
-		p.columnRslt_frcst_stop_flg.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_disp_seq.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_intr_rmrks.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char1.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char2.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_dtl_sub_char3.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_d_cd.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_itm_typ_d_nm.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.columnRslt_cst_frcst_d_no.putMode(p, REF_HDR, MCMode.INVISIBLE);
-		p.Rslt_dlv_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_cst_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5190.MAUBP_BpGrp_D.READ_ONLY);
-		p.Rslt_itm_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.READ_ONLY);
-		p.columnRslt_ins_usr_id.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_usr_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_id.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_func_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_ins_ts.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_id.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_usr_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_id.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_func_nm.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_ts.putMode(p, REF_HDR, MCMode.READ_ONLY);
-		p.columnRslt_upd_srv_req_no.putMode(p, REF_HDR, MCMode.READ_ONLY);
 
 	}
 
@@ -4019,7 +3136,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [REF_HDR]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitREF__HDR_Btn(MSBBPA_SlsSchdSrch p){
-		p.Btn_open_MSBBP0010.putMode(p, REF_HDR, MCMode.ENABLE);
 		p.Btn_open_MSBBP1210.putMode(p, REF_HDR, MCMode.DISABLE);
 
 	}
@@ -4058,8 +3174,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.RsltTable.addColumnConfig(p.columnRslt_dlv_nm);
 		p.columnRslt_frcst_dpt_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_dpt_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_frcst_dpt_cd);
-		p.columnRslt_frcst_dpt_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_dpt_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_dpt_nm);
 		p.columnRslt_frcst_usr_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_usr_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_frcst_usr_cd);
 		p.columnRslt_frcst_usr_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_usr_nm_META);
@@ -4077,118 +3191,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.RsltTable.addColumnConfig(p.columnRslt_can_flg);
 		p.columnRslt_can_rsn_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.can_rsn_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_can_rsn_cd);
-		p.columnRslt_can_rsn_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.can_rsn_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_can_rsn_nm);
-		p.columnRslt_can_rmrks.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.can_rmrks_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_can_rmrks);
-		p.columnRslt_intr_rmrks.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.intr_rmrks_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_intr_rmrks);
-		p.columnRslt_sub_char1.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.sub_char1_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_sub_char1);
-		p.columnRslt_sub_char2.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.sub_char2_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_sub_char2);
-		p.columnRslt_sub_char3.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.sub_char3_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_sub_char3);
-		p.columnRslt_fix_flg.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.fix_flg_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_fix_flg);
-		p.columnRslt_cst_itm_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_itm_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_itm_cd);
-		p.columnRslt_cst_itm_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_itm_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_itm_nm);
-		p.RsltTable.addTable(p.Rslt_itm_p_PPanel.ItmTable);
-		p.columnRslt_frcst_period_typ.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_period_typ_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_period_typ);
-		p.columnRslt_frcst_period_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_period_typ_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_period_typ_nm);
-		p.columnRslt_frcst_st_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_st_dt_META);
-		p.columnRslt_frcst_st_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_st_dt);
-		p.columnRslt_frcst_end_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_end_dt_META);
-		p.columnRslt_frcst_end_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_end_dt);
-		p.columnRslt_frcst_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_dt_META);
-		p.columnRslt_frcst_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_dt);
-		p.RsltTable.addTable(p.Rslt_trd_qty_p_PPanel.QtyTable);
-		p.columnRslt_trd_unit_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.trd_unit_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_trd_unit_cd);
-		p.columnRslt_trd_unit_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.trd_unit_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_trd_unit_nm);
-		p.columnRslt_qty_dec_place.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.qty_dec_place_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_qty_dec_place);
-		p.RsltTable.addTable(p.Rslt_base_qty_p_PPanel.QtyTable);
-		p.columnRslt_base_unit_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.base_unit_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_cd);
-		p.columnRslt_base_unit_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.base_unit_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_nm);
-		p.columnRslt_base_qty_dec_place.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.base_qty_dec_place_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_base_qty_dec_place);
-		p.RsltTable.addTable(p.Rslt_last_qty_p_PPanel.QtyTable);
-		p.columnRslt_last_cst_frcst_prnt_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.last_cst_frcst_prnt_dt_META);
-		p.columnRslt_last_cst_frcst_prnt_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_last_cst_frcst_prnt_dt);
-		p.columnRslt_last_rcpt_dt.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.last_rcpt_dt_META);
-		p.columnRslt_last_rcpt_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_last_rcpt_dt);
-		p.RsltTable.addTable(p.Rslt_spln_qty_p_PPanel.QtyTable);
-		p.RsltTable.addTable(p.Rslt_slo_qty_p_PPanel.QtyTable);
-		p.RsltTable.addTable(p.Rslt_mly_net_frcst_qty_p_PPanel.QtyTable);
-		p.columnRslt_gi_loc_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.gi_loc_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_gi_loc_cd);
-		p.columnRslt_gi_loc_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.gi_loc_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_gi_loc_nm);
-		p.columnRslt_cst_frcst_slip_d_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_slip_d_no_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_slip_d_no);
-		p.RsltTable.addTable(p.Rslt_prms_qty_p_PPanel.QtyTable);
-		p.columnRslt_frcst_stop_flg.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.frcst_stop_flg_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_frcst_stop_flg);
-		p.columnRslt_disp_seq.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.disp_seq_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_disp_seq);
-		p.columnRslt_dtl_intr_rmrks.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dtl_intr_rmrks_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dtl_intr_rmrks);
-		p.columnRslt_dtl_sub_char1.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dtl_sub_char1_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dtl_sub_char1);
-		p.columnRslt_dtl_sub_char2.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dtl_sub_char2_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dtl_sub_char2);
-		p.columnRslt_dtl_sub_char3.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.dtl_sub_char3_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_dtl_sub_char3);
-		p.columnRslt_itm_typ.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.itm_typ_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ);
-		p.columnRslt_itm_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.itm_typ_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_nm);
-		p.columnRslt_itm_typ_d_cd.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.itm_typ_d_cd_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_d_cd);
-		p.columnRslt_itm_typ_d_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.itm_typ_d_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_d_nm);
-		p.columnRslt_cst_frcst_d_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.cst_frcst_d_no_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_cst_frcst_d_no);
-		p.RsltTable.addTable(p.Rslt_dlv_grp_p_PPanel.BpGrpTable);
-		p.RsltTable.addTable(p.Rslt_cst_grp_p_PPanel.BpGrpTable);
-		p.RsltTable.addTable(p.Rslt_itm_grp_p_PPanel.ItmGrpTable);
-		p.columnRslt_ins_usr_id.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.ins_usr_id_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_ins_usr_id);
-		p.columnRslt_ins_usr_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.ins_usr_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_ins_usr_nm);
-		p.columnRslt_ins_func_id.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.ins_func_id_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_ins_func_id);
-		p.columnRslt_ins_func_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.ins_func_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_ins_func_nm);
-		p.columnRslt_ins_ts.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.ins_ts_META);
-		p.columnRslt_ins_ts.setFormatID(mcframe.commonMA.meta.MA_META.SYS_TS_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_ins_ts);
-		p.columnRslt_upd_usr_id.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_usr_id_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_usr_id);
-		p.columnRslt_upd_usr_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_usr_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_usr_nm);
-		p.columnRslt_upd_func_id.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_func_id_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_func_id);
-		p.columnRslt_upd_func_nm.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_func_nm_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_func_nm);
-		p.columnRslt_upd_ts.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_ts_META);
-		p.columnRslt_upd_ts.setFormatID(mcframe.commonMA.meta.MA_META.SYS_TS_FORMAT);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_ts);
-		p.columnRslt_upd_srv_req_no.setMeta(mcframe.clientMSBB.MSBBPA0010.RsltR.upd_srv_req_no_META);
-		p.RsltTable.addColumnConfig(p.columnRslt_upd_srv_req_no);
 	}
 
 	/**
@@ -4365,7 +3367,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		super.doAPEvent(ap, info);
 		if (ap == Ctrl_ctrl_PPanel.Ope_srch) doCtrl_ctrl_Ope_srch(info);
 		else if (ap == RPnl_dwnld) doRPnl_dwnld(info);
-		else if (ap == Btn_open_MSBBP0010) doBtn_open_MSBBP0010(info);
 		else if (ap == Btn_open_MSBBP1210) doBtn_open_MSBBP1210(info);
 	}
 
@@ -4378,11 +3379,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [RPnl]パネルの[dwnld]ボタンが押下されたときに呼び出されます。
 	 */
 	abstract public void doRPnl_dwnld(MCEventInfo info);
-
-	/**
-	 * [Btn]パネルの[open_MSBBP0010]ボタンが押下されたときに呼び出されます。
-	 */
-	abstract public void doBtn_open_MSBBP0010(MCEventInfo info);
 
 	/**
 	 * [Btn]パネルの[open_MSBBP1210]ボタンが押下されたときに呼び出されます。
@@ -4452,7 +3448,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if (vc == columnRslt_dlv_cd) return doRslt_dlv_cd_VC(info);
 		if (vc == columnRslt_dlv_nm) return doRslt_dlv_nm_VC(info);
 		if (vc == columnRslt_frcst_dpt_cd) return doRslt_frcst_dpt_cd_VC(info);
-		if (vc == columnRslt_frcst_dpt_nm) return doRslt_frcst_dpt_nm_VC(info);
 		if (vc == columnRslt_frcst_usr_cd) return doRslt_frcst_usr_cd_VC(info);
 		if (vc == columnRslt_frcst_usr_nm) return doRslt_frcst_usr_nm_VC(info);
 		if (vc == columnRslt_wrk_no) return doRslt_wrk_no_VC(info);
@@ -4461,53 +3456,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if (vc == columnRslt_cst_frcst_slip_no) return doRslt_cst_frcst_slip_no_VC(info);
 		if (vc == columnRslt_can_flg) return doRslt_can_flg_VC(info);
 		if (vc == columnRslt_can_rsn_cd) return doRslt_can_rsn_cd_VC(info);
-		if (vc == columnRslt_can_rsn_nm) return doRslt_can_rsn_nm_VC(info);
-		if (vc == columnRslt_can_rmrks) return doRslt_can_rmrks_VC(info);
-		if (vc == columnRslt_intr_rmrks) return doRslt_intr_rmrks_VC(info);
-		if (vc == columnRslt_sub_char1) return doRslt_sub_char1_VC(info);
-		if (vc == columnRslt_sub_char2) return doRslt_sub_char2_VC(info);
-		if (vc == columnRslt_sub_char3) return doRslt_sub_char3_VC(info);
-		if (vc == columnRslt_fix_flg) return doRslt_fix_flg_VC(info);
-		if (vc == columnRslt_cst_itm_cd) return doRslt_cst_itm_cd_VC(info);
-		if (vc == columnRslt_cst_itm_nm) return doRslt_cst_itm_nm_VC(info);
-		if (vc == columnRslt_frcst_period_typ) return doRslt_frcst_period_typ_VC(info);
-		if (vc == columnRslt_frcst_period_typ_nm) return doRslt_frcst_period_typ_nm_VC(info);
-		if (vc == columnRslt_frcst_st_dt) return doRslt_frcst_st_dt_VC(info);
-		if (vc == columnRslt_frcst_end_dt) return doRslt_frcst_end_dt_VC(info);
-		if (vc == columnRslt_frcst_dt) return doRslt_frcst_dt_VC(info);
-		if (vc == columnRslt_trd_unit_cd) return doRslt_trd_unit_cd_VC(info);
-		if (vc == columnRslt_trd_unit_nm) return doRslt_trd_unit_nm_VC(info);
-		if (vc == columnRslt_qty_dec_place) return doRslt_qty_dec_place_VC(info);
-		if (vc == columnRslt_base_unit_cd) return doRslt_base_unit_cd_VC(info);
-		if (vc == columnRslt_base_unit_nm) return doRslt_base_unit_nm_VC(info);
-		if (vc == columnRslt_base_qty_dec_place) return doRslt_base_qty_dec_place_VC(info);
-		if (vc == columnRslt_last_cst_frcst_prnt_dt) return doRslt_last_cst_frcst_prnt_dt_VC(info);
-		if (vc == columnRslt_last_rcpt_dt) return doRslt_last_rcpt_dt_VC(info);
-		if (vc == columnRslt_gi_loc_cd) return doRslt_gi_loc_cd_VC(info);
-		if (vc == columnRslt_gi_loc_nm) return doRslt_gi_loc_nm_VC(info);
-		if (vc == columnRslt_cst_frcst_slip_d_no) return doRslt_cst_frcst_slip_d_no_VC(info);
-		if (vc == columnRslt_frcst_stop_flg) return doRslt_frcst_stop_flg_VC(info);
-		if (vc == columnRslt_disp_seq) return doRslt_disp_seq_VC(info);
-		if (vc == columnRslt_dtl_intr_rmrks) return doRslt_dtl_intr_rmrks_VC(info);
-		if (vc == columnRslt_dtl_sub_char1) return doRslt_dtl_sub_char1_VC(info);
-		if (vc == columnRslt_dtl_sub_char2) return doRslt_dtl_sub_char2_VC(info);
-		if (vc == columnRslt_dtl_sub_char3) return doRslt_dtl_sub_char3_VC(info);
-		if (vc == columnRslt_itm_typ) return doRslt_itm_typ_VC(info);
-		if (vc == columnRslt_itm_typ_nm) return doRslt_itm_typ_nm_VC(info);
-		if (vc == columnRslt_itm_typ_d_cd) return doRslt_itm_typ_d_cd_VC(info);
-		if (vc == columnRslt_itm_typ_d_nm) return doRslt_itm_typ_d_nm_VC(info);
-		if (vc == columnRslt_cst_frcst_d_no) return doRslt_cst_frcst_d_no_VC(info);
-		if (vc == columnRslt_ins_usr_id) return doRslt_ins_usr_id_VC(info);
-		if (vc == columnRslt_ins_usr_nm) return doRslt_ins_usr_nm_VC(info);
-		if (vc == columnRslt_ins_func_id) return doRslt_ins_func_id_VC(info);
-		if (vc == columnRslt_ins_func_nm) return doRslt_ins_func_nm_VC(info);
-		if (vc == columnRslt_ins_ts) return doRslt_ins_ts_VC(info);
-		if (vc == columnRslt_upd_usr_id) return doRslt_upd_usr_id_VC(info);
-		if (vc == columnRslt_upd_usr_nm) return doRslt_upd_usr_nm_VC(info);
-		if (vc == columnRslt_upd_func_id) return doRslt_upd_func_id_VC(info);
-		if (vc == columnRslt_upd_func_nm) return doRslt_upd_func_nm_VC(info);
-		if (vc == columnRslt_upd_ts) return doRslt_upd_ts_VC(info);
-		if (vc == columnRslt_upd_srv_req_no) return doRslt_upd_srv_req_no_VC(info);
 		return true;
 	}
 
@@ -5032,16 +3980,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_dpt_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
 	 * [Rslt]パネルの[frcst_usr_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -5122,476 +4060,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_can_rsn_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_can_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_intr_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_sub_char1_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_sub_char2_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_sub_char3_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[fix_flg]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_fix_flg_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_cd]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_cst_itm_cd_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_cst_itm_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_period_typ_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_period_typ_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_st_dt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_st_dt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_end_dt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_end_dt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_dt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_dt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_trd_unit_cd_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_trd_unit_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[qty_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_qty_dec_place_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_base_unit_cd_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_base_unit_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[base_qty_dec_place]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_base_qty_dec_place_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[last_cst_frcst_prnt_dt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_last_cst_frcst_prnt_dt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[last_rcpt_dt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_last_rcpt_dt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_cd]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_gi_loc_cd_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_gi_loc_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_slip_d_no]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_cst_frcst_slip_d_no_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_stop_flg]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_frcst_stop_flg_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[disp_seq]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_disp_seq_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_intr_rmrks]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_dtl_intr_rmrks_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char1]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_dtl_sub_char1_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char2]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_dtl_sub_char2_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char3]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_dtl_sub_char3_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_itm_typ_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_itm_typ_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_cd]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_itm_typ_d_cd_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_itm_typ_d_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_d_no]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_cst_frcst_d_no_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_id]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_ins_usr_id_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_ins_usr_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_id]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_ins_func_id_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_ins_func_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_ts]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_ins_ts_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_id]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_usr_id_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_usr_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_id]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_func_id_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_nm]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_func_nm_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_ts]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_ts_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_srv_req_no]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doRslt_upd_srv_req_no_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
 	 * NotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param nc イベント対象のGUI部品
@@ -5651,7 +4119,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nc == columnRslt_dlv_cd) doRslt_dlv_cd_NC(info);
 		else if (nc == columnRslt_dlv_nm) doRslt_dlv_nm_NC(info);
 		else if (nc == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NC(info);
-		else if (nc == columnRslt_frcst_dpt_nm) doRslt_frcst_dpt_nm_NC(info);
 		else if (nc == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NC(info);
 		else if (nc == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NC(info);
 		else if (nc == columnRslt_wrk_no) doRslt_wrk_no_NC(info);
@@ -5660,53 +4127,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nc == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NC(info);
 		else if (nc == columnRslt_can_flg) doRslt_can_flg_NC(info);
 		else if (nc == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NC(info);
-		else if (nc == columnRslt_can_rsn_nm) doRslt_can_rsn_nm_NC(info);
-		else if (nc == columnRslt_can_rmrks) doRslt_can_rmrks_NC(info);
-		else if (nc == columnRslt_intr_rmrks) doRslt_intr_rmrks_NC(info);
-		else if (nc == columnRslt_sub_char1) doRslt_sub_char1_NC(info);
-		else if (nc == columnRslt_sub_char2) doRslt_sub_char2_NC(info);
-		else if (nc == columnRslt_sub_char3) doRslt_sub_char3_NC(info);
-		else if (nc == columnRslt_fix_flg) doRslt_fix_flg_NC(info);
-		else if (nc == columnRslt_cst_itm_cd) doRslt_cst_itm_cd_NC(info);
-		else if (nc == columnRslt_cst_itm_nm) doRslt_cst_itm_nm_NC(info);
-		else if (nc == columnRslt_frcst_period_typ) doRslt_frcst_period_typ_NC(info);
-		else if (nc == columnRslt_frcst_period_typ_nm) doRslt_frcst_period_typ_nm_NC(info);
-		else if (nc == columnRslt_frcst_st_dt) doRslt_frcst_st_dt_NC(info);
-		else if (nc == columnRslt_frcst_end_dt) doRslt_frcst_end_dt_NC(info);
-		else if (nc == columnRslt_frcst_dt) doRslt_frcst_dt_NC(info);
-		else if (nc == columnRslt_trd_unit_cd) doRslt_trd_unit_cd_NC(info);
-		else if (nc == columnRslt_trd_unit_nm) doRslt_trd_unit_nm_NC(info);
-		else if (nc == columnRslt_qty_dec_place) doRslt_qty_dec_place_NC(info);
-		else if (nc == columnRslt_base_unit_cd) doRslt_base_unit_cd_NC(info);
-		else if (nc == columnRslt_base_unit_nm) doRslt_base_unit_nm_NC(info);
-		else if (nc == columnRslt_base_qty_dec_place) doRslt_base_qty_dec_place_NC(info);
-		else if (nc == columnRslt_last_cst_frcst_prnt_dt) doRslt_last_cst_frcst_prnt_dt_NC(info);
-		else if (nc == columnRslt_last_rcpt_dt) doRslt_last_rcpt_dt_NC(info);
-		else if (nc == columnRslt_gi_loc_cd) doRslt_gi_loc_cd_NC(info);
-		else if (nc == columnRslt_gi_loc_nm) doRslt_gi_loc_nm_NC(info);
-		else if (nc == columnRslt_cst_frcst_slip_d_no) doRslt_cst_frcst_slip_d_no_NC(info);
-		else if (nc == columnRslt_frcst_stop_flg) doRslt_frcst_stop_flg_NC(info);
-		else if (nc == columnRslt_disp_seq) doRslt_disp_seq_NC(info);
-		else if (nc == columnRslt_dtl_intr_rmrks) doRslt_dtl_intr_rmrks_NC(info);
-		else if (nc == columnRslt_dtl_sub_char1) doRslt_dtl_sub_char1_NC(info);
-		else if (nc == columnRslt_dtl_sub_char2) doRslt_dtl_sub_char2_NC(info);
-		else if (nc == columnRslt_dtl_sub_char3) doRslt_dtl_sub_char3_NC(info);
-		else if (nc == columnRslt_itm_typ) doRslt_itm_typ_NC(info);
-		else if (nc == columnRslt_itm_typ_nm) doRslt_itm_typ_nm_NC(info);
-		else if (nc == columnRslt_itm_typ_d_cd) doRslt_itm_typ_d_cd_NC(info);
-		else if (nc == columnRslt_itm_typ_d_nm) doRslt_itm_typ_d_nm_NC(info);
-		else if (nc == columnRslt_cst_frcst_d_no) doRslt_cst_frcst_d_no_NC(info);
-		else if (nc == columnRslt_ins_usr_id) doRslt_ins_usr_id_NC(info);
-		else if (nc == columnRslt_ins_usr_nm) doRslt_ins_usr_nm_NC(info);
-		else if (nc == columnRslt_ins_func_id) doRslt_ins_func_id_NC(info);
-		else if (nc == columnRslt_ins_func_nm) doRslt_ins_func_nm_NC(info);
-		else if (nc == columnRslt_ins_ts) doRslt_ins_ts_NC(info);
-		else if (nc == columnRslt_upd_usr_id) doRslt_upd_usr_id_NC(info);
-		else if (nc == columnRslt_upd_usr_nm) doRslt_upd_usr_nm_NC(info);
-		else if (nc == columnRslt_upd_func_id) doRslt_upd_func_id_NC(info);
-		else if (nc == columnRslt_upd_func_nm) doRslt_upd_func_nm_NC(info);
-		else if (nc == columnRslt_upd_ts) doRslt_upd_ts_NC(info);
-		else if (nc == columnRslt_upd_srv_req_no) doRslt_upd_srv_req_no_NC(info);
 	}
 
 	/**
@@ -6126,14 +4546,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dpt_nm_NC(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[frcst_usr_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -6198,382 +4610,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rsn_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_intr_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char1_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char2_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char3_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[fix_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_fix_flg_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_cd_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_st_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_st_dt_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_end_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_end_dt_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dt_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_cd_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[qty_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_qty_dec_place_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_cd_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_qty_dec_place]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_qty_dec_place_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_cst_frcst_prnt_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_cst_frcst_prnt_dt_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_rcpt_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_rcpt_dt_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_cd_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_slip_d_no]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_slip_d_no_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_stop_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_stop_flg_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[disp_seq]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_disp_seq_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_intr_rmrks]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_intr_rmrks_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char1]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char1_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char2]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char2_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char3]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char3_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_cd_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_d_no]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_d_no_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_id]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_id_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_id]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_id_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_ts]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_ts_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_id]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_id_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_id]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_id_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_nm_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_ts]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_ts_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_srv_req_no]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_srv_req_no_NC(MCEventInfo info){
-	}
-
-	/**
 	 * NotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param ne イベント対象のGUI部品
@@ -6633,7 +4669,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (ne == columnRslt_dlv_cd) doRslt_dlv_cd_NE(info);
 		else if (ne == columnRslt_dlv_nm) doRslt_dlv_nm_NE(info);
 		else if (ne == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NE(info);
-		else if (ne == columnRslt_frcst_dpt_nm) doRslt_frcst_dpt_nm_NE(info);
 		else if (ne == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NE(info);
 		else if (ne == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NE(info);
 		else if (ne == columnRslt_wrk_no) doRslt_wrk_no_NE(info);
@@ -6642,53 +4677,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (ne == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NE(info);
 		else if (ne == columnRslt_can_flg) doRslt_can_flg_NE(info);
 		else if (ne == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NE(info);
-		else if (ne == columnRslt_can_rsn_nm) doRslt_can_rsn_nm_NE(info);
-		else if (ne == columnRslt_can_rmrks) doRslt_can_rmrks_NE(info);
-		else if (ne == columnRslt_intr_rmrks) doRslt_intr_rmrks_NE(info);
-		else if (ne == columnRslt_sub_char1) doRslt_sub_char1_NE(info);
-		else if (ne == columnRslt_sub_char2) doRslt_sub_char2_NE(info);
-		else if (ne == columnRslt_sub_char3) doRslt_sub_char3_NE(info);
-		else if (ne == columnRslt_fix_flg) doRslt_fix_flg_NE(info);
-		else if (ne == columnRslt_cst_itm_cd) doRslt_cst_itm_cd_NE(info);
-		else if (ne == columnRslt_cst_itm_nm) doRslt_cst_itm_nm_NE(info);
-		else if (ne == columnRslt_frcst_period_typ) doRslt_frcst_period_typ_NE(info);
-		else if (ne == columnRslt_frcst_period_typ_nm) doRslt_frcst_period_typ_nm_NE(info);
-		else if (ne == columnRslt_frcst_st_dt) doRslt_frcst_st_dt_NE(info);
-		else if (ne == columnRslt_frcst_end_dt) doRslt_frcst_end_dt_NE(info);
-		else if (ne == columnRslt_frcst_dt) doRslt_frcst_dt_NE(info);
-		else if (ne == columnRslt_trd_unit_cd) doRslt_trd_unit_cd_NE(info);
-		else if (ne == columnRslt_trd_unit_nm) doRslt_trd_unit_nm_NE(info);
-		else if (ne == columnRslt_qty_dec_place) doRslt_qty_dec_place_NE(info);
-		else if (ne == columnRslt_base_unit_cd) doRslt_base_unit_cd_NE(info);
-		else if (ne == columnRslt_base_unit_nm) doRslt_base_unit_nm_NE(info);
-		else if (ne == columnRslt_base_qty_dec_place) doRslt_base_qty_dec_place_NE(info);
-		else if (ne == columnRslt_last_cst_frcst_prnt_dt) doRslt_last_cst_frcst_prnt_dt_NE(info);
-		else if (ne == columnRslt_last_rcpt_dt) doRslt_last_rcpt_dt_NE(info);
-		else if (ne == columnRslt_gi_loc_cd) doRslt_gi_loc_cd_NE(info);
-		else if (ne == columnRslt_gi_loc_nm) doRslt_gi_loc_nm_NE(info);
-		else if (ne == columnRslt_cst_frcst_slip_d_no) doRslt_cst_frcst_slip_d_no_NE(info);
-		else if (ne == columnRslt_frcst_stop_flg) doRslt_frcst_stop_flg_NE(info);
-		else if (ne == columnRslt_disp_seq) doRslt_disp_seq_NE(info);
-		else if (ne == columnRslt_dtl_intr_rmrks) doRslt_dtl_intr_rmrks_NE(info);
-		else if (ne == columnRslt_dtl_sub_char1) doRslt_dtl_sub_char1_NE(info);
-		else if (ne == columnRslt_dtl_sub_char2) doRslt_dtl_sub_char2_NE(info);
-		else if (ne == columnRslt_dtl_sub_char3) doRslt_dtl_sub_char3_NE(info);
-		else if (ne == columnRslt_itm_typ) doRslt_itm_typ_NE(info);
-		else if (ne == columnRslt_itm_typ_nm) doRslt_itm_typ_nm_NE(info);
-		else if (ne == columnRslt_itm_typ_d_cd) doRslt_itm_typ_d_cd_NE(info);
-		else if (ne == columnRslt_itm_typ_d_nm) doRslt_itm_typ_d_nm_NE(info);
-		else if (ne == columnRslt_cst_frcst_d_no) doRslt_cst_frcst_d_no_NE(info);
-		else if (ne == columnRslt_ins_usr_id) doRslt_ins_usr_id_NE(info);
-		else if (ne == columnRslt_ins_usr_nm) doRslt_ins_usr_nm_NE(info);
-		else if (ne == columnRslt_ins_func_id) doRslt_ins_func_id_NE(info);
-		else if (ne == columnRslt_ins_func_nm) doRslt_ins_func_nm_NE(info);
-		else if (ne == columnRslt_ins_ts) doRslt_ins_ts_NE(info);
-		else if (ne == columnRslt_upd_usr_id) doRslt_upd_usr_id_NE(info);
-		else if (ne == columnRslt_upd_usr_nm) doRslt_upd_usr_nm_NE(info);
-		else if (ne == columnRslt_upd_func_id) doRslt_upd_func_id_NE(info);
-		else if (ne == columnRslt_upd_func_nm) doRslt_upd_func_nm_NE(info);
-		else if (ne == columnRslt_upd_ts) doRslt_upd_ts_NE(info);
-		else if (ne == columnRslt_upd_srv_req_no) doRslt_upd_srv_req_no_NE(info);
 	}
 
 	/**
@@ -7108,14 +5096,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dpt_nm_NE(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[frcst_usr_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -7180,382 +5160,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rsn_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_intr_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char1_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char2_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char3_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[fix_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_fix_flg_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_cd_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_st_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_st_dt_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_end_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_end_dt_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dt_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_cd_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[qty_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_qty_dec_place_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_cd_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_qty_dec_place]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_qty_dec_place_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_cst_frcst_prnt_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_cst_frcst_prnt_dt_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_rcpt_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_rcpt_dt_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_cd_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_slip_d_no]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_slip_d_no_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_stop_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_stop_flg_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[disp_seq]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_disp_seq_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_intr_rmrks]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_intr_rmrks_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char1]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char1_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char2]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char2_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char3]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char3_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_cd_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_d_no]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_d_no_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_id]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_id_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_id]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_id_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_ts]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_ts_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_id]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_id_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_id]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_id_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_nm_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_ts]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_ts_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_srv_req_no]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_srv_req_no_NE(MCEventInfo info){
-	}
-
-	/**
 	 * NotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param nx イベント対象のGUI部品
@@ -7615,7 +5219,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nx == columnRslt_dlv_cd) doRslt_dlv_cd_NX(info);
 		else if (nx == columnRslt_dlv_nm) doRslt_dlv_nm_NX(info);
 		else if (nx == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_NX(info);
-		else if (nx == columnRslt_frcst_dpt_nm) doRslt_frcst_dpt_nm_NX(info);
 		else if (nx == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_NX(info);
 		else if (nx == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_NX(info);
 		else if (nx == columnRslt_wrk_no) doRslt_wrk_no_NX(info);
@@ -7624,53 +5227,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (nx == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_NX(info);
 		else if (nx == columnRslt_can_flg) doRslt_can_flg_NX(info);
 		else if (nx == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_NX(info);
-		else if (nx == columnRslt_can_rsn_nm) doRslt_can_rsn_nm_NX(info);
-		else if (nx == columnRslt_can_rmrks) doRslt_can_rmrks_NX(info);
-		else if (nx == columnRslt_intr_rmrks) doRslt_intr_rmrks_NX(info);
-		else if (nx == columnRslt_sub_char1) doRslt_sub_char1_NX(info);
-		else if (nx == columnRslt_sub_char2) doRslt_sub_char2_NX(info);
-		else if (nx == columnRslt_sub_char3) doRslt_sub_char3_NX(info);
-		else if (nx == columnRslt_fix_flg) doRslt_fix_flg_NX(info);
-		else if (nx == columnRslt_cst_itm_cd) doRslt_cst_itm_cd_NX(info);
-		else if (nx == columnRslt_cst_itm_nm) doRslt_cst_itm_nm_NX(info);
-		else if (nx == columnRslt_frcst_period_typ) doRslt_frcst_period_typ_NX(info);
-		else if (nx == columnRslt_frcst_period_typ_nm) doRslt_frcst_period_typ_nm_NX(info);
-		else if (nx == columnRslt_frcst_st_dt) doRslt_frcst_st_dt_NX(info);
-		else if (nx == columnRslt_frcst_end_dt) doRslt_frcst_end_dt_NX(info);
-		else if (nx == columnRslt_frcst_dt) doRslt_frcst_dt_NX(info);
-		else if (nx == columnRslt_trd_unit_cd) doRslt_trd_unit_cd_NX(info);
-		else if (nx == columnRslt_trd_unit_nm) doRslt_trd_unit_nm_NX(info);
-		else if (nx == columnRslt_qty_dec_place) doRslt_qty_dec_place_NX(info);
-		else if (nx == columnRslt_base_unit_cd) doRslt_base_unit_cd_NX(info);
-		else if (nx == columnRslt_base_unit_nm) doRslt_base_unit_nm_NX(info);
-		else if (nx == columnRslt_base_qty_dec_place) doRslt_base_qty_dec_place_NX(info);
-		else if (nx == columnRslt_last_cst_frcst_prnt_dt) doRslt_last_cst_frcst_prnt_dt_NX(info);
-		else if (nx == columnRslt_last_rcpt_dt) doRslt_last_rcpt_dt_NX(info);
-		else if (nx == columnRslt_gi_loc_cd) doRslt_gi_loc_cd_NX(info);
-		else if (nx == columnRslt_gi_loc_nm) doRslt_gi_loc_nm_NX(info);
-		else if (nx == columnRslt_cst_frcst_slip_d_no) doRslt_cst_frcst_slip_d_no_NX(info);
-		else if (nx == columnRslt_frcst_stop_flg) doRslt_frcst_stop_flg_NX(info);
-		else if (nx == columnRslt_disp_seq) doRslt_disp_seq_NX(info);
-		else if (nx == columnRslt_dtl_intr_rmrks) doRslt_dtl_intr_rmrks_NX(info);
-		else if (nx == columnRslt_dtl_sub_char1) doRslt_dtl_sub_char1_NX(info);
-		else if (nx == columnRslt_dtl_sub_char2) doRslt_dtl_sub_char2_NX(info);
-		else if (nx == columnRslt_dtl_sub_char3) doRslt_dtl_sub_char3_NX(info);
-		else if (nx == columnRslt_itm_typ) doRslt_itm_typ_NX(info);
-		else if (nx == columnRslt_itm_typ_nm) doRslt_itm_typ_nm_NX(info);
-		else if (nx == columnRslt_itm_typ_d_cd) doRslt_itm_typ_d_cd_NX(info);
-		else if (nx == columnRslt_itm_typ_d_nm) doRslt_itm_typ_d_nm_NX(info);
-		else if (nx == columnRslt_cst_frcst_d_no) doRslt_cst_frcst_d_no_NX(info);
-		else if (nx == columnRslt_ins_usr_id) doRslt_ins_usr_id_NX(info);
-		else if (nx == columnRslt_ins_usr_nm) doRslt_ins_usr_nm_NX(info);
-		else if (nx == columnRslt_ins_func_id) doRslt_ins_func_id_NX(info);
-		else if (nx == columnRslt_ins_func_nm) doRslt_ins_func_nm_NX(info);
-		else if (nx == columnRslt_ins_ts) doRslt_ins_ts_NX(info);
-		else if (nx == columnRslt_upd_usr_id) doRslt_upd_usr_id_NX(info);
-		else if (nx == columnRslt_upd_usr_nm) doRslt_upd_usr_nm_NX(info);
-		else if (nx == columnRslt_upd_func_id) doRslt_upd_func_id_NX(info);
-		else if (nx == columnRslt_upd_func_nm) doRslt_upd_func_nm_NX(info);
-		else if (nx == columnRslt_upd_ts) doRslt_upd_ts_NX(info);
-		else if (nx == columnRslt_upd_srv_req_no) doRslt_upd_srv_req_no_NX(info);
 	}
 
 	/**
@@ -8090,14 +5646,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dpt_nm_NX(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[frcst_usr_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -8162,382 +5710,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[can_rsn_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rsn_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_intr_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char1_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char2_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char3_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[fix_flg]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_fix_flg_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_cd]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_cd_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_st_dt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_st_dt_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_end_dt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_end_dt_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_dt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dt_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_cd_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[qty_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_qty_dec_place_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_cd_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_qty_dec_place]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_qty_dec_place_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_cst_frcst_prnt_dt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_cst_frcst_prnt_dt_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_rcpt_dt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_rcpt_dt_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_cd]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_cd_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_slip_d_no]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_slip_d_no_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_stop_flg]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_stop_flg_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[disp_seq]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_disp_seq_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_intr_rmrks]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_intr_rmrks_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char1]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char1_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char2]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char2_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char3]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char3_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_cd]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_cd_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_d_no]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_d_no_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_id]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_id_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_id]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_id_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_ts]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_ts_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_id]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_id_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_id]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_id_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_nm]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_nm_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_ts]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_ts_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_srv_req_no]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_srv_req_no_NX(MCEventInfo info){
-	}
-
-	/**
 	 * ListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param lc イベント対象のGUI部品
@@ -8589,7 +5761,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (lc == columnRslt_dlv_cd) doRslt_dlv_cd_LC(info);
 		else if (lc == columnRslt_dlv_nm) doRslt_dlv_nm_LC(info);
 		else if (lc == columnRslt_frcst_dpt_cd) doRslt_frcst_dpt_cd_LC(info);
-		else if (lc == columnRslt_frcst_dpt_nm) doRslt_frcst_dpt_nm_LC(info);
 		else if (lc == columnRslt_frcst_usr_cd) doRslt_frcst_usr_cd_LC(info);
 		else if (lc == columnRslt_frcst_usr_nm) doRslt_frcst_usr_nm_LC(info);
 		else if (lc == columnRslt_wrk_no) doRslt_wrk_no_LC(info);
@@ -8597,51 +5768,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		else if (lc == columnRslt_rcpt_dt) doRslt_rcpt_dt_LC(info);
 		else if (lc == columnRslt_cst_frcst_slip_no) doRslt_cst_frcst_slip_no_LC(info);
 		else if (lc == columnRslt_can_rsn_cd) doRslt_can_rsn_cd_LC(info);
-		else if (lc == columnRslt_can_rsn_nm) doRslt_can_rsn_nm_LC(info);
-		else if (lc == columnRslt_can_rmrks) doRslt_can_rmrks_LC(info);
-		else if (lc == columnRslt_intr_rmrks) doRslt_intr_rmrks_LC(info);
-		else if (lc == columnRslt_sub_char1) doRslt_sub_char1_LC(info);
-		else if (lc == columnRslt_sub_char2) doRslt_sub_char2_LC(info);
-		else if (lc == columnRslt_sub_char3) doRslt_sub_char3_LC(info);
-		else if (lc == columnRslt_cst_itm_cd) doRslt_cst_itm_cd_LC(info);
-		else if (lc == columnRslt_cst_itm_nm) doRslt_cst_itm_nm_LC(info);
-		else if (lc == columnRslt_frcst_period_typ) doRslt_frcst_period_typ_LC(info);
-		else if (lc == columnRslt_frcst_period_typ_nm) doRslt_frcst_period_typ_nm_LC(info);
-		else if (lc == columnRslt_frcst_st_dt) doRslt_frcst_st_dt_LC(info);
-		else if (lc == columnRslt_frcst_end_dt) doRslt_frcst_end_dt_LC(info);
-		else if (lc == columnRslt_frcst_dt) doRslt_frcst_dt_LC(info);
-		else if (lc == columnRslt_trd_unit_cd) doRslt_trd_unit_cd_LC(info);
-		else if (lc == columnRslt_trd_unit_nm) doRslt_trd_unit_nm_LC(info);
-		else if (lc == columnRslt_qty_dec_place) doRslt_qty_dec_place_LC(info);
-		else if (lc == columnRslt_base_unit_cd) doRslt_base_unit_cd_LC(info);
-		else if (lc == columnRslt_base_unit_nm) doRslt_base_unit_nm_LC(info);
-		else if (lc == columnRslt_base_qty_dec_place) doRslt_base_qty_dec_place_LC(info);
-		else if (lc == columnRslt_last_cst_frcst_prnt_dt) doRslt_last_cst_frcst_prnt_dt_LC(info);
-		else if (lc == columnRslt_last_rcpt_dt) doRslt_last_rcpt_dt_LC(info);
-		else if (lc == columnRslt_gi_loc_cd) doRslt_gi_loc_cd_LC(info);
-		else if (lc == columnRslt_gi_loc_nm) doRslt_gi_loc_nm_LC(info);
-		else if (lc == columnRslt_cst_frcst_slip_d_no) doRslt_cst_frcst_slip_d_no_LC(info);
-		else if (lc == columnRslt_disp_seq) doRslt_disp_seq_LC(info);
-		else if (lc == columnRslt_dtl_intr_rmrks) doRslt_dtl_intr_rmrks_LC(info);
-		else if (lc == columnRslt_dtl_sub_char1) doRslt_dtl_sub_char1_LC(info);
-		else if (lc == columnRslt_dtl_sub_char2) doRslt_dtl_sub_char2_LC(info);
-		else if (lc == columnRslt_dtl_sub_char3) doRslt_dtl_sub_char3_LC(info);
-		else if (lc == columnRslt_itm_typ) doRslt_itm_typ_LC(info);
-		else if (lc == columnRslt_itm_typ_nm) doRslt_itm_typ_nm_LC(info);
-		else if (lc == columnRslt_itm_typ_d_cd) doRslt_itm_typ_d_cd_LC(info);
-		else if (lc == columnRslt_itm_typ_d_nm) doRslt_itm_typ_d_nm_LC(info);
-		else if (lc == columnRslt_cst_frcst_d_no) doRslt_cst_frcst_d_no_LC(info);
-		else if (lc == columnRslt_ins_usr_id) doRslt_ins_usr_id_LC(info);
-		else if (lc == columnRslt_ins_usr_nm) doRslt_ins_usr_nm_LC(info);
-		else if (lc == columnRslt_ins_func_id) doRslt_ins_func_id_LC(info);
-		else if (lc == columnRslt_ins_func_nm) doRslt_ins_func_nm_LC(info);
-		else if (lc == columnRslt_ins_ts) doRslt_ins_ts_LC(info);
-		else if (lc == columnRslt_upd_usr_id) doRslt_upd_usr_id_LC(info);
-		else if (lc == columnRslt_upd_usr_nm) doRslt_upd_usr_nm_LC(info);
-		else if (lc == columnRslt_upd_func_id) doRslt_upd_func_id_LC(info);
-		else if (lc == columnRslt_upd_func_nm) doRslt_upd_func_nm_LC(info);
-		else if (lc == columnRslt_upd_ts) doRslt_upd_ts_LC(info);
-		else if (lc == columnRslt_upd_srv_req_no) doRslt_upd_srv_req_no_LC(info);
 	}
 
 	/**
@@ -8997,14 +6123,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	}
 
 	/**
-	 * [Rslt]パネルの[frcst_dpt_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dpt_nm_LC(MCEventInfo info){
-	}
-
-	/**
 	 * [Rslt]パネルの[frcst_usr_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -9058,366 +6176,6 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * @param info イベント情報
 	 */
 	public void doRslt_can_rsn_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rsn_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rsn_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[can_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_can_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_intr_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char1]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char1_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char2]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char2_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[sub_char3]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_sub_char3_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_cd]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_itm_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_itm_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_period_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_period_typ_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_st_dt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_st_dt_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_end_dt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_end_dt_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[frcst_dt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_frcst_dt_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_cd]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[trd_unit_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_trd_unit_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[qty_dec_place]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_qty_dec_place_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_cd]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_unit_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_unit_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[base_qty_dec_place]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_base_qty_dec_place_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_cst_frcst_prnt_dt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_cst_frcst_prnt_dt_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[last_rcpt_dt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_last_rcpt_dt_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_cd]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[gi_loc_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_gi_loc_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_slip_d_no]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_slip_d_no_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[disp_seq]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_disp_seq_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_intr_rmrks]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_intr_rmrks_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char1]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char1_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char2]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char2_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[dtl_sub_char3]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_dtl_sub_char3_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_cd]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[itm_typ_d_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_itm_typ_d_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[cst_frcst_d_no]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_cst_frcst_d_no_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_id]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_id_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_usr_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_usr_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_id]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_id_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_func_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_func_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[ins_ts]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_ins_ts_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_id]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_id_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_usr_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_usr_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_id]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_id_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_func_nm]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_func_nm_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_ts]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_ts_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Rslt]パネルの[upd_srv_req_no]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doRslt_upd_srv_req_no_LC(MCEventInfo info){
 	}
 
 	/**

@@ -23,10 +23,6 @@ import mcframe.clientMAUB.MAUBP0030.*;
 import mcframe.clientMAUB.MAUBP0100.*;
 import mcframe.clientMAUB.MAUBP0250.*;
 import mcframe.clientMAUB.MAUBP0260.*;
-import mcframe.clientMAUB.MAUBP5030.*;
-import mcframe.clientMAUB.MAUBP5040.*;
-import mcframe.clientMAUB.MAUBP5170.*;
-import mcframe.clientMAUB.MAUBP5190.*;
 import mcframe.clientMSUB.MSUBP0010.*;
 
 import mcframe.commonMA.constant.*;
@@ -100,13 +96,6 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 	 */
 	@Override
 	public void doRPnl_dwnld(MCEventInfo info) {
-	}
-
-	/**
-	 * Panel[Btn]のボタン[open_MSBBP0010]の押下時の処理
-	 */
-	@Override
-	public void doBtn_open_MSBBP0010(MCEventInfo info) {
 	}
 
 	/**
