@@ -917,6 +917,11 @@ abstract public class MSBBL_SloRegService_MC_A extends mcframe.serverMSBB.MSBBL9
 		 * 	<tr><td><br></td><td>edi_sub_char5</td></tr>
 		 * 	<tr><td><br></td><td>edi_sub_num1</td></tr>
 		 * 	<tr><td><br></td><td>edi_sub_dt1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
 		 * </table>
 		 *
 		 * @see MCList

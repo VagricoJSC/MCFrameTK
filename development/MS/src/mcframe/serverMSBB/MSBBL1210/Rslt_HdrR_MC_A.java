@@ -756,6 +756,31 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 	 */
 	public static final String $qtn_upd_cntr = "qtn_upd_cntr";
 	public static final String $bp_sls_basis_typ = "bp_sls_basis_typ";
+	/**
+	 * Item cd. 品目ＣＤ.<p>
+	 *
+	 */
+	public static final String $prod_itm_cd = "prod_itm_cd";
+	/**
+	 * Branch No. 1 枝番１.<p>
+	 *
+	 */
+	public static final String $prod_itm_sub1 = "prod_itm_sub1";
+	/**
+	 * Branch No. 2 枝番２.<p>
+	 *
+	 */
+	public static final String $prod_itm_sub2 = "prod_itm_sub2";
+	/**
+	 * Branch No. 3 枝番３.<p>
+	 *
+	 */
+	public static final String $prod_itm_sub3 = "prod_itm_sub3";
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public static final String $prod_itm_nm = "prod_itm_nm";
 
 
 	public static final MCMeta trd_cd_META = createCommonMeta($trd_cd, mcframe.commonMA.meta.MA_META.TRD_CD);
@@ -905,6 +930,11 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 	public static final MCMeta slo_upd_cntr_META = createCommonMeta($slo_upd_cntr, mcframe.commonMA.meta.MA_META.UPD_CNT);
 	public static final MCMeta qtn_upd_cntr_META = createCommonMeta($qtn_upd_cntr, mcframe.commonMA.meta.MA_META.UPD_CNT);
 	public static final MCMeta bp_sls_basis_typ_META = createCommonMeta($bp_sls_basis_typ, mcframe.commonMA.meta.MA_META.SLS_BASIS_TYP);
+	public static final MCMeta prod_itm_cd_META = createCommonMeta($prod_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta prod_itm_sub1_META = createCommonMeta($prod_itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta prod_itm_sub2_META = createCommonMeta($prod_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta prod_itm_sub3_META = createCommonMeta($prod_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta prod_itm_nm_META = createCommonMeta($prod_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
 
 	protected static final ConstMetaList<Rslt_HdrR> constMetas = new ConstMetaList<Rslt_HdrR>(
 		MCConstRow.constMetas,
@@ -1055,7 +1085,12 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 			upd_srv_req_no_META,
 			slo_upd_cntr_META,
 			qtn_upd_cntr_META,
-			bp_sls_basis_typ_META
+			bp_sls_basis_typ_META,
+			prod_itm_cd_META,
+			prod_itm_sub1_META,
+			prod_itm_sub2_META,
+			prod_itm_sub3_META,
+			prod_itm_nm_META
 		},
 		new String[][]{
 			{
@@ -4401,6 +4436,91 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 	}
 
 
+	/**
+	 * Item cd. 品目ＣＤ.<p>
+	 *
+	 */
+	public String prod_itm_cd() {
+		return getConstString(offset + 147, $prod_itm_cd);
+	}
+
+	/**
+	 * Item cd. 品目ＣＤ.<p>
+	 *
+	 */
+	public void prod_itm_cd(String value) {
+		setConstString(offset + 147, $prod_itm_cd, value);
+	}
+
+
+	/**
+	 * Branch No. 1 枝番１.<p>
+	 *
+	 */
+	public String prod_itm_sub1() {
+		return getConstString(offset + 148, $prod_itm_sub1);
+	}
+
+	/**
+	 * Branch No. 1 枝番１.<p>
+	 *
+	 */
+	public void prod_itm_sub1(String value) {
+		setConstString(offset + 148, $prod_itm_sub1, value);
+	}
+
+
+	/**
+	 * Branch No. 2 枝番２.<p>
+	 *
+	 */
+	public String prod_itm_sub2() {
+		return getConstString(offset + 149, $prod_itm_sub2);
+	}
+
+	/**
+	 * Branch No. 2 枝番２.<p>
+	 *
+	 */
+	public void prod_itm_sub2(String value) {
+		setConstString(offset + 149, $prod_itm_sub2, value);
+	}
+
+
+	/**
+	 * Branch No. 3 枝番３.<p>
+	 *
+	 */
+	public String prod_itm_sub3() {
+		return getConstString(offset + 150, $prod_itm_sub3);
+	}
+
+	/**
+	 * Branch No. 3 枝番３.<p>
+	 *
+	 */
+	public void prod_itm_sub3(String value) {
+		setConstString(offset + 150, $prod_itm_sub3, value);
+	}
+
+
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public String prod_itm_nm() {
+		return getConstString(offset + 151, $prod_itm_nm);
+	}
+
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public void prod_itm_nm(String value) {
+		setConstString(offset + 151, $prod_itm_nm, value);
+	}
+
+
 	public String getString(String name) {
 		if ($trd_cd.equalsIgnoreCase(name)) {
 			return trd_cd();
@@ -4689,6 +4809,21 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 		}
 		if ($bp_sls_basis_typ.equalsIgnoreCase(name)) {
 			return bp_sls_basis_typ();
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
 		}
 		return super.getString(name);
 	}
@@ -5146,6 +5281,21 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 		}
 		if ($bp_sls_basis_typ.equalsIgnoreCase(name)) {
 			return bp_sls_basis_typ();
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
 		}
 		return super.getStringNE(name);
 	}
@@ -5698,6 +5848,26 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 		}
 		if ($bp_sls_basis_typ.equalsIgnoreCase(name)) {
 			bp_sls_basis_typ(value);
+			return;
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
+			return;
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
+			return;
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
+			return;
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
+			return;
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
 			return;
 		}
 		super.setString(name, value);
@@ -6682,6 +6852,26 @@ abstract class Rslt_HdrR_MC_A extends MCConstRow {
 		}
 		if ($bp_sls_basis_typ.equalsIgnoreCase(name)) {
 			bp_sls_basis_typ(value);
+			return;
+		}
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
+			return;
+		}
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
+			return;
+		}
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
+			return;
+		}
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
+			return;
+		}
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
 			return;
 		}
 		super.setStringNE(name, value);

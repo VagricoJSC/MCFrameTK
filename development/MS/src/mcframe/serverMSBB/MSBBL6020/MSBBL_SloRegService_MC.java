@@ -17836,6 +17836,5 @@ abstract public class MSBBL_SloRegService_MC extends MSBBL_SloRegService_MC_A{
 		}
 		return _lgCtlR.get(fr_lg_grp_cd, to_lg_grp_cd, ship_term_cd);
 	}
-
 	//FMCB CUSTOM END
 }

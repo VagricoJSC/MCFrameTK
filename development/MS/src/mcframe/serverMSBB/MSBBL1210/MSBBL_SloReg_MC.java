@@ -955,6 +955,5 @@ abstract public class MSBBL_SloReg_MC extends MSBBL_SloReg_MC_A{
 
 		}
 	}
-
 	//FMCB CUSTOM END
 }

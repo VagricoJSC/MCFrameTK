@@ -19,6 +19,7 @@ import mcframe.clientCore.container.MCConstRow;
 import mcframe.clientCore.beans.list.MCLinkBeans;
 import mcframe.commonCore.annotation.EI;
 import mcframe.clientFSUB.FSUBP0060.*;
+import mcframe.clientMAUB.MAUBP0030.*;
 import mcframe.clientMAUB.MAUBP0060.*;
 import mcframe.clientMAUB.MAUBP0110.*;
 import mcframe.clientMAUB.MAUBP0210.*;

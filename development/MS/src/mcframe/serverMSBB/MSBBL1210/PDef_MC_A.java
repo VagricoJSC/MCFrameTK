@@ -258,7 +258,12 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("upd_srv_req_no", "upd_srv_req_no"),
 				MCItemDef.create("slo_upd_cntr", "slo_upd_cntr"),
 				MCItemDef.create("qtn_upd_cntr", "qtn_upd_cntr"),
-				MCItemDef.create("bp_sls_basis_typ", "bp_sls_basis_typ")
+				MCItemDef.create("bp_sls_basis_typ", "bp_sls_basis_typ"),
+				MCItemDef.create("prod_itm_cd", "prod_itm_cd"),
+				MCItemDef.create("prod_itm_sub1", "prod_itm_sub1"),
+				MCItemDef.create("prod_itm_sub2", "prod_itm_sub2"),
+				MCItemDef.create("prod_itm_sub3", "prod_itm_sub3"),
+				MCItemDef.create("prod_itm_nm", "prod_itm_nm")
 			}
 			,
 			MCBlockDef.create("Rslt_Hdr")
@@ -969,7 +974,12 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("edi_sub_char5", "edi_sub_char5"),
 				MCItemDef.create("edi_sub_num1", "edi_sub_num1"),
 				MCItemDef.create("edi_sub_dt1", "edi_sub_dt1"),
-				MCItemDef.create("qtn_upd_cntr", "qtn_upd_cntr")
+				MCItemDef.create("qtn_upd_cntr", "qtn_upd_cntr"),
+				MCItemDef.create("prod_itm_cd", "prod_itm_cd"),
+				MCItemDef.create("prod_itm_sub1", "prod_itm_sub1"),
+				MCItemDef.create("prod_itm_sub2", "prod_itm_sub2"),
+				MCItemDef.create("prod_itm_sub3", "prod_itm_sub3"),
+				MCItemDef.create("prod_itm_nm", "prod_itm_nm")
 			}
 			,
 			MCBlockDef.create("Ins01_Hdr")
@@ -1241,7 +1251,12 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("edi_sub_num1", "edi_sub_num1"),
 				MCItemDef.create("edi_sub_dt1", "edi_sub_dt1"),
 				MCItemDef.create("slo_upd_cntr", "slo_upd_cntr"),
-				MCItemDef.create("qtn_upd_cntr", "qtn_upd_cntr")
+				MCItemDef.create("qtn_upd_cntr", "qtn_upd_cntr"),
+				MCItemDef.create("prod_itm_cd", "prod_itm_cd"),
+				MCItemDef.create("prod_itm_sub1", "prod_itm_sub1"),
+				MCItemDef.create("prod_itm_sub2", "prod_itm_sub2"),
+				MCItemDef.create("prod_itm_sub3", "prod_itm_sub3"),
+				MCItemDef.create("prod_itm_nm", "prod_itm_nm")
 			}
 			,
 			MCBlockDef.create("Upd01_Hdr")

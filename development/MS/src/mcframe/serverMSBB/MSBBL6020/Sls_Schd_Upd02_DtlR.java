@@ -2,6 +2,9 @@ package mcframe.serverMSBB.MSBBL6020;
 
 import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.annotation.EI;
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * ブロック"Sls_Schd_Upd02_Dtl"コンテナRowクラスです。<p>
@@ -78,4 +81,7 @@ public class Sls_Schd_Upd02_DtlR extends Sls_Schd_Upd02_DtlR_MC_A {
 	public Sls_Schd_Upd02_DtlR(ConstMetaList<? extends Sls_Schd_Upd02_DtlR> metas) {
 		super(metas);
 	}
+//FMCB CUSTOM START
+
+//FMCB CUSTOM END
 }

@@ -17,6 +17,7 @@ import mcframe.clientCore.beans.tree.*;
 import mcframe.clientCore.container.MCConstRow;
 
 import mcframe.clientFSUB.FSUBP0060.*;
+import mcframe.clientMAUB.MAUBP0030.*;
 import mcframe.clientMAUB.MAUBP0060.*;
 import mcframe.clientMAUB.MAUBP0110.*;
 import mcframe.clientMAUB.MAUBP0210.*;

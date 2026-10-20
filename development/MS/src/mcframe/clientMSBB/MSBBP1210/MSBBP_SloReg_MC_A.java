@@ -924,6 +924,69 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextField Hdr_frc_rsn_cd_nm = null;
+	public MCLabel Hdr_sales_cond_Label = null;
+	/**
+	 * Sales condition cd. 売上条件区分ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_sales_cond = null;
+	/**
+	 * Sales condition name 売上条件区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_sales_cond_nm = null;
+	public MCLabel Hdr_sls_dt_Label = null;
+	/**
+	 * Sales date 売上日.<p>
+	 *
+	 */
+	public MCDateField Hdr_sls_dt = null;
+	/**
+	 *  出荷帳票得意先名印字しない.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_ship_prnt_no_cst_nm_flg = null;
+	public MCLabel Hdr_src_wrk_no_Label = null;
+	/**
+	 *  元案件ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_src_wrk_no = null;
+	public MCLabel Hdr_zoho_sls_schd_no_Label = null;
+	/**
+	 *  ＺＯＨＯ販売予定ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_zoho_sls_schd_no = null;
+	/**
+	 *  受注最終出荷売上.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_slo_last_sls_flg = null;
+	public mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H Hdr_par_itm_p_PPanel;
+	public MCTextField Hdr_par_itm_cd;	// [Hdr]の[par_itm_p.itm_cd]を[Hdr_par_itm_cd]としてエイリアス定義。
+	public MCTextComboBox Hdr_par_itm_sub1;	// [Hdr]の[par_itm_p.itm_sub1]を[Hdr_par_itm_sub1]としてエイリアス定義。
+	public MCTextComboBox Hdr_par_itm_sub2;	// [Hdr]の[par_itm_p.itm_sub2]を[Hdr_par_itm_sub2]としてエイリアス定義。
+	public MCTextComboBox Hdr_par_itm_sub3;	// [Hdr]の[par_itm_p.itm_sub3]を[Hdr_par_itm_sub3]としてエイリアス定義。
+	public MCTextField Hdr_par_itm_nm;	// [Hdr]の[par_itm_p.itm_nm]を[Hdr_par_itm_nm]としてエイリアス定義。
+	public MCLabel Hdr_surv_line_qty_Label = null;
+	/**
+	 *  測線数.<p>
+	 *
+	 */
+	public MCTextField Hdr_surv_line_qty = null;
+	public MCLabel Hdr_diameter_Label = null;
+	/**
+	 *  口径.<p>
+	 *
+	 */
+	public MCTextField Hdr_diameter = null;
+	public MCLabel Hdr_match_key_Label = null;
+	/**
+	 *  照合キー.<p>
+	 *
+	 */
+	public MCTextField Hdr_match_key = null;
 	// [Hdr2]ブロック関連のField定義
 	public MCPanel Hdr2Panel = null;
 	// [Hdr2]ブロックの項目のField定義
@@ -2434,6 +2497,18 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_dt.addAliasName("Hdr.dlv_rqst_dt", p);
 		p.Hdr_dlv_rqst_hm = p.Hdr_dlv_rqst_p_PPanel.YmdHm_hm;
 		p.Hdr_dlv_rqst_hm.addAliasName("Hdr.dlv_rqst_hm", p);
+		p.Hdr_par_itm_p_PPanel = mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.create(p.getHdrR().par_itm_p());
+		p.Hdr_par_itm_p_PPanel.setName("Hdr.par_itm_p");
+		p.Hdr_par_itm_cd = p.Hdr_par_itm_p_PPanel.Itm_itm_cd;
+		p.Hdr_par_itm_cd.addAliasName("Hdr.par_itm_cd", p);
+		p.Hdr_par_itm_sub1 = p.Hdr_par_itm_p_PPanel.Itm_itm_sub1;
+		p.Hdr_par_itm_sub1.addAliasName("Hdr.par_itm_sub1", p);
+		p.Hdr_par_itm_sub2 = p.Hdr_par_itm_p_PPanel.Itm_itm_sub2;
+		p.Hdr_par_itm_sub2.addAliasName("Hdr.par_itm_sub2", p);
+		p.Hdr_par_itm_sub3 = p.Hdr_par_itm_p_PPanel.Itm_itm_sub3;
+		p.Hdr_par_itm_sub3.addAliasName("Hdr.par_itm_sub3", p);
+		p.Hdr_par_itm_nm = p.Hdr_par_itm_p_PPanel.Itm_itm_nm;
+		p.Hdr_par_itm_nm.addAliasName("Hdr.par_itm_nm", p);
 	}
 
 	/**
@@ -4006,6 +4081,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd = p.beansFactory.createTextField("Hdr.frc_rsn_cd");
 		p.Hdr_frc_rsn_cd.setLabel(p.Hdr_frc_rsn_cd_Label);
 		p.Hdr_frc_rsn_cd_nm = p.beansFactory.createTextField("Hdr.frc_rsn_cd_nm");
+		p.Hdr_sales_cond_Label = p.beansFactory.createLabel("Hdr.sales_cond_Label");
+		p.Hdr_sales_cond = p.beansFactory.createTextField("Hdr.sales_cond");
+		p.Hdr_sales_cond.setLabel(p.Hdr_sales_cond_Label);
+		p.Hdr_sales_cond_nm = p.beansFactory.createTextField("Hdr.sales_cond_nm");
+		p.Hdr_sls_dt_Label = p.beansFactory.createLabel("Hdr.sls_dt_Label");
+		p.Hdr_sls_dt = p.beansFactory.createDateField("Hdr.sls_dt");
+		p.Hdr_sls_dt.setLabel(p.Hdr_sls_dt_Label);
+		p.Hdr_ship_prnt_no_cst_nm_flg = p.beansFactory.createCheckBox("Hdr.ship_prnt_no_cst_nm_flg");
+		p.Hdr_src_wrk_no_Label = p.beansFactory.createLabel("Hdr.src_wrk_no_Label");
+		p.Hdr_src_wrk_no = p.beansFactory.createTextField("Hdr.src_wrk_no");
+		p.Hdr_src_wrk_no.setLabel(p.Hdr_src_wrk_no_Label);
+		p.Hdr_zoho_sls_schd_no_Label = p.beansFactory.createLabel("Hdr.zoho_sls_schd_no_Label");
+		p.Hdr_zoho_sls_schd_no = p.beansFactory.createTextField("Hdr.zoho_sls_schd_no");
+		p.Hdr_zoho_sls_schd_no.setLabel(p.Hdr_zoho_sls_schd_no_Label);
+		p.Hdr_slo_last_sls_flg = p.beansFactory.createCheckBox("Hdr.slo_last_sls_flg");
+		p.Hdr_surv_line_qty_Label = p.beansFactory.createLabel("Hdr.surv_line_qty_Label");
+		p.Hdr_surv_line_qty = p.beansFactory.createTextField("Hdr.surv_line_qty");
+		p.Hdr_surv_line_qty.setLabel(p.Hdr_surv_line_qty_Label);
+		p.Hdr_diameter_Label = p.beansFactory.createLabel("Hdr.diameter_Label");
+		p.Hdr_diameter = p.beansFactory.createTextField("Hdr.diameter");
+		p.Hdr_diameter.setLabel(p.Hdr_diameter_Label);
+		p.Hdr_match_key_Label = p.beansFactory.createLabel("Hdr.match_key_Label");
+		p.Hdr_match_key = p.beansFactory.createTextField("Hdr.match_key");
+		p.Hdr_match_key.setLabel(p.Hdr_match_key_Label);
 	}
 
 	/**
@@ -4856,7 +4955,56 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd.setNextBeans(p.Hdr_frc_rsn_cd_nm);
 		p.Hdr_frc_rsn_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_META);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_nm);
+		p.Hdr_frc_rsn_cd_nm.setNextBeans(p.Hdr_sales_cond);
 		p.Hdr_frc_rsn_cd_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_nm_META);
+		p.HdrPanel.add(p.Hdr_sales_cond_Label);
+		p.HdrPanel.add(p.Hdr_sales_cond);
+		p.Hdr_sales_cond.setNextBeans(p.Hdr_sales_cond_nm);
+		p.Hdr_sales_cond.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sales_cond_META);
+		p.HdrPanel.add(p.Hdr_sales_cond_nm);
+		p.Hdr_sales_cond_nm.setNextBeans(p.Hdr_sls_dt);
+		p.Hdr_sales_cond_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sales_cond_nm_META);
+		p.HdrPanel.add(p.Hdr_sls_dt_Label);
+		p.HdrPanel.add(p.Hdr_sls_dt);
+		p.Hdr_sls_dt.setNextBeans(p.Hdr_ship_prnt_no_cst_nm_flg);
+		p.Hdr_sls_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_dt_META);
+		p.Hdr_sls_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.HdrPanel.add(p.Hdr_ship_prnt_no_cst_nm_flg);
+		p.Hdr_ship_prnt_no_cst_nm_flg.setNextBeans(p.Hdr_src_wrk_no);
+		p.Hdr_ship_prnt_no_cst_nm_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ship_prnt_no_cst_nm_flg_META);
+		p.HdrPanel.add(p.Hdr_src_wrk_no_Label);
+		p.HdrPanel.add(p.Hdr_src_wrk_no);
+		p.Hdr_src_wrk_no.setNextBeans(p.Hdr_zoho_sls_schd_no);
+		p.Hdr_src_wrk_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.src_wrk_no_META);
+		p.HdrPanel.add(p.Hdr_zoho_sls_schd_no_Label);
+		p.HdrPanel.add(p.Hdr_zoho_sls_schd_no);
+		p.Hdr_zoho_sls_schd_no.setNextBeans(p.Hdr_slo_last_sls_flg);
+		p.Hdr_zoho_sls_schd_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.zoho_sls_schd_no_META);
+		p.HdrPanel.add(p.Hdr_slo_last_sls_flg);
+		p.Hdr_slo_last_sls_flg.setNextBeans(p.Hdr_par_itm_p_PPanel);
+		p.Hdr_slo_last_sls_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_last_sls_flg_META);
+		p.HdrPanel.add(p.Hdr_par_itm_p_PPanel);
+		p.Hdr_par_itm_p_PPanel.setNextBeans(p.Hdr_surv_line_qty);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_cd, true);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_sub1, true);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_sub2, true);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_sub3, true);
+		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_nm, true);
+		p.HdrPanel.add(p.Hdr_surv_line_qty_Label);
+		p.HdrPanel.add(p.Hdr_surv_line_qty);
+		p.Hdr_surv_line_qty.setNextBeans(p.Hdr_diameter);
+		p.Hdr_surv_line_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.surv_line_qty_META);
+		p.HdrPanel.add(p.Hdr_diameter_Label);
+		p.HdrPanel.add(p.Hdr_diameter);
+		p.Hdr_diameter.setNextBeans(p.Hdr_match_key);
+		p.Hdr_diameter.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.diameter_META);
+		p.HdrPanel.add(p.Hdr_match_key_Label);
+		p.HdrPanel.add(p.Hdr_match_key);
+		p.Hdr_match_key.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.match_key_META);
 	}
 
 	/**
@@ -5443,6 +5591,28 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd.addAllListener(p);
 		p.Hdr_frc_rsn_cd_nm.setListListener(p);
 		p.Hdr_frc_rsn_cd_nm.addAllListener(p);
+		p.Hdr_sales_cond.setListListener(p);
+		p.Hdr_sales_cond.addAllListener(p);
+		p.Hdr_sales_cond_nm.setListListener(p);
+		p.Hdr_sales_cond_nm.addAllListener(p);
+		p.Hdr_sls_dt.setListListener(p);
+		p.Hdr_sls_dt.addAllListener(p);
+		p.Hdr_ship_prnt_no_cst_nm_flg.addAllListener(p);
+		p.Hdr_src_wrk_no.setListListener(p);
+		p.Hdr_src_wrk_no.addAllListener(p);
+		p.Hdr_zoho_sls_schd_no.setListListener(p);
+		p.Hdr_zoho_sls_schd_no.addAllListener(p);
+		p.Hdr_slo_last_sls_flg.addAllListener(p);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_surv_line_qty.setListListener(p);
+		p.Hdr_surv_line_qty.addAllListener(p);
+		p.Hdr_diameter.setListListener(p);
+		p.Hdr_diameter.addAllListener(p);
+		p.Hdr_match_key.setListListener(p);
+		p.Hdr_match_key.addAllListener(p);
 	}
 
 	/**
@@ -5935,6 +6105,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 
 	}
 
@@ -6372,6 +6547,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
 
 	}
 
@@ -6810,6 +6990,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD, MCMode.READ_ONLY);
 
 	}
 
@@ -7248,6 +7433,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 
 	}
 
@@ -7685,6 +7875,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 
 	}
 
@@ -8367,6 +8562,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 
 	}
 
@@ -8805,6 +9005,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
 		p.Hdr_dlv_day_week_typ.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS, MCMode.READ_ONLY);
 
 	}
 
@@ -9243,6 +9448,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.ENABLE);
 		p.Hdr_dlv_day_week_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 
 	}
 
@@ -9680,6 +9890,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 
 	}
 
@@ -10117,6 +10332,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
 
 	}
 
@@ -10554,6 +10774,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_rqst_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0110.MAUBP_YmdHm_H.READ_ONLY);
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 
 	}
 
@@ -12010,6 +12235,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_tterm_cd3) return getHdr_tterm_cd3(row, info);
 		if(combo == Hdr_can_rsn_cd) return getHdr_can_rsn_cd(row, info);
 		if(combo == Hdr_dlv_day_week_typ_nm) return getHdr_dlv_day_week_typ_nm(row, info);
+		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_cd) return getHdr_par_itm_p_PPanel_Itm_itm_cd(row, info);
+		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub1) return getHdr_par_itm_p_PPanel_Itm_itm_sub1(row, info);
+		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub2) return getHdr_par_itm_p_PPanel_Itm_itm_sub2(row, info);
+		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub3) return getHdr_par_itm_p_PPanel_Itm_itm_sub3(row, info);
 		if(combo == columnDtl_cst_itm_cd) return getDtl_cst_itm_cd(row, info);
 		if(combo == Dtl_itm_p_PPanel.columnItm_itm_cd) return getDtl_itm_p_PPanel_columnItm_itm_cd(row, info);
 		if(combo == Dtl_itm_p_PPanel.columnItm_itm_sub1) return getDtl_itm_p_PPanel_columnItm_itm_sub1(row, info);
@@ -12271,6 +12500,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_dlv_day_week_typ_nm) return doHdr_dlv_day_week_typ_nm_VC(info);
 		if (vc == Hdr_frc_rsn_cd) return doHdr_frc_rsn_cd_VC(info);
 		if (vc == Hdr_frc_rsn_cd_nm) return doHdr_frc_rsn_cd_nm_VC(info);
+		if (vc == Hdr_sales_cond) return doHdr_sales_cond_VC(info);
+		if (vc == Hdr_sales_cond_nm) return doHdr_sales_cond_nm_VC(info);
+		if (vc == Hdr_sls_dt) return doHdr_sls_dt_VC(info);
+		if (vc == Hdr_ship_prnt_no_cst_nm_flg) return doHdr_ship_prnt_no_cst_nm_flg_VC(info);
+		if (vc == Hdr_src_wrk_no) return doHdr_src_wrk_no_VC(info);
+		if (vc == Hdr_zoho_sls_schd_no) return doHdr_zoho_sls_schd_no_VC(info);
+		if (vc == Hdr_slo_last_sls_flg) return doHdr_slo_last_sls_flg_VC(info);
+		if (vc == Hdr_surv_line_qty) return doHdr_surv_line_qty_VC(info);
+		if (vc == Hdr_diameter) return doHdr_diameter_VC(info);
+		if (vc == Hdr_match_key) return doHdr_match_key_VC(info);
 		if (vc == columnDtl_abort_flg) return doDtl_abort_flg_VC(info);
 		if (vc == columnDtl_sls_sts_typ) return doDtl_sls_sts_typ_VC(info);
 		if (vc == columnDtl_sls_sts_typ_nm) return doDtl_sls_sts_typ_nm_VC(info);
@@ -13862,6 +14101,106 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[sales_cond]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sales_cond_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sales_cond_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sales_cond_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sls_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_prnt_no_cst_nm_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ship_prnt_no_cst_nm_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[src_wrk_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_src_wrk_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[zoho_sls_schd_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_zoho_sls_schd_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_last_sls_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_last_sls_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[surv_line_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_surv_line_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[diameter]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_diameter_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[match_key]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_match_key_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -15384,6 +15723,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NC(info);
 		else if (nc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NC(info);
 		else if (nc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NC(info);
+		else if (nc == Hdr_sales_cond) doHdr_sales_cond_NC(info);
+		else if (nc == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NC(info);
+		else if (nc == Hdr_sls_dt) doHdr_sls_dt_NC(info);
+		else if (nc == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NC(info);
+		else if (nc == Hdr_src_wrk_no) doHdr_src_wrk_no_NC(info);
+		else if (nc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NC(info);
+		else if (nc == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NC(info);
+		else if (nc == Hdr_surv_line_qty) doHdr_surv_line_qty_NC(info);
+		else if (nc == Hdr_diameter) doHdr_diameter_NC(info);
+		else if (nc == Hdr_match_key) doHdr_match_key_NC(info);
 		else if (nc == columnDtl_abort_flg) doDtl_abort_flg_NC(info);
 		else if (nc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NC(info);
 		else if (nc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NC(info);
@@ -16684,6 +17033,86 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[sales_cond]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sales_cond_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_prnt_no_cst_nm_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_prnt_no_cst_nm_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[src_wrk_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_src_wrk_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[zoho_sls_schd_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_zoho_sls_schd_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_last_sls_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_last_sls_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[surv_line_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_surv_line_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[diameter]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_diameter_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[match_key]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_match_key_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -17932,6 +18361,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NE(info);
 		else if (ne == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NE(info);
 		else if (ne == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NE(info);
+		else if (ne == Hdr_sales_cond) doHdr_sales_cond_NE(info);
+		else if (ne == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NE(info);
+		else if (ne == Hdr_sls_dt) doHdr_sls_dt_NE(info);
+		else if (ne == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NE(info);
+		else if (ne == Hdr_src_wrk_no) doHdr_src_wrk_no_NE(info);
+		else if (ne == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NE(info);
+		else if (ne == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NE(info);
+		else if (ne == Hdr_surv_line_qty) doHdr_surv_line_qty_NE(info);
+		else if (ne == Hdr_diameter) doHdr_diameter_NE(info);
+		else if (ne == Hdr_match_key) doHdr_match_key_NE(info);
 		else if (ne == columnDtl_abort_flg) doDtl_abort_flg_NE(info);
 		else if (ne == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NE(info);
 		else if (ne == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NE(info);
@@ -19232,6 +19671,86 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[sales_cond]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sales_cond_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_prnt_no_cst_nm_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_prnt_no_cst_nm_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[src_wrk_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_src_wrk_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[zoho_sls_schd_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_zoho_sls_schd_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_last_sls_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_last_sls_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[surv_line_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_surv_line_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[diameter]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_diameter_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[match_key]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_match_key_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -20480,6 +20999,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NX(info);
 		else if (nx == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NX(info);
 		else if (nx == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NX(info);
+		else if (nx == Hdr_sales_cond) doHdr_sales_cond_NX(info);
+		else if (nx == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NX(info);
+		else if (nx == Hdr_sls_dt) doHdr_sls_dt_NX(info);
+		else if (nx == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NX(info);
+		else if (nx == Hdr_src_wrk_no) doHdr_src_wrk_no_NX(info);
+		else if (nx == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NX(info);
+		else if (nx == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NX(info);
+		else if (nx == Hdr_surv_line_qty) doHdr_surv_line_qty_NX(info);
+		else if (nx == Hdr_diameter) doHdr_diameter_NX(info);
+		else if (nx == Hdr_match_key) doHdr_match_key_NX(info);
 		else if (nx == columnDtl_abort_flg) doDtl_abort_flg_NX(info);
 		else if (nx == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NX(info);
 		else if (nx == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NX(info);
@@ -21780,6 +22309,86 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[sales_cond]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sales_cond_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_prnt_no_cst_nm_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_prnt_no_cst_nm_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[src_wrk_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_src_wrk_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[zoho_sls_schd_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_zoho_sls_schd_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_last_sls_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_last_sls_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[surv_line_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_surv_line_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[diameter]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_diameter_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[match_key]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_match_key_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -23009,6 +23618,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_LC(info);
 		else if (lc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_LC(info);
 		else if (lc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_LC(info);
+		else if (lc == Hdr_sales_cond) doHdr_sales_cond_LC(info);
+		else if (lc == Hdr_sales_cond_nm) doHdr_sales_cond_nm_LC(info);
+		else if (lc == Hdr_sls_dt) doHdr_sls_dt_LC(info);
+		else if (lc == Hdr_src_wrk_no) doHdr_src_wrk_no_LC(info);
+		else if (lc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_LC(info);
+		else if (lc == Hdr_surv_line_qty) doHdr_surv_line_qty_LC(info);
+		else if (lc == Hdr_diameter) doHdr_diameter_LC(info);
+		else if (lc == Hdr_match_key) doHdr_match_key_LC(info);
 		else if (lc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_LC(info);
 		else if (lc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_LC(info);
 		else if (lc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_LC(info);
@@ -24133,6 +24750,70 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[sales_cond]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sales_cond_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sales_cond_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sls_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sls_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[src_wrk_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_src_wrk_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[zoho_sls_schd_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_zoho_sls_schd_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[surv_line_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_surv_line_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[diameter]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_diameter_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[match_key]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_match_key_LC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[sls_sts_typ]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -25216,6 +25897,34 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCList getHdr_dlv_day_week_typ_nm(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDayWeekTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_par_itm_p_PPanel_Itm_itm_cd]の作成メソッド
+	 */
+	public MCList getHdr_par_itm_p_PPanel_Itm_itm_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_par_itm_p_PPanel_Itm_itm_sub1]の作成メソッド
+	 */
+	public MCList getHdr_par_itm_p_PPanel_Itm_itm_sub1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub1(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_par_itm_p_PPanel_Itm_itm_sub2]の作成メソッド
+	 */
+	public MCList getHdr_par_itm_p_PPanel_Itm_itm_sub2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub2(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_par_itm_p_PPanel_Itm_itm_sub3]の作成メソッド
+	 */
+	public MCList getHdr_par_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
 	}
 
 	/**

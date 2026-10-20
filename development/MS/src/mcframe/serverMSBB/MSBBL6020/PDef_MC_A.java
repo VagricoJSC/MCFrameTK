@@ -216,7 +216,12 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("edi_sub_char4", "edi_sub_char4"),
 				MCItemDef.create("edi_sub_char5", "edi_sub_char5"),
 				MCItemDef.create("edi_sub_num1", "edi_sub_num1"),
-				MCItemDef.create("edi_sub_dt1", "edi_sub_dt1")
+				MCItemDef.create("edi_sub_dt1", "edi_sub_dt1"),
+				MCItemDef.create("prod_itm_cd", "prod_itm_cd"),
+				MCItemDef.create("prod_itm_sub1", "prod_itm_sub1"),
+				MCItemDef.create("prod_itm_sub2", "prod_itm_sub2"),
+				MCItemDef.create("prod_itm_sub3", "prod_itm_sub3"),
+				MCItemDef.create("prod_itm_nm", "prod_itm_nm")
 			}
 			,
 			MCBlockDef.create("Slo_Upd01_Hdr")

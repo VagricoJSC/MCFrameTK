@@ -764,6 +764,57 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $frc_rsn_cd_nm = "frc_rsn_cd_nm";
+	/**
+	 * Sales condition cd. 売上条件区分ＣＤ.<p>
+	 *
+	 */
+	public static final String $sales_cond = "sales_cond";
+	/**
+	 * Sales condition name 売上条件区分名.<p>
+	 *
+	 */
+	public static final String $sales_cond_nm = "sales_cond_nm";
+	/**
+	 * Sales date 売上日.<p>
+	 *
+	 */
+	public static final String $sls_dt = "sls_dt";
+	/**
+	 *  出荷帳票得意先名印字しない.<p>
+	 *
+	 */
+	public static final String $ship_prnt_no_cst_nm_flg = "ship_prnt_no_cst_nm_flg";
+	/**
+	 *  元案件ＮＯ.<p>
+	 *
+	 */
+	public static final String $src_wrk_no = "src_wrk_no";
+	/**
+	 *  ＺＯＨＯ販売予定ＮＯ.<p>
+	 *
+	 */
+	public static final String $zoho_sls_schd_no = "zoho_sls_schd_no";
+	/**
+	 *  受注最終出荷売上.<p>
+	 *
+	 */
+	public static final String $slo_last_sls_flg = "slo_last_sls_flg";
+	public static final String $par_itm_p = "par_itm_p";
+	/**
+	 *  測線数.<p>
+	 *
+	 */
+	public static final String $surv_line_qty = "surv_line_qty";
+	/**
+	 *  口径.<p>
+	 *
+	 */
+	public static final String $diameter = "diameter";
+	/**
+	 *  照合キー.<p>
+	 *
+	 */
+	public static final String $match_key = "match_key";
 
 	public static final String $dlv_cd = $dlv_p + ".bp_cd";
 	public static final String $dlv_nm = $dlv_p + ".bp_nm";
@@ -817,6 +868,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final String $ship_rqst_hm = $ship_rqst_p + ".hm";
 	public static final String $dlv_rqst_dt = $dlv_rqst_p + ".ymd";
 	public static final String $dlv_rqst_hm = $dlv_rqst_p + ".hm";
+	public static final String $par_itm_cd = $par_itm_p + ".itm_cd";
+	public static final String $par_itm_sub1 = $par_itm_p + ".itm_sub1";
+	public static final String $par_itm_sub2 = $par_itm_p + ".itm_sub2";
+	public static final String $par_itm_sub3 = $par_itm_p + ".itm_sub3";
+	public static final String $par_itm_nm = $par_itm_p + ".itm_nm";
 
 	public static final MCMeta trd_cd_META = createCommonMeta($trd_cd, mcframe.commonMA.meta.MA_META.TRD_CD);
 	public static final MCMeta trd_nm_META = createCommonMeta($trd_nm, mcframe.commonMA.meta.MA_META.TRD_NM);
@@ -979,7 +1035,18 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta dlv_day_week_typ_META = createCommonMeta($dlv_day_week_typ, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP);
 	public static final MCMeta dlv_day_week_typ_nm_META = createCommonMeta($dlv_day_week_typ_nm, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP_NM);
 	public static final MCMeta frc_rsn_cd_META = createCommonMeta($frc_rsn_cd, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
-	public static final MCMeta frc_rsn_cd_nm_META = createCommonMeta($frc_rsn_cd_nm, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
+	public static final MCMeta frc_rsn_cd_nm_META = createCommonMeta($frc_rsn_cd_nm, mcframe.commonMA.meta.MA_META.FRC_RSN_NM);
+	public static final MCMeta sales_cond_META = createCommonMeta($sales_cond, mcframe.commonMA.meta.MA_META.SALES_COND);
+	public static final MCMeta sales_cond_nm_META = createCommonMeta($sales_cond_nm, mcframe.commonMA.meta.MA_META.SALES_COND_NM);
+	public static final MCMeta sls_dt_META = createCommonMeta($sls_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta ship_prnt_no_cst_nm_flg_META = createCommonMeta($ship_prnt_no_cst_nm_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta src_wrk_no_META = createCommonMeta($src_wrk_no, mcframe.commonMA.meta.MA_META.WRK_NO);
+	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
+	public static final MCMeta slo_last_sls_flg_META = createCommonMeta($slo_last_sls_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
+	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
+	public static final MCMeta match_key_META = createCommonMeta($match_key, mcframe.commonMA.meta.MA_META.MATCH_KEY);
 
 	protected static final ConstMetaList<HdrR> constMetas = new ConstMetaList<HdrR>(
 		MCConstRow.constMetas,
@@ -1145,7 +1212,18 @@ abstract class HdrR_MC_A extends MCConstRow {
 			dlv_day_week_typ_META,
 			dlv_day_week_typ_nm_META,
 			frc_rsn_cd_META,
-			frc_rsn_cd_nm_META
+			frc_rsn_cd_nm_META,
+			sales_cond_META,
+			sales_cond_nm_META,
+			sls_dt_META,
+			ship_prnt_no_cst_nm_flg_META,
+			src_wrk_no_META,
+			zoho_sls_schd_no_META,
+			slo_last_sls_flg_META,
+			par_itm_p_META,
+			surv_line_qty_META,
+			diameter_META,
+			match_key_META
 		},
 		new String[][]{
 			{
@@ -1200,7 +1278,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 				"ship_rqst_dt",
 				"ship_rqst_hm",
 				"dlv_rqst_dt",
-				"dlv_rqst_hm"
+				"dlv_rqst_hm",
+				"par_itm_cd",
+				"par_itm_sub1",
+				"par_itm_sub2",
+				"par_itm_sub3",
+				"par_itm_nm"
 			},
 			{
 				$dlv_cd,
@@ -1254,7 +1337,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 				$ship_rqst_dt,
 				$ship_rqst_hm,
 				$dlv_rqst_dt,
-				$dlv_rqst_hm
+				$dlv_rqst_hm,
+				$par_itm_cd,
+				$par_itm_sub1,
+				$par_itm_sub2,
+				$par_itm_sub3,
+				$par_itm_nm
 			}
 		}
 	);
@@ -4575,6 +4663,185 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 
+	/**
+	 * Sales condition cd. 売上条件区分ＣＤ.<p>
+	 *
+	 */
+	public String sales_cond() {
+		return getConstString(offset + 162, $sales_cond);
+	}
+
+	/**
+	 * Sales condition cd. 売上条件区分ＣＤ.<p>
+	 *
+	 */
+	public void sales_cond(String value) {
+		setConstString(offset + 162, $sales_cond, value);
+	}
+
+
+	/**
+	 * Sales condition name 売上条件区分名.<p>
+	 *
+	 */
+	public String sales_cond_nm() {
+		return getConstString(offset + 163, $sales_cond_nm);
+	}
+
+	/**
+	 * Sales condition name 売上条件区分名.<p>
+	 *
+	 */
+	public void sales_cond_nm(String value) {
+		setConstString(offset + 163, $sales_cond_nm, value);
+	}
+
+
+	/**
+	 * Sales date 売上日.<p>
+	 *
+	 */
+	public MCDate sls_dt() {
+		return getConstDate(offset + 164, $sls_dt);
+	}
+
+	/**
+	 * Sales date 売上日.<p>
+	 *
+	 */
+	public void sls_dt(MCDate value) {
+		setConstDate(offset + 164, $sls_dt, value);
+	}
+
+
+	/**
+	 *  出荷帳票得意先名印字しない.<p>
+	 *
+	 */
+	public boolean ship_prnt_no_cst_nm_flg() {
+		return getConstBoolean(offset + 165, $ship_prnt_no_cst_nm_flg);
+	}
+
+	/**
+	 *  出荷帳票得意先名印字しない.<p>
+	 *
+	 */
+	public void ship_prnt_no_cst_nm_flg(boolean value) {
+		setConstBoolean(offset + 165, $ship_prnt_no_cst_nm_flg, value);
+	}
+
+
+	/**
+	 *  元案件ＮＯ.<p>
+	 *
+	 */
+	public String src_wrk_no() {
+		return getConstString(offset + 166, $src_wrk_no);
+	}
+
+	/**
+	 *  元案件ＮＯ.<p>
+	 *
+	 */
+	public void src_wrk_no(String value) {
+		setConstString(offset + 166, $src_wrk_no, value);
+	}
+
+
+	/**
+	 *  ＺＯＨＯ販売予定ＮＯ.<p>
+	 *
+	 */
+	public String zoho_sls_schd_no() {
+		return getConstString(offset + 167, $zoho_sls_schd_no);
+	}
+
+	/**
+	 *  ＺＯＨＯ販売予定ＮＯ.<p>
+	 *
+	 */
+	public void zoho_sls_schd_no(String value) {
+		setConstString(offset + 167, $zoho_sls_schd_no, value);
+	}
+
+
+	/**
+	 *  受注最終出荷売上.<p>
+	 *
+	 */
+	public boolean slo_last_sls_flg() {
+		return getConstBoolean(offset + 168, $slo_last_sls_flg);
+	}
+
+	/**
+	 *  受注最終出荷売上.<p>
+	 *
+	 */
+	public void slo_last_sls_flg(boolean value) {
+		setConstBoolean(offset + 168, $slo_last_sls_flg, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP0030.ItmR par_itm_p(){
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 169, $par_itm_p);
+	}
+	
+	public void par_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
+		setConstInnerRow(offset + 169, $par_itm_p, row);
+	}
+
+
+	/**
+	 *  測線数.<p>
+	 *
+	 */
+	public String surv_line_qty() {
+		return getConstString(offset + 170, $surv_line_qty);
+	}
+
+	/**
+	 *  測線数.<p>
+	 *
+	 */
+	public void surv_line_qty(String value) {
+		setConstString(offset + 170, $surv_line_qty, value);
+	}
+
+
+	/**
+	 *  口径.<p>
+	 *
+	 */
+	public String diameter() {
+		return getConstString(offset + 171, $diameter);
+	}
+
+	/**
+	 *  口径.<p>
+	 *
+	 */
+	public void diameter(String value) {
+		setConstString(offset + 171, $diameter, value);
+	}
+
+
+	/**
+	 *  照合キー.<p>
+	 *
+	 */
+	public String match_key() {
+		return getConstString(offset + 172, $match_key);
+	}
+
+	/**
+	 *  照合キー.<p>
+	 *
+	 */
+	public void match_key(String value) {
+		setConstString(offset + 172, $match_key, value);
+	}
+
+
 	public String getString(String name) {
 		if ($trd_cd.equalsIgnoreCase(name)) {
 			return trd_cd();
@@ -4888,6 +5155,27 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
 			return frc_rsn_cd_nm();
 		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			return sales_cond();
+		}
+		if ($sales_cond_nm.equalsIgnoreCase(name)) {
+			return sales_cond_nm();
+		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			return src_wrk_no();
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			return diameter();
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			return match_key();
+		}
 		return super.getString(name);
 	}
 	public MCNumber getNumber(String name) {
@@ -4963,6 +5251,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			return edi_sub_dt1();
 		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			return sls_dt();
+		}
 		return super.getDate(name);
 	}
 	public MCTimestamp getTimestamp(String name) {
@@ -5028,6 +5319,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($old_can_del_flg.equalsIgnoreCase(name)) {
 			return old_can_del_flg();
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			return ship_prnt_no_cst_nm_flg();
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			return slo_last_sls_flg();
 		}
 		return super.getBoolean(name);
 	}
@@ -5345,6 +5642,27 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
 			return frc_rsn_cd_nm();
 		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			return sales_cond();
+		}
+		if ($sales_cond_nm.equalsIgnoreCase(name)) {
+			return sales_cond_nm();
+		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			return src_wrk_no();
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			return zoho_sls_schd_no();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			return diameter();
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			return match_key();
+		}
 		return super.getStringNE(name);
 	}
 	public MCNumber getNumberNE(String name) {
@@ -5420,6 +5738,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($edi_sub_dt1.equalsIgnoreCase(name)) {
 			return edi_sub_dt1();
 		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			return sls_dt();
+		}
 		return super.getDateNE(name);
 	}
 	public MCTimestamp getTimestampNE(String name) {
@@ -5485,6 +5806,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($old_can_del_flg.equalsIgnoreCase(name)) {
 			return old_can_del_flg();
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			return ship_prnt_no_cst_nm_flg();
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			return slo_last_sls_flg();
 		}
 		return super.getBooleanNE(name);
 	}
@@ -5906,6 +6233,34 @@ abstract class HdrR_MC_A extends MCConstRow {
 			frc_rsn_cd_nm(value);
 			return;
 		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			sales_cond(value);
+			return;
+		}
+		if ($sales_cond_nm.equalsIgnoreCase(name)) {
+			sales_cond_nm(value);
+			return;
+		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			src_wrk_no(value);
+			return;
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			diameter(value);
+			return;
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			match_key(value);
+			return;
+		}
 		super.setString(name, value);
 	}
 	public void setNumber(String name, MCNumber value) {
@@ -6272,6 +6627,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			edi_sub_dt1(value);
 			return;
 		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			sls_dt(value);
+			return;
+		}
 		super.setDate(name, value);
 	}
 	public void setTimestamp(String name, MCTimestamp value) {
@@ -6356,6 +6715,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($old_can_del_flg.equalsIgnoreCase(name)) {
 			old_can_del_flg(value);
+			return;
+		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			ship_prnt_no_cst_nm_flg(value);
+			return;
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			slo_last_sls_flg(value);
 			return;
 		}
 		super.setBoolean(name, value);
@@ -6778,6 +7145,34 @@ abstract class HdrR_MC_A extends MCConstRow {
 			frc_rsn_cd_nm(value);
 			return;
 		}
+		if ($sales_cond.equalsIgnoreCase(name)) {
+			sales_cond(value);
+			return;
+		}
+		if ($sales_cond_nm.equalsIgnoreCase(name)) {
+			sales_cond_nm(value);
+			return;
+		}
+		if ($src_wrk_no.equalsIgnoreCase(name)) {
+			src_wrk_no(value);
+			return;
+		}
+		if ($zoho_sls_schd_no.equalsIgnoreCase(name)) {
+			zoho_sls_schd_no(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
+		if ($diameter.equalsIgnoreCase(name)) {
+			diameter(value);
+			return;
+		}
+		if ($match_key.equalsIgnoreCase(name)) {
+			match_key(value);
+			return;
+		}
 		super.setStringNE(name, value);
 	}
 	public void setNumberNE(String name, MCNumber value) {
@@ -7144,6 +7539,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			edi_sub_dt1(value);
 			return;
 		}
+		if ($sls_dt.equalsIgnoreCase(name)) {
+			sls_dt(value);
+			return;
+		}
 		super.setDateNE(name, value);
 	}
 	public void setTimestampNE(String name, MCTimestamp value) {
@@ -7230,6 +7629,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 			old_can_del_flg(value);
 			return;
 		}
+		if ($ship_prnt_no_cst_nm_flg.equalsIgnoreCase(name)) {
+			ship_prnt_no_cst_nm_flg(value);
+			return;
+		}
+		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
+			slo_last_sls_flg(value);
+			return;
+		}
 		super.setBooleanNE(name, value);
 	}
 
@@ -7278,6 +7685,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($dlv_rqst_p.equalsIgnoreCase(name)) {
 			return dlv_rqst_p();
+		}
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			return par_itm_p();
 		}
 		return super.getInnerRow(name);
 	}
@@ -7370,6 +7780,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($dlv_rqst_p.equalsIgnoreCase(name)) {
 			dlv_rqst_p(
 				((MCContainerMeta) dlv_rqst_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0110.YmdHmR.class, value)
+			);
+			return;
+		}
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			par_itm_p(
+				((MCContainerMeta) par_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
 			);
 			return;
 		}
@@ -8319,6 +8735,86 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 */
 	public void dlv_rqst_hm(MCDate value) {
 		dlv_rqst_p().hm(value);
+	}
+
+	/**
+	 *  製品.<p>
+	 *
+	 */
+	public String par_itm_cd() {
+		return par_itm_p().itm_cd();
+	}
+
+	/**
+	 *  製品.<p>
+	 *
+	 */
+	public void par_itm_cd(String value) {
+		par_itm_p().itm_cd(value);
+	}
+
+	/**
+	 *  製品枝番１.<p>
+	 *
+	 */
+	public String par_itm_sub1() {
+		return par_itm_p().itm_sub1();
+	}
+
+	/**
+	 *  製品枝番１.<p>
+	 *
+	 */
+	public void par_itm_sub1(String value) {
+		par_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 *  製品枝番２.<p>
+	 *
+	 */
+	public String par_itm_sub2() {
+		return par_itm_p().itm_sub2();
+	}
+
+	/**
+	 *  製品枝番２.<p>
+	 *
+	 */
+	public void par_itm_sub2(String value) {
+		par_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 *  製品枝番３.<p>
+	 *
+	 */
+	public String par_itm_sub3() {
+		return par_itm_p().itm_sub3();
+	}
+
+	/**
+	 *  製品枝番３.<p>
+	 *
+	 */
+	public void par_itm_sub3(String value) {
+		par_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 *  製品名.<p>
+	 *
+	 */
+	public String par_itm_nm() {
+		return par_itm_p().itm_nm();
+	}
+
+	/**
+	 *  製品名.<p>
+	 *
+	 */
+	public void par_itm_nm(String value) {
+		par_itm_p().itm_nm(value);
 	}
 
 }

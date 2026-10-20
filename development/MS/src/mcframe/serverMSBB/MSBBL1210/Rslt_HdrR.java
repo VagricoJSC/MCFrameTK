@@ -2,6 +2,9 @@ package mcframe.serverMSBB.MSBBL1210;
 
 import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.annotation.EI;
+//FMCB IMPORT START
+
+//FMCB IMPORT END
 
 /**
  * ブロック"Rslt_Hdr"コンテナRowクラスです。<p>
@@ -1194,6 +1197,46 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLS_BASIS_TYP SLS_BASIS_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>prod_itm_cd</td>
+ *  	<td>Item cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_CD ITM_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>prod_itm_sub1</td>
+ *  	<td>Branch No. 1</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB1 ITM_SUB1}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>prod_itm_sub2</td>
+ *  	<td>Branch No. 2</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB2 ITM_SUB2}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>prod_itm_sub3</td>
+ *  	<td>Branch No. 3</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB3 ITM_SUB3}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>prod_itm_nm</td>
+ *  	<td>Item name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_NM ITM_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
  * </table>
  *
  * <br>
@@ -1230,4 +1273,7 @@ public class Rslt_HdrR extends Rslt_HdrR_MC_A {
 	public Rslt_HdrR(ConstMetaList<? extends Rslt_HdrR> metas) {
 		super(metas);
 	}
+//FMCB CUSTOM START
+
+//FMCB CUSTOM END
 }

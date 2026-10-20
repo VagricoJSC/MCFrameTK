@@ -772,6 +772,11 @@ abstract public class MSBBL_SloReg_MC_A extends mcframe.serverMSUD.MSUDL5010.MSU
 		 * 	<tr><td><br></td><td>slo_upd_cntr</td></tr>
 		 * 	<tr><td><br></td><td>qtn_upd_cntr</td></tr>
 		 * 	<tr><td><br></td><td>bp_sls_basis_typ</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
 		 * </table>
 		 *
 		 * @see mcframe.serverMSBB.MSBBL1210.Rslt_HdrR
@@ -1835,6 +1840,11 @@ abstract public class MSBBL_SloReg_MC_A extends mcframe.serverMSUD.MSUDL5010.MSU
 		 * 	<tr><td><br></td><td>edi_sub_num1</td></tr>
 		 * 	<tr><td><br></td><td>edi_sub_dt1</td></tr>
 		 * 	<tr><td><br></td><td>qtn_upd_cntr</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
 		 * </table>
 		 *
 		 * @see mcframe.serverMSBB.MSBBL6020.Slo_Upd01_HdrR
@@ -2267,6 +2277,11 @@ abstract public class MSBBL_SloReg_MC_A extends mcframe.serverMSUD.MSUDL5010.MSU
 		 * 	<tr><td><br></td><td>edi_sub_dt1</td></tr>
 		 * 	<tr><td><br></td><td>slo_upd_cntr</td></tr>
 		 * 	<tr><td><br></td><td>qtn_upd_cntr</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
 		 * </table>
 		 *
 		 * @see mcframe.serverMSBB.MSBBL6020.Slo_Upd01_HdrR
