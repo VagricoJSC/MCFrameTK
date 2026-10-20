@@ -127,21 +127,13 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>prod_itm_cd</td>
+ *  	<td>par_itm_p</td>
  *  	<td>Product item cd.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_CD ITM_CD}]</td>
+ *  	<td>InnerRow</td>
  *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>prod_itm_nm</td>
- *  	<td>Product item name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_NM ITM_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
  *  	<td><br></td>
  *  	<td>ord_dlv_dt</td>
  *  	<td>Order delivery date</td>
@@ -149,7 +141,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>post_inst_sls_dt</td>
  *  	<td>Post-installation sales date</td>
@@ -157,7 +149,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>prd_amt</td>
  *  	<td>Amount</td>
@@ -165,7 +157,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>prd_qty</td>
  *  	<td>Quantity</td>
@@ -173,7 +165,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>cur_cd</td>
  *  	<td>Currency cd.</td>
@@ -181,21 +173,13 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#CUR_CD CUR_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>itm_cd</td>
- *  	<td>Item cd.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_CD ITM_CD}]</td>
- *  	<td><br></td>
- *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>itm_nm</td>
- *  	<td>Item name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_NM ITM_NM}]</td>
+ *  	<td>chd_itm_p</td>
+ *  	<td>Item cd.</td>
+ *  	<td>InnerRow</td>
  *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>

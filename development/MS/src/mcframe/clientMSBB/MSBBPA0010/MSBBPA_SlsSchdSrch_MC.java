@@ -20,6 +20,7 @@ import mcframe.clientFXBA.FXBAP0130.*;
 import mcframe.clientMAUB.MAUBP0030.*;
 import mcframe.clientMAUB.MAUBP0250.*;
 import mcframe.clientMAUB.MAUBP0260.*;
+import mcframe.clientMAUB.MAUBP5030.*;
 
 import mcframe.commonMA.constant.*;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;

@@ -22,6 +22,7 @@ import mcframe.clientFXBA.FXBAP0130.*;
 import mcframe.clientMAUB.MAUBP0030.*;
 import mcframe.clientMAUB.MAUBP0250.*;
 import mcframe.clientMAUB.MAUBP0260.*;
+import mcframe.clientMAUB.MAUBP5030.*;
 
 import mcframe.commonMA.constant.*;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
@@ -134,9 +135,8 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		 if (index > -1) {
 			 RsltR r = getRsltL().get(index);
 			 bind.addStringColumn("cst_cd", r.cst_cd());
-//			 bind.addStringColumn("dlv_cd", r.dlv_cd());
-			 bind.addStringColumn("sls_usr_cd", r.frcst_usr_cd());
-//			 bind.addStringColumn("sls_dpt_cd", r.frcst_dpt_cd());
+			 bind.addStringColumn("sls_dpt_cd", r.sls_dpt_cd());
+			 bind.addStringColumn("trd_cur_cd", r.cur_cd());
 			 bind.addStringColumn("wrk_no", r.wrk_no());
 		 }
 	}
@@ -145,23 +145,41 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 	 * 遷移先(受注登録画面)の明細項目設定
 	 */
 	protected void setMSBBP1210Dtl(MCList<MCRow> list) {
+		MCList<RsltR> rsltL = getRsltL();
+		String prod_itm_cd[] = {null};
 		
 		int index = RsltTable.getMCSelectedRow();
 		if (index > -1) {
-			RsltR r = getRsltL().get(index);
+			RsltR r = rsltL.get(index);
 			
 			MCRow row = MCRow.create();
-//			row.addStringColumn("itm_cd", r.itm_cd());
-//			row.addStringColumn("itm_sub1", r.itm_sub1());
-//			row.addStringColumn("itm_sub2", r.itm_sub2());
-//			row.addStringColumn("itm_sub3", r.itm_sub3());
+			prod_itm_cd[0] = r.par_itm_cd();
+			row.addStringColumn("itm_cd", prod_itm_cd[0]);
+			row.addStringColumn("itm_sub1", r.par_itm_sub1());
+			row.addStringColumn("itm_sub2", r.par_itm_sub2());
+			row.addStringColumn("itm_sub3", r.par_itm_sub3());
 //			row.addStringColumn("trd_unit_cd", r.trd_unit_cd());
 //			row.addNumberColumn("trd_unit_qty", r.trd_unit_qty());
 //			row.addStringColumn("cst_itm_cd", r.cst_itm_cd());
 //			row.addStringColumn("cst_itm_nm", r.cst_itm_nm());
+			row.addNumberColumn("base_unit_qty", r.prd_qty());
 			
 			list.add(row);
 		}
+
+		
+		rsltL.forEach(r -> {
+			if (r.par_itm_cd().equals(prod_itm_cd[0])) {
+				MCRow row = MCRow.create();
+				row.addStringColumn("itm_cd", r.chd_itm_cd());
+				row.addStringColumn("itm_sub1", r.chd_itm_sub1());
+				row.addStringColumn("itm_sub2", r.chd_itm_sub2());
+				row.addStringColumn("itm_sub3", r.chd_itm_sub3());
+				row.addNumberColumn("base_unit_qty", r.qty());
+				
+				list.add(row);
+			}
+		});
 	}
 //FMCB CUSTOM END
 }

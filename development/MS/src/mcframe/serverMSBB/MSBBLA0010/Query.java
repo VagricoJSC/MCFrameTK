@@ -26,12 +26,18 @@ public class Query extends Query_MC  {
 						, t2.sls_dpt_cd
 						, t2.mrkt_cd
 						, t2.prod_itm_cd
+						, t2.prod_itm_sub1
+						, t2.prod_itm_sub2
+						, t2.prod_itm_sub3
 						, t2.ord_dlv_dt
 						, t2.post_inst_sls_dt
 						, t2.amt.as("prd_amt")
 						, t2.qty.as("prd_qty")
 						, t2.cur_cd
 						, t1.itm_cd
+						, t1.itm_sub1
+						, t1.itm_sub2
+						, t1.itm_sub3
 						, t1.qty
 						, t1.upri
 					)
