@@ -158,11 +158,11 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 			row.addStringColumn("itm_sub1", r.par_itm_sub1());
 			row.addStringColumn("itm_sub2", r.par_itm_sub2());
 			row.addStringColumn("itm_sub3", r.par_itm_sub3());
-//			row.addStringColumn("trd_unit_cd", r.trd_unit_cd());
-//			row.addNumberColumn("trd_unit_qty", r.trd_unit_qty());
+			row.addStringColumn("trd_unit_cd", "PC");
+			row.addNumberColumn("trd_unit_qty", r.prd_qty());
 //			row.addStringColumn("cst_itm_cd", r.cst_itm_cd());
 //			row.addStringColumn("cst_itm_nm", r.cst_itm_nm());
-			row.addNumberColumn("base_unit_qty", r.prd_qty());
+//			row.addNumberColumn("base_unit_qty", r.prd_qty());
 			
 			list.add(row);
 		}
@@ -175,7 +175,8 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 				row.addStringColumn("itm_sub1", r.chd_itm_sub1());
 				row.addStringColumn("itm_sub2", r.chd_itm_sub2());
 				row.addStringColumn("itm_sub3", r.chd_itm_sub3());
-				row.addNumberColumn("base_unit_qty", r.qty());
+				row.addStringColumn("trd_unit_cd", "PC");
+				row.addNumberColumn("trd_unit_qty", r.qty());
 				
 				list.add(row);
 			}
