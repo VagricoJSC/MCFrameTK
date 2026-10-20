@@ -55,12 +55,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
-	public static final String $bill_cst_cd = "bill_cst_cd";
+	public static final String $bcst_cd = "bcst_cd";
 	/**
 	 * Billing customer name 請求先名.<p>
 	 *
 	 */
-	public static final String $bill_cst_nm = "bill_cst_nm";
+	public static final String $bcst_nm = "bcst_nm";
 	/**
 	 * Sales dept. cd. 売上部門ＣＤ.<p>
 	 *
@@ -95,22 +95,57 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public static final String $prd_itm_cd = "prd_itm_cd";
+	public static final String $prod_itm_cd = "prod_itm_cd";
 	/**
 	 * Product item name 製品名.<p>
 	 *
 	 */
-	public static final String $prd_itm_nm = "prd_itm_nm";
+	public static final String $prod_itm_nm = "prod_itm_nm";
 	/**
 	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public static final String $order_dlv_dt = "order_dlv_dt";
+	public static final String $ord_dlv_dt = "ord_dlv_dt";
 	/**
 	 * Post-installation sales date 装備後売上日.<p>
 	 *
 	 */
-	public static final String $pst_inst_sls_dt = "pst_inst_sls_dt";
+	public static final String $post_inst_sls_dt = "post_inst_sls_dt";
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public static final String $prd_amt = "prd_amt";
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public static final String $prd_qty = "prd_qty";
+	/**
+	 * Currency cd. 外貨ＣＤ.<p>
+	 *
+	 */
+	public static final String $cur_cd = "cur_cd";
+	/**
+	 * Item cd. 品目CD.<p>
+	 *
+	 */
+	public static final String $itm_cd = "itm_cd";
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public static final String $itm_nm = "itm_nm";
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public static final String $qty = "qty";
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public static final String $upri = "upri";
 
 
 	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
@@ -118,18 +153,25 @@ abstract class RsltR_MC_A extends MCConstRow {
 	public static final MCMeta deal_nm_META = createCommonMeta($deal_nm, mcframe.commonMA.meta.MA_META.DEAL_NM);
 	public static final MCMeta cst_cd_META = createCommonMeta($cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
 	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
-	public static final MCMeta bill_cst_cd_META = createCommonMeta($bill_cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
-	public static final MCMeta bill_cst_nm_META = createCommonMeta($bill_cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
+	public static final MCMeta bcst_cd_META = createCommonMeta($bcst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
+	public static final MCMeta bcst_nm_META = createCommonMeta($bcst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta sls_dpt_cd_META = createCommonMeta($sls_dpt_cd, mcframe.commonMA.meta.MA_META.BP_CD);
 	public static final MCMeta sls_dpt_nm_META = createCommonMeta($sls_dpt_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta frcst_usr_cd_META = createCommonMeta($frcst_usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
 	public static final MCMeta frcst_usr_nm_META = createCommonMeta($frcst_usr_nm, mcframe.commonMA.meta.MA_META.USR_NM);
 	public static final MCMeta wrk_no_META = createCommonMeta($wrk_no, mcframe.commonMA.meta.MA_META.MRKT_CD);
 	public static final MCMeta wrk_nm_META = createCommonMeta($wrk_nm, mcframe.commonMA.meta.MA_META.WRK_NM);
-	public static final MCMeta prd_itm_cd_META = createCommonMeta($prd_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
-	public static final MCMeta prd_itm_nm_META = createCommonMeta($prd_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
-	public static final MCMeta order_dlv_dt_META = createCommonMeta($order_dlv_dt, mcframe.commonMA.meta.MA_META.DT);
-	public static final MCMeta pst_inst_sls_dt_META = createCommonMeta($pst_inst_sls_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta prod_itm_cd_META = createCommonMeta($prod_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta prod_itm_nm_META = createCommonMeta($prod_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta ord_dlv_dt_META = createCommonMeta($ord_dlv_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta post_inst_sls_dt_META = createCommonMeta($post_inst_sls_dt, mcframe.commonMA.meta.MA_META.DT);
+	public static final MCMeta prd_amt_META = createCommonMeta($prd_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta prd_qty_META = createCommonMeta($prd_qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta cur_cd_META = createCommonMeta($cur_cd, mcframe.commonMA.meta.MA_META.CUR_CD);
+	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta itm_nm_META = createCommonMeta($itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta qty_META = createCommonMeta($qty, mcframe.commonMA.meta.MA_META.QTY);
+	public static final MCMeta upri_META = createCommonMeta($upri, mcframe.commonMA.meta.MA_META.MONEY);
 
 	protected static final ConstMetaList<RsltR> constMetas = new ConstMetaList<RsltR>(
 		MCConstRow.constMetas,
@@ -139,18 +181,25 @@ abstract class RsltR_MC_A extends MCConstRow {
 			deal_nm_META,
 			cst_cd_META,
 			cst_nm_META,
-			bill_cst_cd_META,
-			bill_cst_nm_META,
+			bcst_cd_META,
+			bcst_nm_META,
 			sls_dpt_cd_META,
 			sls_dpt_nm_META,
 			frcst_usr_cd_META,
 			frcst_usr_nm_META,
 			wrk_no_META,
 			wrk_nm_META,
-			prd_itm_cd_META,
-			prd_itm_nm_META,
-			order_dlv_dt_META,
-			pst_inst_sls_dt_META
+			prod_itm_cd_META,
+			prod_itm_nm_META,
+			ord_dlv_dt_META,
+			post_inst_sls_dt_META,
+			prd_amt_META,
+			prd_qty_META,
+			cur_cd_META,
+			itm_cd_META,
+			itm_nm_META,
+			qty_META,
+			upri_META
 		},
 		new String[][]{
 			{
@@ -382,16 +431,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
-	public String bill_cst_cd() {
-		return getConstString(offset + 5, $bill_cst_cd);
+	public String bcst_cd() {
+		return getConstString(offset + 5, $bcst_cd);
 	}
 
 	/**
 	 * Billing customer cd. 請求先ＣＤ.<p>
 	 *
 	 */
-	public void bill_cst_cd(String value) {
-		setConstString(offset + 5, $bill_cst_cd, value);
+	public void bcst_cd(String value) {
+		setConstString(offset + 5, $bcst_cd, value);
 	}
 
 
@@ -399,16 +448,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Billing customer name 請求先名.<p>
 	 *
 	 */
-	public String bill_cst_nm() {
-		return getConstString(offset + 6, $bill_cst_nm);
+	public String bcst_nm() {
+		return getConstString(offset + 6, $bcst_nm);
 	}
 
 	/**
 	 * Billing customer name 請求先名.<p>
 	 *
 	 */
-	public void bill_cst_nm(String value) {
-		setConstString(offset + 6, $bill_cst_nm, value);
+	public void bcst_nm(String value) {
+		setConstString(offset + 6, $bcst_nm, value);
 	}
 
 
@@ -518,16 +567,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public String prd_itm_cd() {
-		return getConstString(offset + 13, $prd_itm_cd);
+	public String prod_itm_cd() {
+		return getConstString(offset + 13, $prod_itm_cd);
 	}
 
 	/**
 	 * Product item cd. 製品ＣＤ.<p>
 	 *
 	 */
-	public void prd_itm_cd(String value) {
-		setConstString(offset + 13, $prd_itm_cd, value);
+	public void prod_itm_cd(String value) {
+		setConstString(offset + 13, $prod_itm_cd, value);
 	}
 
 
@@ -535,16 +584,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Product item name 製品名.<p>
 	 *
 	 */
-	public String prd_itm_nm() {
-		return getConstString(offset + 14, $prd_itm_nm);
+	public String prod_itm_nm() {
+		return getConstString(offset + 14, $prod_itm_nm);
 	}
 
 	/**
 	 * Product item name 製品名.<p>
 	 *
 	 */
-	public void prd_itm_nm(String value) {
-		setConstString(offset + 14, $prd_itm_nm, value);
+	public void prod_itm_nm(String value) {
+		setConstString(offset + 14, $prod_itm_nm, value);
 	}
 
 
@@ -552,16 +601,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public MCDate order_dlv_dt() {
-		return getConstDate(offset + 15, $order_dlv_dt);
+	public MCDate ord_dlv_dt() {
+		return getConstDate(offset + 15, $ord_dlv_dt);
 	}
 
 	/**
 	 * Order delivery date 注文書納期.<p>
 	 *
 	 */
-	public void order_dlv_dt(MCDate value) {
-		setConstDate(offset + 15, $order_dlv_dt, value);
+	public void ord_dlv_dt(MCDate value) {
+		setConstDate(offset + 15, $ord_dlv_dt, value);
 	}
 
 
@@ -569,16 +618,263 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 * Post-installation sales date 装備後売上日.<p>
 	 *
 	 */
-	public MCDate pst_inst_sls_dt() {
-		return getConstDate(offset + 16, $pst_inst_sls_dt);
+	public MCDate post_inst_sls_dt() {
+		return getConstDate(offset + 16, $post_inst_sls_dt);
 	}
 
 	/**
 	 * Post-installation sales date 装備後売上日.<p>
 	 *
 	 */
-	public void pst_inst_sls_dt(MCDate value) {
-		setConstDate(offset + 16, $pst_inst_sls_dt, value);
+	public void post_inst_sls_dt(MCDate value) {
+		setConstDate(offset + 16, $post_inst_sls_dt, value);
+	}
+
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public MCNumber prd_amt() {
+		return getConstNumber(offset + 17, $prd_amt);
+	}
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public void prd_amt(MCNumber value) {
+		setConstNumber(offset + 17, $prd_amt, value);
+	}
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public void prd_amt(int value) {
+		setConstNumber(offset + 17, $prd_amt, value);
+	}
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public void prd_amt(long value) {
+		setConstNumber(offset + 17, $prd_amt, value);
+	}
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public void prd_amt(float value) {
+		setConstNumber(offset + 17, $prd_amt, value);
+	}
+
+	/**
+	 * Amount 金額.<p>
+	 *
+	 */
+	public void prd_amt(double value) {
+		setConstNumber(offset + 17, $prd_amt, value);
+	}
+
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public MCNumber prd_qty() {
+		return getConstNumber(offset + 18, $prd_qty);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void prd_qty(MCNumber value) {
+		setConstNumber(offset + 18, $prd_qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void prd_qty(int value) {
+		setConstNumber(offset + 18, $prd_qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void prd_qty(long value) {
+		setConstNumber(offset + 18, $prd_qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void prd_qty(float value) {
+		setConstNumber(offset + 18, $prd_qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void prd_qty(double value) {
+		setConstNumber(offset + 18, $prd_qty, value);
+	}
+
+
+	/**
+	 * Currency cd. 外貨ＣＤ.<p>
+	 *
+	 */
+	public String cur_cd() {
+		return getConstString(offset + 19, $cur_cd);
+	}
+
+	/**
+	 * Currency cd. 外貨ＣＤ.<p>
+	 *
+	 */
+	public void cur_cd(String value) {
+		setConstString(offset + 19, $cur_cd, value);
+	}
+
+
+	/**
+	 * Item cd. 品目CD.<p>
+	 *
+	 */
+	public String itm_cd() {
+		return getConstString(offset + 20, $itm_cd);
+	}
+
+	/**
+	 * Item cd. 品目CD.<p>
+	 *
+	 */
+	public void itm_cd(String value) {
+		setConstString(offset + 20, $itm_cd, value);
+	}
+
+
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public String itm_nm() {
+		return getConstString(offset + 21, $itm_nm);
+	}
+
+	/**
+	 * Item name 品名.<p>
+	 *
+	 */
+	public void itm_nm(String value) {
+		setConstString(offset + 21, $itm_nm, value);
+	}
+
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public MCNumber qty() {
+		return getConstNumber(offset + 22, $qty);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void qty(MCNumber value) {
+		setConstNumber(offset + 22, $qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void qty(int value) {
+		setConstNumber(offset + 22, $qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void qty(long value) {
+		setConstNumber(offset + 22, $qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void qty(float value) {
+		setConstNumber(offset + 22, $qty, value);
+	}
+
+	/**
+	 * Quantity 数量.<p>
+	 *
+	 */
+	public void qty(double value) {
+		setConstNumber(offset + 22, $qty, value);
+	}
+
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public MCNumber upri() {
+		return getConstNumber(offset + 23, $upri);
+	}
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public void upri(MCNumber value) {
+		setConstNumber(offset + 23, $upri, value);
+	}
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public void upri(int value) {
+		setConstNumber(offset + 23, $upri, value);
+	}
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public void upri(long value) {
+		setConstNumber(offset + 23, $upri, value);
+	}
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public void upri(float value) {
+		setConstNumber(offset + 23, $upri, value);
+	}
+
+	/**
+	 * Unit price 単価.<p>
+	 *
+	 */
+	public void upri(double value) {
+		setConstNumber(offset + 23, $upri, value);
 	}
 
 
@@ -598,11 +894,11 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
 		}
-		if ($bill_cst_cd.equalsIgnoreCase(name)) {
-			return bill_cst_cd();
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			return bcst_cd();
 		}
-		if ($bill_cst_nm.equalsIgnoreCase(name)) {
-			return bill_cst_nm();
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			return bcst_nm();
 		}
 		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
 			return sls_dpt_cd();
@@ -622,20 +918,44 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			return prd_itm_cd();
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			return prd_itm_nm();
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			return cur_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			return itm_nm();
 		}
 		return super.getString(name);
 	}
-	public MCDate getDate(String name) {
-		if ($order_dlv_dt.equalsIgnoreCase(name)) {
-			return order_dlv_dt();
+	public MCNumber getNumber(String name) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			return prd_amt();
 		}
-		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
-			return pst_inst_sls_dt();
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			return prd_qty();
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			return qty();
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			return upri();
+		}
+		return super.getNumber(name);
+	}
+	public MCDate getDate(String name) {
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			return ord_dlv_dt();
+		}
+		if ($post_inst_sls_dt.equalsIgnoreCase(name)) {
+			return post_inst_sls_dt();
 		}
 		return super.getDate(name);
 	}
@@ -656,11 +976,11 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
 		}
-		if ($bill_cst_cd.equalsIgnoreCase(name)) {
-			return bill_cst_cd();
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			return bcst_cd();
 		}
-		if ($bill_cst_nm.equalsIgnoreCase(name)) {
-			return bill_cst_nm();
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			return bcst_nm();
 		}
 		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
 			return sls_dpt_cd();
@@ -680,20 +1000,44 @@ abstract class RsltR_MC_A extends MCConstRow {
 		if ($wrk_nm.equalsIgnoreCase(name)) {
 			return wrk_nm();
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			return prd_itm_cd();
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			return prd_itm_nm();
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			return cur_cd();
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			return itm_cd();
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			return itm_nm();
 		}
 		return super.getStringNE(name);
 	}
-	public MCDate getDateNE(String name) {
-		if ($order_dlv_dt.equalsIgnoreCase(name)) {
-			return order_dlv_dt();
+	public MCNumber getNumberNE(String name) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			return prd_amt();
 		}
-		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
-			return pst_inst_sls_dt();
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			return prd_qty();
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			return qty();
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			return upri();
+		}
+		return super.getNumberNE(name);
+	}
+	public MCDate getDateNE(String name) {
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			return ord_dlv_dt();
+		}
+		if ($post_inst_sls_dt.equalsIgnoreCase(name)) {
+			return post_inst_sls_dt();
 		}
 		return super.getDateNE(name);
 	}
@@ -719,12 +1063,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_nm(value);
 			return;
 		}
-		if ($bill_cst_cd.equalsIgnoreCase(name)) {
-			bill_cst_cd(value);
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			bcst_cd(value);
 			return;
 		}
-		if ($bill_cst_nm.equalsIgnoreCase(name)) {
-			bill_cst_nm(value);
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			bcst_nm(value);
 			return;
 		}
 		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
@@ -751,23 +1095,130 @@ abstract class RsltR_MC_A extends MCConstRow {
 			wrk_nm(value);
 			return;
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			prd_itm_cd(value);
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
 			return;
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			prd_itm_nm(value);
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
+			return;
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			cur_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			itm_nm(value);
 			return;
 		}
 		super.setString(name, value);
 	}
-	public void setDate(String name, MCDate value) {
-		if ($order_dlv_dt.equalsIgnoreCase(name)) {
-			order_dlv_dt(value);
+	public void setNumber(String name, MCNumber value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
 			return;
 		}
-		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
-			pst_inst_sls_dt(value);
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, int value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, long value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, float value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setNumber(String name, double value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumber(name, value);
+	}
+	public void setDate(String name, MCDate value) {
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			ord_dlv_dt(value);
+			return;
+		}
+		if ($post_inst_sls_dt.equalsIgnoreCase(name)) {
+			post_inst_sls_dt(value);
 			return;
 		}
 		super.setDate(name, value);
@@ -794,12 +1245,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 			cst_nm(value);
 			return;
 		}
-		if ($bill_cst_cd.equalsIgnoreCase(name)) {
-			bill_cst_cd(value);
+		if ($bcst_cd.equalsIgnoreCase(name)) {
+			bcst_cd(value);
 			return;
 		}
-		if ($bill_cst_nm.equalsIgnoreCase(name)) {
-			bill_cst_nm(value);
+		if ($bcst_nm.equalsIgnoreCase(name)) {
+			bcst_nm(value);
 			return;
 		}
 		if ($sls_dpt_cd.equalsIgnoreCase(name)) {
@@ -826,23 +1277,130 @@ abstract class RsltR_MC_A extends MCConstRow {
 			wrk_nm(value);
 			return;
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			prd_itm_cd(value);
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
 			return;
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			prd_itm_nm(value);
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
+			return;
+		}
+		if ($cur_cd.equalsIgnoreCase(name)) {
+			cur_cd(value);
+			return;
+		}
+		if ($itm_cd.equalsIgnoreCase(name)) {
+			itm_cd(value);
+			return;
+		}
+		if ($itm_nm.equalsIgnoreCase(name)) {
+			itm_nm(value);
 			return;
 		}
 		super.setStringNE(name, value);
 	}
-	public void setDateNE(String name, MCDate value) {
-		if ($order_dlv_dt.equalsIgnoreCase(name)) {
-			order_dlv_dt(value);
+	public void setNumberNE(String name, MCNumber value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
 			return;
 		}
-		if ($pst_inst_sls_dt.equalsIgnoreCase(name)) {
-			pst_inst_sls_dt(value);
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, int value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, long value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, float value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setNumberNE(String name, double value) {
+		if ($prd_amt.equalsIgnoreCase(name)) {
+			prd_amt(value);
+			return;
+		}
+		if ($prd_qty.equalsIgnoreCase(name)) {
+			prd_qty(value);
+			return;
+		}
+		if ($qty.equalsIgnoreCase(name)) {
+			qty(value);
+			return;
+		}
+		if ($upri.equalsIgnoreCase(name)) {
+			upri(value);
+			return;
+		}
+		super.setNumberNE(name, value);
+	}
+	public void setDateNE(String name, MCDate value) {
+		if ($ord_dlv_dt.equalsIgnoreCase(name)) {
+			ord_dlv_dt(value);
+			return;
+		}
+		if ($post_inst_sls_dt.equalsIgnoreCase(name)) {
+			post_inst_sls_dt(value);
 			return;
 		}
 		super.setDateNE(name, value);

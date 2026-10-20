@@ -383,8 +383,8 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>deal_nm</td></tr>
 		 * 	<tr><td><br></td><td>cst_cd</td></tr>
 		 * 	<tr><td><br></td><td>cst_nm</td></tr>
-		 * 	<tr><td><br></td><td>bill_cst_cd</td></tr>
-		 * 	<tr><td><br></td><td>bill_cst_nm</td></tr>
+		 * 	<tr><td><br></td><td>bcst_cd</td></tr>
+		 * 	<tr><td><br></td><td>bcst_nm</td></tr>
 		 * 	<tr><td><br></td><td>sls_dpt_cd</td></tr>
 		 * 	<tr><td><br></td><td>sls_dpt_nm</td></tr>
 		 * 	<tr><td><br></td><td>frcst_dpt_cd</td></tr>
@@ -393,10 +393,17 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>frcst_usr_nm</td></tr>
 		 * 	<tr><td><br></td><td>wrk_no</td></tr>
 		 * 	<tr><td><br></td><td>wrk_nm</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_cd</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_nm</td></tr>
-		 * 	<tr><td><br></td><td>order_dlv_dt</td></tr>
-		 * 	<tr><td><br></td><td>pst_inst_sls_dt</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>ord_dlv_dt</td></tr>
+		 * 	<tr><td><br></td><td>post_inst_sls_dt</td></tr>
+		 * 	<tr><td><br></td><td>prd_amt</td></tr>
+		 * 	<tr><td><br></td><td>prd_qty</td></tr>
+		 * 	<tr><td><br></td><td>cur_cd</td></tr>
+		 * 	<tr><td><br></td><td>itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>qty</td></tr>
+		 * 	<tr><td><br></td><td>upri</td></tr>
 		 * 	<tr><td><br></td><td>ins_usr_id</td></tr>
 		 * 	<tr><td><br></td><td>ins_usr_nm</td></tr>
 		 * 	<tr><td><br></td><td>ins_func_id</td></tr>

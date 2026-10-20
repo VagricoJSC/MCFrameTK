@@ -163,6 +163,5 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 			list.add(row);
 		}
 	}
-	
 //FMCB CUSTOM END
 }
