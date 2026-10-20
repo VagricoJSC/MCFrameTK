@@ -136,16 +136,22 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $market_nm = "market_nm";
-	public static final String $itm_p = "itm_p";
+	public static final String $par_itm_p = "par_itm_p";
+	public static final String $chd_itm_p = "chd_itm_p";
 	public static final String $dlv_grp_p = "dlv_grp_p";
 	public static final String $cst_grp_p = "cst_grp_p";
 	public static final String $itm_grp_p = "itm_grp_p";
 
-	public static final String $itm_cd = $itm_p + ".itm_cd";
-	public static final String $itm_sub1 = $itm_p + ".itm_sub1";
-	public static final String $itm_sub2 = $itm_p + ".itm_sub2";
-	public static final String $itm_sub3 = $itm_p + ".itm_sub3";
-	public static final String $itm_nm = $itm_p + ".itm_nm";
+	public static final String $par_itm_cd = $par_itm_p + ".itm_cd";
+	public static final String $par_itm_sub1 = $par_itm_p + ".itm_sub1";
+	public static final String $par_itm_sub2 = $par_itm_p + ".itm_sub2";
+	public static final String $par_itm_sub3 = $par_itm_p + ".itm_sub3";
+	public static final String $par_itm_nm = $par_itm_p + ".itm_nm";
+	public static final String $chd_itm_cd = $chd_itm_p + ".itm_cd";
+	public static final String $chd_itm_sub1 = $chd_itm_p + ".itm_sub1";
+	public static final String $chd_itm_sub2 = $chd_itm_p + ".itm_sub2";
+	public static final String $chd_itm_sub3 = $chd_itm_p + ".itm_sub3";
+	public static final String $chd_itm_nm = $chd_itm_p + ".itm_nm";
 	public static final String $dlv_grp_lab1 = $dlv_grp_p + ".bp_grp_lab1";
 	public static final String $dlv_grp_flg1 = $dlv_grp_p + ".bp_grp_flg1";
 	public static final String $dlv_grp_cd1 = $dlv_grp_p + ".bp_grp_cd1";
@@ -289,7 +295,8 @@ abstract class CndR_MC_A extends MCConstRow {
 	public static final MCMeta pj_usr_nm_META = createCommonMeta($pj_usr_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
 	public static final MCMeta market_cd_META = createCommonMeta($market_cd, mcframe.commonMS.meta.MS_META.SLO_RSN_CD);
 	public static final MCMeta market_nm_META = createCommonMeta($market_nm, mcframe.commonMS.meta.MS_META.SLO_RSN_NM);
-	public static final MCMeta itm_p_META = createInnerRowMeta($itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta chd_itm_p_META = createInnerRowMeta($chd_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
 	public static final MCMeta dlv_grp_p_META = createInnerRowMeta($dlv_grp_p, mcframe.clientMAUB.MAUBP0260.BpGrpR.class);
 	public static final MCMeta cst_grp_p_META = createInnerRowMeta($cst_grp_p, mcframe.clientMAUB.MAUBP0260.BpGrpR.class);
 	public static final MCMeta itm_grp_p_META = createInnerRowMeta($itm_grp_p, mcframe.clientMAUB.MAUBP0250.ItmGrpR.class);
@@ -319,18 +326,24 @@ abstract class CndR_MC_A extends MCConstRow {
 			pj_usr_nm_META,
 			market_cd_META,
 			market_nm_META,
-			itm_p_META,
+			par_itm_p_META,
+			chd_itm_p_META,
 			dlv_grp_p_META,
 			cst_grp_p_META,
 			itm_grp_p_META
 		},
 		new String[][]{
 			{
-				"itm_cd",
-				"itm_sub1",
-				"itm_sub2",
-				"itm_sub3",
-				"itm_nm",
+				"par_itm_cd",
+				"par_itm_sub1",
+				"par_itm_sub2",
+				"par_itm_sub3",
+				"par_itm_nm",
+				"chd_itm_cd",
+				"chd_itm_sub1",
+				"chd_itm_sub2",
+				"chd_itm_sub3",
+				"chd_itm_nm",
 				"dlv_grp_flg1",
 				"dlv_grp_cd1",
 				"dlv_grp_nm1",
@@ -423,11 +436,16 @@ abstract class CndR_MC_A extends MCConstRow {
 				"itm_grp_nm10"
 			},
 			{
-				$itm_cd,
-				$itm_sub1,
-				$itm_sub2,
-				$itm_sub3,
-				$itm_nm,
+				$par_itm_cd,
+				$par_itm_sub1,
+				$par_itm_sub2,
+				$par_itm_sub3,
+				$par_itm_nm,
+				$chd_itm_cd,
+				$chd_itm_sub1,
+				$chd_itm_sub2,
+				$chd_itm_sub3,
+				$chd_itm_nm,
 				$dlv_grp_flg1,
 				$dlv_grp_cd1,
 				$dlv_grp_nm1,
@@ -1036,39 +1054,48 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 
-	public mcframe.clientMAUB.MAUBP0030.ItmR itm_p(){
-		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 22, $itm_p);
+	public mcframe.clientMAUB.MAUBP0030.ItmR par_itm_p(){
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 22, $par_itm_p);
 	}
 	
-	public void itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
-		setConstInnerRow(offset + 22, $itm_p, row);
+	public void par_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
+		setConstInnerRow(offset + 22, $par_itm_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP0030.ItmR chd_itm_p(){
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 23, $chd_itm_p);
+	}
+	
+	public void chd_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
+		setConstInnerRow(offset + 23, $chd_itm_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR dlv_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 23, $dlv_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 24, $dlv_grp_p);
 	}
 	
 	public void dlv_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 23, $dlv_grp_p, row);
+		setConstInnerRow(offset + 24, $dlv_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0260.BpGrpR cst_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 24, $cst_grp_p);
+		return (mcframe.clientMAUB.MAUBP0260.BpGrpR) getConstInnerRow(offset + 25, $cst_grp_p);
 	}
 	
 	public void cst_grp_p(mcframe.clientMAUB.MAUBP0260.BpGrpR row){
-		setConstInnerRow(offset + 24, $cst_grp_p, row);
+		setConstInnerRow(offset + 25, $cst_grp_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0250.ItmGrpR itm_grp_p(){
-		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 25, $itm_grp_p);
+		return (mcframe.clientMAUB.MAUBP0250.ItmGrpR) getConstInnerRow(offset + 26, $itm_grp_p);
 	}
 	
 	public void itm_grp_p(mcframe.clientMAUB.MAUBP0250.ItmGrpR row){
-		setConstInnerRow(offset + 25, $itm_grp_p, row);
+		setConstInnerRow(offset + 26, $itm_grp_p, row);
 	}
 
 
@@ -1421,8 +1448,11 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public MCRow getInnerRow(String name) {
-		if ($itm_p.equalsIgnoreCase(name)) {
-			return itm_p();
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			return par_itm_p();
+		}
+		if ($chd_itm_p.equalsIgnoreCase(name)) {
+			return chd_itm_p();
 		}
 		if ($dlv_grp_p.equalsIgnoreCase(name)) {
 			return dlv_grp_p();
@@ -1437,9 +1467,15 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public void setInnerRow(String name, MCRow value) {
-		if ($itm_p.equalsIgnoreCase(name)) {
-			itm_p(
-				((MCContainerMeta) itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
+		if ($par_itm_p.equalsIgnoreCase(name)) {
+			par_itm_p(
+				((MCContainerMeta) par_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
+			);
+			return;
+		}
+		if ($chd_itm_p.equalsIgnoreCase(name)) {
+			chd_itm_p(
+				((MCContainerMeta) chd_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
 			);
 			return;
 		}
@@ -1466,51 +1502,163 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
-	 *  品目.<p>
+	 * Parent item cd. 親品目ＣＤ.<p>
 	 *
 	 */
-	public String itm_cd() {
-		return itm_p().itm_cd();
+	public String par_itm_cd() {
+		return par_itm_p().itm_cd();
 	}
 
 	/**
-	 *  品目.<p>
+	 * Parent item cd. 親品目ＣＤ.<p>
 	 *
 	 */
-	public void itm_cd(String value) {
-		itm_p().itm_cd(value);
+	public void par_itm_cd(String value) {
+		par_itm_p().itm_cd(value);
 	}
 
-	public String itm_sub1() {
-		return itm_p().itm_sub1();
+	/**
+	 * Parent branch No. 1 親枝番１.<p>
+	 *
+	 */
+	public String par_itm_sub1() {
+		return par_itm_p().itm_sub1();
 	}
 
-	public void itm_sub1(String value) {
-		itm_p().itm_sub1(value);
+	/**
+	 * Parent branch No. 1 親枝番１.<p>
+	 *
+	 */
+	public void par_itm_sub1(String value) {
+		par_itm_p().itm_sub1(value);
 	}
 
-	public String itm_sub2() {
-		return itm_p().itm_sub2();
+	/**
+	 * Parent branch No. 2 親枝番２.<p>
+	 *
+	 */
+	public String par_itm_sub2() {
+		return par_itm_p().itm_sub2();
 	}
 
-	public void itm_sub2(String value) {
-		itm_p().itm_sub2(value);
+	/**
+	 * Parent branch No. 2 親枝番２.<p>
+	 *
+	 */
+	public void par_itm_sub2(String value) {
+		par_itm_p().itm_sub2(value);
 	}
 
-	public String itm_sub3() {
-		return itm_p().itm_sub3();
+	/**
+	 * Parent branch No. 3 親枝番３.<p>
+	 *
+	 */
+	public String par_itm_sub3() {
+		return par_itm_p().itm_sub3();
 	}
 
-	public void itm_sub3(String value) {
-		itm_p().itm_sub3(value);
+	/**
+	 * Parent branch No. 3 親枝番３.<p>
+	 *
+	 */
+	public void par_itm_sub3(String value) {
+		par_itm_p().itm_sub3(value);
 	}
 
-	public String itm_nm() {
-		return itm_p().itm_nm();
+	/**
+	 * Parent item name 親品名.<p>
+	 *
+	 */
+	public String par_itm_nm() {
+		return par_itm_p().itm_nm();
 	}
 
-	public void itm_nm(String value) {
-		itm_p().itm_nm(value);
+	/**
+	 * Parent item name 親品名.<p>
+	 *
+	 */
+	public void par_itm_nm(String value) {
+		par_itm_p().itm_nm(value);
+	}
+
+	/**
+	 * Child item cd. 子品目ＣＤ.<p>
+	 *
+	 */
+	public String chd_itm_cd() {
+		return chd_itm_p().itm_cd();
+	}
+
+	/**
+	 * Child item cd. 子品目ＣＤ.<p>
+	 *
+	 */
+	public void chd_itm_cd(String value) {
+		chd_itm_p().itm_cd(value);
+	}
+
+	/**
+	 * Child branch No. 1 子枝番１.<p>
+	 *
+	 */
+	public String chd_itm_sub1() {
+		return chd_itm_p().itm_sub1();
+	}
+
+	/**
+	 * Child branch No. 1 子枝番１.<p>
+	 *
+	 */
+	public void chd_itm_sub1(String value) {
+		chd_itm_p().itm_sub1(value);
+	}
+
+	/**
+	 * Child branch No. 2 子枝番２.<p>
+	 *
+	 */
+	public String chd_itm_sub2() {
+		return chd_itm_p().itm_sub2();
+	}
+
+	/**
+	 * Child branch No. 2 子枝番２.<p>
+	 *
+	 */
+	public void chd_itm_sub2(String value) {
+		chd_itm_p().itm_sub2(value);
+	}
+
+	/**
+	 * Child branch No. 3 子枝番３.<p>
+	 *
+	 */
+	public String chd_itm_sub3() {
+		return chd_itm_p().itm_sub3();
+	}
+
+	/**
+	 * Child branch No. 3 子枝番３.<p>
+	 *
+	 */
+	public void chd_itm_sub3(String value) {
+		chd_itm_p().itm_sub3(value);
+	}
+
+	/**
+	 * Child item name 子品名.<p>
+	 *
+	 */
+	public String chd_itm_nm() {
+		return chd_itm_p().itm_nm();
+	}
+
+	/**
+	 * Child item name 子品名.<p>
+	 *
+	 */
+	public void chd_itm_nm(String value) {
+		chd_itm_p().itm_nm(value);
 	}
 
 	/**

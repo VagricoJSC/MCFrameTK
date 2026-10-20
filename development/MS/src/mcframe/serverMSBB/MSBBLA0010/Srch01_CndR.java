@@ -383,7 +383,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>prd_itm_cd</td>
+ *  	<td>prod_itm_cd</td>
  *  	<td>Item cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_CD ITM_CD}]</td>
@@ -391,7 +391,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>prd_itm_sub1</td>
+ *  	<td>prod_itm_sub1</td>
  *  	<td>Branch No. 1</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB1 ITM_SUB1}]</td>
@@ -399,7 +399,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>prd_itm_sub2</td>
+ *  	<td>prod_itm_sub2</td>
  *  	<td>Branch No. 2</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB2 ITM_SUB2}]</td>
@@ -407,7 +407,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>prd_itm_sub3</td>
+ *  	<td>prod_itm_sub3</td>
  *  	<td>Branch No. 3</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_SUB3 ITM_SUB3}]</td>
@@ -415,7 +415,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>prd_itm_nm</td>
+ *  	<td>prod_itm_nm</td>
  *  	<td>Item name</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ITM_NM ITM_NM}]</td>

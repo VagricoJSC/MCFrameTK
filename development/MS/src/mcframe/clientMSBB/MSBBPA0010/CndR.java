@@ -199,7 +199,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>itm_p</td>
+ *  	<td>par_itm_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
@@ -207,13 +207,21 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
+ *  	<td>chd_itm_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP0030.ItmR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
  *  	<td>dlv_grp_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0260.BpGrpR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>cst_grp_p</td>
  *  	<td><br></td>
@@ -221,7 +229,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0260.BpGrpR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>itm_grp_p</td>
  *  	<td><br></td>

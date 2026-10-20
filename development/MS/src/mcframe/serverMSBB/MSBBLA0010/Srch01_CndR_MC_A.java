@@ -254,27 +254,27 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Item cd. 品目ＣＤ.<p>
 	 *
 	 */
-	public static final String $prd_itm_cd = "prd_itm_cd";
+	public static final String $prod_itm_cd = "prod_itm_cd";
 	/**
 	 * Branch No. 1 枝番１.<p>
 	 *
 	 */
-	public static final String $prd_itm_sub1 = "prd_itm_sub1";
+	public static final String $prod_itm_sub1 = "prod_itm_sub1";
 	/**
 	 * Branch No. 2 枝番２.<p>
 	 *
 	 */
-	public static final String $prd_itm_sub2 = "prd_itm_sub2";
+	public static final String $prod_itm_sub2 = "prod_itm_sub2";
 	/**
 	 * Branch No. 3 枝番３.<p>
 	 *
 	 */
-	public static final String $prd_itm_sub3 = "prd_itm_sub3";
+	public static final String $prod_itm_sub3 = "prod_itm_sub3";
 	/**
 	 * Item name 品名.<p>
 	 *
 	 */
-	public static final String $prd_itm_nm = "prd_itm_nm";
+	public static final String $prod_itm_nm = "prod_itm_nm";
 	/**
 	 * Item cd. 品目ＣＤ.<p>
 	 *
@@ -837,11 +837,11 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	public static final MCMeta itm_typ_META = createCommonMeta($itm_typ, mcframe.commonMA.meta.MA_META.ITM_TYP);
 	public static final MCMeta itm_typ_d_cd_META = createCommonMeta($itm_typ_d_cd, mcframe.commonMA.meta.MA_META.ITM_TYP_D_CD);
 	public static final MCMeta itm_typ_d_nm_META = createCommonMeta($itm_typ_d_nm, mcframe.commonMA.meta.MA_META.ITM_TYP_D_NM);
-	public static final MCMeta prd_itm_cd_META = createCommonMeta($prd_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
-	public static final MCMeta prd_itm_sub1_META = createCommonMeta($prd_itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
-	public static final MCMeta prd_itm_sub2_META = createCommonMeta($prd_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
-	public static final MCMeta prd_itm_sub3_META = createCommonMeta($prd_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
-	public static final MCMeta prd_itm_nm_META = createCommonMeta($prd_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta prod_itm_cd_META = createCommonMeta($prod_itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
+	public static final MCMeta prod_itm_sub1_META = createCommonMeta($prod_itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
+	public static final MCMeta prod_itm_sub2_META = createCommonMeta($prod_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
+	public static final MCMeta prod_itm_sub3_META = createCommonMeta($prod_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
+	public static final MCMeta prod_itm_nm_META = createCommonMeta($prod_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
 	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
 	public static final MCMeta itm_sub1_META = createCommonMeta($itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
 	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
@@ -994,11 +994,11 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			itm_typ_META,
 			itm_typ_d_cd_META,
 			itm_typ_d_nm_META,
-			prd_itm_cd_META,
-			prd_itm_sub1_META,
-			prd_itm_sub2_META,
-			prd_itm_sub3_META,
-			prd_itm_nm_META,
+			prod_itm_cd_META,
+			prod_itm_sub1_META,
+			prod_itm_sub2_META,
+			prod_itm_sub3_META,
+			prod_itm_nm_META,
 			itm_cd_META,
 			itm_sub1_META,
 			itm_sub2_META,
@@ -1983,16 +1983,16 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Item cd. 品目ＣＤ.<p>
 	 *
 	 */
-	public String prd_itm_cd() {
-		return getConstString(offset + 45, $prd_itm_cd);
+	public String prod_itm_cd() {
+		return getConstString(offset + 45, $prod_itm_cd);
 	}
 
 	/**
 	 * Item cd. 品目ＣＤ.<p>
 	 *
 	 */
-	public void prd_itm_cd(String value) {
-		setConstString(offset + 45, $prd_itm_cd, value);
+	public void prod_itm_cd(String value) {
+		setConstString(offset + 45, $prod_itm_cd, value);
 	}
 
 
@@ -2000,16 +2000,16 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Branch No. 1 枝番１.<p>
 	 *
 	 */
-	public String prd_itm_sub1() {
-		return getConstString(offset + 46, $prd_itm_sub1);
+	public String prod_itm_sub1() {
+		return getConstString(offset + 46, $prod_itm_sub1);
 	}
 
 	/**
 	 * Branch No. 1 枝番１.<p>
 	 *
 	 */
-	public void prd_itm_sub1(String value) {
-		setConstString(offset + 46, $prd_itm_sub1, value);
+	public void prod_itm_sub1(String value) {
+		setConstString(offset + 46, $prod_itm_sub1, value);
 	}
 
 
@@ -2017,16 +2017,16 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Branch No. 2 枝番２.<p>
 	 *
 	 */
-	public String prd_itm_sub2() {
-		return getConstString(offset + 47, $prd_itm_sub2);
+	public String prod_itm_sub2() {
+		return getConstString(offset + 47, $prod_itm_sub2);
 	}
 
 	/**
 	 * Branch No. 2 枝番２.<p>
 	 *
 	 */
-	public void prd_itm_sub2(String value) {
-		setConstString(offset + 47, $prd_itm_sub2, value);
+	public void prod_itm_sub2(String value) {
+		setConstString(offset + 47, $prod_itm_sub2, value);
 	}
 
 
@@ -2034,16 +2034,16 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Branch No. 3 枝番３.<p>
 	 *
 	 */
-	public String prd_itm_sub3() {
-		return getConstString(offset + 48, $prd_itm_sub3);
+	public String prod_itm_sub3() {
+		return getConstString(offset + 48, $prod_itm_sub3);
 	}
 
 	/**
 	 * Branch No. 3 枝番３.<p>
 	 *
 	 */
-	public void prd_itm_sub3(String value) {
-		setConstString(offset + 48, $prd_itm_sub3, value);
+	public void prod_itm_sub3(String value) {
+		setConstString(offset + 48, $prod_itm_sub3, value);
 	}
 
 
@@ -2051,16 +2051,16 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 	 * Item name 品名.<p>
 	 *
 	 */
-	public String prd_itm_nm() {
-		return getConstString(offset + 49, $prd_itm_nm);
+	public String prod_itm_nm() {
+		return getConstString(offset + 49, $prod_itm_nm);
 	}
 
 	/**
 	 * Item name 品名.<p>
 	 *
 	 */
-	public void prd_itm_nm(String value) {
-		setConstString(offset + 49, $prd_itm_nm, value);
+	public void prod_itm_nm(String value) {
+		setConstString(offset + 49, $prod_itm_nm, value);
 	}
 
 
@@ -3909,20 +3909,20 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		if ($itm_typ_d_nm.equalsIgnoreCase(name)) {
 			return itm_typ_d_nm();
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			return prd_itm_cd();
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
 		}
-		if ($prd_itm_sub1.equalsIgnoreCase(name)) {
-			return prd_itm_sub1();
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
 		}
-		if ($prd_itm_sub2.equalsIgnoreCase(name)) {
-			return prd_itm_sub2();
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
 		}
-		if ($prd_itm_sub3.equalsIgnoreCase(name)) {
-			return prd_itm_sub3();
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			return prd_itm_nm();
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
 		}
 		if ($itm_cd.equalsIgnoreCase(name)) {
 			return itm_cd();
@@ -4378,20 +4378,20 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 		if ($itm_typ_d_nm.equalsIgnoreCase(name)) {
 			return itm_typ_d_nm();
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			return prd_itm_cd();
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			return prod_itm_cd();
 		}
-		if ($prd_itm_sub1.equalsIgnoreCase(name)) {
-			return prd_itm_sub1();
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			return prod_itm_sub1();
 		}
-		if ($prd_itm_sub2.equalsIgnoreCase(name)) {
-			return prd_itm_sub2();
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			return prod_itm_sub2();
 		}
-		if ($prd_itm_sub3.equalsIgnoreCase(name)) {
-			return prd_itm_sub3();
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			return prod_itm_sub3();
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			return prd_itm_nm();
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			return prod_itm_nm();
 		}
 		if ($itm_cd.equalsIgnoreCase(name)) {
 			return itm_cd();
@@ -4878,24 +4878,24 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			itm_typ_d_nm(value);
 			return;
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			prd_itm_cd(value);
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
 			return;
 		}
-		if ($prd_itm_sub1.equalsIgnoreCase(name)) {
-			prd_itm_sub1(value);
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
 			return;
 		}
-		if ($prd_itm_sub2.equalsIgnoreCase(name)) {
-			prd_itm_sub2(value);
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
 			return;
 		}
-		if ($prd_itm_sub3.equalsIgnoreCase(name)) {
-			prd_itm_sub3(value);
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
 			return;
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			prd_itm_nm(value);
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
 			return;
 		}
 		if ($itm_cd.equalsIgnoreCase(name)) {
@@ -5500,24 +5500,24 @@ abstract class Srch01_CndR_MC_A extends MCConstRow {
 			itm_typ_d_nm(value);
 			return;
 		}
-		if ($prd_itm_cd.equalsIgnoreCase(name)) {
-			prd_itm_cd(value);
+		if ($prod_itm_cd.equalsIgnoreCase(name)) {
+			prod_itm_cd(value);
 			return;
 		}
-		if ($prd_itm_sub1.equalsIgnoreCase(name)) {
-			prd_itm_sub1(value);
+		if ($prod_itm_sub1.equalsIgnoreCase(name)) {
+			prod_itm_sub1(value);
 			return;
 		}
-		if ($prd_itm_sub2.equalsIgnoreCase(name)) {
-			prd_itm_sub2(value);
+		if ($prod_itm_sub2.equalsIgnoreCase(name)) {
+			prod_itm_sub2(value);
 			return;
 		}
-		if ($prd_itm_sub3.equalsIgnoreCase(name)) {
-			prd_itm_sub3(value);
+		if ($prod_itm_sub3.equalsIgnoreCase(name)) {
+			prod_itm_sub3(value);
 			return;
 		}
-		if ($prd_itm_nm.equalsIgnoreCase(name)) {
-			prd_itm_nm(value);
+		if ($prod_itm_nm.equalsIgnoreCase(name)) {
+			prod_itm_nm(value);
 			return;
 		}
 		if ($itm_cd.equalsIgnoreCase(name)) {

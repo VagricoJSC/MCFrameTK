@@ -217,12 +217,18 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 *
 	 */
 	public MCTextField Cnd_market_nm = null;
-	public mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H Cnd_itm_p_PPanel;
-	public MCTextField Cnd_itm_cd;	// [Cnd]の[itm_p.itm_cd]を[Cnd_itm_cd]としてエイリアス定義。
-	public MCTextComboBox Cnd_itm_sub1;	// [Cnd]の[itm_p.itm_sub1]を[Cnd_itm_sub1]としてエイリアス定義。
-	public MCTextComboBox Cnd_itm_sub2;	// [Cnd]の[itm_p.itm_sub2]を[Cnd_itm_sub2]としてエイリアス定義。
-	public MCTextComboBox Cnd_itm_sub3;	// [Cnd]の[itm_p.itm_sub3]を[Cnd_itm_sub3]としてエイリアス定義。
-	public MCTextField Cnd_itm_nm;	// [Cnd]の[itm_p.itm_nm]を[Cnd_itm_nm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H Cnd_par_itm_p_PPanel;
+	public MCTextField Cnd_par_itm_cd;	// [Cnd]の[par_itm_p.itm_cd]を[Cnd_par_itm_cd]としてエイリアス定義。
+	public MCTextComboBox Cnd_par_itm_sub1;	// [Cnd]の[par_itm_p.itm_sub1]を[Cnd_par_itm_sub1]としてエイリアス定義。
+	public MCTextComboBox Cnd_par_itm_sub2;	// [Cnd]の[par_itm_p.itm_sub2]を[Cnd_par_itm_sub2]としてエイリアス定義。
+	public MCTextComboBox Cnd_par_itm_sub3;	// [Cnd]の[par_itm_p.itm_sub3]を[Cnd_par_itm_sub3]としてエイリアス定義。
+	public MCTextField Cnd_par_itm_nm;	// [Cnd]の[par_itm_p.itm_nm]を[Cnd_par_itm_nm]としてエイリアス定義。
+	public mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H Cnd_chd_itm_p_PPanel;
+	public MCTextField Cnd_chd_itm_cd;	// [Cnd]の[chd_itm_p.itm_cd]を[Cnd_chd_itm_cd]としてエイリアス定義。
+	public MCTextComboBox Cnd_chd_itm_sub1;	// [Cnd]の[chd_itm_p.itm_sub1]を[Cnd_chd_itm_sub1]としてエイリアス定義。
+	public MCTextComboBox Cnd_chd_itm_sub2;	// [Cnd]の[chd_itm_p.itm_sub2]を[Cnd_chd_itm_sub2]としてエイリアス定義。
+	public MCTextComboBox Cnd_chd_itm_sub3;	// [Cnd]の[chd_itm_p.itm_sub3]を[Cnd_chd_itm_sub3]としてエイリアス定義。
+	public MCTextField Cnd_chd_itm_nm;	// [Cnd]の[chd_itm_p.itm_nm]を[Cnd_chd_itm_nm]としてエイリアス定義。
 	public mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S Cnd_dlv_grp_p_PPanel;
 	public MCLabel Cnd_dlv_grp_lab1;	// [Cnd]の[dlv_grp_p.bp_grp_lab1]を[Cnd_dlv_grp_lab1]としてエイリアス定義。
 	public MCCheckBox Cnd_dlv_grp_flg1;	// [Cnd]の[dlv_grp_p.bp_grp_flg1]を[Cnd_dlv_grp_flg1]としてエイリアス定義。
@@ -770,18 +776,30 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 * [Cnd]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateCnd(MSBBPA_SlsSchdSrch p) {
-		p.Cnd_itm_p_PPanel = mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.create(p.getCndR().itm_p());
-		p.Cnd_itm_p_PPanel.setName("Cnd.itm_p");
-		p.Cnd_itm_cd = p.Cnd_itm_p_PPanel.Itm_itm_cd;
-		p.Cnd_itm_cd.addAliasName("Cnd.itm_cd", p);
-		p.Cnd_itm_sub1 = p.Cnd_itm_p_PPanel.Itm_itm_sub1;
-		p.Cnd_itm_sub1.addAliasName("Cnd.itm_sub1", p);
-		p.Cnd_itm_sub2 = p.Cnd_itm_p_PPanel.Itm_itm_sub2;
-		p.Cnd_itm_sub2.addAliasName("Cnd.itm_sub2", p);
-		p.Cnd_itm_sub3 = p.Cnd_itm_p_PPanel.Itm_itm_sub3;
-		p.Cnd_itm_sub3.addAliasName("Cnd.itm_sub3", p);
-		p.Cnd_itm_nm = p.Cnd_itm_p_PPanel.Itm_itm_nm;
-		p.Cnd_itm_nm.addAliasName("Cnd.itm_nm", p);
+		p.Cnd_par_itm_p_PPanel = mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.create(p.getCndR().par_itm_p());
+		p.Cnd_par_itm_p_PPanel.setName("Cnd.par_itm_p");
+		p.Cnd_par_itm_cd = p.Cnd_par_itm_p_PPanel.Itm_itm_cd;
+		p.Cnd_par_itm_cd.addAliasName("Cnd.par_itm_cd", p);
+		p.Cnd_par_itm_sub1 = p.Cnd_par_itm_p_PPanel.Itm_itm_sub1;
+		p.Cnd_par_itm_sub1.addAliasName("Cnd.par_itm_sub1", p);
+		p.Cnd_par_itm_sub2 = p.Cnd_par_itm_p_PPanel.Itm_itm_sub2;
+		p.Cnd_par_itm_sub2.addAliasName("Cnd.par_itm_sub2", p);
+		p.Cnd_par_itm_sub3 = p.Cnd_par_itm_p_PPanel.Itm_itm_sub3;
+		p.Cnd_par_itm_sub3.addAliasName("Cnd.par_itm_sub3", p);
+		p.Cnd_par_itm_nm = p.Cnd_par_itm_p_PPanel.Itm_itm_nm;
+		p.Cnd_par_itm_nm.addAliasName("Cnd.par_itm_nm", p);
+		p.Cnd_chd_itm_p_PPanel = mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.create(p.getCndR().chd_itm_p());
+		p.Cnd_chd_itm_p_PPanel.setName("Cnd.chd_itm_p");
+		p.Cnd_chd_itm_cd = p.Cnd_chd_itm_p_PPanel.Itm_itm_cd;
+		p.Cnd_chd_itm_cd.addAliasName("Cnd.chd_itm_cd", p);
+		p.Cnd_chd_itm_sub1 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1;
+		p.Cnd_chd_itm_sub1.addAliasName("Cnd.chd_itm_sub1", p);
+		p.Cnd_chd_itm_sub2 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2;
+		p.Cnd_chd_itm_sub2.addAliasName("Cnd.chd_itm_sub2", p);
+		p.Cnd_chd_itm_sub3 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3;
+		p.Cnd_chd_itm_sub3.addAliasName("Cnd.chd_itm_sub3", p);
+		p.Cnd_chd_itm_nm = p.Cnd_chd_itm_p_PPanel.Itm_itm_nm;
+		p.Cnd_chd_itm_nm.addAliasName("Cnd.chd_itm_nm", p);
 		p.Cnd_dlv_grp_p_PPanel = mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.create(p.getCndR().dlv_grp_p());
 		p.Cnd_dlv_grp_p_PPanel.setName("Cnd.dlv_grp_p");
 		p.Cnd_dlv_grp_lab1 = p.Cnd_dlv_grp_p_PPanel.BpGrp_bp_grp_lab1;
@@ -1769,10 +1787,30 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_market_cd, true);
 		p.CndPanel.add(p.Cnd_market_nm);
-		p.Cnd_market_nm.setNextBeans(p.Cnd_itm_p_PPanel);
+		p.Cnd_market_nm.setNextBeans(p.Cnd_par_itm_p_PPanel);
 		p.Cnd_market_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0010.CndR.market_nm_META);
 		p.setPluralValueEnable(p.Cnd_market_nm, true);
-		p.CndPanel.add(p.Cnd_itm_p_PPanel);
+		p.CndPanel.add(p.Cnd_par_itm_p_PPanel);
+		p.Cnd_par_itm_p_PPanel.setNextBeans(p.Cnd_chd_itm_p_PPanel);
+		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_cd, true);
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_sub1, true);
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub2.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_sub2, true);
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_sub3, true);
+		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_nm, true);
+		p.CndPanel.add(p.Cnd_chd_itm_p_PPanel);
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_cd, true);
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1, true);
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2, true);
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
+		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3, true);
+		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_nm, true);
 		p.DlvCndPanel.add(p.Cnd_dlv_grp_p_PPanel);
 		p.DlvCndPanel.setLastBeans(p.Cnd_dlv_grp_p_PPanel);
 		p.CstCndPanel.add(p.Cnd_cst_grp_p_PPanel);
@@ -2075,6 +2113,14 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_market_cd.addAllListener(p);
 		p.Cnd_market_nm.setListListener(p);
 		p.Cnd_market_nm.addAllListener(p);
+		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 	}
 
 	/**
@@ -2247,7 +2293,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_pj_usr_nm.putMode(p, SRCH_DTL, MCMode.ENABLE);
 		p.Cnd_market_cd.putMode(p, SRCH_DTL, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, SRCH_DTL, MCMode.ENABLE);
-		p.Cnd_itm_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_par_itm_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_chd_itm_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(SRCH_DTL, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.ENABLE);
@@ -2409,7 +2456,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_pj_usr_nm.putMode(p, SRCH_HDR, MCMode.ENABLE);
 		p.Cnd_market_cd.putMode(p, SRCH_HDR, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, SRCH_HDR, MCMode.ENABLE);
-		p.Cnd_itm_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_par_itm_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_chd_itm_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(SRCH_HDR, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.READ_ONLY);
@@ -2571,7 +2619,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_pj_usr_nm.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Cnd_market_cd.putMode(p, REF_DTL, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, REF_DTL, MCMode.ENABLE);
-		p.Cnd_itm_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_par_itm_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_chd_itm_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(REF_DTL, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.ENABLE);
@@ -2733,7 +2782,8 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		p.Cnd_pj_usr_nm.putMode(p, REF_HDR, MCMode.ENABLE);
 		p.Cnd_market_cd.putMode(p, REF_HDR, MCMode.ENABLE);
 		p.Cnd_market_nm.putMode(p, REF_HDR, MCMode.ENABLE);
-		p.Cnd_itm_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_par_itm_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_chd_itm_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
 		p.Cnd_dlv_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_cst_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0260.MAUBP_BpGrp_S.ENABLE);
 		p.Cnd_itm_grp_p_PPanel.putStatus(REF_HDR, mcframe.clientMAUB.MAUBP0250.MAUBP_ItmGrp_S.READ_ONLY);
@@ -3038,6 +3088,14 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 		if(combo == Cnd_sls_dpt_cd) return getCnd_sls_dpt_cd(row, info);
 		if(combo == Cnd_pj_usr_cd) return getCnd_pj_usr_cd(row, info);
 		if(combo == Cnd_market_cd) return getCnd_market_cd(row, info);
+		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_cd) return getCnd_par_itm_p_PPanel_Itm_itm_cd(row, info);
+		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub1) return getCnd_par_itm_p_PPanel_Itm_itm_sub1(row, info);
+		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub2) return getCnd_par_itm_p_PPanel_Itm_itm_sub2(row, info);
+		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub3) return getCnd_par_itm_p_PPanel_Itm_itm_sub3(row, info);
+		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_cd) return getCnd_chd_itm_p_PPanel_Itm_itm_cd(row, info);
+		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub1) return getCnd_chd_itm_p_PPanel_Itm_itm_sub1(row, info);
+		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub2) return getCnd_chd_itm_p_PPanel_Itm_itm_sub2(row, info);
+		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub3) return getCnd_chd_itm_p_PPanel_Itm_itm_sub3(row, info);
 		return null;
 	}
 
@@ -5199,6 +5257,62 @@ abstract public class MSBBPA_SlsSchdSrch_MC_A extends mcframe.clientMSUD.MSUDP00
 	 */
 	public MCList getCnd_market_cd(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloCanRsn(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_cd]の作成メソッド
+	 */
+	public MCList getCnd_par_itm_p_PPanel_Itm_itm_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_sub1]の作成メソッド
+	 */
+	public MCList getCnd_par_itm_p_PPanel_Itm_itm_sub1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub1(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_sub2]の作成メソッド
+	 */
+	public MCList getCnd_par_itm_p_PPanel_Itm_itm_sub2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub2(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_sub3]の作成メソッド
+	 */
+	public MCList getCnd_par_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_cd]の作成メソッド
+	 */
+	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_cd(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItm(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub1]の作成メソッド
+	 */
+	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub1(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub1(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub2]の作成メソッド
+	 */
+	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub2(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub2(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub3]の作成メソッド
+	 */
+	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
 	}
 
 	@Override

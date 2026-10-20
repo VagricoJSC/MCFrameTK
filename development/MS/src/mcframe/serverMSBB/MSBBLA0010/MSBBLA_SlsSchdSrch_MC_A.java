@@ -255,11 +255,11 @@ abstract public class MSBBLA_SlsSchdSrch_MC_A extends mcframe.serverMSUD.MSUDL50
 		 * 	<tr><td><br></td><td>itm_typ</td></tr>
 		 * 	<tr><td><br></td><td>itm_typ_d_cd</td></tr>
 		 * 	<tr><td><br></td><td>itm_typ_d_nm</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_cd</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_sub1</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_sub2</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_sub3</td></tr>
-		 * 	<tr><td><br></td><td>prd_itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
 		 * 	<tr><td><br></td><td>itm_cd</td></tr>
 		 * 	<tr><td><br></td><td>itm_sub1</td></tr>
 		 * 	<tr><td><br></td><td>itm_sub2</td></tr>
