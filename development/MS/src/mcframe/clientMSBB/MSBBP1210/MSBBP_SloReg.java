@@ -101,6 +101,13 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 //FMCB CUSTOM START
 	/**
+	 * Panel[Hdr]のボタン[bom_exp_btn]の押下時の処理
+	 */
+	@Override
+	public void doHdr_bom_exp_btn(MCEventInfo info) {
+	}
+
+	/**
 	 * [MS_MSBBL1210_Srch01]の定型処理のInnerClass
 	 */
 	protected class MS_MSBBL1210_Srch01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_Srch01Bridge> extends MSBBP_SloReg_MC.MS_MSBBL1210_Srch01Caller<P, B> {
