@@ -73,6 +73,27 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 
 //FMCB CUSTOM START
 	/**
+	 * Panel[Btn]のボタン[select_all]の押下時の処理
+	 */
+	@Override
+	public void doBtn_select_all(MCEventInfo info) {
+	}
+
+	/**
+	 * Panel[Btn]のボタン[deselect_all]の押下時の処理
+	 */
+	@Override
+	public void doBtn_deselect_all(MCEventInfo info) {
+	}
+
+	/**
+	 * Panel[Btn]のボタン[rgst]の押下時の処理
+	 */
+	@Override
+	public void doBtn_rgst(MCEventInfo info) {
+	}
+
+	/**
 	 * [MS_MSBBLA0020_Srch01]の定型処理のInnerClass
 	 */
 	protected class MS_MSBBLA0020_Srch01Caller<P extends MSBBPA_ShipItmCompSrch, B extends MS_MSBBLA0020_Srch01Bridge> extends mcframe.clientMAUD.MAUDP0010.MAUDP_Searcher<P, B> {
@@ -83,45 +104,11 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	}
 
 	/**
-	 * Panel[Cnd]のボタン[select_all]の押下時の処理
-	 */
-	@Override
-	public void doCnd_select_all(MCEventInfo info) {
-	}
-
-	/**
-	 * Panel[Cnd]のボタン[deselect_all]の押下時の処理
-	 */
-	@Override
-	public void doCnd_deselect_all(MCEventInfo info) {
-	}
-
-	/**
 	 * Panel[Ctrl]のボタン[ctrl_Ope_srch]の押下時の処理
 	 */
 	@Override
 	public void doCtrl_ctrl_Ope_srch(MCEventInfo info) {
 		callMS_MSBBLA0020_Srch01();
-	}
-	/**
-	 * Panel[RPnl]のボタン[dwnld]の押下時の処理
-	 */
-	@Override
-	public void doRPnl_dwnld(MCEventInfo info) {
-	}
-
-	/**
-	 * Panel[Btn]のボタン[open_MSBEP0090]の押下時の処理
-	 */
-	@Override
-	public void doBtn_open_MSBEP0090(MCEventInfo info) {
-	}
-
-	/**
-	 * Panel[Btn]のボタン[open_MSBEP0080]の押下時の処理
-	 */
-	@Override
-	public void doBtn_open_MSBEP0080(MCEventInfo info) {
 	}
 //FMCB CUSTOM END
 }

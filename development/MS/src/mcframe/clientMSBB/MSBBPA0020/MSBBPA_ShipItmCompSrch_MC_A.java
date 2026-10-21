@@ -60,10 +60,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public String getSubmoduleID(){ return SUBMODULE_ID; }
 	/** 画面IDを取得します。 */
 	public String getScreenID(){ return SCREEN_ID; }
-	// [ScreenOpe]ブロック関連のField定義
-	public MCPanel ScreenOpePanel = null;
-	public MCTitledBorder ScreenOpeTitledBorder = null;
-	// [ScreenOpe]ブロックの項目のField定義
 	// [Top]ブロック関連のField定義
 	public MCPanel TopPanel = null;
 	// [Top]ブロックの項目のField定義
@@ -79,9 +75,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	// [Tab2]ブロック関連のField定義
 	public MCPanel Tab2Panel = null;
 	// [Tab2]ブロックの項目のField定義
-	// [Tab3]ブロック関連のField定義
-	public MCPanel Tab3Panel = null;
-	// [Tab3]ブロックの項目のField定義
 	// [Cnd]ブロック関連のField定義
 	public MCPanel CndPanel = null;
 	// [Cnd]ブロックの項目のField定義
@@ -103,34 +96,13 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCTextComboBox Cnd_chd_itm_sub2;	// [Cnd]の[chd_itm_p.itm_sub2]を[Cnd_chd_itm_sub2]としてエイリアス定義。
 	public MCTextComboBox Cnd_chd_itm_sub3;	// [Cnd]の[chd_itm_p.itm_sub3]を[Cnd_chd_itm_sub3]としてエイリアス定義。
 	public MCTextField Cnd_chd_itm_nm;	// [Cnd]の[chd_itm_p.itm_nm]を[Cnd_chd_itm_nm]としてエイリアス定義。
-	/**
-	 * Select all 全選択.<p>
-	 *
-	 */
-	public MCButton Cnd_select_all = null;
-	/**
-	 * Release all 全解除.<p>
-	 *
-	 */
-	public MCButton Cnd_deselect_all = null;
 	// [Cnd2]ブロック関連のField定義
 	public MCPanel Cnd2Panel = null;
 	// [Cnd2]ブロックの項目のField定義
-	// [Disp]ブロック関連のField定義
-	public MCPanel DispPanel = null;
-	// [Disp]ブロックの項目のField定義
 	// [Ctrl]ブロック関連のField定義
 	public MCPanel CtrlPanel = null;
 	// [Ctrl]ブロックの項目のField定義
 	public mcframe.clientFXBA.FXBAP0130.FXBAP_ExpandUnit Ctrl_ctrl_PPanel;
-	// [RPnl]ブロック関連のField定義
-	public MCPanel RPnlPanel = null;
-	// [RPnl]ブロックの項目のField定義
-	/**
-	 * Download ダウンロードする.<p>
-	 *
-	 */
-	public MCButton RPnl_dwnld = null;
 	// [Rslt]ブロック関連のField定義
 	public MCPanel RsltPanel = null;
 	public MCScrollPane RsltScrollPane = null;
@@ -192,18 +164,20 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCPanel BtnPanel = null;
 	// [Btn]ブロックの項目のField定義
 	/**
-	 * GR/GI schedule 受払予定一覧照会.<p>
+	 * Select all 全選択.<p>
 	 *
 	 */
-	public MCButton Btn_open_MSBEP0090 = null;
+	public MCButton Btn_select_all = null;
 	/**
-	 * GR/GI result 受払実績一覧照会.<p>
+	 * Release all 全解除.<p>
 	 *
 	 */
-	public MCButton Btn_open_MSBEP0080 = null;
-	// [EastBtn]ブロック関連のField定義
-	public MCPanel EastBtnPanel = null;
-	// [EastBtn]ブロックの項目のField定義
+	public MCButton Btn_deselect_all = null;
+	/**
+	 * Apply 反映する.<p>
+	 *
+	 */
+	public MCButton Btn_rgst = null;
 	/** [NON_MOV]モードを表す定数 */
 	public static final String NON_MOV = "NON_MOV";
 	/** [STK_TRN]モードを表す定数 */
@@ -362,20 +336,15 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	public List<MCPanel> getMCPanels(){
 		List<MCPanel> ret = super.getMCPanels();
-		ret.add(ScreenOpePanel);
 		ret.add(TopPanel);
 		ret.add(FoldPanel);
 		ret.add(Tab1Panel);
 		ret.add(Tab2Panel);
-		ret.add(Tab3Panel);
 		ret.add(CndPanel);
 		ret.add(Cnd2Panel);
-		ret.add(DispPanel);
 		ret.add(CtrlPanel);
-		ret.add(RPnlPanel);
 		ret.add(RsltPanel);
 		ret.add(BtnPanel);
-		ret.add(EastBtnPanel);
 		return ret;
 	}
 
@@ -406,26 +375,15 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	public void jbCreate(){
 		super.jbCreate();
-		MSBBPA_ShipItmCompSrch_MC.jbCreateScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateTop((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateFold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateTab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateTab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbCreateTab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateCnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateCnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbCreateDisp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateCtrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbCreateRPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateRslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbCreateBtn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbCreateEastBtn((MSBBPA_ShipItmCompSrch)this);
-	}
-
-	/**
-	 * [ScreenOpe]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
-	 */
-	protected static void jbCreateScreenOpe(MSBBPA_ShipItmCompSrch p) {
 	}
 
 	/**
@@ -450,12 +408,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [Tab2]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateTab2(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
-	 * [Tab3]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
-	 */
-	protected static void jbCreateTab3(MSBBPA_ShipItmCompSrch p) {
 	}
 
 	/**
@@ -495,23 +447,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [Disp]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
-	 */
-	protected static void jbCreateDisp(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
 	 * [Ctrl]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateCtrl(MSBBPA_ShipItmCompSrch p) {
 		p.Ctrl_ctrl_PPanel = mcframe.clientFXBA.FXBAP0130.FXBAP_ExpandUnit.create();
 		p.Ctrl_ctrl_PPanel.setName("Ctrl.ctrl");
-	}
-
-	/**
-	 * [RPnl]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
-	 */
-	protected static void jbCreateRPnl(MSBBPA_ShipItmCompSrch p) {
 	}
 
 	/**
@@ -548,12 +488,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [Btn]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateBtn(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
-	 * [EastBtn]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
-	 */
-	protected static void jbCreateEastBtn(MSBBPA_ShipItmCompSrch p) {
 	}
 
 	/**
@@ -708,44 +642,24 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected void jbInit() {
 		super.jbInit();
-		MSBBPA_ShipItmCompSrch_MC.jbfInitScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitTop((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitFold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitTab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitTab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbfInitTab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitCnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitCnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbfInitDisp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitCtrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbfInitRPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitRslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbfInitBtn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbfInitEastBtn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbInitScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitTop((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitFold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitTab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitTab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbInitTab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitCnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitCnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbInitDisp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitCtrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbInitRPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitRslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.jbInitBtn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.jbInitEastBtn((MSBBPA_ShipItmCompSrch)this);
-	}
-
-	/**
-	 * [ScreenOpe]ブロック関連の画面部品初期設定１
-	 */
-	protected static void jbfInitScreenOpe(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.ScreenOpePanel = p.beansFactory.createPanel("ScreenOpe");
-		p.ScreenOpeTitledBorder = p.beansFactory.createTitledBorder();
-		// ブロックの項目の初期化
 	}
 
 	/**
@@ -788,15 +702,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [Tab3]ブロック関連の画面部品初期設定１
-	 */
-	protected static void jbfInitTab3(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.Tab3Panel = p.beansFactory.createPanel("Tab3");
-		// ブロックの項目の初期化
-	}
-
-	/**
 	 * [Cnd]ブロック関連の画面部品初期設定１
 	 */
 	protected static void jbfInitCnd(MSBBPA_ShipItmCompSrch p) {
@@ -806,8 +711,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_diameter_Label = p.beansFactory.createLabel("Cnd.diameter_Label");
 		p.Cnd_diameter = p.beansFactory.createTextField("Cnd.diameter");
 		p.Cnd_diameter.setLabel(p.Cnd_diameter_Label);
-		p.Cnd_select_all = p.beansFactory.createButton("Cnd.select_all", "no_border");
-		p.Cnd_deselect_all = p.beansFactory.createButton("Cnd.deselect_all", "no_border");
 	}
 
 	/**
@@ -820,31 +723,12 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [Disp]ブロック関連の画面部品初期設定１
-	 */
-	protected static void jbfInitDisp(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.DispPanel = p.beansFactory.createPanel("Disp");
-		// ブロックの項目の初期化
-	}
-
-	/**
 	 * [Ctrl]ブロック関連の画面部品初期設定１
 	 */
 	protected static void jbfInitCtrl(MSBBPA_ShipItmCompSrch p) {
 		// ブロック関連の初期化
 		p.CtrlPanel = p.beansFactory.createPanel("Ctrl");
 		// ブロックの項目の初期化
-	}
-
-	/**
-	 * [RPnl]ブロック関連の画面部品初期設定１
-	 */
-	protected static void jbfInitRPnl(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.RPnlPanel = p.beansFactory.createPanel("RPnl");
-		// ブロックの項目の初期化
-		p.RPnl_dwnld = p.beansFactory.createButton("RPnl.dwnld", "dwnld");
 	}
 
 	/**
@@ -873,32 +757,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		// ブロック関連の初期化
 		p.BtnPanel = p.beansFactory.createPanel("Btn");
 		// ブロックの項目の初期化
-		p.Btn_open_MSBEP0090 = p.beansFactory.createButton("Btn.open_MSBEP0090", "open");
-		p.Btn_open_MSBEP0080 = p.beansFactory.createButton("Btn.open_MSBEP0080", "open");
-	}
-
-	/**
-	 * [EastBtn]ブロック関連の画面部品初期設定１
-	 */
-	protected static void jbfInitEastBtn(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.EastBtnPanel = p.beansFactory.createPanel("EastBtn");
-		// ブロックの項目の初期化
-	}
-
-	/**
-	 * [ScreenOpe]ブロック関連の画面部品初期設定２
-	 */
-	protected static void jbInitScreenOpe(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.ScreenOpePanel.setBorder(p.ScreenOpeTitledBorder);
-		p.add(p.ScreenOpePanel);
-		p.setLastBeans(p.ScreenOpePanel);
-		p.ScreenOpePanel.setNextBeans(p.TopPanel);
-		p.ScreenOpePanel.setValueCheck(false);
-		p.ScreenOpePanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
-		p.ScreenOpePanel.setLayoutPosition("NW");
-		// ブロックの項目の初期化
+		p.Btn_select_all = p.beansFactory.createButton("Btn.select_all", "no_border");
+		p.Btn_deselect_all = p.beansFactory.createButton("Btn.deselect_all", "no_border");
+		p.Btn_rgst = p.beansFactory.createButton("Btn.rgst");
 	}
 
 	/**
@@ -907,6 +768,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	protected static void jbInitTop(MSBBPA_ShipItmCompSrch p) {
 		// ブロック関連の初期化
 		p.add(p.TopPanel);
+		p.setLastBeans(p.TopPanel);
 		p.TopPanel.setNextBeans(p.RsltPanel);
 		p.TopPanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
 		p.TopPanel.setLayoutPosition("CT+");
@@ -919,8 +781,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.TopPanel.setLastBeans(p.FoldPanel);
 		p.FoldPanel.setNextBeans(p.CtrlPanel);
 		p.TopPanel.add(p.CtrlPanel, null);
-		p.CtrlPanel.setNextBeans(p.RPnlPanel);
-		p.TopPanel.add(p.RPnlPanel, null);
 	}
 
 	/**
@@ -938,8 +798,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.FoldTab.setLastBeans(p.Tab1Panel);
 		p.Tab1Panel.setNextBeans(p.Tab2Panel);
 		p.FoldTab.add(p.Tab2Panel, "Fold.tab2");
-		p.Tab2Panel.setNextBeans(p.Tab3Panel);
-		p.FoldTab.add(p.Tab3Panel, "Fold.tab3");
 	}
 
 	/**
@@ -961,26 +819,12 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected static void jbInitTab2(MSBBPA_ShipItmCompSrch p) {
 		// ブロック関連の初期化
-		p.Tab2Panel.setNextBeans(p.Tab3Panel);
 		p.Tab2Panel.setValueCheck(false);
 		p.Tab2Panel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
 		p.Tab2Panel.setLayoutPosition("C");
 		// ブロックの項目の初期化
 		p.Tab2Panel.add(p.Cnd2Panel, null);
 		p.Tab2Panel.setLastBeans(p.Cnd2Panel);
-	}
-
-	/**
-	 * [Tab3]ブロック関連の画面部品初期設定２
-	 */
-	protected static void jbInitTab3(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.Tab3Panel.setValueCheck(false);
-		p.Tab3Panel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
-		p.Tab3Panel.setLayoutPosition("C");
-		// ブロックの項目の初期化
-		p.Tab3Panel.add(p.DispPanel, null);
-		p.Tab3Panel.setLastBeans(p.DispPanel);
 	}
 
 	/**
@@ -1026,14 +870,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3, true);
 		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setLinkBeans(p.Cnd_chd_itm_nm);
 		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_nm, true);
-		p.Cnd_select_all.setIcon("SELECT_ALL");
-		p.Cnd_select_all.setFunctionKey(MCFunctionKey.F15);
-		p.DispPanel.setLastBeans(p.Cnd_select_all);
-		p.DispPanel.add(p.Cnd_select_all);
-		p.Cnd_select_all.setNextBeans(p.Cnd_deselect_all);
-		p.Cnd_deselect_all.setIcon("DESELECT_ALL");
-		p.Cnd_deselect_all.setFunctionKey(MCFunctionKey.F16);
-		p.DispPanel.add(p.Cnd_deselect_all);
 	}
 
 	/**
@@ -1048,17 +884,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [Disp]ブロック関連の画面部品初期設定２
-	 */
-	protected static void jbInitDisp(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.DispPanel.setValueCheck(false);
-		p.DispPanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
-		p.DispPanel.setLayoutPosition("C");
-		// ブロックの項目の初期化
-	}
-
-	/**
 	 * [Ctrl]ブロック関連の画面部品初期設定２
 	 */
 	protected static void jbInitCtrl(MSBBPA_ShipItmCompSrch p) {
@@ -1069,21 +894,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CtrlPanel.setLayout(new BorderLayout());
 		p.CtrlPanel.add(p.Ctrl_ctrl_PPanel, BorderLayout.SOUTH);
 		p.CtrlPanel.setLastBeans(p.Ctrl_ctrl_PPanel);
-	}
-
-	/**
-	 * [RPnl]ブロック関連の画面部品初期設定２
-	 */
-	protected static void jbInitRPnl(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.RPnlPanel.setValueCheck(false);
-		p.RPnlPanel.setExtValue(MCPanel.SRCH_CND_SETTING_PANEL, true);
-		p.RPnlPanel.setLayoutPosition("SE");
-		// ブロックの項目の初期化
-		p.RPnl_dwnld.setIcon("DWNLD");
-		p.RPnl_dwnld.setFunctionKey(MCFunctionKey.F11);
-		p.RPnlPanel.add(p.RPnl_dwnld);
-		p.RPnlPanel.setLastBeans(p.RPnl_dwnld);
 	}
 
 	/**
@@ -1108,25 +918,20 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	protected static void jbInitBtn(MSBBPA_ShipItmCompSrch p) {
 		// ブロック関連の初期化
 		p.add(p.BtnPanel);
-		p.BtnPanel.setNextBeans(p.EastBtnPanel);
+		p.BtnPanel.setValueCheck(false);
 		p.BtnPanel.setLayoutPosition("SW");
 		// ブロックの項目の初期化
-		p.Btn_open_MSBEP0090.setFunctionKey(MCFunctionKey.F3);
-		p.BtnPanel.add(p.Btn_open_MSBEP0090);
-		p.BtnPanel.setLastBeans(p.Btn_open_MSBEP0090);
-		p.Btn_open_MSBEP0090.setNextBeans(p.Btn_open_MSBEP0080);
-		p.Btn_open_MSBEP0080.setFunctionKey(MCFunctionKey.F4);
-		p.BtnPanel.add(p.Btn_open_MSBEP0080);
-	}
-
-	/**
-	 * [EastBtn]ブロック関連の画面部品初期設定２
-	 */
-	protected static void jbInitEastBtn(MSBBPA_ShipItmCompSrch p) {
-		// ブロック関連の初期化
-		p.add(p.EastBtnPanel);
-		p.EastBtnPanel.setLayoutPosition("SE");
-		// ブロックの項目の初期化
+		p.Btn_select_all.setIcon("SELECT_ALL");
+		p.Btn_select_all.setFunctionKey(MCFunctionKey.F13);
+		p.BtnPanel.add(p.Btn_select_all);
+		p.BtnPanel.setLastBeans(p.Btn_select_all);
+		p.Btn_select_all.setNextBeans(p.Btn_deselect_all);
+		p.Btn_deselect_all.setIcon("DESELECT_ALL");
+		p.Btn_deselect_all.setFunctionKey(MCFunctionKey.F14);
+		p.BtnPanel.add(p.Btn_deselect_all);
+		p.Btn_deselect_all.setNextBeans(p.Btn_rgst);
+		p.Btn_rgst.setFunctionKey(MCFunctionKey.F5);
+		p.BtnPanel.add(p.Btn_rgst);
 	}
 
 	/**
@@ -1148,59 +953,38 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected void mcInit() {
 		super.mcInit();
-		MSBBPA_ShipItmCompSrch_MC.mcInitScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitTop((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitFold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitTab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitTab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.mcInitTab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitCnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitCnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.mcInitDisp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitCtrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.mcInitRPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitRslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.mcInitBtn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.mcInitEastBtn((MSBBPA_ShipItmCompSrch)this);
 
 		// [NON_MOV]ステータスのモードの設定
-		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_ScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Top((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Fold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Tab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Tab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Tab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Cnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Cnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Disp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Ctrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_RPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Rslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_Btn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitNON__MOV_EastBtn((MSBBPA_ShipItmCompSrch)this);
 
 		// [STK_TRN]ステータスのモードの設定
-		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_ScreenOpe((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Top((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Fold((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Tab1((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Tab2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Tab3((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Cnd((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Cnd2((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Disp((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Ctrl((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_RPnl((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Rslt((MSBBPA_ShipItmCompSrch)this);
 		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_Btn((MSBBPA_ShipItmCompSrch)this);
-		MSBBPA_ShipItmCompSrch_MC.statusInitSTK__TRN_EastBtn((MSBBPA_ShipItmCompSrch)this);
 
-	}
-
-	/**
-	 *  [ScreenOpe]ブロックの画面部品初期設定（MCFrame仕様）
-	 */
-	protected static void mcInitScreenOpe(MSBBPA_ShipItmCompSrch p) {
 	}
 
 	/**
@@ -1229,12 +1013,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 *  [Tab3]ブロックの画面部品初期設定（MCFrame仕様）
-	 */
-	protected static void mcInitTab3(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
 	 *  [Cnd]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitCnd(MSBBPA_ShipItmCompSrch p) {
@@ -1248,10 +1026,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
-		p.Cnd_select_all.addAllListener(p);
-		p.Cnd_select_all.setAPMethodName("doCnd_select_all");
-		p.Cnd_deselect_all.addAllListener(p);
-		p.Cnd_deselect_all.setAPMethodName("doCnd_deselect_all");
 	}
 
 	/**
@@ -1261,24 +1035,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 *  [Disp]ブロックの画面部品初期設定（MCFrame仕様）
-	 */
-	protected static void mcInitDisp(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
 	 *  [Ctrl]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitCtrl(MSBBPA_ShipItmCompSrch p) {
 		p.Ctrl_ctrl_PPanel.Ope_srch.addAllListener(p);
-	}
-
-	/**
-	 *  [RPnl]ブロックの画面部品初期設定（MCFrame仕様）
-	 */
-	protected static void mcInitRPnl(MSBBPA_ShipItmCompSrch p) {
-		p.RPnl_dwnld.addAllListener(p);
-		p.RPnl_dwnld.setAPMethodName("doRPnl_dwnld");
 	}
 
 	/**
@@ -1304,23 +1064,12 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *  [Btn]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitBtn(MSBBPA_ShipItmCompSrch p) {
-		p.Btn_open_MSBEP0090.addAllListener(p);
-		p.Btn_open_MSBEP0090.setAPMethodName("doBtn_open_MSBEP0090");
-		p.Btn_open_MSBEP0080.addAllListener(p);
-		p.Btn_open_MSBEP0080.setAPMethodName("doBtn_open_MSBEP0080");
-	}
-
-	/**
-	 *  [EastBtn]ブロックの画面部品初期設定（MCFrame仕様）
-	 */
-	protected static void mcInitEastBtn(MSBBPA_ShipItmCompSrch p) {
-	}
-
-	/**
-	 * [NON_MOV]ステータスの[ScreenOpe]ブロックのモードの設定
-	 */
-	protected static void statusInitNON__MOV_ScreenOpe(MSBBPA_ShipItmCompSrch p){
-
+		p.Btn_select_all.addAllListener(p);
+		p.Btn_select_all.setAPMethodName("doBtn_select_all");
+		p.Btn_deselect_all.addAllListener(p);
+		p.Btn_deselect_all.setAPMethodName("doBtn_deselect_all");
+		p.Btn_rgst.addAllListener(p);
+		p.Btn_rgst.setAPMethodName("doBtn_rgst");
 	}
 
 	/**
@@ -1352,20 +1101,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [NON_MOV]ステータスの[Tab3]ブロックのモードの設定
-	 */
-	protected static void statusInitNON__MOV_Tab3(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [NON_MOV]ステータスの[Cnd]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Cnd(MSBBPA_ShipItmCompSrch p){
 		p.Cnd_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_chd_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_select_all.putMode(p, NON_MOV, MCMode.ENABLE);
-		p.Cnd_deselect_all.putMode(p, NON_MOV, MCMode.ENABLE);
 
 	}
 
@@ -1377,13 +1117,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [NON_MOV]ステータスの[Disp]ブロックのモードの設定
-	 */
-	protected static void statusInitNON__MOV_Disp(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [NON_MOV]ステータスの[Ctrl]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Ctrl(MSBBPA_ShipItmCompSrch p){
@@ -1391,17 +1124,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [NON_MOV]ステータスの[RPnl]ブロックのモードの設定
-	 */
-	protected static void statusInitNON__MOV_RPnl(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [NON_MOV]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Rslt(MSBBPA_ShipItmCompSrch p){
-		p.columnRslt_check.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.columnRslt_check.putMode(p, NON_MOV, MCMode.ENABLE);
 		p.Rslt_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnRslt_surv_line_qty.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, NON_MOV, MCMode.READ_ONLY);
@@ -1415,22 +1141,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [NON_MOV]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Btn(MSBBPA_ShipItmCompSrch p){
-		p.Btn_open_MSBEP0090.putMode(p, NON_MOV, MCMode.DISABLE);
-		p.Btn_open_MSBEP0080.putMode(p, NON_MOV, MCMode.DISABLE);
-
-	}
-
-	/**
-	 * [NON_MOV]ステータスの[EastBtn]ブロックのモードの設定
-	 */
-	protected static void statusInitNON__MOV_EastBtn(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
-	 * [STK_TRN]ステータスの[ScreenOpe]ブロックのモードの設定
-	 */
-	protected static void statusInitSTK__TRN_ScreenOpe(MSBBPA_ShipItmCompSrch p){
+		p.Btn_select_all.putMode(p, NON_MOV, MCMode.ENABLE);
+		p.Btn_deselect_all.putMode(p, NON_MOV, MCMode.ENABLE);
+		p.Btn_rgst.putMode(p, NON_MOV, MCMode.ENABLE);
 
 	}
 
@@ -1463,20 +1176,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [STK_TRN]ステータスの[Tab3]ブロックのモードの設定
-	 */
-	protected static void statusInitSTK__TRN_Tab3(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [STK_TRN]ステータスの[Cnd]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Cnd(MSBBPA_ShipItmCompSrch p){
 		p.Cnd_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_chd_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_select_all.putMode(p, STK_TRN, MCMode.ENABLE);
-		p.Cnd_deselect_all.putMode(p, STK_TRN, MCMode.ENABLE);
 
 	}
 
@@ -1488,13 +1192,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [STK_TRN]ステータスの[Disp]ブロックのモードの設定
-	 */
-	protected static void statusInitSTK__TRN_Disp(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [STK_TRN]ステータスの[Ctrl]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Ctrl(MSBBPA_ShipItmCompSrch p){
@@ -1502,17 +1199,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [STK_TRN]ステータスの[RPnl]ブロックのモードの設定
-	 */
-	protected static void statusInitSTK__TRN_RPnl(MSBBPA_ShipItmCompSrch p){
-
-	}
-
-	/**
 	 * [STK_TRN]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Rslt(MSBBPA_ShipItmCompSrch p){
-		p.columnRslt_check.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.columnRslt_check.putMode(p, STK_TRN, MCMode.ENABLE);
 		p.Rslt_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnRslt_surv_line_qty.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, STK_TRN, MCMode.READ_ONLY);
@@ -1526,15 +1216,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [STK_TRN]ステータスの[Btn]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Btn(MSBBPA_ShipItmCompSrch p){
-		p.Btn_open_MSBEP0090.putMode(p, STK_TRN, MCMode.DISABLE);
-		p.Btn_open_MSBEP0080.putMode(p, STK_TRN, MCMode.DISABLE);
-
-	}
-
-	/**
-	 * [STK_TRN]ステータスの[EastBtn]ブロックのモードの設定
-	 */
-	protected static void statusInitSTK__TRN_EastBtn(MSBBPA_ShipItmCompSrch p){
+		p.Btn_select_all.putMode(p, STK_TRN, MCMode.ENABLE);
+		p.Btn_deselect_all.putMode(p, STK_TRN, MCMode.ENABLE);
+		p.Btn_rgst.putMode(p, STK_TRN, MCMode.ENABLE);
 
 	}
 
@@ -1729,23 +1413,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	public void doAPEvent(MCAPBeans ap, MCEventInfo info) {
 		super.doAPEvent(ap, info);
-		if (ap == Cnd_select_all) doCnd_select_all(info);
-		else if (ap == Cnd_deselect_all) doCnd_deselect_all(info);
-		else if (ap == Ctrl_ctrl_PPanel.Ope_srch) doCtrl_ctrl_Ope_srch(info);
-		else if (ap == RPnl_dwnld) doRPnl_dwnld(info);
-		else if (ap == Btn_open_MSBEP0090) doBtn_open_MSBEP0090(info);
-		else if (ap == Btn_open_MSBEP0080) doBtn_open_MSBEP0080(info);
+		if (ap == Ctrl_ctrl_PPanel.Ope_srch) doCtrl_ctrl_Ope_srch(info);
+		else if (ap == Btn_select_all) doBtn_select_all(info);
+		else if (ap == Btn_deselect_all) doBtn_deselect_all(info);
+		else if (ap == Btn_rgst) doBtn_rgst(info);
 	}
-
-	/**
-	 * [Cnd]パネルの[select_all]ボタンが押下されたときに呼び出されます。
-	 */
-	abstract public void doCnd_select_all(MCEventInfo info);
-
-	/**
-	 * [Cnd]パネルの[deselect_all]ボタンが押下されたときに呼び出されます。
-	 */
-	abstract public void doCnd_deselect_all(MCEventInfo info);
 
 	/**
 	 * [Ctrl]パネルの[ctrl_Ope_srch]ボタンが押下されたときに呼び出されます。
@@ -1753,19 +1425,19 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	abstract public void doCtrl_ctrl_Ope_srch(MCEventInfo info);
 
 	/**
-	 * [RPnl]パネルの[dwnld]ボタンが押下されたときに呼び出されます。
+	 * [Btn]パネルの[select_all]ボタンが押下されたときに呼び出されます。
 	 */
-	abstract public void doRPnl_dwnld(MCEventInfo info);
+	abstract public void doBtn_select_all(MCEventInfo info);
 
 	/**
-	 * [Btn]パネルの[open_MSBEP0090]ボタンが押下されたときに呼び出されます。
+	 * [Btn]パネルの[deselect_all]ボタンが押下されたときに呼び出されます。
 	 */
-	abstract public void doBtn_open_MSBEP0090(MCEventInfo info);
+	abstract public void doBtn_deselect_all(MCEventInfo info);
 
 	/**
-	 * [Btn]パネルの[open_MSBEP0080]ボタンが押下されたときに呼び出されます。
+	 * [Btn]パネルの[rgst]ボタンが押下されたときに呼び出されます。
 	 */
-	abstract public void doBtn_open_MSBEP0080(MCEventInfo info);
+	abstract public void doBtn_rgst(MCEventInfo info);
 
 	/**
 	 * ValidationChangeイベントが実行されたときに呼び出されます。
