@@ -20,16 +20,7 @@ import mcframe.clientCore.beans.list.MCLinkBeans;
 import mcframe.commonCore.annotation.EI;
 import mcframe.clientFXBA.FXBAP0130.*;
 import mcframe.clientMAUB.MAUBP0030.*;
-import mcframe.clientMAUB.MAUBP0100.*;
-import mcframe.clientMAUB.MAUBP0250.*;
-import mcframe.clientMAUB.MAUBP0440.*;
 import mcframe.clientMAUB.MAUBP5030.*;
-import mcframe.clientMAUB.MAUBP5040.*;
-import mcframe.clientMAUB.MAUBP5050.*;
-import mcframe.clientMAUB.MAUBP5120.*;
-import mcframe.clientMAUB.MAUBP5170.*;
-import mcframe.clientMSUB.MSUBP0020.*;
-import mcframe.clientMSUB.MSUBP5020.*;
 
 import mcframe.commonMA.constant.*;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
@@ -79,8 +70,6 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 
 	public class MS_MSBBLA0020_Srch01Bridge extends MSBBPA_ShipItmCompSrch_MC.MS_MSBBLA0020_Srch01Bridge {
 	}
-	public class MS_MSBBLA0020_Srch02Bridge extends MSBBPA_ShipItmCompSrch_MC.MS_MSBBLA0020_Srch02Bridge {
-	}
 
 //FMCB CUSTOM START
 	/**
@@ -89,16 +78,6 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	protected class MS_MSBBLA0020_Srch01Caller<P extends MSBBPA_ShipItmCompSrch, B extends MS_MSBBLA0020_Srch01Bridge> extends mcframe.clientMAUD.MAUDP0010.MAUDP_Searcher<P, B> {
 
 		protected MS_MSBBLA0020_Srch01Caller(P p, B b) {
-			super(p, b);
-		}
-	}
-
-	/**
-	 * [MS_MSBBLA0020_Srch02]の定型処理のInnerClass
-	 */
-	protected class MS_MSBBLA0020_Srch02Caller<P extends MSBBPA_ShipItmCompSrch, B extends MS_MSBBLA0020_Srch02Bridge> extends mcframe.clientMAUD.MAUDP0010.MAUDP_Searcher<P, B> {
-
-		protected MS_MSBBLA0020_Srch02Caller(P p, B b) {
 			super(p, b);
 		}
 	}

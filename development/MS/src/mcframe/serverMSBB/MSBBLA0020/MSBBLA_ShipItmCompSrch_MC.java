@@ -56,7 +56,6 @@ import static mcframe.serverMS.dbc.MSBIFunction.*;
 //手修正によるカスタマイズで必要なimportはこの間に記述してください。
 //FMCB CUSTOM_IMPORT START
 import mcframe.serverMSBE.MSBEL0050.*;	// このimportはFrameManagerの自動生成で追加されました。
-
 //FMCB CUSTOM_IMPORT END
 
 /**

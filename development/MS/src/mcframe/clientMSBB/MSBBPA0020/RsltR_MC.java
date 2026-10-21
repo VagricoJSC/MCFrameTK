@@ -15,11 +15,11 @@ import mcframe.commonCore.notice.*;
 abstract public class RsltR_MC extends RsltR_MC_A {
 
 //FMCB CUSTOM_METHOD START
-
 	/**
 	 * コンストラクタ
 	 */
 	protected RsltR_MC(ConstMetaList<? extends RsltR> metas) {
 		super(metas);
 	}
+
 }

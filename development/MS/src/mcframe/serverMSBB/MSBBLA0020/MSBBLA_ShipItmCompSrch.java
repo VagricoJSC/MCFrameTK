@@ -55,7 +55,6 @@ import static mcframe.serverMS.dbc.MSBIFunction.*;
 
 //FMCB IMPORT START
 import mcframe.serverMSBE.MSBEL0050.*;	// このimportはFrameManagerの自動生成で追加されました。
-
 //FMCB IMPORT END
 
 /**
@@ -67,17 +66,6 @@ import mcframe.serverMSBE.MSBEL0050.*;	// このimportはFrameManagerの自動�
 public class MSBBLA_ShipItmCompSrch extends MSBBLA_ShipItmCompSrch_MC {
 
 //FMCB CUSTOM START
-	/**
-	 * Srch02オペレーション.<p>
-	 *
-	 * 在庫回転の検索を行う<br>
-	 */
-	public class Srch02 extends MSBBLA_ShipItmCompSrch_MC_A.Srch02 {
-		@Override
-		protected void call() {
-			super.call();
-		}
-	}
 	/**
 	 * Srch01オペレーション.<p>
 	 *
