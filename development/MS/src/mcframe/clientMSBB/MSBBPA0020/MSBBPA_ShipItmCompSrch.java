@@ -101,7 +101,7 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	 */
 	@Override
 	public void doCtrl_ctrl_Ope_srch(MCEventInfo info) {
-		callMS_MSBEL0050_Srch01();
+		callMS_MSBBLA0020_Srch01();
 	}
 	/**
 	 * Panel[RPnl]のボタン[dwnld]の押下時の処理
@@ -122,10 +122,6 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	 */
 	@Override
 	public void doBtn_open_MSBEP0080(MCEventInfo info) {
-	}
-
-	protected void callMS_MSBEL0050_Srch01() {
-		
 	}
 //FMCB CUSTOM END
 }

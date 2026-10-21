@@ -55,6 +55,7 @@ import static mcframe.serverMS.dbc.MSBIFunction.*;
 
 //FMCB IMPORT START
 import mcframe.serverMSBE.MSBEL0050.*;	// このimportはFrameManagerの自動生成で追加されました。
+import static mcframe.serverMSBB.MSBBLA0020.Query.*;
 //FMCB IMPORT END
 
 /**
@@ -76,6 +77,14 @@ public class MSBBLA_ShipItmCompSrch extends MSBBLA_ShipItmCompSrch_MC {
 		protected void call() {
 			super.call();
 		}
+		
+		@Override
+		protected void doSearchMain() {
+			MCQueryPlan query = MSBBLA0020_SHIP_ITM_COMP_SRCH_S01();
+			searchForDL(query, up0(), down0());
+		}
+		
+		
 	}
 //FMCB CUSTOM END
 }

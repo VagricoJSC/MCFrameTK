@@ -1356,7 +1356,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected static void statusInitNON__MOV_Cnd(MSBBPA_ShipItmCompSrch p){
 		p.Cnd_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_diameter.putMode(p, NON_MOV, MCMode.REQUIRED);
 		p.Cnd_chd_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_select_all.putMode(p, NON_MOV, MCMode.ENABLE);
 		p.Cnd_deselect_all.putMode(p, NON_MOV, MCMode.ENABLE);
@@ -1467,7 +1466,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected static void statusInitSTK__TRN_Cnd(MSBBPA_ShipItmCompSrch p){
 		p.Cnd_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_diameter.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.Cnd_chd_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
 		p.Cnd_select_all.putMode(p, STK_TRN, MCMode.ENABLE);
 		p.Cnd_deselect_all.putMode(p, STK_TRN, MCMode.ENABLE);
