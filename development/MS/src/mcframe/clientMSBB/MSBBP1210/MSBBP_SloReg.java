@@ -105,6 +105,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 */
 	@Override
 	public void doHdr_bom_exp_btn(MCEventInfo info) {
+		// TODO
+		MCRow bind = MCRow.create();
+		openModalPanel("MS", "MSBBPA0020", T1, bind, this);
 	}
 
 	/**

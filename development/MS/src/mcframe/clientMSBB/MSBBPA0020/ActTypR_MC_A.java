@@ -1,4 +1,4 @@
-package mcframe.clientMSBE.MSBBPA0020;
+package mcframe.clientMSBB.MSBBPA0020;
 
 import java.util.List;
 import java.util.Map;
@@ -17,28 +17,28 @@ import mcframe.commonCore.lang.MCDataType;
 import mcframe.commonCore.lang.MCBinary;
 
 /**
- * ブロック"SchdTyp"コンテナRowクラスです。<p>
+ * ブロック"ActTyp"コンテナRowクラスです。<p>
  *
  * <br>
  *
  * 実装仕様書から自動生成されるクラスです。カスタマイズできません。
  */
 @SuppressWarnings({"all"})
-abstract class SchdTypR_MC_A extends MCConstRow {
+abstract class ActTypR_MC_A extends MCConstRow {
 
 	/**
-	 * GR/GI schedule type 受払予定区分.<p>
+	 * GR/GI type 受払区分.<p>
 	 *
 	 */
-	public static final String $io_schd_typ = "io_schd_typ";
+	public static final String $io_act_typ = "io_act_typ";
 
 
-	public static final MCMeta io_schd_typ_META = createCommonMeta($io_schd_typ, mcframe.commonMS.meta.MS_META.IO_SCHD_TYP);
+	public static final MCMeta io_act_typ_META = createCommonMeta($io_act_typ, mcframe.commonMS.meta.MS_META.IO_ACT_TYP);
 
-	protected static final ConstMetaList<SchdTypR> constMetas = new ConstMetaList<SchdTypR>(
+	protected static final ConstMetaList<ActTypR> constMetas = new ConstMetaList<ActTypR>(
 		MCConstRow.constMetas,
 		new MCMeta[]{
-			io_schd_typ_META
+			io_act_typ_META
 		},
 		new String[][]{
 			{
@@ -152,75 +152,75 @@ abstract class SchdTypR_MC_A extends MCConstRow {
 	/**
 	 * コンストラクタです。
 	 */
-	protected SchdTypR_MC_A(ConstMetaList<? extends SchdTypR> metas) {
+	protected ActTypR_MC_A(ConstMetaList<? extends ActTypR> metas) {
 		super(metas);
 	}
 
 	/*
 	 * MCRowのオーバーライドメソッドです。
 	 */
-	public SchdTypR clone() {
-		return (SchdTypR) super.clone();
+	public ActTypR clone() {
+		return (ActTypR) super.clone();
 	}
 
 	/*
 	 * MCRowのオーバーライドメソッドです。
 	 */
-	public SchdTypR createInstance() {
-		return (SchdTypR) super.createInstance();
+	public ActTypR createInstance() {
+		return (ActTypR) super.createInstance();
 	}
 
 	/*
 	 * MCRowのオーバーライドメソッドです。
 	 */
-	public SchdTypR getValues(String... names) {
-		return (SchdTypR) super.getValues(names);
+	public ActTypR getValues(String... names) {
+		return (ActTypR) super.getValues(names);
 	}
 
 
 
 	/**
-	 * GR/GI schedule type 受払予定区分.<p>
+	 * GR/GI type 受払区分.<p>
 	 *
 	 */
-	public String io_schd_typ() {
-		return getConstString(offset + 0, $io_schd_typ);
+	public String io_act_typ() {
+		return getConstString(offset + 0, $io_act_typ);
 	}
 
 	/**
-	 * GR/GI schedule type 受払予定区分.<p>
+	 * GR/GI type 受払区分.<p>
 	 *
 	 */
-	public void io_schd_typ(String value) {
-		setConstString(offset + 0, $io_schd_typ, value);
+	public void io_act_typ(String value) {
+		setConstString(offset + 0, $io_act_typ, value);
 	}
 
 
 	public String getString(String name) {
-		if ($io_schd_typ.equalsIgnoreCase(name)) {
-			return io_schd_typ();
+		if ($io_act_typ.equalsIgnoreCase(name)) {
+			return io_act_typ();
 		}
 		return super.getString(name);
 	}
 
 	public String getStringNE(String name) {
-		if ($io_schd_typ.equalsIgnoreCase(name)) {
-			return io_schd_typ();
+		if ($io_act_typ.equalsIgnoreCase(name)) {
+			return io_act_typ();
 		}
 		return super.getStringNE(name);
 	}
 
 	public void setString(String name, String value) {
-		if ($io_schd_typ.equalsIgnoreCase(name)) {
-			io_schd_typ(value);
+		if ($io_act_typ.equalsIgnoreCase(name)) {
+			io_act_typ(value);
 			return;
 		}
 		super.setString(name, value);
 	}
 
 	public void setStringNE(String name, String value) {
-		if ($io_schd_typ.equalsIgnoreCase(name)) {
-			io_schd_typ(value);
+		if ($io_act_typ.equalsIgnoreCase(name)) {
+			io_act_typ(value);
 			return;
 		}
 		super.setStringNE(name, value);

@@ -1,4 +1,4 @@
-package mcframe.clientMSBE.MSBBPA0020;
+package mcframe.clientMSBB.MSBBPA0020;
 
 import mcframe.commonCore.param.MCOperationInfo;
 import mcframe.commonCore.param.MCContainerDef;

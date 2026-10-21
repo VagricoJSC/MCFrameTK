@@ -1,5 +1,5 @@
 // FMSE PANEL_EI
-package mcframe.clientMSBE.MSBBPA0020;
+package mcframe.clientMSBB.MSBBPA0020;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -145,6 +145,8 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	public void doBtn_open_MSBEP0080(MCEventInfo info) {
 	}
 
-
+	protected void callMS_MSBEL0050_Srch01() {
+		
+	}
 //FMCB CUSTOM END
 }

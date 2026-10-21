@@ -1,4 +1,4 @@
-package mcframe.clientMSBE.MSBBPA0020;
+package mcframe.clientMSBB.MSBBPA0020;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -23,8 +23,8 @@ import mcframe.clientCore.beans.table.*;
 import mcframe.clientCore.beans.tree.*;
 import mcframe.clientCore.beans.popup.MCTextPopupMenuItem;
 import mcframe.clientCore.beans.text.MCInputMethodType;
-import mcframe.clientMSBE.MSBBPA0020.MSBBPA_ShipItmCompSrch.MS_MSBBLA0020_Srch01Caller;
-import mcframe.clientMSBE.MSBBPA0020.MSBBPA_ShipItmCompSrch.MS_MSBBLA0020_Srch02Caller;
+import mcframe.clientMSBB.MSBBPA0020.MSBBPA_ShipItmCompSrch.MS_MSBBLA0020_Srch01Caller;
+import mcframe.clientMSBB.MSBBPA0020.MSBBPA_ShipItmCompSrch.MS_MSBBLA0020_Srch02Caller;
 
 /**
  * 画面"MSBBPA_ShipItmCompSrch"パネルクラスです。<p>
@@ -46,7 +46,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * 画面インスタンスから参照する場合には{@link #getSubmoduleID()}を使用してください。
 	 */
-	public static final String SUBMODULE_ID = "MSBE";
+	public static final String SUBMODULE_ID = "MSBB";
 	/** 
 	 * 画面ID<p>
 	 *
@@ -498,7 +498,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	// [Rslt]ブロック関連のField定義
 	public MCPanel RsltPanel = null;
 	public MCScrollPane RsltScrollPane = null;
-	public MCTable2<mcframe.clientMSBE.MSBBPA0020.RsltR> RsltTable = null;
+	public MCTable2<mcframe.clientMSBB.MSBBPA0020.RsltR> RsltTable = null;
 	// [Rslt]ブロックの項目のField定義
 	/**
 	 * Year month 年月.<p>
@@ -899,13 +899,13 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		caller.exec();
 	}
 	/** [Cnd]ブロックのコンテナField定義 */
-	private final mcframe.clientMSBE.MSBBPA0020.CndR aCndR;
+	private final mcframe.clientMSBB.MSBBPA0020.CndR aCndR;
 	/** [Rslt]ブロックのコンテナField定義 */
-	private final MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> aRsltL;
+	private final MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> aRsltL;
 	/** [ActTyp]ブロックのコンテナField定義 */
-	private final MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> aActTypL;
+	private final MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> aActTypL;
 	/** [SchdTyp]ブロックのコンテナField定義 */
-	private final MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR> aSchdTypL;
+	private final MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR> aSchdTypL;
 
 	/**
 	 * 項目コピーによってaCndRを設定します。
@@ -914,7 +914,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @param row CndR
 	 */
-	public void setCndR(mcframe.clientMSBE.MSBBPA0020.CndR row) {
+	public void setCndR(mcframe.clientMSBB.MSBBPA0020.CndR row) {
 		if (row != null) {
 			MCRow.copyall(getCndR(), row);
 		}
@@ -925,7 +925,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return CndR
 	 */
-	public mcframe.clientMSBE.MSBBPA0020.CndR getCndR() {
+	public mcframe.clientMSBB.MSBBPA0020.CndR getCndR() {
 		return aCndR;
 	}
 
@@ -934,8 +934,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return CndR
 	 */
-	public mcframe.clientMSBE.MSBBPA0020.CndR createCndR() {
-		return mcframe.clientMSBE.MSBBPA0020.CndR.create();
+	public mcframe.clientMSBB.MSBBPA0020.CndR createCndR() {
+		return mcframe.clientMSBB.MSBBPA0020.CndR.create();
 	}
 
 	/**
@@ -945,7 +945,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @param dataset RsltL
 	 */
-	public void setRsltL(MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> aList) {
+	public void setRsltL(MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> aList) {
 		if (getRsltL() != aList) {
 			getRsltL().setAll(aList);
 		}
@@ -956,7 +956,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return RsltL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> getRsltL() {
+	public MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> getRsltL() {
 		return aRsltL;
 	}
 
@@ -965,8 +965,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return RsltR
 	 */
-	public mcframe.clientMSBE.MSBBPA0020.RsltR createRsltR() {
-		return mcframe.clientMSBE.MSBBPA0020.RsltR.create();
+	public mcframe.clientMSBB.MSBBPA0020.RsltR createRsltR() {
+		return mcframe.clientMSBB.MSBBPA0020.RsltR.create();
 	}
 
 	/**
@@ -974,8 +974,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return RsltL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> createRsltL() {
-		return MCList.create(mcframe.clientMSBE.MSBBPA0020.RsltR.class);
+	public MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> createRsltL() {
+		return MCList.create(mcframe.clientMSBB.MSBBPA0020.RsltR.class);
 	}
 
 	/**
@@ -994,7 +994,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @param dataset ActTypL
 	 */
-	public void setActTypL(MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> aList) {
+	public void setActTypL(MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> aList) {
 		if (getActTypL() != aList) {
 			getActTypL().setAll(aList);
 		}
@@ -1005,7 +1005,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return ActTypL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> getActTypL() {
+	public MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> getActTypL() {
 		return aActTypL;
 	}
 
@@ -1014,8 +1014,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return ActTypR
 	 */
-	public mcframe.clientMSBE.MSBBPA0020.ActTypR createActTypR() {
-		return mcframe.clientMSBE.MSBBPA0020.ActTypR.create();
+	public mcframe.clientMSBB.MSBBPA0020.ActTypR createActTypR() {
+		return mcframe.clientMSBB.MSBBPA0020.ActTypR.create();
 	}
 
 	/**
@@ -1023,8 +1023,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return ActTypL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> createActTypL() {
-		return MCList.create(mcframe.clientMSBE.MSBBPA0020.ActTypR.class);
+	public MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> createActTypL() {
+		return MCList.create(mcframe.clientMSBB.MSBBPA0020.ActTypR.class);
 	}
 
 	/**
@@ -1034,7 +1034,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @param dataset SchdTypL
 	 */
-	public void setSchdTypL(MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR> aList) {
+	public void setSchdTypL(MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR> aList) {
 		if (getSchdTypL() != aList) {
 			getSchdTypL().setAll(aList);
 		}
@@ -1045,7 +1045,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return SchdTypL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR> getSchdTypL() {
+	public MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR> getSchdTypL() {
 		return aSchdTypL;
 	}
 
@@ -1054,8 +1054,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return SchdTypR
 	 */
-	public mcframe.clientMSBE.MSBBPA0020.SchdTypR createSchdTypR() {
-		return mcframe.clientMSBE.MSBBPA0020.SchdTypR.create();
+	public mcframe.clientMSBB.MSBBPA0020.SchdTypR createSchdTypR() {
+		return mcframe.clientMSBB.MSBBPA0020.SchdTypR.create();
 	}
 
 	/**
@@ -1063,8 +1063,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *
 	 * @return SchdTypL
 	 */
-	public MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR> createSchdTypL() {
-		return MCList.create(mcframe.clientMSBE.MSBBPA0020.SchdTypR.class);
+	public MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR> createSchdTypL() {
+		return MCList.create(mcframe.clientMSBB.MSBBPA0020.SchdTypR.class);
 	}
 
 	/**
@@ -1364,7 +1364,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [Rslt]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateRslt(MSBBPA_ShipItmCompSrch p) {
-		p.Rslt_itm_p_PPanel = mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$itm_p);
+		p.Rslt_itm_p_PPanel = mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$itm_p);
 		p.Rslt_itm_p_PPanel.setName("Rslt.itm_p");
 		p.columnRslt_itm_cd = p.Rslt_itm_p_PPanel.columnItm_itm_cd;
 		p.columnRslt_itm_cd.addAliasName("Rslt.itm_cd", p);
@@ -1376,7 +1376,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_itm_sub3.addAliasName("Rslt.itm_sub3", p);
 		p.columnRslt_itm_nm = p.Rslt_itm_p_PPanel.columnItm_itm_nm;
 		p.columnRslt_itm_nm.addAliasName("Rslt.itm_nm", p);
-		p.Rslt_str_ln_p_PPanel = mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$str_ln_p);
+		p.Rslt_str_ln_p_PPanel = mcframe.clientMAUB.MAUBP5120.MAUBP_StrLn_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$str_ln_p);
 		p.Rslt_str_ln_p_PPanel.setName("Rslt.str_ln_p");
 		p.columnRslt_str_ln_cd = p.Rslt_str_ln_p_PPanel.columnStrLn_str_ln_cd;
 		p.columnRslt_str_ln_cd.addAliasName("Rslt.str_ln_cd", p);
@@ -1384,7 +1384,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_str_ln_nm.addAliasName("Rslt.str_ln_nm", p);
 		p.columnRslt_str_ln_cd_none_flg = p.Rslt_str_ln_p_PPanel.columnStrLn_str_ln_cd_none_flg;
 		p.columnRslt_str_ln_cd_none_flg.addAliasName("Rslt.str_ln_cd_none_flg", p);
-		p.Rslt_sno_wrk_no_p_PPanel = mcframe.clientMSUB.MSUBP5020.MSUBP_SnoWrkNo_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$sno_wrk_no_p);
+		p.Rslt_sno_wrk_no_p_PPanel = mcframe.clientMSUB.MSUBP5020.MSUBP_SnoWrkNo_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$sno_wrk_no_p);
 		p.Rslt_sno_wrk_no_p_PPanel.setName("Rslt.sno_wrk_no_p");
 		p.columnRslt_sno1 = p.Rslt_sno_wrk_no_p_PPanel.columnSnoWrkNo_sno1;
 		p.columnRslt_sno1.addAliasName("Rslt.sno1", p);
@@ -1398,23 +1398,23 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_wrk_no.addAliasName("Rslt.wrk_no", p);
 		p.columnRslt_wrk_nm = p.Rslt_sno_wrk_no_p_PPanel.columnSnoWrkNo_wrk_nm;
 		p.columnRslt_wrk_nm.addAliasName("Rslt.wrk_nm", p);
-		p.Rslt_pack_unit_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$pack_unit_qty_p);
+		p.Rslt_pack_unit_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$pack_unit_qty_p);
 		p.Rslt_pack_unit_qty_p_PPanel.setName("Rslt.pack_unit_qty_p");
 		p.columnRslt_pack_unit_qty = p.Rslt_pack_unit_qty_p_PPanel.columnQty_qty;
 		p.columnRslt_pack_unit_qty.addAliasName("Rslt.pack_unit_qty", p);
-		p.Rslt_stk_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$stk_qty_p);
+		p.Rslt_stk_qty_p_PPanel = mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$stk_qty_p);
 		p.Rslt_stk_qty_p_PPanel.setName("Rslt.stk_qty_p");
 		p.columnRslt_stk_qty = p.Rslt_stk_qty_p_PPanel.columnQty_qty;
 		p.columnRslt_stk_qty.addAliasName("Rslt.stk_qty", p);
-		p.Rslt_std_unit_cost_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$std_unit_cost_amt_p);
+		p.Rslt_std_unit_cost_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$std_unit_cost_amt_p);
 		p.Rslt_std_unit_cost_amt_p_PPanel.setName("Rslt.std_unit_cost_amt_p");
 		p.columnRslt_std_unit_cost = p.Rslt_std_unit_cost_amt_p_PPanel.columnAmt_amt;
 		p.columnRslt_std_unit_cost.addAliasName("Rslt.std_unit_cost", p);
-		p.Rslt_stk_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$stk_amt_p);
+		p.Rslt_stk_amt_p_PPanel = mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$stk_amt_p);
 		p.Rslt_stk_amt_p_PPanel.setName("Rslt.stk_amt_p");
 		p.columnRslt_stk_amt = p.Rslt_stk_amt_p_PPanel.columnAmt_amt;
 		p.columnRslt_stk_amt.addAliasName("Rslt.stk_amt", p);
-		p.Rslt_itm_grp_p_PPanel = mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.create(mcframe.clientMSBE.MSBBPA0020.RsltR.$itm_grp_p);
+		p.Rslt_itm_grp_p_PPanel = mcframe.clientMAUB.MAUBP5170.MAUBP_ItmGrp_D.create(mcframe.clientMSBB.MSBBPA0020.RsltR.$itm_grp_p);
 		p.Rslt_itm_grp_p_PPanel.setName("Rslt.itm_grp_p");
 		p.columnRslt_itm_grp_cd1 = p.Rslt_itm_grp_p_PPanel.columnItmGrp_itm_grp_cd1;
 		p.columnRslt_itm_grp_cd1.addAliasName("Rslt.itm_grp_cd1", p);
@@ -2307,55 +2307,55 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_ope_STK_TRN.setActionCommand("2");
 		p.Cnd_ope_Group.add(p.Cnd_ope_STK_TRN);
 		p.ScreenOpePanel.add(p.Cnd_ope_STK_TRN);
-		p.Cnd_ope_Group.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.ope_META);
+		p.Cnd_ope_Group.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.ope_META);
 		p.CndPanel.add(p.Cnd_non_mov_cmp_ym_Label);
 		p.CndPanel.add(p.Cnd_non_mov_cmp_ym);
 		p.CndPanel.setLastBeans(p.Cnd_non_mov_cmp_ym);
 		p.Cnd_non_mov_cmp_ym.setNextBeans(p.Cnd_non_mov_calc_mons);
-		p.Cnd_non_mov_cmp_ym.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_cmp_ym_META);
+		p.Cnd_non_mov_cmp_ym.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_cmp_ym_META);
 		p.Cnd_non_mov_cmp_ym.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.CndPanel.add(p.Cnd_non_mov_calc_mons_Label);
 		p.CndPanel.add(p.Cnd_non_mov_calc_mons);
 		p.Cnd_non_mov_calc_mons.setNextBeans(p.Cnd_ym_fr);
-		p.Cnd_non_mov_calc_mons.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_calc_mons_META);
+		p.Cnd_non_mov_calc_mons.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_calc_mons_META);
 		p.CndPanel.add(p.Cnd_ym_fr_Label);
 		p.CndPanel.add(p.Cnd_ym_fr);
 		p.Cnd_ym_fr.setNextBeans(p.Cnd_ym_to);
-		p.Cnd_ym_fr.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.ym_fr_META);
+		p.Cnd_ym_fr.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.ym_fr_META);
 		p.Cnd_ym_fr.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.CndPanel.add(p.Cnd_ym_to_Label);
 		p.CndPanel.add(p.Cnd_ym_to);
 		p.Cnd_ym_to.setNextBeans(p.Cnd_non_mov_mons_fr);
-		p.Cnd_ym_to.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.ym_to_META);
+		p.Cnd_ym_to.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.ym_to_META);
 		p.Cnd_ym_to.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.CndPanel.add(p.Cnd_non_mov_mons_fr_Label);
 		p.CndPanel.add(p.Cnd_non_mov_mons_fr);
 		p.Cnd_non_mov_mons_fr.setNextBeans(p.Cnd_non_mov_mons_to);
-		p.Cnd_non_mov_mons_fr.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_mons_fr_META);
+		p.Cnd_non_mov_mons_fr.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_mons_fr_META);
 		p.CndPanel.add(p.Cnd_non_mov_mons_to_Label);
 		p.CndPanel.add(p.Cnd_non_mov_mons_to);
 		p.Cnd_non_mov_mons_to.setNextBeans(p.Cnd_non_mov_base_ym_fr);
-		p.Cnd_non_mov_mons_to.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_mons_to_META);
+		p.Cnd_non_mov_mons_to.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_mons_to_META);
 		p.CndPanel.add(p.Cnd_non_mov_base_ym_fr_Label);
 		p.CndPanel.add(p.Cnd_non_mov_base_ym_fr);
 		p.Cnd_non_mov_base_ym_fr.setNextBeans(p.Cnd_non_mov_base_ym_to);
-		p.Cnd_non_mov_base_ym_fr.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_base_ym_fr_META);
+		p.Cnd_non_mov_base_ym_fr.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_base_ym_fr_META);
 		p.Cnd_non_mov_base_ym_fr.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.CndPanel.add(p.Cnd_non_mov_base_ym_to_Label);
 		p.CndPanel.add(p.Cnd_non_mov_base_ym_to);
 		p.Cnd_non_mov_base_ym_to.setNextBeans(p.Cnd_loc_cd);
-		p.Cnd_non_mov_base_ym_to.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.non_mov_base_ym_to_META);
+		p.Cnd_non_mov_base_ym_to.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.non_mov_base_ym_to_META);
 		p.Cnd_non_mov_base_ym_to.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.CndPanel.add(p.Cnd_loc_cd_Label);
 		p.CndPanel.add(p.Cnd_loc_cd);
 		p.Cnd_loc_cd.setNextBeans(p.Cnd_loc_nm);
-		p.Cnd_loc_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_cd_META);
+		p.Cnd_loc_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_cd_META);
 		p.Cnd_loc_cd.addLinkBeans(p.Cnd_loc_nm);
 		p.Cnd_loc_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_loc_cd, true);
 		p.CndPanel.add(p.Cnd_loc_nm);
 		p.Cnd_loc_nm.setNextBeans(p.Cnd_str_ln_cd);
-		p.Cnd_loc_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_nm_META);
+		p.Cnd_loc_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_nm_META);
 		p.setPluralValueEnable(p.Cnd_loc_nm, true);
 		p.Cnd_str_ln_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_str_ln_cd, true);
@@ -2363,35 +2363,35 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_str_ln_cd_Label);
 		p.CndPanel.add(p.Cnd_str_ln_cd);
 		p.Cnd_str_ln_cd.setNextBeans(p.Cnd_str_ln_nm);
-		p.Cnd_str_ln_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.str_ln_cd_META);
+		p.Cnd_str_ln_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.str_ln_cd_META);
 		p.CndPanel.add(p.Cnd_str_ln_nm);
 		p.Cnd_str_ln_nm.setNextBeans(p.Cnd_stk_arrv_bp_cd);
-		p.Cnd_str_ln_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.str_ln_nm_META);
+		p.Cnd_str_ln_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.str_ln_nm_META);
 		p.setPluralValueEnable(p.Cnd_str_ln_nm, true);
 		p.CndPanel.add(p.Cnd_stk_arrv_bp_cd_Label);
 		p.CndPanel.add(p.Cnd_stk_arrv_bp_cd);
 		p.Cnd_stk_arrv_bp_cd.setNextBeans(p.Cnd_stk_arrv_bp_nm);
-		p.Cnd_stk_arrv_bp_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_arrv_bp_cd_META);
+		p.Cnd_stk_arrv_bp_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_arrv_bp_cd_META);
 		p.Cnd_stk_arrv_bp_cd.addLinkBeans(p.Cnd_stk_arrv_bp_nm);
 		p.Cnd_stk_arrv_bp_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_stk_arrv_bp_cd, true);
 		p.CndPanel.add(p.Cnd_stk_arrv_bp_nm);
 		p.Cnd_stk_arrv_bp_nm.setNextBeans(p.Cnd_only_int_flg);
-		p.Cnd_stk_arrv_bp_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_arrv_bp_nm_META);
+		p.Cnd_stk_arrv_bp_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_arrv_bp_nm_META);
 		p.setPluralValueEnable(p.Cnd_stk_arrv_bp_nm, true);
 		p.CndPanel.add(p.Cnd_only_int_flg);
 		p.Cnd_only_int_flg.setNextBeans(p.Cnd_site_cd);
-		p.Cnd_only_int_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.only_int_flg_META);
+		p.Cnd_only_int_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.only_int_flg_META);
 		p.Cnd_site_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_site_cd, true);
 		p.Cnd_site_cd.setLinkBeans(p.Cnd_site_nm);
 		p.CndPanel.add(p.Cnd_site_cd_Label);
 		p.CndPanel.add(p.Cnd_site_cd);
 		p.Cnd_site_cd.setNextBeans(p.Cnd_site_nm);
-		p.Cnd_site_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.site_cd_META);
+		p.Cnd_site_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.site_cd_META);
 		p.CndPanel.add(p.Cnd_site_nm);
 		p.Cnd_site_nm.setNextBeans(p.Cnd_wg_cd);
-		p.Cnd_site_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.site_nm_META);
+		p.Cnd_site_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.site_nm_META);
 		p.setPluralValueEnable(p.Cnd_site_nm, true);
 		p.Cnd_wg_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_wg_cd, true);
@@ -2399,10 +2399,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_wg_cd_Label);
 		p.CndPanel.add(p.Cnd_wg_cd);
 		p.Cnd_wg_cd.setNextBeans(p.Cnd_wg_nm);
-		p.Cnd_wg_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.wg_cd_META);
+		p.Cnd_wg_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.wg_cd_META);
 		p.CndPanel.add(p.Cnd_wg_nm);
 		p.Cnd_wg_nm.setNextBeans(p.Cnd_lg_grp_cd);
-		p.Cnd_wg_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.wg_nm_META);
+		p.Cnd_wg_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.wg_nm_META);
 		p.setPluralValueEnable(p.Cnd_wg_nm, true);
 		p.Cnd_lg_grp_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_lg_grp_cd, true);
@@ -2410,10 +2410,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_lg_grp_cd_Label);
 		p.CndPanel.add(p.Cnd_lg_grp_cd);
 		p.Cnd_lg_grp_cd.setNextBeans(p.Cnd_lg_grp_nm);
-		p.Cnd_lg_grp_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.lg_grp_cd_META);
+		p.Cnd_lg_grp_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.lg_grp_cd_META);
 		p.CndPanel.add(p.Cnd_lg_grp_nm);
 		p.Cnd_lg_grp_nm.setNextBeans(p.Cnd_alloc_grp_cd);
-		p.Cnd_lg_grp_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.lg_grp_nm_META);
+		p.Cnd_lg_grp_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.lg_grp_nm_META);
 		p.setPluralValueEnable(p.Cnd_lg_grp_nm, true);
 		p.Cnd_alloc_grp_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_alloc_grp_cd, true);
@@ -2421,10 +2421,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_alloc_grp_cd_Label);
 		p.CndPanel.add(p.Cnd_alloc_grp_cd);
 		p.Cnd_alloc_grp_cd.setNextBeans(p.Cnd_alloc_grp_nm);
-		p.Cnd_alloc_grp_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.alloc_grp_cd_META);
+		p.Cnd_alloc_grp_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.alloc_grp_cd_META);
 		p.CndPanel.add(p.Cnd_alloc_grp_nm);
 		p.Cnd_alloc_grp_nm.setNextBeans(p.Cnd_loc_grp_cd);
-		p.Cnd_alloc_grp_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.alloc_grp_nm_META);
+		p.Cnd_alloc_grp_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.alloc_grp_nm_META);
 		p.setPluralValueEnable(p.Cnd_alloc_grp_nm, true);
 		p.Cnd_loc_grp_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_loc_grp_cd, true);
@@ -2432,21 +2432,21 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_loc_grp_cd_Label);
 		p.CndPanel.add(p.Cnd_loc_grp_cd);
 		p.Cnd_loc_grp_cd.setNextBeans(p.Cnd_loc_grp_nm);
-		p.Cnd_loc_grp_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_grp_cd_META);
+		p.Cnd_loc_grp_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_grp_cd_META);
 		p.CndPanel.add(p.Cnd_loc_grp_nm);
 		p.Cnd_loc_grp_nm.setNextBeans(p.Cnd_dpt_cd);
-		p.Cnd_loc_grp_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_grp_nm_META);
+		p.Cnd_loc_grp_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_grp_nm_META);
 		p.setPluralValueEnable(p.Cnd_loc_grp_nm, true);
 		p.CndPanel.add(p.Cnd_dpt_cd_Label);
 		p.CndPanel.add(p.Cnd_dpt_cd);
 		p.Cnd_dpt_cd.setNextBeans(p.Cnd_dpt_nm);
-		p.Cnd_dpt_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.dpt_cd_META);
+		p.Cnd_dpt_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.dpt_cd_META);
 		p.Cnd_dpt_cd.addLinkBeans(p.Cnd_dpt_nm);
 		p.Cnd_dpt_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_dpt_cd, true);
 		p.CndPanel.add(p.Cnd_dpt_nm);
 		p.Cnd_dpt_nm.setNextBeans(p.Cnd_itm_typ_p_PPanel);
-		p.Cnd_dpt_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.dpt_nm_META);
+		p.Cnd_dpt_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.dpt_nm_META);
 		p.setPluralValueEnable(p.Cnd_dpt_nm, true);
 		p.CndPanel.add(p.Cnd_itm_typ_p_PPanel);
 		p.Cnd_itm_typ_p_PPanel.setNextBeans(p.Cnd_itm_p_PPanel);
@@ -2468,14 +2468,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_lot_no_Label);
 		p.CndPanel.add(p.Cnd_lot_no);
 		p.Cnd_lot_no.setNextBeans(p.Cnd_sublot_no);
-		p.Cnd_lot_no.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.lot_no_META);
+		p.Cnd_lot_no.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.lot_no_META);
 		p.Cnd_lot_no.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_lot_no, true);
 		p.Cnd_sublot_no.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_sublot_no, true);
 		p.CndPanel.add(p.Cnd_sublot_no);
 		p.Cnd_sublot_no.setNextBeans(p.Cnd_sno_p_PPanel);
-		p.Cnd_sublot_no.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.sublot_no_META);
+		p.Cnd_sublot_no.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.sublot_no_META);
 		p.CndPanel.add(p.Cnd_sno_p_PPanel);
 		p.Cnd_sno_p_PPanel.setNextBeans(p.Cnd_gd_cd);
 		p.setPluralValueEnable(p.Cnd_sno_p_PPanel.SnoWrkNo_sno1, true);
@@ -2491,10 +2491,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_gd_cd_Label);
 		p.CndPanel.add(p.Cnd_gd_cd);
 		p.Cnd_gd_cd.setNextBeans(p.Cnd_gd_nm);
-		p.Cnd_gd_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.gd_cd_META);
+		p.Cnd_gd_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.gd_cd_META);
 		p.CndPanel.add(p.Cnd_gd_nm);
 		p.Cnd_gd_nm.setNextBeans(p.Cnd_in_xfr_typ);
-		p.Cnd_gd_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.gd_nm_META);
+		p.Cnd_gd_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.gd_nm_META);
 		p.setPluralValueEnable(p.Cnd_gd_nm, true);
 		p.Cnd_in_xfr_typ.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_in_xfr_typ, true);
@@ -2502,60 +2502,60 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_in_xfr_typ_Label);
 		p.CndPanel.add(p.Cnd_in_xfr_typ);
 		p.Cnd_in_xfr_typ.setNextBeans(p.Cnd_in_xfr_typ_nm);
-		p.Cnd_in_xfr_typ.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.in_xfr_typ_META);
+		p.Cnd_in_xfr_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.in_xfr_typ_META);
 		p.CndPanel.add(p.Cnd_in_xfr_typ_nm);
 		p.Cnd_in_xfr_typ_nm.setNextBeans(p.Cnd_quality_typ);
-		p.Cnd_in_xfr_typ_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.in_xfr_typ_nm_META);
+		p.Cnd_in_xfr_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.in_xfr_typ_nm_META);
 		p.Cnd_quality_typ.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_quality_typ, true);
 		p.Cnd_quality_typ.setLinkBeans(p.Cnd_quality_typ_nm);
 		p.CndPanel.add(p.Cnd_quality_typ_Label);
 		p.CndPanel.add(p.Cnd_quality_typ);
 		p.Cnd_quality_typ.setNextBeans(p.Cnd_quality_typ_nm);
-		p.Cnd_quality_typ.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.quality_typ_META);
+		p.Cnd_quality_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.quality_typ_META);
 		p.CndPanel.add(p.Cnd_quality_typ_nm);
 		p.Cnd_quality_typ_nm.setNextBeans(p.Cnd_stk_insp_typ);
-		p.Cnd_quality_typ_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.quality_typ_nm_META);
+		p.Cnd_quality_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.quality_typ_nm_META);
 		p.Cnd_stk_insp_typ.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_stk_insp_typ, true);
 		p.Cnd_stk_insp_typ.setLinkBeans(p.Cnd_stk_insp_typ_nm);
 		p.CndPanel.add(p.Cnd_stk_insp_typ_Label);
 		p.CndPanel.add(p.Cnd_stk_insp_typ);
 		p.Cnd_stk_insp_typ.setNextBeans(p.Cnd_stk_insp_typ_nm);
-		p.Cnd_stk_insp_typ.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_insp_typ_META);
+		p.Cnd_stk_insp_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_insp_typ_META);
 		p.CndPanel.add(p.Cnd_stk_insp_typ_nm);
 		p.Cnd_stk_insp_typ_nm.setNextBeans(p.Cnd_asst_typ);
-		p.Cnd_stk_insp_typ_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_insp_typ_nm_META);
+		p.Cnd_stk_insp_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_insp_typ_nm_META);
 		p.Cnd_asst_typ.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_asst_typ, true);
 		p.Cnd_asst_typ.setLinkBeans(p.Cnd_asst_typ_nm);
 		p.CndPanel.add(p.Cnd_asst_typ_Label);
 		p.CndPanel.add(p.Cnd_asst_typ);
 		p.Cnd_asst_typ.setNextBeans(p.Cnd_asst_typ_nm);
-		p.Cnd_asst_typ.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.asst_typ_META);
+		p.Cnd_asst_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.asst_typ_META);
 		p.CndPanel.add(p.Cnd_asst_typ_nm);
 		p.Cnd_asst_typ_nm.setNextBeans(p.Cnd_stk_id_typ);
-		p.Cnd_asst_typ_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.asst_typ_nm_META);
+		p.Cnd_asst_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.asst_typ_nm_META);
 		p.Cnd_stk_id_typ.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_stk_id_typ, true);
 		p.Cnd_stk_id_typ.setLinkBeans(p.Cnd_stk_id_typ_nm);
 		p.CndPanel.add(p.Cnd_stk_id_typ_Label);
 		p.CndPanel.add(p.Cnd_stk_id_typ);
 		p.Cnd_stk_id_typ.setNextBeans(p.Cnd_stk_id_typ_nm);
-		p.Cnd_stk_id_typ.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_id_typ_META);
+		p.Cnd_stk_id_typ.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_id_typ_META);
 		p.CndPanel.add(p.Cnd_stk_id_typ_nm);
 		p.Cnd_stk_id_typ_nm.setNextBeans(p.Cnd_stk_bp_cd);
-		p.Cnd_stk_id_typ_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_id_typ_nm_META);
+		p.Cnd_stk_id_typ_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_id_typ_nm_META);
 		p.CndPanel.add(p.Cnd_stk_bp_cd_Label);
 		p.CndPanel.add(p.Cnd_stk_bp_cd);
 		p.Cnd_stk_bp_cd.setNextBeans(p.Cnd_stk_bp_nm);
-		p.Cnd_stk_bp_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_bp_cd_META);
+		p.Cnd_stk_bp_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_bp_cd_META);
 		p.Cnd_stk_bp_cd.addLinkBeans(p.Cnd_stk_bp_nm);
 		p.Cnd_stk_bp_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_stk_bp_cd, true);
 		p.CndPanel.add(p.Cnd_stk_bp_nm);
 		p.Cnd_stk_bp_nm.setNextBeans(p.Cnd_pack_unit_cd);
-		p.Cnd_stk_bp_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_bp_nm_META);
+		p.Cnd_stk_bp_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_bp_nm_META);
 		p.setPluralValueEnable(p.Cnd_stk_bp_nm, true);
 		p.Cnd_pack_unit_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_pack_unit_cd, true);
@@ -2563,57 +2563,57 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.CndPanel.add(p.Cnd_pack_unit_cd_Label);
 		p.CndPanel.add(p.Cnd_pack_unit_cd);
 		p.Cnd_pack_unit_cd.setNextBeans(p.Cnd_pack_unit_nm);
-		p.Cnd_pack_unit_cd.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.pack_unit_cd_META);
+		p.Cnd_pack_unit_cd.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.pack_unit_cd_META);
 		p.CndPanel.add(p.Cnd_pack_unit_nm);
-		p.Cnd_pack_unit_nm.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.pack_unit_nm_META);
+		p.Cnd_pack_unit_nm.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.pack_unit_nm_META);
 		p.setPluralValueEnable(p.Cnd_pack_unit_nm, true);
 		p.Cnd2Panel.add(p.Cnd_itm_grp_p_PPanel);
 		p.Cnd2Panel.setLastBeans(p.Cnd_itm_grp_p_PPanel);
 		p.DispPanel.add(p.Cnd_ym_flg);
 		p.DispPanel.setLastBeans(p.Cnd_ym_flg);
 		p.Cnd_ym_flg.setNextBeans(p.Cnd_dpt_flg);
-		p.Cnd_ym_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.ym_flg_META);
+		p.Cnd_ym_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.ym_flg_META);
 		p.DispPanel.add(p.Cnd_dpt_flg);
 		p.Cnd_dpt_flg.setNextBeans(p.Cnd_wg_flg);
-		p.Cnd_dpt_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.dpt_flg_META);
+		p.Cnd_dpt_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.dpt_flg_META);
 		p.DispPanel.add(p.Cnd_wg_flg);
 		p.Cnd_wg_flg.setNextBeans(p.Cnd_loc_flg);
-		p.Cnd_wg_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.wg_flg_META);
+		p.Cnd_wg_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.wg_flg_META);
 		p.DispPanel.add(p.Cnd_loc_flg);
 		p.Cnd_loc_flg.setNextBeans(p.Cnd_str_ln_flg);
-		p.Cnd_loc_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_flg_META);
+		p.Cnd_loc_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_flg_META);
 		p.DispPanel.add(p.Cnd_str_ln_flg);
 		p.Cnd_str_ln_flg.setNextBeans(p.Cnd_stk_arrv_bp_flg);
-		p.Cnd_str_ln_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.str_ln_flg_META);
+		p.Cnd_str_ln_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.str_ln_flg_META);
 		p.DispPanel.add(p.Cnd_stk_arrv_bp_flg);
 		p.Cnd_stk_arrv_bp_flg.setNextBeans(p.Cnd_site_flg);
-		p.Cnd_stk_arrv_bp_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.stk_arrv_bp_flg_META);
+		p.Cnd_stk_arrv_bp_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.stk_arrv_bp_flg_META);
 		p.DispPanel.add(p.Cnd_site_flg);
 		p.Cnd_site_flg.setNextBeans(p.Cnd_lg_grp_flg);
-		p.Cnd_site_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.site_flg_META);
+		p.Cnd_site_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.site_flg_META);
 		p.DispPanel.add(p.Cnd_lg_grp_flg);
 		p.Cnd_lg_grp_flg.setNextBeans(p.Cnd_alloc_grp_flg);
-		p.Cnd_lg_grp_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.lg_grp_flg_META);
+		p.Cnd_lg_grp_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.lg_grp_flg_META);
 		p.DispPanel.add(p.Cnd_alloc_grp_flg);
 		p.Cnd_alloc_grp_flg.setNextBeans(p.Cnd_loc_grp_flg);
-		p.Cnd_alloc_grp_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.alloc_grp_flg_META);
+		p.Cnd_alloc_grp_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.alloc_grp_flg_META);
 		p.DispPanel.add(p.Cnd_loc_grp_flg);
 		p.Cnd_loc_grp_flg.setNextBeans(p.Cnd_lot_flg);
-		p.Cnd_loc_grp_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.loc_grp_flg_META);
+		p.Cnd_loc_grp_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.loc_grp_flg_META);
 		p.DispPanel.add(p.Cnd_lot_flg);
 		p.Cnd_lot_flg.setNextBeans(p.Cnd_sublot_flg);
-		p.Cnd_lot_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.lot_flg_META);
+		p.Cnd_lot_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.lot_flg_META);
 		p.DispPanel.add(p.Cnd_sublot_flg);
 		p.Cnd_sublot_flg.setNextBeans(p.Cnd_sno_flg_p_PPanel);
-		p.Cnd_sublot_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.sublot_flg_META);
+		p.Cnd_sublot_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.sublot_flg_META);
 		p.DispPanel.add(p.Cnd_sno_flg_p_PPanel);
 		p.Cnd_sno_flg_p_PPanel.setNextBeans(p.Cnd_pack_unit_flg);
 		p.DispPanel.add(p.Cnd_pack_unit_flg);
 		p.Cnd_pack_unit_flg.setNextBeans(p.Cnd_gd_flg);
-		p.Cnd_pack_unit_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.pack_unit_flg_META);
+		p.Cnd_pack_unit_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.pack_unit_flg_META);
 		p.DispPanel.add(p.Cnd_gd_flg);
 		p.Cnd_gd_flg.setNextBeans(p.Cnd_select_all);
-		p.Cnd_gd_flg.setRow(p.getCndR(), mcframe.clientMSBE.MSBBPA0020.CndR.gd_flg_META);
+		p.Cnd_gd_flg.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.gd_flg_META);
 		p.Cnd_select_all.setIcon("SELECT_ALL");
 		p.Cnd_select_all.setFunctionKey(MCFunctionKey.F15);
 		p.DispPanel.add(p.Cnd_select_all);
@@ -3632,135 +3632,135 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [Rslt]ブロックのTableの設定
 	 */
 	protected static void setTableConfigRslt(MSBBPA_ShipItmCompSrch p) {
-		p.columnRslt_ac_ym.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.ac_ym_META);
+		p.columnRslt_ac_ym.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.ac_ym_META);
 		p.columnRslt_ac_ym.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.RsltTable.addColumnConfig(p.columnRslt_ac_ym);
-		p.columnRslt_wg_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.wg_cd_META);
+		p.columnRslt_wg_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.wg_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_wg_cd);
-		p.columnRslt_wg_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.wg_nm_META);
+		p.columnRslt_wg_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.wg_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_wg_nm);
-		p.columnRslt_dpt_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.dpt_cd_META);
+		p.columnRslt_dpt_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.dpt_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_dpt_cd);
-		p.columnRslt_dpt_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.dpt_nm_META);
+		p.columnRslt_dpt_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.dpt_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_dpt_nm);
 		p.RsltTable.addTable(p.Rslt_itm_p_PPanel.ItmTable);
-		p.columnRslt_lot_no.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.lot_no_META);
+		p.columnRslt_lot_no.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.lot_no_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_lot_no);
-		p.columnRslt_sublot_no.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.sublot_no_META);
+		p.columnRslt_sublot_no.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.sublot_no_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_sublot_no);
-		p.columnRslt_loc_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.loc_cd_META);
+		p.columnRslt_loc_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.loc_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_loc_cd);
-		p.columnRslt_loc_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.loc_nm_META);
+		p.columnRslt_loc_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.loc_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_loc_nm);
 		p.RsltTable.addTable(p.Rslt_str_ln_p_PPanel.StrLnTable);
-		p.columnRslt_site_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.site_cd_META);
+		p.columnRslt_site_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.site_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_site_cd);
-		p.columnRslt_site_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.site_nm_META);
+		p.columnRslt_site_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.site_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_site_nm);
-		p.columnRslt_lg_grp_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.lg_grp_cd_META);
+		p.columnRslt_lg_grp_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.lg_grp_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_lg_grp_cd);
-		p.columnRslt_lg_grp_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.lg_grp_nm_META);
+		p.columnRslt_lg_grp_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.lg_grp_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_lg_grp_nm);
-		p.columnRslt_alloc_grp_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.alloc_grp_cd_META);
+		p.columnRslt_alloc_grp_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.alloc_grp_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_alloc_grp_cd);
-		p.columnRslt_alloc_grp_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.alloc_grp_nm_META);
+		p.columnRslt_alloc_grp_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.alloc_grp_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_alloc_grp_nm);
-		p.columnRslt_loc_grp_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.loc_grp_cd_META);
+		p.columnRslt_loc_grp_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.loc_grp_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_loc_grp_cd);
-		p.columnRslt_loc_grp_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.loc_grp_nm_META);
+		p.columnRslt_loc_grp_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.loc_grp_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_loc_grp_nm);
-		p.columnRslt_gd_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.gd_cd_META);
+		p.columnRslt_gd_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.gd_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_gd_cd);
-		p.columnRslt_gd_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.gd_nm_META);
+		p.columnRslt_gd_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.gd_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_gd_nm);
-		p.columnRslt_in_xfr_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.in_xfr_typ_META);
+		p.columnRslt_in_xfr_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.in_xfr_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_in_xfr_typ);
-		p.columnRslt_in_xfr_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.in_xfr_typ_nm_META);
+		p.columnRslt_in_xfr_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.in_xfr_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_in_xfr_typ_nm);
-		p.columnRslt_quality_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.quality_typ_META);
+		p.columnRslt_quality_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.quality_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_quality_typ);
-		p.columnRslt_quality_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.quality_typ_nm_META);
+		p.columnRslt_quality_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.quality_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_quality_typ_nm);
-		p.columnRslt_stk_insp_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_insp_typ_META);
+		p.columnRslt_stk_insp_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_insp_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_insp_typ);
-		p.columnRslt_stk_insp_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_insp_typ_nm_META);
+		p.columnRslt_stk_insp_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_insp_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_insp_typ_nm);
 		p.RsltTable.addTable(p.Rslt_sno_wrk_no_p_PPanel.SnoWrkNoTable);
-		p.columnRslt_asst_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.asst_typ_META);
+		p.columnRslt_asst_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.asst_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_asst_typ);
-		p.columnRslt_asst_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.asst_typ_nm_META);
+		p.columnRslt_asst_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.asst_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_asst_typ_nm);
-		p.columnRslt_stk_id_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_id_typ_META);
+		p.columnRslt_stk_id_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_id_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_id_typ);
-		p.columnRslt_stk_id_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_id_typ_nm_META);
+		p.columnRslt_stk_id_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_id_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_id_typ_nm);
-		p.columnRslt_stk_bp_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_bp_cd_META);
+		p.columnRslt_stk_bp_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_bp_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_bp_cd);
-		p.columnRslt_stk_bp_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_bp_nm_META);
+		p.columnRslt_stk_bp_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_bp_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_bp_nm);
-		p.columnRslt_stk_arrv_bp_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_arrv_bp_cd_META);
+		p.columnRslt_stk_arrv_bp_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_arrv_bp_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_arrv_bp_cd);
-		p.columnRslt_stk_arrv_bp_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_arrv_bp_nm_META);
+		p.columnRslt_stk_arrv_bp_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_arrv_bp_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_arrv_bp_nm);
 		p.RsltTable.addTable(p.Rslt_pack_unit_qty_p_PPanel.QtyTable);
-		p.columnRslt_pack_unit_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.pack_unit_cd_META);
+		p.columnRslt_pack_unit_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.pack_unit_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_pack_unit_cd);
-		p.columnRslt_pack_unit_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.pack_unit_nm_META);
+		p.columnRslt_pack_unit_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.pack_unit_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_pack_unit_nm);
-		p.columnRslt_pack_unit_dec_place.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.pack_unit_dec_place_META);
+		p.columnRslt_pack_unit_dec_place.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.pack_unit_dec_place_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_pack_unit_dec_place);
 		p.RsltTable.addTable(p.Rslt_stk_qty_p_PPanel.QtyTable);
-		p.columnRslt_base_unit_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_unit_cd_META);
+		p.columnRslt_base_unit_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_cd);
-		p.columnRslt_base_unit_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_unit_nm_META);
+		p.columnRslt_base_unit_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_nm);
-		p.columnRslt_base_unit_dec_place.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_unit_dec_place_META);
+		p.columnRslt_base_unit_dec_place.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_dec_place_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_dec_place);
-		p.columnRslt_base_unit_rnd_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_unit_rnd_typ_META);
+		p.columnRslt_base_unit_rnd_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_rnd_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_rnd_typ);
 		p.RsltTable.addTable(p.Rslt_std_unit_cost_amt_p_PPanel.AmtTable);
 		p.RsltTable.addTable(p.Rslt_stk_amt_p_PPanel.AmtTable);
-		p.columnRslt_base_cur_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_cur_cd_META);
+		p.columnRslt_base_cur_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_cur_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_cur_cd);
-		p.columnRslt_base_cur_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.base_cur_nm_META);
+		p.columnRslt_base_cur_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_cur_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_base_cur_nm);
-		p.columnRslt_stk_amt_dec_place.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_amt_dec_place_META);
+		p.columnRslt_stk_amt_dec_place.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_amt_dec_place_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_amt_dec_place);
-		p.columnRslt_stk_amt_rnd_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_amt_rnd_typ_META);
+		p.columnRslt_stk_amt_rnd_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_amt_rnd_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_amt_rnd_typ);
-		p.columnRslt_non_mov_base_ym.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.non_mov_base_ym_META);
+		p.columnRslt_non_mov_base_ym.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.non_mov_base_ym_META);
 		p.columnRslt_non_mov_base_ym.setFormatID(mcframe.commonMA.meta.MA_META.YM_FORMAT);
 		p.RsltTable.addColumnConfig(p.columnRslt_non_mov_base_ym);
-		p.columnRslt_non_mov_mons.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.non_mov_mons_META);
+		p.columnRslt_non_mov_mons.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.non_mov_mons_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_non_mov_mons);
-		p.columnRslt_rcnt_gi_schd_dt.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.rcnt_gi_schd_dt_META);
+		p.columnRslt_rcnt_gi_schd_dt.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.rcnt_gi_schd_dt_META);
 		p.columnRslt_rcnt_gi_schd_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
 		p.RsltTable.addColumnConfig(p.columnRslt_rcnt_gi_schd_dt);
-		p.columnRslt_stk_trn_ovr_rate.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_trn_ovr_rate_META);
+		p.columnRslt_stk_trn_ovr_rate.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_trn_ovr_rate_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_trn_ovr_rate);
-		p.columnRslt_stk_trn_ovr_pd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.stk_trn_ovr_pd_META);
+		p.columnRslt_stk_trn_ovr_pd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.stk_trn_ovr_pd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_stk_trn_ovr_pd);
-		p.columnRslt_ttl_gi_qty.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.ttl_gi_qty_META);
+		p.columnRslt_ttl_gi_qty.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.ttl_gi_qty_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_ttl_gi_qty);
-		p.columnRslt_ttl_gi_amt.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.ttl_gi_amt_META);
+		p.columnRslt_ttl_gi_amt.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.ttl_gi_amt_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_ttl_gi_amt);
-		p.columnRslt_avg_stk_qty.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.avg_stk_qty_META);
+		p.columnRslt_avg_stk_qty.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.avg_stk_qty_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_avg_stk_qty);
-		p.columnRslt_avg_stk_amt.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.avg_stk_amt_META);
+		p.columnRslt_avg_stk_amt.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.avg_stk_amt_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_avg_stk_amt);
-		p.columnRslt_avg_gi_qty.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.avg_gi_qty_META);
+		p.columnRslt_avg_gi_qty.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.avg_gi_qty_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_avg_gi_qty);
-		p.columnRslt_avg_gi_amt.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.avg_gi_amt_META);
+		p.columnRslt_avg_gi_amt.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.avg_gi_amt_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_avg_gi_amt);
-		p.columnRslt_gi_days.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.gi_days_META);
+		p.columnRslt_gi_days.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.gi_days_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_gi_days);
-		p.columnRslt_itm_typ.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.itm_typ_META);
+		p.columnRslt_itm_typ.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.itm_typ_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ);
-		p.columnRslt_itm_typ_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.itm_typ_nm_META);
+		p.columnRslt_itm_typ_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.itm_typ_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_nm);
-		p.columnRslt_itm_typ_d_cd.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.itm_typ_d_cd_META);
+		p.columnRslt_itm_typ_d_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.itm_typ_d_cd_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_d_cd);
-		p.columnRslt_itm_typ_d_nm.setMeta(mcframe.clientMSBE.MSBBPA0020.RsltR.itm_typ_d_nm_META);
+		p.columnRslt_itm_typ_d_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.itm_typ_d_nm_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_itm_typ_d_nm);
 		p.RsltTable.addTable(p.Rslt_itm_grp_p_PPanel.ItmGrpTable);
 	}
@@ -9949,11 +9949,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 			MCParam param = new MCParam(PDef.MS_MSBBLA0020_Srch01_INFO);
 			param.setReqSrcId(getScreenID());
 			// Up
-			param.addUpBlock(mcframe.clientMSBE.MSBBPA0020.CndR.create());
+			param.addUpBlock(mcframe.clientMSBB.MSBBPA0020.CndR.create());
 			// Down
-			param.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.RsltR.class));
-			param.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.ActTypR.class));
-			param.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.SchdTypR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.RsltR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.ActTypR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.SchdTypR.class));
 
 			p_MS_MSBBLA0020_Srch01 = param;
 			return param;
@@ -9978,33 +9978,33 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 			return p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(i);
 		}
 		
-		protected mcframe.clientMSBE.MSBBPA0020.CndR up0() {
-			return (mcframe.clientMSBE.MSBBPA0020.CndR)up(0);
+		protected mcframe.clientMSBB.MSBBPA0020.CndR up0() {
+			return (mcframe.clientMSBB.MSBBPA0020.CndR)up(0);
 		}
 
-		protected MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> down0() {
-			return (MCList<mcframe.clientMSBE.MSBBPA0020.RsltR>)down(0);
+		protected MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> down0() {
+			return (MCList<mcframe.clientMSBB.MSBBPA0020.RsltR>)down(0);
 		}
-		protected MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> down1() {
-			return (MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR>)down(1);
+		protected MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR>)down(1);
 		}
-		protected MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR> down2() {
-			return (MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR>)down(2);
+		protected MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR> down2() {
+			return (MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR>)down(2);
 		}
 
 		protected void setupDownParam() {
-			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.RsltR.class));
-			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.ActTypR.class));
-			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.SchdTypR.class));
+			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.RsltR.class));
+			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.ActTypR.class));
+			p_MS_MSBBLA0020_Srch01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.SchdTypR.class));
 		}
 		protected MCParam param() {
 			return p_MS_MSBBLA0020_Srch01;
 		}
 
 		protected void show() {
-			setRsltL((MCList<mcframe.clientMSBE.MSBBPA0020.RsltR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(0));
-			setActTypL((MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(1));
-			setSchdTypL((MCList<mcframe.clientMSBE.MSBBPA0020.SchdTypR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(2));
+			setRsltL((MCList<mcframe.clientMSBB.MSBBPA0020.RsltR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(0));
+			setActTypL((MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(1));
+			setSchdTypL((MCList<mcframe.clientMSBB.MSBBPA0020.SchdTypR>)p_MS_MSBBLA0020_Srch01.getContainerParam().getDownBlock(2));
 		}
 
 		protected void clear() {
@@ -10048,10 +10048,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 			MCParam param = new MCParam(PDef.MS_MSBBLA0020_Srch02_INFO);
 			param.setReqSrcId(getScreenID());
 			// Up
-			param.addUpBlock(mcframe.clientMSBE.MSBBPA0020.CndR.create());
+			param.addUpBlock(mcframe.clientMSBB.MSBBPA0020.CndR.create());
 			// Down
-			param.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.RsltR.class));
-			param.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.ActTypR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.RsltR.class));
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.ActTypR.class));
 
 			p_MS_MSBBLA0020_Srch02 = param;
 			return param;
@@ -10076,28 +10076,28 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 			return p_MS_MSBBLA0020_Srch02.getContainerParam().getDownBlock(i);
 		}
 		
-		protected mcframe.clientMSBE.MSBBPA0020.CndR up0() {
-			return (mcframe.clientMSBE.MSBBPA0020.CndR)up(0);
+		protected mcframe.clientMSBB.MSBBPA0020.CndR up0() {
+			return (mcframe.clientMSBB.MSBBPA0020.CndR)up(0);
 		}
 
-		protected MCList<mcframe.clientMSBE.MSBBPA0020.RsltR> down0() {
-			return (MCList<mcframe.clientMSBE.MSBBPA0020.RsltR>)down(0);
+		protected MCList<mcframe.clientMSBB.MSBBPA0020.RsltR> down0() {
+			return (MCList<mcframe.clientMSBB.MSBBPA0020.RsltR>)down(0);
 		}
-		protected MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR> down1() {
-			return (MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR>)down(1);
+		protected MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR> down1() {
+			return (MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR>)down(1);
 		}
 
 		protected void setupDownParam() {
-			p_MS_MSBBLA0020_Srch02.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.RsltR.class));
-			p_MS_MSBBLA0020_Srch02.addDownBlock(MCList.create(mcframe.clientMSBE.MSBBPA0020.ActTypR.class));
+			p_MS_MSBBLA0020_Srch02.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.RsltR.class));
+			p_MS_MSBBLA0020_Srch02.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBPA0020.ActTypR.class));
 		}
 		protected MCParam param() {
 			return p_MS_MSBBLA0020_Srch02;
 		}
 
 		protected void show() {
-			setRsltL((MCList<mcframe.clientMSBE.MSBBPA0020.RsltR>)p_MS_MSBBLA0020_Srch02.getContainerParam().getDownBlock(0));
-			setActTypL((MCList<mcframe.clientMSBE.MSBBPA0020.ActTypR>)p_MS_MSBBLA0020_Srch02.getContainerParam().getDownBlock(1));
+			setRsltL((MCList<mcframe.clientMSBB.MSBBPA0020.RsltR>)p_MS_MSBBLA0020_Srch02.getContainerParam().getDownBlock(0));
+			setActTypL((MCList<mcframe.clientMSBB.MSBBPA0020.ActTypR>)p_MS_MSBBLA0020_Srch02.getContainerParam().getDownBlock(1));
 		}
 
 		protected void clear() {
