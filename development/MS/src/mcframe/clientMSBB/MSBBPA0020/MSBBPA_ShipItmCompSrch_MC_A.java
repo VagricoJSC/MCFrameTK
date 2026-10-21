@@ -136,6 +136,11 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCScrollPane RsltScrollPane = null;
 	public MCTable2<mcframe.clientMSBB.MSBBPA0020.RsltR> RsltTable = null;
 	// [Rslt]ブロックの項目のField定義
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public MCColumnConfig columnRslt_check = null;
 	public mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D Rslt_par_itm_p_PPanel;
 	public MCColumnConfig columnRslt_par_itm_cd;// [Rslt]の[par_itm_p.itm_cd]を[columnRslt_par_itm_cd]としてエイリアス定義。
 	public MCColumnConfig columnRslt_par_itm_sub1;// [Rslt]の[par_itm_p.itm_sub1]を[columnRslt_par_itm_sub1]としてエイリアス定義。
@@ -851,6 +856,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.RsltScrollPane = p.beansFactory.createScrollPane("Rslt.scroll");
 		p.createRsltTable();
 		// ブロックの項目の初期化
+		p.columnRslt_check = p.beansFactory.createTableColumn("Rslt.check", MCColumnType.CHECK);
 		p.columnRslt_surv_line_qty = p.beansFactory.createTableColumn("Rslt.surv_line_qty", MCColumnType.TEXT);
 		p.columnRslt_diameter = p.beansFactory.createTableColumn("Rslt.diameter", MCColumnType.TEXT);
 		p.columnRslt_qty = p.beansFactory.createTableColumn("Rslt.qty", MCColumnType.NUMBER);
@@ -1280,6 +1286,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected static void mcInitRslt(MSBBPA_ShipItmCompSrch p) {
 		p.RsltTable.addAllListener(p);
+		p.columnRslt_check.addAllListener(p);
 		p.columnRslt_surv_line_qty.addAllListener(p);
 		p.columnRslt_surv_line_qty.setListListener(p);
 		p.columnRslt_diameter.addAllListener(p);
@@ -1394,6 +1401,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [NON_MOV]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Rslt(MSBBPA_ShipItmCompSrch p){
+		p.columnRslt_check.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.Rslt_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnRslt_surv_line_qty.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, NON_MOV, MCMode.READ_ONLY);
@@ -1504,6 +1512,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [STK_TRN]ステータスの[Rslt]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Rslt(MSBBPA_ShipItmCompSrch p){
+		p.columnRslt_check.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.Rslt_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnRslt_surv_line_qty.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, STK_TRN, MCMode.READ_ONLY);
@@ -1548,6 +1557,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [Rslt]ブロックのTableの設定
 	 */
 	protected static void setTableConfigRslt(MSBBPA_ShipItmCompSrch p) {
+		p.columnRslt_check.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.check_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_check);
 		p.RsltTable.addTable(p.Rslt_par_itm_p_PPanel.ItmTable);
 		p.columnRslt_surv_line_qty.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.surv_line_qty_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_surv_line_qty);
@@ -1770,6 +1781,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if (vc == FoldTab) return doFold_VC(info);
 		if (vc == RsltTable) return doRslt_VC(info);
 		if (vc == Cnd_diameter) return doCnd_diameter_VC(info);
+		if (vc == columnRslt_check) return doRslt_check_VC(info);
 		if (vc == columnRslt_surv_line_qty) return doRslt_surv_line_qty_VC(info);
 		if (vc == columnRslt_diameter) return doRslt_diameter_VC(info);
 		if (vc == columnRslt_qty) return doRslt_qty_VC(info);
@@ -1807,6 +1819,16 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doCnd_diameter_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Rslt]パネルの[check]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doRslt_check_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -1891,6 +1913,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if (nc == FoldTab) doFold_NC(info);
 		else if (nc == RsltTable) doRslt_NC(info);
 		else if (nc == Cnd_diameter) doCnd_diameter_NC(info);
+		else if (nc == columnRslt_check) doRslt_check_NC(info);
 		else if (nc == columnRslt_surv_line_qty) doRslt_surv_line_qty_NC(info);
 		else if (nc == columnRslt_diameter) doRslt_diameter_NC(info);
 		else if (nc == columnRslt_qty) doRslt_qty_NC(info);
@@ -1922,6 +1945,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doCnd_diameter_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[check]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_check_NC(MCEventInfo info){
 	}
 
 	/**
@@ -1991,6 +2022,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if (ne == FoldTab) doFold_NE(info);
 		else if (ne == RsltTable) doRslt_NE(info);
 		else if (ne == Cnd_diameter) doCnd_diameter_NE(info);
+		else if (ne == columnRslt_check) doRslt_check_NE(info);
 		else if (ne == columnRslt_surv_line_qty) doRslt_surv_line_qty_NE(info);
 		else if (ne == columnRslt_diameter) doRslt_diameter_NE(info);
 		else if (ne == columnRslt_qty) doRslt_qty_NE(info);
@@ -2022,6 +2054,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doCnd_diameter_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[check]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_check_NE(MCEventInfo info){
 	}
 
 	/**
@@ -2091,6 +2131,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if (nx == FoldTab) doFold_NX(info);
 		else if (nx == RsltTable) doRslt_NX(info);
 		else if (nx == Cnd_diameter) doCnd_diameter_NX(info);
+		else if (nx == columnRslt_check) doRslt_check_NX(info);
 		else if (nx == columnRslt_surv_line_qty) doRslt_surv_line_qty_NX(info);
 		else if (nx == columnRslt_diameter) doRslt_diameter_NX(info);
 		else if (nx == columnRslt_qty) doRslt_qty_NX(info);
@@ -2122,6 +2163,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doCnd_diameter_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[check]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_check_NX(MCEventInfo info){
 	}
 
 	/**

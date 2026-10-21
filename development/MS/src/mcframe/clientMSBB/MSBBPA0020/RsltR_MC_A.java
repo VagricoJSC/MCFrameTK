@@ -26,6 +26,11 @@ import mcframe.commonCore.lang.MCBinary;
 @SuppressWarnings({"all"})
 abstract class RsltR_MC_A extends MCConstRow {
 
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public static final String $check = "check";
 	public static final String $par_itm_p = "par_itm_p";
 	/**
 	 * Product quantity 測線数.<p>
@@ -75,6 +80,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	public static final String $chd_itm_sub3 = $chd_itm_p + ".itm_sub3";
 	public static final String $chd_itm_nm = $chd_itm_p + ".itm_nm";
 
+	public static final MCMeta check_META = createCommonMeta($check, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP5030.ItmR.class);
 	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
 	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
@@ -88,6 +94,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	protected static final ConstMetaList<RsltR> constMetas = new ConstMetaList<RsltR>(
 		MCConstRow.constMetas,
 		new MCMeta[]{
+			check_META,
 			par_itm_p_META,
 			surv_line_qty_META,
 			diameter_META,
@@ -257,12 +264,29 @@ abstract class RsltR_MC_A extends MCConstRow {
 
 
 
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public boolean check() {
+		return getConstBoolean(offset + 0, $check);
+	}
+
+	/**
+	 * Select 選択.<p>
+	 *
+	 */
+	public void check(boolean value) {
+		setConstBoolean(offset + 0, $check, value);
+	}
+
+
 	public mcframe.clientMAUB.MAUBP5030.ItmR par_itm_p(){
-		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 0, $par_itm_p);
+		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 1, $par_itm_p);
 	}
 	
 	public void par_itm_p(mcframe.clientMAUB.MAUBP5030.ItmR row){
-		setConstInnerRow(offset + 0, $par_itm_p, row);
+		setConstInnerRow(offset + 1, $par_itm_p, row);
 	}
 
 
@@ -271,7 +295,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String surv_line_qty() {
-		return getConstString(offset + 1, $surv_line_qty);
+		return getConstString(offset + 2, $surv_line_qty);
 	}
 
 	/**
@@ -279,7 +303,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void surv_line_qty(String value) {
-		setConstString(offset + 1, $surv_line_qty, value);
+		setConstString(offset + 2, $surv_line_qty, value);
 	}
 
 
@@ -288,7 +312,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String diameter() {
-		return getConstString(offset + 2, $diameter);
+		return getConstString(offset + 3, $diameter);
 	}
 
 	/**
@@ -296,16 +320,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void diameter(String value) {
-		setConstString(offset + 2, $diameter, value);
+		setConstString(offset + 3, $diameter, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5030.ItmR chd_itm_p(){
-		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 3, $chd_itm_p);
+		return (mcframe.clientMAUB.MAUBP5030.ItmR) getConstInnerRow(offset + 4, $chd_itm_p);
 	}
 	
 	public void chd_itm_p(mcframe.clientMAUB.MAUBP5030.ItmR row){
-		setConstInnerRow(offset + 3, $chd_itm_p, row);
+		setConstInnerRow(offset + 4, $chd_itm_p, row);
 	}
 
 
@@ -314,7 +338,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber qty() {
-		return getConstNumber(offset + 4, $qty);
+		return getConstNumber(offset + 5, $qty);
 	}
 
 	/**
@@ -322,7 +346,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(MCNumber value) {
-		setConstNumber(offset + 4, $qty, value);
+		setConstNumber(offset + 5, $qty, value);
 	}
 
 	/**
@@ -330,7 +354,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(int value) {
-		setConstNumber(offset + 4, $qty, value);
+		setConstNumber(offset + 5, $qty, value);
 	}
 
 	/**
@@ -338,7 +362,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(long value) {
-		setConstNumber(offset + 4, $qty, value);
+		setConstNumber(offset + 5, $qty, value);
 	}
 
 	/**
@@ -346,7 +370,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(float value) {
-		setConstNumber(offset + 4, $qty, value);
+		setConstNumber(offset + 5, $qty, value);
 	}
 
 	/**
@@ -354,7 +378,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(double value) {
-		setConstNumber(offset + 4, $qty, value);
+		setConstNumber(offset + 5, $qty, value);
 	}
 
 
@@ -363,7 +387,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String spec_cd() {
-		return getConstString(offset + 5, $spec_cd);
+		return getConstString(offset + 6, $spec_cd);
 	}
 
 	/**
@@ -371,7 +395,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void spec_cd(String value) {
-		setConstString(offset + 5, $spec_cd, value);
+		setConstString(offset + 6, $spec_cd, value);
 	}
 
 
@@ -380,7 +404,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean body_flg() {
-		return getConstBoolean(offset + 6, $body_flg);
+		return getConstBoolean(offset + 7, $body_flg);
 	}
 
 	/**
@@ -388,7 +412,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void body_flg(boolean value) {
-		setConstBoolean(offset + 6, $body_flg, value);
+		setConstBoolean(offset + 7, $body_flg, value);
 	}
 
 
@@ -397,7 +421,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean comp_flg() {
-		return getConstBoolean(offset + 7, $comp_flg);
+		return getConstBoolean(offset + 8, $comp_flg);
 	}
 
 	/**
@@ -405,7 +429,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void comp_flg(boolean value) {
-		setConstBoolean(offset + 7, $comp_flg, value);
+		setConstBoolean(offset + 8, $comp_flg, value);
 	}
 
 
@@ -414,7 +438,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_prnt_flg() {
-		return getConstBoolean(offset + 8, $ship_prnt_flg);
+		return getConstBoolean(offset + 9, $ship_prnt_flg);
 	}
 
 	/**
@@ -422,7 +446,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_prnt_flg(boolean value) {
-		setConstBoolean(offset + 8, $ship_prnt_flg, value);
+		setConstBoolean(offset + 9, $ship_prnt_flg, value);
 	}
 
 
@@ -445,6 +469,9 @@ abstract class RsltR_MC_A extends MCConstRow {
 		return super.getNumber(name);
 	}
 	public boolean getBoolean(String name) {
+		if ($check.equalsIgnoreCase(name)) {
+			return check();
+		}
 		if ($body_flg.equalsIgnoreCase(name)) {
 			return body_flg();
 		}
@@ -476,6 +503,9 @@ abstract class RsltR_MC_A extends MCConstRow {
 		return super.getNumberNE(name);
 	}
 	public boolean getBooleanNE(String name) {
+		if ($check.equalsIgnoreCase(name)) {
+			return check();
+		}
 		if ($body_flg.equalsIgnoreCase(name)) {
 			return body_flg();
 		}
@@ -539,6 +569,10 @@ abstract class RsltR_MC_A extends MCConstRow {
 		super.setNumber(name, value);
 	}
 	public void setBoolean(String name, boolean value) {
+		if ($check.equalsIgnoreCase(name)) {
+			check(value);
+			return;
+		}
 		if ($body_flg.equalsIgnoreCase(name)) {
 			body_flg(value);
 			return;
@@ -605,6 +639,10 @@ abstract class RsltR_MC_A extends MCConstRow {
 		super.setNumberNE(name, value);
 	}
 	public void setBooleanNE(String name, boolean value) {
+		if ($check.equalsIgnoreCase(name)) {
+			check(value);
+			return;
+		}
 		if ($body_flg.equalsIgnoreCase(name)) {
 			body_flg(value);
 			return;

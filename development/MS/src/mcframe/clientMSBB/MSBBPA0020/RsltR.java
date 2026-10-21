@@ -23,13 +23,21 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
+ *  	<td>check</td>
+ *  	<td>Select</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
  *  	<td>par_itm_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>surv_line_qty</td>
  *  	<td>Product quantity</td>
@@ -37,7 +45,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SURV_LINE_QTY SURV_LINE_QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>diameter</td>
  *  	<td>Diameter</td>
@@ -45,7 +53,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DIAMETER DIAMETER}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>chd_itm_p</td>
  *  	<td><br></td>
@@ -53,7 +61,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP5030.ItmR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>qty</td>
  *  	<td>Item quantity</td>
@@ -61,7 +69,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>spec_cd</td>
  *  	<td>Spec cd.</td>
@@ -69,7 +77,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TK_SPEC_CD TK_SPEC_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>body_flg</td>
  *  	<td>Body flag</td>
@@ -77,7 +85,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>comp_flg</td>
  *  	<td>Component flag</td>
@@ -85,7 +93,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>ship_prnt_flg</td>
  *  	<td>Ship print flag</td>
