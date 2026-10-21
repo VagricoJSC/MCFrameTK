@@ -766,6 +766,86 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
+ *  	<td>mater_usr_cd</td>
+ *  	<td>C</td>
+ *  	<td>500</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>資材担当者ＣＤ</td>
+ *  	<td>Materials User cd.</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>cat_typ</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>分類</td>
+ *  	<td>Category Type cd.</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>wk_typ</td>
+ *  	<td>C</td>
+ *  	<td>2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>作業区分</td>
+ *  	<td>Work Type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>drwng_outp_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>図面出力要否</td>
+ *  	<td>Drawing Output Flag</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sp_rmrks1</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>記事１</td>
+ *  	<td>Special Remarks 1</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>sp_rmrks2</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>記事２</td>
+ *  	<td>Special Remarks 2</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>sp_rmrks3</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>記事３</td>
+ *  	<td>Special Remarks 3</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>constr_cond</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>制約条件</td>
+ *  	<td>Constraint Condition</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
  *  	<td>mfg_loc_nm</td>
  *  	<td>C</td>
  *  	<td>40</td>
@@ -1427,6 +1507,70 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
 	/**
+	 * 資材担当者ＣＤ. Materials User cd..<p>
+	 *
+	 */
+	public static final String $mater_usr_cd = "mater_usr_cd";
+	private static final MCPermColumnInfo _mater_usr_cd = createColumnInfo("mater_usr_cd");
+	public final MCStringPermColumn mater_usr_cd = createStringColumn(_mater_usr_cd);
+	
+	/**
+	 * 分類. Category Type cd..<p>
+	 *
+	 */
+	public static final String $cat_typ = "cat_typ";
+	private static final MCPermColumnInfo _cat_typ = createColumnInfo("cat_typ");
+	public final MCStringPermColumn cat_typ = createStringColumn(_cat_typ);
+	
+	/**
+	 * 作業区分. Work Type.<p>
+	 *
+	 */
+	public static final String $wk_typ = "wk_typ";
+	private static final MCPermColumnInfo _wk_typ = createColumnInfo("wk_typ");
+	public final MCStringPermColumn wk_typ = createStringColumn(_wk_typ);
+	
+	/**
+	 * 図面出力要否. Drawing Output Flag.<p>
+	 *
+	 */
+	public static final String $drwng_outp_flg = "drwng_outp_flg";
+	private static final MCPermColumnInfo _drwng_outp_flg = createColumnInfo("drwng_outp_flg");
+	public final MCBooleanPermColumn drwng_outp_flg = createBooleanColumn(_drwng_outp_flg);
+	
+	/**
+	 * 記事１. Special Remarks 1.<p>
+	 *
+	 */
+	public static final String $sp_rmrks1 = "sp_rmrks1";
+	private static final MCPermColumnInfo _sp_rmrks1 = createColumnInfo("sp_rmrks1");
+	public final MCStringPermColumn sp_rmrks1 = createStringColumn(_sp_rmrks1);
+	
+	/**
+	 * 記事２. Special Remarks 2.<p>
+	 *
+	 */
+	public static final String $sp_rmrks2 = "sp_rmrks2";
+	private static final MCPermColumnInfo _sp_rmrks2 = createColumnInfo("sp_rmrks2");
+	public final MCStringPermColumn sp_rmrks2 = createStringColumn(_sp_rmrks2);
+	
+	/**
+	 * 記事３. Special Remarks 3.<p>
+	 *
+	 */
+	public static final String $sp_rmrks3 = "sp_rmrks3";
+	private static final MCPermColumnInfo _sp_rmrks3 = createColumnInfo("sp_rmrks3");
+	public final MCStringPermColumn sp_rmrks3 = createStringColumn(_sp_rmrks3);
+	
+	/**
+	 * 制約条件. Constraint Condition.<p>
+	 *
+	 */
+	public static final String $constr_cond = "constr_cond";
+	private static final MCPermColumnInfo _constr_cond = createColumnInfo("constr_cond");
+	public final MCStringPermColumn constr_cond = createStringColumn(_constr_cond);
+	
+	/**
 	 * 製造場所名. Mfg. location name.<p>
 	 *
 	 */
@@ -1540,6 +1684,14 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta mater_usr_cd_META = createCommonMeta($mater_usr_cd, mcframe.commonMA.meta.MA_META.USR_CD);
+	public static final MCMeta cat_typ_META = createCommonMeta($cat_typ, mcframe.commonMA.meta.MA_META.CAT_TYP);
+	public static final MCMeta wk_typ_META = createCommonMeta($wk_typ, mcframe.commonMA.meta.MA_META.WK_TYP);
+	public static final MCMeta drwng_outp_flg_META = createCommonMeta($drwng_outp_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta sp_rmrks1_META = createCommonMeta($sp_rmrks1, mcframe.commonMA.meta.MA_META.SP_RMRKS1);
+	public static final MCMeta sp_rmrks2_META = createCommonMeta($sp_rmrks2, mcframe.commonMA.meta.MA_META.SP_RMRKS2);
+	public static final MCMeta sp_rmrks3_META = createCommonMeta($sp_rmrks3, mcframe.commonMA.meta.MA_META.SP_RMRKS3);
+	public static final MCMeta constr_cond_META = createCommonMeta($constr_cond, mcframe.commonMA.meta.MA_META.CONSTR_COND);
 	public static final MCMeta mfg_loc_nm_META = createCommonMeta($mfg_loc_nm, mcframe.commonMA.meta.MA_META.LOC_NM);
 	public static final MCMeta sppl_nm_META = createCommonMeta($sppl_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta maker_nm_META = createCommonMeta($maker_nm, mcframe.commonMA.meta.MA_META.BP_NM);
@@ -1773,6 +1925,14 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 			upd_ts_META,
 			upd_func_id_META,
 			upd_srv_req_no_META,
+			mater_usr_cd_META,
+			cat_typ_META,
+			wk_typ_META,
+			drwng_outp_flg_META,
+			sp_rmrks1_META,
+			sp_rmrks2_META,
+			sp_rmrks3_META,
+			constr_cond_META,
 			mfg_loc_nm_META,
 			sppl_nm_META,
 			maker_nm_META,
@@ -2908,6 +3068,126 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$mater_usr_cd,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$mater_usr_cd,
+				"mater_usr_cd",
+				mater_usr_cd,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$cat_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$cat_typ,
+				"cat_typ",
+				cat_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$wk_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$wk_typ,
+				"wk_typ",
+				wk_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$drwng_outp_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MAM_ITM_DTL__R.$drwng_outp_flg,
+				"drwng_outp_flg",
+				drwng_outp_flg,
+				false,
+				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$sp_rmrks1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$sp_rmrks1,
+				"sp_rmrks1",
+				sp_rmrks1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$sp_rmrks2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$sp_rmrks2,
+				"sp_rmrks2",
+				sp_rmrks2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$sp_rmrks3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$sp_rmrks3,
+				"sp_rmrks3",
+				sp_rmrks3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_DTL__R.$constr_cond,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_DTL__R.$constr_cond,
+				"constr_cond",
+				constr_cond,
+				false,
+				true,
+				false,
 				false,
 				false,
 				""
@@ -5125,11 +5405,139 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	}
 
 	/**
+	 * 資材担当者ＣＤ. Materials User cd..<p>
+	 *
+	 */
+	public String mater_usr_cd() {
+		return getConstString(offset + 72, $mater_usr_cd);
+	}
+
+	/**
+	 * 資材担当者ＣＤ. Materials User cd..<p>
+	 *
+	 */
+	public void mater_usr_cd(String value) {
+		setConstString(offset + 72, $mater_usr_cd, value);
+	}
+
+	/**
+	 * 分類. Category Type cd..<p>
+	 *
+	 */
+	public String cat_typ() {
+		return getConstString(offset + 73, $cat_typ);
+	}
+
+	/**
+	 * 分類. Category Type cd..<p>
+	 *
+	 */
+	public void cat_typ(String value) {
+		setConstString(offset + 73, $cat_typ, value);
+	}
+
+	/**
+	 * 作業区分. Work Type.<p>
+	 *
+	 */
+	public String wk_typ() {
+		return getConstString(offset + 74, $wk_typ);
+	}
+
+	/**
+	 * 作業区分. Work Type.<p>
+	 *
+	 */
+	public void wk_typ(String value) {
+		setConstString(offset + 74, $wk_typ, value);
+	}
+
+	/**
+	 * 図面出力要否. Drawing Output Flag.<p>
+	 *
+	 */
+	public boolean drwng_outp_flg() {
+		return getConstBoolean(offset + 75, $drwng_outp_flg);
+	}
+
+	/**
+	 * 図面出力要否. Drawing Output Flag.<p>
+	 *
+	 */
+	public void drwng_outp_flg(boolean value) {
+		setConstBoolean(offset + 75, $drwng_outp_flg, value);
+	}
+
+	/**
+	 * 記事１. Special Remarks 1.<p>
+	 *
+	 */
+	public String sp_rmrks1() {
+		return getConstString(offset + 76, $sp_rmrks1);
+	}
+
+	/**
+	 * 記事１. Special Remarks 1.<p>
+	 *
+	 */
+	public void sp_rmrks1(String value) {
+		setConstString(offset + 76, $sp_rmrks1, value);
+	}
+
+	/**
+	 * 記事２. Special Remarks 2.<p>
+	 *
+	 */
+	public String sp_rmrks2() {
+		return getConstString(offset + 77, $sp_rmrks2);
+	}
+
+	/**
+	 * 記事２. Special Remarks 2.<p>
+	 *
+	 */
+	public void sp_rmrks2(String value) {
+		setConstString(offset + 77, $sp_rmrks2, value);
+	}
+
+	/**
+	 * 記事３. Special Remarks 3.<p>
+	 *
+	 */
+	public String sp_rmrks3() {
+		return getConstString(offset + 78, $sp_rmrks3);
+	}
+
+	/**
+	 * 記事３. Special Remarks 3.<p>
+	 *
+	 */
+	public void sp_rmrks3(String value) {
+		setConstString(offset + 78, $sp_rmrks3, value);
+	}
+
+	/**
+	 * 制約条件. Constraint Condition.<p>
+	 *
+	 */
+	public String constr_cond() {
+		return getConstString(offset + 79, $constr_cond);
+	}
+
+	/**
+	 * 制約条件. Constraint Condition.<p>
+	 *
+	 */
+	public void constr_cond(String value) {
+		setConstString(offset + 79, $constr_cond, value);
+	}
+
+	/**
 	 * 製造場所名. Mfg. location name.<p>
 	 *
 	 */
 	public String mfg_loc_nm() {
-		return getConstString(offset + 72, $mfg_loc_nm);
+		return getConstString(offset + 80, $mfg_loc_nm);
 	}
 
 	/**
@@ -5137,7 +5545,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void mfg_loc_nm(String value) {
-		setConstString(offset + 72, $mfg_loc_nm, value);
+		setConstString(offset + 80, $mfg_loc_nm, value);
 	}
 
 	/**
@@ -5145,7 +5553,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String sppl_nm() {
-		return getConstString(offset + 73, $sppl_nm);
+		return getConstString(offset + 81, $sppl_nm);
 	}
 
 	/**
@@ -5153,7 +5561,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void sppl_nm(String value) {
-		setConstString(offset + 73, $sppl_nm, value);
+		setConstString(offset + 81, $sppl_nm, value);
 	}
 
 	/**
@@ -5161,7 +5569,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String maker_nm() {
-		return getConstString(offset + 74, $maker_nm);
+		return getConstString(offset + 82, $maker_nm);
 	}
 
 	/**
@@ -5169,7 +5577,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void maker_nm(String value) {
-		setConstString(offset + 74, $maker_nm, value);
+		setConstString(offset + 82, $maker_nm, value);
 	}
 
 	/**
@@ -5177,7 +5585,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String rqst_loc_nm() {
-		return getConstString(offset + 75, $rqst_loc_nm);
+		return getConstString(offset + 83, $rqst_loc_nm);
 	}
 
 	/**
@@ -5185,7 +5593,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void rqst_loc_nm(String value) {
-		setConstString(offset + 75, $rqst_loc_nm, value);
+		setConstString(offset + 83, $rqst_loc_nm, value);
 	}
 
 	/**
@@ -5193,7 +5601,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String wg_nm() {
-		return getConstString(offset + 76, $wg_nm);
+		return getConstString(offset + 84, $wg_nm);
 	}
 
 	/**
@@ -5201,7 +5609,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void wg_nm(String value) {
-		setConstString(offset + 76, $wg_nm, value);
+		setConstString(offset + 84, $wg_nm, value);
 	}
 
 	/**
@@ -5209,7 +5617,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String rqst_wg_nm() {
-		return getConstString(offset + 77, $rqst_wg_nm);
+		return getConstString(offset + 85, $rqst_wg_nm);
 	}
 
 	/**
@@ -5217,7 +5625,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void rqst_wg_nm(String value) {
-		setConstString(offset + 77, $rqst_wg_nm, value);
+		setConstString(offset + 85, $rqst_wg_nm, value);
 	}
 
 	/**
@@ -5225,7 +5633,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 78, $itm_nm);
+		return getConstString(offset + 86, $itm_nm);
 	}
 
 	/**
@@ -5233,7 +5641,7 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 78, $itm_nm, value);
+		setConstString(offset + 86, $itm_nm, value);
 	}
 
 	public String getString(String name) {
@@ -5332,6 +5740,27 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($mater_usr_cd.equalsIgnoreCase(name)) {
+			return mater_usr_cd();
+		}
+		if ($cat_typ.equalsIgnoreCase(name)) {
+			return cat_typ();
+		}
+		if ($wk_typ.equalsIgnoreCase(name)) {
+			return wk_typ();
+		}
+		if ($sp_rmrks1.equalsIgnoreCase(name)) {
+			return sp_rmrks1();
+		}
+		if ($sp_rmrks2.equalsIgnoreCase(name)) {
+			return sp_rmrks2();
+		}
+		if ($sp_rmrks3.equalsIgnoreCase(name)) {
+			return sp_rmrks3();
+		}
+		if ($constr_cond.equalsIgnoreCase(name)) {
+			return constr_cond();
 		}
 		if ($mfg_loc_nm.equalsIgnoreCase(name)) {
 			return mfg_loc_nm();
@@ -5490,6 +5919,9 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		if ($del_flg.equalsIgnoreCase(name)) {
 			return del_flg();
 		}
+		if ($drwng_outp_flg.equalsIgnoreCase(name)) {
+			return drwng_outp_flg();
+		}
 		return super.getBoolean(name);
 	}
 
@@ -5589,6 +6021,27 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($mater_usr_cd.equalsIgnoreCase(name)) {
+			return mater_usr_cd();
+		}
+		if ($cat_typ.equalsIgnoreCase(name)) {
+			return cat_typ();
+		}
+		if ($wk_typ.equalsIgnoreCase(name)) {
+			return wk_typ();
+		}
+		if ($sp_rmrks1.equalsIgnoreCase(name)) {
+			return sp_rmrks1();
+		}
+		if ($sp_rmrks2.equalsIgnoreCase(name)) {
+			return sp_rmrks2();
+		}
+		if ($sp_rmrks3.equalsIgnoreCase(name)) {
+			return sp_rmrks3();
+		}
+		if ($constr_cond.equalsIgnoreCase(name)) {
+			return constr_cond();
 		}
 		if ($mfg_loc_nm.equalsIgnoreCase(name)) {
 			return mfg_loc_nm();
@@ -5747,6 +6200,9 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		if ($del_flg.equalsIgnoreCase(name)) {
 			return del_flg();
 		}
+		if ($drwng_outp_flg.equalsIgnoreCase(name)) {
+			return drwng_outp_flg();
+		}
 		return super.getBooleanNE(name);
 	}
 
@@ -5877,6 +6333,34 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($mater_usr_cd.equalsIgnoreCase(name)) {
+			mater_usr_cd(value);
+			return;
+		}
+		if ($cat_typ.equalsIgnoreCase(name)) {
+			cat_typ(value);
+			return;
+		}
+		if ($wk_typ.equalsIgnoreCase(name)) {
+			wk_typ(value);
+			return;
+		}
+		if ($sp_rmrks1.equalsIgnoreCase(name)) {
+			sp_rmrks1(value);
+			return;
+		}
+		if ($sp_rmrks2.equalsIgnoreCase(name)) {
+			sp_rmrks2(value);
+			return;
+		}
+		if ($sp_rmrks3.equalsIgnoreCase(name)) {
+			sp_rmrks3(value);
+			return;
+		}
+		if ($constr_cond.equalsIgnoreCase(name)) {
+			constr_cond(value);
 			return;
 		}
 		if ($mfg_loc_nm.equalsIgnoreCase(name)) {
@@ -6531,6 +7015,10 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 			del_flg(value);
 			return;
 		}
+		if ($drwng_outp_flg.equalsIgnoreCase(name)) {
+			drwng_outp_flg(value);
+			return;
+		}
 		super.setBoolean(name, value);
 	}
 
@@ -6661,6 +7149,34 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($mater_usr_cd.equalsIgnoreCase(name)) {
+			mater_usr_cd(value);
+			return;
+		}
+		if ($cat_typ.equalsIgnoreCase(name)) {
+			cat_typ(value);
+			return;
+		}
+		if ($wk_typ.equalsIgnoreCase(name)) {
+			wk_typ(value);
+			return;
+		}
+		if ($sp_rmrks1.equalsIgnoreCase(name)) {
+			sp_rmrks1(value);
+			return;
+		}
+		if ($sp_rmrks2.equalsIgnoreCase(name)) {
+			sp_rmrks2(value);
+			return;
+		}
+		if ($sp_rmrks3.equalsIgnoreCase(name)) {
+			sp_rmrks3(value);
+			return;
+		}
+		if ($constr_cond.equalsIgnoreCase(name)) {
+			constr_cond(value);
 			return;
 		}
 		if ($mfg_loc_nm.equalsIgnoreCase(name)) {
@@ -7313,6 +7829,10 @@ public class MAM_ITM_DTL__R extends MCDBContainer {
 		}
 		if ($del_flg.equalsIgnoreCase(name)) {
 			del_flg(value);
+			return;
+		}
+		if ($drwng_outp_flg.equalsIgnoreCase(name)) {
+			drwng_outp_flg(value);
 			return;
 		}
 		super.setBooleanNE(name, value);

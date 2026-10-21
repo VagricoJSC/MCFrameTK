@@ -1446,6 +1446,26 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
+ *  	<td>trace_tgt_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>トレサビ対象区分</td>
+ *  	<td>Traceability target type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>unit_exp_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ユニット展開ＦＬＧ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
  *  	<td>release_flg</td>
  *  	<td>F</td>
  *  	<td></td>
@@ -2761,6 +2781,22 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	public final MCStringPermColumn itm_alc_grp = createStringColumn(_itm_alc_grp);
 	
 	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public static final String $trace_tgt_typ = "trace_tgt_typ";
+	private static final MCPermColumnInfo _trace_tgt_typ = createColumnInfo("trace_tgt_typ");
+	public final MCStringPermColumn trace_tgt_typ = createStringColumn(_trace_tgt_typ);
+	
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public static final String $unit_exp_flg = "unit_exp_flg";
+	private static final MCPermColumnInfo _unit_exp_flg = createColumnInfo("unit_exp_flg");
+	public final MCBooleanPermColumn unit_exp_flg = createBooleanColumn(_unit_exp_flg);
+	
+	/**
 	 * リリースＦＬＧ. Release flg..<p>
 	 *
 	 */
@@ -3044,6 +3080,8 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	public static final MCMeta calc_ptn_cd_META = createCommonMeta($calc_ptn_cd, mcframe.commonMA.meta.MA_META.CALC_PTN_CD);
 	public static final MCMeta cost_std_qty_META = createCommonMeta($cost_std_qty, mcframe.commonMA.meta.MA_META.QTY);
 	public static final MCMeta itm_alc_grp_META = createCommonMeta($itm_alc_grp, mcframe.commonMA.meta.MA_META.ITM_ALC_GRP);
+	public static final MCMeta trace_tgt_typ_META = createCommonMeta($trace_tgt_typ, mcframe.commonMA.meta.MA_META.TRACE_TGT_TYP);
+	public static final MCMeta unit_exp_flg_META = createCommonMeta($unit_exp_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta release_flg_META = createCommonMeta($release_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta memo1_META = createCommonMeta($memo1, mcframe.commonMA.meta.MA_META.MST_MEMO1);
 	public static final MCMeta memo2_META = createCommonMeta($memo2, mcframe.commonMA.meta.MA_META.MST_MEMO2);
@@ -3210,6 +3248,8 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 			calc_ptn_cd_META,
 			cost_std_qty_META,
 			itm_alc_grp_META,
+			trace_tgt_typ_META,
+			unit_exp_flg_META,
 			release_flg_META,
 			memo1_META,
 			memo2_META,
@@ -5375,6 +5415,36 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 				itm_alc_grp,
 				false,
 				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAVM_ITM_WG_R.$trace_tgt_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAVM_ITM_WG_R.$trace_tgt_typ,
+				"trace_tgt_typ",
+				trace_tgt_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAVM_ITM_WG_R.$unit_exp_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MAVM_ITM_WG_R.$unit_exp_flg,
+				"unit_exp_flg",
+				unit_exp_flg,
+				false,
+				false,
 				false,
 				false,
 				false,
@@ -8494,11 +8564,43 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	}
 
 	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public String trace_tgt_typ() {
+		return getConstString(offset + 140, $trace_tgt_typ);
+	}
+
+	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public void trace_tgt_typ(String value) {
+		setConstString(offset + 140, $trace_tgt_typ, value);
+	}
+
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public boolean unit_exp_flg() {
+		return getConstBoolean(offset + 141, $unit_exp_flg);
+	}
+
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public void unit_exp_flg(boolean value) {
+		setConstBoolean(offset + 141, $unit_exp_flg, value);
+	}
+
+	/**
 	 * リリースＦＬＧ. Release flg..<p>
 	 *
 	 */
 	public boolean release_flg() {
-		return getConstBoolean(offset + 140, $release_flg);
+		return getConstBoolean(offset + 142, $release_flg);
 	}
 
 	/**
@@ -8506,7 +8608,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void release_flg(boolean value) {
-		setConstBoolean(offset + 140, $release_flg, value);
+		setConstBoolean(offset + 142, $release_flg, value);
 	}
 
 	/**
@@ -8514,7 +8616,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String memo1() {
-		return getConstString(offset + 141, $memo1);
+		return getConstString(offset + 143, $memo1);
 	}
 
 	/**
@@ -8522,7 +8624,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void memo1(String value) {
-		setConstString(offset + 141, $memo1, value);
+		setConstString(offset + 143, $memo1, value);
 	}
 
 	/**
@@ -8530,7 +8632,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String memo2() {
-		return getConstString(offset + 142, $memo2);
+		return getConstString(offset + 144, $memo2);
 	}
 
 	/**
@@ -8538,7 +8640,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void memo2(String value) {
-		setConstString(offset + 142, $memo2, value);
+		setConstString(offset + 144, $memo2, value);
 	}
 
 	/**
@@ -8546,7 +8648,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String memo3() {
-		return getConstString(offset + 143, $memo3);
+		return getConstString(offset + 145, $memo3);
 	}
 
 	/**
@@ -8554,7 +8656,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void memo3(String value) {
-		setConstString(offset + 143, $memo3, value);
+		setConstString(offset + 145, $memo3, value);
 	}
 
 	/**
@@ -8562,7 +8664,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public boolean del_flg() {
-		return getConstBoolean(offset + 144, $del_flg);
+		return getConstBoolean(offset + 146, $del_flg);
 	}
 
 	/**
@@ -8570,7 +8672,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void del_flg(boolean value) {
-		setConstBoolean(offset + 144, $del_flg, value);
+		setConstBoolean(offset + 146, $del_flg, value);
 	}
 
 	/**
@@ -8578,7 +8680,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String del_usr_id() {
-		return getConstString(offset + 145, $del_usr_id);
+		return getConstString(offset + 147, $del_usr_id);
 	}
 
 	/**
@@ -8586,7 +8688,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void del_usr_id(String value) {
-		setConstString(offset + 145, $del_usr_id, value);
+		setConstString(offset + 147, $del_usr_id, value);
 	}
 
 	/**
@@ -8594,7 +8696,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String del_usr_nm() {
-		return getConstString(offset + 146, $del_usr_nm);
+		return getConstString(offset + 148, $del_usr_nm);
 	}
 
 	/**
@@ -8602,7 +8704,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void del_usr_nm(String value) {
-		setConstString(offset + 146, $del_usr_nm, value);
+		setConstString(offset + 148, $del_usr_nm, value);
 	}
 
 	/**
@@ -8610,7 +8712,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public MCTimestamp del_ts() {
-		return getConstTimestamp(offset + 147, $del_ts);
+		return getConstTimestamp(offset + 149, $del_ts);
 	}
 
 	/**
@@ -8618,7 +8720,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void del_ts(MCTimestamp value) {
-		setConstTimestamp(offset + 147, $del_ts, value);
+		setConstTimestamp(offset + 149, $del_ts, value);
 	}
 
 	/**
@@ -8626,7 +8728,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String ins_usr_id() {
-		return getConstString(offset + 148, $ins_usr_id);
+		return getConstString(offset + 150, $ins_usr_id);
 	}
 
 	/**
@@ -8634,7 +8736,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void ins_usr_id(String value) {
-		setConstString(offset + 148, $ins_usr_id, value);
+		setConstString(offset + 150, $ins_usr_id, value);
 	}
 
 	/**
@@ -8642,7 +8744,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String ins_usr_nm() {
-		return getConstString(offset + 149, $ins_usr_nm);
+		return getConstString(offset + 151, $ins_usr_nm);
 	}
 
 	/**
@@ -8650,7 +8752,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void ins_usr_nm(String value) {
-		setConstString(offset + 149, $ins_usr_nm, value);
+		setConstString(offset + 151, $ins_usr_nm, value);
 	}
 
 	/**
@@ -8658,7 +8760,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public MCTimestamp ins_ts() {
-		return getConstTimestamp(offset + 150, $ins_ts);
+		return getConstTimestamp(offset + 152, $ins_ts);
 	}
 
 	/**
@@ -8666,7 +8768,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void ins_ts(MCTimestamp value) {
-		setConstTimestamp(offset + 150, $ins_ts, value);
+		setConstTimestamp(offset + 152, $ins_ts, value);
 	}
 
 	/**
@@ -8674,7 +8776,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String ins_func_id() {
-		return getConstString(offset + 151, $ins_func_id);
+		return getConstString(offset + 153, $ins_func_id);
 	}
 
 	/**
@@ -8682,7 +8784,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void ins_func_id(String value) {
-		setConstString(offset + 151, $ins_func_id, value);
+		setConstString(offset + 153, $ins_func_id, value);
 	}
 
 	/**
@@ -8690,7 +8792,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public MCNumber upd_cntr() {
-		return getConstNumber(offset + 152, $upd_cntr);
+		return getConstNumber(offset + 154, $upd_cntr);
 	}
 
 	/**
@@ -8698,7 +8800,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_cntr(MCNumber value) {
-		setConstNumber(offset + 152, $upd_cntr, value);
+		setConstNumber(offset + 154, $upd_cntr, value);
 	}
 	
 	/**
@@ -8706,7 +8808,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_cntr(int value) {
-		setConstNumber(offset + 152, $upd_cntr, value);
+		setConstNumber(offset + 154, $upd_cntr, value);
 	}
 	
 	/**
@@ -8714,7 +8816,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_cntr(long value) {
-		setConstNumber(offset + 152, $upd_cntr, value);
+		setConstNumber(offset + 154, $upd_cntr, value);
 	}
 	
 	/**
@@ -8722,7 +8824,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_cntr(float value) {
-		setConstNumber(offset + 152, $upd_cntr, value);
+		setConstNumber(offset + 154, $upd_cntr, value);
 	}
 	
 	/**
@@ -8730,7 +8832,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_cntr(double value) {
-		setConstNumber(offset + 152, $upd_cntr, value);
+		setConstNumber(offset + 154, $upd_cntr, value);
 	}
 	
 	/**
@@ -8738,7 +8840,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String upd_usr_id() {
-		return getConstString(offset + 153, $upd_usr_id);
+		return getConstString(offset + 155, $upd_usr_id);
 	}
 
 	/**
@@ -8746,7 +8848,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_usr_id(String value) {
-		setConstString(offset + 153, $upd_usr_id, value);
+		setConstString(offset + 155, $upd_usr_id, value);
 	}
 
 	/**
@@ -8754,7 +8856,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String upd_usr_nm() {
-		return getConstString(offset + 154, $upd_usr_nm);
+		return getConstString(offset + 156, $upd_usr_nm);
 	}
 
 	/**
@@ -8762,7 +8864,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_usr_nm(String value) {
-		setConstString(offset + 154, $upd_usr_nm, value);
+		setConstString(offset + 156, $upd_usr_nm, value);
 	}
 
 	/**
@@ -8770,7 +8872,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public MCTimestamp upd_ts() {
-		return getConstTimestamp(offset + 155, $upd_ts);
+		return getConstTimestamp(offset + 157, $upd_ts);
 	}
 
 	/**
@@ -8778,7 +8880,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_ts(MCTimestamp value) {
-		setConstTimestamp(offset + 155, $upd_ts, value);
+		setConstTimestamp(offset + 157, $upd_ts, value);
 	}
 
 	/**
@@ -8786,7 +8888,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String upd_func_id() {
-		return getConstString(offset + 156, $upd_func_id);
+		return getConstString(offset + 158, $upd_func_id);
 	}
 
 	/**
@@ -8794,7 +8896,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_func_id(String value) {
-		setConstString(offset + 156, $upd_func_id, value);
+		setConstString(offset + 158, $upd_func_id, value);
 	}
 
 	/**
@@ -8802,7 +8904,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public String upd_srv_req_no() {
-		return getConstString(offset + 157, $upd_srv_req_no);
+		return getConstString(offset + 159, $upd_srv_req_no);
 	}
 
 	/**
@@ -8810,7 +8912,7 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 	 *
 	 */
 	public void upd_srv_req_no(String value) {
-		setConstString(offset + 157, $upd_srv_req_no, value);
+		setConstString(offset + 159, $upd_srv_req_no, value);
 	}
 
 	public String getString(String name) {
@@ -9081,6 +9183,9 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		if ($itm_alc_grp.equalsIgnoreCase(name)) {
 			return itm_alc_grp();
 		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			return trace_tgt_typ();
+		}
 		if ($memo1.equalsIgnoreCase(name)) {
 			return memo1();
 		}
@@ -9290,6 +9395,9 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		}
 		if ($prov_upri_cng_flg.equalsIgnoreCase(name)) {
 			return prov_upri_cng_flg();
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			return unit_exp_flg();
 		}
 		if ($release_flg.equalsIgnoreCase(name)) {
 			return release_flg();
@@ -9575,6 +9683,9 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		if ($itm_alc_grp.equalsIgnoreCase(name)) {
 			return itm_alc_grp();
 		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			return trace_tgt_typ();
+		}
 		if ($memo1.equalsIgnoreCase(name)) {
 			return memo1();
 		}
@@ -9784,6 +9895,9 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		}
 		if ($prov_upri_cng_flg.equalsIgnoreCase(name)) {
 			return prov_upri_cng_flg();
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			return unit_exp_flg();
 		}
 		if ($release_flg.equalsIgnoreCase(name)) {
 			return release_flg();
@@ -10156,6 +10270,10 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		}
 		if ($itm_alc_grp.equalsIgnoreCase(name)) {
 			itm_alc_grp(value);
+			return;
+		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			trace_tgt_typ(value);
 			return;
 		}
 		if ($memo1.equalsIgnoreCase(name)) {
@@ -10722,6 +10840,10 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 			prov_upri_cng_flg(value);
 			return;
 		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			unit_exp_flg(value);
+			return;
+		}
 		if ($release_flg.equalsIgnoreCase(name)) {
 			release_flg(value);
 			return;
@@ -11096,6 +11218,10 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		}
 		if ($itm_alc_grp.equalsIgnoreCase(name)) {
 			itm_alc_grp(value);
+			return;
+		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			trace_tgt_typ(value);
 			return;
 		}
 		if ($memo1.equalsIgnoreCase(name)) {
@@ -11660,6 +11786,10 @@ public class MAVM_ITM_WG_R extends MCDBContainer {
 		}
 		if ($prov_upri_cng_flg.equalsIgnoreCase(name)) {
 			prov_upri_cng_flg(value);
+			return;
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			unit_exp_flg(value);
 			return;
 		}
 		if ($release_flg.equalsIgnoreCase(name)) {

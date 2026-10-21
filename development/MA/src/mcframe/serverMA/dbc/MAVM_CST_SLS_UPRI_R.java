@@ -466,6 +466,16 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
+ *  	<td>upri_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>単価区分</td>
+ *  	<td>Unit price type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
  *  	<td>row_id</td>
  *  	<td>C</td>
  *  	<td>20</td>
@@ -827,6 +837,14 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
 	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public static final String $upri_typ = "upri_typ";
+	private static final MCPermColumnInfo _upri_typ = createColumnInfo("upri_typ");
+	public final MCStringPermColumn upri_typ = createStringColumn(_upri_typ);
+	
+	/**
 	 * ROWID. ROW ID.<p>
 	 *
 	 */
@@ -876,6 +894,7 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta upri_typ_META = createCommonMeta($upri_typ, mcframe.commonMA.meta.MA_META.UPRI_TYP);
 	public static final MCMeta row_id_META = createCommonMeta($row_id, mcframe.commonMA.meta.MA_META.ROW_ID);
 
 	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
@@ -927,6 +946,7 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 			upd_ts_META,
 			upd_func_id_META,
 			upd_srv_req_no_META,
+			upri_typ_META,
 			row_id_META
 		},
 		new String[][]{
@@ -1606,6 +1626,21 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAVM_CST_SLS_UPRI_R.$upri_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAVM_CST_SLS_UPRI_R.$upri_typ,
+				"upri_typ",
+				upri_typ,
+				false,
+				true,
+				false,
 				false,
 				false,
 				""
@@ -2677,11 +2712,27 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 	}
 
 	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public String upri_typ() {
+		return getConstString(offset + 42, $upri_typ);
+	}
+
+	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public void upri_typ(String value) {
+		setConstString(offset + 42, $upri_typ, value);
+	}
+
+	/**
 	 * ROWID. ROW ID.<p>
 	 *
 	 */
 	public String row_id() {
-		return getConstString(offset + 42, $row_id);
+		return getConstString(offset + 43, $row_id);
 	}
 
 	/**
@@ -2689,7 +2740,7 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 	 *
 	 */
 	public void row_id(String value) {
-		setConstString(offset + 42, $row_id, value);
+		setConstString(offset + 43, $row_id, value);
 	}
 
 	public String getString(String name) {
@@ -2767,6 +2818,9 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($row_id.equalsIgnoreCase(name)) {
 			return row_id();
@@ -2916,6 +2970,9 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($row_id.equalsIgnoreCase(name)) {
 			return row_id();
@@ -3089,6 +3146,10 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($row_id.equalsIgnoreCase(name)) {
@@ -3441,6 +3502,10 @@ public class MAVM_CST_SLS_UPRI_R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($row_id.equalsIgnoreCase(name)) {

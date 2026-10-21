@@ -375,6 +375,16 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>Update request No.</td>
  *  </tr>
  *  <tr >
+ *  	<td>C</td>
+ *  	<td>wl_sale_upri</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕切単価</td>
+ *  	<td>Wholesale unit price</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
  *  	<td>K</td>
  *  	<td>apl_no</td>
  *  	<td>C</td>
@@ -384,7 +394,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>申請ＮＯ</td>
  *  	<td>Application No.</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>st_dt_bf</td>
  *  	<td>D</td>
@@ -394,7 +404,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>更新前適用開始日</td>
  *  	<td>Application start date before update</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>aprv_no</td>
  *  	<td>C</td>
@@ -404,7 +414,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>承認ＮＯ</td>
  *  	<td>Approval No.</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>ref_flg</td>
  *  	<td>F</td>
@@ -414,7 +424,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>反映済ＦＬＧ</td>
  *  	<td>Applied flg.</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>mst_apl_memo</td>
  *  	<td>C</td>
@@ -424,7 +434,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>申請メモ</td>
  *  	<td>Application memo</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>unit_nm</td>
  *  	<td>C</td>
@@ -434,7 +444,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>単位名</td>
  *  	<td>Unit name</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>cur_nm</td>
  *  	<td>C</td>
@@ -444,7 +454,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>通貨名</td>
  *  	<td>Currency name</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>wg_nm</td>
  *  	<td>C</td>
@@ -454,7 +464,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>ワーキンググループ名</td>
  *  	<td>WG name</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>itm_nm</td>
  *  	<td>C</td>
@@ -745,6 +755,14 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
 	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public static final String $wl_sale_upri = "wl_sale_upri";
+	private static final MCPermColumnInfo _wl_sale_upri = createColumnInfo("wl_sale_upri");
+	public final MCNumberPermColumn wl_sale_upri = createNumberColumn(_wl_sale_upri);
+	
+	/**
 	 * 申請ＮＯ. Application No..<p>
 	 *
 	 */
@@ -841,6 +859,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta wl_sale_upri_META = createCommonMeta($wl_sale_upri, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta apl_no_META = createCommonMeta($apl_no, mcframe.commonMA.meta.MA_META.APL_NO);
 	public static final MCMeta st_dt_bf_META = createCommonMeta($st_dt_bf, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta aprv_no_META = createCommonMeta($aprv_no, mcframe.commonMA.meta.MA_META.APRV_NO);
@@ -977,6 +996,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_ts_META,
 			upd_func_id_META,
 			upd_srv_req_no_META,
+			wl_sale_upri_META,
 			apl_no_META,
 			st_dt_bf_META,
 			aprv_no_META,
@@ -1529,6 +1549,21 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_STD_SLS_UPRI_APL_R.$wl_sale_upri,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MAM_STD_SLS_UPRI_APL_R.$wl_sale_upri,
+				"wl_sale_upri",
+				wl_sale_upri,
+				false,
+				true,
+				false,
 				false,
 				false,
 				""
@@ -2512,11 +2547,59 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	}
 
 	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public MCNumber wl_sale_upri() {
+		return getConstNumber(offset + 33, $wl_sale_upri);
+	}
+
+	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public void wl_sale_upri(MCNumber value) {
+		setConstNumber(offset + 33, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public void wl_sale_upri(int value) {
+		setConstNumber(offset + 33, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public void wl_sale_upri(long value) {
+		setConstNumber(offset + 33, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public void wl_sale_upri(float value) {
+		setConstNumber(offset + 33, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. Wholesale unit price.<p>
+	 *
+	 */
+	public void wl_sale_upri(double value) {
+		setConstNumber(offset + 33, $wl_sale_upri, value);
+	}
+	
+	/**
 	 * 申請ＮＯ. Application No..<p>
 	 *
 	 */
 	public String apl_no() {
-		return getConstString(offset + 33, $apl_no);
+		return getConstString(offset + 34, $apl_no);
 	}
 
 	/**
@@ -2524,7 +2607,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void apl_no(String value) {
-		setConstString(offset + 33, $apl_no, value);
+		setConstString(offset + 34, $apl_no, value);
 	}
 
 	/**
@@ -2532,7 +2615,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public MCDate st_dt_bf() {
-		return getConstDate(offset + 34, $st_dt_bf);
+		return getConstDate(offset + 35, $st_dt_bf);
 	}
 
 	/**
@@ -2540,7 +2623,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void st_dt_bf(MCDate value) {
-		setConstDate(offset + 34, $st_dt_bf, value);
+		setConstDate(offset + 35, $st_dt_bf, value);
 	}
 
 	/**
@@ -2548,7 +2631,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String aprv_no() {
-		return getConstString(offset + 35, $aprv_no);
+		return getConstString(offset + 36, $aprv_no);
 	}
 
 	/**
@@ -2556,7 +2639,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void aprv_no(String value) {
-		setConstString(offset + 35, $aprv_no, value);
+		setConstString(offset + 36, $aprv_no, value);
 	}
 
 	/**
@@ -2564,7 +2647,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public boolean ref_flg() {
-		return getConstBoolean(offset + 36, $ref_flg);
+		return getConstBoolean(offset + 37, $ref_flg);
 	}
 
 	/**
@@ -2572,7 +2655,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void ref_flg(boolean value) {
-		setConstBoolean(offset + 36, $ref_flg, value);
+		setConstBoolean(offset + 37, $ref_flg, value);
 	}
 
 	/**
@@ -2580,7 +2663,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String mst_apl_memo() {
-		return getConstString(offset + 37, $mst_apl_memo);
+		return getConstString(offset + 38, $mst_apl_memo);
 	}
 
 	/**
@@ -2588,7 +2671,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void mst_apl_memo(String value) {
-		setConstString(offset + 37, $mst_apl_memo, value);
+		setConstString(offset + 38, $mst_apl_memo, value);
 	}
 
 	/**
@@ -2596,7 +2679,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String unit_nm() {
-		return getConstString(offset + 38, $unit_nm);
+		return getConstString(offset + 39, $unit_nm);
 	}
 
 	/**
@@ -2604,7 +2687,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void unit_nm(String value) {
-		setConstString(offset + 38, $unit_nm, value);
+		setConstString(offset + 39, $unit_nm, value);
 	}
 
 	/**
@@ -2612,7 +2695,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String cur_nm() {
-		return getConstString(offset + 39, $cur_nm);
+		return getConstString(offset + 40, $cur_nm);
 	}
 
 	/**
@@ -2620,7 +2703,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void cur_nm(String value) {
-		setConstString(offset + 39, $cur_nm, value);
+		setConstString(offset + 40, $cur_nm, value);
 	}
 
 	/**
@@ -2628,7 +2711,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String wg_nm() {
-		return getConstString(offset + 40, $wg_nm);
+		return getConstString(offset + 41, $wg_nm);
 	}
 
 	/**
@@ -2636,7 +2719,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void wg_nm(String value) {
-		setConstString(offset + 40, $wg_nm, value);
+		setConstString(offset + 41, $wg_nm, value);
 	}
 
 	/**
@@ -2644,7 +2727,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 41, $itm_nm);
+		return getConstString(offset + 42, $itm_nm);
 	}
 
 	/**
@@ -2652,7 +2735,7 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 41, $itm_nm, value);
+		setConstString(offset + 42, $itm_nm, value);
 	}
 
 	public String getString(String name) {
@@ -2758,6 +2841,9 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
 		}
 		return super.getNumber(name);
 	}
@@ -2904,6 +2990,9 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
 		}
 		return super.getNumberNE(name);
 	}
@@ -3084,6 +3173,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -3114,6 +3207,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -3148,6 +3245,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -3180,6 +3281,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -3210,6 +3315,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -3400,6 +3509,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -3430,6 +3543,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -3464,6 +3581,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -3496,6 +3617,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -3526,6 +3651,10 @@ public class MAM_STD_SLS_UPRI_APL_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
 			return;
 		}
 		super.setNumberNE(name, value);

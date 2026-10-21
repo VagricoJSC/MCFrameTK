@@ -466,6 +466,16 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
+ *  	<td>upri_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>単価区分</td>
+ *  	<td>Unit price type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
  *  	<td>cst_nm</td>
  *  	<td>C</td>
  *  	<td>100</td>
@@ -474,7 +484,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>得意先名</td>
  *  	<td>Customer name</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>dlv_nm</td>
  *  	<td>C</td>
@@ -484,7 +494,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>納品先名</td>
  *  	<td>Delivery destination name</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>dest_nm1</td>
  *  	<td>C</td>
@@ -494,7 +504,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>仕向先名１</td>
  *  	<td>Distribution channel name 1</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>dest_nm2</td>
  *  	<td>C</td>
@@ -504,7 +514,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>仕向先名２</td>
  *  	<td>Distribution channel name 2</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>dest_nm3</td>
  *  	<td>C</td>
@@ -514,7 +524,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>仕向先名３</td>
  *  	<td>Distribution channel name 3</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>sls_upri_grp_nm</td>
  *  	<td>C</td>
@@ -524,7 +534,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>販売単価分類名</td>
  *  	<td>Sales unit price classification name</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>unit_nm</td>
  *  	<td>C</td>
@@ -534,7 +544,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>単位名</td>
  *  	<td>Unit name</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>cur_nm</td>
  *  	<td>C</td>
@@ -544,7 +554,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>通貨名</td>
  *  	<td>Currency name</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td>C</td>
  *  	<td>wg_nm</td>
  *  	<td>C</td>
@@ -554,7 +564,7 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>ワーキンググループ名</td>
  *  	<td>WG name</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
  *  	<td>itm_nm</td>
  *  	<td>C</td>
@@ -917,6 +927,14 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
 	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public static final String $upri_typ = "upri_typ";
+	private static final MCPermColumnInfo _upri_typ = createColumnInfo("upri_typ");
+	public final MCStringPermColumn upri_typ = createStringColumn(_upri_typ);
+	
+	/**
 	 * 得意先名. Customer name.<p>
 	 *
 	 */
@@ -1018,6 +1036,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta upri_typ_META = createCommonMeta($upri_typ, mcframe.commonMA.meta.MA_META.UPRI_TYP);
 	public static final MCMeta cst_nm_META = createCommonMeta($cst_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta dlv_nm_META = createCommonMeta($dlv_nm, mcframe.commonMA.meta.MA_META.BP_NM);
 	public static final MCMeta dest_nm1_META = createCommonMeta($dest_nm1, mcframe.commonMA.meta.MA_META.BP_NM);
@@ -1284,6 +1303,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 			upd_ts_META,
 			upd_func_id_META,
 			upd_srv_req_no_META,
+			upri_typ_META,
 			cst_nm_META,
 			dlv_nm_META,
 			dest_nm1_META,
@@ -1972,6 +1992,21 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_CST_SLS_UPRI__R.$upri_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_CST_SLS_UPRI__R.$upri_typ,
+				"upri_typ",
+				upri_typ,
+				false,
+				true,
+				false,
 				false,
 				false,
 				""
@@ -3178,11 +3213,27 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	}
 
 	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public String upri_typ() {
+		return getConstString(offset + 42, $upri_typ);
+	}
+
+	/**
+	 * 単価区分. Unit price type.<p>
+	 *
+	 */
+	public void upri_typ(String value) {
+		setConstString(offset + 42, $upri_typ, value);
+	}
+
+	/**
 	 * 得意先名. Customer name.<p>
 	 *
 	 */
 	public String cst_nm() {
-		return getConstString(offset + 42, $cst_nm);
+		return getConstString(offset + 43, $cst_nm);
 	}
 
 	/**
@@ -3190,7 +3241,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void cst_nm(String value) {
-		setConstString(offset + 42, $cst_nm, value);
+		setConstString(offset + 43, $cst_nm, value);
 	}
 
 	/**
@@ -3198,7 +3249,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String dlv_nm() {
-		return getConstString(offset + 43, $dlv_nm);
+		return getConstString(offset + 44, $dlv_nm);
 	}
 
 	/**
@@ -3206,7 +3257,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void dlv_nm(String value) {
-		setConstString(offset + 43, $dlv_nm, value);
+		setConstString(offset + 44, $dlv_nm, value);
 	}
 
 	/**
@@ -3214,7 +3265,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String dest_nm1() {
-		return getConstString(offset + 44, $dest_nm1);
+		return getConstString(offset + 45, $dest_nm1);
 	}
 
 	/**
@@ -3222,7 +3273,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void dest_nm1(String value) {
-		setConstString(offset + 44, $dest_nm1, value);
+		setConstString(offset + 45, $dest_nm1, value);
 	}
 
 	/**
@@ -3230,7 +3281,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String dest_nm2() {
-		return getConstString(offset + 45, $dest_nm2);
+		return getConstString(offset + 46, $dest_nm2);
 	}
 
 	/**
@@ -3238,7 +3289,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void dest_nm2(String value) {
-		setConstString(offset + 45, $dest_nm2, value);
+		setConstString(offset + 46, $dest_nm2, value);
 	}
 
 	/**
@@ -3246,7 +3297,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String dest_nm3() {
-		return getConstString(offset + 46, $dest_nm3);
+		return getConstString(offset + 47, $dest_nm3);
 	}
 
 	/**
@@ -3254,7 +3305,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void dest_nm3(String value) {
-		setConstString(offset + 46, $dest_nm3, value);
+		setConstString(offset + 47, $dest_nm3, value);
 	}
 
 	/**
@@ -3262,7 +3313,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String sls_upri_grp_nm() {
-		return getConstString(offset + 47, $sls_upri_grp_nm);
+		return getConstString(offset + 48, $sls_upri_grp_nm);
 	}
 
 	/**
@@ -3270,7 +3321,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void sls_upri_grp_nm(String value) {
-		setConstString(offset + 47, $sls_upri_grp_nm, value);
+		setConstString(offset + 48, $sls_upri_grp_nm, value);
 	}
 
 	/**
@@ -3278,7 +3329,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String unit_nm() {
-		return getConstString(offset + 48, $unit_nm);
+		return getConstString(offset + 49, $unit_nm);
 	}
 
 	/**
@@ -3286,7 +3337,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void unit_nm(String value) {
-		setConstString(offset + 48, $unit_nm, value);
+		setConstString(offset + 49, $unit_nm, value);
 	}
 
 	/**
@@ -3294,7 +3345,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String cur_nm() {
-		return getConstString(offset + 49, $cur_nm);
+		return getConstString(offset + 50, $cur_nm);
 	}
 
 	/**
@@ -3302,7 +3353,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void cur_nm(String value) {
-		setConstString(offset + 49, $cur_nm, value);
+		setConstString(offset + 50, $cur_nm, value);
 	}
 
 	/**
@@ -3310,7 +3361,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String wg_nm() {
-		return getConstString(offset + 50, $wg_nm);
+		return getConstString(offset + 51, $wg_nm);
 	}
 
 	/**
@@ -3318,7 +3369,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void wg_nm(String value) {
-		setConstString(offset + 50, $wg_nm, value);
+		setConstString(offset + 51, $wg_nm, value);
 	}
 
 	/**
@@ -3326,7 +3377,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 51, $itm_nm);
+		return getConstString(offset + 52, $itm_nm);
 	}
 
 	/**
@@ -3334,7 +3385,7 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 51, $itm_nm, value);
+		setConstString(offset + 52, $itm_nm, value);
 	}
 
 	public String getString(String name) {
@@ -3412,6 +3463,9 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
@@ -3588,6 +3642,9 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {
 			return cst_nm();
@@ -3788,6 +3845,10 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {
@@ -4176,6 +4237,10 @@ public class MAM_CST_SLS_UPRI__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($cst_nm.equalsIgnoreCase(name)) {

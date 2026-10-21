@@ -384,6 +384,26 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td>C</td>
+ *  	<td>trace_tgt_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>トレサビ対象区分</td>
+ *  	<td>Traceability target type</td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>unit_exp_flg</td>
+ *  	<td>F</td>
+ *  	<td></td>
+ *  	<td>N</td>
+ *  	<td></td>
+ *  	<td>ユニット展開ＦＬＧ</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
  *  	<td>itm_nm</td>
  *  	<td>C</td>
  *  	<td>100</td>
@@ -691,6 +711,22 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	public final MCStringPermColumn upd_srv_req_no = createStringColumn(_upd_srv_req_no);
 	
 	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public static final String $trace_tgt_typ = "trace_tgt_typ";
+	private static final MCPermColumnInfo _trace_tgt_typ = createColumnInfo("trace_tgt_typ");
+	public final MCStringPermColumn trace_tgt_typ = createStringColumn(_trace_tgt_typ);
+	
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public static final String $unit_exp_flg = "unit_exp_flg";
+	private static final MCPermColumnInfo _unit_exp_flg = createColumnInfo("unit_exp_flg");
+	public final MCBooleanPermColumn unit_exp_flg = createBooleanColumn(_unit_exp_flg);
+	
+	/**
 	 * 品名. Item name.<p>
 	 *
 	 */
@@ -736,6 +772,8 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	public static final MCMeta upd_ts_META = createCommonMeta($upd_ts, mcframe.commonMA.meta.MA_META.SYS_TS);
 	public static final MCMeta upd_func_id_META = createCommonMeta($upd_func_id, mcframe.commonMA.meta.MA_META.FUNC_ID);
 	public static final MCMeta upd_srv_req_no_META = createCommonMeta($upd_srv_req_no, mcframe.commonMA.meta.MA_META.SRV_REQ_NO);
+	public static final MCMeta trace_tgt_typ_META = createCommonMeta($trace_tgt_typ, mcframe.commonMA.meta.MA_META.TRACE_TGT_TYP);
+	public static final MCMeta unit_exp_flg_META = createCommonMeta($unit_exp_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta itm_nm_META = createCommonMeta($itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
 	public static final MCMeta wg_nm_META = createCommonMeta($wg_nm, mcframe.commonMA.meta.MA_META.WG_NM);
 
@@ -826,6 +864,8 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 			upd_ts_META,
 			upd_func_id_META,
 			upd_srv_req_no_META,
+			trace_tgt_typ_META,
+			unit_exp_flg_META,
 			itm_nm_META,
 			wg_nm_META
 		},
@@ -1386,6 +1426,36 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 				false,
 				true,
 				true,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_WG__R.$trace_tgt_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MAM_ITM_WG__R.$trace_tgt_typ,
+				"trace_tgt_typ",
+				trace_tgt_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MAM_ITM_WG__R.$unit_exp_flg,
+			new MCDBContainerColulmnInfo<MCBooleanPermColumn>(
+				MCDataType.BOOLEAN,
+				MAM_ITM_WG__R.$unit_exp_flg,
+				"unit_exp_flg",
+				unit_exp_flg,
+				false,
+				false,
+				false,
 				false,
 				false,
 				""
@@ -2248,11 +2318,43 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	}
 
 	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public String trace_tgt_typ() {
+		return getConstString(offset + 34, $trace_tgt_typ);
+	}
+
+	/**
+	 * トレサビ対象区分. Traceability target type.<p>
+	 *
+	 */
+	public void trace_tgt_typ(String value) {
+		setConstString(offset + 34, $trace_tgt_typ, value);
+	}
+
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public boolean unit_exp_flg() {
+		return getConstBoolean(offset + 35, $unit_exp_flg);
+	}
+
+	/**
+	 * ユニット展開ＦＬＧ. .<p>
+	 *
+	 */
+	public void unit_exp_flg(boolean value) {
+		setConstBoolean(offset + 35, $unit_exp_flg, value);
+	}
+
+	/**
 	 * 品名. Item name.<p>
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 34, $itm_nm);
+		return getConstString(offset + 36, $itm_nm);
 	}
 
 	/**
@@ -2260,7 +2362,7 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 34, $itm_nm, value);
+		setConstString(offset + 36, $itm_nm, value);
 	}
 
 	/**
@@ -2268,7 +2370,7 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	 *
 	 */
 	public String wg_nm() {
-		return getConstString(offset + 35, $wg_nm);
+		return getConstString(offset + 37, $wg_nm);
 	}
 
 	/**
@@ -2276,7 +2378,7 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	 *
 	 */
 	public void wg_nm(String value) {
-		setConstString(offset + 35, $wg_nm, value);
+		setConstString(offset + 37, $wg_nm, value);
 	}
 
 	public String getString(String name) {
@@ -2352,6 +2454,9 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			return trace_tgt_typ();
+		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
 		}
@@ -2399,6 +2504,9 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	public boolean getBoolean(String name) {
 		if ($del_flg.equalsIgnoreCase(name)) {
 			return del_flg();
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			return unit_exp_flg();
 		}
 		return super.getBoolean(name);
 	}
@@ -2476,6 +2584,9 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			return trace_tgt_typ();
+		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
 		}
@@ -2523,6 +2634,9 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	public boolean getBooleanNE(String name) {
 		if ($del_flg.equalsIgnoreCase(name)) {
 			return del_flg();
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			return unit_exp_flg();
 		}
 		return super.getBooleanNE(name);
 	}
@@ -2622,6 +2736,10 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			trace_tgt_typ(value);
 			return;
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
@@ -2796,6 +2914,10 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 			del_flg(value);
 			return;
 		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			unit_exp_flg(value);
+			return;
+		}
 		super.setBoolean(name, value);
 	}
 
@@ -2894,6 +3016,10 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 		}
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			upd_srv_req_no(value);
+			return;
+		}
+		if ($trace_tgt_typ.equalsIgnoreCase(name)) {
+			trace_tgt_typ(value);
 			return;
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
@@ -3066,6 +3192,10 @@ public class MAM_ITM_WG__R extends MCDBContainer {
 	public void setBooleanNE(String name, boolean value) {
 		if ($del_flg.equalsIgnoreCase(name)) {
 			del_flg(value);
+			return;
+		}
+		if ($unit_exp_flg.equalsIgnoreCase(name)) {
+			unit_exp_flg(value);
 			return;
 		}
 		super.setBooleanNE(name, value);
