@@ -169,5 +169,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			super(p, b);
 		}
 	}
+	
+	public MCTable<?> getDtlTable() {
+		return DtlTable;
+	}
 //FMCB CUSTOM END
 }

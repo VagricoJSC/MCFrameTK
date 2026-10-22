@@ -41,6 +41,7 @@ import static mcframe.commonMS.notice.MS_Msg.*;
 import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
 //FMCB IMPORT START
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg;
 
 //FMCB IMPORT END
 
@@ -72,6 +73,8 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	}
 
 //FMCB CUSTOM START
+	protected MSBBP_SloReg sloRegPanel = null;
+	
 	/**
 	 * Panel[Btn]のボタン[select_all]の押下時の処理
 	 */
@@ -91,7 +94,19 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	 */
 	@Override
 	public void doBtn_rgst(MCEventInfo info) {
+		MSBBP_SloReg sloRegPanel = getTargetPanel();
+		if (sloRegPanel == null) {
+			return;
+		}
+		
+		MCTable<?> sloDtlTable = sloRegPanel.getDtlTable();
+		
+		// TODO テーブル更新
+		
+		statusClear();
+		requestCloseWindow();
 	}
+	
 
 	/**
 	 * [MS_MSBBLA0020_Srch01]の定型処理のInnerClass
@@ -110,5 +125,37 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	public void doCtrl_ctrl_Ope_srch(MCEventInfo info) {
 		callMS_MSBBLA0020_Srch01();
 	}
+	
+	/**
+	 * 表示元画面を取得する。
+	 *
+	 * @return 表示元画面
+	 */
+	protected MSBBP_SloReg getTargetPanel() {
+		if (sloRegPanel == null) {
+			// 呼び出し元画面の取得
+			MCRootPanel p = null;
+			try {
+				p = getParentPanel();
+			}
+			catch (Exception pe) {
+				throw new MCAppException(pe, MSBEP0017, getModuleID(), getScreenID());
+			}
+
+			// 取得チェック
+			if (p == null) {
+				throw new MCAppException(MSBEP0017, getModuleID(), getScreenID());
+			}
+			else if (!(p instanceof MSBBP_SloReg)) {
+				throw new MCAppException(MSBEP0018, getModuleID(), getScreenID(), p.getClass().getName());
+			}
+			else {
+				sloRegPanel = (MSBBP_SloReg) p;
+			}
+		}
+
+		return sloRegPanel;
+	}
+	
 //FMCB CUSTOM END
 }
