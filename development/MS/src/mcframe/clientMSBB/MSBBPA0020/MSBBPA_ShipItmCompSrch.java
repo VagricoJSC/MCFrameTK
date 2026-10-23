@@ -79,6 +79,7 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	 */
 	@Override
 	public void doBtn_select_all(MCEventInfo info) {
+		doSelectAll(RsltTable);
 	}
 
 	/**
@@ -86,6 +87,7 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 	 */
 	@Override
 	public void doBtn_deselect_all(MCEventInfo info) {
+		doDeselectAll(RsltTable);
 	}
 
 	/**
