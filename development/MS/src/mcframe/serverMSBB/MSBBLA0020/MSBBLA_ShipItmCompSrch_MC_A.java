@@ -215,6 +215,7 @@ abstract public class MSBBLA_ShipItmCompSrch_MC_A extends mcframe.serverMSUD.MSU
 		 * 	<tr><td><br></td><td>prod_itm_sub2</td></tr>
 		 * 	<tr><td><br></td><td>prod_itm_sub3</td></tr>
 		 * 	<tr><td><br></td><td>prod_itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>surv_line_qty</td></tr>
 		 * 	<tr><td><br></td><td>diameter</td></tr>
 		 * 	<tr><td><br></td><td>itm_cd</td></tr>
 		 * 	<tr><td><br></td><td>itm_sub1</td></tr>
@@ -248,6 +249,8 @@ abstract public class MSBBLA_ShipItmCompSrch_MC_A extends mcframe.serverMSUD.MSU
 		 * 	<tr><td><br></td><td>itm_sub2</td></tr>
 		 * 	<tr><td><br></td><td>itm_sub3</td></tr>
 		 * 	<tr><td><br></td><td>itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>base_unit_cd</td></tr>
+		 * 	<tr><td><br></td><td>base_unit_nm</td></tr>
 		 * 	<tr><td><br></td><td>qty</td></tr>
 		 * 	<tr><td><br></td><td>spec_cd</td></tr>
 		 * 	<tr><td><br></td><td>body_flg</td></tr>

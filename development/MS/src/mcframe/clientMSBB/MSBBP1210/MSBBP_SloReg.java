@@ -105,8 +105,16 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 */
 	@Override
 	public void doHdr_bom_exp_btn(MCEventInfo info) {
-		// TODO
 		MCRow bind = MCRow.create();
+		
+		bind.addStringColumn("par_itm_cd", Hdr_par_itm_cd.getValue());
+		bind.addStringColumn("par_itm_sub1", Hdr_par_itm_sub1.getValue());
+		bind.addStringColumn("par_itm_sub2", Hdr_par_itm_sub2.getValue());
+		bind.addStringColumn("par_itm_sub3", Hdr_par_itm_sub3.getValue());
+		bind.addStringColumn("par_itm_nm", Hdr_par_itm_nm.getValue());
+		bind.addStringColumn("surv_line_qty", Hdr_surv_line_qty.getValue());
+		bind.addStringColumn("diameter", Hdr_diameter.getValue());
+		
 		openModalPanel("MS", "MSBBPA0020", T1, bind, this);
 	}
 

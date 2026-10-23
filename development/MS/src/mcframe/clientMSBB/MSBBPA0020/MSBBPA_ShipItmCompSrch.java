@@ -207,5 +207,21 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		sloDtlTable.selectLeftmostColumn(0);
 		sloDtlTable.fillSpace();
 	}
+	
+	@Override
+	protected void initByScreenParam(String openTyp, MCRow bind, Object... param) {
+		super.initByScreenParam(openTyp, bind, param);
+
+		if (T1 == openTyp) {
+			Cnd_par_itm_cd.setValue(bind.getStringNE("par_itm_cd"));
+			setValueEx(Cnd_par_itm_sub1, bind.getStringNE("par_itm_sub1"));
+			setValueEx(Cnd_par_itm_sub2, bind.getStringNE("par_itm_sub2"));
+			setValueEx(Cnd_par_itm_sub3, bind.getStringNE("par_itm_sub3"));
+			setValueEx(Cnd_par_itm_nm, bind.getStringNE("par_itm_nm"));
+			setValueEx(Cnd_surv_line_qty, bind.getValueNE("surv_line_qty"));
+			setValueEx(Cnd_diameter, bind.getValueNE("diameter"));
+		}
+	}
+	
 //FMCB CUSTOM END
 }

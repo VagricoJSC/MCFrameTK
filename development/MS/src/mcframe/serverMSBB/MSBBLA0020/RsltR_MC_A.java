@@ -86,6 +86,16 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 */
 	public static final String $itm_nm = "itm_nm";
 	/**
+	 * Base unit cd. 基準単位ＣＤ.<p>
+	 *
+	 */
+	public static final String $base_unit_cd = "base_unit_cd";
+	/**
+	 * Base unit name 基準単位名.<p>
+	 *
+	 */
+	public static final String $base_unit_nm = "base_unit_nm";
+	/**
 	 * Item quantity 数量.<p>
 	 *
 	 */
@@ -124,6 +134,8 @@ abstract class RsltR_MC_A extends MCConstRow {
 	public static final MCMeta itm_sub2_META = createCommonMeta($itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
 	public static final MCMeta itm_sub3_META = createCommonMeta($itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
 	public static final MCMeta itm_nm_META = createCommonMeta($itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta base_unit_cd_META = createCommonMeta($base_unit_cd, mcframe.commonMA.meta.MA_META.UNIT_CD);
+	public static final MCMeta base_unit_nm_META = createCommonMeta($base_unit_nm, mcframe.commonMA.meta.MA_META.UNIT_NM);
 	public static final MCMeta qty_META = createCommonMeta($qty, mcframe.commonMA.meta.MA_META.QTY);
 	public static final MCMeta spec_cd_META = createCommonMeta($spec_cd, mcframe.commonMA.meta.MA_META.TK_SPEC_CD);
 	public static final MCMeta body_flg_META = createCommonMeta($body_flg, mcframe.commonMA.meta.MA_META.FLG);
@@ -145,6 +157,8 @@ abstract class RsltR_MC_A extends MCConstRow {
 			itm_sub2_META,
 			itm_sub3_META,
 			itm_nm_META,
+			base_unit_cd_META,
+			base_unit_nm_META,
 			qty_META,
 			spec_cd_META,
 			body_flg_META,
@@ -467,11 +481,45 @@ abstract class RsltR_MC_A extends MCConstRow {
 
 
 	/**
+	 * Base unit cd. 基準単位ＣＤ.<p>
+	 *
+	 */
+	public String base_unit_cd() {
+		return getConstString(offset + 12, $base_unit_cd);
+	}
+
+	/**
+	 * Base unit cd. 基準単位ＣＤ.<p>
+	 *
+	 */
+	public void base_unit_cd(String value) {
+		setConstString(offset + 12, $base_unit_cd, value);
+	}
+
+
+	/**
+	 * Base unit name 基準単位名.<p>
+	 *
+	 */
+	public String base_unit_nm() {
+		return getConstString(offset + 13, $base_unit_nm);
+	}
+
+	/**
+	 * Base unit name 基準単位名.<p>
+	 *
+	 */
+	public void base_unit_nm(String value) {
+		setConstString(offset + 13, $base_unit_nm, value);
+	}
+
+
+	/**
 	 * Item quantity 数量.<p>
 	 *
 	 */
 	public MCNumber qty() {
-		return getConstNumber(offset + 12, $qty);
+		return getConstNumber(offset + 14, $qty);
 	}
 
 	/**
@@ -479,7 +527,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(MCNumber value) {
-		setConstNumber(offset + 12, $qty, value);
+		setConstNumber(offset + 14, $qty, value);
 	}
 
 	/**
@@ -487,7 +535,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(int value) {
-		setConstNumber(offset + 12, $qty, value);
+		setConstNumber(offset + 14, $qty, value);
 	}
 
 	/**
@@ -495,7 +543,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(long value) {
-		setConstNumber(offset + 12, $qty, value);
+		setConstNumber(offset + 14, $qty, value);
 	}
 
 	/**
@@ -503,7 +551,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(float value) {
-		setConstNumber(offset + 12, $qty, value);
+		setConstNumber(offset + 14, $qty, value);
 	}
 
 	/**
@@ -511,7 +559,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qty(double value) {
-		setConstNumber(offset + 12, $qty, value);
+		setConstNumber(offset + 14, $qty, value);
 	}
 
 
@@ -520,7 +568,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String spec_cd() {
-		return getConstString(offset + 13, $spec_cd);
+		return getConstString(offset + 15, $spec_cd);
 	}
 
 	/**
@@ -528,7 +576,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void spec_cd(String value) {
-		setConstString(offset + 13, $spec_cd, value);
+		setConstString(offset + 15, $spec_cd, value);
 	}
 
 
@@ -537,7 +585,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean body_flg() {
-		return getConstBoolean(offset + 14, $body_flg);
+		return getConstBoolean(offset + 16, $body_flg);
 	}
 
 	/**
@@ -545,7 +593,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void body_flg(boolean value) {
-		setConstBoolean(offset + 14, $body_flg, value);
+		setConstBoolean(offset + 16, $body_flg, value);
 	}
 
 
@@ -554,7 +602,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean comp_flg() {
-		return getConstBoolean(offset + 15, $comp_flg);
+		return getConstBoolean(offset + 17, $comp_flg);
 	}
 
 	/**
@@ -562,7 +610,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void comp_flg(boolean value) {
-		setConstBoolean(offset + 15, $comp_flg, value);
+		setConstBoolean(offset + 17, $comp_flg, value);
 	}
 
 
@@ -571,7 +619,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_prnt_flg() {
-		return getConstBoolean(offset + 16, $ship_prnt_flg);
+		return getConstBoolean(offset + 18, $ship_prnt_flg);
 	}
 
 	/**
@@ -579,7 +627,7 @@ abstract class RsltR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_prnt_flg(boolean value) {
-		setConstBoolean(offset + 16, $ship_prnt_flg, value);
+		setConstBoolean(offset + 18, $ship_prnt_flg, value);
 	}
 
 
@@ -619,6 +667,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			return base_unit_cd();
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			return base_unit_nm();
 		}
 		if ($spec_cd.equalsIgnoreCase(name)) {
 			return spec_cd();
@@ -680,6 +734,12 @@ abstract class RsltR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			return itm_nm();
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			return base_unit_cd();
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			return base_unit_nm();
 		}
 		if ($spec_cd.equalsIgnoreCase(name)) {
 			return spec_cd();
@@ -752,6 +812,14 @@ abstract class RsltR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			itm_nm(value);
+			return;
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			base_unit_cd(value);
+			return;
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			base_unit_nm(value);
 			return;
 		}
 		if ($spec_cd.equalsIgnoreCase(name)) {
@@ -858,6 +926,14 @@ abstract class RsltR_MC_A extends MCConstRow {
 		}
 		if ($itm_nm.equalsIgnoreCase(name)) {
 			itm_nm(value);
+			return;
+		}
+		if ($base_unit_cd.equalsIgnoreCase(name)) {
+			base_unit_cd(value);
+			return;
+		}
+		if ($base_unit_nm.equalsIgnoreCase(name)) {
+			base_unit_nm(value);
 			return;
 		}
 		if ($spec_cd.equalsIgnoreCase(name)) {

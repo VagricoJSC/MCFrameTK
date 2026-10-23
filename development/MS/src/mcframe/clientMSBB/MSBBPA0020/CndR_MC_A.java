@@ -102,7 +102,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
 			new String[][]{
-				{$par_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.STK1"},	// par_itm_p.itm_cd
 				{$par_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd"},	// par_itm_p.itm_sub1
 				{$par_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1"},	// par_itm_p.itm_sub2
 				{$par_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1;itm_sub2"}	// par_itm_p.itm_sub3
@@ -110,7 +109,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		)),
 		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
 			new String[][]{
-				{$par_itm_p + ".itm_cd", "itm_is_srch_typ"},	// par_itm_p.itm_cd
 				{$par_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd"},	// par_itm_p.itm_sub1
 				{$par_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1"},	// par_itm_p.itm_sub2
 				{$par_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"}	// par_itm_p.itm_sub3

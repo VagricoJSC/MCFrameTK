@@ -136,6 +136,16 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCColumnConfig columnRslt_chd_itm_sub3;// [Rslt]の[chd_itm_p.itm_sub3]を[columnRslt_chd_itm_sub3]としてエイリアス定義。
 	public MCColumnConfig columnRslt_chd_itm_nm;// [Rslt]の[chd_itm_p.itm_nm]を[columnRslt_chd_itm_nm]としてエイリアス定義。
 	/**
+	 * Base unit cd. 基準単位ＣＤ.<p>
+	 *
+	 */
+	public MCColumnConfig columnRslt_base_unit_cd = null;
+	/**
+	 * Base unit name 基準単位名.<p>
+	 *
+	 */
+	public MCColumnConfig columnRslt_base_unit_nm = null;
+	/**
 	 * Item quantity 数量.<p>
 	 *
 	 */
@@ -491,20 +501,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	
-	/** [Cnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter]の定義 */
-	private MCListPutter Cnd_par_itm_p_PPanel_Itm_itm_cd_p = null;
-
-	/**
-	 * [Cnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter]の取得
-	 */
-	protected MCListPutter getCnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter() {
-		if (Cnd_par_itm_p_PPanel_Itm_itm_cd_p == null) {
-			Cnd_par_itm_p_PPanel_Itm_itm_cd_p = createCnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter(Cnd_par_itm_p_PPanel.Itm_itm_cd, "par_itm_cd", "par_itm_nm","par_itm_sub1","par_itm_sub2","par_itm_sub3");
-		}
-		return Cnd_par_itm_p_PPanel_Itm_itm_cd_p;
-	}
-	
-	
 	/** [Cnd_par_itm_p_PPanel_Itm_itm_sub1_ListPutter]の定義 */
 	private MCListPutter Cnd_par_itm_p_PPanel_Itm_itm_sub1_p = null;
 
@@ -678,6 +674,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_check = p.beansFactory.createTableColumn("Rslt.check", MCColumnType.CHECK);
 		p.columnRslt_surv_line_qty = p.beansFactory.createTableColumn("Rslt.surv_line_qty", MCColumnType.TEXT);
 		p.columnRslt_diameter = p.beansFactory.createTableColumn("Rslt.diameter", MCColumnType.TEXT);
+		p.columnRslt_base_unit_cd = p.beansFactory.createTableColumn("Rslt.base_unit_cd", MCColumnType.TEXT);
+		p.columnRslt_base_unit_nm = p.beansFactory.createTableColumn("Rslt.base_unit_nm", MCColumnType.TEXT);
 		p.columnRslt_qty = p.beansFactory.createTableColumn("Rslt.qty", MCColumnType.NUMBER);
 		p.columnRslt_spec_cd = p.beansFactory.createTableColumn("Rslt.spec_cd", MCColumnType.TEXT);
 		p.columnRslt_body_flg = p.beansFactory.createTableColumn("Rslt.body_flg", MCColumnType.CHECK);
@@ -776,7 +774,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_par_itm_p_PPanel.setNextBeans(p.Cnd_surv_line_qty);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_cd, true);
-		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setLinkBeans(p.Cnd_par_itm_nm,p.Cnd_par_itm_sub1,p.Cnd_par_itm_sub2,p.Cnd_par_itm_sub3);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_sub1, true);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setLinkBeans(p.Cnd_par_itm_nm,p.Cnd_par_itm_sub2,p.Cnd_par_itm_sub3);
@@ -940,7 +937,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 *  [Cnd]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitCnd(MSBBPA_ShipItmCompSrch p) {
-		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
@@ -973,6 +969,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_surv_line_qty.setListListener(p);
 		p.columnRslt_diameter.addAllListener(p);
 		p.columnRslt_diameter.setListListener(p);
+		p.columnRslt_base_unit_cd.addAllListener(p);
+		p.columnRslt_base_unit_cd.setListListener(p);
+		p.columnRslt_base_unit_nm.addAllListener(p);
+		p.columnRslt_base_unit_nm.setListListener(p);
 		p.columnRslt_qty.addAllListener(p);
 		p.columnRslt_qty.setListListener(p);
 		p.columnRslt_spec_cd.addAllListener(p);
@@ -1173,6 +1173,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_diameter.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.diameter_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_diameter);
 		p.RsltTable.addTable(p.Rslt_chd_itm_p_PPanel.ItmTable);
+		p.columnRslt_base_unit_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_cd_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_cd);
+		p.columnRslt_base_unit_nm.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.base_unit_nm_META);
+		p.RsltTable.addColumnConfig(p.columnRslt_base_unit_nm);
 		p.columnRslt_qty.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.qty_META);
 		p.RsltTable.addColumnConfig(p.columnRslt_qty);
 		p.columnRslt_spec_cd.setMeta(mcframe.clientMSBB.MSBBPA0020.RsltR.spec_cd_META);
@@ -1190,7 +1194,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	protected void listInit() {
 		super.listInit();
-		Cnd_par_itm_p_PPanel.Itm_itm_cd.getListConfig().setPutter(getCnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter());
 		Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Cnd_par_itm_p_PPanel.Itm_itm_sub1.getListConfig().setPutter(getCnd_par_itm_p_PPanel_Itm_itm_sub1_ListPutter());
 		Cnd_par_itm_p_PPanel.Itm_itm_sub2.setListVisibleColumn(MCListLogic.getViewColumnName());
@@ -1234,15 +1237,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
-	 * [Cnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter]の作成
-	 */
-	protected MCListPutter createCnd_par_itm_p_PPanel_Itm_itm_cd_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.Itm");
-		return lp;
-	}
-
-	/**
 	 * [Cnd_par_itm_p_PPanel_Itm_itm_sub1_ListPutter]の作成
 	 */
 	protected MCListPutter createCnd_par_itm_p_PPanel_Itm_itm_sub1_ListPutter(MCLinkBeans compo, String... columns) {
@@ -1276,7 +1270,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCList getList(MCEventBeans combo, MCRow row, MCEventInfo info) {
 		MCList list = super.getList(combo, row, info);
 		if(list != null) return list;
-		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_cd) return getCnd_par_itm_p_PPanel_Itm_itm_cd(row, info);
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub1) return getCnd_par_itm_p_PPanel_Itm_itm_sub1(row, info);
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub2) return getCnd_par_itm_p_PPanel_Itm_itm_sub2(row, info);
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub3) return getCnd_par_itm_p_PPanel_Itm_itm_sub3(row, info);
@@ -1334,6 +1327,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if (vc == columnRslt_check) return doRslt_check_VC(info);
 		if (vc == columnRslt_surv_line_qty) return doRslt_surv_line_qty_VC(info);
 		if (vc == columnRslt_diameter) return doRslt_diameter_VC(info);
+		if (vc == columnRslt_base_unit_cd) return doRslt_base_unit_cd_VC(info);
+		if (vc == columnRslt_base_unit_nm) return doRslt_base_unit_nm_VC(info);
 		if (vc == columnRslt_qty) return doRslt_qty_VC(info);
 		if (vc == columnRslt_spec_cd) return doRslt_spec_cd_VC(info);
 		if (vc == columnRslt_body_flg) return doRslt_body_flg_VC(info);
@@ -1413,6 +1408,26 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
+	 * [Rslt]パネルの[base_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doRslt_base_unit_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Rslt]パネルの[base_unit_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doRslt_base_unit_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Rslt]パネルの[qty]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -1477,6 +1492,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		else if (nc == columnRslt_check) doRslt_check_NC(info);
 		else if (nc == columnRslt_surv_line_qty) doRslt_surv_line_qty_NC(info);
 		else if (nc == columnRslt_diameter) doRslt_diameter_NC(info);
+		else if (nc == columnRslt_base_unit_cd) doRslt_base_unit_cd_NC(info);
+		else if (nc == columnRslt_base_unit_nm) doRslt_base_unit_nm_NC(info);
 		else if (nc == columnRslt_qty) doRslt_qty_NC(info);
 		else if (nc == columnRslt_spec_cd) doRslt_spec_cd_NC(info);
 		else if (nc == columnRslt_body_flg) doRslt_body_flg_NC(info);
@@ -1541,6 +1558,22 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
+	 * [Rslt]パネルの[base_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[base_unit_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_nm_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Rslt]パネルの[qty]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -1595,6 +1628,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		else if (ne == columnRslt_check) doRslt_check_NE(info);
 		else if (ne == columnRslt_surv_line_qty) doRslt_surv_line_qty_NE(info);
 		else if (ne == columnRslt_diameter) doRslt_diameter_NE(info);
+		else if (ne == columnRslt_base_unit_cd) doRslt_base_unit_cd_NE(info);
+		else if (ne == columnRslt_base_unit_nm) doRslt_base_unit_nm_NE(info);
 		else if (ne == columnRslt_qty) doRslt_qty_NE(info);
 		else if (ne == columnRslt_spec_cd) doRslt_spec_cd_NE(info);
 		else if (ne == columnRslt_body_flg) doRslt_body_flg_NE(info);
@@ -1659,6 +1694,22 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
+	 * [Rslt]パネルの[base_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[base_unit_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_nm_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Rslt]パネルの[qty]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -1713,6 +1764,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		else if (nx == columnRslt_check) doRslt_check_NX(info);
 		else if (nx == columnRslt_surv_line_qty) doRslt_surv_line_qty_NX(info);
 		else if (nx == columnRslt_diameter) doRslt_diameter_NX(info);
+		else if (nx == columnRslt_base_unit_cd) doRslt_base_unit_cd_NX(info);
+		else if (nx == columnRslt_base_unit_nm) doRslt_base_unit_nm_NX(info);
 		else if (nx == columnRslt_qty) doRslt_qty_NX(info);
 		else if (nx == columnRslt_spec_cd) doRslt_spec_cd_NX(info);
 		else if (nx == columnRslt_body_flg) doRslt_body_flg_NX(info);
@@ -1777,6 +1830,22 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
+	 * [Rslt]パネルの[base_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[base_unit_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_nm_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Rslt]パネルの[qty]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -1828,6 +1897,8 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		else if (lc == Cnd_diameter) doCnd_diameter_LC(info);
 		else if (lc == columnRslt_surv_line_qty) doRslt_surv_line_qty_LC(info);
 		else if (lc == columnRslt_diameter) doRslt_diameter_LC(info);
+		else if (lc == columnRslt_base_unit_cd) doRslt_base_unit_cd_LC(info);
+		else if (lc == columnRslt_base_unit_nm) doRslt_base_unit_nm_LC(info);
 		else if (lc == columnRslt_qty) doRslt_qty_LC(info);
 		else if (lc == columnRslt_spec_cd) doRslt_spec_cd_LC(info);
 	}
@@ -1865,6 +1936,22 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	}
 
 	/**
+	 * [Rslt]パネルの[base_unit_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Rslt]パネルの[base_unit_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doRslt_base_unit_nm_LC(MCEventInfo info){
+	}
+
+	/**
 	 * [Rslt]パネルの[qty]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -1878,13 +1965,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doRslt_spec_cd_LC(MCEventInfo info){
-	}
-
-	/**
-	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_cd]の作成メソッド
-	 */
-	public MCList getCnd_par_itm_p_PPanel_Itm_itm_cd(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItm(row, info);
 	}
 
 	/**

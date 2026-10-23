@@ -51,6 +51,11 @@ abstract class CndR_MC_A extends MCConstRow {
 	 */
 	public static final String $prod_itm_nm = "prod_itm_nm";
 	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public static final String $surv_line_qty = "surv_line_qty";
+	/**
 	 * Diameter 口径.<p>
 	 *
 	 */
@@ -87,6 +92,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	public static final MCMeta prod_itm_sub2_META = createCommonMeta($prod_itm_sub2, mcframe.commonMA.meta.MA_META.ITM_SUB2);
 	public static final MCMeta prod_itm_sub3_META = createCommonMeta($prod_itm_sub3, mcframe.commonMA.meta.MA_META.ITM_SUB3);
 	public static final MCMeta prod_itm_nm_META = createCommonMeta($prod_itm_nm, mcframe.commonMA.meta.MA_META.ITM_NM);
+	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
 	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
 	public static final MCMeta itm_cd_META = createCommonMeta($itm_cd, mcframe.commonMA.meta.MA_META.ITM_CD);
 	public static final MCMeta itm_sub1_META = createCommonMeta($itm_sub1, mcframe.commonMA.meta.MA_META.ITM_SUB1);
@@ -102,6 +108,7 @@ abstract class CndR_MC_A extends MCConstRow {
 			prod_itm_sub2_META,
 			prod_itm_sub3_META,
 			prod_itm_nm_META,
+			surv_line_qty_META,
 			diameter_META,
 			itm_cd_META,
 			itm_sub1_META,
@@ -306,11 +313,28 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public String surv_line_qty() {
+		return getConstString(offset + 5, $surv_line_qty);
+	}
+
+	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public void surv_line_qty(String value) {
+		setConstString(offset + 5, $surv_line_qty, value);
+	}
+
+
+	/**
 	 * Diameter 口径.<p>
 	 *
 	 */
 	public String diameter() {
-		return getConstString(offset + 5, $diameter);
+		return getConstString(offset + 6, $diameter);
 	}
 
 	/**
@@ -318,7 +342,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void diameter(String value) {
-		setConstString(offset + 5, $diameter, value);
+		setConstString(offset + 6, $diameter, value);
 	}
 
 
@@ -327,7 +351,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_cd() {
-		return getConstString(offset + 6, $itm_cd);
+		return getConstString(offset + 7, $itm_cd);
 	}
 
 	/**
@@ -335,7 +359,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_cd(String value) {
-		setConstString(offset + 6, $itm_cd, value);
+		setConstString(offset + 7, $itm_cd, value);
 	}
 
 
@@ -344,7 +368,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub1() {
-		return getConstString(offset + 7, $itm_sub1);
+		return getConstString(offset + 8, $itm_sub1);
 	}
 
 	/**
@@ -352,7 +376,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub1(String value) {
-		setConstString(offset + 7, $itm_sub1, value);
+		setConstString(offset + 8, $itm_sub1, value);
 	}
 
 
@@ -361,7 +385,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub2() {
-		return getConstString(offset + 8, $itm_sub2);
+		return getConstString(offset + 9, $itm_sub2);
 	}
 
 	/**
@@ -369,7 +393,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub2(String value) {
-		setConstString(offset + 8, $itm_sub2, value);
+		setConstString(offset + 9, $itm_sub2, value);
 	}
 
 
@@ -378,7 +402,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_sub3() {
-		return getConstString(offset + 9, $itm_sub3);
+		return getConstString(offset + 10, $itm_sub3);
 	}
 
 	/**
@@ -386,7 +410,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_sub3(String value) {
-		setConstString(offset + 9, $itm_sub3, value);
+		setConstString(offset + 10, $itm_sub3, value);
 	}
 
 
@@ -395,7 +419,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String itm_nm() {
-		return getConstString(offset + 10, $itm_nm);
+		return getConstString(offset + 11, $itm_nm);
 	}
 
 	/**
@@ -403,7 +427,7 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void itm_nm(String value) {
-		setConstString(offset + 10, $itm_nm, value);
+		setConstString(offset + 11, $itm_nm, value);
 	}
 
 
@@ -422,6 +446,9 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($prod_itm_nm.equalsIgnoreCase(name)) {
 			return prod_itm_nm();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
 		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			return diameter();
@@ -459,6 +486,9 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($prod_itm_nm.equalsIgnoreCase(name)) {
 			return prod_itm_nm();
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
 		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			return diameter();
@@ -500,6 +530,10 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($prod_itm_nm.equalsIgnoreCase(name)) {
 			prod_itm_nm(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
 			return;
 		}
 		if ($diameter.equalsIgnoreCase(name)) {
@@ -548,6 +582,10 @@ abstract class CndR_MC_A extends MCConstRow {
 		}
 		if ($prod_itm_nm.equalsIgnoreCase(name)) {
 			prod_itm_nm(value);
+			return;
+		}
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
 			return;
 		}
 		if ($diameter.equalsIgnoreCase(name)) {
