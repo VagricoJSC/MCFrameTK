@@ -222,6 +222,11 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			setValueEx(Cnd_par_itm_nm, bind.getStringNE("par_itm_nm"));
 			setValueEx(Cnd_surv_line_qty, bind.getValueNE("surv_line_qty"));
 			setValueEx(Cnd_diameter, bind.getValueNE("diameter"));
+			
+			// 検索実行
+			if (getTargetPanel().isSrch(openTyp, bind, param)) {
+				addDoBehind(Ctrl_ctrl_PPanel.Ope_srch);
+			}			
 		}
 	}
 	
