@@ -42,7 +42,6 @@ import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
 //FMCB IMPORT START
 import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg;
-
 //FMCB IMPORT END
 
 /**
@@ -208,6 +207,5 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		sloDtlTable.selectLeftmostColumn(0);
 		sloDtlTable.fillSpace();
 	}
-	
 //FMCB CUSTOM END
 }

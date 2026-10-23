@@ -28,33 +28,32 @@ abstract class CndR_MC_A extends MCConstRow {
 
 	public static final String $par_itm_p = "par_itm_p";
 	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public static final String $surv_line_qty = "surv_line_qty";
+	/**
 	 * Diameter 口径.<p>
 	 *
 	 */
 	public static final String $diameter = "diameter";
-	public static final String $chd_itm_p = "chd_itm_p";
 
 	public static final String $par_itm_cd = $par_itm_p + ".itm_cd";
 	public static final String $par_itm_sub1 = $par_itm_p + ".itm_sub1";
 	public static final String $par_itm_sub2 = $par_itm_p + ".itm_sub2";
 	public static final String $par_itm_sub3 = $par_itm_p + ".itm_sub3";
 	public static final String $par_itm_nm = $par_itm_p + ".itm_nm";
-	public static final String $chd_itm_cd = $chd_itm_p + ".itm_cd";
-	public static final String $chd_itm_sub1 = $chd_itm_p + ".itm_sub1";
-	public static final String $chd_itm_sub2 = $chd_itm_p + ".itm_sub2";
-	public static final String $chd_itm_sub3 = $chd_itm_p + ".itm_sub3";
-	public static final String $chd_itm_nm = $chd_itm_p + ".itm_nm";
 
 	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
 	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
-	public static final MCMeta chd_itm_p_META = createInnerRowMeta($chd_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
 
 	protected static final ConstMetaList<CndR> constMetas = new ConstMetaList<CndR>(
 		MCConstRow.constMetas,
 		new MCMeta[]{
 			par_itm_p_META,
-			diameter_META,
-			chd_itm_p_META
+			surv_line_qty_META,
+			diameter_META
 		},
 		new String[][]{
 			{
@@ -62,24 +61,14 @@ abstract class CndR_MC_A extends MCConstRow {
 				"par_itm_sub1",
 				"par_itm_sub2",
 				"par_itm_sub3",
-				"par_itm_nm",
-				"chd_itm_cd",
-				"chd_itm_sub1",
-				"chd_itm_sub2",
-				"chd_itm_sub3",
-				"chd_itm_nm"
+				"par_itm_nm"
 			},
 			{
 				$par_itm_cd,
 				$par_itm_sub1,
 				$par_itm_sub2,
 				$par_itm_sub3,
-				$par_itm_nm,
-				$chd_itm_cd,
-				$chd_itm_sub1,
-				$chd_itm_sub2,
-				$chd_itm_sub3,
-				$chd_itm_nm
+				$par_itm_nm
 			}
 		}
 	);
@@ -116,11 +105,7 @@ abstract class CndR_MC_A extends MCConstRow {
 				{$par_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.STK1"},	// par_itm_p.itm_cd
 				{$par_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd"},	// par_itm_p.itm_sub1
 				{$par_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1"},	// par_itm_p.itm_sub2
-				{$par_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1;itm_sub2"},	// par_itm_p.itm_sub3
-				{$chd_itm_p + ".itm_cd", "MAC_ITM_IS_SRCH_TYP.STK1"},	// chd_itm_p.itm_cd
-				{$chd_itm_p + ".itm_sub1", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd"},	// chd_itm_p.itm_sub1
-				{$chd_itm_p + ".itm_sub2", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1"},	// chd_itm_p.itm_sub2
-				{$chd_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1;itm_sub2"}	// chd_itm_p.itm_sub3
+				{$par_itm_p + ".itm_sub3", "MAC_ITM_IS_SRCH_TYP.STK1;itm_cd;itm_sub1;itm_sub2"}	// par_itm_p.itm_sub3
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
@@ -128,11 +113,7 @@ abstract class CndR_MC_A extends MCConstRow {
 				{$par_itm_p + ".itm_cd", "itm_is_srch_typ"},	// par_itm_p.itm_cd
 				{$par_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd"},	// par_itm_p.itm_sub1
 				{$par_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1"},	// par_itm_p.itm_sub2
-				{$par_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"},	// par_itm_p.itm_sub3
-				{$chd_itm_p + ".itm_cd", "itm_is_srch_typ"},	// chd_itm_p.itm_cd
-				{$chd_itm_p + ".itm_sub1", "itm_is_srch_typ;itm_cd"},	// chd_itm_p.itm_sub1
-				{$chd_itm_p + ".itm_sub2", "itm_is_srch_typ;itm_cd;itm_sub1"},	// chd_itm_p.itm_sub2
-				{$chd_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"}	// chd_itm_p.itm_sub3
+				{$par_itm_p + ".itm_sub3", "itm_is_srch_typ;itm_cd;itm_sub1;itm_sub2"}	// par_itm_p.itm_sub3
 			}
 		)),
 		new MCExtMap.Entry($$DISP_CTL, new MCExtList(
@@ -241,11 +222,28 @@ abstract class CndR_MC_A extends MCConstRow {
 
 
 	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public String surv_line_qty() {
+		return getConstString(offset + 1, $surv_line_qty);
+	}
+
+	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public void surv_line_qty(String value) {
+		setConstString(offset + 1, $surv_line_qty, value);
+	}
+
+
+	/**
 	 * Diameter 口径.<p>
 	 *
 	 */
 	public String diameter() {
-		return getConstString(offset + 1, $diameter);
+		return getConstString(offset + 2, $diameter);
 	}
 
 	/**
@@ -253,20 +251,14 @@ abstract class CndR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void diameter(String value) {
-		setConstString(offset + 1, $diameter, value);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP0030.ItmR chd_itm_p(){
-		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 2, $chd_itm_p);
-	}
-	
-	public void chd_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
-		setConstInnerRow(offset + 2, $chd_itm_p, row);
+		setConstString(offset + 2, $diameter, value);
 	}
 
 
 	public String getString(String name) {
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			return diameter();
 		}
@@ -274,6 +266,9 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public String getStringNE(String name) {
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			return surv_line_qty();
+		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			return diameter();
 		}
@@ -281,6 +276,10 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public void setString(String name, String value) {
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			diameter(value);
 			return;
@@ -289,6 +288,10 @@ abstract class CndR_MC_A extends MCConstRow {
 	}
 
 	public void setStringNE(String name, String value) {
+		if ($surv_line_qty.equalsIgnoreCase(name)) {
+			surv_line_qty(value);
+			return;
+		}
 		if ($diameter.equalsIgnoreCase(name)) {
 			diameter(value);
 			return;
@@ -300,9 +303,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($par_itm_p.equalsIgnoreCase(name)) {
 			return par_itm_p();
 		}
-		if ($chd_itm_p.equalsIgnoreCase(name)) {
-			return chd_itm_p();
-		}
 		return super.getInnerRow(name);
 	}
 
@@ -310,12 +310,6 @@ abstract class CndR_MC_A extends MCConstRow {
 		if ($par_itm_p.equalsIgnoreCase(name)) {
 			par_itm_p(
 				((MCContainerMeta) par_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
-			);
-			return;
-		}
-		if ($chd_itm_p.equalsIgnoreCase(name)) {
-			chd_itm_p(
-				((MCContainerMeta) chd_itm_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0030.ItmR.class, value)
 			);
 			return;
 		}
@@ -401,86 +395,6 @@ abstract class CndR_MC_A extends MCConstRow {
 	 */
 	public void par_itm_nm(String value) {
 		par_itm_p().itm_nm(value);
-	}
-
-	/**
-	 * Child item cd. 子品目ＣＤ.<p>
-	 *
-	 */
-	public String chd_itm_cd() {
-		return chd_itm_p().itm_cd();
-	}
-
-	/**
-	 * Child item cd. 子品目ＣＤ.<p>
-	 *
-	 */
-	public void chd_itm_cd(String value) {
-		chd_itm_p().itm_cd(value);
-	}
-
-	/**
-	 * Child branch No. 1 子枝番１.<p>
-	 *
-	 */
-	public String chd_itm_sub1() {
-		return chd_itm_p().itm_sub1();
-	}
-
-	/**
-	 * Child branch No. 1 子枝番１.<p>
-	 *
-	 */
-	public void chd_itm_sub1(String value) {
-		chd_itm_p().itm_sub1(value);
-	}
-
-	/**
-	 * Child branch No. 2 子枝番２.<p>
-	 *
-	 */
-	public String chd_itm_sub2() {
-		return chd_itm_p().itm_sub2();
-	}
-
-	/**
-	 * Child branch No. 2 子枝番２.<p>
-	 *
-	 */
-	public void chd_itm_sub2(String value) {
-		chd_itm_p().itm_sub2(value);
-	}
-
-	/**
-	 * Child branch No. 3 子枝番３.<p>
-	 *
-	 */
-	public String chd_itm_sub3() {
-		return chd_itm_p().itm_sub3();
-	}
-
-	/**
-	 * Child branch No. 3 子枝番３.<p>
-	 *
-	 */
-	public void chd_itm_sub3(String value) {
-		chd_itm_p().itm_sub3(value);
-	}
-
-	/**
-	 * Child item name 子品名.<p>
-	 *
-	 */
-	public String chd_itm_nm() {
-		return chd_itm_p().itm_nm();
-	}
-
-	/**
-	 * Child item name 子品名.<p>
-	 *
-	 */
-	public void chd_itm_nm(String value) {
-		chd_itm_p().itm_nm(value);
 	}
 
 }

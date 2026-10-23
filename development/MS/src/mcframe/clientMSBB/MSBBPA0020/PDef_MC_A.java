@@ -46,11 +46,11 @@ abstract public class PDef_MC_A extends MCDef {
 				MCItemDef.create("par_itm_p" + ".itm_sub3", "prod_itm_sub3"),
 				MCItemDef.create("par_itm_p" + ".itm_nm", "prod_itm_nm"),
 				MCItemDef.IGNORE_ITEM("diameter"),
-				MCItemDef.create("chd_itm_p" + ".itm_cd", "itm_cd"),
-				MCItemDef.create("chd_itm_p" + ".itm_sub1", "itm_sub1"),
-				MCItemDef.create("chd_itm_p" + ".itm_sub2", "itm_sub2"),
-				MCItemDef.create("chd_itm_p" + ".itm_sub3", "itm_sub3"),
-				MCItemDef.create("chd_itm_p" + ".itm_nm", "itm_nm")
+				MCItemDef.IGNORE_ITEM("itm_cd"),
+				MCItemDef.IGNORE_ITEM("itm_sub1"),
+				MCItemDef.IGNORE_ITEM("itm_sub2"),
+				MCItemDef.IGNORE_ITEM("itm_sub3"),
+				MCItemDef.IGNORE_ITEM("itm_nm")
 			}
 			,
 			MCBlockDef.create("Cnd")

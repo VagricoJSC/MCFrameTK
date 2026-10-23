@@ -31,19 +31,19 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
+ *  	<td>surv_line_qty</td>
+ *  	<td>Product quantity</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SURV_LINE_QTY SURV_LINE_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
  *  	<td>diameter</td>
  *  	<td>Diameter</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DIAMETER DIAMETER}]</td>
  *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>chd_itm_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP0030.ItmR}</td>
  *  </tr>
  * </table>
  *

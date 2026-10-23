@@ -84,18 +84,18 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	public MCTextComboBox Cnd_par_itm_sub2;	// [Cnd]の[par_itm_p.itm_sub2]を[Cnd_par_itm_sub2]としてエイリアス定義。
 	public MCTextComboBox Cnd_par_itm_sub3;	// [Cnd]の[par_itm_p.itm_sub3]を[Cnd_par_itm_sub3]としてエイリアス定義。
 	public MCTextField Cnd_par_itm_nm;	// [Cnd]の[par_itm_p.itm_nm]を[Cnd_par_itm_nm]としてエイリアス定義。
+	public MCLabel Cnd_surv_line_qty_Label = null;
+	/**
+	 * Product quantity 測線数.<p>
+	 *
+	 */
+	public MCTextField Cnd_surv_line_qty = null;
 	public MCLabel Cnd_diameter_Label = null;
 	/**
 	 * Diameter 口径.<p>
 	 *
 	 */
 	public MCTextField Cnd_diameter = null;
-	public mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H Cnd_chd_itm_p_PPanel;
-	public MCTextField Cnd_chd_itm_cd;	// [Cnd]の[chd_itm_p.itm_cd]を[Cnd_chd_itm_cd]としてエイリアス定義。
-	public MCTextComboBox Cnd_chd_itm_sub1;	// [Cnd]の[chd_itm_p.itm_sub1]を[Cnd_chd_itm_sub1]としてエイリアス定義。
-	public MCTextComboBox Cnd_chd_itm_sub2;	// [Cnd]の[chd_itm_p.itm_sub2]を[Cnd_chd_itm_sub2]としてエイリアス定義。
-	public MCTextComboBox Cnd_chd_itm_sub3;	// [Cnd]の[chd_itm_p.itm_sub3]を[Cnd_chd_itm_sub3]としてエイリアス定義。
-	public MCTextField Cnd_chd_itm_nm;	// [Cnd]の[chd_itm_p.itm_nm]を[Cnd_chd_itm_nm]としてエイリアス定義。
 	// [Cnd2]ブロック関連のField定義
 	public MCPanel Cnd2Panel = null;
 	// [Cnd2]ブロックの項目のField定義
@@ -426,18 +426,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_par_itm_sub3.addAliasName("Cnd.par_itm_sub3", p);
 		p.Cnd_par_itm_nm = p.Cnd_par_itm_p_PPanel.Itm_itm_nm;
 		p.Cnd_par_itm_nm.addAliasName("Cnd.par_itm_nm", p);
-		p.Cnd_chd_itm_p_PPanel = mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.create(p.getCndR().chd_itm_p());
-		p.Cnd_chd_itm_p_PPanel.setName("Cnd.chd_itm_p");
-		p.Cnd_chd_itm_cd = p.Cnd_chd_itm_p_PPanel.Itm_itm_cd;
-		p.Cnd_chd_itm_cd.addAliasName("Cnd.chd_itm_cd", p);
-		p.Cnd_chd_itm_sub1 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1;
-		p.Cnd_chd_itm_sub1.addAliasName("Cnd.chd_itm_sub1", p);
-		p.Cnd_chd_itm_sub2 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2;
-		p.Cnd_chd_itm_sub2.addAliasName("Cnd.chd_itm_sub2", p);
-		p.Cnd_chd_itm_sub3 = p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3;
-		p.Cnd_chd_itm_sub3.addAliasName("Cnd.chd_itm_sub3", p);
-		p.Cnd_chd_itm_nm = p.Cnd_chd_itm_p_PPanel.Itm_itm_nm;
-		p.Cnd_chd_itm_nm.addAliasName("Cnd.chd_itm_nm", p);
 	}
 
 	/**
@@ -558,62 +546,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		return Cnd_par_itm_p_PPanel_Itm_itm_sub3_p;
 	}
 	
-	
-	/** [Cnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter]の定義 */
-	private MCListPutter Cnd_chd_itm_p_PPanel_Itm_itm_cd_p = null;
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter]の取得
-	 */
-	protected MCListPutter getCnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter() {
-		if (Cnd_chd_itm_p_PPanel_Itm_itm_cd_p == null) {
-			Cnd_chd_itm_p_PPanel_Itm_itm_cd_p = createCnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter(Cnd_chd_itm_p_PPanel.Itm_itm_cd, "chd_itm_cd", "chd_itm_nm","chd_itm_sub1","chd_itm_sub2","chd_itm_sub3");
-		}
-		return Cnd_chd_itm_p_PPanel_Itm_itm_cd_p;
-	}
-	
-	
-	/** [Cnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter]の定義 */
-	private MCListPutter Cnd_chd_itm_p_PPanel_Itm_itm_sub1_p = null;
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter]の取得
-	 */
-	protected MCListPutter getCnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter() {
-		if (Cnd_chd_itm_p_PPanel_Itm_itm_sub1_p == null) {
-			Cnd_chd_itm_p_PPanel_Itm_itm_sub1_p = createCnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter(Cnd_chd_itm_p_PPanel.Itm_itm_sub1, "chd_itm_sub1", "chd_itm_nm","chd_itm_sub2","chd_itm_sub3");
-		}
-		return Cnd_chd_itm_p_PPanel_Itm_itm_sub1_p;
-	}
-	
-	
-	/** [Cnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter]の定義 */
-	private MCListPutter Cnd_chd_itm_p_PPanel_Itm_itm_sub2_p = null;
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter]の取得
-	 */
-	protected MCListPutter getCnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter() {
-		if (Cnd_chd_itm_p_PPanel_Itm_itm_sub2_p == null) {
-			Cnd_chd_itm_p_PPanel_Itm_itm_sub2_p = createCnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter(Cnd_chd_itm_p_PPanel.Itm_itm_sub2, "chd_itm_sub2", "chd_itm_nm","chd_itm_sub3");
-		}
-		return Cnd_chd_itm_p_PPanel_Itm_itm_sub2_p;
-	}
-	
-	
-	/** [Cnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter]の定義 */
-	private MCListPutter Cnd_chd_itm_p_PPanel_Itm_itm_sub3_p = null;
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter]の取得
-	 */
-	protected MCListPutter getCnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter() {
-		if (Cnd_chd_itm_p_PPanel_Itm_itm_sub3_p == null) {
-			Cnd_chd_itm_p_PPanel_Itm_itm_sub3_p = createCnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter(Cnd_chd_itm_p_PPanel.Itm_itm_sub3, "chd_itm_sub3", "chd_itm_nm");
-		}
-		return Cnd_chd_itm_p_PPanel_Itm_itm_sub3_p;
-	}
-	
 
 	/**
 	 * この画面を埋め込み画面として作成します。
@@ -708,6 +640,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		// ブロック関連の初期化
 		p.CndPanel = p.beansFactory.createPanel("Cnd");
 		// ブロックの項目の初期化
+		p.Cnd_surv_line_qty_Label = p.beansFactory.createLabel("Cnd.surv_line_qty_Label");
+		p.Cnd_surv_line_qty = p.beansFactory.createTextField("Cnd.surv_line_qty");
+		p.Cnd_surv_line_qty.setLabel(p.Cnd_surv_line_qty_Label);
 		p.Cnd_diameter_Label = p.beansFactory.createLabel("Cnd.diameter_Label");
 		p.Cnd_diameter = p.beansFactory.createTextField("Cnd.diameter");
 		p.Cnd_diameter.setLabel(p.Cnd_diameter_Label);
@@ -838,7 +773,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		// ブロックの項目の初期化
 		p.CndPanel.add(p.Cnd_par_itm_p_PPanel);
 		p.CndPanel.setLastBeans(p.Cnd_par_itm_p_PPanel);
-		p.Cnd_par_itm_p_PPanel.setNextBeans(p.Cnd_diameter);
+		p.Cnd_par_itm_p_PPanel.setNextBeans(p.Cnd_surv_line_qty);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_cd, true);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_cd.setLinkBeans(p.Cnd_par_itm_nm,p.Cnd_par_itm_sub1,p.Cnd_par_itm_sub2,p.Cnd_par_itm_sub3);
@@ -852,24 +787,13 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_sub3, true);
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub3.setLinkBeans(p.Cnd_par_itm_nm);
 		p.setPluralValueEnable(p.Cnd_par_itm_p_PPanel.Itm_itm_nm, true);
+		p.CndPanel.add(p.Cnd_surv_line_qty_Label);
+		p.CndPanel.add(p.Cnd_surv_line_qty);
+		p.Cnd_surv_line_qty.setNextBeans(p.Cnd_diameter);
+		p.Cnd_surv_line_qty.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.surv_line_qty_META);
 		p.CndPanel.add(p.Cnd_diameter_Label);
 		p.CndPanel.add(p.Cnd_diameter);
-		p.Cnd_diameter.setNextBeans(p.Cnd_chd_itm_p_PPanel);
 		p.Cnd_diameter.setRow(p.getCndR(), mcframe.clientMSBB.MSBBPA0020.CndR.diameter_META);
-		p.CndPanel.add(p.Cnd_chd_itm_p_PPanel);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
-		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_cd, true);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_cd.setLinkBeans(p.Cnd_chd_itm_nm,p.Cnd_chd_itm_sub1,p.Cnd_chd_itm_sub2,p.Cnd_chd_itm_sub3);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
-		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1, true);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setLinkBeans(p.Cnd_chd_itm_nm,p.Cnd_chd_itm_sub2,p.Cnd_chd_itm_sub3);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListType(MCListType.FREE);
-		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2, true);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setLinkBeans(p.Cnd_chd_itm_nm,p.Cnd_chd_itm_sub3);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
-		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3, true);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setLinkBeans(p.Cnd_chd_itm_nm);
-		p.setPluralValueEnable(p.Cnd_chd_itm_p_PPanel.Itm_itm_nm, true);
 	}
 
 	/**
@@ -1020,12 +944,10 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Cnd_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Cnd_surv_line_qty.setListListener(p);
+		p.Cnd_surv_line_qty.addAllListener(p);
 		p.Cnd_diameter.setListListener(p);
 		p.Cnd_diameter.addAllListener(p);
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
-		p.Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 	}
 
 	/**
@@ -1104,8 +1026,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [NON_MOV]ステータスの[Cnd]ブロックのモードの設定
 	 */
 	protected static void statusInitNON__MOV_Cnd(MSBBPA_ShipItmCompSrch p){
-		p.Cnd_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_chd_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_par_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_surv_line_qty.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.Cnd_diameter.putMode(p, NON_MOV, MCMode.READ_ONLY);
 
 	}
 
@@ -1179,8 +1102,9 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * [STK_TRN]ステータスの[Cnd]ブロックのモードの設定
 	 */
 	protected static void statusInitSTK__TRN_Cnd(MSBBPA_ShipItmCompSrch p){
-		p.Cnd_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
-		p.Cnd_chd_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.ENABLE_SRCH);
+		p.Cnd_par_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP0030.MAUBP_Itm_H.READ_ONLY);
+		p.Cnd_surv_line_qty.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.Cnd_diameter.putMode(p, STK_TRN, MCMode.READ_ONLY);
 
 	}
 
@@ -1273,13 +1197,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		Cnd_par_itm_p_PPanel.Itm_itm_sub2.getListConfig().setPutter(getCnd_par_itm_p_PPanel_Itm_itm_sub2_ListPutter());
 		Cnd_par_itm_p_PPanel.Itm_itm_sub3.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Cnd_par_itm_p_PPanel.Itm_itm_sub3.getListConfig().setPutter(getCnd_par_itm_p_PPanel_Itm_itm_sub3_ListPutter());
-		Cnd_chd_itm_p_PPanel.Itm_itm_cd.getListConfig().setPutter(getCnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub1.getListConfig().setPutter(getCnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub2.setListVisibleColumn(MCListLogic.getViewColumnName());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub2.getListConfig().setPutter(getCnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub3.setListVisibleColumn(MCListLogic.getViewColumnName());
-		Cnd_chd_itm_p_PPanel.Itm_itm_sub3.getListConfig().setPutter(getCnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter());
 	}
 
 	/**
@@ -1352,42 +1269,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		return lp;
 	}
 
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter]の作成
-	 */
-	protected MCListPutter createCnd_chd_itm_p_PPanel_Itm_itm_cd_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.Itm");
-		return lp;
-	}
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter]の作成
-	 */
-	protected MCListPutter createCnd_chd_itm_p_PPanel_Itm_itm_sub1_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.ItmSub1");
-		return lp;
-	}
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter]の作成
-	 */
-	protected MCListPutter createCnd_chd_itm_p_PPanel_Itm_itm_sub2_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.ItmSub2");
-		return lp;
-	}
-
-	/**
-	 * [Cnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter]の作成
-	 */
-	protected MCListPutter createCnd_chd_itm_p_PPanel_Itm_itm_sub3_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.ItmSub3");
-		return lp;
-	}
-
 
 	/**
 	 * リストを保持する画面部品のリストを返します。
@@ -1399,10 +1280,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub1) return getCnd_par_itm_p_PPanel_Itm_itm_sub1(row, info);
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub2) return getCnd_par_itm_p_PPanel_Itm_itm_sub2(row, info);
 		if(combo == Cnd_par_itm_p_PPanel.Itm_itm_sub3) return getCnd_par_itm_p_PPanel_Itm_itm_sub3(row, info);
-		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_cd) return getCnd_chd_itm_p_PPanel_Itm_itm_cd(row, info);
-		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub1) return getCnd_chd_itm_p_PPanel_Itm_itm_sub1(row, info);
-		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub2) return getCnd_chd_itm_p_PPanel_Itm_itm_sub2(row, info);
-		if(combo == Cnd_chd_itm_p_PPanel.Itm_itm_sub3) return getCnd_chd_itm_p_PPanel_Itm_itm_sub3(row, info);
 		return null;
 	}
 
@@ -1452,6 +1329,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		}
 		if (vc == FoldTab) return doFold_VC(info);
 		if (vc == RsltTable) return doRslt_VC(info);
+		if (vc == Cnd_surv_line_qty) return doCnd_surv_line_qty_VC(info);
 		if (vc == Cnd_diameter) return doCnd_diameter_VC(info);
 		if (vc == columnRslt_check) return doRslt_check_VC(info);
 		if (vc == columnRslt_surv_line_qty) return doRslt_surv_line_qty_VC(info);
@@ -1481,6 +1359,16 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doRslt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Cnd]パネルの[surv_line_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doCnd_surv_line_qty_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -1584,6 +1472,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		super.doNCEvent(nc, info);
 		if (nc == FoldTab) doFold_NC(info);
 		else if (nc == RsltTable) doRslt_NC(info);
+		else if (nc == Cnd_surv_line_qty) doCnd_surv_line_qty_NC(info);
 		else if (nc == Cnd_diameter) doCnd_diameter_NC(info);
 		else if (nc == columnRslt_check) doRslt_check_NC(info);
 		else if (nc == columnRslt_surv_line_qty) doRslt_surv_line_qty_NC(info);
@@ -1609,6 +1498,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doRslt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[surv_line_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_surv_line_qty_NC(MCEventInfo info){
 	}
 
 	/**
@@ -1693,6 +1590,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		super.doNEEvent(ne, info);
 		if (ne == FoldTab) doFold_NE(info);
 		else if (ne == RsltTable) doRslt_NE(info);
+		else if (ne == Cnd_surv_line_qty) doCnd_surv_line_qty_NE(info);
 		else if (ne == Cnd_diameter) doCnd_diameter_NE(info);
 		else if (ne == columnRslt_check) doRslt_check_NE(info);
 		else if (ne == columnRslt_surv_line_qty) doRslt_surv_line_qty_NE(info);
@@ -1718,6 +1616,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doRslt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[surv_line_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_surv_line_qty_NE(MCEventInfo info){
 	}
 
 	/**
@@ -1802,6 +1708,7 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		super.doNXEvent(nx, info);
 		if (nx == FoldTab) doFold_NX(info);
 		else if (nx == RsltTable) doRslt_NX(info);
+		else if (nx == Cnd_surv_line_qty) doCnd_surv_line_qty_NX(info);
 		else if (nx == Cnd_diameter) doCnd_diameter_NX(info);
 		else if (nx == columnRslt_check) doRslt_check_NX(info);
 		else if (nx == columnRslt_surv_line_qty) doRslt_surv_line_qty_NX(info);
@@ -1827,6 +1734,14 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * @param info イベント情報
 	 */
 	public void doRslt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Cnd]パネルの[surv_line_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_surv_line_qty_NX(MCEventInfo info){
 	}
 
 	/**
@@ -1909,11 +1824,20 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 */
 	public void doLCEvent(MCLCBeans lc, MCEventInfo info) {
 		super.doLCEvent(lc, info);
-		if (lc == Cnd_diameter) doCnd_diameter_LC(info);
+		if (lc == Cnd_surv_line_qty) doCnd_surv_line_qty_LC(info);
+		else if (lc == Cnd_diameter) doCnd_diameter_LC(info);
 		else if (lc == columnRslt_surv_line_qty) doRslt_surv_line_qty_LC(info);
 		else if (lc == columnRslt_diameter) doRslt_diameter_LC(info);
 		else if (lc == columnRslt_qty) doRslt_qty_LC(info);
 		else if (lc == columnRslt_spec_cd) doRslt_spec_cd_LC(info);
+	}
+
+	/**
+	 * [Cnd]パネルの[surv_line_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doCnd_surv_line_qty_LC(MCEventInfo info){
 	}
 
 	/**
@@ -1981,34 +1905,6 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 	 * コンボ／リストのリスト[Cnd_par_itm_p_PPanel_Itm_itm_sub3]の作成メソッド
 	 */
 	public MCList getCnd_par_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
-	}
-
-	/**
-	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_cd]の作成メソッド
-	 */
-	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_cd(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItm(row, info);
-	}
-
-	/**
-	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub1]の作成メソッド
-	 */
-	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub1(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub1(row, info);
-	}
-
-	/**
-	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub2]の作成メソッド
-	 */
-	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub2(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub2(row, info);
-	}
-
-	/**
-	 * コンボ／リストのリスト[Cnd_chd_itm_p_PPanel_Itm_itm_sub3]の作成メソッド
-	 */
-	public MCList getCnd_chd_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
 	}
 
