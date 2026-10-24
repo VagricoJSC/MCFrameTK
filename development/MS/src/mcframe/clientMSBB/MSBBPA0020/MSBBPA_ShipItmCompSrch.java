@@ -229,6 +229,5 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			}			
 		}
 	}
-	
 //FMCB CUSTOM END
 }

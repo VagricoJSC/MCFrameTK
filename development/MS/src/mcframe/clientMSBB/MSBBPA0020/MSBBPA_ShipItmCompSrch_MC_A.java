@@ -1055,8 +1055,13 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_surv_line_qty.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.Rslt_chd_itm_p_PPanel.putStatus(NON_MOV, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnRslt_base_unit_cd.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.columnRslt_base_unit_nm.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.columnRslt_qty.putMode(p, NON_MOV, MCMode.READ_ONLY);
 		p.columnRslt_spec_cd.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.columnRslt_body_flg.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.columnRslt_comp_flg.putMode(p, NON_MOV, MCMode.READ_ONLY);
+		p.columnRslt_ship_prnt_flg.putMode(p, NON_MOV, MCMode.READ_ONLY);
 
 	}
 
@@ -1131,8 +1136,13 @@ abstract public class MSBBPA_ShipItmCompSrch_MC_A extends mcframe.clientMSUD.MSU
 		p.columnRslt_surv_line_qty.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.columnRslt_diameter.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.Rslt_chd_itm_p_PPanel.putStatus(STK_TRN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
+		p.columnRslt_base_unit_cd.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.columnRslt_base_unit_nm.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.columnRslt_qty.putMode(p, STK_TRN, MCMode.READ_ONLY);
 		p.columnRslt_spec_cd.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.columnRslt_body_flg.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.columnRslt_comp_flg.putMode(p, STK_TRN, MCMode.READ_ONLY);
+		p.columnRslt_ship_prnt_flg.putMode(p, STK_TRN, MCMode.READ_ONLY);
 
 	}
 
