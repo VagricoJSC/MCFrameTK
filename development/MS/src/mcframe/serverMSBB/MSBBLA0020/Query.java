@@ -61,6 +61,7 @@ public class Query extends Query_MC  {
 								m2.unit_cd.eq(m3.unit_cd)
 						)
 					)
+				.where(t1.prod_itm_cd.eq(bind("prod_itm_cd")))
 				.orderBy(t1.comp_flg.desc())
 				.orderBy(t1.itm_cd.asc())
 			);

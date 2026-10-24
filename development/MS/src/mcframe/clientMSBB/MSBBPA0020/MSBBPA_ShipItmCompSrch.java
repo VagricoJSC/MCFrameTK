@@ -118,8 +118,15 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		protected MS_MSBBLA0020_Srch01Caller(P p, B b) {
 			super(p, b);
 		}
+		
 	}
 
+	@Override
+	protected void setCellConfig() {
+		super.setCellConfig();
+		RsltTable.setCellConfig(new RsltTableCellConfig());
+	}
+	
 	/**
 	 * Panel[Ctrl]のボタン[ctrl_Ope_srch]の押下時の処理
 	 */
@@ -229,5 +236,24 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			}			
 		}
 	}
+	
+	/**
+	 * 一覧表内セル制御
+	 */
+	protected class RsltTableCellConfig extends MAUDP_CellConfig {
+		@Override
+		public MCMode getPriorMode(int index, MCColumnConfig column, MCTable table) {
+			if (column == columnRslt_check) {
+				RsltR r = (RsltR) table.getBaseTable().getRow(index);
+				if (r.comp_flg()) {
+					r.check(true);
+					return MCMode.READ_ONLY;
+				}
+			}
+			
+			return super.getPriorMode(index, column, table);
+		}
+	}
+	
 //FMCB CUSTOM END
 }
