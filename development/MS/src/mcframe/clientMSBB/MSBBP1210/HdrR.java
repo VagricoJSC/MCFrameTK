@@ -1383,13 +1383,21 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
+ *  	<td>hdr_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
  *  	<td>surv_line_qty</td>
  *  	<td><br></td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SURV_LINE_QTY SURV_LINE_QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>diameter</td>
  *  	<td><br></td>
@@ -1397,7 +1405,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DIAMETER DIAMETER}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>match_key</td>
  *  	<td><br></td>

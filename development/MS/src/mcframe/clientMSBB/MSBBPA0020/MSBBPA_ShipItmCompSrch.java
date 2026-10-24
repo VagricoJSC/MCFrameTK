@@ -74,6 +74,8 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 //FMCB CUSTOM START
 	protected MSBBP_SloReg sloRegPanel = null;
 	
+	private int sloHdrQty = 1;
+	
 	/**
 	 * Panel[Btn]のボタン[select_all]の押下時の処理
 	 */
@@ -222,8 +224,7 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			}
 			
 			// 数量
-			sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, i + 1, row.qty());
-			
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, i + 1, row.qty().multiply(sloHdrQty));
 		}
 	}
 
@@ -267,6 +268,11 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			setValueEx(Cnd_par_itm_nm, bind.getStringNE("par_itm_nm"));
 			setValueEx(Cnd_surv_line_qty, bind.getValueNE("surv_line_qty"));
 			setValueEx(Cnd_diameter, bind.getValueNE("diameter"));
+			
+			MCNumber hdrQty = bind.getNumberNE("hdr_qty");
+			if (!isNull(hdrQty)) {
+				sloHdrQty = hdrQty.intValue();
+			}
 			
 			// 検索実行
 			if (getTargetPanel().isSrch(openTyp, bind, param)) {

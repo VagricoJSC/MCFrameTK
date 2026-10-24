@@ -801,6 +801,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final String $slo_last_sls_flg = "slo_last_sls_flg";
 	public static final String $par_itm_p = "par_itm_p";
 	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public static final String $hdr_qty = "hdr_qty";
+	/**
 	 *  測線数.<p>
 	 *
 	 */
@@ -1044,6 +1049,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta zoho_sls_schd_no_META = createCommonMeta($zoho_sls_schd_no, mcframe.commonMA.meta.MA_META.ZOHO_SLS_SCHD_NO);
 	public static final MCMeta slo_last_sls_flg_META = createCommonMeta($slo_last_sls_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta par_itm_p_META = createInnerRowMeta($par_itm_p, mcframe.clientMAUB.MAUBP0030.ItmR.class);
+	public static final MCMeta hdr_qty_META = createCommonMeta($hdr_qty, mcframe.commonMA.meta.MA_META.QTY);
 	public static final MCMeta surv_line_qty_META = createCommonMeta($surv_line_qty, mcframe.commonMA.meta.MA_META.SURV_LINE_QTY);
 	public static final MCMeta diameter_META = createCommonMeta($diameter, mcframe.commonMA.meta.MA_META.DIAMETER);
 	public static final MCMeta match_key_META = createCommonMeta($match_key, mcframe.commonMA.meta.MA_META.MATCH_KEY);
@@ -1221,6 +1227,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 			zoho_sls_schd_no_META,
 			slo_last_sls_flg_META,
 			par_itm_p_META,
+			hdr_qty_META,
 			surv_line_qty_META,
 			diameter_META,
 			match_key_META
@@ -4792,11 +4799,60 @@ abstract class HdrR_MC_A extends MCConstRow {
 
 
 	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public MCNumber hdr_qty() {
+		return getConstNumber(offset + 170, $hdr_qty);
+	}
+
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public void hdr_qty(MCNumber value) {
+		setConstNumber(offset + 170, $hdr_qty, value);
+	}
+
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public void hdr_qty(int value) {
+		setConstNumber(offset + 170, $hdr_qty, value);
+	}
+
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public void hdr_qty(long value) {
+		setConstNumber(offset + 170, $hdr_qty, value);
+	}
+
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public void hdr_qty(float value) {
+		setConstNumber(offset + 170, $hdr_qty, value);
+	}
+
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public void hdr_qty(double value) {
+		setConstNumber(offset + 170, $hdr_qty, value);
+	}
+
+
+	/**
 	 *  測線数.<p>
 	 *
 	 */
 	public String surv_line_qty() {
-		return getConstString(offset + 170, $surv_line_qty);
+		return getConstString(offset + 171, $surv_line_qty);
 	}
 
 	/**
@@ -4804,7 +4860,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void surv_line_qty(String value) {
-		setConstString(offset + 170, $surv_line_qty, value);
+		setConstString(offset + 171, $surv_line_qty, value);
 	}
 
 
@@ -4813,7 +4869,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String diameter() {
-		return getConstString(offset + 171, $diameter);
+		return getConstString(offset + 172, $diameter);
 	}
 
 	/**
@@ -4821,7 +4877,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void diameter(String value) {
-		setConstString(offset + 171, $diameter, value);
+		setConstString(offset + 172, $diameter, value);
 	}
 
 
@@ -4830,7 +4886,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String match_key() {
-		return getConstString(offset + 172, $match_key);
+		return getConstString(offset + 173, $match_key);
 	}
 
 	/**
@@ -4838,7 +4894,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void match_key(String value) {
-		setConstString(offset + 172, $match_key, value);
+		setConstString(offset + 173, $match_key, value);
 	}
 
 
@@ -5226,6 +5282,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			return qtn_upd_cntr();
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			return hdr_qty();
 		}
 		return super.getNumber(name);
 	}
@@ -5713,6 +5772,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			return qtn_upd_cntr();
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			return hdr_qty();
 		}
 		return super.getNumberNE(name);
 	}
@@ -6328,6 +6390,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 	public void setNumber(String name, int value) {
@@ -6393,6 +6459,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			qtn_upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -6462,6 +6532,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 	public void setNumber(String name, float value) {
@@ -6529,6 +6603,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 	public void setNumber(String name, double value) {
@@ -6594,6 +6672,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			qtn_upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -7240,6 +7322,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 	public void setNumberNE(String name, int value) {
@@ -7305,6 +7391,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			qtn_upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -7374,6 +7464,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 	public void setNumberNE(String name, float value) {
@@ -7441,6 +7535,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			qtn_upd_cntr(value);
 			return;
 		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 	public void setNumberNE(String name, double value) {
@@ -7506,6 +7604,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($qtn_upd_cntr.equalsIgnoreCase(name)) {
 			qtn_upd_cntr(value);
+			return;
+		}
+		if ($hdr_qty.equalsIgnoreCase(name)) {
+			hdr_qty(value);
 			return;
 		}
 		super.setNumberNE(name, value);

@@ -969,6 +969,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCTextComboBox Hdr_par_itm_sub2;	// [Hdr]の[par_itm_p.itm_sub2]を[Hdr_par_itm_sub2]としてエイリアス定義。
 	public MCTextComboBox Hdr_par_itm_sub3;	// [Hdr]の[par_itm_p.itm_sub3]を[Hdr_par_itm_sub3]としてエイリアス定義。
 	public MCTextField Hdr_par_itm_nm;	// [Hdr]の[par_itm_p.itm_nm]を[Hdr_par_itm_nm]としてエイリアス定義。
+	public MCLabel Hdr_hdr_qty_Label = null;
+	/**
+	 *  数量（ヘッダ）.<p>
+	 *
+	 */
+	public MCNumberField Hdr_hdr_qty = null;
 	public MCLabel Hdr_surv_line_qty_Label = null;
 	/**
 	 *  測線数.<p>
@@ -4101,6 +4107,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_zoho_sls_schd_no = p.beansFactory.createTextField("Hdr.zoho_sls_schd_no");
 		p.Hdr_zoho_sls_schd_no.setLabel(p.Hdr_zoho_sls_schd_no_Label);
 		p.Hdr_slo_last_sls_flg = p.beansFactory.createCheckBox("Hdr.slo_last_sls_flg");
+		p.Hdr_hdr_qty_Label = p.beansFactory.createLabel("Hdr.hdr_qty_Label");
+		p.Hdr_hdr_qty = p.beansFactory.createNumberField("Hdr.hdr_qty");
+		p.Hdr_hdr_qty.setLabel(p.Hdr_hdr_qty_Label);
 		p.Hdr_surv_line_qty_Label = p.beansFactory.createLabel("Hdr.surv_line_qty_Label");
 		p.Hdr_surv_line_qty = p.beansFactory.createTextField("Hdr.surv_line_qty");
 		p.Hdr_surv_line_qty.setLabel(p.Hdr_surv_line_qty_Label);
@@ -4991,7 +5000,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_last_sls_flg.setNextBeans(p.Hdr_par_itm_p_PPanel);
 		p.Hdr_slo_last_sls_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_last_sls_flg_META);
 		p.HdrPanel.add(p.Hdr_par_itm_p_PPanel);
-		p.Hdr_par_itm_p_PPanel.setNextBeans(p.Hdr_surv_line_qty);
+		p.Hdr_par_itm_p_PPanel.setNextBeans(p.Hdr_hdr_qty);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_cd, true);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
@@ -5001,6 +5010,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_sub3, true);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_nm, true);
+		p.HdrPanel.add(p.Hdr_hdr_qty_Label);
+		p.HdrPanel.add(p.Hdr_hdr_qty);
+		p.Hdr_hdr_qty.setNextBeans(p.Hdr_surv_line_qty);
+		p.Hdr_hdr_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.hdr_qty_META);
 		p.HdrPanel.add(p.Hdr_surv_line_qty_Label);
 		p.HdrPanel.add(p.Hdr_surv_line_qty);
 		p.Hdr_surv_line_qty.setNextBeans(p.Hdr_diameter);
@@ -5615,6 +5628,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_hdr_qty.setListListener(p);
+		p.Hdr_hdr_qty.addAllListener(p);
 		p.Hdr_surv_line_qty.setListListener(p);
 		p.Hdr_surv_line_qty.addAllListener(p);
 		p.Hdr_diameter.setListListener(p);
@@ -12534,6 +12549,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_src_wrk_no) return doHdr_src_wrk_no_VC(info);
 		if (vc == Hdr_zoho_sls_schd_no) return doHdr_zoho_sls_schd_no_VC(info);
 		if (vc == Hdr_slo_last_sls_flg) return doHdr_slo_last_sls_flg_VC(info);
+		if (vc == Hdr_hdr_qty) return doHdr_hdr_qty_VC(info);
 		if (vc == Hdr_surv_line_qty) return doHdr_surv_line_qty_VC(info);
 		if (vc == Hdr_diameter) return doHdr_diameter_VC(info);
 		if (vc == Hdr_match_key) return doHdr_match_key_VC(info);
@@ -14198,6 +14214,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[hdr_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_hdr_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Hdr]パネルの[surv_line_qty]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -15757,6 +15783,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_src_wrk_no) doHdr_src_wrk_no_NC(info);
 		else if (nc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NC(info);
 		else if (nc == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NC(info);
+		else if (nc == Hdr_hdr_qty) doHdr_hdr_qty_NC(info);
 		else if (nc == Hdr_surv_line_qty) doHdr_surv_line_qty_NC(info);
 		else if (nc == Hdr_diameter) doHdr_diameter_NC(info);
 		else if (nc == Hdr_match_key) doHdr_match_key_NC(info);
@@ -17116,6 +17143,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[hdr_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_qty_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[surv_line_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -18395,6 +18430,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_src_wrk_no) doHdr_src_wrk_no_NE(info);
 		else if (ne == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NE(info);
 		else if (ne == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NE(info);
+		else if (ne == Hdr_hdr_qty) doHdr_hdr_qty_NE(info);
 		else if (ne == Hdr_surv_line_qty) doHdr_surv_line_qty_NE(info);
 		else if (ne == Hdr_diameter) doHdr_diameter_NE(info);
 		else if (ne == Hdr_match_key) doHdr_match_key_NE(info);
@@ -19754,6 +19790,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[hdr_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_qty_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[surv_line_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -21033,6 +21077,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_src_wrk_no) doHdr_src_wrk_no_NX(info);
 		else if (nx == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NX(info);
 		else if (nx == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NX(info);
+		else if (nx == Hdr_hdr_qty) doHdr_hdr_qty_NX(info);
 		else if (nx == Hdr_surv_line_qty) doHdr_surv_line_qty_NX(info);
 		else if (nx == Hdr_diameter) doHdr_diameter_NX(info);
 		else if (nx == Hdr_match_key) doHdr_match_key_NX(info);
@@ -22392,6 +22437,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[hdr_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_qty_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[surv_line_qty]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -23650,6 +23703,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_sls_dt) doHdr_sls_dt_LC(info);
 		else if (lc == Hdr_src_wrk_no) doHdr_src_wrk_no_LC(info);
 		else if (lc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_LC(info);
+		else if (lc == Hdr_hdr_qty) doHdr_hdr_qty_LC(info);
 		else if (lc == Hdr_surv_line_qty) doHdr_surv_line_qty_LC(info);
 		else if (lc == Hdr_diameter) doHdr_diameter_LC(info);
 		else if (lc == Hdr_match_key) doHdr_match_key_LC(info);
@@ -24814,6 +24868,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_zoho_sls_schd_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[hdr_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_hdr_qty_LC(MCEventInfo info){
 	}
 
 	/**

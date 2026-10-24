@@ -115,6 +115,12 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		bind.addStringColumn("surv_line_qty", Hdr_surv_line_qty.getValue());
 		bind.addStringColumn("diameter", Hdr_diameter.getValue());
 		
+		MCNumber hdrQty = Hdr_hdr_qty.getValue();
+		if (isNull(hdrQty) || hdrQty.eq(MCNumber.ZERO)) {
+			hdrQty = MCNumber.ONE;
+		}
+		bind.addNumberColumn("hdr_qty", hdrQty);
+		
 		openModalPanel("MS", "MSBBPA0020", T1, bind, this);
 	}
 
