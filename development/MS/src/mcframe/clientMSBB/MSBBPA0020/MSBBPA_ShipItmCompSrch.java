@@ -166,6 +166,10 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		return sloRegPanel;
 	}
 	
+	/**
+	 * 呼び元（受注登録）の明細テーブルにデータを反映
+	 * @param sloDtlTable
+	 */
 	protected void updateSloDtlTable(MCTable<?> sloDtlTable) {
 		// 品目
 		MCList<RsltR> list = MCList.create(RsltR.class);
@@ -184,19 +188,20 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		// 現在のデータをクリア
 		sloDtlTable.clear();
 		
-		// 製品の1行を追加
-		if (sloDtlTable.getRow(0) == null) {
-			insertRow(sloDtlTable);
-		}
-		RsltR firstRow = list.get(0);
-		Comparable<?> parentItmObj = firstRow.getValueNE("par_itm_p");
-		if (parentItmObj instanceof mcframe.clientMAUB.MAUBP5030.ItmR) {
-			mcframe.clientMAUB.MAUBP5030.ItmR itmR = (mcframe.clientMAUB.MAUBP5030.ItmR)parentItmObj;
-			String itmCd = itmR.itm_cd();
-			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_cd, 0, itmCd);
-			sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, 0, MCNumber.ONE);
-		}
+		addProdRowToSloDtlTable(sloDtlTable, list, sloRegPanel);
+		addItmRowsToSloDtlTable(sloDtlTable, list, sloRegPanel);
+		
+		sloDtlTable.selectLeftmostColumn(0);
+		sloDtlTable.fillSpace();
+	}
 
+	/**
+	 * 構成品目に対応する行を受注明細テーブルに追加
+	 * @param sloDtlTable
+	 * @param list
+	 * @param sloRegPanel
+	 */
+	private void addItmRowsToSloDtlTable(MCTable<?> sloDtlTable, MCList<RsltR> list, MSBBP_SloReg sloRegPanel) {
 		// 構成品目（子品目）の行を追加
 		for (int i = 0; i < list.size(); i ++) {
 			if (sloDtlTable.getRow(i + 1) == null) {
@@ -204,17 +209,50 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			}
 			
 			RsltR row = list.get(i);
+			
+			// 品目CD
 			Comparable<?> obj = row.getValueNE("chd_itm_p");
 			if (obj instanceof mcframe.clientMAUB.MAUBP5030.ItmR) {
 				mcframe.clientMAUB.MAUBP5030.ItmR itmR = (mcframe.clientMAUB.MAUBP5030.ItmR)obj;
 				String itmCd = itmR.itm_cd();
 				sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_cd, i + 1, itmCd);
+				sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub1, i + 1, itmR.itm_sub1());
+				sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub2, i + 1, itmR.itm_sub2());
+				sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub3, i + 1, itmR.itm_sub3());
 			}
 			
+			// 数量
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, i + 1, row.qty());
+			
 		}
+	}
+
+	/**
+	 * 製品に対応する行を受注明細テーブルに追加
+	 * @param sloDtlTable
+	 * @param list
+	 * @param sloRegPanel
+	 */
+	private void addProdRowToSloDtlTable(MCTable<?> sloDtlTable, MCList<RsltR> list, MSBBP_SloReg sloRegPanel) {
+		// 製品の1行を追加
+		if (sloDtlTable.getRow(0) == null) {
+			insertRow(sloDtlTable);
+		}
+		RsltR firstRow = list.get(0);
 		
-		sloDtlTable.selectLeftmostColumn(0);
-		sloDtlTable.fillSpace();
+		// 品目CD
+		Comparable<?> parentItmObj = firstRow.getValueNE("par_itm_p");
+		if (parentItmObj instanceof mcframe.clientMAUB.MAUBP5030.ItmR) {
+			mcframe.clientMAUB.MAUBP5030.ItmR itmR = (mcframe.clientMAUB.MAUBP5030.ItmR)parentItmObj;
+			String itmCd = itmR.itm_cd();
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_cd, 0, itmCd);
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub1, 0, itmR.itm_sub1());
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub2, 0, itmR.itm_sub2());
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub3, 0, itmR.itm_sub3());
+		}
+
+		// 数量
+		sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, 0, MCNumber.ONE);
 	}
 	
 	@Override
@@ -245,9 +283,14 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 		public MCMode getPriorMode(int index, MCColumnConfig column, MCTable table) {
 			if (column == columnRslt_check) {
 				RsltR r = (RsltR) table.getBaseTable().getRow(index);
-				if (r.comp_flg()) {
+				if (r.body_flg()) {
 					r.check(true);
 					return MCMode.READ_ONLY;
+				}
+
+				if (r.comp_flg()) {
+					r.check(true);
+					return MCMode.ENABLE;
 				}
 			}
 			
