@@ -132,13 +132,23 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 	 */
 	protected void setMSBBP1210Hdr(MCRow bind) {
 		int index = RsltTable.getMCSelectedRow();
-		 if (index > -1) {
-			 RsltR r = getRsltL().get(index);
-			 bind.addStringColumn("cst_cd", r.cst_cd());
-			 bind.addStringColumn("sls_dpt_cd", r.sls_dpt_cd());
-			 bind.addStringColumn("trd_cur_cd", r.cur_cd());
-			 bind.addStringColumn("wrk_no", r.wrk_no());
+		 if (index == -1) {
+			 return;
 		 }
+
+		 RsltR r = getRsltL().get(index);
+		 bind.addStringColumn("cst_cd", r.cst_cd());
+		 bind.addStringColumn("sls_dpt_cd", r.sls_dpt_cd());
+		 bind.addStringColumn("trd_cur_cd", r.cur_cd());
+		 bind.addStringColumn("wrk_no", r.wrk_no());
+
+		 // ヘッダ
+		 bind.addStringColumn("par_itm_cd", r.par_itm_cd());
+		 bind.addStringColumn("par_itm_sub1", r.par_itm_sub1());
+		 bind.addStringColumn("par_itm_sub2", r.par_itm_sub2());
+		 bind.addStringColumn("par_itm_sub3", r.par_itm_sub3());
+		 bind.addNumberColumn("hdr_qty", r.prd_qty());
+		
 	}
 	
 	/**
@@ -154,15 +164,14 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 			
 			MCRow row = MCRow.create();
 			prod_itm_cd[0] = r.par_itm_cd();
+			
+			// 明細
 			row.addStringColumn("itm_cd", prod_itm_cd[0]);
 			row.addStringColumn("itm_sub1", r.par_itm_sub1());
 			row.addStringColumn("itm_sub2", r.par_itm_sub2());
 			row.addStringColumn("itm_sub3", r.par_itm_sub3());
 			row.addStringColumn("trd_unit_cd", "PC");
 			row.addNumberColumn("trd_unit_qty", r.prd_qty());
-//			row.addStringColumn("cst_itm_cd", r.cst_itm_cd());
-//			row.addStringColumn("cst_itm_nm", r.cst_itm_nm());
-//			row.addNumberColumn("base_unit_qty", r.prd_qty());
 			
 			list.add(row);
 		}

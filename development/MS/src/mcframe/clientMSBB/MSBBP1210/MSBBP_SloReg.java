@@ -59,7 +59,7 @@ import static mcframe.commonMS.notice.MS_Msg.*;
 import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
 //FMCB IMPORT START
-
+import mcframe.clientMAUC.MAUCP1060.MAUCP_TrdUtil;
 //FMCB IMPORT END
 
 /**
@@ -187,5 +187,65 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	public MCTable<?> getDtlTable() {
 		return DtlTable;
 	}
+	
+	@Override
+	protected void initByScreenParam(String openTyp, MCRow bind, Object... param) {
+		super.initByScreenParam(openTyp, bind, param);
+
+		if (T1 == openTyp) {
+
+			setValueEx(Cnd_ope_Group, Cnd_ope_INS.getActionCommand());
+			
+			valueInitSub();
+			
+			setValueEx(Hdr_trd_cd, MAUCP_TrdUtil.getDefaultTrdCdNoCache(MAC_TRD_PTN_TYP.SLS.value()));
+			
+			if (bind.contains("dlv_cd")) {
+				setValueEx(Hdr_dlv_cd, bind.getStringNE("dlv_cd"));
+			}
+			setValueEx(Hdr_cst_cd, bind.getStringNE("cst_cd"));
+			setValueEx(Hdr_wrk_no, bind.getStringNE("wrk_no"));
+			
+			if (bind.contains("sls_usr_cd")) {
+				setValueEx(Hdr_sls_usr_cd, bind.getStringNE("sls_usr_cd"));
+			}
+			if (bind.contains("sls_dpt_cd")) {
+				setValueEx(Hdr_sls_dpt_cd, bind.getStringNE("sls_dpt_cd"));
+			}
+			
+			if (bind.contains("par_itm_cd")) {
+				setValueEx(Hdr_par_itm_cd, bind.getStringNE("par_itm_cd"));
+				setValueEx(Hdr_par_itm_sub1, bind.getStringNE("par_itm_sub1"));
+				setValueEx(Hdr_par_itm_sub2, bind.getStringNE("par_itm_sub2"));
+				setValueEx(Hdr_par_itm_sub3, bind.getStringNE("par_itm_sub3"));
+			}
+			
+			if (bind.contains("hdr_qty")) {
+				setValueEx(Hdr_hdr_qty, bind.getNumberNE("hdr_qty"));
+			}
+			
+			if (param != null) {
+				MCList<?> list = (MCList<?>)param[0];
+				for (int i=0; i<list.size(); i++) {
+					if (DtlTable.getRow(i) == null) {
+						insertRow(DtlTable);
+					}
+					MCRow row = list.get(i);
+					setValueEx(columnDtl_itm_cd, i, row.getStringNE("itm_cd"));
+					setValueEx(columnDtl_itm_sub1, i, row.getStringNE("itm_sub1"));
+					setValueEx(columnDtl_itm_sub2, i, row.getStringNE("itm_sub2"));
+					setValueEx(columnDtl_itm_sub3, i, row.getStringNE("itm_sub3"));
+					setValueEx(columnDtl_trd_unit_cd, i, row.getStringNE("trd_unit_cd"));
+					setValueEx(columnDtl_trd_unit_qty, i, row.getNumberNE("trd_unit_qty"));
+					setValueEx(columnDtl_cst_itm_cd, i, row.getStringNE("cst_itm_cd"));
+					setValueEx(columnDtl_cst_itm_nm, i, row.getStringNE("cst_itm_nm"));
+				}
+				DtlTable.selectLeftmostColumn(0);
+			}
+			DtlTable.fillSpace(); // 画面が既に開いている状態で画面遷移されたケースを考慮
+			HdrPanel.focusFirstComponent();
+		}
+	}
+	
 //FMCB CUSTOM END
 }
