@@ -987,6 +987,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextField Hdr_diameter = null;
+	/**
+	 * BOM explosion 構成展開.<p>
+	 *
+	 */
+	public MCButton Hdr_bom_exp_btn = null;
 	public MCLabel Hdr_match_key_Label = null;
 	/**
 	 *  照合キー.<p>
@@ -994,10 +999,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCTextField Hdr_match_key = null;
 	/**
-	 * BOM explosion 構成展開.<p>
+	 * Matching Expansion 照合展開.<p>
 	 *
 	 */
-	public MCButton Hdr_bom_exp_btn = null;
+	public MCButton Hdr_exp_match_btn = null;
 	// [Hdr2]ブロック関連のField定義
 	public MCPanel Hdr2Panel = null;
 	// [Hdr2]ブロックの項目のField定義
@@ -4116,10 +4121,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_diameter_Label = p.beansFactory.createLabel("Hdr.diameter_Label");
 		p.Hdr_diameter = p.beansFactory.createTextField("Hdr.diameter");
 		p.Hdr_diameter.setLabel(p.Hdr_diameter_Label);
+		p.Hdr_bom_exp_btn = p.beansFactory.createButton("Hdr.bom_exp_btn", "bom_exp");
 		p.Hdr_match_key_Label = p.beansFactory.createLabel("Hdr.match_key_Label");
 		p.Hdr_match_key = p.beansFactory.createTextField("Hdr.match_key");
 		p.Hdr_match_key.setLabel(p.Hdr_match_key_Label);
-		p.Hdr_bom_exp_btn = p.beansFactory.createButton("Hdr.bom_exp_btn", "bom_exp");
+		p.Hdr_exp_match_btn = p.beansFactory.createButton("Hdr.exp_match_btn", "exp_match_btn");
 	}
 
 	/**
@@ -4964,7 +4970,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ_nm.setLinkBeans(p.Hdr_dlv_day_week_typ);
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm_Label);
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm);
-		p.Hdr_dlv_day_week_typ_nm.setNextBeans(p.Hdr_bom_exp_btn);
 		p.Hdr_dlv_day_week_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_nm_META);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_Label);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd);
@@ -5020,12 +5025,15 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_surv_line_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.surv_line_qty_META);
 		p.HdrPanel.add(p.Hdr_diameter_Label);
 		p.HdrPanel.add(p.Hdr_diameter);
-		p.Hdr_diameter.setNextBeans(p.Hdr_match_key);
+		p.Hdr_diameter.setNextBeans(p.Hdr_bom_exp_btn);
 		p.Hdr_diameter.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.diameter_META);
+		p.HdrPanel.add(p.Hdr_bom_exp_btn);
+		p.Hdr_bom_exp_btn.setNextBeans(p.Hdr_match_key);
 		p.HdrPanel.add(p.Hdr_match_key_Label);
 		p.HdrPanel.add(p.Hdr_match_key);
+		p.Hdr_match_key.setNextBeans(p.Hdr_exp_match_btn);
 		p.Hdr_match_key.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.match_key_META);
-		p.BulkSetPanel.add(p.Hdr_bom_exp_btn);
+		p.HdrPanel.add(p.Hdr_exp_match_btn);
 	}
 
 	/**
@@ -5634,10 +5642,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_surv_line_qty.addAllListener(p);
 		p.Hdr_diameter.setListListener(p);
 		p.Hdr_diameter.addAllListener(p);
-		p.Hdr_match_key.setListListener(p);
-		p.Hdr_match_key.addAllListener(p);
 		p.Hdr_bom_exp_btn.addAllListener(p);
 		p.Hdr_bom_exp_btn.setAPMethodName("doHdr_bom_exp_btn");
+		p.Hdr_match_key.setListListener(p);
+		p.Hdr_match_key.addAllListener(p);
+		p.Hdr_exp_match_btn.addAllListener(p);
+		p.Hdr_exp_match_btn.setAPMethodName("doHdr_exp_match_btn");
 	}
 
 	/**
@@ -6136,6 +6146,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, SRCH, MCMode.INVISIBLE);
 
 	}
 
@@ -6579,6 +6590,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, REF, MCMode.INVISIBLE);
 
 	}
 
@@ -7023,6 +7035,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, UPD, MCMode.INVISIBLE);
 
 	}
 
@@ -7467,6 +7480,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 
 	}
 
@@ -7910,6 +7924,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 
 	}
 
@@ -8598,6 +8613,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, FIX_U, MCMode.INVISIBLE);
 
 	}
 
@@ -9042,6 +9058,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_exp_match_btn.putMode(p, INS, MCMode.ENABLE);
 
 	}
 
@@ -9486,6 +9503,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_exp_match_btn.putMode(p, INS_QTN, MCMode.ENABLE);
 
 	}
 
@@ -9929,6 +9947,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Hdr_exp_match_btn.putMode(p, FIX_I, MCMode.DISABLE);
 
 	}
 
@@ -10372,6 +10391,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, DEL, MCMode.INVISIBLE);
 
 	}
 
@@ -10815,6 +10835,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_exp_match_btn.putMode(p, FIX_D, MCMode.INVISIBLE);
 
 	}
 
@@ -12321,6 +12342,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (ap == Cnd_srch_slo) doCnd_srch_slo(info);
 		else if (ap == Cnd_srch_qtn) doCnd_srch_qtn(info);
 		else if (ap == Hdr_bom_exp_btn) doHdr_bom_exp_btn(info);
+		else if (ap == Hdr_exp_match_btn) doHdr_exp_match_btn(info);
 		else if (ap == Btn_open_MSBBP1230) doBtn_open_MSBBP1230(info);
 		else if (ap == Btn_sprt) doBtn_sprt(info);
 		else if (ap == Btn_radd) doBtn_radd(info);
@@ -12345,6 +12367,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [Hdr]パネルの[bom_exp_btn]ボタンが押下されたときに呼び出されます。
 	 */
 	abstract public void doHdr_bom_exp_btn(MCEventInfo info);
+
+	/**
+	 * [Hdr]パネルの[exp_match_btn]ボタンが押下されたときに呼び出されます。
+	 */
+	abstract public void doHdr_exp_match_btn(MCEventInfo info);
 
 	/**
 	 * [Btn]パネルの[open_MSBBP1230]ボタンが押下されたときに呼び出されます。

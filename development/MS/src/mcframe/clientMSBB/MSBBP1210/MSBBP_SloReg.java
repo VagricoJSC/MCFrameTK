@@ -101,6 +101,13 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 //FMCB CUSTOM START
 	/**
+	 * Panel[Hdr]のボタン[exp_match_btn]の押下時の処理
+	 */
+	@Override
+	public void doHdr_exp_match_btn(MCEventInfo info) {
+	}
+
+	/**
 	 * Panel[Hdr]のボタン[bom_exp_btn]の押下時の処理
 	 */
 	@Override
@@ -246,6 +253,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			HdrPanel.focusFirstComponent();
 		}
 	}
-	
 //FMCB CUSTOM END
 }
