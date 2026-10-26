@@ -20,9 +20,10 @@ DROP TABLE MAM_CST_SLS_UPRI_ALL_R CASCADE CONSTRAINTS PURGE;
 @development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_CST_SLS_UPRI_APL_@U.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_CST_SLS_UPRI_APL_@S.sql
 
-@development/MA/tools/database/MABS/oracle_sqlfile/U_TR/MAM_CST_SLS_UPRI_APL_ALL_TR_U.sql
-@development/MA/tools/database/MABS/oracle_sqlfile/HST_TR/MAM_CST_SLS_UPRI_APL_ALL_TR_R.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/HST_TAB/MAM_CST_SLS_UPRI_APL_ALL_R.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/HST_TR/MAM_CST_SLS_UPRI_APL_ALL_TR_R.sql
+
+@development/MA/tools/database/MABS/oracle_sqlfile/U_TR/MAM_CST_SLS_UPRI_APL_ALL_TR_U.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/CO_VT/MAM_CST_SLS_UPRI_APL_ALL_TR_K.sql
 
 @development/MA/tools/database/MABS/oracle_sqlfile/COMMENT/MAM_CST_SLS_UPRI_APL_comment.sql
@@ -42,8 +43,9 @@ DROP TABLE MAM_CST_SLS_UPRI_ALL_R CASCADE CONSTRAINTS PURGE;
 @development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_CST_SLS_UPRI_@S.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/OBJECT/MAM_CST_SLS_UPRI.sql
 
-@development/MA/tools/database/MABS/oracle_sqlfile/HST_TR/MAM_CST_SLS_UPRI_ALL_TR_R.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/HST_TAB/MAM_CST_SLS_UPRI_ALL_R.sql
+@development/MA/tools/database/MABS/oracle_sqlfile/HST_TR/MAM_CST_SLS_UPRI_ALL_TR_R.sql
+
 @development/MA/tools/database/MABS/oracle_sqlfile/CO_VT/MAM_CST_SLS_UPRI_ALL_TR_K.sql
 @development/MA/tools/database/MABS/oracle_sqlfile/U_TR/MAM_CST_SLS_UPRI_ALL_TR_U.sql
 
