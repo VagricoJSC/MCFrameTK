@@ -6179,7 +6179,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, SRCH, MCMode.INVISIBLE);
@@ -6623,7 +6623,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, REF, MCMode.INVISIBLE);
@@ -7068,7 +7068,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
 		p.columnDtl_sundry_itm_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, UPD, MCMode.REQUIRED);
-		p.columnDtl_stk_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, UPD, MCMode.INVISIBLE);
@@ -7513,7 +7513,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
 		p.columnDtl_sundry_itm_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, UPD_QTN, MCMode.REQUIRED);
-		p.columnDtl_stk_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
@@ -7957,7 +7957,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
@@ -8646,7 +8646,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
@@ -9091,7 +9091,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
 		p.columnDtl_sundry_itm_flg.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, INS, MCMode.REQUIRED);
-		p.columnDtl_stk_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, INS, MCMode.INVISIBLE);
@@ -9536,7 +9536,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.REQUIRED);
 		p.columnDtl_sundry_itm_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, INS_QTN, MCMode.REQUIRED);
-		p.columnDtl_stk_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
@@ -9980,7 +9980,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
@@ -10424,7 +10424,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, DEL, MCMode.INVISIBLE);
@@ -10868,7 +10868,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_itm_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5030.MAUBP_Itm_D.READ_ONLY);
 		p.columnDtl_sundry_itm_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_iv_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
-		p.columnDtl_stk_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_stk_mng_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_asset_mng_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_lot_mng_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
