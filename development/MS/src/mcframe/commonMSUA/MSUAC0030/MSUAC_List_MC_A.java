@@ -5978,6 +5978,14 @@ class MSUAC_List_MC_A extends Object {
 		public static final String $o_alloc_typ = "alloc_typ";
 		/** OUT:販売単価取得区分 */
 		public static final String $o_sls_upri_req_typ = "sls_upri_req_typ";
+		/** OUT:定価 */
+		public static final String $o_list_pri = "list_pri";
+		/** OUT:仕切単価 */
+		public static final String $o_wl_sale_upri = "wl_sale_upri";
+		/** OUT:単価区分 */
+		public static final String $o_upri_typ = "upri_typ";
+		/** OUT:掛率（％） */
+		public static final String $o_upri_rate = "upri_rate";
 		/** VIEW:品目ＣＤ */
 		public static final String $v_itm_cd = $o_itm_cd;
 		/** VIEW_NO:品目ＣＤ */
@@ -6280,6 +6288,10 @@ class MSUAC_List_MC_A extends Object {
 					add($o_alloc_scope_typ);
 					add($o_alloc_typ);
 					add($o_sls_upri_req_typ);
+					add($o_list_pri);
+					add($o_wl_sale_upri);
+					add($o_upri_typ);
+					add($o_upri_rate);
 				}};;
 		@SuppressWarnings("serial")
 		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
