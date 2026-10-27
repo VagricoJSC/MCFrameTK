@@ -1196,6 +1196,26 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCColumnConfig columnDtl_vmi_flg = null;
 	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_list_pri = null;
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_wl_sale_upri = null;
+	/**
+	 * Unit price type 単価区分.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_upri_typ = null;
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_upri_rate = null;
+	/**
 	 * Transaction unit cd. 取引単位ＣＤ.<p>
 	 *
 	 */
@@ -4190,6 +4210,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd = p.beansFactory.createTableColumn("Dtl.cntry_org_cd", MCColumnType.TEXT_COMBO);
 		p.columnDtl_cntry_org_nm = p.beansFactory.createTableColumn("Dtl.cntry_org_nm", MCColumnType.TEXT);
 		p.columnDtl_vmi_flg = p.beansFactory.createTableColumn("Dtl.vmi_flg", MCColumnType.CHECK);
+		p.columnDtl_list_pri = p.beansFactory.createTableColumn("Dtl.list_pri", MCColumnType.NUMBER);
+		p.columnDtl_wl_sale_upri = p.beansFactory.createTableColumn("Dtl.wl_sale_upri", MCColumnType.NUMBER);
+		p.columnDtl_upri_typ = p.beansFactory.createTableColumn("Dtl.upri_typ", MCColumnType.TEXT);
+		p.columnDtl_upri_rate = p.beansFactory.createTableColumn("Dtl.upri_rate", MCColumnType.NUMBER);
 		p.columnDtl_trd_unit_cd = p.beansFactory.createTableColumn("Dtl.trd_unit_cd", MCColumnType.TEXT_COMBO);
 		p.columnDtl_trd_unit_nm = p.beansFactory.createTableColumn("Dtl.trd_unit_nm", MCColumnType.TEXT);
 		p.columnDtl_trd_unit_dec_place = p.beansFactory.createTableColumn("Dtl.trd_unit_dec_place", MCColumnType.NUMBER);
@@ -5732,6 +5756,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_nm.addAllListener(p);
 		p.columnDtl_cntry_org_nm.setListListener(p);
 		p.columnDtl_vmi_flg.addAllListener(p);
+		p.columnDtl_list_pri.addAllListener(p);
+		p.columnDtl_list_pri.setListListener(p);
+		p.columnDtl_wl_sale_upri.addAllListener(p);
+		p.columnDtl_wl_sale_upri.setListListener(p);
+		p.columnDtl_upri_typ.addAllListener(p);
+		p.columnDtl_upri_typ.setListListener(p);
+		p.columnDtl_upri_rate.addAllListener(p);
+		p.columnDtl_upri_rate.setListListener(p);
 		p.columnDtl_trd_unit_cd.addAllListener(p);
 		p.columnDtl_trd_unit_cd.setListListener(p);
 		p.columnDtl_trd_unit_nm.addAllListener(p);
@@ -6204,6 +6236,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, SRCH, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, SRCH, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, SRCH, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, SRCH, MCMode.INVISIBLE);
@@ -6648,6 +6684,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, REF, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, REF, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, REF, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, REF, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, REF, MCMode.INVISIBLE);
@@ -7093,6 +7133,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, UPD, MCMode.ENABLE);
 		p.columnDtl_cntry_org_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, UPD, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, UPD, MCMode.INVISIBLE);
@@ -7538,6 +7582,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.columnDtl_cntry_org_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, UPD_QTN, MCMode.INVISIBLE);
@@ -7982,6 +8030,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.columnDtl_cntry_org_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, UPD_APRV, MCMode.INVISIBLE);
@@ -8671,6 +8723,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, FIX_U, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, FIX_U, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, FIX_U, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_U, MCMode.INVISIBLE);
@@ -9116,6 +9172,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, INS, MCMode.ENABLE);
 		p.columnDtl_cntry_org_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_list_pri.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, INS, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, INS, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, INS, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, INS, MCMode.INVISIBLE);
@@ -9561,6 +9621,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.columnDtl_cntry_org_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, INS_QTN, MCMode.INVISIBLE);
@@ -10005,6 +10069,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, FIX_I, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, FIX_I, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, FIX_I, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_I, MCMode.INVISIBLE);
@@ -10449,6 +10517,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, DEL, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, DEL, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, DEL, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, DEL, MCMode.INVISIBLE);
@@ -10893,6 +10965,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cntry_org_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_cntry_org_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_vmi_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_list_pri.putMode(p, FIX_D, MCMode.ENABLE);
+		p.columnDtl_wl_sale_upri.putMode(p, FIX_D, MCMode.ENABLE);
+		p.columnDtl_upri_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.columnDtl_upri_rate.putMode(p, FIX_D, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_dec_place.putMode(p, FIX_D, MCMode.INVISIBLE);
@@ -11184,6 +11260,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.DtlTable.addColumnConfig(p.columnDtl_cntry_org_nm);
 		p.columnDtl_vmi_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.vmi_flg_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_vmi_flg);
+		p.columnDtl_list_pri.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.list_pri_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_list_pri);
+		p.columnDtl_wl_sale_upri.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.wl_sale_upri_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_wl_sale_upri);
+		p.columnDtl_upri_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.upri_typ_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_upri_typ);
+		p.columnDtl_upri_rate.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.upri_rate_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_upri_rate);
 		p.columnDtl_trd_unit_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_cd_META);
 		p.columnDtl_trd_unit_cd.addLinkBeans(p.columnDtl_trd_unit_nm,p.columnDtl_trd_unit_dec_place,p.columnDtl_trd_unit_conv_base_qty,p.columnDtl_trd_unit_conv_qty);
 		p.DtlTable.addColumnConfig(p.columnDtl_trd_unit_cd);
@@ -12615,6 +12699,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == columnDtl_cntry_org_cd) return doDtl_cntry_org_cd_VC(info);
 		if (vc == columnDtl_cntry_org_nm) return doDtl_cntry_org_nm_VC(info);
 		if (vc == columnDtl_vmi_flg) return doDtl_vmi_flg_VC(info);
+		if (vc == columnDtl_list_pri) return doDtl_list_pri_VC(info);
+		if (vc == columnDtl_wl_sale_upri) return doDtl_wl_sale_upri_VC(info);
+		if (vc == columnDtl_upri_typ) return doDtl_upri_typ_VC(info);
+		if (vc == columnDtl_upri_rate) return doDtl_upri_rate_VC(info);
 		if (vc == columnDtl_trd_unit_cd) return doDtl_trd_unit_cd_VC(info);
 		if (vc == columnDtl_trd_unit_nm) return doDtl_trd_unit_nm_VC(info);
 		if (vc == columnDtl_trd_unit_dec_place) return doDtl_trd_unit_dec_place_VC(info);
@@ -14631,6 +14719,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[list_pri]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_list_pri_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[wl_sale_upri]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_wl_sale_upri_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_upri_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_rate]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_upri_rate_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[trd_unit_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -15849,6 +15977,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NC(info);
 		else if (nc == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NC(info);
 		else if (nc == columnDtl_vmi_flg) doDtl_vmi_flg_NC(info);
+		else if (nc == columnDtl_list_pri) doDtl_list_pri_NC(info);
+		else if (nc == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NC(info);
+		else if (nc == columnDtl_upri_typ) doDtl_upri_typ_NC(info);
+		else if (nc == columnDtl_upri_rate) doDtl_upri_rate_NC(info);
 		else if (nc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NC(info);
 		else if (nc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NC(info);
 		else if (nc == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NC(info);
@@ -17482,6 +17614,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[list_pri]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_list_pri_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wl_sale_upri]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wl_sale_upri_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_rate]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_rate_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[trd_unit_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -18496,6 +18660,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NE(info);
 		else if (ne == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NE(info);
 		else if (ne == columnDtl_vmi_flg) doDtl_vmi_flg_NE(info);
+		else if (ne == columnDtl_list_pri) doDtl_list_pri_NE(info);
+		else if (ne == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NE(info);
+		else if (ne == columnDtl_upri_typ) doDtl_upri_typ_NE(info);
+		else if (ne == columnDtl_upri_rate) doDtl_upri_rate_NE(info);
 		else if (ne == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NE(info);
 		else if (ne == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NE(info);
 		else if (ne == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NE(info);
@@ -20129,6 +20297,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[list_pri]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_list_pri_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wl_sale_upri]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wl_sale_upri_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_rate]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_rate_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[trd_unit_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -21143,6 +21343,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_NX(info);
 		else if (nx == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_NX(info);
 		else if (nx == columnDtl_vmi_flg) doDtl_vmi_flg_NX(info);
+		else if (nx == columnDtl_list_pri) doDtl_list_pri_NX(info);
+		else if (nx == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NX(info);
+		else if (nx == columnDtl_upri_typ) doDtl_upri_typ_NX(info);
+		else if (nx == columnDtl_upri_rate) doDtl_upri_rate_NX(info);
 		else if (nx == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NX(info);
 		else if (nx == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NX(info);
 		else if (nx == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_NX(info);
@@ -22776,6 +22980,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[list_pri]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_list_pri_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wl_sale_upri]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wl_sale_upri_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_rate]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_rate_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[trd_unit_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -23760,6 +23996,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == columnDtl_itm_bill_crryovr_times) doDtl_itm_bill_crryovr_times_LC(info);
 		else if (lc == columnDtl_cntry_org_cd) doDtl_cntry_org_cd_LC(info);
 		else if (lc == columnDtl_cntry_org_nm) doDtl_cntry_org_nm_LC(info);
+		else if (lc == columnDtl_list_pri) doDtl_list_pri_LC(info);
+		else if (lc == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_LC(info);
+		else if (lc == columnDtl_upri_typ) doDtl_upri_typ_LC(info);
+		else if (lc == columnDtl_upri_rate) doDtl_upri_rate_LC(info);
 		else if (lc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_LC(info);
 		else if (lc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_LC(info);
 		else if (lc == columnDtl_trd_unit_dec_place) doDtl_trd_unit_dec_place_LC(info);
@@ -25135,6 +25375,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doDtl_cntry_org_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[list_pri]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_list_pri_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[wl_sale_upri]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_wl_sale_upri_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_rate]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_rate_LC(MCEventInfo info){
 	}
 
 	/**

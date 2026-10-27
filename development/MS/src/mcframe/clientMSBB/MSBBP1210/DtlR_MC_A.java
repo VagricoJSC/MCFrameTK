@@ -208,6 +208,26 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 */
 	public static final String $vmi_flg = "vmi_flg";
 	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public static final String $list_pri = "list_pri";
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public static final String $wl_sale_upri = "wl_sale_upri";
+	/**
+	 * Unit price type 単価区分.<p>
+	 *
+	 */
+	public static final String $upri_typ = "upri_typ";
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public static final String $upri_rate = "upri_rate";
+	/**
 	 * Transaction unit cd. 取引単位ＣＤ.<p>
 	 *
 	 */
@@ -933,6 +953,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final MCMeta cntry_org_cd_META = createCommonMeta($cntry_org_cd, mcframe.commonMA.meta.MA_META.CNTRY_CD);
 	public static final MCMeta cntry_org_nm_META = createCommonMeta($cntry_org_nm, mcframe.commonMA.meta.MA_META.CNTRY_NM);
 	public static final MCMeta vmi_flg_META = createCommonMeta($vmi_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta list_pri_META = createCommonMeta($list_pri, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta wl_sale_upri_META = createCommonMeta($wl_sale_upri, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta upri_typ_META = createCommonMeta($upri_typ, mcframe.commonMA.meta.MA_META.UPRI_TYP);
+	public static final MCMeta upri_rate_META = createCommonMeta($upri_rate, mcframe.commonMA.meta.MA_META.PER);
 	public static final MCMeta trd_unit_cd_META = createCommonMeta($trd_unit_cd, mcframe.commonMA.meta.MA_META.UNIT_CD);
 	public static final MCMeta trd_unit_nm_META = createCommonMeta($trd_unit_nm, mcframe.commonMA.meta.MA_META.UNIT_NM);
 	public static final MCMeta trd_unit_dec_place_META = createCommonMeta($trd_unit_dec_place, mcframe.commonMA.meta.MA_META.DEC_PLACE);
@@ -1121,6 +1145,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 			cntry_org_cd_META,
 			cntry_org_nm_META,
 			vmi_flg_META,
+			list_pri_META,
+			wl_sale_upri_META,
+			upri_typ_META,
+			upri_rate_META,
 			trd_unit_cd_META,
 			trd_unit_nm_META,
 			trd_unit_dec_place_META,
@@ -2347,11 +2375,175 @@ abstract class DtlR_MC_A extends MCConstRow {
 
 
 	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public MCNumber list_pri() {
+		return getConstNumber(offset + 37, $list_pri);
+	}
+
+	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public void list_pri(MCNumber value) {
+		setConstNumber(offset + 37, $list_pri, value);
+	}
+
+	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public void list_pri(int value) {
+		setConstNumber(offset + 37, $list_pri, value);
+	}
+
+	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public void list_pri(long value) {
+		setConstNumber(offset + 37, $list_pri, value);
+	}
+
+	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public void list_pri(float value) {
+		setConstNumber(offset + 37, $list_pri, value);
+	}
+
+	/**
+	 * List price 定価.<p>
+	 *
+	 */
+	public void list_pri(double value) {
+		setConstNumber(offset + 37, $list_pri, value);
+	}
+
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public MCNumber wl_sale_upri() {
+		return getConstNumber(offset + 38, $wl_sale_upri);
+	}
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public void wl_sale_upri(MCNumber value) {
+		setConstNumber(offset + 38, $wl_sale_upri, value);
+	}
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public void wl_sale_upri(int value) {
+		setConstNumber(offset + 38, $wl_sale_upri, value);
+	}
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public void wl_sale_upri(long value) {
+		setConstNumber(offset + 38, $wl_sale_upri, value);
+	}
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public void wl_sale_upri(float value) {
+		setConstNumber(offset + 38, $wl_sale_upri, value);
+	}
+
+	/**
+	 * Wholesale unit price 仕切単価.<p>
+	 *
+	 */
+	public void wl_sale_upri(double value) {
+		setConstNumber(offset + 38, $wl_sale_upri, value);
+	}
+
+
+	/**
+	 * Unit price type 単価区分.<p>
+	 *
+	 */
+	public String upri_typ() {
+		return getConstString(offset + 39, $upri_typ);
+	}
+
+	/**
+	 * Unit price type 単価区分.<p>
+	 *
+	 */
+	public void upri_typ(String value) {
+		setConstString(offset + 39, $upri_typ, value);
+	}
+
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public MCNumber upri_rate() {
+		return getConstNumber(offset + 40, $upri_rate);
+	}
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public void upri_rate(MCNumber value) {
+		setConstNumber(offset + 40, $upri_rate, value);
+	}
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public void upri_rate(int value) {
+		setConstNumber(offset + 40, $upri_rate, value);
+	}
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public void upri_rate(long value) {
+		setConstNumber(offset + 40, $upri_rate, value);
+	}
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public void upri_rate(float value) {
+		setConstNumber(offset + 40, $upri_rate, value);
+	}
+
+	/**
+	 * Ratio (%) 掛率（％）.<p>
+	 *
+	 */
+	public void upri_rate(double value) {
+		setConstNumber(offset + 40, $upri_rate, value);
+	}
+
+
+	/**
 	 * Transaction unit cd. 取引単位ＣＤ.<p>
 	 *
 	 */
 	public String trd_unit_cd() {
-		return getConstString(offset + 37, $trd_unit_cd);
+		return getConstString(offset + 41, $trd_unit_cd);
 	}
 
 	/**
@@ -2359,7 +2551,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_cd(String value) {
-		setConstString(offset + 37, $trd_unit_cd, value);
+		setConstString(offset + 41, $trd_unit_cd, value);
 	}
 
 
@@ -2368,7 +2560,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trd_unit_nm() {
-		return getConstString(offset + 38, $trd_unit_nm);
+		return getConstString(offset + 42, $trd_unit_nm);
 	}
 
 	/**
@@ -2376,7 +2568,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_nm(String value) {
-		setConstString(offset + 38, $trd_unit_nm, value);
+		setConstString(offset + 42, $trd_unit_nm, value);
 	}
 
 
@@ -2385,7 +2577,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber trd_unit_dec_place() {
-		return getConstNumber(offset + 39, $trd_unit_dec_place);
+		return getConstNumber(offset + 43, $trd_unit_dec_place);
 	}
 
 	/**
@@ -2393,7 +2585,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_dec_place(MCNumber value) {
-		setConstNumber(offset + 39, $trd_unit_dec_place, value);
+		setConstNumber(offset + 43, $trd_unit_dec_place, value);
 	}
 
 	/**
@@ -2401,7 +2593,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_dec_place(int value) {
-		setConstNumber(offset + 39, $trd_unit_dec_place, value);
+		setConstNumber(offset + 43, $trd_unit_dec_place, value);
 	}
 
 	/**
@@ -2409,7 +2601,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_dec_place(long value) {
-		setConstNumber(offset + 39, $trd_unit_dec_place, value);
+		setConstNumber(offset + 43, $trd_unit_dec_place, value);
 	}
 
 	/**
@@ -2417,7 +2609,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_dec_place(float value) {
-		setConstNumber(offset + 39, $trd_unit_dec_place, value);
+		setConstNumber(offset + 43, $trd_unit_dec_place, value);
 	}
 
 	/**
@@ -2425,7 +2617,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_dec_place(double value) {
-		setConstNumber(offset + 39, $trd_unit_dec_place, value);
+		setConstNumber(offset + 43, $trd_unit_dec_place, value);
 	}
 
 
@@ -2434,7 +2626,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber trd_unit_conv_base_qty() {
-		return getConstNumber(offset + 40, $trd_unit_conv_base_qty);
+		return getConstNumber(offset + 44, $trd_unit_conv_base_qty);
 	}
 
 	/**
@@ -2442,7 +2634,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_base_qty(MCNumber value) {
-		setConstNumber(offset + 40, $trd_unit_conv_base_qty, value);
+		setConstNumber(offset + 44, $trd_unit_conv_base_qty, value);
 	}
 
 	/**
@@ -2450,7 +2642,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_base_qty(int value) {
-		setConstNumber(offset + 40, $trd_unit_conv_base_qty, value);
+		setConstNumber(offset + 44, $trd_unit_conv_base_qty, value);
 	}
 
 	/**
@@ -2458,7 +2650,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_base_qty(long value) {
-		setConstNumber(offset + 40, $trd_unit_conv_base_qty, value);
+		setConstNumber(offset + 44, $trd_unit_conv_base_qty, value);
 	}
 
 	/**
@@ -2466,7 +2658,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_base_qty(float value) {
-		setConstNumber(offset + 40, $trd_unit_conv_base_qty, value);
+		setConstNumber(offset + 44, $trd_unit_conv_base_qty, value);
 	}
 
 	/**
@@ -2474,7 +2666,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_base_qty(double value) {
-		setConstNumber(offset + 40, $trd_unit_conv_base_qty, value);
+		setConstNumber(offset + 44, $trd_unit_conv_base_qty, value);
 	}
 
 
@@ -2483,7 +2675,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber trd_unit_conv_qty() {
-		return getConstNumber(offset + 41, $trd_unit_conv_qty);
+		return getConstNumber(offset + 45, $trd_unit_conv_qty);
 	}
 
 	/**
@@ -2491,7 +2683,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_qty(MCNumber value) {
-		setConstNumber(offset + 41, $trd_unit_conv_qty, value);
+		setConstNumber(offset + 45, $trd_unit_conv_qty, value);
 	}
 
 	/**
@@ -2499,7 +2691,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_qty(int value) {
-		setConstNumber(offset + 41, $trd_unit_conv_qty, value);
+		setConstNumber(offset + 45, $trd_unit_conv_qty, value);
 	}
 
 	/**
@@ -2507,7 +2699,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_qty(long value) {
-		setConstNumber(offset + 41, $trd_unit_conv_qty, value);
+		setConstNumber(offset + 45, $trd_unit_conv_qty, value);
 	}
 
 	/**
@@ -2515,7 +2707,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_qty(float value) {
-		setConstNumber(offset + 41, $trd_unit_conv_qty, value);
+		setConstNumber(offset + 45, $trd_unit_conv_qty, value);
 	}
 
 	/**
@@ -2523,7 +2715,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_conv_qty(double value) {
-		setConstNumber(offset + 41, $trd_unit_conv_qty, value);
+		setConstNumber(offset + 45, $trd_unit_conv_qty, value);
 	}
 
 
@@ -2532,7 +2724,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trd_unit_rnd_typ() {
-		return getConstString(offset + 42, $trd_unit_rnd_typ);
+		return getConstString(offset + 46, $trd_unit_rnd_typ);
 	}
 
 	/**
@@ -2540,7 +2732,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_unit_rnd_typ(String value) {
-		setConstString(offset + 42, $trd_unit_rnd_typ, value);
+		setConstString(offset + 46, $trd_unit_rnd_typ, value);
 	}
 
 
@@ -2549,7 +2741,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean sls_upri_cng_flg() {
-		return getConstBoolean(offset + 43, $sls_upri_cng_flg);
+		return getConstBoolean(offset + 47, $sls_upri_cng_flg);
 	}
 
 	/**
@@ -2557,7 +2749,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_upri_cng_flg(boolean value) {
-		setConstBoolean(offset + 43, $sls_upri_cng_flg, value);
+		setConstBoolean(offset + 47, $sls_upri_cng_flg, value);
 	}
 
 
@@ -2566,7 +2758,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ver_flg() {
-		return getConstBoolean(offset + 44, $ver_flg);
+		return getConstBoolean(offset + 48, $ver_flg);
 	}
 
 	/**
@@ -2574,61 +2766,61 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ver_flg(boolean value) {
-		setConstBoolean(offset + 44, $ver_flg, value);
+		setConstBoolean(offset + 48, $ver_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR trd_unit_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 45, $trd_unit_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 49, $trd_unit_qty_p);
 	}
 	
 	public void trd_unit_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 45, $trd_unit_qty_p, row);
+		setConstInnerRow(offset + 49, $trd_unit_qty_p, row);
 	}
 
 
 	public mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR trd_cur_upri_amt_p(){
-		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 46, $trd_cur_upri_amt_p);
+		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 50, $trd_cur_upri_amt_p);
 	}
 	
 	public void trd_cur_upri_amt_p(mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR row){
-		setConstInnerRow(offset + 46, $trd_cur_upri_amt_p, row);
+		setConstInnerRow(offset + 50, $trd_cur_upri_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5060.UpriR cost_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 47, $cost_upri_p);
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 51, $cost_upri_p);
 	}
 	
 	public void cost_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 47, $cost_upri_p, row);
+		setConstInnerRow(offset + 51, $cost_upri_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR cost_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 48, $cost_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 52, $cost_amt_p);
 	}
 	
 	public void cost_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 48, $cost_amt_p, row);
+		setConstInnerRow(offset + 52, $cost_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5060.UpriR iv_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 49, $iv_upri_p);
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 53, $iv_upri_p);
 	}
 	
 	public void iv_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 49, $iv_upri_p, row);
+		setConstInnerRow(offset + 53, $iv_upri_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR iv_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 50, $iv_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 54, $iv_amt_p);
 	}
 	
 	public void iv_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 50, $iv_amt_p, row);
+		setConstInnerRow(offset + 54, $iv_amt_p, row);
 	}
 
 
@@ -2637,7 +2829,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber prof_rate() {
-		return getConstNumber(offset + 51, $prof_rate);
+		return getConstNumber(offset + 55, $prof_rate);
 	}
 
 	/**
@@ -2645,7 +2837,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prof_rate(MCNumber value) {
-		setConstNumber(offset + 51, $prof_rate, value);
+		setConstNumber(offset + 55, $prof_rate, value);
 	}
 
 	/**
@@ -2653,7 +2845,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prof_rate(int value) {
-		setConstNumber(offset + 51, $prof_rate, value);
+		setConstNumber(offset + 55, $prof_rate, value);
 	}
 
 	/**
@@ -2661,7 +2853,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prof_rate(long value) {
-		setConstNumber(offset + 51, $prof_rate, value);
+		setConstNumber(offset + 55, $prof_rate, value);
 	}
 
 	/**
@@ -2669,7 +2861,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prof_rate(float value) {
-		setConstNumber(offset + 51, $prof_rate, value);
+		setConstNumber(offset + 55, $prof_rate, value);
 	}
 
 	/**
@@ -2677,7 +2869,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prof_rate(double value) {
-		setConstNumber(offset + 51, $prof_rate, value);
+		setConstNumber(offset + 55, $prof_rate, value);
 	}
 
 
@@ -2686,7 +2878,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber wtax_rate() {
-		return getConstNumber(offset + 52, $wtax_rate);
+		return getConstNumber(offset + 56, $wtax_rate);
 	}
 
 	/**
@@ -2694,7 +2886,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wtax_rate(MCNumber value) {
-		setConstNumber(offset + 52, $wtax_rate, value);
+		setConstNumber(offset + 56, $wtax_rate, value);
 	}
 
 	/**
@@ -2702,7 +2894,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wtax_rate(int value) {
-		setConstNumber(offset + 52, $wtax_rate, value);
+		setConstNumber(offset + 56, $wtax_rate, value);
 	}
 
 	/**
@@ -2710,7 +2902,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wtax_rate(long value) {
-		setConstNumber(offset + 52, $wtax_rate, value);
+		setConstNumber(offset + 56, $wtax_rate, value);
 	}
 
 	/**
@@ -2718,7 +2910,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wtax_rate(float value) {
-		setConstNumber(offset + 52, $wtax_rate, value);
+		setConstNumber(offset + 56, $wtax_rate, value);
 	}
 
 	/**
@@ -2726,88 +2918,88 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wtax_rate(double value) {
-		setConstNumber(offset + 52, $wtax_rate, value);
+		setConstNumber(offset + 56, $wtax_rate, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR wtax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 53, $wtax_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 57, $wtax_amt_p);
 	}
 	
 	public void wtax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 53, $wtax_amt_p, row);
+		setConstInnerRow(offset + 57, $wtax_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5060.UpriR base_cur_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 54, $base_cur_upri_p);
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 58, $base_cur_upri_p);
 	}
 	
 	public void base_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 54, $base_cur_upri_p, row);
+		setConstInnerRow(offset + 58, $base_cur_upri_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 55, $base_cur_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 59, $base_cur_amt_p);
 	}
 	
 	public void base_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 55, $base_cur_amt_p, row);
+		setConstInnerRow(offset + 59, $base_cur_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_inc_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 56, $base_cur_inc_tax_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 60, $base_cur_inc_tax_amt_p);
 	}
 	
 	public void base_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 56, $base_cur_inc_tax_amt_p, row);
+		setConstInnerRow(offset + 60, $base_cur_inc_tax_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 57, $base_cur_tax_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 61, $base_cur_tax_amt_p);
 	}
 	
 	public void base_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 57, $base_cur_tax_amt_p, row);
+		setConstInnerRow(offset + 61, $base_cur_tax_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5060.UpriR ptax_cur_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 58, $ptax_cur_upri_p);
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 62, $ptax_cur_upri_p);
 	}
 	
 	public void ptax_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 58, $ptax_cur_upri_p, row);
+		setConstInnerRow(offset + 62, $ptax_cur_upri_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 59, $ptax_cur_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 63, $ptax_cur_amt_p);
 	}
 	
 	public void ptax_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 59, $ptax_cur_amt_p, row);
+		setConstInnerRow(offset + 63, $ptax_cur_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_inc_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 60, $ptax_cur_inc_tax_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 64, $ptax_cur_inc_tax_amt_p);
 	}
 	
 	public void ptax_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 60, $ptax_cur_inc_tax_amt_p, row);
+		setConstInnerRow(offset + 64, $ptax_cur_inc_tax_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 61, $ptax_cur_tax_amt_p);
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 65, $ptax_cur_tax_amt_p);
 	}
 	
 	public void ptax_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 61, $ptax_cur_tax_amt_p, row);
+		setConstInnerRow(offset + 65, $ptax_cur_tax_amt_p, row);
 	}
 
 
@@ -2816,7 +3008,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber bill_crryovr_times() {
-		return getConstNumber(offset + 62, $bill_crryovr_times);
+		return getConstNumber(offset + 66, $bill_crryovr_times);
 	}
 
 	/**
@@ -2824,7 +3016,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bill_crryovr_times(MCNumber value) {
-		setConstNumber(offset + 62, $bill_crryovr_times, value);
+		setConstNumber(offset + 66, $bill_crryovr_times, value);
 	}
 
 	/**
@@ -2832,7 +3024,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bill_crryovr_times(int value) {
-		setConstNumber(offset + 62, $bill_crryovr_times, value);
+		setConstNumber(offset + 66, $bill_crryovr_times, value);
 	}
 
 	/**
@@ -2840,7 +3032,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bill_crryovr_times(long value) {
-		setConstNumber(offset + 62, $bill_crryovr_times, value);
+		setConstNumber(offset + 66, $bill_crryovr_times, value);
 	}
 
 	/**
@@ -2848,7 +3040,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bill_crryovr_times(float value) {
-		setConstNumber(offset + 62, $bill_crryovr_times, value);
+		setConstNumber(offset + 66, $bill_crryovr_times, value);
 	}
 
 	/**
@@ -2856,7 +3048,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bill_crryovr_times(double value) {
-		setConstNumber(offset + 62, $bill_crryovr_times, value);
+		setConstNumber(offset + 66, $bill_crryovr_times, value);
 	}
 
 
@@ -2865,7 +3057,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String gd_cd() {
-		return getConstString(offset + 63, $gd_cd);
+		return getConstString(offset + 67, $gd_cd);
 	}
 
 	/**
@@ -2873,7 +3065,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void gd_cd(String value) {
-		setConstString(offset + 63, $gd_cd, value);
+		setConstString(offset + 67, $gd_cd, value);
 	}
 
 
@@ -2882,7 +3074,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String gd_nm() {
-		return getConstString(offset + 64, $gd_nm);
+		return getConstString(offset + 68, $gd_nm);
 	}
 
 	/**
@@ -2890,7 +3082,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void gd_nm(String value) {
-		setConstString(offset + 64, $gd_nm, value);
+		setConstString(offset + 68, $gd_nm, value);
 	}
 
 
@@ -2899,7 +3091,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean sno_num_flg() {
-		return getConstBoolean(offset + 65, $sno_num_flg);
+		return getConstBoolean(offset + 69, $sno_num_flg);
 	}
 
 	/**
@@ -2907,16 +3099,16 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sno_num_flg(boolean value) {
-		setConstBoolean(offset + 65, $sno_num_flg, value);
+		setConstBoolean(offset + 69, $sno_num_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5070.SnoR sno_p(){
-		return (mcframe.clientMAUB.MAUBP5070.SnoR) getConstInnerRow(offset + 66, $sno_p);
+		return (mcframe.clientMAUB.MAUBP5070.SnoR) getConstInnerRow(offset + 70, $sno_p);
 	}
 	
 	public void sno_p(mcframe.clientMAUB.MAUBP5070.SnoR row){
-		setConstInnerRow(offset + 66, $sno_p, row);
+		setConstInnerRow(offset + 70, $sno_p, row);
 	}
 
 
@@ -2925,7 +3117,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber set_itm_grp_no() {
-		return getConstNumber(offset + 67, $set_itm_grp_no);
+		return getConstNumber(offset + 71, $set_itm_grp_no);
 	}
 
 	/**
@@ -2933,7 +3125,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void set_itm_grp_no(MCNumber value) {
-		setConstNumber(offset + 67, $set_itm_grp_no, value);
+		setConstNumber(offset + 71, $set_itm_grp_no, value);
 	}
 
 	/**
@@ -2941,7 +3133,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void set_itm_grp_no(int value) {
-		setConstNumber(offset + 67, $set_itm_grp_no, value);
+		setConstNumber(offset + 71, $set_itm_grp_no, value);
 	}
 
 	/**
@@ -2949,7 +3141,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void set_itm_grp_no(long value) {
-		setConstNumber(offset + 67, $set_itm_grp_no, value);
+		setConstNumber(offset + 71, $set_itm_grp_no, value);
 	}
 
 	/**
@@ -2957,7 +3149,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void set_itm_grp_no(float value) {
-		setConstNumber(offset + 67, $set_itm_grp_no, value);
+		setConstNumber(offset + 71, $set_itm_grp_no, value);
 	}
 
 	/**
@@ -2965,25 +3157,25 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void set_itm_grp_no(double value) {
-		setConstNumber(offset + 67, $set_itm_grp_no, value);
+		setConstNumber(offset + 71, $set_itm_grp_no, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5320.YmdHmR ship_rqst_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 68, $ship_rqst_dt_p);
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 72, $ship_rqst_dt_p);
 	}
 	
 	public void ship_rqst_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 68, $ship_rqst_dt_p, row);
+		setConstInnerRow(offset + 72, $ship_rqst_dt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5320.YmdHmR dlv_rqst_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 69, $dlv_rqst_dt_p);
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 73, $dlv_rqst_dt_p);
 	}
 	
 	public void dlv_rqst_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 69, $dlv_rqst_dt_p, row);
+		setConstInnerRow(offset + 73, $dlv_rqst_dt_p, row);
 	}
 
 
@@ -2992,7 +3184,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ() {
-		return getConstString(offset + 70, $dlv_day_week_typ);
+		return getConstString(offset + 74, $dlv_day_week_typ);
 	}
 
 	/**
@@ -3000,7 +3192,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ(String value) {
-		setConstString(offset + 70, $dlv_day_week_typ, value);
+		setConstString(offset + 74, $dlv_day_week_typ, value);
 	}
 
 
@@ -3009,7 +3201,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ_nm() {
-		return getConstString(offset + 71, $dlv_day_week_typ_nm);
+		return getConstString(offset + 75, $dlv_day_week_typ_nm);
 	}
 
 	/**
@@ -3017,7 +3209,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ_nm(String value) {
-		setConstString(offset + 71, $dlv_day_week_typ_nm, value);
+		setConstString(offset + 75, $dlv_day_week_typ_nm, value);
 	}
 
 
@@ -3026,7 +3218,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate sls_schd_dt() {
-		return getConstDate(offset + 72, $sls_schd_dt);
+		return getConstDate(offset + 76, $sls_schd_dt);
 	}
 
 	/**
@@ -3034,7 +3226,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_schd_dt(MCDate value) {
-		setConstDate(offset + 72, $sls_schd_dt, value);
+		setConstDate(offset + 76, $sls_schd_dt, value);
 	}
 
 
@@ -3043,7 +3235,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate accpt_schd_dt() {
-		return getConstDate(offset + 73, $accpt_schd_dt);
+		return getConstDate(offset + 77, $accpt_schd_dt);
 	}
 
 	/**
@@ -3051,7 +3243,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void accpt_schd_dt(MCDate value) {
-		setConstDate(offset + 73, $accpt_schd_dt, value);
+		setConstDate(offset + 77, $accpt_schd_dt, value);
 	}
 
 
@@ -3060,7 +3252,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_schd_split_flg() {
-		return getConstBoolean(offset + 74, $ship_schd_split_flg);
+		return getConstBoolean(offset + 78, $ship_schd_split_flg);
 	}
 
 	/**
@@ -3068,7 +3260,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_schd_split_flg(boolean value) {
-		setConstBoolean(offset + 74, $ship_schd_split_flg, value);
+		setConstBoolean(offset + 78, $ship_schd_split_flg, value);
 	}
 
 
@@ -3077,7 +3269,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean not_dt_calc_flg() {
-		return getConstBoolean(offset + 75, $not_dt_calc_flg);
+		return getConstBoolean(offset + 79, $not_dt_calc_flg);
 	}
 
 	/**
@@ -3085,34 +3277,34 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void not_dt_calc_flg(boolean value) {
-		setConstBoolean(offset + 75, $not_dt_calc_flg, value);
+		setConstBoolean(offset + 79, $not_dt_calc_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5320.YmdHmR ship_schd_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 76, $ship_schd_dt_p);
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 80, $ship_schd_dt_p);
 	}
 	
 	public void ship_schd_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 76, $ship_schd_dt_p, row);
+		setConstInnerRow(offset + 80, $ship_schd_dt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5320.YmdHmR dlv_schd_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 77, $dlv_schd_dt_p);
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 81, $dlv_schd_dt_p);
 	}
 	
 	public void dlv_schd_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 77, $dlv_schd_dt_p, row);
+		setConstInnerRow(offset + 81, $dlv_schd_dt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5400.DlvR dlv_p(){
-		return (mcframe.clientMAUB.MAUBP5400.DlvR) getConstInnerRow(offset + 78, $dlv_p);
+		return (mcframe.clientMAUB.MAUBP5400.DlvR) getConstInnerRow(offset + 82, $dlv_p);
 	}
 	
 	public void dlv_p(mcframe.clientMAUB.MAUBP5400.DlvR row){
-		setConstInnerRow(offset + 78, $dlv_p, row);
+		setConstInnerRow(offset + 82, $dlv_p, row);
 	}
 
 
@@ -3121,7 +3313,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String prnt_lcl_cd() {
-		return getConstString(offset + 79, $prnt_lcl_cd);
+		return getConstString(offset + 83, $prnt_lcl_cd);
 	}
 
 	/**
@@ -3129,7 +3321,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void prnt_lcl_cd(String value) {
-		setConstString(offset + 79, $prnt_lcl_cd, value);
+		setConstString(offset + 83, $prnt_lcl_cd, value);
 	}
 
 
@@ -3138,7 +3330,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean tdlv_req_flg() {
-		return getConstBoolean(offset + 80, $tdlv_req_flg);
+		return getConstBoolean(offset + 84, $tdlv_req_flg);
 	}
 
 	/**
@@ -3146,7 +3338,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tdlv_req_flg(boolean value) {
-		setConstBoolean(offset + 80, $tdlv_req_flg, value);
+		setConstBoolean(offset + 84, $tdlv_req_flg, value);
 	}
 
 
@@ -3155,7 +3347,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_cd1() {
-		return getConstString(offset + 81, $dest_cd1);
+		return getConstString(offset + 85, $dest_cd1);
 	}
 
 	/**
@@ -3163,7 +3355,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_cd1(String value) {
-		setConstString(offset + 81, $dest_cd1, value);
+		setConstString(offset + 85, $dest_cd1, value);
 	}
 
 
@@ -3172,7 +3364,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_nm1() {
-		return getConstString(offset + 82, $dest_nm1);
+		return getConstString(offset + 86, $dest_nm1);
 	}
 
 	/**
@@ -3180,7 +3372,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_nm1(String value) {
-		setConstString(offset + 82, $dest_nm1, value);
+		setConstString(offset + 86, $dest_nm1, value);
 	}
 
 
@@ -3189,7 +3381,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_cd2() {
-		return getConstString(offset + 83, $dest_cd2);
+		return getConstString(offset + 87, $dest_cd2);
 	}
 
 	/**
@@ -3197,7 +3389,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_cd2(String value) {
-		setConstString(offset + 83, $dest_cd2, value);
+		setConstString(offset + 87, $dest_cd2, value);
 	}
 
 
@@ -3206,7 +3398,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_nm2() {
-		return getConstString(offset + 84, $dest_nm2);
+		return getConstString(offset + 88, $dest_nm2);
 	}
 
 	/**
@@ -3214,7 +3406,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_nm2(String value) {
-		setConstString(offset + 84, $dest_nm2, value);
+		setConstString(offset + 88, $dest_nm2, value);
 	}
 
 
@@ -3223,7 +3415,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_cd3() {
-		return getConstString(offset + 85, $dest_cd3);
+		return getConstString(offset + 89, $dest_cd3);
 	}
 
 	/**
@@ -3231,7 +3423,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_cd3(String value) {
-		setConstString(offset + 85, $dest_cd3, value);
+		setConstString(offset + 89, $dest_cd3, value);
 	}
 
 
@@ -3240,7 +3432,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dest_nm3() {
-		return getConstString(offset + 86, $dest_nm3);
+		return getConstString(offset + 90, $dest_nm3);
 	}
 
 	/**
@@ -3248,16 +3440,16 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dest_nm3(String value) {
-		setConstString(offset + 86, $dest_nm3, value);
+		setConstString(offset + 90, $dest_nm3, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5150.DlvR tdlv_p(){
-		return (mcframe.clientMAUB.MAUBP5150.DlvR) getConstInnerRow(offset + 87, $tdlv_p);
+		return (mcframe.clientMAUB.MAUBP5150.DlvR) getConstInnerRow(offset + 91, $tdlv_p);
 	}
 	
 	public void tdlv_p(mcframe.clientMAUB.MAUBP5150.DlvR row){
-		setConstInnerRow(offset + 87, $tdlv_p, row);
+		setConstInnerRow(offset + 91, $tdlv_p, row);
 	}
 
 
@@ -3266,7 +3458,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String via_dlv_typ() {
-		return getConstString(offset + 88, $via_dlv_typ);
+		return getConstString(offset + 92, $via_dlv_typ);
 	}
 
 	/**
@@ -3274,7 +3466,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void via_dlv_typ(String value) {
-		setConstString(offset + 88, $via_dlv_typ, value);
+		setConstString(offset + 92, $via_dlv_typ, value);
 	}
 
 
@@ -3283,7 +3475,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String via_dlv_typ_nm() {
-		return getConstString(offset + 89, $via_dlv_typ_nm);
+		return getConstString(offset + 93, $via_dlv_typ_nm);
 	}
 
 	/**
@@ -3291,7 +3483,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void via_dlv_typ_nm(String value) {
-		setConstString(offset + 89, $via_dlv_typ_nm, value);
+		setConstString(offset + 93, $via_dlv_typ_nm, value);
 	}
 
 
@@ -3300,7 +3492,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean sls_cststk_flg() {
-		return getConstBoolean(offset + 90, $sls_cststk_flg);
+		return getConstBoolean(offset + 94, $sls_cststk_flg);
 	}
 
 	/**
@@ -3308,7 +3500,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_cststk_flg(boolean value) {
-		setConstBoolean(offset + 90, $sls_cststk_flg, value);
+		setConstBoolean(offset + 94, $sls_cststk_flg, value);
 	}
 
 
@@ -3317,7 +3509,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String def_proc_typ() {
-		return getConstString(offset + 91, $def_proc_typ);
+		return getConstString(offset + 95, $def_proc_typ);
 	}
 
 	/**
@@ -3325,7 +3517,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void def_proc_typ(String value) {
-		setConstString(offset + 91, $def_proc_typ, value);
+		setConstString(offset + 95, $def_proc_typ, value);
 	}
 
 
@@ -3334,7 +3526,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String proc_typ() {
-		return getConstString(offset + 92, $proc_typ);
+		return getConstString(offset + 96, $proc_typ);
 	}
 
 	/**
@@ -3342,7 +3534,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void proc_typ(String value) {
-		setConstString(offset + 92, $proc_typ, value);
+		setConstString(offset + 96, $proc_typ, value);
 	}
 
 
@@ -3351,7 +3543,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String proc_typ_nm() {
-		return getConstString(offset + 93, $proc_typ_nm);
+		return getConstString(offset + 97, $proc_typ_nm);
 	}
 
 	/**
@@ -3359,7 +3551,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void proc_typ_nm(String value) {
-		setConstString(offset + 93, $proc_typ_nm, value);
+		setConstString(offset + 97, $proc_typ_nm, value);
 	}
 
 
@@ -3368,7 +3560,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String def_ship_inst_typ() {
-		return getConstString(offset + 94, $def_ship_inst_typ);
+		return getConstString(offset + 98, $def_ship_inst_typ);
 	}
 
 	/**
@@ -3376,7 +3568,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void def_ship_inst_typ(String value) {
-		setConstString(offset + 94, $def_ship_inst_typ, value);
+		setConstString(offset + 98, $def_ship_inst_typ, value);
 	}
 
 
@@ -3385,7 +3577,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_inst_typ() {
-		return getConstString(offset + 95, $ship_inst_typ);
+		return getConstString(offset + 99, $ship_inst_typ);
 	}
 
 	/**
@@ -3393,7 +3585,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_inst_typ(String value) {
-		setConstString(offset + 95, $ship_inst_typ, value);
+		setConstString(offset + 99, $ship_inst_typ, value);
 	}
 
 
@@ -3402,7 +3594,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_inst_typ_nm() {
-		return getConstString(offset + 96, $ship_inst_typ_nm);
+		return getConstString(offset + 100, $ship_inst_typ_nm);
 	}
 
 	/**
@@ -3410,7 +3602,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_inst_typ_nm(String value) {
-		setConstString(offset + 96, $ship_inst_typ_nm, value);
+		setConstString(offset + 100, $ship_inst_typ_nm, value);
 	}
 
 
@@ -3419,7 +3611,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_schd_split_typ() {
-		return getConstString(offset + 97, $ship_schd_split_typ);
+		return getConstString(offset + 101, $ship_schd_split_typ);
 	}
 
 	/**
@@ -3427,7 +3619,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_schd_split_typ(String value) {
-		setConstString(offset + 97, $ship_schd_split_typ, value);
+		setConstString(offset + 101, $ship_schd_split_typ, value);
 	}
 
 
@@ -3436,7 +3628,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_schd_split_typ_nm() {
-		return getConstString(offset + 98, $ship_schd_split_typ_nm);
+		return getConstString(offset + 102, $ship_schd_split_typ_nm);
 	}
 
 	/**
@@ -3444,7 +3636,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_schd_split_typ_nm(String value) {
-		setConstString(offset + 98, $ship_schd_split_typ_nm, value);
+		setConstString(offset + 102, $ship_schd_split_typ_nm, value);
 	}
 
 
@@ -3453,7 +3645,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_scope_typ() {
-		return getConstString(offset + 99, $alloc_scope_typ);
+		return getConstString(offset + 103, $alloc_scope_typ);
 	}
 
 	/**
@@ -3461,7 +3653,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_scope_typ(String value) {
-		setConstString(offset + 99, $alloc_scope_typ, value);
+		setConstString(offset + 103, $alloc_scope_typ, value);
 	}
 
 
@@ -3470,7 +3662,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_scope_typ_nm() {
-		return getConstString(offset + 100, $alloc_scope_typ_nm);
+		return getConstString(offset + 104, $alloc_scope_typ_nm);
 	}
 
 	/**
@@ -3478,7 +3670,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_scope_typ_nm(String value) {
-		setConstString(offset + 100, $alloc_scope_typ_nm, value);
+		setConstString(offset + 104, $alloc_scope_typ_nm, value);
 	}
 
 
@@ -3487,7 +3679,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean not_lg_mix_flg() {
-		return getConstBoolean(offset + 101, $not_lg_mix_flg);
+		return getConstBoolean(offset + 105, $not_lg_mix_flg);
 	}
 
 	/**
@@ -3495,7 +3687,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void not_lg_mix_flg(boolean value) {
-		setConstBoolean(offset + 101, $not_lg_mix_flg, value);
+		setConstBoolean(offset + 105, $not_lg_mix_flg, value);
 	}
 
 
@@ -3504,7 +3696,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_typ() {
-		return getConstString(offset + 102, $alloc_typ);
+		return getConstString(offset + 106, $alloc_typ);
 	}
 
 	/**
@@ -3512,7 +3704,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_typ(String value) {
-		setConstString(offset + 102, $alloc_typ, value);
+		setConstString(offset + 106, $alloc_typ, value);
 	}
 
 
@@ -3521,7 +3713,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_typ_nm() {
-		return getConstString(offset + 103, $alloc_typ_nm);
+		return getConstString(offset + 107, $alloc_typ_nm);
 	}
 
 	/**
@@ -3529,7 +3721,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_typ_nm(String value) {
-		setConstString(offset + 103, $alloc_typ_nm, value);
+		setConstString(offset + 107, $alloc_typ_nm, value);
 	}
 
 
@@ -3538,7 +3730,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_grp_cd() {
-		return getConstString(offset + 104, $alloc_grp_cd);
+		return getConstString(offset + 108, $alloc_grp_cd);
 	}
 
 	/**
@@ -3546,7 +3738,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_grp_cd(String value) {
-		setConstString(offset + 104, $alloc_grp_cd, value);
+		setConstString(offset + 108, $alloc_grp_cd, value);
 	}
 
 
@@ -3555,7 +3747,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String alloc_grp_nm() {
-		return getConstString(offset + 105, $alloc_grp_nm);
+		return getConstString(offset + 109, $alloc_grp_nm);
 	}
 
 	/**
@@ -3563,7 +3755,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void alloc_grp_nm(String value) {
-		setConstString(offset + 105, $alloc_grp_nm, value);
+		setConstString(offset + 109, $alloc_grp_nm, value);
 	}
 
 
@@ -3572,7 +3764,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_lg_grp_cd() {
-		return getConstString(offset + 106, $ship_lg_grp_cd);
+		return getConstString(offset + 110, $ship_lg_grp_cd);
 	}
 
 	/**
@@ -3580,7 +3772,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_lg_grp_cd(String value) {
-		setConstString(offset + 106, $ship_lg_grp_cd, value);
+		setConstString(offset + 110, $ship_lg_grp_cd, value);
 	}
 
 
@@ -3589,7 +3781,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_lg_grp_nm() {
-		return getConstString(offset + 107, $ship_lg_grp_nm);
+		return getConstString(offset + 111, $ship_lg_grp_nm);
 	}
 
 	/**
@@ -3597,7 +3789,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_lg_grp_nm(String value) {
-		setConstString(offset + 107, $ship_lg_grp_nm, value);
+		setConstString(offset + 111, $ship_lg_grp_nm, value);
 	}
 
 
@@ -3606,7 +3798,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String def_loc_cd() {
-		return getConstString(offset + 108, $def_loc_cd);
+		return getConstString(offset + 112, $def_loc_cd);
 	}
 
 	/**
@@ -3614,7 +3806,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void def_loc_cd(String value) {
-		setConstString(offset + 108, $def_loc_cd, value);
+		setConstString(offset + 112, $def_loc_cd, value);
 	}
 
 
@@ -3623,7 +3815,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String def_loc_nm() {
-		return getConstString(offset + 109, $def_loc_nm);
+		return getConstString(offset + 113, $def_loc_nm);
 	}
 
 	/**
@@ -3631,7 +3823,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void def_loc_nm(String value) {
-		setConstString(offset + 109, $def_loc_nm, value);
+		setConstString(offset + 113, $def_loc_nm, value);
 	}
 
 
@@ -3640,7 +3832,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String loc_cd() {
-		return getConstString(offset + 110, $loc_cd);
+		return getConstString(offset + 114, $loc_cd);
 	}
 
 	/**
@@ -3648,7 +3840,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void loc_cd(String value) {
-		setConstString(offset + 110, $loc_cd, value);
+		setConstString(offset + 114, $loc_cd, value);
 	}
 
 
@@ -3657,7 +3849,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String loc_nm() {
-		return getConstString(offset + 111, $loc_nm);
+		return getConstString(offset + 115, $loc_nm);
 	}
 
 	/**
@@ -3665,7 +3857,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void loc_nm(String value) {
-		setConstString(offset + 111, $loc_nm, value);
+		setConstString(offset + 115, $loc_nm, value);
 	}
 
 
@@ -3674,7 +3866,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wg_cd() {
-		return getConstString(offset + 112, $wg_cd);
+		return getConstString(offset + 116, $wg_cd);
 	}
 
 	/**
@@ -3682,7 +3874,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wg_cd(String value) {
-		setConstString(offset + 112, $wg_cd, value);
+		setConstString(offset + 116, $wg_cd, value);
 	}
 
 
@@ -3691,7 +3883,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean str_ln_tgt_flg() {
-		return getConstBoolean(offset + 113, $str_ln_tgt_flg);
+		return getConstBoolean(offset + 117, $str_ln_tgt_flg);
 	}
 
 	/**
@@ -3699,34 +3891,34 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void str_ln_tgt_flg(boolean value) {
-		setConstBoolean(offset + 113, $str_ln_tgt_flg, value);
+		setConstBoolean(offset + 117, $str_ln_tgt_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5120.StrLnR str_ln_p(){
-		return (mcframe.clientMAUB.MAUBP5120.StrLnR) getConstInnerRow(offset + 114, $str_ln_p);
+		return (mcframe.clientMAUB.MAUBP5120.StrLnR) getConstInnerRow(offset + 118, $str_ln_p);
 	}
 	
 	public void str_ln_p(mcframe.clientMAUB.MAUBP5120.StrLnR row){
-		setConstInnerRow(offset + 114, $str_ln_p, row);
+		setConstInnerRow(offset + 118, $str_ln_p, row);
 	}
 
 
 	public mcframe.clientMSUB.MSUBP5030.LotNoR lot_no_p(){
-		return (mcframe.clientMSUB.MSUBP5030.LotNoR) getConstInnerRow(offset + 115, $lot_no_p);
+		return (mcframe.clientMSUB.MSUBP5030.LotNoR) getConstInnerRow(offset + 119, $lot_no_p);
 	}
 	
 	public void lot_no_p(mcframe.clientMSUB.MSUBP5030.LotNoR row){
-		setConstInnerRow(offset + 115, $lot_no_p, row);
+		setConstInnerRow(offset + 119, $lot_no_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5250.VerNoR ver_no_p(){
-		return (mcframe.clientMAUB.MAUBP5250.VerNoR) getConstInnerRow(offset + 116, $ver_no_p);
+		return (mcframe.clientMAUB.MAUBP5250.VerNoR) getConstInnerRow(offset + 120, $ver_no_p);
 	}
 	
 	public void ver_no_p(mcframe.clientMAUB.MAUBP5250.VerNoR row){
-		setConstInnerRow(offset + 116, $ver_no_p, row);
+		setConstInnerRow(offset + 120, $ver_no_p, row);
 	}
 
 
@@ -3735,7 +3927,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean not_lot_mix_flg() {
-		return getConstBoolean(offset + 117, $not_lot_mix_flg);
+		return getConstBoolean(offset + 121, $not_lot_mix_flg);
 	}
 
 	/**
@@ -3743,7 +3935,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void not_lot_mix_flg(boolean value) {
-		setConstBoolean(offset + 117, $not_lot_mix_flg, value);
+		setConstBoolean(offset + 121, $not_lot_mix_flg, value);
 	}
 
 
@@ -3752,7 +3944,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean not_sublot_mix_flg() {
-		return getConstBoolean(offset + 118, $not_sublot_mix_flg);
+		return getConstBoolean(offset + 122, $not_sublot_mix_flg);
 	}
 
 	/**
@@ -3760,7 +3952,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void not_sublot_mix_flg(boolean value) {
-		setConstBoolean(offset + 118, $not_sublot_mix_flg, value);
+		setConstBoolean(offset + 122, $not_sublot_mix_flg, value);
 	}
 
 
@@ -3769,7 +3961,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String rqst_to_loc_cd() {
-		return getConstString(offset + 119, $rqst_to_loc_cd);
+		return getConstString(offset + 123, $rqst_to_loc_cd);
 	}
 
 	/**
@@ -3777,7 +3969,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rqst_to_loc_cd(String value) {
-		setConstString(offset + 119, $rqst_to_loc_cd, value);
+		setConstString(offset + 123, $rqst_to_loc_cd, value);
 	}
 
 
@@ -3786,7 +3978,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String rqst_to_loc_nm() {
-		return getConstString(offset + 120, $rqst_to_loc_nm);
+		return getConstString(offset + 124, $rqst_to_loc_nm);
 	}
 
 	/**
@@ -3794,7 +3986,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rqst_to_loc_nm(String value) {
-		setConstString(offset + 120, $rqst_to_loc_nm, value);
+		setConstString(offset + 124, $rqst_to_loc_nm, value);
 	}
 
 
@@ -3803,7 +3995,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sppl_cd() {
-		return getConstString(offset + 121, $sppl_cd);
+		return getConstString(offset + 125, $sppl_cd);
 	}
 
 	/**
@@ -3811,7 +4003,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sppl_cd(String value) {
-		setConstString(offset + 121, $sppl_cd, value);
+		setConstString(offset + 125, $sppl_cd, value);
 	}
 
 
@@ -3820,7 +4012,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sppl_nm() {
-		return getConstString(offset + 122, $sppl_nm);
+		return getConstString(offset + 126, $sppl_nm);
 	}
 
 	/**
@@ -3828,7 +4020,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sppl_nm(String value) {
-		setConstString(offset + 122, $sppl_nm, value);
+		setConstString(offset + 126, $sppl_nm, value);
 	}
 
 
@@ -3837,7 +4029,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String maker_cd() {
-		return getConstString(offset + 123, $maker_cd);
+		return getConstString(offset + 127, $maker_cd);
 	}
 
 	/**
@@ -3845,7 +4037,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void maker_cd(String value) {
-		setConstString(offset + 123, $maker_cd, value);
+		setConstString(offset + 127, $maker_cd, value);
 	}
 
 
@@ -3854,7 +4046,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String maker_nm() {
-		return getConstString(offset + 124, $maker_nm);
+		return getConstString(offset + 128, $maker_nm);
 	}
 
 	/**
@@ -3862,7 +4054,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void maker_nm(String value) {
-		setConstString(offset + 124, $maker_nm, value);
+		setConstString(offset + 128, $maker_nm, value);
 	}
 
 
@@ -3871,7 +4063,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate rqst_dt() {
-		return getConstDate(offset + 125, $rqst_dt);
+		return getConstDate(offset + 129, $rqst_dt);
 	}
 
 	/**
@@ -3879,7 +4071,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rqst_dt(MCDate value) {
-		setConstDate(offset + 125, $rqst_dt, value);
+		setConstDate(offset + 129, $rqst_dt, value);
 	}
 
 
@@ -3888,7 +4080,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate rqst_dlv_rqst_dt() {
-		return getConstDate(offset + 126, $rqst_dlv_rqst_dt);
+		return getConstDate(offset + 130, $rqst_dlv_rqst_dt);
 	}
 
 	/**
@@ -3896,7 +4088,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rqst_dlv_rqst_dt(MCDate value) {
-		setConstDate(offset + 126, $rqst_dlv_rqst_dt, value);
+		setConstDate(offset + 130, $rqst_dlv_rqst_dt, value);
 	}
 
 
@@ -3905,7 +4097,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wg_rqst_cnt_rmrks() {
-		return getConstString(offset + 127, $wg_rqst_cnt_rmrks);
+		return getConstString(offset + 131, $wg_rqst_cnt_rmrks);
 	}
 
 	/**
@@ -3913,7 +4105,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wg_rqst_cnt_rmrks(String value) {
-		setConstString(offset + 127, $wg_rqst_cnt_rmrks, value);
+		setConstString(offset + 131, $wg_rqst_cnt_rmrks, value);
 	}
 
 
@@ -3922,7 +4114,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_term_cd() {
-		return getConstString(offset + 128, $ship_term_cd);
+		return getConstString(offset + 132, $ship_term_cd);
 	}
 
 	/**
@@ -3930,7 +4122,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_term_cd(String value) {
-		setConstString(offset + 128, $ship_term_cd, value);
+		setConstString(offset + 132, $ship_term_cd, value);
 	}
 
 
@@ -3939,7 +4131,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_term_nm() {
-		return getConstString(offset + 129, $ship_term_nm);
+		return getConstString(offset + 133, $ship_term_nm);
 	}
 
 	/**
@@ -3947,7 +4139,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_term_nm(String value) {
-		setConstString(offset + 129, $ship_term_nm, value);
+		setConstString(offset + 133, $ship_term_nm, value);
 	}
 
 
@@ -3956,7 +4148,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_block_flg() {
-		return getConstBoolean(offset + 130, $ship_block_flg);
+		return getConstBoolean(offset + 134, $ship_block_flg);
 	}
 
 	/**
@@ -3964,7 +4156,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_block_flg(boolean value) {
-		setConstBoolean(offset + 130, $ship_block_flg, value);
+		setConstBoolean(offset + 134, $ship_block_flg, value);
 	}
 
 
@@ -3973,7 +4165,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_cnt_rmrks() {
-		return getConstString(offset + 131, $ship_cnt_rmrks);
+		return getConstString(offset + 135, $ship_cnt_rmrks);
 	}
 
 	/**
@@ -3981,7 +4173,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_cnt_rmrks(String value) {
-		setConstString(offset + 131, $ship_cnt_rmrks, value);
+		setConstString(offset + 135, $ship_cnt_rmrks, value);
 	}
 
 
@@ -3990,7 +4182,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_po_d_no() {
-		return getConstString(offset + 132, $cst_po_d_no);
+		return getConstString(offset + 136, $cst_po_d_no);
 	}
 
 	/**
@@ -3998,7 +4190,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_d_no(String value) {
-		setConstString(offset + 132, $cst_po_d_no, value);
+		setConstString(offset + 136, $cst_po_d_no, value);
 	}
 
 
@@ -4007,7 +4199,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_po_d_rmrks() {
-		return getConstString(offset + 133, $cst_po_d_rmrks);
+		return getConstString(offset + 137, $cst_po_d_rmrks);
 	}
 
 	/**
@@ -4015,7 +4207,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_d_rmrks(String value) {
-		setConstString(offset + 133, $cst_po_d_rmrks, value);
+		setConstString(offset + 137, $cst_po_d_rmrks, value);
 	}
 
 
@@ -4024,7 +4216,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sls_rsn_cd() {
-		return getConstString(offset + 134, $sls_rsn_cd);
+		return getConstString(offset + 138, $sls_rsn_cd);
 	}
 
 	/**
@@ -4032,7 +4224,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_rsn_cd(String value) {
-		setConstString(offset + 134, $sls_rsn_cd, value);
+		setConstString(offset + 138, $sls_rsn_cd, value);
 	}
 
 
@@ -4041,7 +4233,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sls_rsn_nm() {
-		return getConstString(offset + 135, $sls_rsn_nm);
+		return getConstString(offset + 139, $sls_rsn_nm);
 	}
 
 	/**
@@ -4049,7 +4241,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_rsn_nm(String value) {
-		setConstString(offset + 135, $sls_rsn_nm, value);
+		setConstString(offset + 139, $sls_rsn_nm, value);
 	}
 
 
@@ -4058,7 +4250,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean sls_acxfr_flg() {
-		return getConstBoolean(offset + 136, $sls_acxfr_flg);
+		return getConstBoolean(offset + 140, $sls_acxfr_flg);
 	}
 
 	/**
@@ -4066,7 +4258,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_acxfr_flg(boolean value) {
-		setConstBoolean(offset + 136, $sls_acxfr_flg, value);
+		setConstBoolean(offset + 140, $sls_acxfr_flg, value);
 	}
 
 
@@ -4075,7 +4267,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String bd_dpt_cd() {
-		return getConstString(offset + 137, $bd_dpt_cd);
+		return getConstString(offset + 141, $bd_dpt_cd);
 	}
 
 	/**
@@ -4083,7 +4275,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bd_dpt_cd(String value) {
-		setConstString(offset + 137, $bd_dpt_cd, value);
+		setConstString(offset + 141, $bd_dpt_cd, value);
 	}
 
 
@@ -4092,7 +4284,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String bd_dpt_nm() {
-		return getConstString(offset + 138, $bd_dpt_nm);
+		return getConstString(offset + 142, $bd_dpt_nm);
 	}
 
 	/**
@@ -4100,7 +4292,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void bd_dpt_nm(String value) {
-		setConstString(offset + 138, $bd_dpt_nm, value);
+		setConstString(offset + 142, $bd_dpt_nm, value);
 	}
 
 
@@ -4109,7 +4301,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sls_upri_req_typ() {
-		return getConstString(offset + 139, $sls_upri_req_typ);
+		return getConstString(offset + 143, $sls_upri_req_typ);
 	}
 
 	/**
@@ -4117,7 +4309,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_upri_req_typ(String value) {
-		setConstString(offset + 139, $sls_upri_req_typ, value);
+		setConstString(offset + 143, $sls_upri_req_typ, value);
 	}
 
 
@@ -4126,7 +4318,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sls_upri_req_typ_nm() {
-		return getConstString(offset + 140, $sls_upri_req_typ_nm);
+		return getConstString(offset + 144, $sls_upri_req_typ_nm);
 	}
 
 	/**
@@ -4134,7 +4326,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_upri_req_typ_nm(String value) {
-		setConstString(offset + 140, $sls_upri_req_typ_nm, value);
+		setConstString(offset + 144, $sls_upri_req_typ_nm, value);
 	}
 
 
@@ -4143,7 +4335,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trd_d_rmrks() {
-		return getConstString(offset + 141, $trd_d_rmrks);
+		return getConstString(offset + 145, $trd_d_rmrks);
 	}
 
 	/**
@@ -4151,7 +4343,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_d_rmrks(String value) {
-		setConstString(offset + 141, $trd_d_rmrks, value);
+		setConstString(offset + 145, $trd_d_rmrks, value);
 	}
 
 
@@ -4160,7 +4352,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String intr_rmrks() {
-		return getConstString(offset + 142, $intr_rmrks);
+		return getConstString(offset + 146, $intr_rmrks);
 	}
 
 	/**
@@ -4168,7 +4360,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void intr_rmrks(String value) {
-		setConstString(offset + 142, $intr_rmrks, value);
+		setConstString(offset + 146, $intr_rmrks, value);
 	}
 
 
@@ -4177,7 +4369,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char1() {
-		return getConstString(offset + 143, $sub_char1);
+		return getConstString(offset + 147, $sub_char1);
 	}
 
 	/**
@@ -4185,7 +4377,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char1(String value) {
-		setConstString(offset + 143, $sub_char1, value);
+		setConstString(offset + 147, $sub_char1, value);
 	}
 
 
@@ -4194,7 +4386,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char2() {
-		return getConstString(offset + 144, $sub_char2);
+		return getConstString(offset + 148, $sub_char2);
 	}
 
 	/**
@@ -4202,7 +4394,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char2(String value) {
-		setConstString(offset + 144, $sub_char2, value);
+		setConstString(offset + 148, $sub_char2, value);
 	}
 
 
@@ -4211,7 +4403,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char3() {
-		return getConstString(offset + 145, $sub_char3);
+		return getConstString(offset + 149, $sub_char3);
 	}
 
 	/**
@@ -4219,7 +4411,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char3(String value) {
-		setConstString(offset + 145, $sub_char3, value);
+		setConstString(offset + 149, $sub_char3, value);
 	}
 
 
@@ -4228,7 +4420,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_d_char1() {
-		return getConstString(offset + 146, $edi_sub_d_char1);
+		return getConstString(offset + 150, $edi_sub_d_char1);
 	}
 
 	/**
@@ -4236,7 +4428,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_char1(String value) {
-		setConstString(offset + 146, $edi_sub_d_char1, value);
+		setConstString(offset + 150, $edi_sub_d_char1, value);
 	}
 
 
@@ -4245,7 +4437,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_d_char2() {
-		return getConstString(offset + 147, $edi_sub_d_char2);
+		return getConstString(offset + 151, $edi_sub_d_char2);
 	}
 
 	/**
@@ -4253,7 +4445,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_char2(String value) {
-		setConstString(offset + 147, $edi_sub_d_char2, value);
+		setConstString(offset + 151, $edi_sub_d_char2, value);
 	}
 
 
@@ -4262,7 +4454,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_d_char3() {
-		return getConstString(offset + 148, $edi_sub_d_char3);
+		return getConstString(offset + 152, $edi_sub_d_char3);
 	}
 
 	/**
@@ -4270,7 +4462,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_char3(String value) {
-		setConstString(offset + 148, $edi_sub_d_char3, value);
+		setConstString(offset + 152, $edi_sub_d_char3, value);
 	}
 
 
@@ -4279,7 +4471,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_d_char4() {
-		return getConstString(offset + 149, $edi_sub_d_char4);
+		return getConstString(offset + 153, $edi_sub_d_char4);
 	}
 
 	/**
@@ -4287,7 +4479,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_char4(String value) {
-		setConstString(offset + 149, $edi_sub_d_char4, value);
+		setConstString(offset + 153, $edi_sub_d_char4, value);
 	}
 
 
@@ -4296,7 +4488,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_d_char5() {
-		return getConstString(offset + 150, $edi_sub_d_char5);
+		return getConstString(offset + 154, $edi_sub_d_char5);
 	}
 
 	/**
@@ -4304,7 +4496,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_char5(String value) {
-		setConstString(offset + 150, $edi_sub_d_char5, value);
+		setConstString(offset + 154, $edi_sub_d_char5, value);
 	}
 
 
@@ -4313,7 +4505,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber edi_sub_d_num1() {
-		return getConstNumber(offset + 151, $edi_sub_d_num1);
+		return getConstNumber(offset + 155, $edi_sub_d_num1);
 	}
 
 	/**
@@ -4321,7 +4513,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_num1(MCNumber value) {
-		setConstNumber(offset + 151, $edi_sub_d_num1, value);
+		setConstNumber(offset + 155, $edi_sub_d_num1, value);
 	}
 
 	/**
@@ -4329,7 +4521,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_num1(int value) {
-		setConstNumber(offset + 151, $edi_sub_d_num1, value);
+		setConstNumber(offset + 155, $edi_sub_d_num1, value);
 	}
 
 	/**
@@ -4337,7 +4529,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_num1(long value) {
-		setConstNumber(offset + 151, $edi_sub_d_num1, value);
+		setConstNumber(offset + 155, $edi_sub_d_num1, value);
 	}
 
 	/**
@@ -4345,7 +4537,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_num1(float value) {
-		setConstNumber(offset + 151, $edi_sub_d_num1, value);
+		setConstNumber(offset + 155, $edi_sub_d_num1, value);
 	}
 
 	/**
@@ -4353,7 +4545,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_num1(double value) {
-		setConstNumber(offset + 151, $edi_sub_d_num1, value);
+		setConstNumber(offset + 155, $edi_sub_d_num1, value);
 	}
 
 
@@ -4362,7 +4554,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate edi_sub_d_dt1() {
-		return getConstDate(offset + 152, $edi_sub_d_dt1);
+		return getConstDate(offset + 156, $edi_sub_d_dt1);
 	}
 
 	/**
@@ -4370,7 +4562,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_d_dt1(MCDate value) {
-		setConstDate(offset + 152, $edi_sub_d_dt1, value);
+		setConstDate(offset + 156, $edi_sub_d_dt1, value);
 	}
 
 
@@ -4379,7 +4571,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rsn_cd() {
-		return getConstString(offset + 153, $can_rsn_cd);
+		return getConstString(offset + 157, $can_rsn_cd);
 	}
 
 	/**
@@ -4387,7 +4579,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rsn_cd(String value) {
-		setConstString(offset + 153, $can_rsn_cd, value);
+		setConstString(offset + 157, $can_rsn_cd, value);
 	}
 
 
@@ -4396,7 +4588,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rsn_nm() {
-		return getConstString(offset + 154, $can_rsn_nm);
+		return getConstString(offset + 158, $can_rsn_nm);
 	}
 
 	/**
@@ -4404,7 +4596,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rsn_nm(String value) {
-		setConstString(offset + 154, $can_rsn_nm, value);
+		setConstString(offset + 158, $can_rsn_nm, value);
 	}
 
 
@@ -4413,7 +4605,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String slo_d_can_rmkrs() {
-		return getConstString(offset + 155, $slo_d_can_rmkrs);
+		return getConstString(offset + 159, $slo_d_can_rmkrs);
 	}
 
 	/**
@@ -4421,7 +4613,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_d_can_rmkrs(String value) {
-		setConstString(offset + 155, $slo_d_can_rmkrs, value);
+		setConstString(offset + 159, $slo_d_can_rmkrs, value);
 	}
 
 
@@ -4430,7 +4622,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_cmpl_flg() {
-		return getConstBoolean(offset + 156, $ship_cmpl_flg);
+		return getConstBoolean(offset + 160, $ship_cmpl_flg);
 	}
 
 	/**
@@ -4438,7 +4630,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_cmpl_flg(boolean value) {
-		setConstBoolean(offset + 156, $ship_cmpl_flg, value);
+		setConstBoolean(offset + 160, $ship_cmpl_flg, value);
 	}
 
 
@@ -4447,7 +4639,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean sls_cmpl_flg() {
-		return getConstBoolean(offset + 157, $sls_cmpl_flg);
+		return getConstBoolean(offset + 161, $sls_cmpl_flg);
 	}
 
 	/**
@@ -4455,16 +4647,16 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_cmpl_flg(boolean value) {
-		setConstBoolean(offset + 157, $sls_cmpl_flg, value);
+		setConstBoolean(offset + 161, $sls_cmpl_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR base_unit_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 158, $base_unit_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 162, $base_unit_qty_p);
 	}
 	
 	public void base_unit_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 158, $base_unit_qty_p, row);
+		setConstInnerRow(offset + 162, $base_unit_qty_p, row);
 	}
 
 
@@ -4473,7 +4665,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String base_unit_cd() {
-		return getConstString(offset + 159, $base_unit_cd);
+		return getConstString(offset + 163, $base_unit_cd);
 	}
 
 	/**
@@ -4481,7 +4673,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_cd(String value) {
-		setConstString(offset + 159, $base_unit_cd, value);
+		setConstString(offset + 163, $base_unit_cd, value);
 	}
 
 
@@ -4490,7 +4682,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String base_unit_nm() {
-		return getConstString(offset + 160, $base_unit_nm);
+		return getConstString(offset + 164, $base_unit_nm);
 	}
 
 	/**
@@ -4498,7 +4690,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_nm(String value) {
-		setConstString(offset + 160, $base_unit_nm, value);
+		setConstString(offset + 164, $base_unit_nm, value);
 	}
 
 
@@ -4507,7 +4699,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber base_unit_dec_place() {
-		return getConstNumber(offset + 161, $base_unit_dec_place);
+		return getConstNumber(offset + 165, $base_unit_dec_place);
 	}
 
 	/**
@@ -4515,7 +4707,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_dec_place(MCNumber value) {
-		setConstNumber(offset + 161, $base_unit_dec_place, value);
+		setConstNumber(offset + 165, $base_unit_dec_place, value);
 	}
 
 	/**
@@ -4523,7 +4715,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_dec_place(int value) {
-		setConstNumber(offset + 161, $base_unit_dec_place, value);
+		setConstNumber(offset + 165, $base_unit_dec_place, value);
 	}
 
 	/**
@@ -4531,7 +4723,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_dec_place(long value) {
-		setConstNumber(offset + 161, $base_unit_dec_place, value);
+		setConstNumber(offset + 165, $base_unit_dec_place, value);
 	}
 
 	/**
@@ -4539,7 +4731,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_dec_place(float value) {
-		setConstNumber(offset + 161, $base_unit_dec_place, value);
+		setConstNumber(offset + 165, $base_unit_dec_place, value);
 	}
 
 	/**
@@ -4547,7 +4739,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_dec_place(double value) {
-		setConstNumber(offset + 161, $base_unit_dec_place, value);
+		setConstNumber(offset + 165, $base_unit_dec_place, value);
 	}
 
 
@@ -4556,7 +4748,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String base_unit_rnd_typ() {
-		return getConstString(offset + 162, $base_unit_rnd_typ);
+		return getConstString(offset + 166, $base_unit_rnd_typ);
 	}
 
 	/**
@@ -4564,106 +4756,106 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void base_unit_rnd_typ(String value) {
-		setConstString(offset + 162, $base_unit_rnd_typ, value);
+		setConstString(offset + 166, $base_unit_rnd_typ, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR alloc_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 163, $alloc_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 167, $alloc_qty_p);
 	}
 	
 	public void alloc_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 163, $alloc_qty_p, row);
+		setConstInnerRow(offset + 167, $alloc_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR wait_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 164, $wait_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 168, $wait_qty_p);
 	}
 	
 	public void wait_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 164, $wait_qty_p, row);
+		setConstInnerRow(offset + 168, $wait_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR ship_inst_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 165, $ship_inst_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 169, $ship_inst_qty_p);
 	}
 	
 	public void ship_inst_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 165, $ship_inst_qty_p, row);
+		setConstInnerRow(offset + 169, $ship_inst_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR ship_act_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 166, $ship_act_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 170, $ship_act_qty_p);
 	}
 	
 	public void ship_act_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 166, $ship_act_qty_p, row);
+		setConstInnerRow(offset + 170, $ship_act_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR iv_schd_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 167, $iv_schd_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 171, $iv_schd_qty_p);
 	}
 	
 	public void iv_schd_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 167, $iv_schd_qty_p, row);
+		setConstInnerRow(offset + 171, $iv_schd_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR iv_act_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 168, $iv_act_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 172, $iv_act_qty_p);
 	}
 	
 	public void iv_act_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 168, $iv_act_qty_p, row);
+		setConstInnerRow(offset + 172, $iv_act_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR sls_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 169, $sls_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 173, $sls_qty_p);
 	}
 	
 	public void sls_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 169, $sls_qty_p, row);
+		setConstInnerRow(offset + 173, $sls_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR ship_ret_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 170, $ship_ret_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 174, $ship_ret_qty_p);
 	}
 	
 	public void ship_ret_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 170, $ship_ret_qty_p, row);
+		setConstInnerRow(offset + 174, $ship_ret_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR re_ship_schd_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 171, $re_ship_schd_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 175, $re_ship_schd_qty_p);
 	}
 	
 	public void re_ship_schd_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 171, $re_ship_schd_qty_p, row);
+		setConstInnerRow(offset + 175, $re_ship_schd_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR ship_schd_abort_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 172, $ship_schd_abort_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 176, $ship_schd_abort_qty_p);
 	}
 	
 	public void ship_schd_abort_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 172, $ship_schd_abort_qty_p, row);
+		setConstInnerRow(offset + 176, $ship_schd_abort_qty_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5040.QtyR sls_schd_abort_qty_p(){
-		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 173, $sls_schd_abort_qty_p);
+		return (mcframe.clientMAUB.MAUBP5040.QtyR) getConstInnerRow(offset + 177, $sls_schd_abort_qty_p);
 	}
 	
 	public void sls_schd_abort_qty_p(mcframe.clientMAUB.MAUBP5040.QtyR row){
-		setConstInnerRow(offset + 173, $sls_schd_abort_qty_p, row);
+		setConstInnerRow(offset + 177, $sls_schd_abort_qty_p, row);
 	}
 
 
@@ -4672,7 +4864,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String qtn_d_no() {
-		return getConstString(offset + 174, $qtn_d_no);
+		return getConstString(offset + 178, $qtn_d_no);
 	}
 
 	/**
@@ -4680,7 +4872,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_d_no(String value) {
-		setConstString(offset + 174, $qtn_d_no, value);
+		setConstString(offset + 178, $qtn_d_no, value);
 	}
 
 
@@ -4689,7 +4881,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber disp_seq() {
-		return getConstNumber(offset + 175, $disp_seq);
+		return getConstNumber(offset + 179, $disp_seq);
 	}
 
 	/**
@@ -4697,7 +4889,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void disp_seq(MCNumber value) {
-		setConstNumber(offset + 175, $disp_seq, value);
+		setConstNumber(offset + 179, $disp_seq, value);
 	}
 
 	/**
@@ -4705,7 +4897,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void disp_seq(int value) {
-		setConstNumber(offset + 175, $disp_seq, value);
+		setConstNumber(offset + 179, $disp_seq, value);
 	}
 
 	/**
@@ -4713,7 +4905,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void disp_seq(long value) {
-		setConstNumber(offset + 175, $disp_seq, value);
+		setConstNumber(offset + 179, $disp_seq, value);
 	}
 
 	/**
@@ -4721,7 +4913,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void disp_seq(float value) {
-		setConstNumber(offset + 175, $disp_seq, value);
+		setConstNumber(offset + 179, $disp_seq, value);
 	}
 
 	/**
@@ -4729,7 +4921,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void disp_seq(double value) {
-		setConstNumber(offset + 175, $disp_seq, value);
+		setConstNumber(offset + 179, $disp_seq, value);
 	}
 
 
@@ -4738,7 +4930,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber ship_pr_upd_cntr() {
-		return getConstNumber(offset + 176, $ship_pr_upd_cntr);
+		return getConstNumber(offset + 180, $ship_pr_upd_cntr);
 	}
 
 	/**
@@ -4746,7 +4938,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_upd_cntr(MCNumber value) {
-		setConstNumber(offset + 176, $ship_pr_upd_cntr, value);
+		setConstNumber(offset + 180, $ship_pr_upd_cntr, value);
 	}
 
 	/**
@@ -4754,7 +4946,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_upd_cntr(int value) {
-		setConstNumber(offset + 176, $ship_pr_upd_cntr, value);
+		setConstNumber(offset + 180, $ship_pr_upd_cntr, value);
 	}
 
 	/**
@@ -4762,7 +4954,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_upd_cntr(long value) {
-		setConstNumber(offset + 176, $ship_pr_upd_cntr, value);
+		setConstNumber(offset + 180, $ship_pr_upd_cntr, value);
 	}
 
 	/**
@@ -4770,7 +4962,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_upd_cntr(float value) {
-		setConstNumber(offset + 176, $ship_pr_upd_cntr, value);
+		setConstNumber(offset + 180, $ship_pr_upd_cntr, value);
 	}
 
 	/**
@@ -4778,7 +4970,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_upd_cntr(double value) {
-		setConstNumber(offset + 176, $ship_pr_upd_cntr, value);
+		setConstNumber(offset + 180, $ship_pr_upd_cntr, value);
 	}
 
 
@@ -4787,7 +4979,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ship_pr_no() {
-		return getConstString(offset + 177, $ship_pr_no);
+		return getConstString(offset + 181, $ship_pr_no);
 	}
 
 	/**
@@ -4795,7 +4987,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_pr_no(String value) {
-		setConstString(offset + 177, $ship_pr_no, value);
+		setConstString(offset + 181, $ship_pr_no, value);
 	}
 
 
@@ -4804,7 +4996,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber init_schd_qty() {
-		return getConstNumber(offset + 178, $init_schd_qty);
+		return getConstNumber(offset + 182, $init_schd_qty);
 	}
 
 	/**
@@ -4812,7 +5004,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_qty(MCNumber value) {
-		setConstNumber(offset + 178, $init_schd_qty, value);
+		setConstNumber(offset + 182, $init_schd_qty, value);
 	}
 
 	/**
@@ -4820,7 +5012,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_qty(int value) {
-		setConstNumber(offset + 178, $init_schd_qty, value);
+		setConstNumber(offset + 182, $init_schd_qty, value);
 	}
 
 	/**
@@ -4828,7 +5020,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_qty(long value) {
-		setConstNumber(offset + 178, $init_schd_qty, value);
+		setConstNumber(offset + 182, $init_schd_qty, value);
 	}
 
 	/**
@@ -4836,7 +5028,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_qty(float value) {
-		setConstNumber(offset + 178, $init_schd_qty, value);
+		setConstNumber(offset + 182, $init_schd_qty, value);
 	}
 
 	/**
@@ -4844,7 +5036,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_qty(double value) {
-		setConstNumber(offset + 178, $init_schd_qty, value);
+		setConstNumber(offset + 182, $init_schd_qty, value);
 	}
 
 
@@ -4853,7 +5045,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber init_schd_dscnt_amt() {
-		return getConstNumber(offset + 179, $init_schd_dscnt_amt);
+		return getConstNumber(offset + 183, $init_schd_dscnt_amt);
 	}
 
 	/**
@@ -4861,7 +5053,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_dscnt_amt(MCNumber value) {
-		setConstNumber(offset + 179, $init_schd_dscnt_amt, value);
+		setConstNumber(offset + 183, $init_schd_dscnt_amt, value);
 	}
 
 	/**
@@ -4869,7 +5061,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_dscnt_amt(int value) {
-		setConstNumber(offset + 179, $init_schd_dscnt_amt, value);
+		setConstNumber(offset + 183, $init_schd_dscnt_amt, value);
 	}
 
 	/**
@@ -4877,7 +5069,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_dscnt_amt(long value) {
-		setConstNumber(offset + 179, $init_schd_dscnt_amt, value);
+		setConstNumber(offset + 183, $init_schd_dscnt_amt, value);
 	}
 
 	/**
@@ -4885,7 +5077,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_dscnt_amt(float value) {
-		setConstNumber(offset + 179, $init_schd_dscnt_amt, value);
+		setConstNumber(offset + 183, $init_schd_dscnt_amt, value);
 	}
 
 	/**
@@ -4893,7 +5085,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void init_schd_dscnt_amt(double value) {
-		setConstNumber(offset + 179, $init_schd_dscnt_amt, value);
+		setConstNumber(offset + 183, $init_schd_dscnt_amt, value);
 	}
 
 
@@ -4902,7 +5094,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean org_ship_block_flg() {
-		return getConstBoolean(offset + 180, $org_ship_block_flg);
+		return getConstBoolean(offset + 184, $org_ship_block_flg);
 	}
 
 	/**
@@ -4910,16 +5102,16 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void org_ship_block_flg(boolean value) {
-		setConstBoolean(offset + 180, $org_ship_block_flg, value);
+		setConstBoolean(offset + 184, $org_ship_block_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP5060.UpriR old_trd_cur_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 181, $old_trd_cur_upri_p);
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 185, $old_trd_cur_upri_p);
 	}
 	
 	public void old_trd_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 181, $old_trd_cur_upri_p, row);
+		setConstInnerRow(offset + 185, $old_trd_cur_upri_p, row);
 	}
 
 
@@ -4928,7 +5120,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber rem_abort_qty() {
-		return getConstNumber(offset + 182, $rem_abort_qty);
+		return getConstNumber(offset + 186, $rem_abort_qty);
 	}
 
 	/**
@@ -4936,7 +5128,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_qty(MCNumber value) {
-		setConstNumber(offset + 182, $rem_abort_qty, value);
+		setConstNumber(offset + 186, $rem_abort_qty, value);
 	}
 
 	/**
@@ -4944,7 +5136,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_qty(int value) {
-		setConstNumber(offset + 182, $rem_abort_qty, value);
+		setConstNumber(offset + 186, $rem_abort_qty, value);
 	}
 
 	/**
@@ -4952,7 +5144,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_qty(long value) {
-		setConstNumber(offset + 182, $rem_abort_qty, value);
+		setConstNumber(offset + 186, $rem_abort_qty, value);
 	}
 
 	/**
@@ -4960,7 +5152,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_qty(float value) {
-		setConstNumber(offset + 182, $rem_abort_qty, value);
+		setConstNumber(offset + 186, $rem_abort_qty, value);
 	}
 
 	/**
@@ -4968,7 +5160,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_qty(double value) {
-		setConstNumber(offset + 182, $rem_abort_qty, value);
+		setConstNumber(offset + 186, $rem_abort_qty, value);
 	}
 
 
@@ -4977,7 +5169,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean rem_abort_flg() {
-		return getConstBoolean(offset + 183, $rem_abort_flg);
+		return getConstBoolean(offset + 187, $rem_abort_flg);
 	}
 
 	/**
@@ -4985,7 +5177,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rem_abort_flg(boolean value) {
-		setConstBoolean(offset + 183, $rem_abort_flg, value);
+		setConstBoolean(offset + 187, $rem_abort_flg, value);
 	}
 
 
@@ -5064,6 +5256,9 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($cntry_org_nm.equalsIgnoreCase(name)) {
 			return cntry_org_nm();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($trd_unit_cd.equalsIgnoreCase(name)) {
 			return trd_unit_cd();
@@ -5290,6 +5485,15 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			return itm_bill_crryovr_times();
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			return list_pri();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			return upri_rate();
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			return trd_unit_dec_place();
 		}
@@ -5512,6 +5716,9 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($cntry_org_nm.equalsIgnoreCase(name)) {
 			return cntry_org_nm();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
 		}
 		if ($trd_unit_cd.equalsIgnoreCase(name)) {
 			return trd_unit_cd();
@@ -5737,6 +5944,15 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public MCNumber getNumberNE(String name) {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			return itm_bill_crryovr_times();
+		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			return list_pri();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			return upri_rate();
 		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			return trd_unit_dec_place();
@@ -5984,6 +6200,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($cntry_org_nm.equalsIgnoreCase(name)) {
 			cntry_org_nm(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($trd_unit_cd.equalsIgnoreCase(name)) {
@@ -6285,6 +6505,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -6346,6 +6578,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public void setNumber(String name, int value) {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			itm_bill_crryovr_times(value);
+			return;
+		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
 			return;
 		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
@@ -6411,6 +6655,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -6474,6 +6730,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -6535,6 +6803,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public void setNumber(String name, double value) {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			itm_bill_crryovr_times(value);
+			return;
+		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
 			return;
 		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
@@ -6829,6 +7109,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($cntry_org_nm.equalsIgnoreCase(name)) {
 			cntry_org_nm(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
 			return;
 		}
 		if ($trd_unit_cd.equalsIgnoreCase(name)) {
@@ -7130,6 +7414,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -7191,6 +7487,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public void setNumberNE(String name, int value) {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			itm_bill_crryovr_times(value);
+			return;
+		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
 			return;
 		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
@@ -7256,6 +7564,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -7319,6 +7639,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 			itm_bill_crryovr_times(value);
 			return;
 		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
+			return;
+		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
 			trd_unit_dec_place(value);
 			return;
@@ -7380,6 +7712,18 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public void setNumberNE(String name, double value) {
 		if ($itm_bill_crryovr_times.equalsIgnoreCase(name)) {
 			itm_bill_crryovr_times(value);
+			return;
+		}
+		if ($list_pri.equalsIgnoreCase(name)) {
+			list_pri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($upri_rate.equalsIgnoreCase(name)) {
+			upri_rate(value);
 			return;
 		}
 		if ($trd_unit_dec_place.equalsIgnoreCase(name)) {
