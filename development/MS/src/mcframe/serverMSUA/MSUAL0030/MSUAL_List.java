@@ -39,7 +39,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		String cstCd = row.getStringNE(SloItmCols.$i_bp_cd);
 		MCRow cstUpriRow = (cstCd != null) ? getCstSlsUpriRow(cstCd, itmCd, itmSub1, itmSub2, itmSub3, wgCd) : null;
 		if (cstUpriRow != null) {
-			down.setNumberNE(SloItmCols.$o_upri_typ, cstUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ));
+			down.setStringNE(SloItmCols.$o_upri_typ, cstUpriRow.getStringNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ));
 			down.setNumberNE(SloItmCols.$o_upri_rate, cstUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_rate));
 		}
 
