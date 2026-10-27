@@ -39,8 +39,13 @@ public class MSUAL_List extends MSUAL_List_MC {
 		String cstCd = row.getStringNE(SloItmCols.$i_bp_cd);
 		MCRow cstUpriRow = (cstCd != null) ? getCstSlsUpriRow(cstCd, itmCd, itmSub1, itmSub2, itmSub3, wgCd) : null;
 		if (cstUpriRow != null) {
-			down.setStringNE(SloItmCols.$o_upri_typ, cstUpriRow.getStringNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ));
+			String upriTyp = cstUpriRow.getStringNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ);
+			down.setStringNE(SloItmCols.$o_upri_typ, upriTyp);
 			down.setNumberNE(SloItmCols.$o_upri_rate, cstUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_rate));
+			switch (upriTyp) {
+				case "1": down.setStringNE(SloItmCols.$o_upri_typ_nm, "定価"); break;
+				case "2": down.setStringNE(SloItmCols.$o_upri_typ_nm, "仕切"); break;
+			}
 		}
 
 	}

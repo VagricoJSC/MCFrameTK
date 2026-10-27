@@ -5984,6 +5984,8 @@ class MSUAC_List_MC_A extends Object {
 		public static final String $o_wl_sale_upri = "wl_sale_upri";
 		/** OUT:単価区分 */
 		public static final String $o_upri_typ = "upri_typ";
+		/** OUT:単価区分名 */
+		public static final String $o_upri_typ_nm = "upri_typ_nm";
 		/** OUT:掛率（％） */
 		public static final String $o_upri_rate = "upri_rate";
 		/** VIEW:品目ＣＤ */
@@ -6291,6 +6293,7 @@ class MSUAC_List_MC_A extends Object {
 					add($o_list_pri);
 					add($o_wl_sale_upri);
 					add($o_upri_typ);
+					add($o_upri_typ_nm);
 					add($o_upri_rate);
 				}};;
 		@SuppressWarnings("serial")

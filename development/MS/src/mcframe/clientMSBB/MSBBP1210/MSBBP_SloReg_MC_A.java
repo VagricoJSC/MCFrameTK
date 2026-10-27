@@ -1211,6 +1211,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCColumnConfig columnDtl_upri_typ = null;
 	/**
+	 * Unit price type name 単価区分名.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_upri_typ_nm = null;
+	/**
 	 * Ratio (%) 掛率（％）.<p>
 	 *
 	 */
@@ -3290,7 +3295,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter() {
 		if (Dtl_itm_p_PPanel_columnItm_itm_cd_p == null) {
-			Dtl_itm_p_PPanel_columnItm_itm_cd_p = createDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_cd, "itm_cd", "itm_sub1","itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_rate");
+			Dtl_itm_p_PPanel_columnItm_itm_cd_p = createDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_cd, "itm_cd", "itm_sub1","itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_typ_nm","upri_rate");
 		}
 		return Dtl_itm_p_PPanel_columnItm_itm_cd_p;
 	}
@@ -3304,7 +3309,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter() {
 		if (Dtl_itm_p_PPanel_columnItm_itm_sub1_p == null) {
-			Dtl_itm_p_PPanel_columnItm_itm_sub1_p = createDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub1, "itm_sub1", "itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_rate");
+			Dtl_itm_p_PPanel_columnItm_itm_sub1_p = createDtl_itm_p_PPanel_columnItm_itm_sub1_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub1, "itm_sub1", "itm_sub2","itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_typ_nm","upri_rate");
 		}
 		return Dtl_itm_p_PPanel_columnItm_itm_sub1_p;
 	}
@@ -3318,7 +3323,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter() {
 		if (Dtl_itm_p_PPanel_columnItm_itm_sub2_p == null) {
-			Dtl_itm_p_PPanel_columnItm_itm_sub2_p = createDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub2, "itm_sub2", "itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_rate");
+			Dtl_itm_p_PPanel_columnItm_itm_sub2_p = createDtl_itm_p_PPanel_columnItm_itm_sub2_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub2, "itm_sub2", "itm_sub3","itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_typ_nm","upri_rate");
 		}
 		return Dtl_itm_p_PPanel_columnItm_itm_sub2_p;
 	}
@@ -3332,7 +3337,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter() {
 		if (Dtl_itm_p_PPanel_columnItm_itm_sub3_p == null) {
-			Dtl_itm_p_PPanel_columnItm_itm_sub3_p = createDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub3, "itm_sub3", "itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_rate");
+			Dtl_itm_p_PPanel_columnItm_itm_sub3_p = createDtl_itm_p_PPanel_columnItm_itm_sub3_ListPutter(Dtl_itm_p_PPanel.columnItm_itm_sub3, "itm_sub3", "itm_nm","stk_mng_typ","asset_mng_typ_nm","asset_mng_typ","sundry_itm_flg","dscnt_itm_flg","base_unit_cd","base_unit_nm","base_unit_dec_place","base_unit_rnd_typ","trd_unit_nm","trd_unit_cd","trd_unit_dec_place","lot_mng_typ","lot_no_typ","sublot_mng_typ","sublot_no_typ","sno1_mng_typ","slo_sno1_flg","sno1_num_typ","sno2_mng_typ","slo_sno2_flg","sno2_num_typ","sno3_mng_typ","slo_sno3_flg","sno3_num_typ","sno4_mng_typ","slo_sno4_flg","sno4_num_typ","cntry_org_cd","cntry_org_nm","itm_bill_crryovr_times","slo_proc_flg","ver_flg","sls_upri_cng_flg","cst_itm_cd","cst_itm_nm","vmi_flg","iv_itm_nm","trd_cur_upri","wtax_rate","tax_cd","tax_nm","tax_rate","tax_typ","inc_tax_flg","trd_unit_conv_base_qty","trd_unit_conv_qty","trd_unit_qty","dscnt_rsn_cd","dscnt_rsn_nm","cost_upri","bill_crryovr_times","dest_cd1","dest_nm1","dest_cd2","dest_nm2","dest_cd3","dest_nm3","dlv_rqst_dt","dlv_rqst_hm","ship_rqst_dt","ship_rqst_hm","dlv_day_week_typ_nm","dlv_day_week_typ","via_dlv_typ_nm","via_dlv_typ","sls_cststk_flg","gd_nm","gd_cd","ship_schd_split_typ","alloc_scope_typ","alloc_typ","sls_upri_req_typ","def_ship_inst_typ","ship_inst_typ","ship_term_cd","ship_term_nm","def_proc_typ","proc_typ","dlv_cd","dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_lg_grp_cd","dlv_lg_grp_nm","dlv_cntry_cd","dlv_cntry_nm","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","prnt_lcl_cd","tdlv_req_flg","tdlv_cd","tdlv_nm","tdlv_sundry_flg","tdlv_lg_grp_cd","tdlv_lg_grp_nm","tdlv_cntry_cd","tdlv_cntry_nm","tdlv_zip_cd","tdlv_addr1","tdlv_addr2","tdlv_addr3","tdlv_addr4","tdlv_tel","tdlv_fax","tdlv_cntct_dpt","tdlv_cntct_psn","list_pri","wl_sale_upri","upri_typ","upri_typ_nm","upri_rate");
 		}
 		return Dtl_itm_p_PPanel_columnItm_itm_sub3_p;
 	}
@@ -4213,6 +4218,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_list_pri = p.beansFactory.createTableColumn("Dtl.list_pri", MCColumnType.NUMBER);
 		p.columnDtl_wl_sale_upri = p.beansFactory.createTableColumn("Dtl.wl_sale_upri", MCColumnType.NUMBER);
 		p.columnDtl_upri_typ = p.beansFactory.createTableColumn("Dtl.upri_typ", MCColumnType.TEXT);
+		p.columnDtl_upri_typ_nm = p.beansFactory.createTableColumn("Dtl.upri_typ_nm", MCColumnType.TEXT);
 		p.columnDtl_upri_rate = p.beansFactory.createTableColumn("Dtl.upri_rate", MCColumnType.NUMBER);
 		p.columnDtl_trd_unit_cd = p.beansFactory.createTableColumn("Dtl.trd_unit_cd", MCColumnType.TEXT_COMBO);
 		p.columnDtl_trd_unit_nm = p.beansFactory.createTableColumn("Dtl.trd_unit_nm", MCColumnType.TEXT);
@@ -5762,6 +5768,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_wl_sale_upri.setListListener(p);
 		p.columnDtl_upri_typ.addAllListener(p);
 		p.columnDtl_upri_typ.setListListener(p);
+		p.columnDtl_upri_typ_nm.addAllListener(p);
+		p.columnDtl_upri_typ_nm.setListListener(p);
 		p.columnDtl_upri_rate.addAllListener(p);
 		p.columnDtl_upri_rate.setListListener(p);
 		p.columnDtl_trd_unit_cd.addAllListener(p);
@@ -6238,7 +6246,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, SRCH, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, SRCH, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6686,7 +6695,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, REF, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, REF, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, REF, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, REF, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, REF, MCMode.READ_ONLY);
@@ -7135,7 +7145,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, UPD, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, UPD, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, UPD, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD, MCMode.READ_ONLY);
@@ -7584,7 +7595,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, UPD_QTN, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
@@ -8032,7 +8044,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, UPD_APRV, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
@@ -8725,7 +8738,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, FIX_U, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, FIX_U, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -9174,7 +9188,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, INS, MCMode.ENABLE);
 		p.columnDtl_list_pri.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, INS, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, INS, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, INS, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, INS, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, INS, MCMode.READ_ONLY);
@@ -9623,7 +9638,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, INS_QTN, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.columnDtl_trd_unit_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
@@ -10071,7 +10087,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, FIX_I, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, FIX_I, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10519,7 +10536,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, DEL, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, DEL, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, DEL, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, DEL, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, DEL, MCMode.READ_ONLY);
@@ -10967,7 +10985,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_vmi_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_list_pri.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_wl_sale_upri.putMode(p, FIX_D, MCMode.READ_ONLY);
-		p.columnDtl_upri_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_upri_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.columnDtl_upri_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_upri_rate.putMode(p, FIX_D, MCMode.ENABLE);
 		p.columnDtl_trd_unit_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.columnDtl_trd_unit_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
@@ -11201,10 +11220,10 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_cst_itm_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.cst_itm_nm_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_cst_itm_nm);
 		p.DtlTable.addTable(p.Dtl_itm_p_PPanel.ItmTable);
-		p.Dtl_itm_p_PPanel.columnItm_itm_cd.setLinkBeans(p.columnDtl_itm_sub1, p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_rate);
-		p.Dtl_itm_p_PPanel.columnItm_itm_sub1.setLinkBeans(p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_rate);
-		p.Dtl_itm_p_PPanel.columnItm_itm_sub2.setLinkBeans(p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_rate);
-		p.Dtl_itm_p_PPanel.columnItm_itm_sub3.setLinkBeans(p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_rate);
+		p.Dtl_itm_p_PPanel.columnItm_itm_cd.setLinkBeans(p.columnDtl_itm_sub1, p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_typ_nm, p.columnDtl_upri_rate);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub1.setLinkBeans(p.columnDtl_itm_sub2, p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_typ_nm, p.columnDtl_upri_rate);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub2.setLinkBeans(p.columnDtl_itm_sub3, p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_typ_nm, p.columnDtl_upri_rate);
+		p.Dtl_itm_p_PPanel.columnItm_itm_sub3.setLinkBeans(p.columnDtl_itm_nm, p.columnDtl_stk_mng_typ, p.columnDtl_asset_mng_typ_nm, p.columnDtl_asset_mng_typ, p.columnDtl_sundry_itm_flg, p.columnDtl_dscnt_itm_flg, p.columnDtl_base_unit_cd, p.columnDtl_base_unit_nm, p.columnDtl_base_unit_dec_place, p.columnDtl_base_unit_rnd_typ, p.columnDtl_trd_unit_nm, p.columnDtl_trd_unit_cd, p.columnDtl_trd_unit_dec_place, p.columnDtl_lot_mng_typ, p.columnDtl_lot_no_typ, p.columnDtl_sublot_mng_typ, p.columnDtl_sublot_no_typ, p.columnDtl_sno1_mng_typ, p.columnDtl_slo_sno1_flg, p.columnDtl_sno1_num_typ, p.columnDtl_sno2_mng_typ, p.columnDtl_slo_sno2_flg, p.columnDtl_sno2_num_typ, p.columnDtl_sno3_mng_typ, p.columnDtl_slo_sno3_flg, p.columnDtl_sno3_num_typ, p.columnDtl_sno4_mng_typ, p.columnDtl_slo_sno4_flg, p.columnDtl_sno4_num_typ, p.columnDtl_cntry_org_cd, p.columnDtl_cntry_org_nm, p.columnDtl_itm_bill_crryovr_times, p.columnDtl_slo_proc_flg, p.columnDtl_ver_flg, p.columnDtl_sls_upri_cng_flg, p.columnDtl_cst_itm_cd, p.columnDtl_cst_itm_nm, p.columnDtl_vmi_flg, p.columnDtl_iv_itm_nm, p.columnDtl_trd_cur_upri, p.columnDtl_wtax_rate, p.columnDtl_tax_cd, p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg, p.columnDtl_trd_unit_conv_base_qty, p.columnDtl_trd_unit_conv_qty, p.columnDtl_trd_unit_qty, p.columnDtl_dscnt_rsn_cd, p.columnDtl_dscnt_rsn_nm, p.columnDtl_cost_upri, p.columnDtl_bill_crryovr_times, p.columnDtl_dest_cd1, p.columnDtl_dest_nm1, p.columnDtl_dest_cd2, p.columnDtl_dest_nm2, p.columnDtl_dest_cd3, p.columnDtl_dest_nm3, p.columnDtl_dlv_rqst_dt, p.columnDtl_dlv_rqst_hm, p.columnDtl_ship_rqst_dt, p.columnDtl_ship_rqst_hm, p.columnDtl_dlv_day_week_typ_nm, p.columnDtl_dlv_day_week_typ, p.columnDtl_via_dlv_typ_nm, p.columnDtl_via_dlv_typ, p.columnDtl_sls_cststk_flg, p.columnDtl_gd_nm, p.columnDtl_gd_cd, p.columnDtl_ship_schd_split_typ, p.columnDtl_alloc_scope_typ, p.columnDtl_alloc_typ, p.columnDtl_sls_upri_req_typ, p.columnDtl_def_ship_inst_typ, p.columnDtl_ship_inst_typ, p.columnDtl_ship_term_cd, p.columnDtl_ship_term_nm, p.columnDtl_def_proc_typ, p.columnDtl_proc_typ, p.columnDtl_dlv_cd, p.columnDtl_dlv_nm, p.columnDtl_dlv_sundry_flg, p.columnDtl_pri_prnt_flg, p.columnDtl_dlv_lg_grp_cd, p.columnDtl_dlv_lg_grp_nm, p.columnDtl_dlv_cntry_cd, p.columnDtl_dlv_cntry_nm, p.columnDtl_dlv_zip_cd, p.columnDtl_dlv_addr1, p.columnDtl_dlv_addr2, p.columnDtl_dlv_addr3, p.columnDtl_dlv_addr4, p.columnDtl_dlv_tel, p.columnDtl_dlv_fax, p.columnDtl_dlv_cntct_dpt, p.columnDtl_dlv_cntct_psn, p.columnDtl_prnt_lcl_cd, p.columnDtl_tdlv_req_flg, p.columnDtl_tdlv_cd, p.columnDtl_tdlv_nm, p.columnDtl_tdlv_sundry_flg, p.columnDtl_tdlv_lg_grp_cd, p.columnDtl_tdlv_lg_grp_nm, p.columnDtl_tdlv_cntry_cd, p.columnDtl_tdlv_cntry_nm, p.columnDtl_tdlv_zip_cd, p.columnDtl_tdlv_addr1, p.columnDtl_tdlv_addr2, p.columnDtl_tdlv_addr3, p.columnDtl_tdlv_addr4, p.columnDtl_tdlv_tel, p.columnDtl_tdlv_fax, p.columnDtl_tdlv_cntct_dpt, p.columnDtl_tdlv_cntct_psn, p.columnDtl_list_pri, p.columnDtl_wl_sale_upri, p.columnDtl_upri_typ, p.columnDtl_upri_typ_nm, p.columnDtl_upri_rate);
 		p.columnDtl_sundry_itm_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.sundry_itm_flg_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_sundry_itm_flg);
 		p.columnDtl_iv_itm_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.iv_itm_nm_META);
@@ -11266,6 +11285,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.DtlTable.addColumnConfig(p.columnDtl_wl_sale_upri);
 		p.columnDtl_upri_typ.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.upri_typ_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_upri_typ);
+		p.columnDtl_upri_typ_nm.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.upri_typ_nm_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_upri_typ_nm);
 		p.columnDtl_upri_rate.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.upri_rate_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_upri_rate);
 		p.columnDtl_trd_unit_cd.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_unit_cd_META);
@@ -12702,6 +12723,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == columnDtl_list_pri) return doDtl_list_pri_VC(info);
 		if (vc == columnDtl_wl_sale_upri) return doDtl_wl_sale_upri_VC(info);
 		if (vc == columnDtl_upri_typ) return doDtl_upri_typ_VC(info);
+		if (vc == columnDtl_upri_typ_nm) return doDtl_upri_typ_nm_VC(info);
 		if (vc == columnDtl_upri_rate) return doDtl_upri_rate_VC(info);
 		if (vc == columnDtl_trd_unit_cd) return doDtl_trd_unit_cd_VC(info);
 		if (vc == columnDtl_trd_unit_nm) return doDtl_trd_unit_nm_VC(info);
@@ -14749,6 +14771,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[upri_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_upri_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[upri_rate]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -15980,6 +16012,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == columnDtl_list_pri) doDtl_list_pri_NC(info);
 		else if (nc == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NC(info);
 		else if (nc == columnDtl_upri_typ) doDtl_upri_typ_NC(info);
+		else if (nc == columnDtl_upri_typ_nm) doDtl_upri_typ_nm_NC(info);
 		else if (nc == columnDtl_upri_rate) doDtl_upri_rate_NC(info);
 		else if (nc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NC(info);
 		else if (nc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NC(info);
@@ -17638,6 +17671,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[upri_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[upri_rate]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -18663,6 +18704,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == columnDtl_list_pri) doDtl_list_pri_NE(info);
 		else if (ne == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NE(info);
 		else if (ne == columnDtl_upri_typ) doDtl_upri_typ_NE(info);
+		else if (ne == columnDtl_upri_typ_nm) doDtl_upri_typ_nm_NE(info);
 		else if (ne == columnDtl_upri_rate) doDtl_upri_rate_NE(info);
 		else if (ne == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NE(info);
 		else if (ne == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NE(info);
@@ -20321,6 +20363,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[upri_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[upri_rate]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -21346,6 +21396,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == columnDtl_list_pri) doDtl_list_pri_NX(info);
 		else if (nx == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_NX(info);
 		else if (nx == columnDtl_upri_typ) doDtl_upri_typ_NX(info);
+		else if (nx == columnDtl_upri_typ_nm) doDtl_upri_typ_nm_NX(info);
 		else if (nx == columnDtl_upri_rate) doDtl_upri_rate_NX(info);
 		else if (nx == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_NX(info);
 		else if (nx == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_NX(info);
@@ -23004,6 +23055,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[upri_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[upri_rate]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -23999,6 +24058,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == columnDtl_list_pri) doDtl_list_pri_LC(info);
 		else if (lc == columnDtl_wl_sale_upri) doDtl_wl_sale_upri_LC(info);
 		else if (lc == columnDtl_upri_typ) doDtl_upri_typ_LC(info);
+		else if (lc == columnDtl_upri_typ_nm) doDtl_upri_typ_nm_LC(info);
 		else if (lc == columnDtl_upri_rate) doDtl_upri_rate_LC(info);
 		else if (lc == columnDtl_trd_unit_cd) doDtl_trd_unit_cd_LC(info);
 		else if (lc == columnDtl_trd_unit_nm) doDtl_trd_unit_nm_LC(info);
@@ -25399,6 +25459,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doDtl_upri_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[upri_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_upri_typ_nm_LC(MCEventInfo info){
 	}
 
 	/**
