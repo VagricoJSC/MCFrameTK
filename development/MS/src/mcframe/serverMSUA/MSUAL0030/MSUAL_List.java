@@ -71,7 +71,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 			MCNumber qty = MCNumber.ONE;
 			
 			// 値引額
-			MCNumber discntAmt = upriRate.add(-100).multiply(upri).multiply(qty).divide(100);
+			MCNumber discntAmt = upriRate.add(-100).multiply(-1).multiply(upri).multiply(qty).divide(100);
 			down.setNumberNE(SloItmCols.$o_trd_cur_dscnt_amt, discntAmt);
 			
 			// 金額
