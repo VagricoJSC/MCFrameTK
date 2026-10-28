@@ -4411,13 +4411,13 @@ abstract public class MSBBP_SloReg_MC extends MSBBP_SloReg_MC_A implements IfOpe
 		setIvAmt(r);
 	}
 
-	protected void doDtl_trd_cur_amt_LC(MCEventInfo info) {
-		DtlR r = getDtlL().get(info.getEventIndex());
-		setIvAmt(r);
-		setWtaxAmt(r);
-		setHdrAmt();
-
-	}
+//	protected void doDtl_trd_cur_amt_LC(MCEventInfo info) {
+//		DtlR r = getDtlL().get(info.getEventIndex());
+//		setIvAmt(r);
+//		setWtaxAmt(r);
+//		setHdrAmt();
+//
+//	}
 	
 	protected void doDtl_trd_cur_inc_tax_amt_LC(MCEventInfo info) {
 		setHdrIncTaxAmt();
