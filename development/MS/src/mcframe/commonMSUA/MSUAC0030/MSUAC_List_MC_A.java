@@ -5988,6 +5988,10 @@ class MSUAC_List_MC_A extends Object {
 		public static final String $o_upri_typ_nm = "upri_typ_nm";
 		/** OUT:掛率（％） */
 		public static final String $o_upri_rate = "upri_rate";
+		/** OUT:値引 */
+		public static final String $o_trd_cur_dscnt_amt = "trd_cur_dscnt_amt";
+		/** OUT:金額（値引き後） */
+		public static final String $o_trd_cur_amt = "trd_cur_amt";
 		/** VIEW:品目ＣＤ */
 		public static final String $v_itm_cd = $o_itm_cd;
 		/** VIEW_NO:品目ＣＤ */
@@ -6295,6 +6299,8 @@ class MSUAC_List_MC_A extends Object {
 					add($o_upri_typ);
 					add($o_upri_typ_nm);
 					add($o_upri_rate);
+					add($o_trd_cur_dscnt_amt);
+					add($o_trd_cur_amt);
 				}};;
 		@SuppressWarnings("serial")
 		protected static final SortedMap<MCNumber, String> $view_cols_MC = 

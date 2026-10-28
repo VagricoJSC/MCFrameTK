@@ -27,21 +27,31 @@ public class MSUAL_List extends MSUAL_List_MC {
 		String itmSub1 = down.getStringNE(SloItmCols.$o_itm_sub1);
 		String itmSub2 = down.getStringNE(SloItmCols.$o_itm_sub2);
 		String itmSub3 = down.getStringNE(SloItmCols.$o_itm_sub3);
+
+		MCNumber listUpri = null;
+		MCNumber wlSlsUpri = null;
 		
 		// 標準販売単価マスタより定価・仕切単価を設定
 		MCRow stdUpriRow = getStdSlsUpriRow(itmCd, itmSub1, itmSub2, itmSub3, wgCd);
 		if (stdUpriRow != null) {
-			down.setNumberNE(SloItmCols.$o_list_pri, stdUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_STD_SLS_UPRI_R.$upri));
-			down.setNumberNE(SloItmCols.$o_wl_sale_upri, stdUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_STD_SLS_UPRI_R.$wl_sale_upri));
+			listUpri = stdUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_STD_SLS_UPRI_R.$upri);
+			down.setNumberNE(SloItmCols.$o_list_pri, listUpri);
+			wlSlsUpri = stdUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_STD_SLS_UPRI_R.$wl_sale_upri);
+			down.setNumberNE(SloItmCols.$o_wl_sale_upri, wlSlsUpri);
 		}
+		
+		String upriTyp = null;
+		MCNumber upriRate = null;
 		
 		// 得意先販売単価マスタより単位区分・掛率を設定
 		String cstCd = row.getStringNE(SloItmCols.$i_bp_cd);
 		MCRow cstUpriRow = (cstCd != null) ? getCstSlsUpriRow(cstCd, itmCd, itmSub1, itmSub2, itmSub3, wgCd) : null;
 		if (cstUpriRow != null) {
-			String upriTyp = cstUpriRow.getStringNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ);
+			upriTyp = cstUpriRow.getStringNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_typ);
 			down.setStringNE(SloItmCols.$o_upri_typ, upriTyp);
-			down.setNumberNE(SloItmCols.$o_upri_rate, cstUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_rate));
+
+			upriRate = cstUpriRow.getNumberNE(mcframe.serverMA.dbc.MAM_CST_SLS_UPRI_R.$upri_rate);
+			down.setNumberNE(SloItmCols.$o_upri_rate, upriRate);
 			switch (upriTyp) {
 				case "1": down.setStringNE(SloItmCols.$o_upri_typ_nm, "定価"); break;
 				case "2": down.setStringNE(SloItmCols.$o_upri_typ_nm, "仕切"); break;

@@ -197,7 +197,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	
 	@Override
 	protected void initByScreenParam(String openTyp, MCRow bind, Object... param) {
-		super.initByScreenParam(openTyp, bind, param);
+		initTrace(this, "initByScreenParam");
 
 		if (T1 == openTyp) {
 
@@ -220,15 +220,15 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_sls_dpt_cd, bind.getStringNE("sls_dpt_cd"));
 			}
 			
+			if (bind.contains("hdr_qty")) {
+				setValueEx(Hdr_hdr_qty, bind.getNumberNE("hdr_qty"));
+			}
+			
 			if (bind.contains("par_itm_cd")) {
 				setValueEx(Hdr_par_itm_cd, bind.getStringNE("par_itm_cd"));
 				setValueEx(Hdr_par_itm_sub1, bind.getStringNE("par_itm_sub1"));
 				setValueEx(Hdr_par_itm_sub2, bind.getStringNE("par_itm_sub2"));
 				setValueEx(Hdr_par_itm_sub3, bind.getStringNE("par_itm_sub3"));
-			}
-			
-			if (bind.contains("hdr_qty")) {
-				setValueEx(Hdr_hdr_qty, bind.getNumberNE("hdr_qty"));
 			}
 			
 			if (param != null) {
@@ -238,10 +238,13 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 						insertRow(DtlTable);
 					}
 					MCRow row = list.get(i);
-					setValueEx(columnDtl_itm_cd, i, row.getStringNE("itm_cd"));
+					
+					String itmCd = row.getStringNE("itm_cd");
+					setValueEx(columnDtl_itm_cd, i, itmCd);
 					setValueEx(columnDtl_itm_sub1, i, row.getStringNE("itm_sub1"));
 					setValueEx(columnDtl_itm_sub2, i, row.getStringNE("itm_sub2"));
 					setValueEx(columnDtl_itm_sub3, i, row.getStringNE("itm_sub3"));
+
 					setValueEx(columnDtl_trd_unit_cd, i, row.getStringNE("trd_unit_cd"));
 					setValueEx(columnDtl_trd_unit_qty, i, row.getNumberNE("trd_unit_qty"));
 					setValueEx(columnDtl_cst_itm_cd, i, row.getStringNE("cst_itm_cd"));
