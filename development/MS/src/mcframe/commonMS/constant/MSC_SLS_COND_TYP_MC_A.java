@@ -17,14 +17,14 @@ import mcframe.commonCore.notice.MCAppException;
 import mcframe.commonMA.constant.*;
 
 @SuppressWarnings("all")
-abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
+abstract class MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 
 	/*
 	 * リソースファイルのキーです。
 	 */
 	public static final String moduleID = "MS";
 
-	public static final String typeID = "MSC_SLS_COND_TYP";
+	public static final String typeID = "SLS_COND_TYP";
 
 	/*
 	 * 定数の値、属性を持つMCRowのフィールドです。
@@ -34,51 +34,51 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	/*
 	 * 定数オブジェクトの配列です。
 	 */
-	protected static MSC_MSC_SLS_COND_TYP[] array;
+	protected static MSC_SLS_COND_TYP[] array;
 
 	/*
 	 * リスト用のカラム名です。
 	 */
-	public static final String $VALUE = "msc_sls_cond_typ";
+	public static final String $VALUE = "sls_cond_typ";
 
-	public static final String $NAME = "msc_sls_cond_typ_nm";
+	public static final String $NAME = "sls_cond_typ_nm";
 
 	/*
 	 * 定数の定義です。
 	 */
 	/** 売上条件区分：出荷売上
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_SHIP = create("0", "SLS_SHIP");
+	public static final MSC_SLS_COND_TYP SLS_SHIP = create("0", "SLS_SHIP");
 
 	/** 売上条件区分：営業在庫品
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_INVENTORY = create("1", "SLS_INVENTORY");
+	public static final MSC_SLS_COND_TYP SLS_INVENTORY = create("1", "SLS_INVENTORY");
 
 	/** 売上条件区分：営業所等経由
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_OFFICE = create("2", "SLS_OFFICE");
+	public static final MSC_SLS_COND_TYP SLS_OFFICE = create("2", "SLS_OFFICE");
 
 	/** 売上条件区分：工事完了後
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_CSTN_COMP = create("3", "SLS_CSTN_COMP");
+	public static final MSC_SLS_COND_TYP SLS_CSTN_COMP = create("3", "SLS_CSTN_COMP");
 
 	/** 売上条件区分：Ｂ／Ｌ入手後
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_B_L = create("4", "SLS_B_L");
+	public static final MSC_SLS_COND_TYP SLS_B_L = create("4", "SLS_B_L");
 
 	/** 売上条件区分：受注同時
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_ORDER_RECPT = create("6", "SLS_ORDER_RECPT");
+	public static final MSC_SLS_COND_TYP SLS_ORDER_RECPT = create("6", "SLS_ORDER_RECPT");
 
 	/** 売上条件区分：役務売上
 	 */
-	public static final MSC_MSC_SLS_COND_TYP SLS_SRV = create("7", "SLS_SRV");
+	public static final MSC_SLS_COND_TYP SLS_SRV = create("7", "SLS_SRV");
 
 	/**
 	 * 新しいインスタンスを生成します。
 	 */
-	protected static MSC_MSC_SLS_COND_TYP create() {
-		return new MSC_MSC_SLS_COND_TYP();
+	protected static MSC_SLS_COND_TYP create() {
+		return new MSC_SLS_COND_TYP();
 	}
 
 	/**
@@ -88,10 +88,10 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値に対応する定数インスタンス
 	 * @throws MCAppException 定数が存在しない場合
 	 */
-	public static MSC_MSC_SLS_COND_TYP get(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
+	public static MSC_SLS_COND_TYP get(String value) {
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
 		if (type == null) {
-			throw MSC_MSC_SLS_COND_TYP.invalidValue(value);
+			throw MSC_SLS_COND_TYP.invalidValue(value);
 		}
 		return type;
 	}
@@ -103,8 +103,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param value 定数値
 	 * @return 定数値に対応する定数インスタンス
 	 */
-	public static MSC_MSC_SLS_COND_TYP getNE(String value) {
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
+	public static MSC_SLS_COND_TYP getNE(String value) {
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
 			if (isSame(me.value(), value)) {
 				return me;
 			}
@@ -115,8 +115,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	/**
 	 * 新しいインスタンスを生成します。
 	 */
-	protected static MSC_MSC_SLS_COND_TYP create(String value, String xmlKey) {
-		MSC_MSC_SLS_COND_TYP me = MSC_MSC_SLS_COND_TYP.create();
+	protected static MSC_SLS_COND_TYP create(String value, String xmlKey) {
+		MSC_SLS_COND_TYP me = MSC_SLS_COND_TYP.create();
 		me.xmlKey = xmlKey;
 		me.constR.addStringColumn($VALUE, value);
 		return me;
@@ -154,7 +154,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 指定されたvalueが定数グループに属していればtrue
 	 */
 	public static boolean contains ( String value ) {
-		MSC_MSC_SLS_COND_TYP me = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP me = MSC_SLS_COND_TYP.getNE(value);
 		if (me != null) {
 			return true;
 		}
@@ -168,9 +168,9 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param value 値
 	 */
 	public static void containsEx(String value) {
-		MSC_MSC_SLS_COND_TYP me = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP me = MSC_SLS_COND_TYP.getNE(value);
 		if (me == null) {
-			throw MSC_MSC_SLS_COND_TYP.invalidValue(value);
+			throw MSC_SLS_COND_TYP.invalidValue(value);
 		}
 	}
 
@@ -181,7 +181,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param binds メッセージのバインド値
 	 */
 	public static void containsEx(String value, String msgid, Object... binds) {
-		MSC_MSC_SLS_COND_TYP me = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP me = MSC_SLS_COND_TYP.getNE(value);
 		if (me == null) {
 			if (binds == null) {
 				throw new MCAppException(msgid, value);
@@ -203,11 +203,11 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * 定数オブジェクトの配列を返します。
 	 * @return 定数オブジェクトの配列
 	 */
-	public static MSC_MSC_SLS_COND_TYP[] array() {
+	public static MSC_SLS_COND_TYP[] array() {
 		if (array == null) {
-			array = new MSC_MSC_SLS_COND_TYP[] {
-					MSC_MSC_SLS_COND_TYP.SLS_SHIP, MSC_MSC_SLS_COND_TYP.SLS_INVENTORY, MSC_MSC_SLS_COND_TYP.SLS_OFFICE, MSC_MSC_SLS_COND_TYP.SLS_CSTN_COMP, MSC_MSC_SLS_COND_TYP.SLS_B_L, 
-					 MSC_MSC_SLS_COND_TYP.SLS_ORDER_RECPT, MSC_MSC_SLS_COND_TYP.SLS_SRV
+			array = new MSC_SLS_COND_TYP[] {
+					MSC_SLS_COND_TYP.SLS_SHIP, MSC_SLS_COND_TYP.SLS_INVENTORY, MSC_SLS_COND_TYP.SLS_OFFICE, MSC_SLS_COND_TYP.SLS_CSTN_COMP, MSC_SLS_COND_TYP.SLS_B_L, 
+					 MSC_SLS_COND_TYP.SLS_ORDER_RECPT, MSC_SLS_COND_TYP.SLS_SRV
 			};
 		}
 		return array;
@@ -219,7 +219,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static MCList<MCRow> list() {
 		MCList<MCRow> list = MCList.create(MCRow.class);
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
 			MCRow r = MCRow.create();
 			r.addStringColumn($VALUE, me.value());
 			r.addStringColumn($NAME, me.name());
@@ -233,7 +233,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 値
 	 */
 	protected static String value(String key) {
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
 			if(me.key().equals(key)){
 				return me.value();
 			}
@@ -247,7 +247,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	protected static List<String> getKeys() {
 		List<String> keys = new ArrayList<String>();
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
 			keys.add(me.key());
 		}
 		return keys;
@@ -261,14 +261,14 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	public static MCList<MCRow> subList(MCRow row) {
 		Map<String, Boolean> kl = new HashMap<String, Boolean>();
 		for(String s : row.getColumnPathArray()){
-			if(MSC_MSC_SLS_COND_TYP.getKeys().contains(s)){
+			if(MSC_SLS_COND_TYP.getKeys().contains(s)){
 				 kl.put(s, row.getBoolean(s));
 			}
 		}
 		MCList<MCRow> list = MCList.create(MCRow.class);
 		for(Map.Entry<String, Boolean> e : kl.entrySet()){
 			if(e.getValue()){
-				MSC_MSC_SLS_COND_TYP me = MSC_MSC_SLS_COND_TYP.get(MSC_MSC_SLS_COND_TYP.value(e.getKey()));
+				MSC_SLS_COND_TYP me = MSC_SLS_COND_TYP.get(MSC_SLS_COND_TYP.value(e.getKey()));
 				MCRow r = list.createRow();
 				r.addStringColumn($VALUE, me.value());
 				r.addStringColumn($NAME, me.name());
@@ -280,14 +280,14 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 
 	/**
 	 * 引数row のカラム名が定数キー、値が「true」の定数の値と名称のListを返します。<p>
-	 * 引数row のカラム名が定数キー、値が「true」のカラムがない場合は{@link MSC_MSC_SLS_COND_TYP#list()}の結果を返します。
+	 * 引数row のカラム名が定数キー、値が「true」のカラムがない場合は{@link MSC_SLS_COND_TYP#list()}の結果を返します。
 	 * @param row Rowコンテナ
 	 * @return 新しいListインスタンス
 	 */
 	public static MCList<MCRow> list(MCRow row) {
-		MCList<MCRow> list = MSC_MSC_SLS_COND_TYP.subList(row);
+		MCList<MCRow> list = MSC_SLS_COND_TYP.subList(row);
 			if (list.isEmpty()) {
-				list = MSC_MSC_SLS_COND_TYP.list();
+				list = MSC_SLS_COND_TYP.list();
 			}
 			return list;
 		}
@@ -301,8 +301,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static MCList<MCRow> subList(String[] cols, Comparable<?>[] vals) {
 		MCList<MCRow> list = MCList.create(MCRow.class);
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
-			if(MSC_MSC_SLS_COND_TYP.isSameVals(me, cols, vals)){
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
+			if(MSC_SLS_COND_TYP.isSameVals(me, cols, vals)){
 				MCRow r = MCRow.create();
 				r.addStringColumn($VALUE, me.value());
 				r.addStringColumn($NAME, me.name());
@@ -330,7 +330,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 				vals[i] = e.getValue();
 				i =+ 1;
 			}
-			list = MSC_MSC_SLS_COND_TYP.subList(cols, vals);
+			list = MSC_SLS_COND_TYP.subList(cols, vals);
 		}
 		else{
 			list = MCList.create(MCRow.class);
@@ -349,11 +349,11 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 		MCList<MCRow> list = MCList.create(MCRow.class);
 		String[] cols = {col};
 		Comparable<?>[] val = new Comparable<?>[1];
-		for (MSC_MSC_SLS_COND_TYP me : MSC_MSC_SLS_COND_TYP.array()) {
+		for (MSC_SLS_COND_TYP me : MSC_SLS_COND_TYP.array()) {
 			boolean f = true;
 			for(Comparable<?> v : vals){
 				val[0] = v;
-				if(MSC_MSC_SLS_COND_TYP.isSameVals(me, cols, val)){
+				if(MSC_SLS_COND_TYP.isSameVals(me, cols, val)){
 					f = false;
 					break;
 				}
@@ -376,7 +376,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param cols カラム名の配列
 	 * @param vals 値の配列
 	 */
-	protected static boolean isSameVals(MSC_MSC_SLS_COND_TYP me, String[] cols, Comparable<?>[] vals){
+	protected static boolean isSameVals(MSC_SLS_COND_TYP me, String[] cols, Comparable<?>[] vals){
 		int i;
 		if(cols.length <= vals.length){i = cols.length;}
 		else{ i = vals.length;}
@@ -384,7 +384,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 		for(int j=0 ; j < i ; j++ ){
 			String col = cols[j];
 			Comparable<?> val = vals[j];
-			if(!me.constR.contains(col)){throw new MCAppException("FCBBC0068", "MSC_MSC_SLS_COND_TYP", col);}
+			if(!me.constR.contains(col)){throw new MCAppException("FCBBC0068", "MSC_SLS_COND_TYP", col);}
 			Comparable<?> rVal = me.constR.getValue(col);
 			if(!isSame(rVal, val)){
 				f = false;
@@ -400,7 +400,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 定数インスタンス
 	 * @return 一致していればtrue
 	 */
-	protected boolean isSame(MSC_MSC_SLS_COND_TYP type) {
+	protected boolean isSame(MSC_SLS_COND_TYP type) {
 		return this == type;
 	}
 
@@ -413,8 +413,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が出荷売上の値の場合true
 	 */
 	public static boolean isSLS_SHIP(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_SHIP.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_SHIP.isSame(type);
 	}
 
 	/**
@@ -422,8 +422,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が出荷売上の値の場合true
 	 */
-	public static boolean isSLS_SHIP(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_SHIP.isSame(type);
+	public static boolean isSLS_SHIP(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_SHIP.isSame(type);
 	}
 
 	/**
@@ -432,8 +432,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が営業在庫品の値の場合true
 	 */
 	public static boolean isSLS_INVENTORY(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_INVENTORY.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_INVENTORY.isSame(type);
 	}
 
 	/**
@@ -441,8 +441,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が営業在庫品の値の場合true
 	 */
-	public static boolean isSLS_INVENTORY(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_INVENTORY.isSame(type);
+	public static boolean isSLS_INVENTORY(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_INVENTORY.isSame(type);
 	}
 
 	/**
@@ -451,8 +451,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が営業所等経由の値の場合true
 	 */
 	public static boolean isSLS_OFFICE(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_OFFICE.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_OFFICE.isSame(type);
 	}
 
 	/**
@@ -460,8 +460,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が営業所等経由の値の場合true
 	 */
-	public static boolean isSLS_OFFICE(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_OFFICE.isSame(type);
+	public static boolean isSLS_OFFICE(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_OFFICE.isSame(type);
 	}
 
 	/**
@@ -470,8 +470,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が工事完了後の値の場合true
 	 */
 	public static boolean isSLS_CSTN_COMP(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_CSTN_COMP.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_CSTN_COMP.isSame(type);
 	}
 
 	/**
@@ -479,8 +479,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が工事完了後の値の場合true
 	 */
-	public static boolean isSLS_CSTN_COMP(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_CSTN_COMP.isSame(type);
+	public static boolean isSLS_CSTN_COMP(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_CSTN_COMP.isSame(type);
 	}
 
 	/**
@@ -489,8 +489,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値がＢ／Ｌ入手後の値の場合true
 	 */
 	public static boolean isSLS_B_L(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_B_L.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_B_L.isSame(type);
 	}
 
 	/**
@@ -498,8 +498,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値がＢ／Ｌ入手後の値の場合true
 	 */
-	public static boolean isSLS_B_L(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_B_L.isSame(type);
+	public static boolean isSLS_B_L(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_B_L.isSame(type);
 	}
 
 	/**
@@ -508,8 +508,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が受注同時の値の場合true
 	 */
 	public static boolean isSLS_ORDER_RECPT(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_ORDER_RECPT.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_ORDER_RECPT.isSame(type);
 	}
 
 	/**
@@ -517,8 +517,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が受注同時の値の場合true
 	 */
-	public static boolean isSLS_ORDER_RECPT(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_ORDER_RECPT.isSame(type);
+	public static boolean isSLS_ORDER_RECPT(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_ORDER_RECPT.isSame(type);
 	}
 
 	/**
@@ -527,8 +527,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @return 定数値が役務売上の値の場合true
 	 */
 	public static boolean isSLS_SRV(String value) {
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
-		return MSC_MSC_SLS_COND_TYP.SLS_SRV.isSame(type);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_SRV.isSame(type);
 	}
 
 	/**
@@ -536,8 +536,8 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 * @param type 属性値
 	 * @return 属性値が役務売上の値の場合true
 	 */
-	public static boolean isSLS_SRV(MSC_MSC_SLS_COND_TYP type) {
-		return MSC_MSC_SLS_COND_TYP.SLS_SRV.isSame(type);
+	public static boolean isSLS_SRV(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_SRV.isSame(type);
 	}
 
 	/**
@@ -585,7 +585,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(MCList<E> list, String valueColumn, String nameColumn) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn);
+			MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn);
 		}
 	}
 
@@ -604,7 +604,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(E row, String valueColumn, String nameColumn) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.get(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.get(value);
 		row.setString(nameColumn, type.name());
 	}
 
@@ -623,7 +623,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(MCList<E> list, String valueColumn, String nameColumn) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn);
+			MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn);
 		}
 	}
 
@@ -643,7 +643,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(E row, String valueColumn, String nameColumn) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
 		if (type != null) {
 			row.setString(nameColumn, type.name());
 		}
@@ -663,7 +663,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(MCList<E> list, String valueColumn, String nameColumn , Locale lcl) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, lcl);
+			MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, lcl);
 		}
 	}
 
@@ -678,7 +678,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(E row, String valueColumn, String nameColumn, Locale lcl) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.get(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.get(value);
 		row.setString(nameColumn, type.name(lcl));
 	}
 
@@ -694,7 +694,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(MCList<E> list, String valueColumn, String nameColumn, Locale lcl) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, lcl);
+			MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, lcl);
 		}
 	}
 
@@ -710,7 +710,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(E row, String valueColumn, String nameColumn, Locale lcl) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
 		if (type != null) {
 			row.setString(nameColumn, type.name(lcl));
 		}
@@ -735,7 +735,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(MCList<E> list, String valueColumn, String nameColumn, String rmrksColumn) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, rmrksColumn);
+			MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, rmrksColumn);
 		}
 	}
 
@@ -755,7 +755,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(E row, String valueColumn, String nameColumn, String rmrksColumn) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.get(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.get(value);
 		row.setString(nameColumn, type.name());
 		row.setString(rmrksColumn, type.rmrks());
 	}
@@ -776,7 +776,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(MCList<E> list, String valueColumn, String nameColumn, String rmrksColumn) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, rmrksColumn);
+			MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, rmrksColumn);
 		}
 	}
 
@@ -797,7 +797,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(E row, String valueColumn, String nameColumn, String rmrksColumn) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
 		if (type != null) {
 			row.setString(nameColumn, type.name());
 			row.setString(rmrksColumn, type.rmrks());
@@ -820,7 +820,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(MCList<E> list, String valueColumn, String nameColumn, String rmrksColumn, Locale lcl) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, rmrksColumn, lcl);
+			MSC_SLS_COND_TYP.putName(r, valueColumn, nameColumn, rmrksColumn, lcl);
 		}
 	}
 
@@ -836,7 +836,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putName(E row, String valueColumn, String nameColumn, String rmrksColumn, Locale lcl) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.get(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.get(value);
 		row.setString(nameColumn, type.name(lcl));
 		row.setString(rmrksColumn, type.rmrks(lcl));
 	}
@@ -854,7 +854,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(MCList<E> list, String valueColumn, String nameColumn, String rmrksColumn, Locale lcl) {
 		for (MCRow r : list) {
-			MSC_MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, rmrksColumn, lcl);
+			MSC_SLS_COND_TYP.putNameNE(r, valueColumn, nameColumn, rmrksColumn, lcl);
 		}
 	}
 
@@ -871,7 +871,7 @@ abstract class MSC_MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static <E extends MCRow> void putNameNE(E row, String valueColumn, String nameColumn, String rmrksColumn, Locale lcl) {
 		String value = row.getString(valueColumn);
-		MSC_MSC_SLS_COND_TYP type = MSC_MSC_SLS_COND_TYP.getNE(value);
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
 		if (type != null) {
 			row.setString(nameColumn, type.name(lcl));
 			row.setString(rmrksColumn, type.rmrks(lcl));

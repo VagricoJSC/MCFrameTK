@@ -855,7 +855,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * Entry function name 登録機能名.<p>
 	 *
 	 */
-	public MCTextField Hdr_ins_func_nm = null;
+	public MCTextComboBox Hdr_ins_func_nm = null;
 	public MCLabel Hdr_upd_usr_id_Label = null;
 	/**
 	 * Update user ID 更新ユーザＩＤ.<p>
@@ -929,7 +929,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * Sales condition cd. 売上条件区分ＣＤ.<p>
 	 *
 	 */
-	public MCTextField Hdr_sales_cond = null;
+	public MCTextComboBox Hdr_sales_cond = null;
 	/**
 	 * Sales condition name 売上条件区分名.<p>
 	 *
@@ -3251,6 +3251,21 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
+	/** [Hdr_ins_func_nm_ListPutter]の定義 */
+	private MCListPutter Hdr_ins_func_nm_p = null;
+
+	/**
+	 * [Hdr_ins_func_nm_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_ins_func_nm_ListPutter() {
+		if (Hdr_ins_func_nm_p == null) {
+			Hdr_ins_func_nm_p = createHdr_ins_func_nm_ListPutter(Hdr_ins_func_nm, "ins_func_nm");
+
+		}
+		return Hdr_ins_func_nm_p;
+	}
+	
+	
 	/** [Hdr_dlv_day_week_typ_nm_ListPutter]の定義 */
 	private MCListPutter Hdr_dlv_day_week_typ_nm_p = null;
 
@@ -3263,6 +3278,21 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 
 		}
 		return Hdr_dlv_day_week_typ_nm_p;
+	}
+	
+	
+	/** [Hdr_sales_cond_ListPutter]の定義 */
+	private MCListPutter Hdr_sales_cond_p = null;
+
+	/**
+	 * [Hdr_sales_cond_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_sales_cond_ListPutter() {
+		if (Hdr_sales_cond_p == null) {
+			Hdr_sales_cond_p = createHdr_sales_cond_ListPutter(Hdr_sales_cond, "sales_cond", "sales_cond_nm");
+
+		}
+		return Hdr_sales_cond_p;
 	}
 	
 	
@@ -4090,7 +4120,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_ins_func_id_Label = p.beansFactory.createLabel("Hdr.ins_func_id_Label");
 		p.Hdr_ins_func_id = p.beansFactory.createTextField("Hdr.ins_func_id");
 		p.Hdr_ins_func_id.setLabel(p.Hdr_ins_func_id_Label);
-		p.Hdr_ins_func_nm = p.beansFactory.createTextField("Hdr.ins_func_nm");
+		p.Hdr_ins_func_nm = p.beansFactory.createTextComboBox("Hdr.ins_func_nm");
 		p.Hdr_upd_usr_id_Label = p.beansFactory.createLabel("Hdr.upd_usr_id_Label");
 		p.Hdr_upd_usr_id = p.beansFactory.createTextField("Hdr.upd_usr_id");
 		p.Hdr_upd_usr_id.setLabel(p.Hdr_upd_usr_id_Label);
@@ -4117,7 +4147,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd.setLabel(p.Hdr_frc_rsn_cd_Label);
 		p.Hdr_frc_rsn_cd_nm = p.beansFactory.createTextField("Hdr.frc_rsn_cd_nm");
 		p.Hdr_sales_cond_Label = p.beansFactory.createLabel("Hdr.sales_cond_Label");
-		p.Hdr_sales_cond = p.beansFactory.createTextField("Hdr.sales_cond");
+		p.Hdr_sales_cond = p.beansFactory.createTextComboBox("Hdr.sales_cond");
 		p.Hdr_sales_cond.setLabel(p.Hdr_sales_cond_Label);
 		p.Hdr_sales_cond_nm = p.beansFactory.createTextField("Hdr.sales_cond_nm");
 		p.Hdr_sls_dt_Label = p.beansFactory.createLabel("Hdr.sls_dt_Label");
@@ -4955,6 +4985,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr2Panel.add(p.Hdr_ins_func_id);
 		p.Hdr_ins_func_id.setNextBeans(p.Hdr_ins_func_nm);
 		p.Hdr_ins_func_id.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_func_id_META);
+		p.Hdr_ins_func_nm.setListType(MCListType.STRICT);
 		p.Hdr2Panel.add(p.Hdr_ins_func_nm);
 		p.Hdr_ins_func_nm.setNextBeans(p.Hdr_upd_usr_id);
 		p.Hdr_ins_func_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_func_nm_META);
@@ -5005,6 +5036,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_nm);
 		p.Hdr_frc_rsn_cd_nm.setNextBeans(p.Hdr_sales_cond);
 		p.Hdr_frc_rsn_cd_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_nm_META);
+		p.Hdr_sales_cond.setListType(MCListType.STRICT);
+		p.Hdr_sales_cond.setLinkBeans(p.Hdr_sales_cond_nm);
 		p.HdrPanel.add(p.Hdr_sales_cond_Label);
 		p.HdrPanel.add(p.Hdr_sales_cond);
 		p.Hdr_sales_cond.setNextBeans(p.Hdr_sales_cond_nm);
@@ -11647,8 +11680,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_tterm_cd3.getListConfig().setPutter(getHdr_tterm_cd3_ListPutter());
 		Hdr_can_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_can_rsn_cd.getListConfig().setPutter(getHdr_can_rsn_cd_ListPutter());
+		Hdr_ins_func_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_ins_func_nm.getListConfig().setPutter(getHdr_ins_func_nm_ListPutter());
 		Hdr_dlv_day_week_typ_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_dlv_day_week_typ_nm.getListConfig().setPutter(getHdr_dlv_day_week_typ_nm_ListPutter());
+		Hdr_sales_cond.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_sales_cond.getListConfig().setPutter(getHdr_sales_cond_ListPutter());
 		columnDtl_cst_itm_cd.getListConfig().setPutter(getDtl_cst_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_cd.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
@@ -12090,11 +12127,29 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
+	 * [Hdr_ins_func_nm_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_ins_func_nm_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
 	 * [Hdr_dlv_day_week_typ_nm_ListPutter]の作成
 	 */
 	protected MCListPutter createHdr_dlv_day_week_typ_nm_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
 		lp.setListLogicId("MA.MAUAP0010.DayWeekTyp");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_sales_cond_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_sales_cond_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("MS.MSUAP0010.SlsCondTyp");
 		return lp;
 	}
 	 
@@ -12427,7 +12482,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_tterm_cd2) return getHdr_tterm_cd2(row, info);
 		if(combo == Hdr_tterm_cd3) return getHdr_tterm_cd3(row, info);
 		if(combo == Hdr_can_rsn_cd) return getHdr_can_rsn_cd(row, info);
+		if(combo == Hdr_ins_func_nm) return getHdr_ins_func_nm(row, info);
 		if(combo == Hdr_dlv_day_week_typ_nm) return getHdr_dlv_day_week_typ_nm(row, info);
+		if(combo == Hdr_sales_cond) return getHdr_sales_cond(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_cd) return getHdr_par_itm_p_PPanel_Itm_itm_cd(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub1) return getHdr_par_itm_p_PPanel_Itm_itm_sub1(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub2) return getHdr_par_itm_p_PPanel_Itm_itm_sub2(row, info);
@@ -26521,10 +26578,24 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * コンボ／リストのリスト[Hdr_ins_func_nm]の作成メソッド
+	 */
+	public MCList getHdr_ins_func_nm(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
 	 * コンボ／リストのリスト[Hdr_dlv_day_week_typ_nm]の作成メソッド
 	 */
 	public MCList getHdr_dlv_day_week_typ_nm(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDayWeekTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_sales_cond]の作成メソッド
+	 */
+	public MCList getHdr_sales_cond(MCRow row, MCEventInfo info){
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSlsCondTyp(row, info);
 	}
 
 	/**

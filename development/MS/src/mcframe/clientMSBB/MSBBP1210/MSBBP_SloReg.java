@@ -17,7 +17,6 @@ import mcframe.clientCore.beans.table.*;
 import mcframe.clientCore.beans.tree.*;
 import mcframe.clientCore.container.MCConstRow;
 import mcframe.clientCore.beans.list.MCLinkBeans;
-import mcframe.clientCore.beans.list.MCListConfig;
 import mcframe.commonCore.annotation.EI;
 import mcframe.clientFSUB.FSUBP0060.*;
 import mcframe.clientMAUB.MAUBP0030.*;
@@ -61,6 +60,7 @@ import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
 //FMCB IMPORT START
 import mcframe.clientMAUC.MAUCP1060.MAUCP_TrdUtil;
+import mcframe.clientCore.beans.list.MCListConfig;
 //FMCB IMPORT END
 
 /**
@@ -332,7 +332,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			
 		}
 	}
-	
-	
 //FMCB CUSTOM END
 }
