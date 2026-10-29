@@ -4545,6 +4545,72 @@ class MSUAC_List_MC_A extends Object {
 
 
 	/** 
+	  * SloTrd:カラム名クラス
+	  */
+	protected static class SloTrdCols_MC_A  {
+		/** IN:取引パタン区分 */
+		public static final String $i_trd_ptn_typ = "trd_ptn_typ";
+		/** IN:機能ＩＤ */
+		public static final String $i_func_id = "func_id";
+		/** IN:売上部門CD */
+		public static final String $i_sls_dpt_cd = "sls_dpt_cd";
+		/** OUT:取引ＣＤ */
+		public static final String $o_trd_cd = "trd_cd";
+		/** OUT:取引名 */
+		public static final String $o_trd_nm = "trd_nm";
+		/** OUT:取引パタン区分 */
+		public static final String $o_trd_ptn_typ = "trd_ptn_typ";
+		/** VIEW:取引ＣＤ */
+		public static final String $v_trd_cd = $o_trd_cd;
+		/** VIEW_NO:取引ＣＤ */
+		protected static final MCNumber $vn_trd_cd = new MCNumber(10);
+		/** VIEW:取引名 */
+		public static final String $v_trd_nm = $o_trd_nm;
+		/** VIEW_NO:取引名 */
+		protected static final MCNumber $vn_trd_nm = new MCNumber(20);
+		/** SORT:取引ＣＤ */
+		public static final String $s_trd_cd = $o_trd_cd;
+		/** SORT_NO:取引ＣＤ */
+		protected static final MCNumber $sn_trd_cd = new MCNumber(10);
+		/** OTHER:リストロジック存在チェックエラー時のメッセージＩＤ */
+		public static final String $p_chk_msg = "MAUAL0046";
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_trd_cd);
+					add($o_trd_nm);
+					add($o_trd_ptn_typ);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_trd_cd, $v_trd_cd);
+					put($vn_trd_nm, $v_trd_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_trd_cd, $s_trd_cd, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SloTrdCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SloTrdCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SloTrdCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SloTrdCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SloTrdCols extends MSUAC_List.SloTrdCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
 	  * WrkNo:カラム名クラス
 	  */
 	protected static class WrkNoCols_MC_A  {

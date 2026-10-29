@@ -1402,6 +1402,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
 			new String[][]{
+				{$trd_cd, "sls_dpt_cd"},	// trd_cd
 				{$dlv_p + ".bp_cd", "MAC_BP_IS_SRCH_TYP.DLV;slo_dt"},	// dlv_p.bp_cd
 				{$dest_cd1, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd1
 				{$dest_cd2, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd2

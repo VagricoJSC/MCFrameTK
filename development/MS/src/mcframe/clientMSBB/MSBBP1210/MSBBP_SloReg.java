@@ -17,6 +17,7 @@ import mcframe.clientCore.beans.table.*;
 import mcframe.clientCore.beans.tree.*;
 import mcframe.clientCore.container.MCConstRow;
 import mcframe.clientCore.beans.list.MCLinkBeans;
+import mcframe.clientCore.beans.list.MCListConfig;
 import mcframe.commonCore.annotation.EI;
 import mcframe.clientFSUB.FSUBP0060.*;
 import mcframe.clientMAUB.MAUBP0030.*;
@@ -100,6 +101,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	}
 
 //FMCB CUSTOM START
+	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";
+
 	/**
 	 * Panel[Hdr]のボタン[exp_match_btn]の押下時の処理
 	 */
@@ -255,6 +258,21 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			DtlTable.fillSpace(); // 画面が既に開いている状態で画面遷移されたケースを考慮
 			HdrPanel.focusFirstComponent();
 		}
+	}
+	
+	@Override
+	protected void doHdr_sls_dpt_cd_LC(MCEventInfo info) {
+		super.doHdr_sls_dpt_cd_LC(info);
+		String dptCd = Hdr_sls_dpt_cd.getValue();
+		if (dptCd != null && HAKUYOU_SERVICE_DTP_CD.equals(dptCd)) {
+			Hdr_trd_cd.doListEvent(MCListConfig.LIST);
+		}
+	}
+	
+	@Override
+	public void doHdr_trd_cd_LC(MCEventInfo info) {
+		super.doHdr_trd_cd_LC(info);
+
 	}
 //FMCB CUSTOM END
 }

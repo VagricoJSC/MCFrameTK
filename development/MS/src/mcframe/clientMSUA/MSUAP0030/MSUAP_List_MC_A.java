@@ -832,6 +832,53 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 
 
 	/** 
+	  * SloTrd:取引 メインメソッド<p>
+	  * 取引情報を取引マスタから取得する<br>
+引数の取引パタン区分を指定した場合は、対応する取引情報を取得する<br>
+引数の機能ＩＤを指定した場合は、取引パタン区分を取引パタン制御情報から抽出し、抽出した取引パタン区分に対応する取引情報を取得する<br>
+引数の機能IDは、引数の取引パタン区分が未指定か「null」の場合に有効
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSloTrd(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSloTrd_GetList(row, info);//リストの取得
+		getSloTrd_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSloTrd_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SloTrd:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSloTrd_GetList(MCRow row, MCEventInfo info){
+		return getList("getSloTrd", row, info, getListCacheTyp(row, info));
+	}
+	/** 
+	  * SloTrd:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloTrd_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SloTrdCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SloTrd:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloTrd_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SloTrdCols.sortPolicy());
+	}
+
+
+	/** 
 	  * WrkNo:案件ＮＯ メインメソッド<p>
 	  * 案件テーブルから案件情報を取得する
 	  * @param row Rowコンテナ

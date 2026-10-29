@@ -6,9 +6,16 @@ import mcframe.commonCore.container.MCRow;
 import mcframe.commonCore.lang.MCDate;
 import mcframe.commonCore.lang.MCNumber;
 import mcframe.serverCore.queryapi.IFMCSQL;
+import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import mcframe.serverMA.dbc.MAM_TRD_R;
 
 import static mcframe.commonMSUA.MSUAC0030.MSUAC_List.SloItmCols;
 import static mcframe.serverCore.queryapi.IFMCSQL.*;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+
 import mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil;
 
 /** 
@@ -177,6 +184,43 @@ public class MSUAL_List extends MSUAL_List_MC {
 		return resultList.isEmpty() ? null : resultList.get(0);
 	}
 	
-	
+	/** 
+	  * SloTrd:検索結果の修正<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  * @return 編集後のListコンテナ
+	  */
+	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";	
+	private static final HashSet<String> HAKUYOU_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
+			"010"
+			, "020"
+			, "030"
+			, "040"
+			, "050"
+			, "060"
+			, "070"
+			, "080"
+			, "800"
+			, "9XX"
+			, "9YY"
+	));
+	protected MCList<?> getSloTrd_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_TRD_R t, MCList<?> result){
+		String dptCd = row.getStringNE("sls_dpt_cd");
+		if (dptCd != null && HAKUYOU_SERVICE_DTP_CD.equals(dptCd)) {
+			@SuppressWarnings("unchecked")
+			Iterator<MAM_TRD_R> itr = (Iterator<MAM_TRD_R>)result.iterator();
+			while (itr.hasNext()) {
+				MAM_TRD_R r = itr.next();
+				if (!HAKUYOU_SERVICE_TRD_CD_SET.contains(r.trd_cd())) {
+					itr.remove();
+				}
+			}
+		}		
+		
+		return (MCList<?>)result;
+	}	
 	
 }

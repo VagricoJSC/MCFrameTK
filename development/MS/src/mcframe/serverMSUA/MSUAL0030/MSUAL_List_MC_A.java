@@ -1098,6 +1098,68 @@ abstract public class MSUAL_List_MC_A extends mcframe.serverMAUD.MAUDL5070.MAUDL
 
 
 	/** 
+	  * SloTrd:取引<p>
+	  * 取引情報を取引マスタから取得する<br>
+引数の取引パタン区分を指定した場合は、対応する取引情報を取得する<br>
+引数の機能ＩＤを指定した場合は、取引パタン区分を取引パタン制御情報から抽出し、抽出した取引パタン区分に対応する取引情報を取得する<br>
+引数の機能IDは、引数の取引パタン区分が未指定か「null」の場合に有効
+	  * @param row クライアントから渡されるRowコンテナ
+	  */
+	public MCList<MCRow> getSloTrd(MCRow row) {
+		MCList<MAM_TRD_R> rslt = MCList.create(MAM_TRD_R.class);
+		MAM_TRD_R dbc = MAM_TRD_R.create("T");
+		MCQueryApiBuilder builder = MCQueryApiBuilder.create(dbc);
+		getSloTrd_Set(row, builder, dbc, rslt);//DBコンテナの設定
+		listlogicCommon_Set(row, builder,"MS.MSUAL0030.SloTrd");
+		MCList<MCRow> mergebinds = MCList.create(MCRow.class);
+		mergebinds.add(builder.getMergeBind());
+		builder.buildSelect("MS.MSUAL0030.SloTrd").executeQuery(row, mergebinds, rslt);
+		MCList<? extends MCRow> down = getSloTrd_AfterSelect(row, builder, dbc, rslt);//検索結果の修正
+		down = listlogicCommon_AfterSelect(row, rslt, down,"MS.MSUAL0030.SloTrd");
+		if(FXUCL_DataUtil.isNull(down)) return null;
+		return getSloTrd_SubColumns(row, down);
+	}
+	/** 
+	  * SloTrd:DBコンテナの設定<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideしてSQL文をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  */
+	protected void getSloTrd_Set(MCRow row, MCQueryApiBuilder builder, MAM_TRD_R t, MCList<?> result){
+		boolean isForeignEQ = false;
+		String[] ss = FXBAL_MCRLUtil.setSelectAndFrom(builder, SloTrdCols.outAll(),isForeignEQ);
+		if(ss != null && 0< ss.length){
+			MCPermColumn column = builder.getBaseDbc().getColumn$(ss[0]);
+			builder.addWhereWithCutOffAnd(MCQueryApiBuilder.makeEq(column, bind("1")), row.getValueNE(FXBAC_ListLogicBase.$INPUT_VAL));
+		}
+	}
+	/** 
+	  * SloTrd:検索結果の修正<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  * @return 編集後のListコンテナ
+	  */
+	protected MCList<?> getSloTrd_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_TRD_R t, MCList<?> result){
+		return (MCList<?>)result;
+	}
+	/** 
+	  * SloTrd:検索結果のカラムの選択<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果のカラムをカスタマイズする。
+	  * @param row 検索結果を保持するListコンテナ
+	  * @param down 検索結果を保持するDBコンテナ
+	  * @return getSloTrd_AfterSelectメソッドの戻り値
+	  */
+	protected MCList<MCRow> getSloTrd_SubColumns(MCRow row, MCList<?> down){
+		return down.subColumns(SloTrdCols.outAll());
+	}
+
+
+	/** 
 	  * WrkNo:案件ＮＯ<p>
 	  * 案件テーブルから案件情報を取得する
 	  * @param row クライアントから渡されるRowコンテナ
