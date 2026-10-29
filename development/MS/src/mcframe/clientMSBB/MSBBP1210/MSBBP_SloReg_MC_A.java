@@ -918,7 +918,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * Free reason 無償理由ＣＤ.<p>
 	 *
 	 */
-	public MCTextField Hdr_frc_rsn_cd = null;
+	public MCTextComboBox Hdr_frc_rsn_cd = null;
 	/**
 	 * Free reason name 無償理由.<p>
 	 *
@@ -3281,6 +3281,21 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
+	/** [Hdr_frc_rsn_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_frc_rsn_cd_p = null;
+
+	/**
+	 * [Hdr_frc_rsn_cd_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_frc_rsn_cd_ListPutter() {
+		if (Hdr_frc_rsn_cd_p == null) {
+			Hdr_frc_rsn_cd_p = createHdr_frc_rsn_cd_ListPutter(Hdr_frc_rsn_cd, "frc_rsn_cd");
+
+		}
+		return Hdr_frc_rsn_cd_p;
+	}
+	
+	
 	/** [Hdr_sls_cond_typ_ListPutter]の定義 */
 	private MCListPutter Hdr_sls_cond_typ_p = null;
 
@@ -4143,7 +4158,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ_nm = p.beansFactory.createTextComboBox("Hdr.dlv_day_week_typ_nm");
 		p.Hdr_dlv_day_week_typ_nm.setLabel(p.Hdr_dlv_day_week_typ_nm_Label);
 		p.Hdr_frc_rsn_cd_Label = p.beansFactory.createLabel("Hdr.frc_rsn_cd_Label");
-		p.Hdr_frc_rsn_cd = p.beansFactory.createTextField("Hdr.frc_rsn_cd");
+		p.Hdr_frc_rsn_cd = p.beansFactory.createTextComboBox("Hdr.frc_rsn_cd");
 		p.Hdr_frc_rsn_cd.setLabel(p.Hdr_frc_rsn_cd_Label);
 		p.Hdr_frc_rsn_cd_nm = p.beansFactory.createTextField("Hdr.frc_rsn_cd_nm");
 		p.Hdr_sls_cond_typ_Label = p.beansFactory.createLabel("Hdr.sls_cond_typ_Label");
@@ -5029,6 +5044,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm_Label);
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm);
 		p.Hdr_dlv_day_week_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_nm_META);
+		p.Hdr_frc_rsn_cd.setListType(MCListType.STRICT);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_Label);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd);
 		p.Hdr_frc_rsn_cd.setNextBeans(p.Hdr_frc_rsn_cd_nm);
@@ -11684,6 +11700,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_ins_func_nm.getListConfig().setPutter(getHdr_ins_func_nm_ListPutter());
 		Hdr_dlv_day_week_typ_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_dlv_day_week_typ_nm.getListConfig().setPutter(getHdr_dlv_day_week_typ_nm_ListPutter());
+		Hdr_frc_rsn_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_frc_rsn_cd.getListConfig().setPutter(getHdr_frc_rsn_cd_ListPutter());
 		Hdr_sls_cond_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_sls_cond_typ.getListConfig().setPutter(getHdr_sls_cond_typ_ListPutter());
 		columnDtl_cst_itm_cd.getListConfig().setPutter(getDtl_cst_itm_cd_ListPutter());
@@ -12145,6 +12163,15 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
+	 * [Hdr_frc_rsn_cd_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_frc_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
 	 * [Hdr_sls_cond_typ_ListPutter]の作成
 	 */
 	protected MCListPutter createHdr_sls_cond_typ_ListPutter(MCLinkBeans compo, String... columns) {
@@ -12484,6 +12511,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_can_rsn_cd) return getHdr_can_rsn_cd(row, info);
 		if(combo == Hdr_ins_func_nm) return getHdr_ins_func_nm(row, info);
 		if(combo == Hdr_dlv_day_week_typ_nm) return getHdr_dlv_day_week_typ_nm(row, info);
+		if(combo == Hdr_frc_rsn_cd) return getHdr_frc_rsn_cd(row, info);
 		if(combo == Hdr_sls_cond_typ) return getHdr_sls_cond_typ(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_cd) return getHdr_par_itm_p_PPanel_Itm_itm_cd(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub1) return getHdr_par_itm_p_PPanel_Itm_itm_sub1(row, info);
@@ -26589,6 +26617,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCList getHdr_dlv_day_week_typ_nm(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getDayWeekTyp(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_frc_rsn_cd]の作成メソッド
+	 */
+	public MCList getHdr_frc_rsn_cd(MCRow row, MCEventInfo info){
+		return null;
 	}
 
 	/**

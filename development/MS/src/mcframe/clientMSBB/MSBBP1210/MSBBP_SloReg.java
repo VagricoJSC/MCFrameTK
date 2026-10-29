@@ -3,12 +3,7 @@ package mcframe.clientMSBB.MSBBP1210;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import mcframe.clientCore.beans.action.*;
 import mcframe.clientCore.beans.combobox.*;
 import mcframe.clientCore.beans.*;
@@ -64,6 +59,11 @@ import static mcframe.commonMS.notice.MS_Msg.*;
 import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 
 //FMCB IMPORT START
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import mcframe.clientMAUC.MAUCP1060.MAUCP_TrdUtil;
 import mcframe.clientCore.beans.list.MCListConfig;
 //FMCB IMPORT END
@@ -279,8 +279,10 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	public void doHdr_trd_cd_LC(MCEventInfo info) {
 		super.doHdr_trd_cd_LC(info);
 
-		// 選択中の取引CDに応じて入力項目を制御
-		controlInputFieldsByTradeCode();
+		// 売上条件区分・配送先のモードをクリア
+		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
+		Hdr_sls_cond_typ.clear();
+
 	}
 
 	private final static String SLS_COND_TYP_0 = "0";	// 出荷売上
@@ -324,48 +326,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static Set<String> ALL_TRD_CD = new HashSet<String>(
 		Arrays.asList(TRD_CD_010, TRD_CD_020, TRD_CD_030, TRD_CD_040, TRD_CD_050, TRD_CD_060, TRD_CD_070, TRD_CD_080, TRD_CD_800, TRD_CD_9XX, TRD_CD_9YY)
 	);
-	protected void controlInputFieldsByTradeCode() {
-		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
-		Hdr_sls_cond_typ.clear();
-		
-		String trdCd = Hdr_trd_cd.getValue();
-		switch (trdCd) {
-		case TRD_CD_010:
-			Hdr_tdlv_cd.setMode(MCMode.REQUIRED);
-			break;
-			
-		case TRD_CD_020:
-			break;
-			
-		case TRD_CD_030:
-			break;
-			
-		case TRD_CD_040:
-			break;
-			
-		case TRD_CD_050:
-			break;
-			
-		case TRD_CD_060:
-			break;
-			
-		case TRD_CD_070:
-			break;
-			
-		case TRD_CD_080:
-			break;
-			
-		case TRD_CD_800:
-			break;
-			
-		case TRD_CD_9XX:
-			break;
-			
-		case TRD_CD_9YY:
-			break;
-			
-		}
-	}
+	
 	
 	@Override
 	public MCList<?> getHdr_sls_cond_typ(
@@ -458,6 +419,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		
 		Hdr_sls_cond_typ.setListVisibleColumn("sls_cond_typ", "sls_cond_typ_nm");
 	}
-	
 //FMCB CUSTOM END
 }
