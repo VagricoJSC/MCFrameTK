@@ -2960,3 +2960,11 @@ INSERT INTO FCM_CONST_NM (C_GRP_CD, C_KEY,V_S, LOCALE_CD, C_NAME, C_RMRKS) VALUE
 	'en_US',
 	'Service Sales' ,
 	'Service Sales');
+DELETE FROM FCM_CONST_NM WHERE C_GRP_CD = 'MSC_SLS_COND_TYP' AND C_KEY = 'SLS_TP_DELV' AND LOCALE_CD = 'en_US';
+INSERT INTO FCM_CONST_NM (C_GRP_CD, C_KEY,V_S, LOCALE_CD, C_NAME, C_RMRKS) VALUES(
+	'MSC_SLS_COND_TYP',
+	'SLS_TP_DELV',
+	'9',
+	'en_US',
+	'Third-Party Delivery Sales' ,
+	'Third-Party Delivery Sales');

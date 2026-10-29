@@ -282,6 +282,30 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 選択中の取引CDに応じて入力項目を制御
 		controlInputFieldsByTradeCode();
 	}
+
+	private final static String SLS_COND_TYP_0 = "0";	// 出荷売上
+	private final static String SLS_COND_TYP_1 = "1";	// 営業在庫品
+	private final static String SLS_COND_TYP_2 = "2";	// 営業所送り
+	private final static String SLS_COND_TYP_3 = "3";
+	private final static String SLS_COND_TYP_4 = "4";
+	private final static String SLS_COND_TYP_6 = "6";
+	private final static String SLS_COND_TYP_7 = "7";
+	private final static String SLS_COND_TYP_9 = "9";	// 代納売上
+	
+	@Override
+	public void doHdr_sls_cond_typ_LC(MCEventInfo info) {
+		super.doHdr_sls_cond_typ_LC(info);
+
+		// 選択中の取引CDに応じて入力項目を制御
+		String slsCondType = Hdr_sls_cond_typ.getValue();
+		if (slsCondType != null && SLS_COND_TYP_2.equals(slsCondType)) {
+			Hdr_tdlv_cd.setMode(MCMode.REQUIRED);
+		}
+		else {
+			Hdr_tdlv_cd.setMode(MCMode.ENABLE);
+		}
+	}
+	
 	
 	/**
 	 * 選択中の取引CDに応じて入力項目を制御
@@ -388,28 +412,38 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				|| TRD_CD_070.equals(trdCd)
 			) {
 			return new HashSet<>(
-					Arrays.asList("0", "2"));
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_2));
 		}
 
 		if (TRD_CD_030.equals(trdCd)
 				|| TRD_CD_060.equals(trdCd)) {
 			return new HashSet<>(
-					Arrays.asList("0", "3"));
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_3));
 		}
 
 		if (TRD_CD_040.equals(trdCd)) {
 			return new HashSet<>(
-					Arrays.asList("0", "4"));
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_4));
 		}
 
 		if (TRD_CD_080.equals(trdCd)) {
 			return new HashSet<>(
-					Arrays.asList("6"));
+					Arrays.asList(SLS_COND_TYP_6));
 		}
 
 		if (TRD_CD_800.equals(trdCd)) {
 			return new HashSet<>(
-					Arrays.asList("1"));
+					Arrays.asList(SLS_COND_TYP_1));
+		}
+		
+		if (TRD_CD_9XX.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_9));
+		}
+		
+		if (TRD_CD_9YY.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
 		}
 		
 		// 未定義の取引CDでは候補を制限しない

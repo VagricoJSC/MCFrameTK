@@ -74,6 +74,10 @@ abstract class MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static final MSC_SLS_COND_TYP SLS_SRV = create("7", "SLS_SRV");
 
+	/** 売上条件区分：代納売上
+	 */
+	public static final MSC_SLS_COND_TYP SLS_TP_DELV = create("9", "SLS_TP_DELV");
+
 	/**
 	 * 新しいインスタンスを生成します。
 	 */
@@ -207,7 +211,7 @@ abstract class MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 		if (array == null) {
 			array = new MSC_SLS_COND_TYP[] {
 					MSC_SLS_COND_TYP.SLS_SHIP, MSC_SLS_COND_TYP.SLS_INVENTORY, MSC_SLS_COND_TYP.SLS_OFFICE, MSC_SLS_COND_TYP.SLS_CSTN_COMP, MSC_SLS_COND_TYP.SLS_B_L, 
-					 MSC_SLS_COND_TYP.SLS_ORDER_RECPT, MSC_SLS_COND_TYP.SLS_SRV
+					 MSC_SLS_COND_TYP.SLS_ORDER_RECPT, MSC_SLS_COND_TYP.SLS_SRV, MSC_SLS_COND_TYP.SLS_TP_DELV
 			};
 		}
 		return array;
@@ -538,6 +542,25 @@ abstract class MSC_SLS_COND_TYP_MC_A extends MCAppConst {
 	 */
 	public static boolean isSLS_SRV(MSC_SLS_COND_TYP type) {
 		return MSC_SLS_COND_TYP.SLS_SRV.isSame(type);
+	}
+
+	/**
+	 * 売上条件区分：代納売上かどうか
+	 * @param value 定数値
+	 * @return 定数値が代納売上の値の場合true
+	 */
+	public static boolean isSLS_TP_DELV(String value) {
+		MSC_SLS_COND_TYP type = MSC_SLS_COND_TYP.getNE(value);
+		return MSC_SLS_COND_TYP.SLS_TP_DELV.isSame(type);
+	}
+
+	/**
+	 * 売上条件区分：代納売上かどうか
+	 * @param type 属性値
+	 * @return 属性値が代納売上の値の場合true
+	 */
+	public static boolean isSLS_TP_DELV(MSC_SLS_COND_TYP type) {
+		return MSC_SLS_COND_TYP.SLS_TP_DELV.isSame(type);
 	}
 
 	/**
