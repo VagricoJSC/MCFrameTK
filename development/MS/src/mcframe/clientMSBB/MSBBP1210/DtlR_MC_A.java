@@ -273,10 +273,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 */
 	public static final String $ver_flg = "ver_flg";
 	public static final String $trd_unit_qty_p = "trd_unit_qty_p";
-	public static final String $trd_cur_upri_amt_p = "trd_cur_upri_amt_p";
 	public static final String $trd_cur_upri = "trd_cur_upri";
-	public static final String $trd_cur_dscnt_amt = "trd_cur_dscnt_amt";
 	public static final String $trd_cur_amt = "trd_cur_amt";
+	public static final String $trd_cur_dscnt_amt = "trd_cur_dscnt_amt";
+	public static final String $trd_cur_upri_amt_p = "trd_cur_upri_amt_p";
 	public static final String $cost_upri_p = "cost_upri_p";
 	public static final String $cost_amt_p = "cost_amt_p";
 	public static final String $iv_upri_p = "iv_upri_p";
@@ -972,10 +972,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final MCMeta sls_upri_cng_flg_META = createCommonMeta($sls_upri_cng_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta ver_flg_META = createCommonMeta($ver_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta trd_unit_qty_p_META = createInnerRowMeta($trd_unit_qty_p, mcframe.clientMAUB.MAUBP5040.QtyR.class);
-	public static final MCMeta trd_cur_upri_amt_p_META = createInnerRowMeta($trd_cur_upri_amt_p, mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR.class);
 	public static final MCMeta trd_cur_upri_META = createCommonMeta($trd_cur_upri, mcframe.commonMA.meta.MA_META.MONEY);
-	public static final MCMeta trd_cur_dscnt_amt_META = createCommonMeta($trd_cur_dscnt_amt, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta trd_cur_amt_META = createCommonMeta($trd_cur_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta trd_cur_dscnt_amt_META = createCommonMeta($trd_cur_dscnt_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta trd_cur_upri_amt_p_META = createInnerRowMeta($trd_cur_upri_amt_p, mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR.class);
 	public static final MCMeta cost_upri_p_META = createInnerRowMeta($cost_upri_p, mcframe.clientMAUB.MAUBP5060.UpriR.class);
 	public static final MCMeta cost_amt_p_META = createInnerRowMeta($cost_amt_p, mcframe.clientMAUB.MAUBP5050.AmtR.class);
 	public static final MCMeta iv_upri_p_META = createInnerRowMeta($iv_upri_p, mcframe.clientMAUB.MAUBP5060.UpriR.class);
@@ -1168,10 +1168,10 @@ abstract class DtlR_MC_A extends MCConstRow {
 			sls_upri_cng_flg_META,
 			ver_flg_META,
 			trd_unit_qty_p_META,
-			trd_cur_upri_amt_p_META,
 			trd_cur_upri_META,
-			trd_cur_dscnt_amt_META,
 			trd_cur_amt_META,
+			trd_cur_dscnt_amt_META,
+			trd_cur_upri_amt_p_META,
 			cost_upri_p_META,
 			cost_amt_p_META,
 			iv_upri_p_META,
@@ -2803,37 +2803,53 @@ abstract class DtlR_MC_A extends MCConstRow {
 	}
 
 
-	public mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR trd_cur_upri_amt_p(){
-		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 51, $trd_cur_upri_amt_p);
-	}
-	
-	public void trd_cur_upri_amt_p(mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR row){
-		setConstInnerRow(offset + 51, $trd_cur_upri_amt_p, row);
-	}
-
-
 	public MCNumber trd_cur_upri() {
-		return getConstNumber(offset + 52, $trd_cur_upri);
+		return getConstNumber(offset + 51, $trd_cur_upri);
 	}
 
 	public void trd_cur_upri(MCNumber value) {
-		setConstNumber(offset + 52, $trd_cur_upri, value);
+		setConstNumber(offset + 51, $trd_cur_upri, value);
 	}
 
 	public void trd_cur_upri(int value) {
-		setConstNumber(offset + 52, $trd_cur_upri, value);
+		setConstNumber(offset + 51, $trd_cur_upri, value);
 	}
 
 	public void trd_cur_upri(long value) {
-		setConstNumber(offset + 52, $trd_cur_upri, value);
+		setConstNumber(offset + 51, $trd_cur_upri, value);
 	}
 
 	public void trd_cur_upri(float value) {
-		setConstNumber(offset + 52, $trd_cur_upri, value);
+		setConstNumber(offset + 51, $trd_cur_upri, value);
 	}
 
 	public void trd_cur_upri(double value) {
-		setConstNumber(offset + 52, $trd_cur_upri, value);
+		setConstNumber(offset + 51, $trd_cur_upri, value);
+	}
+
+
+	public MCNumber trd_cur_amt() {
+		return getConstNumber(offset + 52, $trd_cur_amt);
+	}
+
+	public void trd_cur_amt(MCNumber value) {
+		setConstNumber(offset + 52, $trd_cur_amt, value);
+	}
+
+	public void trd_cur_amt(int value) {
+		setConstNumber(offset + 52, $trd_cur_amt, value);
+	}
+
+	public void trd_cur_amt(long value) {
+		setConstNumber(offset + 52, $trd_cur_amt, value);
+	}
+
+	public void trd_cur_amt(float value) {
+		setConstNumber(offset + 52, $trd_cur_amt, value);
+	}
+
+	public void trd_cur_amt(double value) {
+		setConstNumber(offset + 52, $trd_cur_amt, value);
 	}
 
 
@@ -2862,28 +2878,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 	}
 
 
-	public MCNumber trd_cur_amt() {
-		return getConstNumber(offset + 54, $trd_cur_amt);
+	public mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR trd_cur_upri_amt_p(){
+		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 54, $trd_cur_upri_amt_p);
 	}
-
-	public void trd_cur_amt(MCNumber value) {
-		setConstNumber(offset + 54, $trd_cur_amt, value);
-	}
-
-	public void trd_cur_amt(int value) {
-		setConstNumber(offset + 54, $trd_cur_amt, value);
-	}
-
-	public void trd_cur_amt(long value) {
-		setConstNumber(offset + 54, $trd_cur_amt, value);
-	}
-
-	public void trd_cur_amt(float value) {
-		setConstNumber(offset + 54, $trd_cur_amt, value);
-	}
-
-	public void trd_cur_amt(double value) {
-		setConstNumber(offset + 54, $trd_cur_amt, value);
+	
+	public void trd_cur_upri_amt_p(mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR row){
+		setConstInnerRow(offset + 54, $trd_cur_upri_amt_p, row);
 	}
 
 
@@ -5608,11 +5608,11 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_cur_upri.equalsIgnoreCase(name)) {
 			return trd_cur_upri();
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			return trd_cur_dscnt_amt();
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			return trd_cur_amt();
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			return trd_cur_dscnt_amt();
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
 			return prof_rate();
@@ -6080,11 +6080,11 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_cur_upri.equalsIgnoreCase(name)) {
 			return trd_cur_upri();
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			return trd_cur_dscnt_amt();
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			return trd_cur_amt();
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			return trd_cur_dscnt_amt();
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
 			return prof_rate();
@@ -6660,12 +6660,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -6747,12 +6747,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -6834,12 +6834,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -6921,12 +6921,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7008,12 +7008,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7633,12 +7633,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7720,12 +7720,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7807,12 +7807,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7894,12 +7894,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {
@@ -7981,12 +7981,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri(value);
 			return;
 		}
-		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
-			trd_cur_dscnt_amt(value);
-			return;
-		}
 		if ($trd_cur_amt.equalsIgnoreCase(name)) {
 			trd_cur_amt(value);
+			return;
+		}
+		if ($trd_cur_dscnt_amt.equalsIgnoreCase(name)) {
+			trd_cur_dscnt_amt(value);
 			return;
 		}
 		if ($prof_rate.equalsIgnoreCase(name)) {

@@ -431,15 +431,15 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
- *  	<td>trd_cur_upri_amt_p</td>
+ *  	<td>trd_cur_upri</td>
  *  	<td><br></td>
- *  	<td>InnerRow</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
  *  	<td><br></td>
- *  	<td>{@link mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR}</td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>trd_cur_upri</td>
+ *  	<td>trd_cur_amt</td>
  *  	<td><br></td>
  *  	<td>Number</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
@@ -455,11 +455,11 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>trd_cur_amt</td>
+ *  	<td>trd_cur_upri_amt_p</td>
  *  	<td><br></td>
- *  	<td>Number</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
+ *  	<td>InnerRow</td>
  *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR}</td>
  *  </tr>
  *  <tr >
  *  	<td><br></td>

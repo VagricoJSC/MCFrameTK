@@ -1262,6 +1262,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCColumnConfig columnDtl_ver_flg = null;
 	public mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D Dtl_trd_unit_qty_p_PPanel;
 	public MCColumnConfig columnDtl_trd_unit_qty;// [Dtl]の[trd_unit_qty_p.qty]を[columnDtl_trd_unit_qty]としてエイリアス定義。
+	public MCColumnConfig columnDtl_trd_cur_upri = null;
+	public MCColumnConfig columnDtl_trd_cur_amt = null;
+	public MCColumnConfig columnDtl_trd_cur_dscnt_amt = null;
 	public mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D Dtl_trd_cur_upri_amt_p_PPanel;
 	public MCColumnConfig columnDtl_upri_not_tgt_flg;// [Dtl]の[trd_cur_upri_amt_p.upri_not_tgt_flg]を[columnDtl_upri_not_tgt_flg]としてエイリアス定義。
 	public MCColumnConfig columnDtl_interim_flg;// [Dtl]の[trd_cur_upri_amt_p.interim_flg]を[columnDtl_interim_flg]としてエイリアス定義。
@@ -1275,9 +1278,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCColumnConfig columnDtl_trd_cur_tax_amt;// [Dtl]の[trd_cur_upri_amt_p.trd_cur_tax_amt]を[columnDtl_trd_cur_tax_amt]としてエイリアス定義。
 	public MCColumnConfig columnDtl_dscnt_rsn_cd;// [Dtl]の[trd_cur_upri_amt_p.dscnt_rsn_cd]を[columnDtl_dscnt_rsn_cd]としてエイリアス定義。
 	public MCColumnConfig columnDtl_dscnt_rsn_nm;// [Dtl]の[trd_cur_upri_amt_p.dscnt_rsn_nm]を[columnDtl_dscnt_rsn_nm]としてエイリアス定義。
-	public MCColumnConfig columnDtl_trd_cur_upri = null;
-	public MCColumnConfig columnDtl_trd_cur_dscnt_amt = null;
-	public MCColumnConfig columnDtl_trd_cur_amt = null;
 	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_cost_upri_p_PPanel;
 	public MCColumnConfig columnDtl_cost_upri;// [Dtl]の[cost_upri_p.upri]を[columnDtl_cost_upri]としてエイリアス定義。
 	public mcframe.clientMAUB.MAUBP5050.MAUBP_Amt_D Dtl_cost_amt_p_PPanel;
@@ -4223,8 +4223,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg = p.beansFactory.createTableColumn("Dtl.sls_upri_cng_flg", MCColumnType.CHECK);
 		p.columnDtl_ver_flg = p.beansFactory.createTableColumn("Dtl.ver_flg", MCColumnType.CHECK);
 		p.columnDtl_trd_cur_upri = p.beansFactory.createTableColumn("Dtl.trd_cur_upri", MCColumnType.NUMBER);
-		p.columnDtl_trd_cur_dscnt_amt = p.beansFactory.createTableColumn("Dtl.trd_cur_dscnt_amt", MCColumnType.NUMBER);
 		p.columnDtl_trd_cur_amt = p.beansFactory.createTableColumn("Dtl.trd_cur_amt", MCColumnType.NUMBER);
+		p.columnDtl_trd_cur_dscnt_amt = p.beansFactory.createTableColumn("Dtl.trd_cur_dscnt_amt", MCColumnType.NUMBER);
 		p.columnDtl_prof_rate = p.beansFactory.createTableColumn("Dtl.prof_rate", MCColumnType.NUMBER);
 		p.columnDtl_wtax_rate = p.beansFactory.createTableColumn("Dtl.wtax_rate", MCColumnType.NUMBER);
 		p.columnDtl_bill_crryovr_times = p.beansFactory.createTableColumn("Dtl.bill_crryovr_times", MCColumnType.NUMBER);
@@ -5783,14 +5783,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_trd_unit_rnd_typ.setListListener(p);
 		p.columnDtl_sls_upri_cng_flg.addAllListener(p);
 		p.columnDtl_ver_flg.addAllListener(p);
-		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
-		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
 		p.columnDtl_trd_cur_upri.addAllListener(p);
 		p.columnDtl_trd_cur_upri.setListListener(p);
-		p.columnDtl_trd_cur_dscnt_amt.addAllListener(p);
-		p.columnDtl_trd_cur_dscnt_amt.setListListener(p);
 		p.columnDtl_trd_cur_amt.addAllListener(p);
 		p.columnDtl_trd_cur_amt.setListListener(p);
+		p.columnDtl_trd_cur_dscnt_amt.addAllListener(p);
+		p.columnDtl_trd_cur_dscnt_amt.setListListener(p);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setListListener(p);	// 埋め込みカラムの項目に対してEventListenerを差し込む。
 		p.columnDtl_prof_rate.addAllListener(p);
 		p.columnDtl_prof_rate.setListListener(p);
 		p.columnDtl_wtax_rate.addAllListener(p);
@@ -6261,6 +6261,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -6710,6 +6712,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, REF, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, REF, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, REF, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, REF, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -7160,6 +7164,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.columnDtl_trd_cur_amt.putMode(p, UPD, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD, MCMode.REQUIRED);
 		p.Dtl_cost_upri_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
@@ -7610,6 +7616,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.columnDtl_trd_cur_amt.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Dtl_cost_upri_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
@@ -8059,6 +8067,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -8753,6 +8763,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -9203,6 +9215,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, INS, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, INS, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.columnDtl_trd_cur_amt.putMode(p, INS, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, INS, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS, MCMode.REQUIRED);
 		p.Dtl_cost_upri_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
@@ -9653,6 +9667,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
+		p.columnDtl_trd_cur_amt.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Dtl_cost_upri_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.ENABLE);
@@ -10102,6 +10118,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -10551,6 +10569,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, DEL, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, DEL, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -11000,6 +11020,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_sls_upri_cng_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.columnDtl_ver_flg.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
+		p.columnDtl_trd_cur_amt.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.columnDtl_trd_cur_dscnt_amt.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Dtl_cost_upri_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D.READ_ONLY);
@@ -11310,15 +11332,15 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_ver_flg.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.ver_flg_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_ver_flg);
 		p.DtlTable.addTable(p.Dtl_trd_unit_qty_p_PPanel.QtyTable);
+		p.columnDtl_trd_cur_upri.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_upri_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_upri);
+		p.columnDtl_trd_cur_amt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_amt_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_amt);
+		p.columnDtl_trd_cur_dscnt_amt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_dscnt_amt_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_dscnt_amt);
 		p.DtlTable.addTable(p.Dtl_trd_cur_upri_amt_p_PPanel.TrdUpriAmtTable);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_tax_cd.setLinkBeans(p.columnDtl_tax_nm, p.columnDtl_tax_rate, p.columnDtl_tax_typ, p.columnDtl_inc_tax_flg);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_dscnt_rsn_cd.setLinkBeans(p.columnDtl_dscnt_rsn_nm);
-		p.columnDtl_trd_cur_upri.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_upri_META);
-		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_upri);
-		p.columnDtl_trd_cur_dscnt_amt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_dscnt_amt_META);
-		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_dscnt_amt);
-		p.columnDtl_trd_cur_amt.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.trd_cur_amt_META);
-		p.DtlTable.addColumnConfig(p.columnDtl_trd_cur_amt);
 		p.DtlTable.addTable(p.Dtl_cost_upri_p_PPanel.UpriTable);
 		p.DtlTable.addTable(p.Dtl_cost_amt_p_PPanel.AmtTable);
 		p.DtlTable.addTable(p.Dtl_iv_upri_p_PPanel.UpriTable);
@@ -12743,8 +12765,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == columnDtl_sls_upri_cng_flg) return doDtl_sls_upri_cng_flg_VC(info);
 		if (vc == columnDtl_ver_flg) return doDtl_ver_flg_VC(info);
 		if (vc == columnDtl_trd_cur_upri) return doDtl_trd_cur_upri_VC(info);
-		if (vc == columnDtl_trd_cur_dscnt_amt) return doDtl_trd_cur_dscnt_amt_VC(info);
 		if (vc == columnDtl_trd_cur_amt) return doDtl_trd_cur_amt_VC(info);
+		if (vc == columnDtl_trd_cur_dscnt_amt) return doDtl_trd_cur_dscnt_amt_VC(info);
 		if (vc == columnDtl_prof_rate) return doDtl_prof_rate_VC(info);
 		if (vc == columnDtl_wtax_rate) return doDtl_wtax_rate_VC(info);
 		if (vc == columnDtl_bill_crryovr_times) return doDtl_bill_crryovr_times_VC(info);
@@ -14893,22 +14915,22 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Dtl]パネルの[trd_cur_dscnt_amt]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doDtl_trd_cur_dscnt_amt_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
 	 * [Dtl]パネルの[trd_cur_amt]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doDtl_trd_cur_amt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_cur_dscnt_amt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_trd_cur_dscnt_amt_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -16065,8 +16087,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NC(info);
 		else if (nc == columnDtl_ver_flg) doDtl_ver_flg_NC(info);
 		else if (nc == columnDtl_trd_cur_upri) doDtl_trd_cur_upri_NC(info);
-		else if (nc == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NC(info);
 		else if (nc == columnDtl_trd_cur_amt) doDtl_trd_cur_amt_NC(info);
+		else if (nc == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NC(info);
 		else if (nc == columnDtl_prof_rate) doDtl_prof_rate_NC(info);
 		else if (nc == columnDtl_wtax_rate) doDtl_wtax_rate_NC(info);
 		else if (nc == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NC(info);
@@ -17804,19 +17826,19 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doDtl_trd_cur_dscnt_amt_NC(MCEventInfo info){
-	}
-
-	/**
 	 * [Dtl]パネルの[trd_cur_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
 	public void doDtl_trd_cur_amt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_cur_dscnt_amt_NC(MCEventInfo info){
 	}
 
 	/**
@@ -18784,8 +18806,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NE(info);
 		else if (ne == columnDtl_ver_flg) doDtl_ver_flg_NE(info);
 		else if (ne == columnDtl_trd_cur_upri) doDtl_trd_cur_upri_NE(info);
-		else if (ne == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NE(info);
 		else if (ne == columnDtl_trd_cur_amt) doDtl_trd_cur_amt_NE(info);
+		else if (ne == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NE(info);
 		else if (ne == columnDtl_prof_rate) doDtl_prof_rate_NE(info);
 		else if (ne == columnDtl_wtax_rate) doDtl_wtax_rate_NE(info);
 		else if (ne == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NE(info);
@@ -20523,19 +20545,19 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doDtl_trd_cur_dscnt_amt_NE(MCEventInfo info){
-	}
-
-	/**
 	 * [Dtl]パネルの[trd_cur_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
 	public void doDtl_trd_cur_amt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_cur_dscnt_amt_NE(MCEventInfo info){
 	}
 
 	/**
@@ -21503,8 +21525,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == columnDtl_sls_upri_cng_flg) doDtl_sls_upri_cng_flg_NX(info);
 		else if (nx == columnDtl_ver_flg) doDtl_ver_flg_NX(info);
 		else if (nx == columnDtl_trd_cur_upri) doDtl_trd_cur_upri_NX(info);
-		else if (nx == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NX(info);
 		else if (nx == columnDtl_trd_cur_amt) doDtl_trd_cur_amt_NX(info);
+		else if (nx == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_NX(info);
 		else if (nx == columnDtl_prof_rate) doDtl_prof_rate_NX(info);
 		else if (nx == columnDtl_wtax_rate) doDtl_wtax_rate_NX(info);
 		else if (nx == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_NX(info);
@@ -23242,19 +23264,19 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doDtl_trd_cur_dscnt_amt_NX(MCEventInfo info){
-	}
-
-	/**
 	 * [Dtl]パネルの[trd_cur_amt]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
 	public void doDtl_trd_cur_amt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_cur_dscnt_amt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_cur_dscnt_amt_NX(MCEventInfo info){
 	}
 
 	/**
@@ -24190,8 +24212,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == columnDtl_trd_unit_conv_qty) doDtl_trd_unit_conv_qty_LC(info);
 		else if (lc == columnDtl_trd_unit_rnd_typ) doDtl_trd_unit_rnd_typ_LC(info);
 		else if (lc == columnDtl_trd_cur_upri) doDtl_trd_cur_upri_LC(info);
-		else if (lc == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_LC(info);
 		else if (lc == columnDtl_trd_cur_amt) doDtl_trd_cur_amt_LC(info);
+		else if (lc == columnDtl_trd_cur_dscnt_amt) doDtl_trd_cur_dscnt_amt_LC(info);
 		else if (lc == columnDtl_prof_rate) doDtl_prof_rate_LC(info);
 		else if (lc == columnDtl_wtax_rate) doDtl_wtax_rate_LC(info);
 		else if (lc == columnDtl_bill_crryovr_times) doDtl_bill_crryovr_times_LC(info);
@@ -25660,19 +25682,19 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Dtl]パネルの[trd_cur_dscnt_amt]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doDtl_trd_cur_dscnt_amt_LC(MCEventInfo info){
-	}
-
-	/**
 	 * [Dtl]パネルの[trd_cur_amt]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
 	public void doDtl_trd_cur_amt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[trd_cur_dscnt_amt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_trd_cur_dscnt_amt_LC(MCEventInfo info){
 	}
 
 	/**
