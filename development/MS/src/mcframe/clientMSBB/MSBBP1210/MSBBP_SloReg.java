@@ -273,6 +273,66 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	public void doHdr_trd_cd_LC(MCEventInfo info) {
 		super.doHdr_trd_cd_LC(info);
 
+		// 選択中の取引CDに応じて入力項目を制御
+		controlInputFieldsByTradeCode();
 	}
+	
+	/**
+	 * 選択中の取引CDに応じて入力項目を制御
+	 */
+	private final static String TRD_CD_010 = "010";
+	private final static String TRD_CD_020 = "020";
+	private final static String TRD_CD_030 = "030";
+	private final static String TRD_CD_040 = "040";
+	private final static String TRD_CD_050 = "050";
+	private final static String TRD_CD_060 = "060";
+	private final static String TRD_CD_070 = "070";
+	private final static String TRD_CD_080 = "080";
+	private final static String TRD_CD_800 = "800";
+	private final static String TRD_CD_9XX = "9XX";
+	private final static String TRD_CD_9YY = "9YY";
+	protected void controlInputFieldsByTradeCode() {
+		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
+		
+		String trdCd = Hdr_trd_cd.getValue();
+		switch (trdCd) {
+		case TRD_CD_010:
+			Hdr_tdlv_cd.setMode(MCMode.REQUIRED);
+			break;
+			
+		case TRD_CD_020:
+			break;
+			
+		case TRD_CD_030:
+			break;
+			
+		case TRD_CD_040:
+			break;
+			
+		case TRD_CD_050:
+			break;
+			
+		case TRD_CD_060:
+			break;
+			
+		case TRD_CD_070:
+			break;
+			
+		case TRD_CD_080:
+			break;
+			
+		case TRD_CD_800:
+			break;
+			
+		case TRD_CD_9XX:
+			break;
+			
+		case TRD_CD_9YY:
+			break;
+			
+		}
+	}
+	
+	
 //FMCB CUSTOM END
 }
