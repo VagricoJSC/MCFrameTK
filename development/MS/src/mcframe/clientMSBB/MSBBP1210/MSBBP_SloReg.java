@@ -271,6 +271,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		String dptCd = Hdr_sls_dpt_cd.getValue();
 		if (dptCd != null && HAKUYOU_SERVICE_DTP_CD.equals(dptCd)) {
 			Hdr_trd_cd.doListEvent(MCListConfig.LIST);
+			Hdr_trd_cd.clear();
 		}
 	}
 	
@@ -376,6 +377,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	/**
 	 * 取引CDに応じた選択可能な売上条件区分
 	 */
+	private final static Set<String> ALL_SLS_COND_CD = new HashSet<String>(
+			Arrays.asList("0", "1", "2", "3", "4", "6", "7")
+		);
 	protected Set<String> getAllowedSalesConditions(
 			String trdCd) {
 		if (TRD_CD_010.equals(trdCd)
@@ -408,10 +412,18 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 					Arrays.asList("1"));
 		}
 		
-		// 未定義の取引CDでは候補を表示しない
-		return ALL_TRD_CD;
+		// 未定義の取引CDでは候補を制限しない
+		return ALL_SLS_COND_CD;
 	}
 
-
+	/**
+	 * コンボボックスの初期設定
+	 */
+	protected void listInit() {
+		super.listInit();
+		
+		Hdr_sls_cond_typ.setListVisibleColumn("sls_cond_typ", "sls_cond_typ_nm");
+	}
+	
 //FMCB CUSTOM END
 }
