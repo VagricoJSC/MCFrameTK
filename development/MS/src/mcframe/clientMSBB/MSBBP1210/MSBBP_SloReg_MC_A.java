@@ -924,12 +924,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextField Hdr_frc_rsn_cd_nm = null;
-	public MCLabel Hdr_sales_cond_Label = null;
+	public MCLabel Hdr_sls_cond_typ_Label = null;
 	/**
 	 * Sales condition cd. 売上条件区分ＣＤ.<p>
 	 *
 	 */
-	public MCTextComboBox Hdr_sales_cond = null;
+	public MCTextComboBox Hdr_sls_cond_typ = null;
 	/**
 	 * Sales condition name 売上条件区分名.<p>
 	 *
@@ -3281,18 +3281,18 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
-	/** [Hdr_sales_cond_ListPutter]の定義 */
-	private MCListPutter Hdr_sales_cond_p = null;
+	/** [Hdr_sls_cond_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_sls_cond_typ_p = null;
 
 	/**
-	 * [Hdr_sales_cond_ListPutter]の取得
+	 * [Hdr_sls_cond_typ_ListPutter]の取得
 	 */
-	protected MCListPutter getHdr_sales_cond_ListPutter() {
-		if (Hdr_sales_cond_p == null) {
-			Hdr_sales_cond_p = createHdr_sales_cond_ListPutter(Hdr_sales_cond, "sales_cond", "sales_cond_nm");
+	protected MCListPutter getHdr_sls_cond_typ_ListPutter() {
+		if (Hdr_sls_cond_typ_p == null) {
+			Hdr_sls_cond_typ_p = createHdr_sls_cond_typ_ListPutter(Hdr_sls_cond_typ, "sls_cond_typ", "sales_cond_nm");
 
 		}
-		return Hdr_sales_cond_p;
+		return Hdr_sls_cond_typ_p;
 	}
 	
 	
@@ -4146,9 +4146,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd = p.beansFactory.createTextField("Hdr.frc_rsn_cd");
 		p.Hdr_frc_rsn_cd.setLabel(p.Hdr_frc_rsn_cd_Label);
 		p.Hdr_frc_rsn_cd_nm = p.beansFactory.createTextField("Hdr.frc_rsn_cd_nm");
-		p.Hdr_sales_cond_Label = p.beansFactory.createLabel("Hdr.sales_cond_Label");
-		p.Hdr_sales_cond = p.beansFactory.createTextComboBox("Hdr.sales_cond");
-		p.Hdr_sales_cond.setLabel(p.Hdr_sales_cond_Label);
+		p.Hdr_sls_cond_typ_Label = p.beansFactory.createLabel("Hdr.sls_cond_typ_Label");
+		p.Hdr_sls_cond_typ = p.beansFactory.createTextComboBox("Hdr.sls_cond_typ");
+		p.Hdr_sls_cond_typ.setLabel(p.Hdr_sls_cond_typ_Label);
 		p.Hdr_sales_cond_nm = p.beansFactory.createTextField("Hdr.sales_cond_nm");
 		p.Hdr_sls_dt_Label = p.beansFactory.createLabel("Hdr.sls_dt_Label");
 		p.Hdr_sls_dt = p.beansFactory.createDateField("Hdr.sls_dt");
@@ -5034,14 +5034,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd.setNextBeans(p.Hdr_frc_rsn_cd_nm);
 		p.Hdr_frc_rsn_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_META);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_nm);
-		p.Hdr_frc_rsn_cd_nm.setNextBeans(p.Hdr_sales_cond);
+		p.Hdr_frc_rsn_cd_nm.setNextBeans(p.Hdr_sls_cond_typ);
 		p.Hdr_frc_rsn_cd_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.frc_rsn_cd_nm_META);
-		p.Hdr_sales_cond.setListType(MCListType.STRICT);
-		p.Hdr_sales_cond.setLinkBeans(p.Hdr_sales_cond_nm);
-		p.HdrPanel.add(p.Hdr_sales_cond_Label);
-		p.HdrPanel.add(p.Hdr_sales_cond);
-		p.Hdr_sales_cond.setNextBeans(p.Hdr_sales_cond_nm);
-		p.Hdr_sales_cond.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sales_cond_META);
+		p.Hdr_sls_cond_typ.setListType(MCListType.STRICT);
+		p.Hdr_sls_cond_typ.setLinkBeans(p.Hdr_sales_cond_nm);
+		p.HdrPanel.add(p.Hdr_sls_cond_typ_Label);
+		p.HdrPanel.add(p.Hdr_sls_cond_typ);
+		p.Hdr_sls_cond_typ.setNextBeans(p.Hdr_sales_cond_nm);
+		p.Hdr_sls_cond_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sls_cond_typ_META);
 		p.HdrPanel.add(p.Hdr_sales_cond_nm);
 		p.Hdr_sales_cond_nm.setNextBeans(p.Hdr_sls_dt);
 		p.Hdr_sales_cond_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sales_cond_nm_META);
@@ -5680,8 +5680,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_frc_rsn_cd.addAllListener(p);
 		p.Hdr_frc_rsn_cd_nm.setListListener(p);
 		p.Hdr_frc_rsn_cd_nm.addAllListener(p);
-		p.Hdr_sales_cond.setListListener(p);
-		p.Hdr_sales_cond.addAllListener(p);
+		p.Hdr_sls_cond_typ.setListListener(p);
+		p.Hdr_sls_cond_typ.addAllListener(p);
 		p.Hdr_sales_cond_nm.setListListener(p);
 		p.Hdr_sales_cond_nm.addAllListener(p);
 		p.Hdr_sls_dt.setListListener(p);
@@ -11684,8 +11684,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_ins_func_nm.getListConfig().setPutter(getHdr_ins_func_nm_ListPutter());
 		Hdr_dlv_day_week_typ_nm.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_dlv_day_week_typ_nm.getListConfig().setPutter(getHdr_dlv_day_week_typ_nm_ListPutter());
-		Hdr_sales_cond.setListVisibleColumn(MCListLogic.getViewColumnName());
-		Hdr_sales_cond.getListConfig().setPutter(getHdr_sales_cond_ListPutter());
+		Hdr_sls_cond_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_sls_cond_typ.getListConfig().setPutter(getHdr_sls_cond_typ_ListPutter());
 		columnDtl_cst_itm_cd.getListConfig().setPutter(getDtl_cst_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_cd.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
@@ -12145,9 +12145,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
-	 * [Hdr_sales_cond_ListPutter]の作成
+	 * [Hdr_sls_cond_typ_ListPutter]の作成
 	 */
-	protected MCListPutter createHdr_sales_cond_ListPutter(MCLinkBeans compo, String... columns) {
+	protected MCListPutter createHdr_sls_cond_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
 		lp.setListLogicId("MS.MSUAP0010.SlsCondTyp");
 		return lp;
@@ -12484,7 +12484,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_can_rsn_cd) return getHdr_can_rsn_cd(row, info);
 		if(combo == Hdr_ins_func_nm) return getHdr_ins_func_nm(row, info);
 		if(combo == Hdr_dlv_day_week_typ_nm) return getHdr_dlv_day_week_typ_nm(row, info);
-		if(combo == Hdr_sales_cond) return getHdr_sales_cond(row, info);
+		if(combo == Hdr_sls_cond_typ) return getHdr_sls_cond_typ(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_cd) return getHdr_par_itm_p_PPanel_Itm_itm_cd(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub1) return getHdr_par_itm_p_PPanel_Itm_itm_sub1(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub2) return getHdr_par_itm_p_PPanel_Itm_itm_sub2(row, info);
@@ -12762,7 +12762,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_dlv_day_week_typ_nm) return doHdr_dlv_day_week_typ_nm_VC(info);
 		if (vc == Hdr_frc_rsn_cd) return doHdr_frc_rsn_cd_VC(info);
 		if (vc == Hdr_frc_rsn_cd_nm) return doHdr_frc_rsn_cd_nm_VC(info);
-		if (vc == Hdr_sales_cond) return doHdr_sales_cond_VC(info);
+		if (vc == Hdr_sls_cond_typ) return doHdr_sls_cond_typ_VC(info);
 		if (vc == Hdr_sales_cond_nm) return doHdr_sales_cond_nm_VC(info);
 		if (vc == Hdr_sls_dt) return doHdr_sls_dt_VC(info);
 		if (vc == Hdr_ship_prnt_no_cst_nm_flg) return doHdr_ship_prnt_no_cst_nm_flg_VC(info);
@@ -14372,12 +14372,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Hdr]パネルの[sales_cond]のValidationChangeイベントが実行されたときに呼び出されます。
+	 * [Hdr]パネルの[sls_cond_typ]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 * @return ValidationChangeイベントの結果
 	 */
-	public boolean doHdr_sales_cond_VC(MCEventInfo info){
+	public boolean doHdr_sls_cond_typ_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -16084,7 +16084,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NC(info);
 		else if (nc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NC(info);
 		else if (nc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NC(info);
-		else if (nc == Hdr_sales_cond) doHdr_sales_cond_NC(info);
+		else if (nc == Hdr_sls_cond_typ) doHdr_sls_cond_typ_NC(info);
 		else if (nc == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NC(info);
 		else if (nc == Hdr_sls_dt) doHdr_sls_dt_NC(info);
 		else if (nc == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NC(info);
@@ -17403,11 +17403,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Hdr]パネルの[sales_cond]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 * [Hdr]パネルの[sls_cond_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doHdr_sales_cond_NC(MCEventInfo info){
+	public void doHdr_sls_cond_typ_NC(MCEventInfo info){
 	}
 
 	/**
@@ -18803,7 +18803,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NE(info);
 		else if (ne == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NE(info);
 		else if (ne == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NE(info);
-		else if (ne == Hdr_sales_cond) doHdr_sales_cond_NE(info);
+		else if (ne == Hdr_sls_cond_typ) doHdr_sls_cond_typ_NE(info);
 		else if (ne == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NE(info);
 		else if (ne == Hdr_sls_dt) doHdr_sls_dt_NE(info);
 		else if (ne == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NE(info);
@@ -20122,11 +20122,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Hdr]パネルの[sales_cond]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 * [Hdr]パネルの[sls_cond_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doHdr_sales_cond_NE(MCEventInfo info){
+	public void doHdr_sls_cond_typ_NE(MCEventInfo info){
 	}
 
 	/**
@@ -21522,7 +21522,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_NX(info);
 		else if (nx == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_NX(info);
 		else if (nx == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_NX(info);
-		else if (nx == Hdr_sales_cond) doHdr_sales_cond_NX(info);
+		else if (nx == Hdr_sls_cond_typ) doHdr_sls_cond_typ_NX(info);
 		else if (nx == Hdr_sales_cond_nm) doHdr_sales_cond_nm_NX(info);
 		else if (nx == Hdr_sls_dt) doHdr_sls_dt_NX(info);
 		else if (nx == Hdr_ship_prnt_no_cst_nm_flg) doHdr_ship_prnt_no_cst_nm_flg_NX(info);
@@ -22841,11 +22841,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Hdr]パネルの[sales_cond]のNotificationExitイベントが実行されたときに呼び出されます。
+	 * [Hdr]パネルの[sls_cond_typ]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doHdr_sales_cond_NX(MCEventInfo info){
+	public void doHdr_sls_cond_typ_NX(MCEventInfo info){
 	}
 
 	/**
@@ -24222,7 +24222,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_dlv_day_week_typ_nm) doHdr_dlv_day_week_typ_nm_LC(info);
 		else if (lc == Hdr_frc_rsn_cd) doHdr_frc_rsn_cd_LC(info);
 		else if (lc == Hdr_frc_rsn_cd_nm) doHdr_frc_rsn_cd_nm_LC(info);
-		else if (lc == Hdr_sales_cond) doHdr_sales_cond_LC(info);
+		else if (lc == Hdr_sls_cond_typ) doHdr_sls_cond_typ_LC(info);
 		else if (lc == Hdr_sales_cond_nm) doHdr_sales_cond_nm_LC(info);
 		else if (lc == Hdr_sls_dt) doHdr_sls_dt_LC(info);
 		else if (lc == Hdr_src_wrk_no) doHdr_src_wrk_no_LC(info);
@@ -25363,11 +25363,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * [Hdr]パネルの[sales_cond]のListChangedイベントが実行されたときに呼び出されます。
+	 * [Hdr]パネルの[sls_cond_typ]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
 	 */
-	public void doHdr_sales_cond_LC(MCEventInfo info){
+	public void doHdr_sls_cond_typ_LC(MCEventInfo info){
 	}
 
 	/**
@@ -26592,9 +26592,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * コンボ／リストのリスト[Hdr_sales_cond]の作成メソッド
+	 * コンボ／リストのリスト[Hdr_sls_cond_typ]の作成メソッド
 	 */
-	public MCList getHdr_sales_cond(MCRow row, MCEventInfo info){
+	public MCList getHdr_sls_cond_typ(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSlsCondTyp(row, info);
 	}
 

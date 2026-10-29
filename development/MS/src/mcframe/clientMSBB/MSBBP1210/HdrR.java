@@ -1319,7 +1319,7 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>sales_cond</td>
+ *  	<td>sls_cond_typ</td>
  *  	<td>Sales condition cd.</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SALES_COND SALES_COND}]</td>

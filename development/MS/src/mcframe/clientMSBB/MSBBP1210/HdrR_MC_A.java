@@ -768,7 +768,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 * Sales condition cd. 売上条件区分ＣＤ.<p>
 	 *
 	 */
-	public static final String $sales_cond = "sales_cond";
+	public static final String $sls_cond_typ = "sls_cond_typ";
 	/**
 	 * Sales condition name 売上条件区分名.<p>
 	 *
@@ -1041,7 +1041,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta dlv_day_week_typ_nm_META = createCommonMeta($dlv_day_week_typ_nm, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP_NM);
 	public static final MCMeta frc_rsn_cd_META = createCommonMeta($frc_rsn_cd, mcframe.commonMA.meta.MA_META.FRC_RSN_CD);
 	public static final MCMeta frc_rsn_cd_nm_META = createCommonMeta($frc_rsn_cd_nm, mcframe.commonMA.meta.MA_META.FRC_RSN_NM);
-	public static final MCMeta sales_cond_META = createCommonMeta($sales_cond, mcframe.commonMA.meta.MA_META.SALES_COND);
+	public static final MCMeta sls_cond_typ_META = createCommonMeta($sls_cond_typ, mcframe.commonMA.meta.MA_META.SALES_COND);
 	public static final MCMeta sales_cond_nm_META = createCommonMeta($sales_cond_nm, mcframe.commonMA.meta.MA_META.SALES_COND_NM);
 	public static final MCMeta sls_dt_META = createCommonMeta($sls_dt, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta ship_prnt_no_cst_nm_flg_META = createCommonMeta($ship_prnt_no_cst_nm_flg, mcframe.commonMA.meta.MA_META.FLG);
@@ -1219,7 +1219,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 			dlv_day_week_typ_nm_META,
 			frc_rsn_cd_META,
 			frc_rsn_cd_nm_META,
-			sales_cond_META,
+			sls_cond_typ_META,
 			sales_cond_nm_META,
 			sls_dt_META,
 			ship_prnt_no_cst_nm_flg_META,
@@ -1397,7 +1397,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$tterm_cd2, "tterm_nm"},	// tterm_cd2
 				{$tterm_cd3, "tterm_nm"},	// tterm_cd3
 				{$can_rsn_cd, "slo_rsn_nm"},	// can_rsn_cd
-				{$dlv_day_week_typ_nm, "day_week_typ"}	// dlv_day_week_typ_nm
+				{$dlv_day_week_typ_nm, "day_week_typ"},	// dlv_day_week_typ_nm
+				{$sls_cond_typ, "sls_cond_typ_nm"}	// sls_cond_typ
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
@@ -4675,16 +4676,16 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 * Sales condition cd. 売上条件区分ＣＤ.<p>
 	 *
 	 */
-	public String sales_cond() {
-		return getConstString(offset + 162, $sales_cond);
+	public String sls_cond_typ() {
+		return getConstString(offset + 162, $sls_cond_typ);
 	}
 
 	/**
 	 * Sales condition cd. 売上条件区分ＣＤ.<p>
 	 *
 	 */
-	public void sales_cond(String value) {
-		setConstString(offset + 162, $sales_cond, value);
+	public void sls_cond_typ(String value) {
+		setConstString(offset + 162, $sls_cond_typ, value);
 	}
 
 
@@ -5212,8 +5213,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
 			return frc_rsn_cd_nm();
 		}
-		if ($sales_cond.equalsIgnoreCase(name)) {
-			return sales_cond();
+		if ($sls_cond_typ.equalsIgnoreCase(name)) {
+			return sls_cond_typ();
 		}
 		if ($sales_cond_nm.equalsIgnoreCase(name)) {
 			return sales_cond_nm();
@@ -5702,8 +5703,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($frc_rsn_cd_nm.equalsIgnoreCase(name)) {
 			return frc_rsn_cd_nm();
 		}
-		if ($sales_cond.equalsIgnoreCase(name)) {
-			return sales_cond();
+		if ($sls_cond_typ.equalsIgnoreCase(name)) {
+			return sls_cond_typ();
 		}
 		if ($sales_cond_nm.equalsIgnoreCase(name)) {
 			return sales_cond_nm();
@@ -6296,8 +6297,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 			frc_rsn_cd_nm(value);
 			return;
 		}
-		if ($sales_cond.equalsIgnoreCase(name)) {
-			sales_cond(value);
+		if ($sls_cond_typ.equalsIgnoreCase(name)) {
+			sls_cond_typ(value);
 			return;
 		}
 		if ($sales_cond_nm.equalsIgnoreCase(name)) {
@@ -7228,8 +7229,8 @@ abstract class HdrR_MC_A extends MCConstRow {
 			frc_rsn_cd_nm(value);
 			return;
 		}
-		if ($sales_cond.equalsIgnoreCase(name)) {
-			sales_cond(value);
+		if ($sls_cond_typ.equalsIgnoreCase(name)) {
+			sls_cond_typ(value);
 			return;
 		}
 		if ($sales_cond_nm.equalsIgnoreCase(name)) {
