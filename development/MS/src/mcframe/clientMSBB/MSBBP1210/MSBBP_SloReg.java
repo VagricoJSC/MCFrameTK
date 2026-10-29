@@ -3,7 +3,12 @@ package mcframe.clientMSBB.MSBBP1210;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import mcframe.clientCore.beans.action.*;
 import mcframe.clientCore.beans.combobox.*;
 import mcframe.clientCore.beans.*;
@@ -291,8 +296,12 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String TRD_CD_800 = "800";
 	private final static String TRD_CD_9XX = "9XX";
 	private final static String TRD_CD_9YY = "9YY";
+	private final static Set<String> ALL_TRD_CD = new HashSet<String>(
+		Arrays.asList(TRD_CD_010, TRD_CD_020, TRD_CD_030, TRD_CD_040, TRD_CD_050, TRD_CD_060, TRD_CD_070, TRD_CD_080, TRD_CD_800, TRD_CD_9XX, TRD_CD_9YY)
+	);
 	protected void controlInputFieldsByTradeCode() {
 		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
+		Hdr_sls_cond_typ.clear();
 		
 		String trdCd = Hdr_trd_cd.getValue();
 		switch (trdCd) {
@@ -332,5 +341,77 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			
 		}
 	}
+	
+	@Override
+	public MCList<?> getHdr_sls_cond_typ(
+			MCRow row, MCEventInfo info) {
+
+		// 標準リストロジックから全候補を取得
+		MCList<?> list = super.getHdr_sls_cond_typ(row, info);
+
+		if (list == null) {
+			return null;
+		}
+
+		// 現在選択中の取引CD
+		String trdCd = Hdr_trd_cd.getValue();
+
+		// 許可する売上条件区分
+		Set<String> allowed = getAllowedSalesConditions(trdCd);
+
+		// 許可されていない候補を除外
+		for (int i = list.size() - 1; i >= 0; i--) {
+			MCRow item = (MCRow) list.get(i);
+
+			String code = item.getStringNE("sls_cond_typ");
+
+			if (!allowed.contains(code)) {
+				list.remove(i);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * 取引CDに応じた選択可能な売上条件区分
+	 */
+	protected Set<String> getAllowedSalesConditions(
+			String trdCd) {
+		if (TRD_CD_010.equals(trdCd)
+				|| TRD_CD_020.equals(trdCd)
+				|| TRD_CD_050.equals(trdCd)
+				|| TRD_CD_070.equals(trdCd)
+			) {
+			return new HashSet<>(
+					Arrays.asList("0", "2"));
+		}
+
+		if (TRD_CD_030.equals(trdCd)
+				|| TRD_CD_060.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList("0", "3"));
+		}
+
+		if (TRD_CD_040.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList("0", "4"));
+		}
+
+		if (TRD_CD_080.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList("6"));
+		}
+
+		if (TRD_CD_800.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList("1"));
+		}
+		
+		// 未定義の取引CDでは候補を表示しない
+		return ALL_TRD_CD;
+	}
+
+
 //FMCB CUSTOM END
 }
