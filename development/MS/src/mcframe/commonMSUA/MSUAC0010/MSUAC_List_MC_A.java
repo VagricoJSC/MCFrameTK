@@ -7268,6 +7268,61 @@ class MSUAC_List_MC_A extends Object {
 
 
 	/** 
+	  * SlsCondTyp:カラム名クラス
+	  */
+	protected static class SlsCondTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_sls_cond_typ = "sls_cond_typ";
+		/** OUT:名称 */
+		public static final String $o_sls_cond_nm = "sls_cond_nm";
+		/** VIEW:値 */
+		public static final String $v_sls_cond_typ = $o_sls_cond_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_sls_cond_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_sls_cond_nm = $o_sls_cond_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_sls_cond_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_sls_cond_typ = $o_sls_cond_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_sls_cond_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_sls_cond_typ);
+					add($o_sls_cond_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_sls_cond_typ, $v_sls_cond_typ);
+					put($vn_sls_cond_nm, $v_sls_cond_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_sls_cond_typ, $s_sls_cond_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SlsCondTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SlsCondTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SlsCondTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SlsCondTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SlsCondTypCols extends MSUAC_List.SlsCondTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
 	  * CstItm:カラム名クラス
 	  */
 	protected static class CstItmCols_MC_A  {

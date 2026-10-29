@@ -5969,6 +5969,51 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 
 
 	/** 
+	  * SlsCondTyp:売上条件区分 メインメソッド<p>
+	  * 売上条件区分を表す定数を取得する<br>
+売上条件区分：売上条件を表す
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSlsCondTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSlsCondTyp_GetList(row, info);//リストの取得
+		getSlsCondTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSlsCondTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SlsCondTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSlsCondTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_SLS_COND_TYP.list(row);
+	}
+	/** 
+	  * SlsCondTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSlsCondTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SlsCondTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SlsCondTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSlsCondTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SlsCondTypCols.sortPolicy());
+	}
+
+
+	/** 
 	  * CstItm:得意先品目 メインメソッド<p>
 	  * 取引先品目マスタから、得意先品目情報を取得する
 	  * @param row Rowコンテナ
