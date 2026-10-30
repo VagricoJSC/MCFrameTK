@@ -3289,7 +3289,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_frc_rsn_cd_ListPutter() {
 		if (Hdr_frc_rsn_cd_p == null) {
-			Hdr_frc_rsn_cd_p = createHdr_frc_rsn_cd_ListPutter(Hdr_frc_rsn_cd, "frc_rsn_cd");
+			Hdr_frc_rsn_cd_p = createHdr_frc_rsn_cd_ListPutter(Hdr_frc_rsn_cd, "frc_rsn_cd", "frc_rsn_cd_nm");
 
 		}
 		return Hdr_frc_rsn_cd_p;
@@ -5045,6 +5045,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.BulkSetPanel.add(p.Hdr_dlv_day_week_typ_nm);
 		p.Hdr_dlv_day_week_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_day_week_typ_nm_META);
 		p.Hdr_frc_rsn_cd.setListType(MCListType.STRICT);
+		p.Hdr_frc_rsn_cd.setLinkBeans(p.Hdr_frc_rsn_cd_nm);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd_Label);
 		p.HdrPanel.add(p.Hdr_frc_rsn_cd);
 		p.Hdr_frc_rsn_cd.setNextBeans(p.Hdr_frc_rsn_cd_nm);
@@ -12167,7 +12168,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_frc_rsn_cd_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.FreeRsnTyp");
 		return lp;
 	}
 	 
@@ -26623,7 +26624,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * コンボ／リストのリスト[Hdr_frc_rsn_cd]の作成メソッド
 	 */
 	public MCList getHdr_frc_rsn_cd(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getFreeRsnTyp(row, info);
 	}
 
 	/**

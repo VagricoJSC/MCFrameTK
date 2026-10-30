@@ -1398,6 +1398,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$tterm_cd3, "tterm_nm"},	// tterm_cd3
 				{$can_rsn_cd, "slo_rsn_nm"},	// can_rsn_cd
 				{$dlv_day_week_typ_nm, "day_week_typ"},	// dlv_day_week_typ_nm
+				{$frc_rsn_cd, "free_rsn_typ_nm"},	// frc_rsn_cd
 				{$sls_cond_typ, "sls_cond_typ_nm"}	// sls_cond_typ
 			}
 		)),

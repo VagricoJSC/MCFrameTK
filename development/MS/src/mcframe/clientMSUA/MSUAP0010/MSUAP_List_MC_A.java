@@ -6014,6 +6014,51 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 
 
 	/** 
+	  * FreeRsnTyp:無償理由区分 メインメソッド<p>
+	  * 無償理由区分を表す定数を取得する<br>
+無償理由区分：無償理由を表す
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getFreeRsnTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getFreeRsnTyp_GetList(row, info);//リストの取得
+		getFreeRsnTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getFreeRsnTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * FreeRsnTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getFreeRsnTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_FREE_RSN_TYP.list(row);
+	}
+	/** 
+	  * FreeRsnTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getFreeRsnTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(FreeRsnTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * FreeRsnTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getFreeRsnTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(FreeRsnTypCols.sortPolicy());
+	}
+
+
+	/** 
 	  * CstItm:得意先品目 メインメソッド<p>
 	  * 取引先品目マスタから、得意先品目情報を取得する
 	  * @param row Rowコンテナ
