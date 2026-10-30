@@ -558,5 +558,59 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 未定義の取引CDでは候補を制限しない
 		return ALL_FREE_RSN_CD;
 	}
+	
+	@Override
+	protected void doHdr_dlv_cd_LC(MCEventInfo info) {
+		
+		if (!isNull(getHdrR().dlv_cd())){
+			
+			if (MAC_TRD_PTN_TYP.isSHIP(getHdrR().trd_ptn_typ())) {
+				
+				getHdrR().pri_prnt_flg(false);
+			}
+		}
+		
+		for (DtlR dtlR : getDtlL()) {
+			
+			if (!dtlR.isEmpty() && isEditable(columnDtl_dlv_cd, dtlR.getGUIIndex())){
+				
+				if (dtlR.isStatusNone() && !isSame(dtlR.dlv_cd(), getHdrR().dlv_cd())) {
+					dtlR.setStatus(Status.MODIFY);
+				}
+				dtlR.dlv_cd(getHdrR().dlv_cd());
+				dtlR.dlv_nm(getHdrR().dlv_nm());
+				dtlR.dlv_sundry_flg(getHdrR().dlv_sundry_flg());
+				dtlR.pri_prnt_flg(getHdrR().pri_prnt_flg());
+				dtlR.dlv_zip_cd(getHdrR().dlv_zip_cd());
+				dtlR.dlv_addr1(getHdrR().dlv_addr1());
+				dtlR.dlv_addr2(getHdrR().dlv_addr2());
+				dtlR.dlv_addr3(getHdrR().dlv_addr3());
+				dtlR.dlv_addr4(getHdrR().dlv_addr4());
+				dtlR.dlv_cntry_cd(getHdrR().dlv_cntry_cd());
+				dtlR.dlv_cntry_nm(getHdrR().dlv_cntry_nm());
+				dtlR.dlv_tel(getHdrR().dlv_tel());
+				dtlR.dlv_fax(getHdrR().dlv_fax());
+				dtlR.dlv_cntct_dpt(getHdrR().dlv_cntct_dpt());
+				dtlR.dlv_cntct_psn(getHdrR().dlv_cntct_psn());
+				dtlR.dlv_lg_grp_cd(getHdrR().dlv_lg_grp_cd());
+				dtlR.dlv_lg_grp_nm(getHdrR().dlv_lg_grp_nm());
+				dtlR.tdlv_req_flg(getHdrR().tdlv_req_flg());
+				dtlR.prnt_lcl_cd(getHdrR().prnt_lcl_cd());
+			}
+		}
+		
+		// 標準動作カスタマイズ
+		// if (!isSame(getHdrR().def_cst_cd(),getHdrR().cst_cd())) {
+		//	setCstCd();
+		//}
+	}	
+	
+	@Override
+	public void doHdr_def_cst_cd_NC(MCEventInfo info) {
+		// 標準動作カスタマイズ
+		// super.doHdr_def_cst_cd_NC(info);
+		// setCstCd();
+	}
+	
 //FMCB CUSTOM END
 }
