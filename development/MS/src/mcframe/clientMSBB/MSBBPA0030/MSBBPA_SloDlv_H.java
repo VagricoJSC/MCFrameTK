@@ -66,12 +66,111 @@ public class MSBBPA_SloDlv_H extends MSBBPA_SloDlv_H_MC {
 
 
 //FMCB CUSTOM START
+	boolean _tdlv_flg = false;
+	
+	public void setTdlvMode(boolean tdlv_flg) {
+		_tdlv_flg = tdlv_flg;
+		setComponentInvisibleAllStatus(SloDlv_pri_prnt_flg);
+	}
+	
+	@Override
+	protected void linkBeansToISPanel() {
+		super.linkBeansToISPanel();
+		if (_tdlv_flg) {
+			getSloDlv_bp_cd_ListPutter().putBind(BpCols.$i_bp_is_srch_typ , MAC_BP_IS_SRCH_TYP.TDLV.value()); 
+		}
+		else {
+			getSloDlv_bp_cd_ListPutter().putBind(BpCols.$i_bp_is_srch_typ , MAC_BP_IS_SRCH_TYP.DLV.value()); 
+		}
+	}
+
 	/**
-	 * Panel[SloDlv]のボタン[show_dtl]の押下時の処理
+	 * 納品先諸口ＦＬＧが変更されたときに実行される。<br>
+	 * <br>
+	 * GUI 部品のモードを設定する。
+	 * 
+	 * @param info イベント情報
+	 */
+	@Override
+	public void doSloDlv_dlv_sundry_flg_NC(MCEventInfo info) {
+		setGUIMode();
+	}
+
+	@Override
+	public void setENABLEStatus() {
+		super.setENABLEStatus();
+		
+		setGUIMode();
+	}
+
+	@Override
+	public void setREQUIREDStatus() {
+		super.setREQUIREDStatus();
+		
+		setGUIMode();
+	}
+	
+	/**
+	 * Panel[Dlv]のボタン[show_dtl]の押下時の処理
 	 */
 	@Override
 	public void doSloDlv_show_dtl(MCEventInfo info) {
+		SloDlvR tmpR = getSloDlvR().clone();
+		tmpR.setStringNE("some_cd", tmpR.bp_cd());
+		tmpR.setStringNE("some_nm", tmpR.bp_nm());
+		tmpR.setStringNE("cntct_dpt", tmpR.dlv_cntct_dpt());
+		tmpR.setStringNE("cntct_psn", tmpR.dlv_cntct_psn());
+		openChildPanel("MA", "MAUBP0430", T1, tmpR, SloDlv_bp_cd, SloDlv_bp_nm);
+	}
+	@Override
+	protected MCRow getBindRowForISCustom(MCRow bind, MCLinkBeans beans, int eventIndex) {
+		// 部品の値を入力補助画面へ引き継ぐ
+		bind.setStringNE(DlvR.$bp_nm, SloDlv_bp_nm.getValue());
+		bind.setBooleanNE(DlvR.$dlv_sundry_flg, SloDlv_dlv_sundry_flg.getValue());
+		bind.setBooleanNE(DlvR.$pri_prnt_flg, SloDlv_pri_prnt_flg.getValue());
+		bind.setStringNE(DlvR.$zip_cd, SloDlv_zip_cd.getValue());
+		bind.setStringNE(DlvR.$addr1, SloDlv_addr1.getValue());
+		bind.setStringNE(DlvR.$addr2, SloDlv_addr2.getValue());
+		bind.setStringNE(DlvR.$addr3, SloDlv_addr3.getValue());
+		bind.setStringNE(DlvR.$addr4, SloDlv_addr4.getValue());
+		bind.setStringNE(DlvR.$cntry_cd, SloDlv_cntry_cd.getValue());
+		bind.setStringNE(DlvR.$cntry_nm, SloDlv_cntry_nm.getValue());
+		bind.setStringNE(DlvR.$tel, SloDlv_tel.getValue());
+		bind.setStringNE(DlvR.$fax, SloDlv_fax.getValue());
+		bind.setStringNE(DlvR.$dlv_cntct_dpt, SloDlv_dlv_cntct_dpt.getValue());
+		bind.setStringNE(DlvR.$dlv_cntct_psn, SloDlv_dlv_cntct_psn.getValue());
+
+		return super.getBindRowForISCustom(bind, beans, eventIndex);
 	}
 
+	/**
+	 * 指定された GUI 部品のモードを取得する。<br>
+	 * 
+	 * @param compo GUI 部品
+	 * @return モードまたは null
+	 */
+	@Override
+	public MCMode getGUIMode(MCModeBeans compo) {
+		if (isSame(getStatus(), ENABLE) || isSame(getStatus(), REQUIRED)) {
+			if (!getSloDlvR().dlv_sundry_flg()) {
+				if (compo == SloDlv_bp_nm
+						|| compo == SloDlv_lg_grp_cd
+						|| compo == SloDlv_zip_cd
+						|| compo == SloDlv_addr1
+						|| compo == SloDlv_addr2
+						|| compo == SloDlv_addr3
+						|| compo == SloDlv_addr4
+						|| compo == SloDlv_cntry_cd
+						|| compo == SloDlv_tel
+						|| compo == SloDlv_fax
+						|| compo == SloDlv_dlv_cntct_dpt
+						|| compo == SloDlv_dlv_cntct_psn
+						) {
+					return MCMode.READ_ONLY;
+				}
+			}
+		}
+		return super.getGUIMode(compo);
+	}	
 //FMCB CUSTOM END
 }
