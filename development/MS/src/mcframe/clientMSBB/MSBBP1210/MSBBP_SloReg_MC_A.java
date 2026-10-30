@@ -216,8 +216,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCCheckBox Hdr_edi_flg = null;
-	public mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H Hdr_dlv_p_PPanel;
-	public MCTextField Hdr_dlv_cd;	// [Hdr]の[dlv_p.bp_cd]を[Hdr_dlv_cd]としてエイリアス定義。
+	public mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H Hdr_dlv_p_PPanel;
+	public MCTextComboBox Hdr_dlv_cd;	// [Hdr]の[dlv_p.bp_cd]を[Hdr_dlv_cd]としてエイリアス定義。
 	public MCTextField Hdr_dlv_nm;	// [Hdr]の[dlv_p.bp_nm]を[Hdr_dlv_nm]としてエイリアス定義。
 	public MCCheckBox Hdr_dlv_sundry_flg;	// [Hdr]の[dlv_p.dlv_sundry_flg]を[Hdr_dlv_sundry_flg]としてエイリアス定義。
 	public MCCheckBox Hdr_pri_prnt_flg;	// [Hdr]の[dlv_p.pri_prnt_flg]を[Hdr_pri_prnt_flg]としてエイリアス定義。
@@ -2404,41 +2404,41 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [Hdr]ブロック関連の埋め込み画面Fieldとエイリアス定義されたGUI部品Fieldの初期化を行います。
 	 */
 	protected static void jbCreateHdr(MSBBP_SloReg p) {
-		p.Hdr_dlv_p_PPanel = mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.create(p.getHdrR().dlv_p());
+		p.Hdr_dlv_p_PPanel = mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.create(p.getHdrR().dlv_p());
 		p.Hdr_dlv_p_PPanel.setName("Hdr.dlv_p");
-		p.Hdr_dlv_cd = p.Hdr_dlv_p_PPanel.Dlv_bp_cd;
+		p.Hdr_dlv_cd = p.Hdr_dlv_p_PPanel.SloDlv_bp_cd;
 		p.Hdr_dlv_cd.addAliasName("Hdr.dlv_cd", p);
-		p.Hdr_dlv_nm = p.Hdr_dlv_p_PPanel.Dlv_bp_nm;
+		p.Hdr_dlv_nm = p.Hdr_dlv_p_PPanel.SloDlv_bp_nm;
 		p.Hdr_dlv_nm.addAliasName("Hdr.dlv_nm", p);
-		p.Hdr_dlv_sundry_flg = p.Hdr_dlv_p_PPanel.Dlv_dlv_sundry_flg;
+		p.Hdr_dlv_sundry_flg = p.Hdr_dlv_p_PPanel.SloDlv_dlv_sundry_flg;
 		p.Hdr_dlv_sundry_flg.addAliasName("Hdr.dlv_sundry_flg", p);
-		p.Hdr_pri_prnt_flg = p.Hdr_dlv_p_PPanel.Dlv_pri_prnt_flg;
+		p.Hdr_pri_prnt_flg = p.Hdr_dlv_p_PPanel.SloDlv_pri_prnt_flg;
 		p.Hdr_pri_prnt_flg.addAliasName("Hdr.pri_prnt_flg", p);
-		p.Hdr_dlv_lg_grp_cd = p.Hdr_dlv_p_PPanel.Dlv_lg_grp_cd;
+		p.Hdr_dlv_lg_grp_cd = p.Hdr_dlv_p_PPanel.SloDlv_lg_grp_cd;
 		p.Hdr_dlv_lg_grp_cd.addAliasName("Hdr.dlv_lg_grp_cd", p);
-		p.Hdr_dlv_lg_grp_nm = p.Hdr_dlv_p_PPanel.Dlv_lg_grp_nm;
+		p.Hdr_dlv_lg_grp_nm = p.Hdr_dlv_p_PPanel.SloDlv_lg_grp_nm;
 		p.Hdr_dlv_lg_grp_nm.addAliasName("Hdr.dlv_lg_grp_nm", p);
-		p.Hdr_dlv_cntry_cd = p.Hdr_dlv_p_PPanel.Dlv_cntry_cd;
+		p.Hdr_dlv_cntry_cd = p.Hdr_dlv_p_PPanel.SloDlv_cntry_cd;
 		p.Hdr_dlv_cntry_cd.addAliasName("Hdr.dlv_cntry_cd", p);
-		p.Hdr_dlv_cntry_nm = p.Hdr_dlv_p_PPanel.Dlv_cntry_nm;
+		p.Hdr_dlv_cntry_nm = p.Hdr_dlv_p_PPanel.SloDlv_cntry_nm;
 		p.Hdr_dlv_cntry_nm.addAliasName("Hdr.dlv_cntry_nm", p);
-		p.Hdr_dlv_zip_cd = p.Hdr_dlv_p_PPanel.Dlv_zip_cd;
+		p.Hdr_dlv_zip_cd = p.Hdr_dlv_p_PPanel.SloDlv_zip_cd;
 		p.Hdr_dlv_zip_cd.addAliasName("Hdr.dlv_zip_cd", p);
-		p.Hdr_dlv_addr1 = p.Hdr_dlv_p_PPanel.Dlv_addr1;
+		p.Hdr_dlv_addr1 = p.Hdr_dlv_p_PPanel.SloDlv_addr1;
 		p.Hdr_dlv_addr1.addAliasName("Hdr.dlv_addr1", p);
-		p.Hdr_dlv_addr2 = p.Hdr_dlv_p_PPanel.Dlv_addr2;
+		p.Hdr_dlv_addr2 = p.Hdr_dlv_p_PPanel.SloDlv_addr2;
 		p.Hdr_dlv_addr2.addAliasName("Hdr.dlv_addr2", p);
-		p.Hdr_dlv_addr3 = p.Hdr_dlv_p_PPanel.Dlv_addr3;
+		p.Hdr_dlv_addr3 = p.Hdr_dlv_p_PPanel.SloDlv_addr3;
 		p.Hdr_dlv_addr3.addAliasName("Hdr.dlv_addr3", p);
-		p.Hdr_dlv_addr4 = p.Hdr_dlv_p_PPanel.Dlv_addr4;
+		p.Hdr_dlv_addr4 = p.Hdr_dlv_p_PPanel.SloDlv_addr4;
 		p.Hdr_dlv_addr4.addAliasName("Hdr.dlv_addr4", p);
-		p.Hdr_dlv_tel = p.Hdr_dlv_p_PPanel.Dlv_tel;
+		p.Hdr_dlv_tel = p.Hdr_dlv_p_PPanel.SloDlv_tel;
 		p.Hdr_dlv_tel.addAliasName("Hdr.dlv_tel", p);
-		p.Hdr_dlv_fax = p.Hdr_dlv_p_PPanel.Dlv_fax;
+		p.Hdr_dlv_fax = p.Hdr_dlv_p_PPanel.SloDlv_fax;
 		p.Hdr_dlv_fax.addAliasName("Hdr.dlv_fax", p);
-		p.Hdr_dlv_cntct_dpt = p.Hdr_dlv_p_PPanel.Dlv_dlv_cntct_dpt;
+		p.Hdr_dlv_cntct_dpt = p.Hdr_dlv_p_PPanel.SloDlv_dlv_cntct_dpt;
 		p.Hdr_dlv_cntct_dpt.addAliasName("Hdr.dlv_cntct_dpt", p);
-		p.Hdr_dlv_cntct_psn = p.Hdr_dlv_p_PPanel.Dlv_dlv_cntct_psn;
+		p.Hdr_dlv_cntct_psn = p.Hdr_dlv_p_PPanel.SloDlv_dlv_cntct_psn;
 		p.Hdr_dlv_cntct_psn.addAliasName("Hdr.dlv_cntct_psn", p);
 		p.Hdr_tdlv_p_PPanel = mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.create(p.getHdrR().tdlv_p());
 		p.Hdr_tdlv_p_PPanel.setName("Hdr.tdlv_p");
@@ -2924,17 +2924,17 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
-	/** [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の定義 */
-	private MCListPutter Hdr_dlv_p_PPanel_Dlv_bp_cd_p = null;
+	/** [Hdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter]の定義 */
+	private MCListPutter Hdr_dlv_p_PPanel_SloDlv_bp_cd_p = null;
 
 	/**
-	 * [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の取得
+	 * [Hdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter]の取得
 	 */
-	protected MCListPutter getHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter() {
-		if (Hdr_dlv_p_PPanel_Dlv_bp_cd_p == null) {
-			Hdr_dlv_p_PPanel_Dlv_bp_cd_p = createHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter(Hdr_dlv_p_PPanel.Dlv_bp_cd, "dlv_cd", "dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_cntry_cd","dlv_cntry_nm","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","dlv_lg_grp_cd","tdlv_req_flg","def_cst_cd","prnt_lcl_cd");
+	protected MCListPutter getHdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter() {
+		if (Hdr_dlv_p_PPanel_SloDlv_bp_cd_p == null) {
+			Hdr_dlv_p_PPanel_SloDlv_bp_cd_p = createHdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter(Hdr_dlv_p_PPanel.SloDlv_bp_cd, "dlv_cd", "dlv_nm","dlv_sundry_flg","pri_prnt_flg","dlv_zip_cd","dlv_addr1","dlv_addr2","dlv_addr3","dlv_addr4","dlv_cntry_cd","dlv_cntry_nm","dlv_tel","dlv_fax","dlv_cntct_dpt","dlv_cntct_psn","dlv_lg_grp_cd","tdlv_req_flg","def_cst_cd","prnt_lcl_cd");
 		}
-		return Hdr_dlv_p_PPanel_Dlv_bp_cd_p;
+		return Hdr_dlv_p_PPanel_SloDlv_bp_cd_p;
 	}
 	
 	
@@ -4557,7 +4557,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_edi_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.edi_flg_META);
 		p.HdrPanel.add(p.Hdr_dlv_p_PPanel);
 		p.Hdr_dlv_p_PPanel.setNextBeans(p.Hdr_def_cst_cd);
-		p.Hdr_dlv_p_PPanel.Dlv_bp_cd.setLinkBeans(p.Hdr_dlv_nm,p.Hdr_dlv_sundry_flg,p.Hdr_pri_prnt_flg,p.Hdr_dlv_zip_cd,p.Hdr_dlv_addr1,p.Hdr_dlv_addr2,p.Hdr_dlv_addr3,p.Hdr_dlv_addr4,p.Hdr_dlv_cntry_cd,p.Hdr_dlv_cntry_nm,p.Hdr_dlv_tel,p.Hdr_dlv_fax,p.Hdr_dlv_cntct_dpt,p.Hdr_dlv_cntct_psn,p.Hdr_dlv_lg_grp_cd,p.Hdr_tdlv_req_flg,p.Hdr_def_cst_cd,p.Hdr_prnt_lcl_cd);
+		p.Hdr_dlv_p_PPanel.SloDlv_bp_cd.setLinkBeans(p.Hdr_dlv_nm,p.Hdr_dlv_sundry_flg,p.Hdr_pri_prnt_flg,p.Hdr_dlv_zip_cd,p.Hdr_dlv_addr1,p.Hdr_dlv_addr2,p.Hdr_dlv_addr3,p.Hdr_dlv_addr4,p.Hdr_dlv_cntry_cd,p.Hdr_dlv_cntry_nm,p.Hdr_dlv_tel,p.Hdr_dlv_fax,p.Hdr_dlv_cntct_dpt,p.Hdr_dlv_cntct_psn,p.Hdr_dlv_lg_grp_cd,p.Hdr_tdlv_req_flg,p.Hdr_def_cst_cd,p.Hdr_prnt_lcl_cd);
 		p.HdrPanel.add(p.Hdr_def_cst_cd);
 		p.Hdr_def_cst_cd.setNextBeans(p.Hdr_prnt_lcl_cd);
 		p.Hdr_def_cst_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.def_cst_cd_META);
@@ -5465,7 +5465,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.addAllListener(p);
 		p.Hdr_aprv_can_flg.addAllListener(p);
 		p.Hdr_edi_flg.addAllListener(p);
-		p.Hdr_dlv_p_PPanel.Dlv_bp_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_dlv_p_PPanel.SloDlv_bp_cd.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Hdr_def_cst_cd.setListListener(p);
 		p.Hdr_def_cst_cd.addAllListener(p);
 		p.Hdr_prnt_lcl_cd.setListListener(p);
@@ -6099,7 +6099,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, SRCH, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(SRCH, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6552,7 +6552,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, REF, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(REF, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, REF, MCMode.READ_ONLY);
@@ -7005,7 +7005,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, UPD, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.ENABLE);
 		p.Hdr_def_cst_cd.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, UPD, MCMode.ENABLE);
@@ -7459,7 +7459,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.ENABLE);
 		p.Hdr_def_cst_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, UPD_QTN, MCMode.ENABLE);
@@ -7913,7 +7913,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
@@ -8366,7 +8366,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
@@ -8613,7 +8613,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_U, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -9066,7 +9066,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, INS, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_dlv_p_PPanel.putStatus(INS, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.ENABLE);
 		p.Hdr_def_cst_cd.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, INS, MCMode.ENABLE);
@@ -9520,7 +9520,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.ENABLE);
+		p.Hdr_dlv_p_PPanel.putStatus(INS_QTN, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.ENABLE);
 		p.Hdr_def_cst_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, INS_QTN, MCMode.ENABLE);
@@ -9974,7 +9974,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_I, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10427,7 +10427,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, DEL, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(DEL, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, DEL, MCMode.READ_ONLY);
@@ -10880,7 +10880,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_aprv_upd_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_aprv_can_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_edi_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
-		p.Hdr_dlv_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0210.MAUBP_Dlv_H.READ_ONLY);
+		p.Hdr_dlv_p_PPanel.putStatus(FIX_D, mcframe.clientMSBB.MSBBPA0030.MSBBPA_SloDlv_H.READ_ONLY);
 		p.Hdr_def_cst_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_prnt_lcl_cd.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_dest_cd1.putMode(p, FIX_D, MCMode.READ_ONLY);
@@ -11684,7 +11684,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_trd_cd.getListConfig().setPutter(getHdr_trd_cd_ListPutter());
 		Hdr_slo_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_slo_typ.getListConfig().setPutter(getHdr_slo_typ_ListPutter());
-		Hdr_dlv_p_PPanel.Dlv_bp_cd.getListConfig().setPutter(getHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter());
+		Hdr_dlv_p_PPanel.SloDlv_bp_cd.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_dlv_p_PPanel.SloDlv_bp_cd.getListConfig().setPutter(getHdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter());
 		Hdr_dest_cd1.getListConfig().setPutter(getHdr_dest_cd1_ListPutter());
 		Hdr_dest_cd2.getListConfig().setPutter(getHdr_dest_cd2_ListPutter());
 		Hdr_dest_cd3.getListConfig().setPutter(getHdr_dest_cd3_ListPutter());
@@ -11972,9 +11973,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
-	 * [Hdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter]の作成
+	 * [Hdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter]の作成
 	 */
-	protected MCListPutter createHdr_dlv_p_PPanel_Dlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
+	protected MCListPutter createHdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
 		lp.setListLogicId("MA.MAUAP0010.Bp");
 		return lp;
@@ -12512,7 +12513,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Cnd_srch_tgt_typ_nm) return getCnd_srch_tgt_typ_nm(row, info);
 		if(combo == Hdr_trd_cd) return getHdr_trd_cd(row, info);
 		if(combo == Hdr_slo_typ) return getHdr_slo_typ(row, info);
-		if(combo == Hdr_dlv_p_PPanel.Dlv_bp_cd) return getHdr_dlv_p_PPanel_Dlv_bp_cd(row, info);
+		if(combo == Hdr_dlv_p_PPanel.SloDlv_bp_cd) return getHdr_dlv_p_PPanel_SloDlv_bp_cd(row, info);
 		if(combo == Hdr_dest_cd1) return getHdr_dest_cd1(row, info);
 		if(combo == Hdr_dest_cd2) return getHdr_dest_cd2(row, info);
 		if(combo == Hdr_dest_cd3) return getHdr_dest_cd3(row, info);
@@ -26477,9 +26478,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * コンボ／リストのリスト[Hdr_dlv_p_PPanel_Dlv_bp_cd]の作成メソッド
+	 * コンボ／リストのリスト[Hdr_dlv_p_PPanel_SloDlv_bp_cd]の作成メソッド
 	 */
-	public MCList getHdr_dlv_p_PPanel_Dlv_bp_cd(MCRow row, MCEventInfo info){
+	public MCList getHdr_dlv_p_PPanel_SloDlv_bp_cd(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
 	}
 

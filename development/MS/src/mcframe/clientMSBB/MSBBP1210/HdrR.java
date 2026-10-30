@@ -171,7 +171,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP0210.DlvR}</td>
+ *  	<td>{@link mcframe.clientMSBB.MSBBPA0030.SloDlvR}</td>
  *  </tr>
  *  <tr >
  *  	<td><br></td>

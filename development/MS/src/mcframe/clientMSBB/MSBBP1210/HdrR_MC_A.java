@@ -897,7 +897,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta aprv_upd_flg_META = createCommonMeta($aprv_upd_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta aprv_can_flg_META = createCommonMeta($aprv_can_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta edi_flg_META = createCommonMeta($edi_flg, mcframe.commonMA.meta.MA_META.FLG);
-	public static final MCMeta dlv_p_META = createInnerRowMeta($dlv_p, mcframe.clientMAUB.MAUBP0210.DlvR.class);
+	public static final MCMeta dlv_p_META = createInnerRowMeta($dlv_p, mcframe.clientMSBB.MSBBPA0030.SloDlvR.class);
 	public static final MCMeta def_cst_cd_META = createCommonMeta($def_cst_cd, mcframe.commonMA.meta.MA_META.BP_CD);
 	public static final MCMeta prnt_lcl_cd_META = createCommonMeta($prnt_lcl_cd, mcframe.commonMA.meta.MA_META.LCL_CD);
 	public static final MCMeta dest_cd1_META = createCommonMeta($dest_cd1, mcframe.commonMA.meta.MA_META.BP_CD);
@@ -1888,11 +1888,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 
-	public mcframe.clientMAUB.MAUBP0210.DlvR dlv_p(){
-		return (mcframe.clientMAUB.MAUBP0210.DlvR) getConstInnerRow(offset + 18, $dlv_p);
+	public mcframe.clientMSBB.MSBBPA0030.SloDlvR dlv_p(){
+		return (mcframe.clientMSBB.MSBBPA0030.SloDlvR) getConstInnerRow(offset + 18, $dlv_p);
 	}
 	
-	public void dlv_p(mcframe.clientMAUB.MAUBP0210.DlvR row){
+	public void dlv_p(mcframe.clientMSBB.MSBBPA0030.SloDlvR row){
 		setConstInnerRow(offset + 18, $dlv_p, row);
 	}
 
@@ -7799,7 +7799,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public void setInnerRow(String name, MCRow value) {
 		if ($dlv_p.equalsIgnoreCase(name)) {
 			dlv_p(
-				((MCContainerMeta) dlv_p_META).castInnerRow(mcframe.clientMAUB.MAUBP0210.DlvR.class, value)
+				((MCContainerMeta) dlv_p_META).castInnerRow(mcframe.clientMSBB.MSBBPA0030.SloDlvR.class, value)
 			);
 			return;
 		}

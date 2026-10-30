@@ -33,6 +33,7 @@ import mcframe.clientMAUB.MAUBP5150.*;
 import mcframe.clientMAUB.MAUBP5250.*;
 import mcframe.clientMAUB.MAUBP5320.*;
 import mcframe.clientMAUB.MAUBP5400.*;
+import mcframe.clientMSBB.MSBBPA0030.*;
 import mcframe.clientMSUB.MSUBP0010.*;
 import mcframe.clientMSUB.MSUBP0070.*;
 import mcframe.clientMSUB.MSUBP5030.*;
