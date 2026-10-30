@@ -321,8 +321,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String TRD_CD_070 = "070";
 	private final static String TRD_CD_080 = "080";
 	private final static String TRD_CD_800 = "800";
-	private final static String TRD_CD_9XX = "9XX";
-	private final static String TRD_CD_9YY = "9YY";
+	private final static String TRD_CD_9XX = "9XX"; // 代納
+	private final static String TRD_CD_9YY = "9YY"; // 貸出
 	private final static Set<String> ALL_TRD_CD = new HashSet<String>(
 		Arrays.asList(TRD_CD_010, TRD_CD_020, TRD_CD_030, TRD_CD_040, TRD_CD_050, TRD_CD_060, TRD_CD_070, TRD_CD_080, TRD_CD_800, TRD_CD_9XX, TRD_CD_9YY)
 	);
@@ -331,7 +331,6 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	@Override
 	public MCList<?> getHdr_sls_cond_typ(
 			MCRow row, MCEventInfo info) {
-
 		// 標準リストロジックから全候補を取得
 		MCList<?> list = super.getHdr_sls_cond_typ(row, info);
 
@@ -363,7 +362,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 * 取引CDに応じた選択可能な売上条件区分
 	 */
 	private final static Set<String> ALL_SLS_COND_CD = new HashSet<String>(
-			Arrays.asList("0", "1", "2", "3", "4", "6", "7")
+			Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_1, SLS_COND_TYP_2, SLS_COND_TYP_3, SLS_COND_TYP_4, SLS_COND_TYP_6, SLS_COND_TYP_7)
 		);
 	protected Set<String> getAllowedSalesConditions(
 			String trdCd) {
@@ -419,5 +418,61 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		
 		Hdr_sls_cond_typ.setListVisibleColumn("sls_cond_typ", "sls_cond_typ_nm");
 	}
+	
+	@Override
+	public MCList<?> getHdr_frc_rsn_cd(
+			MCRow row, MCEventInfo info) {
+		// 標準リストロジックから全候補を取得
+		MCList<?> list = super.getHdr_frc_rsn_cd(row, info);
+
+		if (list == null) {
+			return null;
+		}
+
+		// 現在選択中の取引CD
+		String trdCd = Hdr_trd_cd.getValue();
+
+		// 許可する売上条件区分
+		Set<String> allowed = getAllowedFreeReasonCodes(trdCd);
+
+		// 許可されていない候補を除外
+		for (int i = list.size() - 1; i >= 0; i--) {
+			MCRow item = (MCRow) list.get(i);
+
+			String code = item.getStringNE("free_rsn_typ");
+
+			if (!allowed.contains(code)) {
+				list.remove(i);
+			}
+		}
+
+		return list;
+	}
+	
+	private final static String FREE_RSN_SAMPLE_PROD = "P";	// 見本品
+	private final static String FREE_RSN_JIP_ENTRY_ERR = "Q";	// JIP誤入力
+	private final static String FREE_RSN_LOANED_ITM = "T"; 	// 貸与品
+	private final static String FREE_RSN_THIRD_DLV_ITM = "R"; // 代納品
+	private final static Set<String> ALL_FREE_RSN_CD = new HashSet<String>(
+			Arrays.asList(FREE_RSN_SAMPLE_PROD, FREE_RSN_JIP_ENTRY_ERR, FREE_RSN_LOANED_ITM, FREE_RSN_THIRD_DLV_ITM)
+		);
+	protected Set<String> getAllowedFreeReasonCodes(
+			String trdCd) {
+		// 取引CD：代納
+		if (TRD_CD_9XX.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(FREE_RSN_JIP_ENTRY_ERR, FREE_RSN_THIRD_DLV_ITM));
+		}
+
+		// 貸出
+		if (TRD_CD_9YY.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(FREE_RSN_SAMPLE_PROD, FREE_RSN_LOANED_ITM));
+		}
+
+		// 未定義の取引CDでは候補を制限しない
+		return ALL_FREE_RSN_CD;
+	}
+	
 //FMCB CUSTOM END
 }
