@@ -1144,4 +1144,51 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 		down.sort(SloBpCols.sortPolicy());
 	}
 
+
+	/** 
+	  * SloDlv:受注登録用の納品先 メインメソッド<p>
+	  * 引数の検索区分（取引先入力補助検索区分）に対応する受注登録用の納品先情報を、取引先マスタから取得する<br>
+・取引先名を「null」にする場合は、sundry_bp_nm_rem_flgを「true」を指定する<br>
+・NULL文字を使用する場合は、mode_nullval_flgに「true」を指定する<br>
+・手入力時と存在チェック時に、チェック対象の取引先を参照取引先と比較する場合は、check_rem_flgに「true」を指定する
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSloDlv(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSloDlv_GetList(row, info);//リストの取得
+		getSloDlv_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSloDlv_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SloDlv:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSloDlv_GetList(MCRow row, MCEventInfo info){
+		return getList("getSloDlv", row, info, getListCacheTyp(row, info));
+	}
+	/** 
+	  * SloDlv:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloDlv_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SloDlvCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SloDlv:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloDlv_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SloDlvCols.sortPolicy());
+	}
+
 }

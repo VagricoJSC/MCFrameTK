@@ -1515,4 +1515,66 @@ abstract public class MSUAL_List_MC_A extends mcframe.serverMAUD.MAUDL5070.MAUDL
 		return down.subColumns(SloBpCols.outAll());
 	}
 
+
+	/** 
+	  * SloDlv:受注登録用の納品先<p>
+	  * 引数の検索区分（取引先入力補助検索区分）に対応する受注登録用の納品先情報を、取引先マスタから取得する<br>
+・取引先名を「null」にする場合は、sundry_bp_nm_rem_flgを「true」を指定する<br>
+・NULL文字を使用する場合は、mode_nullval_flgに「true」を指定する<br>
+・手入力時と存在チェック時に、チェック対象の取引先を参照取引先と比較する場合は、check_rem_flgに「true」を指定する
+	  * @param row クライアントから渡されるRowコンテナ
+	  */
+	public MCList<MCRow> getSloDlv(MCRow row) {
+		MCList<MAM_BP_R> rslt = MCList.create(MAM_BP_R.class);
+		MAM_BP_R dbc = MAM_BP_R.create("T");
+		MCQueryApiBuilder builder = MCQueryApiBuilder.create(dbc);
+		getSloDlv_Set(row, builder, dbc, rslt);//DBコンテナの設定
+		listlogicCommon_Set(row, builder,"MS.MSUAL0030.SloDlv");
+		MCList<MCRow> mergebinds = MCList.create(MCRow.class);
+		mergebinds.add(builder.getMergeBind());
+		builder.buildSelect("MS.MSUAL0030.SloDlv").executeQuery(row, mergebinds, rslt);
+		MCList<? extends MCRow> down = getSloDlv_AfterSelect(row, builder, dbc, rslt);//検索結果の修正
+		down = listlogicCommon_AfterSelect(row, rslt, down,"MS.MSUAL0030.SloDlv");
+		if(FXUCL_DataUtil.isNull(down)) return null;
+		return getSloDlv_SubColumns(row, down);
+	}
+	/** 
+	  * SloDlv:DBコンテナの設定<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideしてSQL文をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  */
+	protected void getSloDlv_Set(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result){
+		boolean isForeignEQ = false;
+		String[] ss = FXBAL_MCRLUtil.setSelectAndFrom(builder, SloDlvCols.outAll(),isForeignEQ);
+		if(ss != null && 0< ss.length){
+			MCPermColumn column = builder.getBaseDbc().getColumn$(ss[0]);
+			builder.addWhereWithCutOffAnd(MCQueryApiBuilder.makeEq(column, bind("1")), row.getValueNE(FXBAC_ListLogicBase.$INPUT_VAL));
+		}
+	}
+	/** 
+	  * SloDlv:検索結果の修正<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  * @return 編集後のListコンテナ
+	  */
+	protected MCList<?> getSloDlv_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result){
+		return (MCList<?>)result;
+	}
+	/** 
+	  * SloDlv:検索結果のカラムの選択<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果のカラムをカスタマイズする。
+	  * @param row 検索結果を保持するListコンテナ
+	  * @param down 検索結果を保持するDBコンテナ
+	  * @return getSloDlv_AfterSelectメソッドの戻り値
+	  */
+	protected MCList<MCRow> getSloDlv_SubColumns(MCRow row, MCList<?> down){
+		return down.subColumns(SloDlvCols.outAll());
+	}
+
 }

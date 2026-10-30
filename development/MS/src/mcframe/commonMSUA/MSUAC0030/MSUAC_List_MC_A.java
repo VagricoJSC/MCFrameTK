@@ -6479,4 +6479,950 @@ class MSUAC_List_MC_A extends Object {
 		//EIクラス
 	}
 
+
+	/** 
+	  * SloDlv:カラム名クラス
+	  */
+	protected static class SloDlvCols_MC_A  {
+		/** IN:適用日（補助マスタ、検索区分１・５・１０・１４・１７・１８） */
+		public static final String $i_dt = "dt";
+		/** IN:取引先ＣＤ */
+		public static final String $i_bp_cd = "bp_cd";
+		/** IN:取引先名 */
+		public static final String $i_bp_nm = "bp_nm";
+		/** IN:法人番号 */
+		public static final String $i_ein = "ein";
+		/** IN:取引先別名１ */
+		public static final String $i_bp_alt_nm1 = "bp_alt_nm1";
+		/** IN:取引先別名２ */
+		public static final String $i_bp_alt_nm2 = "bp_alt_nm2";
+		/** IN:取引先別名３ */
+		public static final String $i_bp_alt_nm3 = "bp_alt_nm3";
+		/** IN:取引先別名４ */
+		public static final String $i_bp_alt_nm4 = "bp_alt_nm4";
+		/** IN:国ＣＤ */
+		public static final String $i_cntry_cd = "cntry_cd";
+		/** IN:国名 */
+		public static final String $i_cntry_nm = "cntry_nm";
+		/** IN:国外 */
+		public static final String $i_foreign_flg = "foreign_flg";
+		/** IN:地域ＣＤ */
+		public static final String $i_area_cd = "area_cd";
+		/** IN:地域名 */
+		public static final String $i_area_nm = "area_nm";
+		/** IN:得意先ＦＬＧ */
+		public static final String $i_cst_flg = "cst_flg";
+		/** IN:売掛先ＦＬＧ */
+		public static final String $i_acst_flg = "acst_flg";
+		/** IN:請求先ＦＬＧ */
+		public static final String $i_bcst_flg = "bcst_flg";
+		/** IN:入金先ＦＬＧ */
+		public static final String $i_rcst_flg = "rcst_flg";
+		/** IN:納品先ＦＬＧ */
+		public static final String $i_dlv_flg = "dlv_flg";
+		/** IN:仕向先ＦＬＧ */
+		public static final String $i_dest_flg = "dest_flg";
+		/** IN:与信管理先ＦＬＧ */
+		public static final String $i_cred_flg = "cred_flg";
+		/** IN:発注先ＦＬＧ */
+		public static final String $i_sppl_flg = "sppl_flg";
+		/** IN:買掛先ＦＬＧ */
+		public static final String $i_asppl_flg = "asppl_flg";
+		/** IN:支払予定管理先ＦＬＧ */
+		public static final String $i_bsppl_flg = "bsppl_flg";
+		/** IN:支払先ＦＬＧ */
+		public static final String $i_psppl_flg = "psppl_flg";
+		/** IN:メーカＦＬＧ */
+		public static final String $i_maker_flg = "maker_flg";
+		/** IN:配送先ＦＬＧ */
+		public static final String $i_tdlv_flg = "tdlv_flg";
+		/** IN:メモ１ */
+		public static final String $i_memo1 = "memo1";
+		/** IN:メモ２ */
+		public static final String $i_memo2 = "memo2";
+		/** IN:メモ３ */
+		public static final String $i_memo3 = "memo3";
+		/** IN:メモ４ */
+		public static final String $i_memo4 = "memo4";
+		/** IN:メモ５ */
+		public static final String $i_memo5 = "memo5";
+		/** IN:メモ６ */
+		public static final String $i_memo6 = "memo6";
+		/** IN:メモ７ */
+		public static final String $i_memo7 = "memo7";
+		/** IN:メモ８ */
+		public static final String $i_memo8 = "memo8";
+		/** IN:メモ９ */
+		public static final String $i_memo9 = "memo9";
+		/** IN:メモ１０ */
+		public static final String $i_memo10 = "memo10";
+		/** IN:メモ１１ */
+		public static final String $i_memo11 = "memo11";
+		/** IN:メモ１２ */
+		public static final String $i_memo12 = "memo12";
+		/** IN:メモ１３ */
+		public static final String $i_memo13 = "memo13";
+		/** IN:メモ１４ */
+		public static final String $i_memo14 = "memo14";
+		/** IN:メモ１５ */
+		public static final String $i_memo15 = "memo15";
+		/** IN:メモ１６ */
+		public static final String $i_memo16 = "memo16";
+		/** IN:メモ１７ */
+		public static final String $i_memo17 = "memo17";
+		/** IN:メモ１８ */
+		public static final String $i_memo18 = "memo18";
+		/** IN:メモ１９ */
+		public static final String $i_memo19 = "memo19";
+		/** IN:メモ２０ */
+		public static final String $i_memo20 = "memo20";
+		/** IN:取引先分類ＦＬＧ１ */
+		public static final String $i_bp_grp_flg1 = "bp_grp_flg1";
+		/** IN:取引先分類ＣＤ１ */
+		public static final String $i_bp_grp_cd1 = "bp_grp_cd1";
+		/** IN:取引先分類名１ */
+		public static final String $i_bp_grp_nm1 = "bp_grp_nm1";
+		/** IN:取引先分類ＦＬＧ２ */
+		public static final String $i_bp_grp_flg2 = "bp_grp_flg2";
+		/** IN:取引先分類ＣＤ２ */
+		public static final String $i_bp_grp_cd2 = "bp_grp_cd2";
+		/** IN:取引先分類名２ */
+		public static final String $i_bp_grp_nm2 = "bp_grp_nm2";
+		/** IN:取引先分類ＦＬＧ３ */
+		public static final String $i_bp_grp_flg3 = "bp_grp_flg3";
+		/** IN:取引先分類ＣＤ３ */
+		public static final String $i_bp_grp_cd3 = "bp_grp_cd3";
+		/** IN:取引先分類名３ */
+		public static final String $i_bp_grp_nm3 = "bp_grp_nm3";
+		/** IN:取引先分類ＦＬＧ４ */
+		public static final String $i_bp_grp_flg4 = "bp_grp_flg4";
+		/** IN:取引先分類ＣＤ４ */
+		public static final String $i_bp_grp_cd4 = "bp_grp_cd4";
+		/** IN:取引先分類名４ */
+		public static final String $i_bp_grp_nm4 = "bp_grp_nm4";
+		/** IN:取引先分類ＦＬＧ５ */
+		public static final String $i_bp_grp_flg5 = "bp_grp_flg5";
+		/** IN:取引先分類ＣＤ５ */
+		public static final String $i_bp_grp_cd5 = "bp_grp_cd5";
+		/** IN:取引先分類名５ */
+		public static final String $i_bp_grp_nm5 = "bp_grp_nm5";
+		/** IN:取引先分類ＦＬＧ６ */
+		public static final String $i_bp_grp_flg6 = "bp_grp_flg6";
+		/** IN:取引先分類ＣＤ６ */
+		public static final String $i_bp_grp_cd6 = "bp_grp_cd6";
+		/** IN:取引先分類名６ */
+		public static final String $i_bp_grp_nm6 = "bp_grp_nm6";
+		/** IN:取引先分類ＦＬＧ７ */
+		public static final String $i_bp_grp_flg7 = "bp_grp_flg7";
+		/** IN:取引先分類ＣＤ７ */
+		public static final String $i_bp_grp_cd7 = "bp_grp_cd7";
+		/** IN:取引先分類名７ */
+		public static final String $i_bp_grp_nm7 = "bp_grp_nm7";
+		/** IN:取引先分類ＦＬＧ８ */
+		public static final String $i_bp_grp_flg8 = "bp_grp_flg8";
+		/** IN:取引先分類ＣＤ８ */
+		public static final String $i_bp_grp_cd8 = "bp_grp_cd8";
+		/** IN:取引先分類名８ */
+		public static final String $i_bp_grp_nm8 = "bp_grp_nm8";
+		/** IN:取引先分類ＦＬＧ９ */
+		public static final String $i_bp_grp_flg9 = "bp_grp_flg9";
+		/** IN:取引先分類ＣＤ９ */
+		public static final String $i_bp_grp_cd9 = "bp_grp_cd9";
+		/** IN:取引先分類名９ */
+		public static final String $i_bp_grp_nm9 = "bp_grp_nm9";
+		/** IN:取引先分類ＦＬＧ１０ */
+		public static final String $i_bp_grp_flg10 = "bp_grp_flg10";
+		/** IN:取引先分類１０ */
+		public static final String $i_bp_grp_cd10 = "bp_grp_cd10";
+		/** IN:取引先分類名１０ */
+		public static final String $i_bp_grp_nm10 = "bp_grp_nm10";
+		/** IN:納品先ＣＤ（検索区分１７） */
+		public static final String $i_dlv_cd = "dlv_cd";
+		/** IN:得意先ＣＤ（検索区分１８） */
+		public static final String $i_cst_cd = "cst_cd";
+		/** IN:入金先ＣＤ（検索区分１９） */
+		public static final String $i_in_rcst_cd = "in_rcst_cd";
+		/** IN:支払予定管理先CD（検索区分３０） */
+		public static final String $i_bsppl_cd = "bsppl_cd";
+		/** IN:NULL文字使用ＦＬＧ */
+		public static final String $i_mode_nullval_flg = "mode_nullval_flg";
+		/** IN:名称不要ＦＬＧ */
+		public static final String $i_sundry_bp_nm_rem_flg = "sundry_bp_nm_rem_flg";
+		/** IN:債権債務先識別区分（検索区分と併用不可） */
+		public static final String $i_debt_cred_id_typ = "debt_cred_id_typ";
+		/** IN:リストチェック不要ＦＬＧ */
+		public static final String $i_check_rem_flg = "check_rem_flg";
+		/** IN:参照取引先ＣＤ */
+		public static final String $i_ref_bp_cd = "ref_bp_cd";
+		/** IN:得意先インボイス取引ＦＬＧ */
+		public static final String $i_cst_iv_flg = "cst_iv_flg";
+		/** IN:得意先諸口含むＦＬＧ（リスト取得用：検索区分１７） */
+		public static final String $i_cst_sundry_cntn_flg = "cst_sundry_cntn_flg";
+		/** IN:取引先入力補助検索区分 */
+		public static final String $i_bp_is_srch_typ = "bp_is_srch_typ";
+		/** IN:検索条件のマッチタイプ：0,部分一致;1,前方一致;2,後方一致;3,完全一致 */
+		public static final String $i_match_typ = "match_typ";
+		/** OUT:取引先ＣＤ */
+		public static final String $o_bp_cd = "bp_cd";
+		/** OUT:取引先名 */
+		public static final String $o_bp_nm = "bp_nm";
+		/** OUT:取引先別名１ */
+		public static final String $o_bp_alt_nm1 = "bp_alt_nm1";
+		/** OUT:取引先別名２ */
+		public static final String $o_bp_alt_nm2 = "bp_alt_nm2";
+		/** OUT:取引先別名３ */
+		public static final String $o_bp_alt_nm3 = "bp_alt_nm3";
+		/** OUT:取引先別名４ */
+		public static final String $o_bp_alt_nm4 = "bp_alt_nm4";
+		/** OUT:法人番号 */
+		public static final String $o_ein = "ein";
+		/** OUT:国 */
+		public static final String $o_cntry_cd = "cntry_cd";
+		/** OUT:出荷ＬＴ（需要情報用） */
+		public static final String $o_ship_lt = "ship_lt";
+		/** OUT:国名 */
+		public static final String $o_cntry_nm = "cntry_nm";
+		/** OUT:国外 */
+		public static final String $o_foreign_flg = "foreign_flg";
+		/** OUT:地域 */
+		public static final String $o_area_cd = "area_cd";
+		/** OUT:地域名 */
+		public static final String $o_area_nm = "area_nm";
+		/** OUT:通貨 */
+		public static final String $o_cur_cd = "cur_cd";
+		/** OUT:通貨名 */
+		public static final String $o_cur_nm = "cur_nm";
+		/** OUT:金額小数部有効桁数 */
+		public static final String $o_amt_dec_place = "amt_dec_place";
+		/** OUT:単価小数部有効桁数 */
+		public static final String $o_upri_dec_place = "upri_dec_place";
+		/** OUT:得意先 */
+		public static final String $o_cst_flg = "cst_flg";
+		/** OUT:得意先諸口 */
+		public static final String $o_cst_sundry_flg = "cst_sundry_flg";
+		/** OUT:売掛先 */
+		public static final String $o_acst_flg = "acst_flg";
+		/** OUT:請求先 */
+		public static final String $o_bcst_flg = "bcst_flg";
+		/** OUT:入金先 */
+		public static final String $o_rcst_flg = "rcst_flg";
+		/** OUT:納品先 */
+		public static final String $o_dlv_flg = "dlv_flg";
+		/** OUT:納品先諸口 */
+		public static final String $o_dlv_sundry_flg = "dlv_sundry_flg";
+		/** OUT:配送先 */
+		public static final String $o_tdlv_flg = "tdlv_flg";
+		/** OUT:仕向先 */
+		public static final String $o_dest_flg = "dest_flg";
+		/** OUT:与信管理先 */
+		public static final String $o_cred_flg = "cred_flg";
+		/** OUT:発注先 */
+		public static final String $o_sppl_flg = "sppl_flg";
+		/** OUT:買掛先 */
+		public static final String $o_asppl_flg = "asppl_flg";
+		/** OUT:支払予定管理先 */
+		public static final String $o_bsppl_flg = "bsppl_flg";
+		/** OUT:支払先 */
+		public static final String $o_psppl_flg = "psppl_flg";
+		/** OUT:メーカ */
+		public static final String $o_maker_flg = "maker_flg";
+		/** OUT:メモ１ */
+		public static final String $o_memo1 = "memo1";
+		/** OUT:メモ２ */
+		public static final String $o_memo2 = "memo2";
+		/** OUT:メモ３ */
+		public static final String $o_memo3 = "memo3";
+		/** OUT:メモ４ */
+		public static final String $o_memo4 = "memo4";
+		/** OUT:メモ５ */
+		public static final String $o_memo5 = "memo5";
+		/** OUT:メモ６ */
+		public static final String $o_memo6 = "memo6";
+		/** OUT:メモ７ */
+		public static final String $o_memo7 = "memo7";
+		/** OUT:メモ８ */
+		public static final String $o_memo8 = "memo8";
+		/** OUT:メモ９ */
+		public static final String $o_memo9 = "memo9";
+		/** OUT:メモ１０ */
+		public static final String $o_memo10 = "memo10";
+		/** OUT:メモ１１ */
+		public static final String $o_memo11 = "memo11";
+		/** OUT:メモ１２ */
+		public static final String $o_memo12 = "memo12";
+		/** OUT:メモ１３ */
+		public static final String $o_memo13 = "memo13";
+		/** OUT:メモ１４ */
+		public static final String $o_memo14 = "memo14";
+		/** OUT:メモ１５ */
+		public static final String $o_memo15 = "memo15";
+		/** OUT:メモ１６ */
+		public static final String $o_memo16 = "memo16";
+		/** OUT:メモ１７ */
+		public static final String $o_memo17 = "memo17";
+		/** OUT:メモ１８ */
+		public static final String $o_memo18 = "memo18";
+		/** OUT:メモ１９ */
+		public static final String $o_memo19 = "memo19";
+		/** OUT:メモ２０ */
+		public static final String $o_memo20 = "memo20";
+		/** OUT:登録日時 */
+		public static final String $o_ins_ts = "ins_ts";
+		/** OUT:更新日時 */
+		public static final String $o_upd_ts = "upd_ts";
+		/** OUT:郵便番号 */
+		public static final String $o_zip_cd = "zip_cd";
+		/** OUT:住所１ */
+		public static final String $o_addr1 = "addr1";
+		/** OUT:住所２ */
+		public static final String $o_addr2 = "addr2";
+		/** OUT:住所３ */
+		public static final String $o_addr3 = "addr3";
+		/** OUT:住所４ */
+		public static final String $o_addr4 = "addr4";
+		/** OUT:ＴＥＬ */
+		public static final String $o_tel = "tel";
+		/** OUT:ＦＡＸ */
+		public static final String $o_fax = "fax";
+		/** OUT:債務部門ＣＤ（検索区分５） */
+		public static final String $o_ap_dpt_cd = "ap_dpt_cd";
+		/** OUT:債権部門ＣＤ */
+		public static final String $o_ar_dpt_cd = "ar_dpt_cd";
+		/** OUT:支払予定管理先担当部門ＣＤ */
+		public static final String $o_bsppl_dpt_cd = "bsppl_dpt_cd";
+		/** OUT:支払部門CD */
+		public static final String $o_pay_dpt_cd = "pay_dpt_cd";
+		/** OUT:得意先部署 */
+		public static final String $o_cst_cntct_dpt = "cst_cntct_dpt";
+		/** OUT:得意先担当者 */
+		public static final String $o_cst_cntct_psn = "cst_cntct_psn";
+		/** OUT:発注先部署 */
+		public static final String $o_sppl_cntct_dpt = "sppl_cntct_dpt";
+		/** OUT:発注先担当者 */
+		public static final String $o_sppl_cntct_psn = "sppl_cntct_psn";
+		/** OUT:納品先部署 */
+		public static final String $o_dlv_cntct_dpt = "dlv_cntct_dpt";
+		/** OUT:納品先担当者 */
+		public static final String $o_dlv_cntct_psn = "dlv_cntct_psn";
+		/** OUT:標準企業コード */
+		public static final String $o_std_co_cd = "std_co_cd";
+		/** OUT:帳票出力ロケールＣＤ */
+		public static final String $o_prnt_lcl_cd = "prnt_lcl_cd";
+		/** OUT:取引先分類ＣＤ１ */
+		public static final String $o_bp_grp_cd1 = "bp_grp_cd1";
+		/** OUT:取引先分類名１ */
+		public static final String $o_bp_grp_nm1 = "bp_grp_nm1";
+		/** OUT:取引先分類ＣＤ２ */
+		public static final String $o_bp_grp_cd2 = "bp_grp_cd2";
+		/** OUT:取引先分類名２ */
+		public static final String $o_bp_grp_nm2 = "bp_grp_nm2";
+		/** OUT:取引先分類ＣＤ３ */
+		public static final String $o_bp_grp_cd3 = "bp_grp_cd3";
+		/** OUT:取引先分類名３ */
+		public static final String $o_bp_grp_nm3 = "bp_grp_nm3";
+		/** OUT:取引先分類ＣＤ４ */
+		public static final String $o_bp_grp_cd4 = "bp_grp_cd4";
+		/** OUT:取引先分類名４ */
+		public static final String $o_bp_grp_nm4 = "bp_grp_nm4";
+		/** OUT:取引先分類ＣＤ５ */
+		public static final String $o_bp_grp_cd5 = "bp_grp_cd5";
+		/** OUT:取引先分類名５ */
+		public static final String $o_bp_grp_nm5 = "bp_grp_nm5";
+		/** OUT:取引先分類ＣＤ６ */
+		public static final String $o_bp_grp_cd6 = "bp_grp_cd6";
+		/** OUT:取引先分類名６ */
+		public static final String $o_bp_grp_nm6 = "bp_grp_nm6";
+		/** OUT:取引先分類ＣＤ７ */
+		public static final String $o_bp_grp_cd7 = "bp_grp_cd7";
+		/** OUT:取引先分類名７ */
+		public static final String $o_bp_grp_nm7 = "bp_grp_nm7";
+		/** OUT:取引先分類ＣＤ８ */
+		public static final String $o_bp_grp_cd8 = "bp_grp_cd8";
+		/** OUT:取引先分類名８ */
+		public static final String $o_bp_grp_nm8 = "bp_grp_nm8";
+		/** OUT:取引先分類ＣＤ９ */
+		public static final String $o_bp_grp_cd9 = "bp_grp_cd9";
+		/** OUT:取引先分類名９ */
+		public static final String $o_bp_grp_nm9 = "bp_grp_nm9";
+		/** OUT:取引先分類ＣＤ１０ */
+		public static final String $o_bp_grp_cd10 = "bp_grp_cd10";
+		/** OUT:取引先分類名１０ */
+		public static final String $o_bp_grp_nm10 = "bp_grp_nm10";
+		/** OUT:取引先配賦グループ */
+		public static final String $o_bp_alc_grp = "bp_alc_grp";
+		/** OUT:債権部門区分 */
+		public static final String $o_ar_dpt_typ = "ar_dpt_typ";
+		/** OUT:販売単価取得区分 */
+		public static final String $o_sls_upri_req_typ = "sls_upri_req_typ";
+		/** OUT:販売単価変更許可ＦＬＧ */
+		public static final String $o_sls_upri_cng_flg = "sls_upri_cng_flg";
+		/** OUT:販売単価端数処理区分 */
+		public static final String $o_sls_upri_rnd_typ = "sls_upri_rnd_typ";
+		/** OUT:売上金額端数処理区分 */
+		public static final String $o_sls_amt_rnd_typ = "sls_amt_rnd_typ";
+		/** OUT:売上税計算区分 */
+		public static final String $o_sls_tax_calc_typ = "sls_tax_calc_typ";
+		/** OUT:売上税額端数処理区分 */
+		public static final String $o_sls_tax_rnd_typ = "sls_tax_rnd_typ";
+		/** OUT:売上計上区分 */
+		public static final String $o_sls_basis_typ = "sls_basis_typ";
+		/** OUT:請求起算区分 */
+		public static final String $o_bill_basis_typ = "bill_basis_typ";
+		/** OUT:出荷予定分割区分 */
+		public static final String $o_ship_schd_split_typ = "ship_schd_split_typ";
+		/** OUT:請求繰越回数 */
+		public static final String $o_bill_crryovr_times = "bill_crryovr_times";
+		/** OUT:ロット逆転禁止区分 */
+		public static final String $o_lot_back_stop_typ = "lot_back_stop_typ";
+		/** OUT:ロット明細分割区分 */
+		public static final String $o_slip_each_lot_typ = "slip_each_lot_typ";
+		/** OUT:得意先納品書ＣＤ */
+		public static final String $o_cst_ship_form_cd = "cst_ship_form_cd";
+		/** OUT:現品票発行ＦＬＧ */
+		public static final String $o_stk_lst_issue_flg = "stk_lst_issue_flg";
+		/** OUT:現品票ＣＤ */
+		public static final String $o_stk_lst_form_cd = "stk_lst_form_cd";
+		/** OUT:売上税優先ＦＬＧ */
+		public static final String $o_sls_tax_cd_prio_flg = "sls_tax_cd_prio_flg";
+		/** OUT:案件別債権管理ＦＬＧ */
+		public static final String $o_wrk_ar_flg = "wrk_ar_flg";
+		/** OUT:得意先インボイス取引ＦＬＧ */
+		public static final String $o_cst_iv_flg = "cst_iv_flg";
+		/** OUT:得意先取引条件ＣＤ１ */
+		public static final String $o_cst_tterm_cd1 = "cst_tterm_cd1";
+		/** OUT:得意先取引条件名１ */
+		public static final String $o_cst_tterm_nm1 = "cst_tterm_nm1";
+		/** OUT:得意先取引条件ＣＤ２ */
+		public static final String $o_cst_tterm_cd2 = "cst_tterm_cd2";
+		/** OUT:得意先取引条件名２ */
+		public static final String $o_cst_tterm_nm2 = "cst_tterm_nm2";
+		/** OUT:得意先取引条件ＣＤ３ */
+		public static final String $o_cst_tterm_cd3 = "cst_tterm_cd3";
+		/** OUT:得意先取引条件名３ */
+		public static final String $o_cst_tterm_nm3 = "cst_tterm_nm3";
+		/** OUT:物流グループ混在不可ＦＬＧ */
+		public static final String $o_not_lg_mix_flg = "not_lg_mix_flg";
+		/** OUT:ロット混在不可ＦＬＧ */
+		public static final String $o_not_lot_mix_flg = "not_lot_mix_flg";
+		/** OUT:サブロット混在不可ＦＬＧ */
+		public static final String $o_not_sublot_mix_flg = "not_sublot_mix_flg";
+		/** OUT:売掛先ＣＤ */
+		public static final String $o_acst_cd = "acst_cd";
+		/** OUT:売掛先名 */
+		public static final String $o_acst_nm = "acst_nm";
+		/** OUT:請求先ＣＤ */
+		public static final String $o_bcst_cd = "bcst_cd";
+		/** OUT:請求先名（検索区分２） */
+		public static final String $o_bcst_nm = "bcst_nm";
+		/** OUT:入金先ＣＤ */
+		public static final String $o_rcst_cd = "rcst_cd";
+		/** OUT:債権与信管理先ＣＤ */
+		public static final String $o_ar_cred_cd = "ar_cred_cd";
+		/** OUT:請求部門区分 */
+		public static final String $o_bill_dpt_typ = "bill_dpt_typ";
+		/** OUT:請求締処理区分 */
+		public static final String $o_bill_cl_typ = "bill_cl_typ";
+		/** OUT:請求締日１ */
+		public static final String $o_bill_cl_day1 = "bill_cl_day1";
+		/** OUT:請求締日２ */
+		public static final String $o_bill_cl_day2 = "bill_cl_day2";
+		/** OUT:請求締日３ */
+		public static final String $o_bill_cl_day3 = "bill_cl_day3";
+		/** OUT:請求締日４ */
+		public static final String $o_bill_cl_day4 = "bill_cl_day4";
+		/** OUT:請求締日５ */
+		public static final String $o_bill_cl_day5 = "bill_cl_day5";
+		/** OUT:請求税計算ＦＬＧ */
+		public static final String $o_tax_on_bill_flg = "tax_on_bill_flg";
+		/** OUT:請求税額端数処理区分 */
+		public static final String $o_bill_tax_rnd_typ = "bill_tax_rnd_typ";
+		/** OUT:請求締遅延日数 */
+		public static final String $o_bill_cl_delay_days = "bill_cl_delay_days";
+		/** OUT:請求締前後区分 */
+		public static final String $o_bill_cl_ba_typ = "bill_cl_ba_typ";
+		/** OUT:売上仮単価締ＦＬＧ */
+		public static final String $o_sls_interim_cl_flg = "sls_interim_cl_flg";
+		/** OUT:請求先カレンダＣＤ */
+		public static final String $o_bill_cal_cd = "bill_cal_cd";
+		/** OUT:入金予定前後区分 */
+		public static final String $o_rcv_ba_typ = "rcv_ba_typ";
+		/** OUT:請求書前月残高表示ＦＬＧ */
+		public static final String $o_bfw_bal_disp_flg = "bfw_bal_disp_flg";
+		/** OUT:売上明細書出力区分 */
+		public static final String $o_sls_dtl_outp_typ = "sls_dtl_outp_typ";
+		/** OUT:請求書発行区分 */
+		public static final String $o_bill_prnt_typ = "bill_prnt_typ";
+		/** OUT:請求書明細出力ＦＬＧ */
+		public static final String $o_bill_dtl_outp_flg = "bill_dtl_outp_flg";
+		/** OUT:請求書前受金表示ＦＬＧ */
+		public static final String $o_bill_dtl_adv_flg = "bill_dtl_adv_flg";
+		/** OUT:請求書入金予定表示ＦＬＧ */
+		public static final String $o_bill_dtl_rcv_flg = "bill_dtl_rcv_flg";
+		/** OUT:請求書明細小計区分 */
+		public static final String $o_bill_dtl_subttl_typ = "bill_dtl_subttl_typ";
+		/** OUT:請求書明細改頁区分 */
+		public static final String $o_bill_dtl_brk_typ = "bill_dtl_brk_typ";
+		/** OUT:請求書明細並順区分 */
+		public static final String $o_bill_dtl_sort_typ = "bill_dtl_sort_typ";
+		/** OUT:請求書取消伝票表示区分 */
+		public static final String $o_bill_can_slip_typ = "bill_can_slip_typ";
+		/** OUT:自動明細消込ＦＬＧ */
+		public static final String $o_auto_line_appl_flg = "auto_line_appl_flg";
+		/** OUT:債権相殺グループＣＤ */
+		public static final String $o_ar_setoff_grp_cd = "ar_setoff_grp_cd";
+		/** OUT:振込人名 */
+		public static final String $o_xfr_psn = "xfr_psn";
+		/** OUT:入金自動消込対象ＦＬＧ */
+		public static final String $o_rcv_auto_appl_tgt_flg = "rcv_auto_appl_tgt_flg";
+		/** OUT:金額考慮ＦＬＧ */
+		public static final String $o_rcv_amt_match_flg = "rcv_amt_match_flg";
+		/** OUT:金種考慮ＦＬＧ */
+		public static final String $o_ar_sttl_typ_match_flg = "ar_sttl_typ_match_flg";
+		/** OUT:手数料計算ＦＬＧ */
+		public static final String $o_calc_com_paid_flg = "calc_com_paid_flg";
+		/** OUT:自動消込基準日遅延日数 */
+		public static final String $o_auto_appl_delay_days = "auto_appl_delay_days";
+		/** OUT:買掛先ＣＤ */
+		public static final String $o_asppl_cd = "asppl_cd";
+		/** OUT:下請対象ＦＬＧ */
+		public static final String $o_subcon_flg = "subcon_flg";
+		/** OUT:買戻義務ＦＬＧ */
+		public static final String $o_repurc_obli_flg = "repurc_obli_flg";
+		/** OUT:注文書表示ＣＤ */
+		public static final String $o_po_print_cd = "po_print_cd";
+		/** OUT:発注先納品書ＣＤ */
+		public static final String $o_sppl_ship_form_cd = "sppl_ship_form_cd";
+		/** OUT:発注時納品書ＦＬＧ */
+		public static final String $o_po_dlv_slip_flg = "po_dlv_slip_flg";
+		/** OUT:納入指示時納品書ＦＬＧ */
+		public static final String $o_dlv_inst_dlv_slip_flg = "dlv_inst_dlv_slip_flg";
+		/** OUT:納期回答受領時納品書ＦＬＧ */
+		public static final String $o_prms_rcpt_dlv_slip_flg = "prms_rcpt_dlv_slip_flg";
+		/** OUT:支払繰越回数 */
+		public static final String $o_pay_crryovr_times = "pay_crryovr_times";
+		/** OUT:購買単価取得区分 */
+		public static final String $o_purc_upri_req_typ = "purc_upri_req_typ";
+		/** OUT:購買単価変更許可ＦＬＧ */
+		public static final String $o_purc_upri_cng_flg = "purc_upri_cng_flg";
+		/** OUT:仕入金額端数処理区分 */
+		public static final String $o_purc_amt_rnd_typ = "purc_amt_rnd_typ";
+		/** OUT:仕入税額端数処理区分 */
+		public static final String $o_purc_tax_rnd_typ = "purc_tax_rnd_typ";
+		/** OUT:仕入税計算区分 */
+		public static final String $o_purc_tax_calc_typ = "purc_tax_calc_typ";
+		/** OUT:仕入税優先ＦＬＧ */
+		public static final String $o_purc_tax_cd_prio_flg = "purc_tax_cd_prio_flg";
+		/** OUT:案件別注文書ＦＬＧ */
+		public static final String $o_wrk_po_flg = "wrk_po_flg";
+		/** OUT:案件別債務管理ＦＬＧ */
+		public static final String $o_wrk_ap_flg = "wrk_ap_flg";
+		/** OUT:支給積送管理区分 */
+		public static final String $o_prov_rcv_typ = "prov_rcv_typ";
+		/** OUT:有償支給先ＦＬＧ */
+		public static final String $o_onr_prsppl_flg = "onr_prsppl_flg";
+		/** OUT:外注単価区分 */
+		public static final String $o_outsrc_upri_typ = "outsrc_upri_typ";
+		/** OUT:支給計上区分 */
+		public static final String $o_prov_basis_typ = "prov_basis_typ";
+		/** OUT:支給単価変更許可ＦＬＧ */
+		public static final String $o_prov_upri_cng_flg = "prov_upri_cng_flg";
+		/** OUT:支給金額端数処理区分 */
+		public static final String $o_prov_amt_rnd_typ = "prov_amt_rnd_typ";
+		/** OUT:支給税額端数処理区分 */
+		public static final String $o_prov_tax_rnd_typ = "prov_tax_rnd_typ";
+		/** OUT:支給税計算区分 */
+		public static final String $o_prov_tax_calc_typ = "prov_tax_calc_typ";
+		/** OUT:支給税優先ＦＬＧ */
+		public static final String $o_prov_tax_cd_prio_flg = "prov_tax_cd_prio_flg";
+		/** OUT:発注先カレンダＣＤ */
+		public static final String $o_sppl_cal_cd = "sppl_cal_cd";
+		/** OUT:発注先インボイス取引ＦＬＧ */
+		public static final String $o_sppl_iv_flg = "sppl_iv_flg";
+		/** OUT:納期回答確認ＦＬＧ */
+		public static final String $o_prms_recv_flg = "prms_recv_flg";
+		/** OUT:発注先取引条件ＣＤ１ */
+		public static final String $o_sppl_tterm_cd1 = "sppl_tterm_cd1";
+		/** OUT:発注先取引条件ＣＤ２ */
+		public static final String $o_sppl_tterm_cd2 = "sppl_tterm_cd2";
+		/** OUT:発注先取引条件ＣＤ３ */
+		public static final String $o_sppl_tterm_cd3 = "sppl_tterm_cd3";
+		/** OUT:支払予定管理先ＣＤ */
+		public static final String $o_bsppl_cd = "bsppl_cd";
+		/** OUT:支払先ＣＤ */
+		public static final String $o_psppl_cd = "psppl_cd";
+		/** OUT:債務与信管理先ＣＤ */
+		public static final String $o_ap_cred_cd = "ap_cred_cd";
+		/** OUT:都度支払ＦＬＧ */
+		public static final String $o_pay_spot_flg = "pay_spot_flg";
+		/** OUT:支払締日１ */
+		public static final String $o_psppl_cl_day1 = "psppl_cl_day1";
+		/** OUT:支払締日２ */
+		public static final String $o_psppl_cl_day2 = "psppl_cl_day2";
+		/** OUT:支払締日３ */
+		public static final String $o_psppl_cl_day3 = "psppl_cl_day3";
+		/** OUT:支払締日４ */
+		public static final String $o_psppl_cl_day4 = "psppl_cl_day4";
+		/** OUT:支払締日５ */
+		public static final String $o_psppl_cl_day5 = "psppl_cl_day5";
+		/** OUT:仕入仮単価締ＦＬＧ */
+		public static final String $o_purc_interim_cl_flg = "purc_interim_cl_flg";
+		/** OUT:支払税計算ＦＬＧ */
+		public static final String $o_tax_on_pay_flg = "tax_on_pay_flg";
+		/** OUT:債務相殺グループＣＤ */
+		public static final String $o_ap_setoff_grp_cd = "ap_setoff_grp_cd";
+		/** OUT:支払先口座ＣＤ */
+		public static final String $o_pay_bank_ac_cd = "pay_bank_ac_cd";
+		/** OUT:支払通知書前渡金表示ＦＬＧ */
+		public static final String $o_pay_ntc_adv_pay_flg = "pay_ntc_adv_pay_flg";
+		/** OUT:支払先備考 */
+		public static final String $o_psppl_rmrks = "psppl_rmrks";
+		/** OUT:手形サイト上限 */
+		public static final String $o_note_days = "note_days";
+		/** OUT:価格印字ＦＬＧ */
+		public static final String $o_pri_prnt_flg = "pri_prnt_flg";
+		/** OUT:貸出在庫棚卸対象ＦＬＧ */
+		public static final String $o_cnsgn_stktk_flg = "cnsgn_stktk_flg";
+		/** OUT:配送先経由区分 */
+		public static final String $o_via_dlv_typ = "via_dlv_typ";
+		/** OUT:配送先必須ＦＬＧ */
+		public static final String $o_tdlv_req_flg = "tdlv_req_flg";
+		/** OUT:物流グループＣＤ */
+		public static final String $o_lg_grp_cd = "lg_grp_cd";
+		/** OUT:納品先カレンダＣＤ */
+		public static final String $o_dlv_cal_cd = "dlv_cal_cd";
+		/** OUT:納品先チャネル１ */
+		public static final String $o_dlv_chnnl1 = "dlv_chnnl1";
+		/** OUT:納品先チャネル２ */
+		public static final String $o_dlv_chnnl2 = "dlv_chnnl2";
+		/** OUT:納品先チャネル３ */
+		public static final String $o_dlv_chnnl3 = "dlv_chnnl3";
+		/** OUT:適用開始日（検索区分１・５・１０・１４・１７・１８） */
+		public static final String $o_st_dt = "st_dt";
+		/** OUT:適用終了日（検索区分１・５・１０・１４・１７・１８） */
+		public static final String $o_end_dt = "end_dt";
+		/** OUT:購買担当者ＣＤ（検索区分５） */
+		public static final String $o_purc_usr_cd = "purc_usr_cd";
+		/** OUT:購買部門ＣＤ（検索区分５） */
+		public static final String $o_purc_dpt_cd = "purc_dpt_cd";
+		/** OUT:納品先ＣＤ（存在チェック用：検索区分１７） */
+		public static final String $o_dlv_cd = "dlv_cd";
+		/** OUT:得意先ＣＤ（存在チェック用：検索区分１８） */
+		public static final String $o_cst_cd = "cst_cd";
+		/** OUT:通常納品先ＣＤ（リスト取得用：検索区分１・１４） */
+		public static final String $o_def_dlv_cd = "def_dlv_cd";
+		/** OUT:通常得意先ＣＤ（リスト取得用：検索区分１０） */
+		public static final String $o_def_cst_cd = "def_cst_cd";
+		/** OUT:得意先担当者（検索区分１・１４・１７） */
+		public static final String $o_cst_usr_cd = "cst_usr_cd";
+		/** OUT:得意先担当部門（検索区分１・１４・１７） */
+		public static final String $o_cst_dpt_cd = "cst_dpt_cd";
+		/** OUT:ＥＤＩ発注送信対象 */
+		public static final String $o_edi_po_send_tgt_flg = "edi_po_send_tgt_flg";
+		/** OUT:ＥＤＩ検収送信対象 */
+		public static final String $o_edi_accpt_send_tgt_flg = "edi_accpt_send_tgt_flg";
+		/** VIEW:取引先ＣＤ */
+		public static final String $v_bp_cd = $o_bp_cd;
+		/** VIEW_NO:取引先ＣＤ */
+		protected static final MCNumber $vn_bp_cd = new MCNumber(10);
+		/** VIEW:取引先名 */
+		public static final String $v_bp_nm = $o_bp_nm;
+		/** VIEW_NO:取引先名 */
+		protected static final MCNumber $vn_bp_nm = new MCNumber(20);
+		/** SORT:取引先ＣＤ */
+		public static final String $s_bp_cd = $o_bp_cd;
+		/** SORT_NO:取引先ＣＤ */
+		protected static final MCNumber $sn_bp_cd = new MCNumber(10);
+		/** OTHER:リストロジック存在チェックエラー時のメッセージＩＤ */
+		public static final String $p_chk_msg = "MAUAL0117";
+		/** OTHER:入力補助画面モジュールＩＤ */
+		public static final String $p_ispnl_mod_id = "MA";
+		/** OTHER:入力補助画面画面ＩＤ */
+		public static final String $p_ispnl_scr_id = "MAUAP1020";
+		/** OTHER:得意先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_cst_flg = "mode_cst_flg";
+		/** OTHER:売掛先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_acst_flg = "mode_acst_flg";
+		/** OTHER:請求先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_bcst_flg = "mode_bcst_flg";
+		/** OTHER:入金先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_rcst_flg = "mode_rcst_flg";
+		/** OTHER:納品先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_dlv_flg = "mode_dlv_flg";
+		/** OTHER:仕向先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_dest_flg = "mode_dest_flg";
+		/** OTHER:与信管理先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_cred_flg = "mode_cred_flg";
+		/** OTHER:発注先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_sppl_flg = "mode_sppl_flg";
+		/** OTHER:買掛先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_asppl_flg = "mode_asppl_flg";
+		/** OTHER:支払予定管理先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_bsppl_flg = "mode_bsppl_flg";
+		/** OTHER:支払先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_psppl_flg = "mode_psppl_flg";
+		/** OTHER:メーカＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_maker_flg = "mode_maker_flg";
+		/** OTHER:配送先ＦＬＧのモード ※頭は「mode_」で固定 */
+		public static final String $m_tdlv_flg = "mode_tdlv_flg";
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_bp_cd);
+					add($o_bp_nm);
+					add($o_bp_alt_nm1);
+					add($o_bp_alt_nm2);
+					add($o_bp_alt_nm3);
+					add($o_bp_alt_nm4);
+					add($o_ein);
+					add($o_cntry_cd);
+					add($o_ship_lt);
+					add($o_cntry_nm);
+					add($o_foreign_flg);
+					add($o_area_cd);
+					add($o_area_nm);
+					add($o_cur_cd);
+					add($o_cur_nm);
+					add($o_amt_dec_place);
+					add($o_upri_dec_place);
+					add($o_cst_flg);
+					add($o_cst_sundry_flg);
+					add($o_acst_flg);
+					add($o_bcst_flg);
+					add($o_rcst_flg);
+					add($o_dlv_flg);
+					add($o_dlv_sundry_flg);
+					add($o_tdlv_flg);
+					add($o_dest_flg);
+					add($o_cred_flg);
+					add($o_sppl_flg);
+					add($o_asppl_flg);
+					add($o_bsppl_flg);
+					add($o_psppl_flg);
+					add($o_maker_flg);
+					add($o_memo1);
+					add($o_memo2);
+					add($o_memo3);
+					add($o_memo4);
+					add($o_memo5);
+					add($o_memo6);
+					add($o_memo7);
+					add($o_memo8);
+					add($o_memo9);
+					add($o_memo10);
+					add($o_memo11);
+					add($o_memo12);
+					add($o_memo13);
+					add($o_memo14);
+					add($o_memo15);
+					add($o_memo16);
+					add($o_memo17);
+					add($o_memo18);
+					add($o_memo19);
+					add($o_memo20);
+					add($o_ins_ts);
+					add($o_upd_ts);
+					add($o_zip_cd);
+					add($o_addr1);
+					add($o_addr2);
+					add($o_addr3);
+					add($o_addr4);
+					add($o_tel);
+					add($o_fax);
+					add($o_ap_dpt_cd);
+					add($o_ar_dpt_cd);
+					add($o_bsppl_dpt_cd);
+					add($o_pay_dpt_cd);
+					add($o_cst_cntct_dpt);
+					add($o_cst_cntct_psn);
+					add($o_sppl_cntct_dpt);
+					add($o_sppl_cntct_psn);
+					add($o_dlv_cntct_dpt);
+					add($o_dlv_cntct_psn);
+					add($o_std_co_cd);
+					add($o_prnt_lcl_cd);
+					add($o_bp_grp_cd1);
+					add($o_bp_grp_nm1);
+					add($o_bp_grp_cd2);
+					add($o_bp_grp_nm2);
+					add($o_bp_grp_cd3);
+					add($o_bp_grp_nm3);
+					add($o_bp_grp_cd4);
+					add($o_bp_grp_nm4);
+					add($o_bp_grp_cd5);
+					add($o_bp_grp_nm5);
+					add($o_bp_grp_cd6);
+					add($o_bp_grp_nm6);
+					add($o_bp_grp_cd7);
+					add($o_bp_grp_nm7);
+					add($o_bp_grp_cd8);
+					add($o_bp_grp_nm8);
+					add($o_bp_grp_cd9);
+					add($o_bp_grp_nm9);
+					add($o_bp_grp_cd10);
+					add($o_bp_grp_nm10);
+					add($o_bp_alc_grp);
+					add($o_ar_dpt_typ);
+					add($o_sls_upri_req_typ);
+					add($o_sls_upri_cng_flg);
+					add($o_sls_upri_rnd_typ);
+					add($o_sls_amt_rnd_typ);
+					add($o_sls_tax_calc_typ);
+					add($o_sls_tax_rnd_typ);
+					add($o_sls_basis_typ);
+					add($o_bill_basis_typ);
+					add($o_ship_schd_split_typ);
+					add($o_bill_crryovr_times);
+					add($o_lot_back_stop_typ);
+					add($o_slip_each_lot_typ);
+					add($o_cst_ship_form_cd);
+					add($o_stk_lst_issue_flg);
+					add($o_stk_lst_form_cd);
+					add($o_sls_tax_cd_prio_flg);
+					add($o_wrk_ar_flg);
+					add($o_cst_iv_flg);
+					add($o_cst_tterm_cd1);
+					add($o_cst_tterm_nm1);
+					add($o_cst_tterm_cd2);
+					add($o_cst_tterm_nm2);
+					add($o_cst_tterm_cd3);
+					add($o_cst_tterm_nm3);
+					add($o_not_lg_mix_flg);
+					add($o_not_lot_mix_flg);
+					add($o_not_sublot_mix_flg);
+					add($o_acst_cd);
+					add($o_acst_nm);
+					add($o_bcst_cd);
+					add($o_bcst_nm);
+					add($o_rcst_cd);
+					add($o_ar_cred_cd);
+					add($o_bill_dpt_typ);
+					add($o_bill_cl_typ);
+					add($o_bill_cl_day1);
+					add($o_bill_cl_day2);
+					add($o_bill_cl_day3);
+					add($o_bill_cl_day4);
+					add($o_bill_cl_day5);
+					add($o_tax_on_bill_flg);
+					add($o_bill_tax_rnd_typ);
+					add($o_bill_cl_delay_days);
+					add($o_bill_cl_ba_typ);
+					add($o_sls_interim_cl_flg);
+					add($o_bill_cal_cd);
+					add($o_rcv_ba_typ);
+					add($o_bfw_bal_disp_flg);
+					add($o_sls_dtl_outp_typ);
+					add($o_bill_prnt_typ);
+					add($o_bill_dtl_outp_flg);
+					add($o_bill_dtl_adv_flg);
+					add($o_bill_dtl_rcv_flg);
+					add($o_bill_dtl_subttl_typ);
+					add($o_bill_dtl_brk_typ);
+					add($o_bill_dtl_sort_typ);
+					add($o_bill_can_slip_typ);
+					add($o_auto_line_appl_flg);
+					add($o_ar_setoff_grp_cd);
+					add($o_xfr_psn);
+					add($o_rcv_auto_appl_tgt_flg);
+					add($o_rcv_amt_match_flg);
+					add($o_ar_sttl_typ_match_flg);
+					add($o_calc_com_paid_flg);
+					add($o_auto_appl_delay_days);
+					add($o_asppl_cd);
+					add($o_subcon_flg);
+					add($o_repurc_obli_flg);
+					add($o_po_print_cd);
+					add($o_sppl_ship_form_cd);
+					add($o_po_dlv_slip_flg);
+					add($o_dlv_inst_dlv_slip_flg);
+					add($o_prms_rcpt_dlv_slip_flg);
+					add($o_pay_crryovr_times);
+					add($o_purc_upri_req_typ);
+					add($o_purc_upri_cng_flg);
+					add($o_purc_amt_rnd_typ);
+					add($o_purc_tax_rnd_typ);
+					add($o_purc_tax_calc_typ);
+					add($o_purc_tax_cd_prio_flg);
+					add($o_wrk_po_flg);
+					add($o_wrk_ap_flg);
+					add($o_prov_rcv_typ);
+					add($o_onr_prsppl_flg);
+					add($o_outsrc_upri_typ);
+					add($o_prov_basis_typ);
+					add($o_prov_upri_cng_flg);
+					add($o_prov_amt_rnd_typ);
+					add($o_prov_tax_rnd_typ);
+					add($o_prov_tax_calc_typ);
+					add($o_prov_tax_cd_prio_flg);
+					add($o_sppl_cal_cd);
+					add($o_sppl_iv_flg);
+					add($o_prms_recv_flg);
+					add($o_sppl_tterm_cd1);
+					add($o_sppl_tterm_cd2);
+					add($o_sppl_tterm_cd3);
+					add($o_bsppl_cd);
+					add($o_psppl_cd);
+					add($o_ap_cred_cd);
+					add($o_pay_spot_flg);
+					add($o_psppl_cl_day1);
+					add($o_psppl_cl_day2);
+					add($o_psppl_cl_day3);
+					add($o_psppl_cl_day4);
+					add($o_psppl_cl_day5);
+					add($o_purc_interim_cl_flg);
+					add($o_tax_on_pay_flg);
+					add($o_ap_setoff_grp_cd);
+					add($o_pay_bank_ac_cd);
+					add($o_pay_ntc_adv_pay_flg);
+					add($o_psppl_rmrks);
+					add($o_note_days);
+					add($o_pri_prnt_flg);
+					add($o_cnsgn_stktk_flg);
+					add($o_via_dlv_typ);
+					add($o_tdlv_req_flg);
+					add($o_lg_grp_cd);
+					add($o_dlv_cal_cd);
+					add($o_dlv_chnnl1);
+					add($o_dlv_chnnl2);
+					add($o_dlv_chnnl3);
+					add($o_st_dt);
+					add($o_end_dt);
+					add($o_purc_usr_cd);
+					add($o_purc_dpt_cd);
+					add($o_dlv_cd);
+					add($o_cst_cd);
+					add($o_def_dlv_cd);
+					add($o_def_cst_cd);
+					add($o_cst_usr_cd);
+					add($o_cst_dpt_cd);
+					add($o_edi_po_send_tgt_flg);
+					add($o_edi_accpt_send_tgt_flg);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_bp_cd, $v_bp_cd);
+					put($vn_bp_nm, $v_bp_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_bp_cd, $s_bp_cd, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SloDlvCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SloDlvCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SloDlvCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SloDlvCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SloDlvCols extends MSUAC_List.SloDlvCols_MC_A {
+		//EIクラス
+	}
+
 }
