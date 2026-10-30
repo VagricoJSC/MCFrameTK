@@ -11977,7 +11977,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_dlv_p_PPanel_SloDlv_bp_cd_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.Bp");
+		lp.setListLogicId("MS.MSUAP0030.SloDlv");
 		return lp;
 	}
 
@@ -26481,7 +26481,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * コンボ／リストのリスト[Hdr_dlv_p_PPanel_SloDlv_bp_cd]の作成メソッド
 	 */
 	public MCList getHdr_dlv_p_PPanel_SloDlv_bp_cd(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloDlv(row, info);
 	}
 
 	/**

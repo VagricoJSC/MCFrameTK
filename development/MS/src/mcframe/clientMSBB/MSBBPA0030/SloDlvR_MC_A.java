@@ -189,13 +189,13 @@ abstract class SloDlvR_MC_A extends MCConstRow {
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
 			new String[][]{
-				{$bp_cd, "MAC_BP_IS_SRCH_TYP.DLV"},	// bp_cd
+				{$bp_cd, "MAC_BP_IS_SRCH_TYP.DLV;cst_cd"},	// bp_cd
 				{$lg_grp_cd, "false"}	// lg_grp_cd
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
 			new String[][]{
-				{$bp_cd, "bp_is_srch_typ"},	// bp_cd
+				{$bp_cd, "bp_is_srch_typ;bp_cd"},	// bp_cd
 				{$lg_grp_cd, "loc_flg"}	// lg_grp_cd
 			}
 		)),

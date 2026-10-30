@@ -1405,7 +1405,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
 			new String[][]{
 				{$trd_cd, "sls_dpt_cd"},	// trd_cd
-				{$dlv_p + ".bp_cd", "MAC_BP_IS_SRCH_TYP.DLV;slo_dt"},	// dlv_p.bp_cd
+				{$dlv_p + ".bp_cd", "MAC_BP_IS_SRCH_TYP.DLV;slo_dt;cst_cd"},	// dlv_p.bp_cd
 				{$dest_cd1, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd1
 				{$dest_cd2, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd2
 				{$dest_cd3, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd3
@@ -1418,7 +1418,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 		)),
 		new MCExtMap.Entry($$LIST_IN_BASE, new MCExtList(
 			new String[][]{
-				{$dlv_p + ".bp_cd", "bp_is_srch_typ;dt"},	// dlv_p.bp_cd
+				{$dlv_p + ".bp_cd", "bp_is_srch_typ;dt;cst_cd"},	// dlv_p.bp_cd
 				{$dest_cd1, "bp_is_srch_typ"},	// dest_cd1
 				{$dest_cd2, "bp_is_srch_typ"},	// dest_cd2
 				{$dest_cd3, "bp_is_srch_typ"},	// dest_cd3
