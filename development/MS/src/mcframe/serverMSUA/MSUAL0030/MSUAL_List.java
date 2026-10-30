@@ -7,6 +7,7 @@ import mcframe.commonCore.lang.MCDate;
 import mcframe.commonCore.lang.MCNumber;
 import mcframe.serverCore.queryapi.IFMCSQL;
 import mcframe.serverCore.queryapi.MCQueryApiBuilder;
+import mcframe.serverMA.dbc.MAM_BP_R;
 import mcframe.serverMA.dbc.MAM_TRD_R;
 
 import static mcframe.commonMSUA.MSUAC0030.MSUAC_List.SloItmCols;
@@ -222,5 +223,30 @@ public class MSUAL_List extends MSUAL_List_MC {
 		
 		return (MCList<?>)result;
 	}	
+	
+	/** 
+	  * SloBp:検索結果の修正<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  * @return 編集後のListコンテナ
+	  */
+	protected MCList<?> getSloBp_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result) {
+		String dptCd = row.getStringNE("sls_dpt_cd");
+		if (dptCd != null) {
+			@SuppressWarnings("unchecked")
+			Iterator<MAM_BP_R> itr = (Iterator<MAM_BP_R>)result.iterator();
+			while (itr.hasNext()) {
+				MAM_BP_R r = itr.next();
+				if (!r.bp_cd().startsWith(dptCd)) {
+					itr.remove();
+				}
+			}
+		}
+		
+		return (MCList<?>)result;
+	}
 	
 }

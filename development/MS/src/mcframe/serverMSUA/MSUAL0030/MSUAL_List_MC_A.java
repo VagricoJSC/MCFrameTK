@@ -1456,4 +1456,63 @@ abstract public class MSUAL_List_MC_A extends mcframe.serverMAUD.MAUDL5070.MAUDL
 		return down.subColumns(SloItmCols.outAll());
 	}
 
+
+	/** 
+	  * SloBp:受注登録用の取引先<p>
+	  * 引数の検索区分（取引先入力補助検索区分）に対応する取引先情報を、取引先マスタから取得する<br>
+	  * @param row クライアントから渡されるRowコンテナ
+	  */
+	public MCList<MCRow> getSloBp(MCRow row) {
+		MCList<MAM_BP_R> rslt = MCList.create(MAM_BP_R.class);
+		MAM_BP_R dbc = MAM_BP_R.create("T");
+		MCQueryApiBuilder builder = MCQueryApiBuilder.create(dbc);
+		getSloBp_Set(row, builder, dbc, rslt);//DBコンテナの設定
+		listlogicCommon_Set(row, builder,"MS.MSUAL0030.SloBp");
+		MCList<MCRow> mergebinds = MCList.create(MCRow.class);
+		mergebinds.add(builder.getMergeBind());
+		builder.buildSelect("MS.MSUAL0030.SloBp").executeQuery(row, mergebinds, rslt);
+		MCList<? extends MCRow> down = getSloBp_AfterSelect(row, builder, dbc, rslt);//検索結果の修正
+		down = listlogicCommon_AfterSelect(row, rslt, down,"MS.MSUAL0030.SloBp");
+		if(FXUCL_DataUtil.isNull(down)) return null;
+		return getSloBp_SubColumns(row, down);
+	}
+	/** 
+	  * SloBp:DBコンテナの設定<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideしてSQL文をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  */
+	protected void getSloBp_Set(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result){
+		boolean isForeignEQ = false;
+		String[] ss = FXBAL_MCRLUtil.setSelectAndFrom(builder, SloBpCols.outAll(),isForeignEQ);
+		if(ss != null && 0< ss.length){
+			MCPermColumn column = builder.getBaseDbc().getColumn$(ss[0]);
+			builder.addWhereWithCutOffAnd(MCQueryApiBuilder.makeEq(column, bind("1")), row.getValueNE(FXBAC_ListLogicBase.$INPUT_VAL));
+		}
+	}
+	/** 
+	  * SloBp:検索結果の修正<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  * @return 編集後のListコンテナ
+	  */
+	protected MCList<?> getSloBp_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result){
+		return (MCList<?>)result;
+	}
+	/** 
+	  * SloBp:検索結果のカラムの選択<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideして検索結果のカラムをカスタマイズする。
+	  * @param row 検索結果を保持するListコンテナ
+	  * @param down 検索結果を保持するDBコンテナ
+	  * @return getSloBp_AfterSelectメソッドの戻り値
+	  */
+	protected MCList<MCRow> getSloBp_SubColumns(MCRow row, MCList<?> down){
+		return down.subColumns(SloBpCols.outAll());
+	}
+
 }

@@ -6398,4 +6398,79 @@ class MSUAC_List_MC_A extends Object {
 		//EIクラス
 	}
 
+
+	/** 
+	  * SloBp:カラム名クラス
+	  */
+	protected static class SloBpCols_MC_A  {
+		/** IN:売上部門CD */
+		public static final String $i_sls_dpt_cd = "sls_dpt_cd";
+		/** OUT:取引先ＣＤ */
+		public static final String $o_bp_cd = "bp_cd";
+		/** OUT:取引先名 */
+		public static final String $o_bp_nm = "bp_nm";
+		/** OUT:取引先別名１ */
+		public static final String $o_bp_alt_nm1 = "bp_alt_nm1";
+		/** OUT:取引先別名２ */
+		public static final String $o_bp_alt_nm2 = "bp_alt_nm2";
+		/** OUT:取引先別名３ */
+		public static final String $o_bp_alt_nm3 = "bp_alt_nm3";
+		/** OUT:取引先別名４ */
+		public static final String $o_bp_alt_nm4 = "bp_alt_nm4";
+		/** VIEW:取引先ＣＤ */
+		public static final String $v_bp_cd = $o_bp_cd;
+		/** VIEW_NO:取引先ＣＤ */
+		protected static final MCNumber $vn_bp_cd = new MCNumber(10);
+		/** VIEW:取引先名 */
+		public static final String $v_bp_nm = $o_bp_nm;
+		/** VIEW_NO:取引先名 */
+		protected static final MCNumber $vn_bp_nm = new MCNumber(20);
+		/** SORT:取引先ＣＤ */
+		public static final String $s_bp_cd = $o_bp_cd;
+		/** SORT_NO:取引先ＣＤ */
+		protected static final MCNumber $sn_bp_cd = new MCNumber(10);
+		/** OTHER:リストロジック存在チェックエラー時のメッセージＩＤ */
+		public static final String $p_chk_msg = "MAUAL0117";
+		/** OTHER:入力補助画面モジュールＩＤ */
+		public static final String $p_ispnl_mod_id = "MA";
+		/** OTHER:入力補助画面画面ＩＤ */
+		public static final String $p_ispnl_scr_id = "MAUAP1020";
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_bp_cd);
+					add($o_bp_nm);
+					add($o_bp_alt_nm1);
+					add($o_bp_alt_nm2);
+					add($o_bp_alt_nm3);
+					add($o_bp_alt_nm4);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_bp_cd, $v_bp_cd);
+					put($vn_bp_nm, $v_bp_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_bp_cd, $s_bp_cd, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SloBpCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SloBpCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SloBpCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SloBpCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SloBpCols extends MSUAC_List.SloBpCols_MC_A {
+		//EIクラス
+	}
+
 }

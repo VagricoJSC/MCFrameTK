@@ -1100,4 +1100,48 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 		down.sort(SloItmCols.sortPolicy());
 	}
 
+
+	/** 
+	  * SloBp:受注登録用の取引先 メインメソッド<p>
+	  * 引数の検索区分（取引先入力補助検索区分）に対応する取引先情報を、取引先マスタから取得する<br>
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSloBp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSloBp_GetList(row, info);//リストの取得
+		getSloBp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSloBp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SloBp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSloBp_GetList(MCRow row, MCEventInfo info){
+		return getList("getSloBp", row, info, getListCacheTyp(row, info));
+	}
+	/** 
+	  * SloBp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloBp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SloBpCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SloBp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloBp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SloBpCols.sortPolicy());
+	}
+
 }

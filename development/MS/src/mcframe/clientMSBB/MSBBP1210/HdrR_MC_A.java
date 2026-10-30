@@ -1384,7 +1384,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$dest_cd2, "bp_nm"},	// dest_cd2
 				{$dest_cd3, "bp_nm"},	// dest_cd3
 				{$tdlv_p + ".bp_cd", "bp_nm;dlv_sundry_flg;lg_grp_cd;cntry_cd;cntry_nm;zip_cd;addr1;addr2;addr3;addr4;tel;fax;dlv_cntct_dpt;dlv_cntct_psn;via_dlv_typ"},	// tdlv_p.bp_cd
-				{$cst_cd, "bp_nm;sls_basis_typ;sls_basis_typ;cur_cd;cst_tterm_cd1;cst_tterm_cd2;cst_tterm_cd3;acst_cd;acst_nm;cst_iv_flg;sls_amt_rnd_typ;sls_tax_rnd_typ;sls_upri_cng_flg;cst_usr_cd;cst_dpt_cd;ar_dpt_typ;ar_dpt_cd;sls_upri_req_typ;ship_schd_split_typ;bill_crryovr_times;not_lg_mix_flg;not_lot_mix_flg;not_sublot_mix_flg"},	// cst_cd
+				{$cst_cd, "bp_nm"},	// cst_cd
 				{$usr_dpt_p + ".dpt_cd", "dpt_nm;wg_cd;wg_nm"},	// usr_dpt_p.dpt_cd
 				{$trd_cur_cd, "cur_nm;amt_dec_place;upri_dec_place"},	// trd_cur_cd
 				{$assort_typ, "ship_assort_typ_nm"},	// assort_typ
@@ -1410,7 +1410,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$dest_cd2, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd2
 				{$dest_cd3, "MAC_BP_IS_SRCH_TYP.DEST"},	// dest_cd3
 				{$tdlv_p + ".bp_cd", "MAC_BP_IS_SRCH_TYP.TDLV;slo_dt"},	// tdlv_p.bp_cd
-				{$cst_cd, "MAC_BP_IS_SRCH_TYP.CST_NOT_SUNDRY;slo_dt"},	// cst_cd
+				{$cst_cd, "sls_dpt_cd"},	// cst_cd
 				{$usr_dpt_p + ".dpt_cd", "MAC_DPT_IS_SRCH_TYP.SLS;slo_dt;sls_usr_cd;true"},	// usr_dpt_p.dpt_cd
 				{$rcpt_usr_cd, "false"},	// rcpt_usr_cd
 				{$ar_dpt_cd, "MAC_DPT_IS_SRCH_TYP.AR;slo_dt"}	// ar_dpt_cd
@@ -1423,7 +1423,6 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$dest_cd2, "bp_is_srch_typ"},	// dest_cd2
 				{$dest_cd3, "bp_is_srch_typ"},	// dest_cd3
 				{$tdlv_p + ".bp_cd", "bp_is_srch_typ;dt"},	// tdlv_p.bp_cd
-				{$cst_cd, "bp_is_srch_typ;dt"},	// cst_cd
 				{$usr_dpt_p + ".dpt_cd", "dpt_is_srch_typ;dt;usr_cd;wr_flg"},	// usr_dpt_p.dpt_cd
 				{$rcpt_usr_cd, "referring_usr_acl_flg"},	// rcpt_usr_cd
 				{$ar_dpt_cd, "dpt_is_srch_typ;dt"}	// ar_dpt_cd

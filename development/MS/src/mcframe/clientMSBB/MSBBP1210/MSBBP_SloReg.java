@@ -273,6 +273,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			Hdr_trd_cd.doListEvent(MCListConfig.LIST);
 			Hdr_trd_cd.clear();
 		}
+
+		Hdr_cst_cd.doListEvent(MCListConfig.LIST);
 	}
 	
 	@Override
@@ -473,6 +475,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 未定義の取引CDでは候補を制限しない
 		return ALL_FREE_RSN_CD;
 	}
-	
 //FMCB CUSTOM END
 }

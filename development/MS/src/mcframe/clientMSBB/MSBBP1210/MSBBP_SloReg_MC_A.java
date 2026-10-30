@@ -3020,7 +3020,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_cst_cd_ListPutter() {
 		if (Hdr_cst_cd_p == null) {
-			Hdr_cst_cd_p = createHdr_cst_cd_ListPutter(Hdr_cst_cd, "cst_cd", "cst_nm","sls_basis_typ","bp_sls_basis_typ","trd_cur_cd","tterm_cd1","tterm_cd2","tterm_cd3","acst_cd","acst_nm","cst_iv_flg","sls_amt_rnd_typ","sls_tax_rnd_typ","sls_upri_cng_flg","cst_usr_cd","cst_dpt_cd","ar_dpt_typ","lnk_ar_dpt_cd","sls_upri_req_typ","ship_schd_split_typ","cst_bill_crryovr_times","hdr_not_lg_mix_flg","hdr_not_lot_mix_flg","hdr_not_sublot_mix_flg");
+			Hdr_cst_cd_p = createHdr_cst_cd_ListPutter(Hdr_cst_cd, "cst_cd", "cst_nm");
 
 		}
 		return Hdr_cst_cd_p;
@@ -4604,7 +4604,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_via_dlv_typ_nm.setNextBeans(p.Hdr_cst_cd);
 		p.Hdr_via_dlv_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_dlv_typ_nm_META);
 		p.Hdr_cst_cd.setListType(MCListType.STRICT);
-		p.Hdr_cst_cd.setLinkBeans(p.Hdr_cst_nm,p.Hdr_sls_basis_typ,p.Hdr_bp_sls_basis_typ,p.Hdr_trd_cur_cd,p.Hdr_tterm_cd1,p.Hdr_tterm_cd2,p.Hdr_tterm_cd3,p.Hdr_acst_cd,p.Hdr_acst_nm,p.Hdr_cst_iv_flg,p.Hdr_sls_amt_rnd_typ,p.Hdr_sls_tax_rnd_typ,p.Hdr_sls_upri_cng_flg,p.Hdr_cst_usr_cd,p.Hdr_cst_dpt_cd,p.Hdr_ar_dpt_typ,p.Hdr_lnk_ar_dpt_cd,p.Hdr_sls_upri_req_typ,p.Hdr_ship_schd_split_typ,p.Hdr_cst_bill_crryovr_times,p.Hdr_hdr_not_lg_mix_flg,p.Hdr_hdr_not_lot_mix_flg,p.Hdr_hdr_not_sublot_mix_flg);
+		p.Hdr_cst_cd.setLinkBeans(p.Hdr_cst_nm);
 		p.HdrPanel.add(p.Hdr_cst_cd_Label);
 		p.HdrPanel.add(p.Hdr_cst_cd);
 		p.Hdr_cst_cd.setNextBeans(p.Hdr_cst_nm);
@@ -12030,7 +12030,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_cst_cd_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("MA.MAUAP0010.Bp");
+		lp.setListLogicId("MS.MSUAP0030.SloBp");
 		return lp;
 	}
 	 
@@ -26522,7 +26522,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * コンボ／リストのリスト[Hdr_cst_cd]の作成メソッド
 	 */
 	public MCList getHdr_cst_cd(MCRow row, MCEventInfo info){
-		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getBp(row, info);
+		return ((mcframe.clientMSUA.MSUAP0030.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0030.MSUAP_List", this)).getSloBp(row, info);
 	}
 
 	/**
