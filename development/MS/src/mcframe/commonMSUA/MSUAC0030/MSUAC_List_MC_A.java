@@ -6417,6 +6417,8 @@ class MSUAC_List_MC_A extends Object {
 		public static final String $o_bp_alt_nm3 = "bp_alt_nm3";
 		/** OUT:取引先別名４ */
 		public static final String $o_bp_alt_nm4 = "bp_alt_nm4";
+		/** OUT:売上担当者 */
+		public static final String $o_sls_usr_cd = "sls_usr_cd";
 		/** VIEW:取引先ＣＤ */
 		public static final String $v_bp_cd = $o_bp_cd;
 		/** VIEW_NO:取引先ＣＤ */
@@ -6444,6 +6446,7 @@ class MSUAC_List_MC_A extends Object {
 					add($o_bp_alt_nm2);
 					add($o_bp_alt_nm3);
 					add($o_bp_alt_nm4);
+					add($o_sls_usr_cd);
 				}};;
 		@SuppressWarnings("serial")
 		protected static final SortedMap<MCNumber, String> $view_cols_MC = 

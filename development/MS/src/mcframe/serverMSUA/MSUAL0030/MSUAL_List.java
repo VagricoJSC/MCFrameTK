@@ -233,6 +233,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 	  * @param result 検索結果を保持するListコンテナ
 	  * @return 編集後のListコンテナ
 	  */
+	@Override
 	protected MCList<?> getSloBp_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result) {
 		String dptCd = row.getStringNE("sls_dpt_cd");
 		if (dptCd != null) {
@@ -240,13 +241,43 @@ public class MSUAL_List extends MSUAL_List_MC {
 			Iterator<MAM_BP_R> itr = (Iterator<MAM_BP_R>)result.iterator();
 			while (itr.hasNext()) {
 				MAM_BP_R r = itr.next();
-				if (!r.bp_cd().startsWith(dptCd)) {
+				// 得意先ではない、または売上部門CDと先頭列は一致しない場合は除外
+				if (!r.cst_flg() || !r.bp_cd().startsWith(dptCd)) {
 					itr.remove();
 				}
 			}
 		}
 		
 		return (MCList<?>)result;
+	}
+	
+	/** 
+	  * SloBp:DBコンテナの設定<p>
+	  * 定義書でDBコンテナを指定している場合、このメソッドをOverrideしてSQL文をカスタマイズする。
+	  * @param row クライアントから渡されるRowコンテナ
+	  * @param builder MCQueryAPIBuilder
+	  * @param dbc MCDBContainer
+	  * @param result 検索結果を保持するListコンテナ
+	  */
+	@Override
+	protected void getSloBp_Set(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result){
+		super.getSloBp_Set(row, builder, t, result);
+		
+		getSloBp_addSelectJoinCustom(row, builder, t, result);
+	}
+	
+	protected void getSloBp_addSelectJoinCustom(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result) {
+		mcframe.serverMA.dbc.MAM_CST_USR_R m1 = mcframe.serverMA.dbc.MAM_CST_USR_R.create("M1");
+		
+		builder.addSelect(t.cst_flg);
+		builder.addSelect(m1.usr_cd.as("sls_usr_cd"));
+
+		IFMCSQL.MCDateValue stDt = mcframe.serverCore.dbc.CoreFunction.FCPA_DATE_UTIL$F_GET_TODAY1();
+		
+		builder.addLeftOuterJoin(m1,
+				bracket(t.bp_cd.eq(m1.cst_cd)
+				.and(stDt.between(m1.st_dt, m1.end_dt))));
+	
 	}
 	
 }

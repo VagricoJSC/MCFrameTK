@@ -287,6 +287,84 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 	}
 
+	@Override
+	public void doHdr_cst_cd_LC(MCEventInfo info) {
+		if (MAC_TRD_PTN_TYP.isSHIP(getHdrR().trd_ptn_typ())) {
+			setValueEx(Hdr_trd_cur_cd, null);
+			setValueEx(Hdr_ar_dpt_cd, null);
+		}
+		setDefaultSlsBasisTyp();
+		
+		// 売上部門、債権部門の設定
+		// 画面で表示されている値を変更時一旦クリアする
+		// setValueEx(Hdr_sls_usr_cd, null);	// 標準動作カスタマイズ
+		// setValueEx(Hdr_sls_dpt_cd, null);	// 標準動作カスタマイズ
+		setValueEx(Hdr_ar_dpt_cd, null);
+		
+		// 売上部門の設定
+		// if (!isNull(getHdrR().cst_usr_cd())) {				// 標準動作カスタマイズ
+		// 	setValueEx(Hdr_sls_usr_cd, getHdrR().cst_usr_cd());
+		// }
+		// else if (!isNull(getHdrR().cst_dpt_cd())) {			// 標準動作カスタマイズ
+		// 	setValueEx(Hdr_sls_dpt_cd, getHdrR().cst_dpt_cd());
+		// }
+		
+		// 債権部門の設定
+		setDefaultArDpt();
+		
+		//得意先のインボイス対象取引がオフの場合は、配送先を入力しても、全明細の配送先経由区分を「経由しない」で固定する。
+		if (!getHdrR().cst_iv_flg()) {
+			for (DtlR r : exceptEmpty(getDtlL())) {
+				if (r.abort_flg() || r.org_abort_flg()|| r.isStatusDelete()) {
+					continue;
+				}
+				if (r.isStatusCreate() || r.isStatusModify()
+						|| (r.isStatusNone() && !isNull(r.itm_cd()))) {
+					setValueEx(columnDtl_via_dlv_typ, r.getGUIIndex(), MAC_VIA_DLV_TYP.NOT_VIA.value());
+				}
+			}
+		}
+		
+		for (DtlR r : exceptEmpty(getDtlL())) {
+			if (r.isStatusCreate() || r.isStatusModify()
+					|| (r.isStatusNone() && !isNull(r.itm_cd()))) {
+
+				int index = r.getGUIIndex();
+				
+				setDefaultSlsUpriReqTyp(index);
+				setDefaultBillCrryovrTimes(index);
+				setDefaultShipSchdSplitTyp(index);
+				setDefaultTaxCd(index, true);
+				setDefaultNotMixFlg(index, r);
+			}
+
+			if (!getHdrR().cst_iv_flg()) {
+				// 得意先のインボイス対象取引がオフの場合は、Ｉ／Ｖ単価をクリアする。
+				setValueEx(columnDtl_iv_upri, r.getGUIIndex(), null);
+			}
+			else if (!isSame(r.trd_cur_upri(), 0)) {
+				// 得意先のインボイス対象取引がオンかつ単価が0以外の場合、Ｉ／Ｖ単価に取引通貨単価を設定する。
+				setValueEx(columnDtl_iv_upri, r.getGUIIndex(), r.trd_cur_upri());
+			}
+		}
+		
+		setCstItm(false);
+		
+		setCstIvMode();
+		
+		if (!isCstIv()) {
+			for (DtlR dtlR : exceptDeleteAndEmpty(getDtlL())) {	
+				setValueEx(columnDtl_iv_itm_nm, dtlR.getGUIIndex(), null);
+				setValueEx(columnDtl_cntry_org_cd, dtlR.getGUIIndex(), null);
+				setValueEx(columnDtl_cntry_org_nm, dtlR.getGUIIndex(), null);
+			}
+		}
+		
+		setAdvBillAmtMode();
+		
+		setCredBal();
+	}
+	
 	private final static String SLS_COND_TYP_0 = "0";	// 出荷売上
 	private final static String SLS_COND_TYP_1 = "1";	// 営業在庫品
 	private final static String SLS_COND_TYP_2 = "2";	// 営業所送り

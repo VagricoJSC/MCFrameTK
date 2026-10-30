@@ -3020,7 +3020,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_cst_cd_ListPutter() {
 		if (Hdr_cst_cd_p == null) {
-			Hdr_cst_cd_p = createHdr_cst_cd_ListPutter(Hdr_cst_cd, "cst_cd", "cst_nm");
+			Hdr_cst_cd_p = createHdr_cst_cd_ListPutter(Hdr_cst_cd, "cst_cd", "cst_nm","sls_usr_cd");
 
 		}
 		return Hdr_cst_cd_p;
@@ -4604,7 +4604,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_via_dlv_typ_nm.setNextBeans(p.Hdr_cst_cd);
 		p.Hdr_via_dlv_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.via_dlv_typ_nm_META);
 		p.Hdr_cst_cd.setListType(MCListType.STRICT);
-		p.Hdr_cst_cd.setLinkBeans(p.Hdr_cst_nm);
+		p.Hdr_cst_cd.setLinkBeans(p.Hdr_cst_nm,p.Hdr_sls_usr_cd);
 		p.HdrPanel.add(p.Hdr_cst_cd_Label);
 		p.HdrPanel.add(p.Hdr_cst_cd);
 		p.Hdr_cst_cd.setNextBeans(p.Hdr_cst_nm);

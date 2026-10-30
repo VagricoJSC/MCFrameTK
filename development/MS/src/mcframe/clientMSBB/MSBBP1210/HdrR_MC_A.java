@@ -1384,7 +1384,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$dest_cd2, "bp_nm"},	// dest_cd2
 				{$dest_cd3, "bp_nm"},	// dest_cd3
 				{$tdlv_p + ".bp_cd", "bp_nm;dlv_sundry_flg;lg_grp_cd;cntry_cd;cntry_nm;zip_cd;addr1;addr2;addr3;addr4;tel;fax;dlv_cntct_dpt;dlv_cntct_psn;via_dlv_typ"},	// tdlv_p.bp_cd
-				{$cst_cd, "bp_nm"},	// cst_cd
+				{$cst_cd, "bp_nm;sls_usr_cd"},	// cst_cd
 				{$usr_dpt_p + ".dpt_cd", "dpt_nm;wg_cd;wg_nm"},	// usr_dpt_p.dpt_cd
 				{$trd_cur_cd, "cur_nm;amt_dec_place;upri_dec_place"},	// trd_cur_cd
 				{$assort_typ, "ship_assort_typ_nm"},	// assort_typ
