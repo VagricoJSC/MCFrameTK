@@ -497,6 +497,10 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		super.listInit();
 		
 		Hdr_sls_cond_typ.setListVisibleColumn("sls_cond_typ", "sls_cond_typ_nm");
+		
+		// 売上担当者が変わると売上部門も変わってしまう動作を無効化する
+		MAUBP_UsrDpt_H parts = Hdr_usr_dpt_p_PPanel;
+		parts.setSuppressDefaultDepartment(true);
 	}
 	
 	@Override

@@ -51,5 +51,27 @@ public class MAUBP_UsrDpt_H extends MAUBP_UsrDpt_H_MC {
 		super(row);
 	}
 
+	private boolean suppressDefaultDepartment = false;
+
+	public void setSuppressDefaultDepartment(boolean suppress) {
+		this.suppressDefaultDepartment = suppress;
+	}
+
+	@Override
+	protected void doBeans_usr_cd_LC(MCEventInfo info) {
+
+		if (!suppressDefaultDepartment) {
+			try {
+				setValueEx(
+						UsrDpt_dpt_cd,
+						UsrDpt_def_dpt_cd.getValue()
+						);
+			} catch (MCException ex) {
+				setValueEx(UsrDpt_dpt_cd, null);
+			}
+		}
+
+		setGUIMode();
+	}
 
 }
