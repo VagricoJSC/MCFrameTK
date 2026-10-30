@@ -235,10 +235,12 @@ public class MSUAL_List extends MSUAL_List_MC {
 	  */
 	@Override
 	protected MCList<?> getSloBp_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t, MCList<?> result) {
+		@SuppressWarnings("unchecked")
+		MCList<MAM_BP_R> bpList = ((MCList<MAM_BP_R>)result);
+		
 		String dptCd = row.getStringNE("sls_dpt_cd");
 		if (dptCd != null) {
-			@SuppressWarnings("unchecked")
-			Iterator<MAM_BP_R> itr = (Iterator<MAM_BP_R>)result.iterator();
+			Iterator<MAM_BP_R> itr = bpList.iterator();
 			while (itr.hasNext()) {
 				MAM_BP_R r = itr.next();
 				// 得意先ではない、または売上部門CDと先頭列は一致しない場合は除外
@@ -270,6 +272,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		mcframe.serverMA.dbc.MAM_CST_USR_R m1 = mcframe.serverMA.dbc.MAM_CST_USR_R.create("M1");
 		
 		builder.addSelect(t.cst_flg);
+		builder.addSelect(t.bp_cd.as("dlv_cd"));
 		builder.addSelect(m1.usr_cd.as("sls_usr_cd"));
 
 		IFMCSQL.MCDateValue stDt = mcframe.serverCore.dbc.CoreFunction.FCPA_DATE_UTIL$F_GET_TODAY1();

@@ -1458,7 +1458,7 @@ abstract public class MSUAL_List_MC_A extends mcframe.serverMAUD.MAUDL5070.MAUDL
 
 
 	/** 
-	  * SloBp:受注登録用の取引先<p>
+	  * SloBp:受注登録用の得意先<p>
 	  * 引数の検索区分（取引先入力補助検索区分）に対応する取引先情報を、取引先マスタから取得する<br>
 	  * @param row クライアントから渡されるRowコンテナ
 	  */

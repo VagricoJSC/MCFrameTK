@@ -1102,7 +1102,7 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 
 
 	/** 
-	  * SloBp:受注登録用の取引先 メインメソッド<p>
+	  * SloBp:受注登録用の得意先 メインメソッド<p>
 	  * 引数の検索区分（取引先入力補助検索区分）に対応する取引先情報を、取引先マスタから取得する<br>
 	  * @param row Rowコンテナ
 	  * @param info イベント情報

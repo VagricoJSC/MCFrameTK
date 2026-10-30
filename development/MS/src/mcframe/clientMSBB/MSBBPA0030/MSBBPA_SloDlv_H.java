@@ -73,11 +73,5 @@ public class MSBBPA_SloDlv_H extends MSBBPA_SloDlv_H_MC {
 	public void doSloDlv_show_dtl(MCEventInfo info) {
 	}
 
-	/**
-	 * Panel[Dlv]のボタン[show_dtl]の押下時の処理
-	 */
-	@Override
-	public void doDlv_show_dtl(MCEventInfo info) {
-	}
 //FMCB CUSTOM END
 }
