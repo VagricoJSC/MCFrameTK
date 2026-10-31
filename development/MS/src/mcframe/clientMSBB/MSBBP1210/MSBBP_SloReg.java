@@ -737,8 +737,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			return;
 		}
 
-		// 品目CDの変更イベントだけを対象にする
-		if (lc != columnDtl_itm_cd) {
+		// 品目CD・数量の変更イベントだけを対象にする
+		if (lc != columnDtl_itm_cd && lc != columnDtl_trd_unit_qty) {
 			return;
 		}
 
