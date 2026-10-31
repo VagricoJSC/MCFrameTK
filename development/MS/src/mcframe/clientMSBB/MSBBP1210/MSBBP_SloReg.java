@@ -42,10 +42,8 @@ import mcframe.clientMSUB.MSUBP5030.*;
 import mcframe.clientMSUB.MSUBP5070.*;
 
 import mcframe.commonMA.constant.*;
-import mcframe.commonMA.meta.MA_META;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
 import mcframe.clientMAUC.MAUCP0040.MAUCP_AppScreenOpener;
-import mcframe.clientMAUC.MAUCP0100.MAUCP_AmtUtil;
 import mcframe.clientMAUD.MAUDP0080.MAUDP_CellConfig;
 import static mcframe.commonMA.notice.MA_Msg.*;
 import static mcframe.commonMAUA.MAUAC0010.MAUAC_List.*;
@@ -918,6 +916,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	    // 請求繰越回数を1に固定
 	    r.bill_crryovr_times(MCNumber.ONE);
 	}
-	
 //FMCB CUSTOM END
 }
