@@ -225,6 +225,7 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			
 			// 数量
 			sloRegPanel.setValueEx(sloRegPanel.columnDtl_trd_unit_qty, i + 1, row.qty().multiply(sloHdrQty));
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_bill_crryovr_times, 0, MCNumber.ONE);
 		}
 	}
 
@@ -250,6 +251,8 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub1, 0, itmR.itm_sub1());
 			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub2, 0, itmR.itm_sub2());
 			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub3, 0, itmR.itm_sub3());
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_itm_sub3, 0, itmR.itm_sub3());
+			sloRegPanel.setValueEx(sloRegPanel.columnDtl_bill_crryovr_times, 0, MCNumber.ONE);
 		}
 
 		// 数量

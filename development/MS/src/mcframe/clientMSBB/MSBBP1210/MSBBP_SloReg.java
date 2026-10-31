@@ -240,7 +240,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_sls_usr_cd, bind.getStringNE("sls_usr_cd"));
 			}
 			if (bind.contains("sls_dpt_cd")) {
-				setValueEx(Hdr_sls_dpt_cd, bind.getStringNE("sls_dpt_cd"));
+				String slsDptCd = bind.getStringNE("sls_dpt_cd");
+				setValueEx(Hdr_sls_dpt_cd, slsDptCd);
+			    syncArDptWithSlsDpt();
 			}
 			
 			if (bind.contains("hdr_qty")) {
@@ -302,8 +304,33 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		}
 
 		Hdr_cst_cd.doListEvent(MCListConfig.LIST);
+
+		// 売上部門変更後、債権部門へ反映
+		syncArDptWithSlsDpt();		
 	}
-	
+
+	/**
+	 * 債権部門を売上部門と同じにする。
+	 */
+	private void syncArDptWithSlsDpt() {
+	    String slsDptCd = getHdrR().sls_dpt_cd();
+
+	    // 売上部門が未設定の場合は何もしない
+	    if (isNull(slsDptCd)) {
+	        return;
+	    }
+
+	    // 同じ場合は更新不要
+	    if (java.util.Objects.equals(
+	            slsDptCd, getHdrR().ar_dpt_cd())) {
+	        return;
+	    }
+
+	    // 診断用：Rowへ直接設定
+	    getHdrR().ar_dpt_cd(slsDptCd);
+	    getHdrR().ar_dpt_nm(getHdrR().sls_dpt_nm());
+	}
+
 	@Override
 	public void doHdr_trd_cd_LC(MCEventInfo info) {
 		super.doHdr_trd_cd_LC(info);
@@ -311,6 +338,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 売上条件区分・配送先のモードをクリア
 		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
 		Hdr_sls_cond_typ.clear();
+		
+	    // 標準処理後に同期
+	    syncArDptWithSlsDpt();		
 
 	}
 
@@ -326,7 +356,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 画面で表示されている値を変更時一旦クリアする
 		// setValueEx(Hdr_sls_usr_cd, null);	// 標準動作カスタマイズ
 		// setValueEx(Hdr_sls_dpt_cd, null);	// 標準動作カスタマイズ
-		setValueEx(Hdr_ar_dpt_cd, null);
+		// setValueEx(Hdr_ar_dpt_cd, null);
 		
 		// 売上部門の設定
 		// if (!isNull(getHdrR().cst_usr_cd())) {				// 標準動作カスタマイズ
@@ -337,7 +367,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// }
 		
 		// 債権部門の設定
-		setDefaultArDpt();
+		syncArDptWithSlsDpt();
 		
 		//得意先のインボイス対象取引がオフの場合は、配送先を入力しても、全明細の配送先経由区分を「経由しない」で固定する。
 		if (!getHdrR().cst_iv_flg()) {
@@ -869,6 +899,25 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		r.trd_cur_dscnt_amt(discntAmt);
 	}
 
+	/**
+	 * 明細の請求繰越回数を常に1に設定する。
+	 */
+	@Override
+	protected void setDefaultBillCrryovrTimes(int index) {
+	    if (index < 0 || index >= getDtlL().size()) {
+	        return;
+	    }
 
+	    DtlR r = getDtlL().get(index);
+
+	    if (r == null || r.isEmpty()
+	            || r.isStatusDelete()) {
+	        return;
+	    }
+
+	    // 請求繰越回数を1に固定
+	    r.bill_crryovr_times(MCNumber.ONE);
+	}
+	
 //FMCB CUSTOM END
 }
