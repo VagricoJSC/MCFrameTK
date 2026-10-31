@@ -239,7 +239,11 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			}
 			if (bind.contains("sls_dpt_cd")) {
 				String slsDptCd = bind.getStringNE("sls_dpt_cd");
+
+		        // 部門リストロジック経由で設定
 				setValueEx(Hdr_sls_dpt_cd, slsDptCd);
+				// getHdrR().sls_dpt_cd(slsDptCd);
+			        
 			    syncArDptWithSlsDpt();
 			}
 			
@@ -259,12 +263,16 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				MCList<?> list = (MCList<?>)param[0];
 				try {
 					for (int i=0; i<list.size(); i++) {
+						MCRow row = list.get(i);
+						String itmCd = row.getStringNE("itm_cd");
+						if (isNull(itmCd)) {
+							continue;
+						}
+						
 						if (DtlTable.getRow(i) == null) {
 							insertRow(DtlTable);
 						}
-						MCRow row = list.get(i);
-						
-						String itmCd = row.getStringNE("itm_cd");
+
 						setValueEx(columnDtl_itm_cd, i, itmCd);
 						setValueEx(columnDtl_itm_sub1, i, row.getStringNE("itm_sub1"));
 						setValueEx(columnDtl_itm_sub2, i, row.getStringNE("itm_sub2"));
@@ -281,7 +289,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				}
 				
 			    // 全項目設定後に再計算
-			    for (int i = 0; i < list.size(); i++) {
+			    for (int i = 0; i < Math.min(list.size(), getDtlL().size()); i++) {
 			        recalculateDtlAmounts(i);
 			    }
 			    
