@@ -94,27 +94,27 @@ public class MSUAL_List extends MSUAL_List_MC {
 			}
 		}
 
-		if (listUpri != null && wlSlsUpri != null && upriTyp != null && upriRate != null) {
-			// 単価
-			MCNumber upri = null;
-			switch (upriTyp) {
-				case "1": upri = listUpri.multiply(upriRate).divide(100); break;
-				case "2": upri = wlSlsUpri.multiply(upriRate).divide(100); break;
-			}
-			down.setNumberNE(SloItmCols.$o_trd_cur_upri, upri);
-			
-			// 数量
-			MCNumber qty = MCNumber.ONE;
-			
-			// 値引額
-			MCNumber discntAmt = upriRate.add(-100).multiply(-1).multiply(upri).multiply(qty).divide(100);
-			down.setNumberNE(SloItmCols.$o_trd_cur_dscnt_amt, discntAmt);
-			
-			// 金額
-			MCNumber amt = upri.multiply(qty).subtract(discntAmt);
-			down.setNumberNE(SloItmCols.$o_trd_cur_amt, amt);
-			
-		}
+//		if (listUpri != null && wlSlsUpri != null && upriTyp != null && upriRate != null) {
+//			// 単価
+//			MCNumber upri = null;
+//			switch (upriTyp) {
+//				case "1": upri = listUpri.multiply(upriRate).divide(100); break;
+//				case "2": upri = wlSlsUpri.multiply(upriRate).divide(100); break;
+//			}
+//			down.setNumberNE(SloItmCols.$o_trd_cur_upri, upri);
+//			
+//			// 数量
+//			MCNumber qty = MCNumber.ONE;
+//			
+//			// 値引額
+//			MCNumber discntAmt = upriRate.add(-100).multiply(-1).multiply(upri).multiply(qty).divide(100);
+//			down.setNumberNE(SloItmCols.$o_trd_cur_dscnt_amt, discntAmt);
+//			
+//			// 金額
+//			MCNumber amt = upri.multiply(qty).subtract(discntAmt);
+//			down.setNumberNE(SloItmCols.$o_trd_cur_amt, amt);
+//			
+//		}
 	}
 	
 	/**

@@ -4,7 +4,6 @@ package mcframe.clientMSBB.MSBBP1210;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import mcframe.clientCore.beans.action.*;
 import mcframe.clientCore.beans.combobox.*;
 import mcframe.clientCore.beans.*;
@@ -43,8 +42,10 @@ import mcframe.clientMSUB.MSUBP5030.*;
 import mcframe.clientMSUB.MSUBP5070.*;
 
 import mcframe.commonMA.constant.*;
+import mcframe.commonMA.meta.MA_META;
 import mcframe.commonMAUC.MAUCC2010.MAUCC_RowMapperWith;
 import mcframe.clientMAUC.MAUCP0040.MAUCP_AppScreenOpener;
+import mcframe.clientMAUC.MAUCP0100.MAUCP_AmtUtil;
 import mcframe.clientMAUD.MAUDP0080.MAUDP_CellConfig;
 import static mcframe.commonMA.notice.MA_Msg.*;
 import static mcframe.commonMAUA.MAUAC0010.MAUAC_List.*;
@@ -253,25 +254,37 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_par_itm_sub3, bind.getStringNE("par_itm_sub3"));
 			}
 			
-			if (param != null) {
+			if (param != null && param.length > 0) {
+				initializingDtl = true;
 				MCList<?> list = (MCList<?>)param[0];
-				for (int i=0; i<list.size(); i++) {
-					if (DtlTable.getRow(i) == null) {
-						insertRow(DtlTable);
-					}
-					MCRow row = list.get(i);
-					
-					String itmCd = row.getStringNE("itm_cd");
-					setValueEx(columnDtl_itm_cd, i, itmCd);
-					setValueEx(columnDtl_itm_sub1, i, row.getStringNE("itm_sub1"));
-					setValueEx(columnDtl_itm_sub2, i, row.getStringNE("itm_sub2"));
-					setValueEx(columnDtl_itm_sub3, i, row.getStringNE("itm_sub3"));
+				try {
+					for (int i=0; i<list.size(); i++) {
+						if (DtlTable.getRow(i) == null) {
+							insertRow(DtlTable);
+						}
+						MCRow row = list.get(i);
+						
+						String itmCd = row.getStringNE("itm_cd");
+						setValueEx(columnDtl_itm_cd, i, itmCd);
+						setValueEx(columnDtl_itm_sub1, i, row.getStringNE("itm_sub1"));
+						setValueEx(columnDtl_itm_sub2, i, row.getStringNE("itm_sub2"));
+						setValueEx(columnDtl_itm_sub3, i, row.getStringNE("itm_sub3"));
 
-					setValueEx(columnDtl_trd_unit_cd, i, row.getStringNE("trd_unit_cd"));
-					setValueEx(columnDtl_trd_unit_qty, i, row.getNumberNE("trd_unit_qty"));
-					setValueEx(columnDtl_cst_itm_cd, i, row.getStringNE("cst_itm_cd"));
-					setValueEx(columnDtl_cst_itm_nm, i, row.getStringNE("cst_itm_nm"));
+						setValueEx(columnDtl_trd_unit_cd, i, row.getStringNE("trd_unit_cd"));
+						setValueEx(columnDtl_trd_unit_qty, i, row.getNumberNE("trd_unit_qty"));
+						setValueEx(columnDtl_cst_itm_cd, i, row.getStringNE("cst_itm_cd"));
+						setValueEx(columnDtl_cst_itm_nm, i, row.getStringNE("cst_itm_nm"));
+					}
 				}
+				finally {
+					initializingDtl = false;
+				}
+				
+			    // 全項目設定後に再計算
+			    for (int i = 0; i < list.size(); i++) {
+			        recalculateDtlAmounts(i);
+			    }
+			    
 				DtlTable.selectLeftmostColumn(0);
 			}
 			DtlTable.fillSpace(); // 画面が既に開いている状態で画面遷移されたケースを考慮
@@ -710,6 +723,152 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// テーブルの空行を調整
 		DtlTable.fillSpace();
 	}
+
+	private boolean initializingDtl = false;	
+	private boolean recalculatingDtlAmounts = false;
+
+	@Override
+	public void doLCEvent(MCLCBeans lc, MCEventInfo info) {
+		// 既存のイベント処理を先に実行
+		super.doLCEvent(lc, info);
+
+		// 初期化中は再計算しない
+		if (initializingDtl) {
+			return;
+		}
+
+		// 品目CDの変更イベントだけを対象にする
+		if (lc != columnDtl_itm_cd) {
+			return;
+		}
+
+		if (recalculatingDtlAmounts) {
+			return;
+		}
+
+		int index = info.getEventIndex();
+
+		if (index < 0 || index >= getDtlL().size()) {
+			return;
+		}
+
+		recalculatingDtlAmounts = true;
+
+		try {
+			recalculateDtlAmounts(index);
+		}
+		finally {
+			recalculatingDtlAmounts = false;
+		}
+	}
+
+	/**
+	 * 明細の既存金額計算処理を実行する。
+	 *
+	 * 前提：
+	 * 単価・数量など、計算に必要な値が
+	 * 既に明細Rowへ設定されていること。
+	 */
+	protected void recalculateDtlAmounts(int index) {
+		DtlR r = getDtlL().get(index);
+
+		if (r == null || r.isEmpty()
+				|| r.isStatusDelete()) {
+			return;
+		}
+
+		// 単価計算
+		setDtlUpri(r);
+
+		// 値引額関連の既存処理
+		setDscntAmt(r);
+
+		// 明細金額計算
+		setDtlAmt(r);
+		
+		// インボイス金額
+		setIvAmt(r);
+
+		// 税込金額
+		setWtaxAmt(r);
+
+		// ヘッダ金額再集計
+		setHdrAmt();
+		setHdrIncTaxAmt();
+	}
+
+	/**
+	 * 単価計算
+	 * @param r
+	 */
+	protected void setDtlAmt(DtlR r) {
+		MCNumber qty = r.base_unit_qty();
+		if (isNull(qty)) {
+			return;
+		}
+
+		MCNumber upri = r.trd_cur_upri();
+		MCNumber dscnt = r.trd_cur_dscnt_amt();
+		if (isNull(upri) || isNull(dscnt)) {
+			return;
+		}
+
+		MCNumber amt = upri.multiply(qty).subtract(dscnt);
+
+		// GUI部品を経由せずRowに設定
+		r.trd_cur_amt(amt);
+	}
+	
+	/**
+	 * 単価計算
+	 * @param r
+	 */
+	protected void setDtlUpri(DtlR r) {
+		MCNumber listUpri = r.list_pri();
+		MCNumber wlSlsUpri = r.wl_sale_upri();
+		String upriTyp = r.upri_typ();
+		MCNumber upriRate = r.upri_rate();
+		if (isNull(listUpri) || isNull(wlSlsUpri) || isNull(upriTyp) || isNull(upriRate)) {
+			return;
+		}
+
+		// 単価
+		MCNumber upri = null;
+		switch (upriTyp) {
+			case "1": upri = listUpri.multiply(upriRate).divide(100); break;
+			case "2": upri = wlSlsUpri.multiply(upriRate).divide(100); break;
+		}
+
+		if (upri == null) {
+			return;
+		}
+
+		// GUI部品を経由せずRowへ設定
+		r.trd_cur_upri(upri);
+	}
+
+	/**
+	 * 値引額を計算
+	 */
+	@Override
+	protected void setDscntAmt(DtlR r) {
+		MCNumber qty = r.base_unit_qty();
+		if (isNull(qty)) {
+			return;
+		}
+
+		MCNumber upri = r.trd_cur_upri();
+		MCNumber upriRate = r.upri_rate();
+		if (isNull(upri) || isNull(upriRate)) {
+			return;
+		}
+
+		MCNumber discntAmt = upriRate.add(-100).multiply(-1).multiply(upri).multiply(qty).divide(100);
+
+		// 診断用：GUI部品を経由せずRowに設定
+		r.trd_cur_dscnt_amt(discntAmt);
+	}
+
 
 //FMCB CUSTOM END
 }

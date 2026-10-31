@@ -4387,24 +4387,24 @@ abstract public class MSBBP_SloReg_MC extends MSBBP_SloReg_MC_A implements IfOpe
 
 	}
 	
-//	protected void doDtl_trd_cur_upri_LC(MCEventInfo info){
-//		DtlR r = getDtlL().get(info.getEventIndex());
-//		if (isNull(r.trd_cur_upri())){
-//			setValueEx(columnDtl_iv_upri, info.getEventIndex(), null);
-//			setValueEx(columnDtl_sls_rsn_cd, info.getEventIndex(), null);
-//		}
-//		else {
-//			if (!isSame(r.trd_cur_upri(), 0)){
-//				if (isCstIv()) {
-//					setValueEx(columnDtl_iv_upri, info.getEventIndex(), r.trd_cur_upri());
-//				}
-//				if (r.sls_acxfr_flg()) {
-//					setValueEx(columnDtl_sls_rsn_cd, info.getEventIndex(), null);
-//				}
-//			}
-//		}
-//
-//	}
+	protected void doDtl_trd_cur_upri_LC(MCEventInfo info){
+		DtlR r = getDtlL().get(info.getEventIndex());
+		if (isNull(r.trd_cur_upri())){
+			setValueEx(columnDtl_iv_upri, info.getEventIndex(), null);
+			setValueEx(columnDtl_sls_rsn_cd, info.getEventIndex(), null);
+		}
+		else {
+			if (!isSame(r.trd_cur_upri(), 0)){
+				if (isCstIv()) {
+					setValueEx(columnDtl_iv_upri, info.getEventIndex(), r.trd_cur_upri());
+				}
+				if (r.sls_acxfr_flg()) {
+					setValueEx(columnDtl_sls_rsn_cd, info.getEventIndex(), null);
+				}
+			}
+		}
+
+	}
 	
 	protected void doDtl_iv_upri_LC(MCEventInfo info) {
 		
@@ -4412,13 +4412,13 @@ abstract public class MSBBP_SloReg_MC extends MSBBP_SloReg_MC_A implements IfOpe
 		setIvAmt(r);
 	}
 
-//	protected void doDtl_trd_cur_amt_LC(MCEventInfo info) {
-//		DtlR r = getDtlL().get(info.getEventIndex());
-//		setIvAmt(r);
-//		setWtaxAmt(r);
-//		setHdrAmt();
-//
-//	}
+	protected void doDtl_trd_cur_amt_LC(MCEventInfo info) {
+		DtlR r = getDtlL().get(info.getEventIndex());
+		setIvAmt(r);
+		setWtaxAmt(r);
+		setHdrAmt();
+
+	}
 	
 	protected void doDtl_trd_cur_inc_tax_amt_LC(MCEventInfo info) {
 		setHdrIncTaxAmt();
