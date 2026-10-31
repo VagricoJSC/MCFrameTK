@@ -53,7 +53,7 @@ public class Query extends Query_MC  {
 						, t1.upri
 					)
 				.from(
-						t1.innerJoin(t2)
+						t2.leftOuterJoin(t1)
 						.on(t1.zoho_sls_schd_no.eq(t2.zoho_sls_schd_no))
 						.innerJoin(m1).on(t2.cst_cd.eq(m1.bp_cd))
 						.innerJoin(m2).on(t2.bcst_cd.eq(m2.bp_cd))
