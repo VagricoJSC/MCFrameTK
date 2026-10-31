@@ -328,22 +328,21 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 得意先CDは指定されない場合、抽出結果をゼロ件にする
 		String cstCd = row.getStringNE("cst_cd");
 		if (cstCd == null) {
-			result.clear();;
-			return result;
+			sl.clear();;
+			return sl;
 		}
 		
 		@SuppressWarnings("unchecked")
-		MCList<MAM_BP_R> bpList = ((MCList<MAM_BP_R>)result);
-		Iterator<MAM_BP_R> itr = bpList.iterator();
+		Iterator<MAM_BP_R> itr = ((MCList<MAM_BP_R>)sl).iterator();
 		while (itr.hasNext()) {
 			MAM_BP_R r = itr.next();
-			// 得意先ではない、または売上部門CDと先頭列は一致しない場合は除外
+			// 売上部門CDと先頭列は一致しない場合は除外
 			if (!r.bp_cd().startsWith(cstCd)) {
 				itr.remove();
 			}
-		}		
+		}	
 		
-		String bp_is_srch_typ = row.getStringNE(BpCols.$i_bp_is_srch_typ);
+		String bp_is_srch_typ = row.getStringNE(SloDlvCols.$i_bp_is_srch_typ);
 
 		// 区分１７：得意先（納品先対応）
 		if (MAC_BP_IS_SRCH_TYP.isCST_BY_DLV(bp_is_srch_typ)) {
@@ -429,50 +428,64 @@ public class MSUAL_List extends MSUAL_List_MC {
 		}
 		// 区分１：得意先
 		else if (MAC_BP_IS_SRCH_TYP.isCST(bp_is_srch_typ)) {
-			sl = getSloDlv_NoDupList(row, builder, t, sl, BpCols.$o_def_dlv_cd);
+			sl = getSloDlv_NoDupList(row, builder, t, sl, SloDlvCols.$o_def_dlv_cd);
 		}
 		// 区分１０：納品先
 		else if (MAC_BP_IS_SRCH_TYP.isDLV(bp_is_srch_typ)) {
-			sl = getSloDlv_NoDupList(row, builder, t, sl, BpCols.$o_def_cst_cd);
+			sl = getSloDlv_NoDupList(row, builder, t, sl, SloDlvCols.$o_def_cst_cd);
 		}
 		// 区分１４：得意先（得意先諸口を含まない）
 		else if (MAC_BP_IS_SRCH_TYP.isCST_NOT_SUNDRY(bp_is_srch_typ)) {
-			sl = getSloDlv_NoDupList(row, builder, t, sl, BpCols.$o_def_dlv_cd);
+			sl = getSloDlv_NoDupList(row, builder, t, sl, SloDlvCols.$o_def_dlv_cd);
 		}
 
 		// マスタ専用処理
 		getSloDlv_AfterSelectMstr(row, builder, t, result, sl);
-
+		
+		// 最後に諸口を追加
+		addSundryDlvRow(sl);		
+		
 		return sl;
+	}
+
+	private void addSundryDlvRow(MCList<?> sl) {
+		MAM_BP_R sundryRow = (MAM_BP_R)sl.add();
+		
+		sundryRow.bp_cd("99");
+		sundryRow.bp_nm("諸口納品先");
+		sundryRow.dlv_sundry_flg(true);
+		
+		sundryRow.addStringColumn("dlv_cd", "99");
+		sundryRow.addStringColumn("dlv_nm", "諸口納品先");
 	}
 	
 	protected MCList<?> getSloDlv_AfterSelectMstr(MCRow row, MCQueryApiBuilder builder,
 			MAM_BP_R t, MCList<?> result, MCList sl) {
 		// 手入力時または存在チェック時のみ
-		if (row.getBooleanNE(BpCols.$i_check_rem_flg) && isInput(row)) {
+		if (row.getBooleanNE(SloDlvCols.$i_check_rem_flg) && isInput(row)) {
 			MCRow refRow = sl.createRow();
-			if (!isNull(row.getStringNE(BpCols.$i_ref_bp_cd))) {
-				refRow.setStringNE(BpCols.$o_bp_cd, row.getString(BpCols.$i_ref_bp_cd));
+			if (!isNull(row.getStringNE(SloDlvCols.$i_ref_bp_cd))) {
+				refRow.setStringNE(SloDlvCols.$o_bp_cd, row.getString(SloDlvCols.$i_ref_bp_cd));
 				sl.add(refRow);
 			}
 		}
-		else if (row.contains(getLLBindNm(BpCols.$i_check_rem_flg))) {
+		else if (row.contains(getLLBindNm(SloDlvCols.$i_check_rem_flg))) {
 			String[] strs = mcframe.commonCore.lang.MCStringUtil.arrayValueSplit(
-					row.getStringNE(getLLBindNm(BpCols.$i_check_rem_flg)));
+					row.getStringNE(getLLBindNm(SloDlvCols.$i_check_rem_flg)));
 			String[] remFlgs = new String[strs.length - 1];
 			for (int i = 1; i < strs.length; i++) {
 				remFlgs[i - 1] = strs[i];
 			}
 			String[] cd = (String[]) convDataArray(
-					row.getStringNE(getLLBindNm(BpCols.$i_ref_bp_cd)));
+					row.getStringNE(getLLBindNm(SloDlvCols.$i_ref_bp_cd)));
 			for (int i = 0; i < remFlgs.length; i++) {
 				if (isSame(remFlgs[i], "1") && !isNull(cd[i])) {
 					MCRow refRow = sl.createRow();
-					refRow.setStringNE(BpCols.$o_bp_cd, cd[i]);
+					refRow.setStringNE(SloDlvCols.$o_bp_cd, cd[i]);
 					sl.add(refRow);
 				}
 				else if (isSame(remFlgs[i], "0") && !isNull(cd[i])) {
-					sl.removeAll(sl.subList(BpCols.$o_bp_cd, cd[i]));
+					sl.removeAll(sl.subList(SloDlvCols.$o_bp_cd, cd[i]));
 				}
 			}
 		}
@@ -491,8 +504,8 @@ public class MSUAL_List extends MSUAL_List_MC {
 	 */
 	protected MCList<?> getSloDlv_NoDupList(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t,
 			MCList sl, String tarCol) {
-		String keyCol = BpCols.$o_bp_cd;
-		String dateCol = BpCols.$o_st_dt;
+		String keyCol = SloDlvCols.$o_bp_cd;
+		String dateCol = SloDlvCols.$o_st_dt;
 		// 一時カラムを保持した空のリストを生成
 		MCList noDupList = sl.shallowClone();
 		noDupList.clear();
@@ -760,7 +773,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 	 */
 	protected void getSloDlv_addSelectJoinBpSub(MCRow row, MCQueryApiBuilder builder,
 			MAM_BP_R t, MCList<?> result) {
-		if (hasDt(row, BpCols.$i_dt)) {
+		if (hasDt(row, SloDlvCols.$i_dt)) {
 			MAW_BP_LL_R w = MAW_BP_LL_R.create("W");
 			builder.addSelect(MAPA_BP$F_GET_BP_ADDR(t.bp_cd, w.dt,
 					value(MAC_BP_ADDR_TYP.ZIP_CD.value())).as("zip_cd"));
@@ -819,7 +832,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分１：得意先
 		else if (MAC_BP_IS_SRCH_TYP.isCST(bp_is_srch_typ)) {
 			// 日付は任意
-			if (hasDt(row, BpCols.$i_dt)) {
+			if (hasDt(row, SloDlvCols.$i_dt)) {
 				builder.addSelect(cst_usr.usr_cd.as("cst_usr_cd"),
 						cst_usr.dpt_cd.as("cst_dpt_cd"),
 						nvl(cst_dlv.dlv_cd, dlv.bp_cd).as("def_dlv_cd"))
@@ -840,7 +853,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分５：発注先
 		else if (MAC_BP_IS_SRCH_TYP.isSPPL(bp_is_srch_typ)) {
 			// 日付は任意
-			if (hasDt(row, BpCols.$i_dt)) {
+			if (hasDt(row, SloDlvCols.$i_dt)) {
 				builder.addSelect(sppl_usr.purc_usr_cd, sppl_usr.purc_dpt_cd,
 						MAPA_BP$F_GET_AP_DPT_CD_NE(baseDbc.asppl_cd, w.dt, value(false))
 								.as("ap_dpt_cd"))
@@ -866,7 +879,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		//　区分２８：発注先_購買
 		else if (MAC_BP_IS_SRCH_TYP.isSPPL_PURC(bp_is_srch_typ)) {
 			// 日付は任意
-			if (hasDt(row, BpCols.$i_dt)) {
+			if (hasDt(row, SloDlvCols.$i_dt)) {
 				builder.addSelect(sppl_usr.purc_usr_cd, sppl_usr.purc_dpt_cd,
 						MAPA_BP$F_GET_AP_DPT_CD_NE(baseDbc.asppl_cd, w.dt, value(false))
 								.as("ap_dpt_cd"))
@@ -883,7 +896,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分１０：納品先
 		else if (MAC_BP_IS_SRCH_TYP.isDLV(bp_is_srch_typ)) {
 			// 日付は任意
-			if (!isSrvChk(row) && hasDt(row, BpCols.$i_dt)) {
+			if (!isSrvChk(row) && hasDt(row, SloDlvCols.$i_dt)) {
 				builder.addSelect(nvl(cst_dlv.cst_cd, cst.bp_cd).as("def_cst_cd"))
 						.addLeftOuterJoin(cst_dlv,
 								cst_dlv.dlv_cd.eq(baseDbc.bp_cd)
@@ -895,7 +908,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分１４：得意先（得意先諸口を含まない）
 		else if (MAC_BP_IS_SRCH_TYP.isCST_NOT_SUNDRY(bp_is_srch_typ)) {
 			// 日付は任意
-			if (hasDt(row, BpCols.$i_dt)) {
+			if (hasDt(row, SloDlvCols.$i_dt)) {
 				builder.addSelect(cst_usr.usr_cd.as("cst_usr_cd"))
 						.addSelect(cst_usr.dpt_cd.as("cst_dpt_cd"))
 						.addSelect(nvl(cst_dlv.dlv_cd, dlv.bp_cd).as("def_dlv_cd"))
@@ -944,9 +957,9 @@ public class MSUAL_List extends MSUAL_List_MC {
 	protected void getSloDlv_addWhereCustom(MCRow row, MCQueryApiBuilder builder, MAM_BP_R t,
 			MCList<?> result) {
 		// 固定条件（行ごとに条件値が同じ条件）
-		String srch_typ = row.getStringNE(BpCols.$i_bp_is_srch_typ);
+		String srch_typ = row.getStringNE(SloDlvCols.$i_bp_is_srch_typ);
 		getBp_addWhereByBpIsSrchTyp(row, builder, t, result, srch_typ);
-		if (row.getBooleanNE(BpCols.$i_foreign_flg)) {
+		if (row.getBooleanNE(SloDlvCols.$i_foreign_flg)) {
 			builder.addWhereWithCutOffAnd(t.cntry_cd.neq(bind("1")),
 					MAUCL_AppSys.getCo().cntry_cd());
 		}
@@ -959,9 +972,9 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 動的条件（行ごとに条件値が異なる条件）
 		// 債権債務先識別区分
 		getBp_addWhereByBpIsSrchTyp(row, builder, t, result, MAC_DEBT_CRED_ID_TYP
-				.bp_is_srch_typ(row.getStringNE(BpCols.$i_debt_cred_id_typ)));
+				.bp_is_srch_typ(row.getStringNE(SloDlvCols.$i_debt_cred_id_typ)));
 
-		String bp_is_srch_typ = row.getStringNE(BpCols.$i_bp_is_srch_typ);
+		String bp_is_srch_typ = row.getStringNE(SloDlvCols.$i_bp_is_srch_typ);
 		// 区分０：全取引先
 		if (isNull(bp_is_srch_typ) || MAC_BP_IS_SRCH_TYP.isCOMM(bp_is_srch_typ)) {
 			// 追加しない
@@ -969,7 +982,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分１９：請求先（入金先対応）
 		else if (MAC_BP_IS_SRCH_TYP.isBCST_BY_RCST(bp_is_srch_typ)) {
 			builder.addWhereWithAnd(t.rcst_cd.eq(bind("1")).or(t.bp_cd.eq(bind("1"))),
-					row.getStringNE(BpCols.$i_in_rcst_cd));
+					row.getStringNE(SloDlvCols.$i_in_rcst_cd));
 		}
 
 		// 直接入力時は以下の条件は追加しない。冗長な結合を省き、パフォーマンスをあげるため
@@ -980,71 +993,71 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 入力補助画面の条件
 		addWhereByBpFlg(row, builder);
 		builder.addWhereWithCutOffAnd(t.bp_cd.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_cd));
+				getEditString(row, SloDlvCols.$i_bp_cd));
 		builder.addWhereWithCutOffAnd(t.bp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_nm));
+				getEditString(row, SloDlvCols.$i_bp_nm));
 		builder.addWhereWithCutOffAnd(t.ein.like(bind("1")),
-				getEditString(row, BpCols.$i_ein));
+				getEditString(row, SloDlvCols.$i_ein));
 		builder.addWhereWithCutOffAnd(t.bp_alt_nm1.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_alt_nm1));
+				getEditString(row, SloDlvCols.$i_bp_alt_nm1));
 		builder.addWhereWithCutOffAnd(t.bp_alt_nm2.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_alt_nm2));
+				getEditString(row, SloDlvCols.$i_bp_alt_nm2));
 		builder.addWhereWithCutOffAnd(t.bp_alt_nm3.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_alt_nm3));
+				getEditString(row, SloDlvCols.$i_bp_alt_nm3));
 		builder.addWhereWithCutOffAnd(t.bp_alt_nm4.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_alt_nm4));
+				getEditString(row, SloDlvCols.$i_bp_alt_nm4));
 		builder.addWhereWithCutOffAnd(t.cntry_cd.like(bind("1")),
-				getEditString(row, BpCols.$i_cntry_cd));
+				getEditString(row, SloDlvCols.$i_cntry_cd));
 		builder.addWhereWithCutOffAnd(
 				((MCStringPermColumn) t.getColumn$("cntry_nm")).like(bind("1")),
-				getEditString(row, BpCols.$i_cntry_nm));
+				getEditString(row, SloDlvCols.$i_cntry_nm));
 		builder.addWhereWithCutOffAnd(t.area_cd.like(bind("1")),
-				getEditString(row, BpCols.$i_area_cd));
+				getEditString(row, SloDlvCols.$i_area_cd));
 		builder.addWhereWithCutOffAnd(
 				((MCStringPermColumn) t.getColumn$("area_nm")).like(bind("1")),
-				getEditString(row, BpCols.$i_area_nm));
+				getEditString(row, SloDlvCols.$i_area_nm));
 		builder.addWhereWithCutOffAnd(t.memo1.like(bind("1")),
-				getEditString(row, BpCols.$i_memo1));
+				getEditString(row, SloDlvCols.$i_memo1));
 		builder.addWhereWithCutOffAnd(t.memo2.like(bind("1")),
-				getEditString(row, BpCols.$i_memo2));
+				getEditString(row, SloDlvCols.$i_memo2));
 		builder.addWhereWithCutOffAnd(t.memo3.like(bind("1")),
-				getEditString(row, BpCols.$i_memo3));
+				getEditString(row, SloDlvCols.$i_memo3));
 		builder.addWhereWithCutOffAnd(t.memo4.like(bind("1")),
-				getEditString(row, BpCols.$i_memo4));
+				getEditString(row, SloDlvCols.$i_memo4));
 		builder.addWhereWithCutOffAnd(t.memo5.like(bind("1")),
-				getEditString(row, BpCols.$i_memo5));
+				getEditString(row, SloDlvCols.$i_memo5));
 		builder.addWhereWithCutOffAnd(t.memo6.like(bind("1")),
-				getEditString(row, BpCols.$i_memo6));
+				getEditString(row, SloDlvCols.$i_memo6));
 		builder.addWhereWithCutOffAnd(t.memo7.like(bind("1")),
-				getEditString(row, BpCols.$i_memo7));
+				getEditString(row, SloDlvCols.$i_memo7));
 		builder.addWhereWithCutOffAnd(t.memo8.like(bind("1")),
-				getEditString(row, BpCols.$i_memo8));
+				getEditString(row, SloDlvCols.$i_memo8));
 		builder.addWhereWithCutOffAnd(t.memo9.like(bind("1")),
-				getEditString(row, BpCols.$i_memo9));
+				getEditString(row, SloDlvCols.$i_memo9));
 		builder.addWhereWithCutOffAnd(t.memo10.like(bind("1")),
-				getEditString(row, BpCols.$i_memo10));
+				getEditString(row, SloDlvCols.$i_memo10));
 		builder.addWhereWithCutOffAnd(t.memo11.like(bind("1")),
-				getEditString(row, BpCols.$i_memo11));
+				getEditString(row, SloDlvCols.$i_memo11));
 		builder.addWhereWithCutOffAnd(t.memo12.like(bind("1")),
-				getEditString(row, BpCols.$i_memo12));
+				getEditString(row, SloDlvCols.$i_memo12));
 		builder.addWhereWithCutOffAnd(t.memo13.like(bind("1")),
-				getEditString(row, BpCols.$i_memo13));
+				getEditString(row, SloDlvCols.$i_memo13));
 		builder.addWhereWithCutOffAnd(t.memo14.like(bind("1")),
-				getEditString(row, BpCols.$i_memo14));
+				getEditString(row, SloDlvCols.$i_memo14));
 		builder.addWhereWithCutOffAnd(t.memo15.like(bind("1")),
-				getEditString(row, BpCols.$i_memo15));
+				getEditString(row, SloDlvCols.$i_memo15));
 		builder.addWhereWithCutOffAnd(t.memo16.like(bind("1")),
-				getEditString(row, BpCols.$i_memo16));
+				getEditString(row, SloDlvCols.$i_memo16));
 		builder.addWhereWithCutOffAnd(t.memo17.like(bind("1")),
-				getEditString(row, BpCols.$i_memo17));
+				getEditString(row, SloDlvCols.$i_memo17));
 		builder.addWhereWithCutOffAnd(t.memo17.like(bind("1")),
-				getEditString(row, BpCols.$i_memo17));
+				getEditString(row, SloDlvCols.$i_memo17));
 		builder.addWhereWithCutOffAnd(t.memo18.like(bind("1")),
-				getEditString(row, BpCols.$i_memo18));
+				getEditString(row, SloDlvCols.$i_memo18));
 		builder.addWhereWithCutOffAnd(t.memo19.like(bind("1")),
-				getEditString(row, BpCols.$i_memo19));
+				getEditString(row, SloDlvCols.$i_memo19));
 		builder.addWhereWithCutOffAnd(t.memo20.like(bind("1")),
-				getEditString(row, BpCols.$i_memo20));
+				getEditString(row, SloDlvCols.$i_memo20));
 
 		// getBp_adddSelectJoinCustom でJoinされる。Joinしていないwhere句はカットオフで消去される前提。
 		MAM_BP_GRP_R grp1 = MAM_BP_GRP_R.create("GRP1");
@@ -1059,45 +1072,45 @@ public class MSUAL_List extends MSUAL_List_MC {
 		MAM_BP_GRP_R grp10 = MAM_BP_GRP_R.create("GRP10");
 
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd1.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd1));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd1));
 		builder.addWhereWithCutOffAnd(grp1.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm1));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm1));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd2.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd2));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd2));
 		builder.addWhereWithCutOffAnd(grp2.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm2));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm2));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd3.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd3));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd3));
 		builder.addWhereWithCutOffAnd(grp3.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm3));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm3));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd4.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd4));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd4));
 		builder.addWhereWithCutOffAnd(grp4.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm4));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm4));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd5.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd5));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd5));
 		builder.addWhereWithCutOffAnd(grp5.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm5));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm5));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd6.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd6));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd6));
 		builder.addWhereWithCutOffAnd(grp6.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm6));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm6));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd7.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd7));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd7));
 		builder.addWhereWithCutOffAnd(grp7.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm7));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm7));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd8.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd8));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd8));
 		builder.addWhereWithCutOffAnd(grp8.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm8));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm8));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd9.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd9));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd9));
 		builder.addWhereWithCutOffAnd(grp9.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm9));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm9));
 		builder.addWhereWithCutOffAnd(t.bp_grp_cd10.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_cd10));
+				getEditString(row, SloDlvCols.$i_bp_grp_cd10));
 		builder.addWhereWithCutOffAnd(grp10.bp_grp_nm.like(bind("1")),
-				getEditString(row, BpCols.$i_bp_grp_nm10));
+				getEditString(row, SloDlvCols.$i_bp_grp_nm10));
 	}	
 	
 	protected void getBp_addWhereByBpIsSrchTyp(MCRow row, MCQueryApiBuilder builder,
@@ -1116,9 +1129,9 @@ public class MSUAL_List extends MSUAL_List_MC {
 		// 区分１：得意先
 		else if (MAC_BP_IS_SRCH_TYP.isCST(bp_is_srch_typ)) {
 			builder.addWhereWithAnd(t.cst_flg.eq(value(true)));
-			if (row.contains(BpCols.$i_cst_iv_flg)) {
+			if (row.contains(SloDlvCols.$i_cst_iv_flg)) {
 				builder.addWhereWithAnd(t.cst_iv_flg.eq(bind("1")),
-						booleanToDBString(row.getBooleanNE(BpCols.$i_cst_iv_flg)));
+						booleanToDBString(row.getBooleanNE(SloDlvCols.$i_cst_iv_flg)));
 			}
 		}
 		// 区分２：売掛先
@@ -1174,9 +1187,9 @@ public class MSUAL_List extends MSUAL_List_MC {
 		else if (MAC_BP_IS_SRCH_TYP.isCST_NOT_SUNDRY(bp_is_srch_typ)) {
 			builder.addWhereWithAnd(t.cst_flg.eq(value(true)));
 			builder.addWhereWithAnd(t.cst_sundry_flg.eq(value(false)));
-			if (row.contains(BpCols.$i_cst_iv_flg)) {
+			if (row.contains(SloDlvCols.$i_cst_iv_flg)) {
 				builder.addWhereWithAnd(t.cst_iv_flg.eq(bind("1")),
-						booleanToDBString(row.getBooleanNE(BpCols.$i_cst_iv_flg)));
+						booleanToDBString(row.getBooleanNE(SloDlvCols.$i_cst_iv_flg)));
 			}
 		}
 		// 区分１５：配送先
@@ -1197,12 +1210,12 @@ public class MSUAL_List extends MSUAL_List_MC {
 		}
 		// 区分１７：得意先（納品先対応）
 		else if (MAC_BP_IS_SRCH_TYP.isCST_BY_DLV(bp_is_srch_typ)) {
-			if (!row.getBooleanNE(BpCols.$i_cst_sundry_cntn_flg)) {
+			if (!row.getBooleanNE(SloDlvCols.$i_cst_sundry_cntn_flg)) {
 				builder.addWhereWithAnd(t.cst_sundry_flg.eq(value(false)));
 			}
-			if (row.contains(BpCols.$i_cst_iv_flg)) {
+			if (row.contains(SloDlvCols.$i_cst_iv_flg)) {
 				builder.addWhereWithAnd(t.cst_iv_flg.eq(bind("1")),
-						booleanToDBString(row.getBooleanNE(BpCols.$i_cst_iv_flg)));
+						booleanToDBString(row.getBooleanNE(SloDlvCols.$i_cst_iv_flg)));
 			}
 			if (_cstdlv_sql == 0) {
 				builder.addWhereWithAnd(cst_dlv.dlv_cd.eq(w.dlv_cd));
