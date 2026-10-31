@@ -4,6 +4,7 @@ package mcframe.clientMSBB.MSBBP1210;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import mcframe.clientCore.beans.action.*;
 import mcframe.clientCore.beans.combobox.*;
 import mcframe.clientCore.beans.*;
@@ -63,6 +64,8 @@ import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 import mcframe.clientMAUC.MAUCP1060.MAUCP_TrdUtil;
@@ -112,6 +115,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 */
 	@Override
 	public void doBtn_par_ship(MCEventInfo info) {
+	    groupDtlByDeliveryRequestDate();
+	    setHdrAmt();
+	    setHdrIncTaxAmt();		
 	}
 
 	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";
@@ -618,5 +624,92 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// super.doHdr_def_cst_cd_NC(info);
 		// setCstCd();
 	}
+
+	/**
+	 * 納入希望日ごとに明細をグルーピングし、
+	 * 2番目以降のグループ先頭に1行目のコピーを追加する。
+	 */
+	protected void groupDtlByDeliveryRequestDate() {
+		MCList<DtlR> dtlL = getDtlL();
+
+		if (dtlL == null || dtlL.isEmpty()) {
+			return;
+		}
+
+		// 元の1行目をコピー元として固定
+		DtlR firstRow = dtlL.get(0);
+
+		if (firstRow.isEmpty() || firstRow.isStatusDelete()) {
+			return;
+		}
+
+		// 納入希望日ごとにグルーピング
+		Map<Object, List<DtlR>> groups =
+				new LinkedHashMap<>();
+
+		for (DtlR row : dtlL) {
+
+			if (row.isEmpty() || row.isStatusDelete()) {
+				continue;
+			}
+
+			Object date = row.dlv_rqst_dt();
+
+			groups.computeIfAbsent(
+					date, k -> new ArrayList<>()
+					).add(row);
+		}
+
+		if (groups.size() <= 1) {
+			return;
+		}
+
+		// 並び替え後の明細
+		MCList<DtlR> result = createDtlL();
+
+		int groupIndex = 0;
+
+		for (Map.Entry<Object, List<DtlR>> entry
+				: groups.entrySet()) {
+
+			List<DtlR> rows = entry.getValue();
+
+			if (groupIndex > 0) {
+
+				// コピー用の新しいRowを作成
+				DtlR copy = createDtlR();
+
+				// 元の1行目を全項目コピー
+				MCRow.copyall(copy, firstRow);
+
+				// 新規行として扱う
+				copy.setStatus(Status.CREATE);
+
+				// コピー先グループの納入希望日
+				copy.dlv_rqst_dt(
+						rows.get(0).dlv_rqst_dt()
+						);
+
+				// 受注明細NOは新規採番対象
+				copy.slo_d_no(null);
+
+				result.add(copy);
+			}
+
+			// グループ内の既存明細を追加
+			for (DtlR row : rows) {
+				result.add(row);
+			}
+
+			groupIndex++;
+		}
+
+		// 明細を再設定
+		setDtlL(result);
+
+		// テーブルの空行を調整
+		DtlTable.fillSpace();
+	}
+
 //FMCB CUSTOM END
 }
