@@ -107,6 +107,13 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	}
 
 //FMCB CUSTOM START
+	/**
+	 * Panel[Btn]のボタン[par_ship]の押下時の処理
+	 */
+	@Override
+	public void doBtn_par_ship(MCEventInfo info) {
+	}
+
 	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";
 
 	/**
@@ -611,6 +618,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// super.doHdr_def_cst_cd_NC(info);
 		// setCstCd();
 	}
-	
 //FMCB CUSTOM END
 }

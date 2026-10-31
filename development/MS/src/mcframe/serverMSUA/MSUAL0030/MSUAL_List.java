@@ -448,6 +448,10 @@ public class MSUAL_List extends MSUAL_List_MC {
 		return sl;
 	}
 
+	/**
+	 * 諸口納品先
+	 * @param sl
+	 */
 	private void addSundryDlvRow(MCList<?> sl) {
 		MAM_BP_R sundryRow = (MAM_BP_R)sl.add();
 		

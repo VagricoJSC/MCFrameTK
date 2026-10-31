@@ -455,197 +455,13 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>trd_cur_upri_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>cost_upri_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>cost_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>iv_upri_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>iv_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>prof_rate</td>
- *  	<td>Gross profit rate</td>
- *  	<td>Number</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#PER PER}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>wtax_rate</td>
- *  	<td>Withholding tax rate</td>
- *  	<td>Number</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#WTAX_RATE WTAX_RATE}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>wtax_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>base_cur_upri_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>base_cur_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>base_cur_inc_tax_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>base_cur_tax_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>ptax_cur_upri_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>ptax_cur_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>ptax_cur_inc_tax_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>ptax_cur_tax_amt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>bill_crryovr_times</td>
- *  	<td>Billing carry-over count</td>
- *  	<td>Number</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#CRRYOVR_TIMES CRRYOVR_TIMES}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>gd_cd</td>
- *  	<td>Grading cd.</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>gd_nm</td>
- *  	<td>Grading name</td>
- *  	<td>String</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_NM STK_GD_NM}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>sno_num_flg</td>
- *  	<td>Numbering SEIBAN No.</td>
- *  	<td>Boolean</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>sno_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5070.SnoR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
- *  	<td>set_itm_grp_no</td>
- *  	<td>Assortment group No.</td>
- *  	<td>Number</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#SET_ITM_GRP_NO SET_ITM_GRP_NO}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr bgcolor="Moccasin">
- *  	<td><br></td>
- *  	<td>ship_rqst_dt_p</td>
- *  	<td><br></td>
- *  	<td>InnerRow</td>
- *  	<td><br></td>
- *  	<td>{@link mcframe.clientMAUB.MAUBP5320.YmdHmR}</td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
  *  	<td>dlv_rqst_dt_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP5320.YmdHmR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>dlv_day_week_typ</td>
  *  	<td>Day type</td>
@@ -653,13 +469,197 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DAY_WEEK_TYP DAY_WEEK_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>dlv_day_week_typ_nm</td>
  *  	<td>Arrival day of week</td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DAY_WEEK_TYP_NM DAY_WEEK_TYP_NM}]</td>
  *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>trd_cur_upri_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>cost_upri_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cost_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>iv_upri_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>iv_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>prof_rate</td>
+ *  	<td>Gross profit rate</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#PER PER}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>wtax_rate</td>
+ *  	<td>Withholding tax rate</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WTAX_RATE WTAX_RATE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>wtax_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_cur_upri_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_cur_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>base_cur_inc_tax_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>base_cur_tax_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ptax_cur_upri_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5060.UpriR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ptax_cur_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ptax_cur_inc_tax_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ptax_cur_tax_amt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5050.AmtR}</td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>bill_crryovr_times</td>
+ *  	<td>Billing carry-over count</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CRRYOVR_TIMES CRRYOVR_TIMES}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>gd_cd</td>
+ *  	<td>Grading cd.</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_CD STK_GD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>gd_nm</td>
+ *  	<td>Grading name</td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STK_GD_NM STK_GD_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sno_num_flg</td>
+ *  	<td>Numbering SEIBAN No.</td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>sno_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5070.SnoR}</td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>set_itm_grp_no</td>
+ *  	<td>Assortment group No.</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SET_ITM_GRP_NO SET_ITM_GRP_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ship_rqst_dt_p</td>
+ *  	<td><br></td>
+ *  	<td>InnerRow</td>
+ *  	<td><br></td>
+ *  	<td>{@link mcframe.clientMAUB.MAUBP5320.YmdHmR}</td>
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>

@@ -276,6 +276,17 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final String $trd_cur_upri = "trd_cur_upri";
 	public static final String $trd_cur_amt = "trd_cur_amt";
 	public static final String $trd_cur_dscnt_amt = "trd_cur_dscnt_amt";
+	public static final String $dlv_rqst_dt_p = "dlv_rqst_dt_p";
+	/**
+	 * Day type 曜日区分.<p>
+	 *
+	 */
+	public static final String $dlv_day_week_typ = "dlv_day_week_typ";
+	/**
+	 * Arrival day of week 着曜日.<p>
+	 *
+	 */
+	public static final String $dlv_day_week_typ_nm = "dlv_day_week_typ_nm";
 	public static final String $trd_cur_upri_amt_p = "trd_cur_upri_amt_p";
 	public static final String $cost_upri_p = "cost_upri_p";
 	public static final String $cost_amt_p = "cost_amt_p";
@@ -327,17 +338,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 */
 	public static final String $set_itm_grp_no = "set_itm_grp_no";
 	public static final String $ship_rqst_dt_p = "ship_rqst_dt_p";
-	public static final String $dlv_rqst_dt_p = "dlv_rqst_dt_p";
-	/**
-	 * Day type 曜日区分.<p>
-	 *
-	 */
-	public static final String $dlv_day_week_typ = "dlv_day_week_typ";
-	/**
-	 * Arrival day of week 着曜日.<p>
-	 *
-	 */
-	public static final String $dlv_day_week_typ_nm = "dlv_day_week_typ_nm";
 	/**
 	 * Scheduled sales date 売上予定日.<p>
 	 *
@@ -825,6 +825,8 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final String $itm_sub3 = $itm_p + ".itm_sub3";
 	public static final String $itm_nm = $itm_p + ".itm_nm";
 	public static final String $trd_unit_qty = $trd_unit_qty_p + ".qty";
+	public static final String $dlv_rqst_dt = $dlv_rqst_dt_p + ".ymd";
+	public static final String $dlv_rqst_hm = $dlv_rqst_dt_p + ".hm";
 	public static final String $upri_not_tgt_flg = $trd_cur_upri_amt_p + ".upri_not_tgt_flg";
 	public static final String $interim_flg = $trd_cur_upri_amt_p + ".interim_flg";
 	public static final String $trd_cur_inc_tax_amt = $trd_cur_upri_amt_p + ".trd_cur_inc_tax_amt";
@@ -860,8 +862,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final String $sno4 = $sno_p + ".sno4";
 	public static final String $ship_rqst_dt = $ship_rqst_dt_p + ".ymd";
 	public static final String $ship_rqst_hm = $ship_rqst_dt_p + ".hm";
-	public static final String $dlv_rqst_dt = $dlv_rqst_dt_p + ".ymd";
-	public static final String $dlv_rqst_hm = $dlv_rqst_dt_p + ".hm";
 	public static final String $ship_schd_dt = $ship_schd_dt_p + ".ymd";
 	public static final String $ship_schd_hm = $ship_schd_dt_p + ".hm";
 	public static final String $dlv_schd_dt = $dlv_schd_dt_p + ".ymd";
@@ -975,6 +975,9 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final MCMeta trd_cur_upri_META = createCommonMeta($trd_cur_upri, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta trd_cur_amt_META = createCommonMeta($trd_cur_amt, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta trd_cur_dscnt_amt_META = createCommonMeta($trd_cur_dscnt_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta dlv_rqst_dt_p_META = createInnerRowMeta($dlv_rqst_dt_p, mcframe.clientMAUB.MAUBP5320.YmdHmR.class);
+	public static final MCMeta dlv_day_week_typ_META = createCommonMeta($dlv_day_week_typ, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP);
+	public static final MCMeta dlv_day_week_typ_nm_META = createCommonMeta($dlv_day_week_typ_nm, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP_NM);
 	public static final MCMeta trd_cur_upri_amt_p_META = createInnerRowMeta($trd_cur_upri_amt_p, mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR.class);
 	public static final MCMeta cost_upri_p_META = createInnerRowMeta($cost_upri_p, mcframe.clientMAUB.MAUBP5060.UpriR.class);
 	public static final MCMeta cost_amt_p_META = createInnerRowMeta($cost_amt_p, mcframe.clientMAUB.MAUBP5050.AmtR.class);
@@ -998,9 +1001,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final MCMeta sno_p_META = createInnerRowMeta($sno_p, mcframe.clientMAUB.MAUBP5070.SnoR.class);
 	public static final MCMeta set_itm_grp_no_META = createCommonMeta($set_itm_grp_no, mcframe.commonMA.meta.MA_META.SET_ITM_GRP_NO);
 	public static final MCMeta ship_rqst_dt_p_META = createInnerRowMeta($ship_rqst_dt_p, mcframe.clientMAUB.MAUBP5320.YmdHmR.class);
-	public static final MCMeta dlv_rqst_dt_p_META = createInnerRowMeta($dlv_rqst_dt_p, mcframe.clientMAUB.MAUBP5320.YmdHmR.class);
-	public static final MCMeta dlv_day_week_typ_META = createCommonMeta($dlv_day_week_typ, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP);
-	public static final MCMeta dlv_day_week_typ_nm_META = createCommonMeta($dlv_day_week_typ_nm, mcframe.commonMA.meta.MA_META.DAY_WEEK_TYP_NM);
 	public static final MCMeta sls_schd_dt_META = createCommonMeta($sls_schd_dt, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta accpt_schd_dt_META = createCommonMeta($accpt_schd_dt, mcframe.commonMA.meta.MA_META.DT);
 	public static final MCMeta ship_schd_split_flg_META = createCommonMeta($ship_schd_split_flg, mcframe.commonMA.meta.MA_META.FLG);
@@ -1171,6 +1171,9 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_cur_upri_META,
 			trd_cur_amt_META,
 			trd_cur_dscnt_amt_META,
+			dlv_rqst_dt_p_META,
+			dlv_day_week_typ_META,
+			dlv_day_week_typ_nm_META,
 			trd_cur_upri_amt_p_META,
 			cost_upri_p_META,
 			cost_amt_p_META,
@@ -1194,9 +1197,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 			sno_p_META,
 			set_itm_grp_no_META,
 			ship_rqst_dt_p_META,
-			dlv_rqst_dt_p_META,
-			dlv_day_week_typ_META,
-			dlv_day_week_typ_nm_META,
 			sls_schd_dt_META,
 			accpt_schd_dt_META,
 			ship_schd_split_flg_META,
@@ -1318,6 +1318,8 @@ abstract class DtlR_MC_A extends MCConstRow {
 				"itm_sub3",
 				"itm_nm",
 				"trd_unit_qty",
+				"dlv_rqst_dt",
+				"dlv_rqst_hm",
 				"upri_not_tgt_flg",
 				"interim_flg",
 				"trd_cur_inc_tax_amt",
@@ -1353,8 +1355,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 				"sno4",
 				"ship_rqst_dt",
 				"ship_rqst_hm",
-				"dlv_rqst_dt",
-				"dlv_rqst_hm",
 				"ship_schd_dt",
 				"ship_schd_hm",
 				"dlv_schd_dt",
@@ -1419,6 +1419,8 @@ abstract class DtlR_MC_A extends MCConstRow {
 				$itm_sub3,
 				$itm_nm,
 				$trd_unit_qty,
+				$dlv_rqst_dt,
+				$dlv_rqst_hm,
 				$upri_not_tgt_flg,
 				$interim_flg,
 				$trd_cur_inc_tax_amt,
@@ -1454,8 +1456,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 				$sno4,
 				$ship_rqst_dt,
 				$ship_rqst_hm,
-				$dlv_rqst_dt,
-				$dlv_rqst_hm,
 				$ship_schd_dt,
 				$ship_schd_hm,
 				$dlv_schd_dt,
@@ -1548,8 +1548,8 @@ abstract class DtlR_MC_A extends MCConstRow {
 				{$itm_p + ".itm_sub3", "itm_nm;stk_mng_typ;asset_mng_typ_nm;asset_mng_typ;sundry_itm_flg;dscnt_itm_flg;unit_cd;unit_nm;dec_place;rnd_typ;ship_unit_nm;ship_unit_cd;ship_unit_dec_place;lot_mng_typ;lot_no_typ;sublot_mng_typ;sublot_no_typ;sno1_mng_typ;slo_sno1_flg;sno1_num_typ;sno2_mng_typ;slo_sno2_flg;sno2_num_typ;sno3_mng_typ;slo_sno3_flg;sno3_num_typ;sno4_mng_typ;slo_sno4_flg;sno4_num_typ;cntry_org_cd;cntry_org_nm;itm_bill_crryovr_times;slo_proc_flg;ver_flg;sls_upri_cng_flg;bp_itm_cd;bp_itm_nm;vmi_flg;iv_itm_nm;trd_cur_upri;wtax_rate;tax_cd;tax_nm;tax_rate;tax_typ;inc_tax_flg;ship_unit_conv_base_qty;ship_unit_conv_qty;ship_unit_qty;dscnt_rsn_cd;dscnt_rsn_nm;cost_upri;bill_crryovr_times;dest_cd1;dest_nm1;dest_cd2;dest_nm2;dest_cd3;dest_nm3;dlv_rqst_dt;dlv_rqst_hm;ship_rqst_dt;ship_rqst_hm;dlv_day_week_typ_nm;dlv_day_week_typ;via_dlv_typ_nm;via_dlv_typ;sls_cststk_flg;gd_nm;gd_cd;ship_schd_split_typ;alloc_scope_typ;alloc_typ;sls_upri_req_typ;def_ship_inst_typ;ship_inst_typ;ship_term_cd;ship_term_nm;slo_proc_typ;proc_typ;dlv_cd;dlv_nm;dlv_sundry_flg;pri_prnt_flg;dlv_lg_grp_cd;dlv_lg_grp_nm;dlv_cntry_cd;dlv_cntry_nm;dlv_zip_cd;dlv_addr1;dlv_addr2;dlv_addr3;dlv_addr4;dlv_tel;dlv_fax;dlv_cntct_dpt;dlv_cntct_psn;prnt_lcl_cd;tdlv_req_flg;tdlv_cd;tdlv_nm;tdlv_sundry_flg;tdlv_lg_grp_cd;tdlv_lg_grp_nm;tdlv_cntry_cd;tdlv_cntry_nm;tdlv_zip_cd;tdlv_addr1;tdlv_addr2;tdlv_addr3;tdlv_addr4;tdlv_tel;tdlv_fax;tdlv_cntct_dpt;tdlv_cntct_psn;list_pri;wl_sale_upri;upri_typ;upri_typ_nm;upri_rate;trd_cur_dscnt_amt;trd_cur_amt"},	// itm_p.itm_sub3
 				{$cntry_org_cd, "cntry_nm"},	// cntry_org_cd
 				{$trd_unit_cd, "unit_nm;dec_place;conv_base_qty;conv_qty"},	// trd_unit_cd
-				{$trd_cur_upri_amt_p + ".dscnt_rsn_cd", "biz_rsn_nm"},	// trd_cur_upri_amt_p.dscnt_rsn_cd
 				{$dlv_day_week_typ_nm, "day_week_typ"},	// dlv_day_week_typ_nm
+				{$trd_cur_upri_amt_p + ".dscnt_rsn_cd", "biz_rsn_nm"},	// trd_cur_upri_amt_p.dscnt_rsn_cd
 				{$dlv_p + ".bp_cd", "bp_nm;dlv_sundry_flg;pri_prnt_flg;zip_cd;addr1;addr2;addr3;addr4;cntry_cd;cntry_nm;tel;fax;dlv_cntct_dpt;dlv_cntct_psn;lg_grp_cd;tdlv_req_flg;prnt_lcl_cd"},	// dlv_p.bp_cd
 				{$dest_cd1, "bp_nm"},	// dest_cd1
 				{$dest_cd2, "bp_nm"},	// dest_cd2
@@ -2878,403 +2878,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 	}
 
 
-	public mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR trd_cur_upri_amt_p(){
-		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 54, $trd_cur_upri_amt_p);
-	}
-	
-	public void trd_cur_upri_amt_p(mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR row){
-		setConstInnerRow(offset + 54, $trd_cur_upri_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5060.UpriR cost_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 55, $cost_upri_p);
-	}
-	
-	public void cost_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 55, $cost_upri_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR cost_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 56, $cost_amt_p);
-	}
-	
-	public void cost_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 56, $cost_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5060.UpriR iv_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 57, $iv_upri_p);
-	}
-	
-	public void iv_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 57, $iv_upri_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR iv_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 58, $iv_amt_p);
-	}
-	
-	public void iv_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 58, $iv_amt_p, row);
-	}
-
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public MCNumber prof_rate() {
-		return getConstNumber(offset + 59, $prof_rate);
-	}
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public void prof_rate(MCNumber value) {
-		setConstNumber(offset + 59, $prof_rate, value);
-	}
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public void prof_rate(int value) {
-		setConstNumber(offset + 59, $prof_rate, value);
-	}
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public void prof_rate(long value) {
-		setConstNumber(offset + 59, $prof_rate, value);
-	}
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public void prof_rate(float value) {
-		setConstNumber(offset + 59, $prof_rate, value);
-	}
-
-	/**
-	 * Gross profit rate 粗利率.<p>
-	 *
-	 */
-	public void prof_rate(double value) {
-		setConstNumber(offset + 59, $prof_rate, value);
-	}
-
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public MCNumber wtax_rate() {
-		return getConstNumber(offset + 60, $wtax_rate);
-	}
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public void wtax_rate(MCNumber value) {
-		setConstNumber(offset + 60, $wtax_rate, value);
-	}
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public void wtax_rate(int value) {
-		setConstNumber(offset + 60, $wtax_rate, value);
-	}
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public void wtax_rate(long value) {
-		setConstNumber(offset + 60, $wtax_rate, value);
-	}
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public void wtax_rate(float value) {
-		setConstNumber(offset + 60, $wtax_rate, value);
-	}
-
-	/**
-	 * Withholding tax rate 源泉税率.<p>
-	 *
-	 */
-	public void wtax_rate(double value) {
-		setConstNumber(offset + 60, $wtax_rate, value);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR wtax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 61, $wtax_amt_p);
-	}
-	
-	public void wtax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 61, $wtax_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5060.UpriR base_cur_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 62, $base_cur_upri_p);
-	}
-	
-	public void base_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 62, $base_cur_upri_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 63, $base_cur_amt_p);
-	}
-	
-	public void base_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 63, $base_cur_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_inc_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 64, $base_cur_inc_tax_amt_p);
-	}
-	
-	public void base_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 64, $base_cur_inc_tax_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 65, $base_cur_tax_amt_p);
-	}
-	
-	public void base_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 65, $base_cur_tax_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5060.UpriR ptax_cur_upri_p(){
-		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 66, $ptax_cur_upri_p);
-	}
-	
-	public void ptax_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
-		setConstInnerRow(offset + 66, $ptax_cur_upri_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 67, $ptax_cur_amt_p);
-	}
-	
-	public void ptax_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 67, $ptax_cur_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_inc_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 68, $ptax_cur_inc_tax_amt_p);
-	}
-	
-	public void ptax_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 68, $ptax_cur_inc_tax_amt_p, row);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 69, $ptax_cur_tax_amt_p);
-	}
-	
-	public void ptax_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
-		setConstInnerRow(offset + 69, $ptax_cur_tax_amt_p, row);
-	}
-
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public MCNumber bill_crryovr_times() {
-		return getConstNumber(offset + 70, $bill_crryovr_times);
-	}
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public void bill_crryovr_times(MCNumber value) {
-		setConstNumber(offset + 70, $bill_crryovr_times, value);
-	}
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public void bill_crryovr_times(int value) {
-		setConstNumber(offset + 70, $bill_crryovr_times, value);
-	}
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public void bill_crryovr_times(long value) {
-		setConstNumber(offset + 70, $bill_crryovr_times, value);
-	}
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public void bill_crryovr_times(float value) {
-		setConstNumber(offset + 70, $bill_crryovr_times, value);
-	}
-
-	/**
-	 * Billing carry-over count 請求繰越回数.<p>
-	 *
-	 */
-	public void bill_crryovr_times(double value) {
-		setConstNumber(offset + 70, $bill_crryovr_times, value);
-	}
-
-
-	/**
-	 * Grading cd. 格付ＣＤ.<p>
-	 *
-	 */
-	public String gd_cd() {
-		return getConstString(offset + 71, $gd_cd);
-	}
-
-	/**
-	 * Grading cd. 格付ＣＤ.<p>
-	 *
-	 */
-	public void gd_cd(String value) {
-		setConstString(offset + 71, $gd_cd, value);
-	}
-
-
-	/**
-	 * Grading name 格付名.<p>
-	 *
-	 */
-	public String gd_nm() {
-		return getConstString(offset + 72, $gd_nm);
-	}
-
-	/**
-	 * Grading name 格付名.<p>
-	 *
-	 */
-	public void gd_nm(String value) {
-		setConstString(offset + 72, $gd_nm, value);
-	}
-
-
-	/**
-	 * Numbering SEIBAN No. 手配ＮＯ発番.<p>
-	 *
-	 */
-	public boolean sno_num_flg() {
-		return getConstBoolean(offset + 73, $sno_num_flg);
-	}
-
-	/**
-	 * Numbering SEIBAN No. 手配ＮＯ発番.<p>
-	 *
-	 */
-	public void sno_num_flg(boolean value) {
-		setConstBoolean(offset + 73, $sno_num_flg, value);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5070.SnoR sno_p(){
-		return (mcframe.clientMAUB.MAUBP5070.SnoR) getConstInnerRow(offset + 74, $sno_p);
-	}
-	
-	public void sno_p(mcframe.clientMAUB.MAUBP5070.SnoR row){
-		setConstInnerRow(offset + 74, $sno_p, row);
-	}
-
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public MCNumber set_itm_grp_no() {
-		return getConstNumber(offset + 75, $set_itm_grp_no);
-	}
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public void set_itm_grp_no(MCNumber value) {
-		setConstNumber(offset + 75, $set_itm_grp_no, value);
-	}
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public void set_itm_grp_no(int value) {
-		setConstNumber(offset + 75, $set_itm_grp_no, value);
-	}
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public void set_itm_grp_no(long value) {
-		setConstNumber(offset + 75, $set_itm_grp_no, value);
-	}
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public void set_itm_grp_no(float value) {
-		setConstNumber(offset + 75, $set_itm_grp_no, value);
-	}
-
-	/**
-	 * Assortment group No. 品揃グループＮＯ.<p>
-	 *
-	 */
-	public void set_itm_grp_no(double value) {
-		setConstNumber(offset + 75, $set_itm_grp_no, value);
-	}
-
-
-	public mcframe.clientMAUB.MAUBP5320.YmdHmR ship_rqst_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 76, $ship_rqst_dt_p);
-	}
-	
-	public void ship_rqst_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 76, $ship_rqst_dt_p, row);
-	}
-
-
 	public mcframe.clientMAUB.MAUBP5320.YmdHmR dlv_rqst_dt_p(){
-		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 77, $dlv_rqst_dt_p);
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 54, $dlv_rqst_dt_p);
 	}
 	
 	public void dlv_rqst_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
-		setConstInnerRow(offset + 77, $dlv_rqst_dt_p, row);
+		setConstInnerRow(offset + 54, $dlv_rqst_dt_p, row);
 	}
 
 
@@ -3283,7 +2892,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ() {
-		return getConstString(offset + 78, $dlv_day_week_typ);
+		return getConstString(offset + 55, $dlv_day_week_typ);
 	}
 
 	/**
@@ -3291,7 +2900,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ(String value) {
-		setConstString(offset + 78, $dlv_day_week_typ, value);
+		setConstString(offset + 55, $dlv_day_week_typ, value);
 	}
 
 
@@ -3300,7 +2909,7 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ_nm() {
-		return getConstString(offset + 79, $dlv_day_week_typ_nm);
+		return getConstString(offset + 56, $dlv_day_week_typ_nm);
 	}
 
 	/**
@@ -3308,7 +2917,398 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ_nm(String value) {
-		setConstString(offset + 79, $dlv_day_week_typ_nm, value);
+		setConstString(offset + 56, $dlv_day_week_typ_nm, value);
+	}
+
+
+	public mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR trd_cur_upri_amt_p(){
+		return (mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR) getConstInnerRow(offset + 57, $trd_cur_upri_amt_p);
+	}
+	
+	public void trd_cur_upri_amt_p(mcframe.clientMSUB.MSUBP5070.TrdUpriAmtR row){
+		setConstInnerRow(offset + 57, $trd_cur_upri_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5060.UpriR cost_upri_p(){
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 58, $cost_upri_p);
+	}
+	
+	public void cost_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
+		setConstInnerRow(offset + 58, $cost_upri_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR cost_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 59, $cost_amt_p);
+	}
+	
+	public void cost_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 59, $cost_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5060.UpriR iv_upri_p(){
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 60, $iv_upri_p);
+	}
+	
+	public void iv_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
+		setConstInnerRow(offset + 60, $iv_upri_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR iv_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 61, $iv_amt_p);
+	}
+	
+	public void iv_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 61, $iv_amt_p, row);
+	}
+
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public MCNumber prof_rate() {
+		return getConstNumber(offset + 62, $prof_rate);
+	}
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public void prof_rate(MCNumber value) {
+		setConstNumber(offset + 62, $prof_rate, value);
+	}
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public void prof_rate(int value) {
+		setConstNumber(offset + 62, $prof_rate, value);
+	}
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public void prof_rate(long value) {
+		setConstNumber(offset + 62, $prof_rate, value);
+	}
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public void prof_rate(float value) {
+		setConstNumber(offset + 62, $prof_rate, value);
+	}
+
+	/**
+	 * Gross profit rate 粗利率.<p>
+	 *
+	 */
+	public void prof_rate(double value) {
+		setConstNumber(offset + 62, $prof_rate, value);
+	}
+
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public MCNumber wtax_rate() {
+		return getConstNumber(offset + 63, $wtax_rate);
+	}
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public void wtax_rate(MCNumber value) {
+		setConstNumber(offset + 63, $wtax_rate, value);
+	}
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public void wtax_rate(int value) {
+		setConstNumber(offset + 63, $wtax_rate, value);
+	}
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public void wtax_rate(long value) {
+		setConstNumber(offset + 63, $wtax_rate, value);
+	}
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public void wtax_rate(float value) {
+		setConstNumber(offset + 63, $wtax_rate, value);
+	}
+
+	/**
+	 * Withholding tax rate 源泉税率.<p>
+	 *
+	 */
+	public void wtax_rate(double value) {
+		setConstNumber(offset + 63, $wtax_rate, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR wtax_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 64, $wtax_amt_p);
+	}
+	
+	public void wtax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 64, $wtax_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5060.UpriR base_cur_upri_p(){
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 65, $base_cur_upri_p);
+	}
+	
+	public void base_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
+		setConstInnerRow(offset + 65, $base_cur_upri_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 66, $base_cur_amt_p);
+	}
+	
+	public void base_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 66, $base_cur_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_inc_tax_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 67, $base_cur_inc_tax_amt_p);
+	}
+	
+	public void base_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 67, $base_cur_inc_tax_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR base_cur_tax_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 68, $base_cur_tax_amt_p);
+	}
+	
+	public void base_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 68, $base_cur_tax_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5060.UpriR ptax_cur_upri_p(){
+		return (mcframe.clientMAUB.MAUBP5060.UpriR) getConstInnerRow(offset + 69, $ptax_cur_upri_p);
+	}
+	
+	public void ptax_cur_upri_p(mcframe.clientMAUB.MAUBP5060.UpriR row){
+		setConstInnerRow(offset + 69, $ptax_cur_upri_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 70, $ptax_cur_amt_p);
+	}
+	
+	public void ptax_cur_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 70, $ptax_cur_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_inc_tax_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 71, $ptax_cur_inc_tax_amt_p);
+	}
+	
+	public void ptax_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 71, $ptax_cur_inc_tax_amt_p, row);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5050.AmtR ptax_cur_tax_amt_p(){
+		return (mcframe.clientMAUB.MAUBP5050.AmtR) getConstInnerRow(offset + 72, $ptax_cur_tax_amt_p);
+	}
+	
+	public void ptax_cur_tax_amt_p(mcframe.clientMAUB.MAUBP5050.AmtR row){
+		setConstInnerRow(offset + 72, $ptax_cur_tax_amt_p, row);
+	}
+
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public MCNumber bill_crryovr_times() {
+		return getConstNumber(offset + 73, $bill_crryovr_times);
+	}
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public void bill_crryovr_times(MCNumber value) {
+		setConstNumber(offset + 73, $bill_crryovr_times, value);
+	}
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public void bill_crryovr_times(int value) {
+		setConstNumber(offset + 73, $bill_crryovr_times, value);
+	}
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public void bill_crryovr_times(long value) {
+		setConstNumber(offset + 73, $bill_crryovr_times, value);
+	}
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public void bill_crryovr_times(float value) {
+		setConstNumber(offset + 73, $bill_crryovr_times, value);
+	}
+
+	/**
+	 * Billing carry-over count 請求繰越回数.<p>
+	 *
+	 */
+	public void bill_crryovr_times(double value) {
+		setConstNumber(offset + 73, $bill_crryovr_times, value);
+	}
+
+
+	/**
+	 * Grading cd. 格付ＣＤ.<p>
+	 *
+	 */
+	public String gd_cd() {
+		return getConstString(offset + 74, $gd_cd);
+	}
+
+	/**
+	 * Grading cd. 格付ＣＤ.<p>
+	 *
+	 */
+	public void gd_cd(String value) {
+		setConstString(offset + 74, $gd_cd, value);
+	}
+
+
+	/**
+	 * Grading name 格付名.<p>
+	 *
+	 */
+	public String gd_nm() {
+		return getConstString(offset + 75, $gd_nm);
+	}
+
+	/**
+	 * Grading name 格付名.<p>
+	 *
+	 */
+	public void gd_nm(String value) {
+		setConstString(offset + 75, $gd_nm, value);
+	}
+
+
+	/**
+	 * Numbering SEIBAN No. 手配ＮＯ発番.<p>
+	 *
+	 */
+	public boolean sno_num_flg() {
+		return getConstBoolean(offset + 76, $sno_num_flg);
+	}
+
+	/**
+	 * Numbering SEIBAN No. 手配ＮＯ発番.<p>
+	 *
+	 */
+	public void sno_num_flg(boolean value) {
+		setConstBoolean(offset + 76, $sno_num_flg, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5070.SnoR sno_p(){
+		return (mcframe.clientMAUB.MAUBP5070.SnoR) getConstInnerRow(offset + 77, $sno_p);
+	}
+	
+	public void sno_p(mcframe.clientMAUB.MAUBP5070.SnoR row){
+		setConstInnerRow(offset + 77, $sno_p, row);
+	}
+
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public MCNumber set_itm_grp_no() {
+		return getConstNumber(offset + 78, $set_itm_grp_no);
+	}
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public void set_itm_grp_no(MCNumber value) {
+		setConstNumber(offset + 78, $set_itm_grp_no, value);
+	}
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public void set_itm_grp_no(int value) {
+		setConstNumber(offset + 78, $set_itm_grp_no, value);
+	}
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public void set_itm_grp_no(long value) {
+		setConstNumber(offset + 78, $set_itm_grp_no, value);
+	}
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public void set_itm_grp_no(float value) {
+		setConstNumber(offset + 78, $set_itm_grp_no, value);
+	}
+
+	/**
+	 * Assortment group No. 品揃グループＮＯ.<p>
+	 *
+	 */
+	public void set_itm_grp_no(double value) {
+		setConstNumber(offset + 78, $set_itm_grp_no, value);
+	}
+
+
+	public mcframe.clientMAUB.MAUBP5320.YmdHmR ship_rqst_dt_p(){
+		return (mcframe.clientMAUB.MAUBP5320.YmdHmR) getConstInnerRow(offset + 79, $ship_rqst_dt_p);
+	}
+	
+	public void ship_rqst_dt_p(mcframe.clientMAUB.MAUBP5320.YmdHmR row){
+		setConstInnerRow(offset + 79, $ship_rqst_dt_p, row);
 	}
 
 
@@ -5371,17 +5371,17 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_unit_rnd_typ.equalsIgnoreCase(name)) {
 			return trd_unit_rnd_typ();
 		}
-		if ($gd_cd.equalsIgnoreCase(name)) {
-			return gd_cd();
-		}
-		if ($gd_nm.equalsIgnoreCase(name)) {
-			return gd_nm();
-		}
 		if ($dlv_day_week_typ.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ();
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ_nm();
+		}
+		if ($gd_cd.equalsIgnoreCase(name)) {
+			return gd_cd();
+		}
+		if ($gd_nm.equalsIgnoreCase(name)) {
+			return gd_nm();
 		}
 		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
 			return prnt_lcl_cd();
@@ -5843,17 +5843,17 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_unit_rnd_typ.equalsIgnoreCase(name)) {
 			return trd_unit_rnd_typ();
 		}
-		if ($gd_cd.equalsIgnoreCase(name)) {
-			return gd_cd();
-		}
-		if ($gd_nm.equalsIgnoreCase(name)) {
-			return gd_nm();
-		}
 		if ($dlv_day_week_typ.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ();
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			return dlv_day_week_typ_nm();
+		}
+		if ($gd_cd.equalsIgnoreCase(name)) {
+			return gd_cd();
+		}
+		if ($gd_nm.equalsIgnoreCase(name)) {
+			return gd_nm();
 		}
 		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
 			return prnt_lcl_cd();
@@ -6345,20 +6345,20 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_unit_rnd_typ(value);
 			return;
 		}
-		if ($gd_cd.equalsIgnoreCase(name)) {
-			gd_cd(value);
-			return;
-		}
-		if ($gd_nm.equalsIgnoreCase(name)) {
-			gd_nm(value);
-			return;
-		}
 		if ($dlv_day_week_typ.equalsIgnoreCase(name)) {
 			dlv_day_week_typ(value);
 			return;
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			dlv_day_week_typ_nm(value);
+			return;
+		}
+		if ($gd_cd.equalsIgnoreCase(name)) {
+			gd_cd(value);
+			return;
+		}
+		if ($gd_nm.equalsIgnoreCase(name)) {
+			gd_nm(value);
 			return;
 		}
 		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
@@ -7318,20 +7318,20 @@ abstract class DtlR_MC_A extends MCConstRow {
 			trd_unit_rnd_typ(value);
 			return;
 		}
-		if ($gd_cd.equalsIgnoreCase(name)) {
-			gd_cd(value);
-			return;
-		}
-		if ($gd_nm.equalsIgnoreCase(name)) {
-			gd_nm(value);
-			return;
-		}
 		if ($dlv_day_week_typ.equalsIgnoreCase(name)) {
 			dlv_day_week_typ(value);
 			return;
 		}
 		if ($dlv_day_week_typ_nm.equalsIgnoreCase(name)) {
 			dlv_day_week_typ_nm(value);
+			return;
+		}
+		if ($gd_cd.equalsIgnoreCase(name)) {
+			gd_cd(value);
+			return;
+		}
+		if ($gd_nm.equalsIgnoreCase(name)) {
+			gd_nm(value);
 			return;
 		}
 		if ($prnt_lcl_cd.equalsIgnoreCase(name)) {
@@ -8177,6 +8177,9 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_unit_qty_p.equalsIgnoreCase(name)) {
 			return trd_unit_qty_p();
 		}
+		if ($dlv_rqst_dt_p.equalsIgnoreCase(name)) {
+			return dlv_rqst_dt_p();
+		}
 		if ($trd_cur_upri_amt_p.equalsIgnoreCase(name)) {
 			return trd_cur_upri_amt_p();
 		}
@@ -8224,9 +8227,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($ship_rqst_dt_p.equalsIgnoreCase(name)) {
 			return ship_rqst_dt_p();
-		}
-		if ($dlv_rqst_dt_p.equalsIgnoreCase(name)) {
-			return dlv_rqst_dt_p();
 		}
 		if ($ship_schd_dt_p.equalsIgnoreCase(name)) {
 			return ship_schd_dt_p();
@@ -8301,6 +8301,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($trd_unit_qty_p.equalsIgnoreCase(name)) {
 			trd_unit_qty_p(
 				((MCContainerMeta) trd_unit_qty_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5040.QtyR.class, value)
+			);
+			return;
+		}
+		if ($dlv_rqst_dt_p.equalsIgnoreCase(name)) {
+			dlv_rqst_dt_p(
+				((MCContainerMeta) dlv_rqst_dt_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5320.YmdHmR.class, value)
 			);
 			return;
 		}
@@ -8397,12 +8403,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 		if ($ship_rqst_dt_p.equalsIgnoreCase(name)) {
 			ship_rqst_dt_p(
 				((MCContainerMeta) ship_rqst_dt_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5320.YmdHmR.class, value)
-			);
-			return;
-		}
-		if ($dlv_rqst_dt_p.equalsIgnoreCase(name)) {
-			dlv_rqst_dt_p(
-				((MCContainerMeta) dlv_rqst_dt_p_META).castInnerRow(mcframe.clientMAUB.MAUBP5320.YmdHmR.class, value)
 			);
 			return;
 		}
@@ -8616,6 +8616,38 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 */
 	public void trd_unit_qty(double value) {
 		trd_unit_qty_p().qty(value);
+	}
+
+	/**
+	 * Desired delivery date 納入希望日.<p>
+	 *
+	 */
+	public MCDate dlv_rqst_dt() {
+		return dlv_rqst_dt_p().ymd();
+	}
+
+	/**
+	 * Desired delivery date 納入希望日.<p>
+	 *
+	 */
+	public void dlv_rqst_dt(MCDate value) {
+		dlv_rqst_dt_p().ymd(value);
+	}
+
+	/**
+	 * Desired delivery time 納入希望時刻.<p>
+	 *
+	 */
+	public MCDate dlv_rqst_hm() {
+		return dlv_rqst_dt_p().hm();
+	}
+
+	/**
+	 * Desired delivery time 納入希望時刻.<p>
+	 *
+	 */
+	public void dlv_rqst_hm(MCDate value) {
+		dlv_rqst_dt_p().hm(value);
 	}
 
 	public boolean upri_not_tgt_flg() {
@@ -9480,38 +9512,6 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 */
 	public void ship_rqst_hm(MCDate value) {
 		ship_rqst_dt_p().hm(value);
-	}
-
-	/**
-	 * Desired delivery date 納入希望日.<p>
-	 *
-	 */
-	public MCDate dlv_rqst_dt() {
-		return dlv_rqst_dt_p().ymd();
-	}
-
-	/**
-	 * Desired delivery date 納入希望日.<p>
-	 *
-	 */
-	public void dlv_rqst_dt(MCDate value) {
-		dlv_rqst_dt_p().ymd(value);
-	}
-
-	/**
-	 * Desired delivery time 納入希望時刻.<p>
-	 *
-	 */
-	public MCDate dlv_rqst_hm() {
-		return dlv_rqst_dt_p().hm();
-	}
-
-	/**
-	 * Desired delivery time 納入希望時刻.<p>
-	 *
-	 */
-	public void dlv_rqst_hm(MCDate value) {
-		dlv_rqst_dt_p().hm(value);
 	}
 
 	/**
