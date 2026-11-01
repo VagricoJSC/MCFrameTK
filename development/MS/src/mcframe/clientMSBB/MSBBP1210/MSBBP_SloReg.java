@@ -344,10 +344,63 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 売上条件区分・配送先のモードをクリア
 		Hdr_tdlv_cd.setMode(MCMode.ENABLE);
 		Hdr_sls_cond_typ.clear();
-		
-	    // 標準処理後に同期
-	    syncArDptWithSlsDpt();		
 
+		// 標準処理後に同期
+		syncArDptWithSlsDpt();		
+
+		// 候補が1件の場合は自動選択
+		selectSingleSalesCondition(info);
+		selectSingleFreeReason(info);	    
+	}
+
+	/**
+	 * 売上条件区分の候補が1件の場合は自動選択する。
+	 */
+	private void selectSingleSalesCondition(MCEventInfo info) {
+
+		if (isNull(Hdr_trd_cd.getValue())) {
+			return;
+		}
+
+		// 既存の絞り込み処理を利用
+		MCList<?> list =
+				getHdr_sls_cond_typ(MCRow.create(), info);
+
+		if (list == null || list.size() != 1) {
+			return;
+		}
+
+		MCRow item = list.get(0);
+		String code = item.getStringNE("sls_cond_typ");
+
+		if (!isNull(code)) {
+			setValueEx(Hdr_sls_cond_typ, code);
+		}
+	}
+
+	/**
+	 * 無償理由の候補が1件の場合は自動選択する。
+	 */
+	private void selectSingleFreeReason(MCEventInfo info) {
+
+		if (isNull(Hdr_trd_cd.getValue())) {
+			return;
+		}
+
+		// 既存の絞り込み処理を利用
+		MCList<?> list =
+				getHdr_frc_rsn_cd(MCRow.create(), info);
+
+		if (list == null || list.size() != 1) {
+			return;
+		}
+
+		MCRow item = list.get(0);
+		String code = item.getStringNE("free_rsn_typ");
+
+		if (!isNull(code)) {
+			setValueEx(Hdr_frc_rsn_cd, code);
+		}
 	}
 
 	@Override
