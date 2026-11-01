@@ -924,5 +924,28 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	    // 請求繰越回数を1に固定
 	    r.bill_crryovr_times(MCNumber.ONE);
 	}
+
+	/**
+	 * 初期値の設定
+	 */
+	@Override
+	protected void valueInitSub() {
+
+		// 受注日・受注区分・通貨など、標準の初期値を設定
+		super.valueInitSub();
+
+		// 新規登録時、受付担当者が未設定の場合に設定
+		if (Cnd_ope_INS.isSelected()
+				&& isNull(getHdrR().rcpt_usr_cd())) {
+
+			String loginUserId = mcframe.clientCore.sys.MCSys.user.ID();
+
+			if (!isNull(loginUserId)) {
+				setValueEx(Hdr_rcpt_usr_cd, loginUserId);
+			}
+		}
+	}
+
+
 //FMCB CUSTOM END
 }
