@@ -653,8 +653,10 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String FREE_RSN_JIP_ENTRY_ERR = "Q";	// JIP誤入力
 	private final static String FREE_RSN_LOANED_ITM = "T"; 	// 貸与品
 	private final static String FREE_RSN_THIRD_DLV_ITM = "R"; // 代納品
+	private final static String FREE_RSN_COMPENSATION = "F"; // 補償
+	private final static String FREE_RSN_FREE_OF_CHARGE = "M"; // 無償
 	private final static Set<String> ALL_FREE_RSN_CD = new HashSet<String>(
-			Arrays.asList(FREE_RSN_SAMPLE_PROD, FREE_RSN_JIP_ENTRY_ERR, FREE_RSN_LOANED_ITM, FREE_RSN_THIRD_DLV_ITM)
+			Arrays.asList(FREE_RSN_SAMPLE_PROD, FREE_RSN_JIP_ENTRY_ERR, FREE_RSN_LOANED_ITM, FREE_RSN_THIRD_DLV_ITM, FREE_RSN_COMPENSATION, FREE_RSN_FREE_OF_CHARGE)
 		);
 	protected Set<String> getAllowedFreeReasonCodes(
 			String trdCd) {

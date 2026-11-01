@@ -62,6 +62,14 @@ abstract class MSC_FREE_RSN_TYP_MC_A extends MCAppConst {
 	 */
 	public static final MSC_FREE_RSN_TYP THIRD_DLV_ITM = create("R", "THIRD_DLV_ITM");
 
+	/** 無償理由区分：補償
+	 */
+	public static final MSC_FREE_RSN_TYP COMPENSATION = create("F", "COMPENSATION");
+
+	/** 無償理由区分：無償
+	 */
+	public static final MSC_FREE_RSN_TYP FREE_OF_CHARGE = create("M", "FREE_OF_CHARGE");
+
 	/**
 	 * 新しいインスタンスを生成します。
 	 */
@@ -194,7 +202,8 @@ abstract class MSC_FREE_RSN_TYP_MC_A extends MCAppConst {
 	public static MSC_FREE_RSN_TYP[] array() {
 		if (array == null) {
 			array = new MSC_FREE_RSN_TYP[] {
-					MSC_FREE_RSN_TYP.SAMPLE_PROD, MSC_FREE_RSN_TYP.JIP_ENTRY_ERR, MSC_FREE_RSN_TYP.LOANED_ITM, MSC_FREE_RSN_TYP.THIRD_DLV_ITM
+					MSC_FREE_RSN_TYP.SAMPLE_PROD, MSC_FREE_RSN_TYP.JIP_ENTRY_ERR, MSC_FREE_RSN_TYP.LOANED_ITM, MSC_FREE_RSN_TYP.THIRD_DLV_ITM, MSC_FREE_RSN_TYP.COMPENSATION, 
+					 MSC_FREE_RSN_TYP.FREE_OF_CHARGE
 			};
 		}
 		return array;
@@ -468,6 +477,44 @@ abstract class MSC_FREE_RSN_TYP_MC_A extends MCAppConst {
 	 */
 	public static boolean isTHIRD_DLV_ITM(MSC_FREE_RSN_TYP type) {
 		return MSC_FREE_RSN_TYP.THIRD_DLV_ITM.isSame(type);
+	}
+
+	/**
+	 * 無償理由区分：補償かどうか
+	 * @param value 定数値
+	 * @return 定数値が補償の値の場合true
+	 */
+	public static boolean isCOMPENSATION(String value) {
+		MSC_FREE_RSN_TYP type = MSC_FREE_RSN_TYP.getNE(value);
+		return MSC_FREE_RSN_TYP.COMPENSATION.isSame(type);
+	}
+
+	/**
+	 * 無償理由区分：補償かどうか
+	 * @param type 属性値
+	 * @return 属性値が補償の値の場合true
+	 */
+	public static boolean isCOMPENSATION(MSC_FREE_RSN_TYP type) {
+		return MSC_FREE_RSN_TYP.COMPENSATION.isSame(type);
+	}
+
+	/**
+	 * 無償理由区分：無償かどうか
+	 * @param value 定数値
+	 * @return 定数値が無償の値の場合true
+	 */
+	public static boolean isFREE_OF_CHARGE(String value) {
+		MSC_FREE_RSN_TYP type = MSC_FREE_RSN_TYP.getNE(value);
+		return MSC_FREE_RSN_TYP.FREE_OF_CHARGE.isSame(type);
+	}
+
+	/**
+	 * 無償理由区分：無償かどうか
+	 * @param type 属性値
+	 * @return 属性値が無償の値の場合true
+	 */
+	public static boolean isFREE_OF_CHARGE(MSC_FREE_RSN_TYP type) {
+		return MSC_FREE_RSN_TYP.FREE_OF_CHARGE.isSame(type);
 	}
 
 	/**
