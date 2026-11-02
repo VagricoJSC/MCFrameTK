@@ -237,9 +237,19 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			if (bind.contains("sls_usr_cd")) {
 				setValueEx(Hdr_sls_usr_cd, bind.getStringNE("sls_usr_cd"));
 			}
+			
+			// 売上部門
+			String slsDptCd = null;
 			if (bind.contains("sls_dpt_cd")) {
-				String slsDptCd = bind.getStringNE("sls_dpt_cd");
-
+				slsDptCd = bind.getStringNE("sls_dpt_cd");
+			}
+			
+			// 未指定・空欄の場合はログインユーザの主部門
+			if (isNull(slsDptCd)) {
+			    slsDptCd = getUsrAcl().dpt_cd();
+			}
+			
+			if (!isNull(slsDptCd)) {
 		        // 部門リストロジック経由で設定
 				setValueEx(Hdr_sls_dpt_cd, slsDptCd);
 				// getHdrR().sls_dpt_cd(slsDptCd);
@@ -828,8 +838,10 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			return;
 		}
 
-		// 品目CD・数量の変更イベントだけを対象にする
-		if (lc != columnDtl_itm_cd && lc != columnDtl_trd_unit_qty) {
+		// 品目CD・数量・掛率の変更イベントだけを対象にする
+		if (lc != columnDtl_itm_cd
+				&& lc != columnDtl_trd_unit_qty
+				&& lc != columnDtl_upri_rate) {
 			return;
 		}
 
@@ -999,6 +1011,16 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_rcpt_usr_cd, loginUserId);
 			}
 		}
+		
+	    // 売上部門の初期値
+	    if (isNull(getHdrR().sls_dpt_cd())) {
+	        String slsDptCd = getUsrAcl().dpt_cd();
+
+	        if (!isNull(slsDptCd)) {
+	            setValueEx(Hdr_sls_dpt_cd, slsDptCd);
+	            syncArDptWithSlsDpt();
+	        }
+	    }		
 	}
 
 
