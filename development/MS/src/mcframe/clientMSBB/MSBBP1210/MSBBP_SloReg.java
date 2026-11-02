@@ -841,6 +841,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 		// 品目CD・数量・掛率の変更イベントだけを対象にする
 		if (lc != columnDtl_itm_cd
+				&& lc != columnDtl_trd_cur_upri
 				&& lc != columnDtl_trd_unit_qty
 				&& lc != columnDtl_upri_rate) {
 			return;

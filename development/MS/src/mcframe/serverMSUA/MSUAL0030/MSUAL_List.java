@@ -157,6 +157,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 								.or(m1.wg_cd.eq(value("*")))
 							)
 						.and(stDt.between(m1.st_dt, m1.end_dt))
+						.and(m1.del_flg.eq(value(false)))
 				)
 				.executeQuery(r, resultList);
 
@@ -206,6 +207,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 								.or(m1.wg_cd.eq(value("*")))
 							)
 						.and(stDt.between(m1.st_dt, m1.end_dt))
+						.and(m1.del_flg.eq(value(false)))
 				)
 				.executeQuery(r, resultList)
 				;
