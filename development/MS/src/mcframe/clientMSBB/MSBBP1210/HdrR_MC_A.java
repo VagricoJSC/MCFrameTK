@@ -388,6 +388,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $ttl_cost_amt = "ttl_cost_amt";
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public static final String $trd_cur_amt_no_dscnt = "trd_cur_amt_no_dscnt";
 	public static final String $trd_cur_amt_p = "trd_cur_amt_p";
 	public static final String $trd_cur_inc_tax_amt_p = "trd_cur_inc_tax_amt_p";
 	/**
@@ -961,6 +966,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta ttl_amt_no_cost_p_META = createInnerRowMeta($ttl_amt_no_cost_p, mcframe.clientMAUB.MAUBP0060.AmtR.class);
 	public static final MCMeta base_cur_ttl_amt_META = createCommonMeta($base_cur_ttl_amt, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta ttl_cost_amt_META = createCommonMeta($ttl_cost_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta trd_cur_amt_no_dscnt_META = createCommonMeta($trd_cur_amt_no_dscnt, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta trd_cur_amt_p_META = createInnerRowMeta($trd_cur_amt_p, mcframe.clientMAUB.MAUBP0060.AmtR.class);
 	public static final MCMeta trd_cur_inc_tax_amt_p_META = createInnerRowMeta($trd_cur_inc_tax_amt_p, mcframe.clientMAUB.MAUBP0060.AmtR.class);
 	public static final MCMeta assort_typ_META = createCommonMeta($assort_typ, mcframe.commonMS.meta.MS_META.SHIP_ASSORT_TYP);
@@ -1139,6 +1145,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_amt_no_cost_p_META,
 			base_cur_ttl_amt_META,
 			ttl_cost_amt_META,
+			trd_cur_amt_no_dscnt_META,
 			trd_cur_amt_p_META,
 			trd_cur_inc_tax_amt_p_META,
 			assort_typ_META,
@@ -3232,21 +3239,70 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public MCNumber trd_cur_amt_no_dscnt() {
+		return getConstNumber(offset + 82, $trd_cur_amt_no_dscnt);
+	}
+
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public void trd_cur_amt_no_dscnt(MCNumber value) {
+		setConstNumber(offset + 82, $trd_cur_amt_no_dscnt, value);
+	}
+
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public void trd_cur_amt_no_dscnt(int value) {
+		setConstNumber(offset + 82, $trd_cur_amt_no_dscnt, value);
+	}
+
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public void trd_cur_amt_no_dscnt(long value) {
+		setConstNumber(offset + 82, $trd_cur_amt_no_dscnt, value);
+	}
+
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public void trd_cur_amt_no_dscnt(float value) {
+		setConstNumber(offset + 82, $trd_cur_amt_no_dscnt, value);
+	}
+
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public void trd_cur_amt_no_dscnt(double value) {
+		setConstNumber(offset + 82, $trd_cur_amt_no_dscnt, value);
+	}
+
+
 	public mcframe.clientMAUB.MAUBP0060.AmtR trd_cur_amt_p(){
-		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 82, $trd_cur_amt_p);
+		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 83, $trd_cur_amt_p);
 	}
 	
 	public void trd_cur_amt_p(mcframe.clientMAUB.MAUBP0060.AmtR row){
-		setConstInnerRow(offset + 82, $trd_cur_amt_p, row);
+		setConstInnerRow(offset + 83, $trd_cur_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0060.AmtR trd_cur_inc_tax_amt_p(){
-		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 83, $trd_cur_inc_tax_amt_p);
+		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 84, $trd_cur_inc_tax_amt_p);
 	}
 	
 	public void trd_cur_inc_tax_amt_p(mcframe.clientMAUB.MAUBP0060.AmtR row){
-		setConstInnerRow(offset + 83, $trd_cur_inc_tax_amt_p, row);
+		setConstInnerRow(offset + 84, $trd_cur_inc_tax_amt_p, row);
 	}
 
 
@@ -3255,7 +3311,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String assort_typ() {
-		return getConstString(offset + 84, $assort_typ);
+		return getConstString(offset + 85, $assort_typ);
 	}
 
 	/**
@@ -3263,7 +3319,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void assort_typ(String value) {
-		setConstString(offset + 84, $assort_typ, value);
+		setConstString(offset + 85, $assort_typ, value);
 	}
 
 
@@ -3272,7 +3328,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String assort_typ_nm() {
-		return getConstString(offset + 85, $assort_typ_nm);
+		return getConstString(offset + 86, $assort_typ_nm);
 	}
 
 	/**
@@ -3280,7 +3336,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void assort_typ_nm(String value) {
-		setConstString(offset + 85, $assort_typ_nm, value);
+		setConstString(offset + 86, $assort_typ_nm, value);
 	}
 
 
@@ -3289,7 +3345,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String adv_ship_ctrl_typ() {
-		return getConstString(offset + 86, $adv_ship_ctrl_typ);
+		return getConstString(offset + 87, $adv_ship_ctrl_typ);
 	}
 
 	/**
@@ -3297,7 +3353,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void adv_ship_ctrl_typ(String value) {
-		setConstString(offset + 86, $adv_ship_ctrl_typ, value);
+		setConstString(offset + 87, $adv_ship_ctrl_typ, value);
 	}
 
 
@@ -3306,7 +3362,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String adv_ship_ctrl_typ_nm() {
-		return getConstString(offset + 87, $adv_ship_ctrl_typ_nm);
+		return getConstString(offset + 88, $adv_ship_ctrl_typ_nm);
 	}
 
 	/**
@@ -3314,25 +3370,25 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void adv_ship_ctrl_typ_nm(String value) {
-		setConstString(offset + 87, $adv_ship_ctrl_typ_nm, value);
+		setConstString(offset + 88, $adv_ship_ctrl_typ_nm, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0060.AmtR adv_bill_amt_p(){
-		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 88, $adv_bill_amt_p);
+		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 89, $adv_bill_amt_p);
 	}
 	
 	public void adv_bill_amt_p(mcframe.clientMAUB.MAUBP0060.AmtR row){
-		setConstInnerRow(offset + 88, $adv_bill_amt_p, row);
+		setConstInnerRow(offset + 89, $adv_bill_amt_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0060.AmtR adv_rcv_amt_p(){
-		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 89, $adv_rcv_amt_p);
+		return (mcframe.clientMAUB.MAUBP0060.AmtR) getConstInnerRow(offset + 90, $adv_rcv_amt_p);
 	}
 	
 	public void adv_rcv_amt_p(mcframe.clientMAUB.MAUBP0060.AmtR row){
-		setConstInnerRow(offset + 89, $adv_rcv_amt_p, row);
+		setConstInnerRow(offset + 90, $adv_rcv_amt_p, row);
 	}
 
 
@@ -3341,7 +3397,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_po_no() {
-		return getConstString(offset + 90, $cst_po_no);
+		return getConstString(offset + 91, $cst_po_no);
 	}
 
 	/**
@@ -3349,7 +3405,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_no(String value) {
-		setConstString(offset + 90, $cst_po_no, value);
+		setConstString(offset + 91, $cst_po_no, value);
 	}
 
 
@@ -3358,7 +3414,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber cst_po_rev() {
-		return getConstNumber(offset + 91, $cst_po_rev);
+		return getConstNumber(offset + 92, $cst_po_rev);
 	}
 
 	/**
@@ -3366,7 +3422,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rev(MCNumber value) {
-		setConstNumber(offset + 91, $cst_po_rev, value);
+		setConstNumber(offset + 92, $cst_po_rev, value);
 	}
 
 	/**
@@ -3374,7 +3430,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rev(int value) {
-		setConstNumber(offset + 91, $cst_po_rev, value);
+		setConstNumber(offset + 92, $cst_po_rev, value);
 	}
 
 	/**
@@ -3382,7 +3438,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rev(long value) {
-		setConstNumber(offset + 91, $cst_po_rev, value);
+		setConstNumber(offset + 92, $cst_po_rev, value);
 	}
 
 	/**
@@ -3390,7 +3446,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rev(float value) {
-		setConstNumber(offset + 91, $cst_po_rev, value);
+		setConstNumber(offset + 92, $cst_po_rev, value);
 	}
 
 	/**
@@ -3398,7 +3454,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rev(double value) {
-		setConstNumber(offset + 91, $cst_po_rev, value);
+		setConstNumber(offset + 92, $cst_po_rev, value);
 	}
 
 
@@ -3407,7 +3463,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate rcpt_dt() {
-		return getConstDate(offset + 92, $rcpt_dt);
+		return getConstDate(offset + 93, $rcpt_dt);
 	}
 
 	/**
@@ -3415,7 +3471,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rcpt_dt(MCDate value) {
-		setConstDate(offset + 92, $rcpt_dt, value);
+		setConstDate(offset + 93, $rcpt_dt, value);
 	}
 
 
@@ -3424,7 +3480,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String rcpt_usr_cd() {
-		return getConstString(offset + 93, $rcpt_usr_cd);
+		return getConstString(offset + 94, $rcpt_usr_cd);
 	}
 
 	/**
@@ -3432,7 +3488,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rcpt_usr_cd(String value) {
-		setConstString(offset + 93, $rcpt_usr_cd, value);
+		setConstString(offset + 94, $rcpt_usr_cd, value);
 	}
 
 
@@ -3441,7 +3497,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String rcpt_usr_nm() {
-		return getConstString(offset + 94, $rcpt_usr_nm);
+		return getConstString(offset + 95, $rcpt_usr_nm);
 	}
 
 	/**
@@ -3449,7 +3505,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void rcpt_usr_nm(String value) {
-		setConstString(offset + 94, $rcpt_usr_nm, value);
+		setConstString(offset + 95, $rcpt_usr_nm, value);
 	}
 
 
@@ -3458,7 +3514,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String acst_cd() {
-		return getConstString(offset + 95, $acst_cd);
+		return getConstString(offset + 96, $acst_cd);
 	}
 
 	/**
@@ -3466,7 +3522,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void acst_cd(String value) {
-		setConstString(offset + 95, $acst_cd, value);
+		setConstString(offset + 96, $acst_cd, value);
 	}
 
 
@@ -3475,7 +3531,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String acst_nm() {
-		return getConstString(offset + 96, $acst_nm);
+		return getConstString(offset + 97, $acst_nm);
 	}
 
 	/**
@@ -3483,7 +3539,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void acst_nm(String value) {
-		setConstString(offset + 96, $acst_nm, value);
+		setConstString(offset + 97, $acst_nm, value);
 	}
 
 
@@ -3492,7 +3548,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ar_dpt_cd() {
-		return getConstString(offset + 97, $ar_dpt_cd);
+		return getConstString(offset + 98, $ar_dpt_cd);
 	}
 
 	/**
@@ -3500,7 +3556,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ar_dpt_cd(String value) {
-		setConstString(offset + 97, $ar_dpt_cd, value);
+		setConstString(offset + 98, $ar_dpt_cd, value);
 	}
 
 
@@ -3509,7 +3565,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ar_dpt_nm() {
-		return getConstString(offset + 98, $ar_dpt_nm);
+		return getConstString(offset + 99, $ar_dpt_nm);
 	}
 
 	/**
@@ -3517,7 +3573,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ar_dpt_nm(String value) {
-		setConstString(offset + 98, $ar_dpt_nm, value);
+		setConstString(offset + 99, $ar_dpt_nm, value);
 	}
 
 
@@ -3526,7 +3582,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String iv_no() {
-		return getConstString(offset + 99, $iv_no);
+		return getConstString(offset + 100, $iv_no);
 	}
 
 	/**
@@ -3534,7 +3590,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void iv_no(String value) {
-		setConstString(offset + 99, $iv_no, value);
+		setConstString(offset + 100, $iv_no, value);
 	}
 
 
@@ -3543,7 +3599,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean iv_num_flg() {
-		return getConstBoolean(offset + 100, $iv_num_flg);
+		return getConstBoolean(offset + 101, $iv_num_flg);
 	}
 
 	/**
@@ -3551,7 +3607,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void iv_num_flg(boolean value) {
-		setConstBoolean(offset + 100, $iv_num_flg, value);
+		setConstBoolean(offset + 101, $iv_num_flg, value);
 	}
 
 
@@ -3560,7 +3616,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trnspt_cd() {
-		return getConstString(offset + 101, $trnspt_cd);
+		return getConstString(offset + 102, $trnspt_cd);
 	}
 
 	/**
@@ -3568,7 +3624,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trnspt_cd(String value) {
-		setConstString(offset + 101, $trnspt_cd, value);
+		setConstString(offset + 102, $trnspt_cd, value);
 	}
 
 
@@ -3577,7 +3633,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trnspt_nm() {
-		return getConstString(offset + 102, $trnspt_nm);
+		return getConstString(offset + 103, $trnspt_nm);
 	}
 
 	/**
@@ -3585,7 +3641,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trnspt_nm(String value) {
-		setConstString(offset + 102, $trnspt_nm, value);
+		setConstString(offset + 103, $trnspt_nm, value);
 	}
 
 
@@ -3594,7 +3650,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String vssl_flght() {
-		return getConstString(offset + 103, $vssl_flght);
+		return getConstString(offset + 104, $vssl_flght);
 	}
 
 	/**
@@ -3602,7 +3658,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void vssl_flght(String value) {
-		setConstString(offset + 103, $vssl_flght, value);
+		setConstString(offset + 104, $vssl_flght, value);
 	}
 
 
@@ -3611,7 +3667,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String load_port_cd() {
-		return getConstString(offset + 104, $load_port_cd);
+		return getConstString(offset + 105, $load_port_cd);
 	}
 
 	/**
@@ -3619,7 +3675,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void load_port_cd(String value) {
-		setConstString(offset + 104, $load_port_cd, value);
+		setConstString(offset + 105, $load_port_cd, value);
 	}
 
 
@@ -3628,7 +3684,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String load_port_nm() {
-		return getConstString(offset + 105, $load_port_nm);
+		return getConstString(offset + 106, $load_port_nm);
 	}
 
 	/**
@@ -3636,7 +3692,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void load_port_nm(String value) {
-		setConstString(offset + 105, $load_port_nm, value);
+		setConstString(offset + 106, $load_port_nm, value);
 	}
 
 
@@ -3645,7 +3701,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate etd_dt() {
-		return getConstDate(offset + 106, $etd_dt);
+		return getConstDate(offset + 107, $etd_dt);
 	}
 
 	/**
@@ -3653,7 +3709,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void etd_dt(MCDate value) {
-		setConstDate(offset + 106, $etd_dt, value);
+		setConstDate(offset + 107, $etd_dt, value);
 	}
 
 
@@ -3662,7 +3718,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dschrg_port_cd() {
-		return getConstString(offset + 107, $dschrg_port_cd);
+		return getConstString(offset + 108, $dschrg_port_cd);
 	}
 
 	/**
@@ -3670,7 +3726,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dschrg_port_cd(String value) {
-		setConstString(offset + 107, $dschrg_port_cd, value);
+		setConstString(offset + 108, $dschrg_port_cd, value);
 	}
 
 
@@ -3679,7 +3735,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dschrg_port_nm() {
-		return getConstString(offset + 108, $dschrg_port_nm);
+		return getConstString(offset + 109, $dschrg_port_nm);
 	}
 
 	/**
@@ -3687,7 +3743,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dschrg_port_nm(String value) {
-		setConstString(offset + 108, $dschrg_port_nm, value);
+		setConstString(offset + 109, $dschrg_port_nm, value);
 	}
 
 
@@ -3696,7 +3752,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate eta_dt() {
-		return getConstDate(offset + 109, $eta_dt);
+		return getConstDate(offset + 110, $eta_dt);
 	}
 
 	/**
@@ -3704,7 +3760,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void eta_dt(MCDate value) {
-		setConstDate(offset + 109, $eta_dt, value);
+		setConstDate(offset + 110, $eta_dt, value);
 	}
 
 
@@ -3713,7 +3769,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String via_port_cd() {
-		return getConstString(offset + 110, $via_port_cd);
+		return getConstString(offset + 111, $via_port_cd);
 	}
 
 	/**
@@ -3721,7 +3777,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void via_port_cd(String value) {
-		setConstString(offset + 110, $via_port_cd, value);
+		setConstString(offset + 111, $via_port_cd, value);
 	}
 
 
@@ -3730,7 +3786,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String via_port_nm() {
-		return getConstString(offset + 111, $via_port_nm);
+		return getConstString(offset + 112, $via_port_nm);
 	}
 
 	/**
@@ -3738,7 +3794,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void via_port_nm(String value) {
-		setConstString(offset + 111, $via_port_nm, value);
+		setConstString(offset + 112, $via_port_nm, value);
 	}
 
 
@@ -3747,7 +3803,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate via_schd_dt() {
-		return getConstDate(offset + 112, $via_schd_dt);
+		return getConstDate(offset + 113, $via_schd_dt);
 	}
 
 	/**
@@ -3755,7 +3811,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void via_schd_dt(MCDate value) {
-		setConstDate(offset + 112, $via_schd_dt, value);
+		setConstDate(offset + 113, $via_schd_dt, value);
 	}
 
 
@@ -3764,7 +3820,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_cd1() {
-		return getConstString(offset + 113, $tterm_cd1);
+		return getConstString(offset + 114, $tterm_cd1);
 	}
 
 	/**
@@ -3772,7 +3828,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_cd1(String value) {
-		setConstString(offset + 113, $tterm_cd1, value);
+		setConstString(offset + 114, $tterm_cd1, value);
 	}
 
 
@@ -3781,7 +3837,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_nm1() {
-		return getConstString(offset + 114, $tterm_nm1);
+		return getConstString(offset + 115, $tterm_nm1);
 	}
 
 	/**
@@ -3789,7 +3845,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_nm1(String value) {
-		setConstString(offset + 114, $tterm_nm1, value);
+		setConstString(offset + 115, $tterm_nm1, value);
 	}
 
 
@@ -3798,7 +3854,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_rmrks1() {
-		return getConstString(offset + 115, $tterm_rmrks1);
+		return getConstString(offset + 116, $tterm_rmrks1);
 	}
 
 	/**
@@ -3806,7 +3862,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_rmrks1(String value) {
-		setConstString(offset + 115, $tterm_rmrks1, value);
+		setConstString(offset + 116, $tterm_rmrks1, value);
 	}
 
 
@@ -3815,7 +3871,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_cd2() {
-		return getConstString(offset + 116, $tterm_cd2);
+		return getConstString(offset + 117, $tterm_cd2);
 	}
 
 	/**
@@ -3823,7 +3879,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_cd2(String value) {
-		setConstString(offset + 116, $tterm_cd2, value);
+		setConstString(offset + 117, $tterm_cd2, value);
 	}
 
 
@@ -3832,7 +3888,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_nm2() {
-		return getConstString(offset + 117, $tterm_nm2);
+		return getConstString(offset + 118, $tterm_nm2);
 	}
 
 	/**
@@ -3840,7 +3896,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_nm2(String value) {
-		setConstString(offset + 117, $tterm_nm2, value);
+		setConstString(offset + 118, $tterm_nm2, value);
 	}
 
 
@@ -3849,7 +3905,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_rmrks2() {
-		return getConstString(offset + 118, $tterm_rmrks2);
+		return getConstString(offset + 119, $tterm_rmrks2);
 	}
 
 	/**
@@ -3857,7 +3913,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_rmrks2(String value) {
-		setConstString(offset + 118, $tterm_rmrks2, value);
+		setConstString(offset + 119, $tterm_rmrks2, value);
 	}
 
 
@@ -3866,7 +3922,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_cd3() {
-		return getConstString(offset + 119, $tterm_cd3);
+		return getConstString(offset + 120, $tterm_cd3);
 	}
 
 	/**
@@ -3874,7 +3930,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_cd3(String value) {
-		setConstString(offset + 119, $tterm_cd3, value);
+		setConstString(offset + 120, $tterm_cd3, value);
 	}
 
 
@@ -3883,7 +3939,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_nm3() {
-		return getConstString(offset + 120, $tterm_nm3);
+		return getConstString(offset + 121, $tterm_nm3);
 	}
 
 	/**
@@ -3891,7 +3947,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_nm3(String value) {
-		setConstString(offset + 120, $tterm_nm3, value);
+		setConstString(offset + 121, $tterm_nm3, value);
 	}
 
 
@@ -3900,7 +3956,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String tterm_rmrks3() {
-		return getConstString(offset + 121, $tterm_rmrks3);
+		return getConstString(offset + 122, $tterm_rmrks3);
 	}
 
 	/**
@@ -3908,7 +3964,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void tterm_rmrks3(String value) {
-		setConstString(offset + 121, $tterm_rmrks3, value);
+		setConstString(offset + 122, $tterm_rmrks3, value);
 	}
 
 
@@ -3917,7 +3973,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String cst_po_rmrks() {
-		return getConstString(offset + 122, $cst_po_rmrks);
+		return getConstString(offset + 123, $cst_po_rmrks);
 	}
 
 	/**
@@ -3925,7 +3981,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void cst_po_rmrks(String value) {
-		setConstString(offset + 122, $cst_po_rmrks, value);
+		setConstString(offset + 123, $cst_po_rmrks, value);
 	}
 
 
@@ -3934,7 +3990,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String trd_rmrks() {
-		return getConstString(offset + 123, $trd_rmrks);
+		return getConstString(offset + 124, $trd_rmrks);
 	}
 
 	/**
@@ -3942,7 +3998,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void trd_rmrks(String value) {
-		setConstString(offset + 123, $trd_rmrks, value);
+		setConstString(offset + 124, $trd_rmrks, value);
 	}
 
 
@@ -3951,7 +4007,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String intr_rmrks() {
-		return getConstString(offset + 124, $intr_rmrks);
+		return getConstString(offset + 125, $intr_rmrks);
 	}
 
 	/**
@@ -3959,7 +4015,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void intr_rmrks(String value) {
-		setConstString(offset + 124, $intr_rmrks, value);
+		setConstString(offset + 125, $intr_rmrks, value);
 	}
 
 
@@ -3968,7 +4024,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char1() {
-		return getConstString(offset + 125, $sub_char1);
+		return getConstString(offset + 126, $sub_char1);
 	}
 
 	/**
@@ -3976,7 +4032,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char1(String value) {
-		setConstString(offset + 125, $sub_char1, value);
+		setConstString(offset + 126, $sub_char1, value);
 	}
 
 
@@ -3985,7 +4041,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char2() {
-		return getConstString(offset + 126, $sub_char2);
+		return getConstString(offset + 127, $sub_char2);
 	}
 
 	/**
@@ -3993,7 +4049,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char2(String value) {
-		setConstString(offset + 126, $sub_char2, value);
+		setConstString(offset + 127, $sub_char2, value);
 	}
 
 
@@ -4002,7 +4058,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sub_char3() {
-		return getConstString(offset + 127, $sub_char3);
+		return getConstString(offset + 128, $sub_char3);
 	}
 
 	/**
@@ -4010,7 +4066,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sub_char3(String value) {
-		setConstString(offset + 127, $sub_char3, value);
+		setConstString(offset + 128, $sub_char3, value);
 	}
 
 
@@ -4019,7 +4075,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_char1() {
-		return getConstString(offset + 128, $edi_sub_char1);
+		return getConstString(offset + 129, $edi_sub_char1);
 	}
 
 	/**
@@ -4027,7 +4083,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_char1(String value) {
-		setConstString(offset + 128, $edi_sub_char1, value);
+		setConstString(offset + 129, $edi_sub_char1, value);
 	}
 
 
@@ -4036,7 +4092,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_char2() {
-		return getConstString(offset + 129, $edi_sub_char2);
+		return getConstString(offset + 130, $edi_sub_char2);
 	}
 
 	/**
@@ -4044,7 +4100,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_char2(String value) {
-		setConstString(offset + 129, $edi_sub_char2, value);
+		setConstString(offset + 130, $edi_sub_char2, value);
 	}
 
 
@@ -4053,7 +4109,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_char3() {
-		return getConstString(offset + 130, $edi_sub_char3);
+		return getConstString(offset + 131, $edi_sub_char3);
 	}
 
 	/**
@@ -4061,7 +4117,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_char3(String value) {
-		setConstString(offset + 130, $edi_sub_char3, value);
+		setConstString(offset + 131, $edi_sub_char3, value);
 	}
 
 
@@ -4070,7 +4126,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_char4() {
-		return getConstString(offset + 131, $edi_sub_char4);
+		return getConstString(offset + 132, $edi_sub_char4);
 	}
 
 	/**
@@ -4078,7 +4134,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_char4(String value) {
-		setConstString(offset + 131, $edi_sub_char4, value);
+		setConstString(offset + 132, $edi_sub_char4, value);
 	}
 
 
@@ -4087,7 +4143,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String edi_sub_char5() {
-		return getConstString(offset + 132, $edi_sub_char5);
+		return getConstString(offset + 133, $edi_sub_char5);
 	}
 
 	/**
@@ -4095,7 +4151,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_char5(String value) {
-		setConstString(offset + 132, $edi_sub_char5, value);
+		setConstString(offset + 133, $edi_sub_char5, value);
 	}
 
 
@@ -4104,7 +4160,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber edi_sub_num1() {
-		return getConstNumber(offset + 133, $edi_sub_num1);
+		return getConstNumber(offset + 134, $edi_sub_num1);
 	}
 
 	/**
@@ -4112,7 +4168,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_num1(MCNumber value) {
-		setConstNumber(offset + 133, $edi_sub_num1, value);
+		setConstNumber(offset + 134, $edi_sub_num1, value);
 	}
 
 	/**
@@ -4120,7 +4176,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_num1(int value) {
-		setConstNumber(offset + 133, $edi_sub_num1, value);
+		setConstNumber(offset + 134, $edi_sub_num1, value);
 	}
 
 	/**
@@ -4128,7 +4184,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_num1(long value) {
-		setConstNumber(offset + 133, $edi_sub_num1, value);
+		setConstNumber(offset + 134, $edi_sub_num1, value);
 	}
 
 	/**
@@ -4136,7 +4192,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_num1(float value) {
-		setConstNumber(offset + 133, $edi_sub_num1, value);
+		setConstNumber(offset + 134, $edi_sub_num1, value);
 	}
 
 	/**
@@ -4144,7 +4200,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_num1(double value) {
-		setConstNumber(offset + 133, $edi_sub_num1, value);
+		setConstNumber(offset + 134, $edi_sub_num1, value);
 	}
 
 
@@ -4153,7 +4209,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate edi_sub_dt1() {
-		return getConstDate(offset + 134, $edi_sub_dt1);
+		return getConstDate(offset + 135, $edi_sub_dt1);
 	}
 
 	/**
@@ -4161,7 +4217,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void edi_sub_dt1(MCDate value) {
-		setConstDate(offset + 134, $edi_sub_dt1, value);
+		setConstDate(offset + 135, $edi_sub_dt1, value);
 	}
 
 
@@ -4170,7 +4226,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rsn_cd() {
-		return getConstString(offset + 135, $can_rsn_cd);
+		return getConstString(offset + 136, $can_rsn_cd);
 	}
 
 	/**
@@ -4178,7 +4234,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rsn_cd(String value) {
-		setConstString(offset + 135, $can_rsn_cd, value);
+		setConstString(offset + 136, $can_rsn_cd, value);
 	}
 
 
@@ -4187,7 +4243,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rsn_nm() {
-		return getConstString(offset + 136, $can_rsn_nm);
+		return getConstString(offset + 137, $can_rsn_nm);
 	}
 
 	/**
@@ -4195,7 +4251,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rsn_nm(String value) {
-		setConstString(offset + 136, $can_rsn_nm, value);
+		setConstString(offset + 137, $can_rsn_nm, value);
 	}
 
 
@@ -4204,7 +4260,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String can_rmrks() {
-		return getConstString(offset + 137, $can_rmrks);
+		return getConstString(offset + 138, $can_rmrks);
 	}
 
 	/**
@@ -4212,7 +4268,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void can_rmrks(String value) {
-		setConstString(offset + 137, $can_rmrks, value);
+		setConstString(offset + 138, $can_rmrks, value);
 	}
 
 
@@ -4221,7 +4277,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean old_aprv_flg() {
-		return getConstBoolean(offset + 138, $old_aprv_flg);
+		return getConstBoolean(offset + 139, $old_aprv_flg);
 	}
 
 	/**
@@ -4229,7 +4285,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void old_aprv_flg(boolean value) {
-		setConstBoolean(offset + 138, $old_aprv_flg, value);
+		setConstBoolean(offset + 139, $old_aprv_flg, value);
 	}
 
 
@@ -4238,7 +4294,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String old_aprv_no() {
-		return getConstString(offset + 139, $old_aprv_no);
+		return getConstString(offset + 140, $old_aprv_no);
 	}
 
 	/**
@@ -4246,7 +4302,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void old_aprv_no(String value) {
-		setConstString(offset + 139, $old_aprv_no, value);
+		setConstString(offset + 140, $old_aprv_no, value);
 	}
 
 
@@ -4255,7 +4311,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String old_aprv_sts_typ() {
-		return getConstString(offset + 140, $old_aprv_sts_typ);
+		return getConstString(offset + 141, $old_aprv_sts_typ);
 	}
 
 	/**
@@ -4263,7 +4319,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void old_aprv_sts_typ(String value) {
-		setConstString(offset + 140, $old_aprv_sts_typ, value);
+		setConstString(offset + 141, $old_aprv_sts_typ, value);
 	}
 
 
@@ -4272,7 +4328,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean old_can_upd_flg() {
-		return getConstBoolean(offset + 141, $old_can_upd_flg);
+		return getConstBoolean(offset + 142, $old_can_upd_flg);
 	}
 
 	/**
@@ -4280,7 +4336,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void old_can_upd_flg(boolean value) {
-		setConstBoolean(offset + 141, $old_can_upd_flg, value);
+		setConstBoolean(offset + 142, $old_can_upd_flg, value);
 	}
 
 
@@ -4289,7 +4345,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean old_can_del_flg() {
-		return getConstBoolean(offset + 142, $old_can_del_flg);
+		return getConstBoolean(offset + 143, $old_can_del_flg);
 	}
 
 	/**
@@ -4297,7 +4353,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void old_can_del_flg(boolean value) {
-		setConstBoolean(offset + 142, $old_can_del_flg, value);
+		setConstBoolean(offset + 143, $old_can_del_flg, value);
 	}
 
 
@@ -4306,7 +4362,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ins_usr_id() {
-		return getConstString(offset + 143, $ins_usr_id);
+		return getConstString(offset + 144, $ins_usr_id);
 	}
 
 	/**
@@ -4314,7 +4370,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ins_usr_id(String value) {
-		setConstString(offset + 143, $ins_usr_id, value);
+		setConstString(offset + 144, $ins_usr_id, value);
 	}
 
 
@@ -4323,7 +4379,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ins_usr_nm() {
-		return getConstString(offset + 144, $ins_usr_nm);
+		return getConstString(offset + 145, $ins_usr_nm);
 	}
 
 	/**
@@ -4331,7 +4387,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ins_usr_nm(String value) {
-		setConstString(offset + 144, $ins_usr_nm, value);
+		setConstString(offset + 145, $ins_usr_nm, value);
 	}
 
 
@@ -4340,7 +4396,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ins_func_id() {
-		return getConstString(offset + 145, $ins_func_id);
+		return getConstString(offset + 146, $ins_func_id);
 	}
 
 	/**
@@ -4348,7 +4404,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ins_func_id(String value) {
-		setConstString(offset + 145, $ins_func_id, value);
+		setConstString(offset + 146, $ins_func_id, value);
 	}
 
 
@@ -4357,7 +4413,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String ins_func_nm() {
-		return getConstString(offset + 146, $ins_func_nm);
+		return getConstString(offset + 147, $ins_func_nm);
 	}
 
 	/**
@@ -4365,7 +4421,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ins_func_nm(String value) {
-		setConstString(offset + 146, $ins_func_nm, value);
+		setConstString(offset + 147, $ins_func_nm, value);
 	}
 
 
@@ -4374,7 +4430,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String upd_usr_id() {
-		return getConstString(offset + 147, $upd_usr_id);
+		return getConstString(offset + 148, $upd_usr_id);
 	}
 
 	/**
@@ -4382,7 +4438,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_usr_id(String value) {
-		setConstString(offset + 147, $upd_usr_id, value);
+		setConstString(offset + 148, $upd_usr_id, value);
 	}
 
 
@@ -4391,7 +4447,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String upd_usr_nm() {
-		return getConstString(offset + 148, $upd_usr_nm);
+		return getConstString(offset + 149, $upd_usr_nm);
 	}
 
 	/**
@@ -4399,7 +4455,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_usr_nm(String value) {
-		setConstString(offset + 148, $upd_usr_nm, value);
+		setConstString(offset + 149, $upd_usr_nm, value);
 	}
 
 
@@ -4408,7 +4464,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String upd_func_id() {
-		return getConstString(offset + 149, $upd_func_id);
+		return getConstString(offset + 150, $upd_func_id);
 	}
 
 	/**
@@ -4416,7 +4472,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_func_id(String value) {
-		setConstString(offset + 149, $upd_func_id, value);
+		setConstString(offset + 150, $upd_func_id, value);
 	}
 
 
@@ -4425,7 +4481,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String upd_func_nm() {
-		return getConstString(offset + 150, $upd_func_nm);
+		return getConstString(offset + 151, $upd_func_nm);
 	}
 
 	/**
@@ -4433,7 +4489,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_func_nm(String value) {
-		setConstString(offset + 150, $upd_func_nm, value);
+		setConstString(offset + 151, $upd_func_nm, value);
 	}
 
 
@@ -4442,7 +4498,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCTimestamp ins_ts() {
-		return getConstTimestamp(offset + 151, $ins_ts);
+		return getConstTimestamp(offset + 152, $ins_ts);
 	}
 
 	/**
@@ -4450,7 +4506,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ins_ts(MCTimestamp value) {
-		setConstTimestamp(offset + 151, $ins_ts, value);
+		setConstTimestamp(offset + 152, $ins_ts, value);
 	}
 
 
@@ -4459,7 +4515,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCTimestamp upd_ts() {
-		return getConstTimestamp(offset + 152, $upd_ts);
+		return getConstTimestamp(offset + 153, $upd_ts);
 	}
 
 	/**
@@ -4467,7 +4523,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_ts(MCTimestamp value) {
-		setConstTimestamp(offset + 152, $upd_ts, value);
+		setConstTimestamp(offset + 153, $upd_ts, value);
 	}
 
 
@@ -4476,7 +4532,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String upd_srv_req_no() {
-		return getConstString(offset + 153, $upd_srv_req_no);
+		return getConstString(offset + 154, $upd_srv_req_no);
 	}
 
 	/**
@@ -4484,7 +4540,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void upd_srv_req_no(String value) {
-		setConstString(offset + 153, $upd_srv_req_no, value);
+		setConstString(offset + 154, $upd_srv_req_no, value);
 	}
 
 
@@ -4493,7 +4549,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber slo_upd_cntr() {
-		return getConstNumber(offset + 154, $slo_upd_cntr);
+		return getConstNumber(offset + 155, $slo_upd_cntr);
 	}
 
 	/**
@@ -4501,7 +4557,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_upd_cntr(MCNumber value) {
-		setConstNumber(offset + 154, $slo_upd_cntr, value);
+		setConstNumber(offset + 155, $slo_upd_cntr, value);
 	}
 
 	/**
@@ -4509,7 +4565,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_upd_cntr(int value) {
-		setConstNumber(offset + 154, $slo_upd_cntr, value);
+		setConstNumber(offset + 155, $slo_upd_cntr, value);
 	}
 
 	/**
@@ -4517,7 +4573,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_upd_cntr(long value) {
-		setConstNumber(offset + 154, $slo_upd_cntr, value);
+		setConstNumber(offset + 155, $slo_upd_cntr, value);
 	}
 
 	/**
@@ -4525,7 +4581,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_upd_cntr(float value) {
-		setConstNumber(offset + 154, $slo_upd_cntr, value);
+		setConstNumber(offset + 155, $slo_upd_cntr, value);
 	}
 
 	/**
@@ -4533,7 +4589,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_upd_cntr(double value) {
-		setConstNumber(offset + 154, $slo_upd_cntr, value);
+		setConstNumber(offset + 155, $slo_upd_cntr, value);
 	}
 
 
@@ -4542,7 +4598,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber qtn_upd_cntr() {
-		return getConstNumber(offset + 155, $qtn_upd_cntr);
+		return getConstNumber(offset + 156, $qtn_upd_cntr);
 	}
 
 	/**
@@ -4550,7 +4606,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_upd_cntr(MCNumber value) {
-		setConstNumber(offset + 155, $qtn_upd_cntr, value);
+		setConstNumber(offset + 156, $qtn_upd_cntr, value);
 	}
 
 	/**
@@ -4558,7 +4614,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_upd_cntr(int value) {
-		setConstNumber(offset + 155, $qtn_upd_cntr, value);
+		setConstNumber(offset + 156, $qtn_upd_cntr, value);
 	}
 
 	/**
@@ -4566,7 +4622,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_upd_cntr(long value) {
-		setConstNumber(offset + 155, $qtn_upd_cntr, value);
+		setConstNumber(offset + 156, $qtn_upd_cntr, value);
 	}
 
 	/**
@@ -4574,7 +4630,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_upd_cntr(float value) {
-		setConstNumber(offset + 155, $qtn_upd_cntr, value);
+		setConstNumber(offset + 156, $qtn_upd_cntr, value);
 	}
 
 	/**
@@ -4582,25 +4638,25 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void qtn_upd_cntr(double value) {
-		setConstNumber(offset + 155, $qtn_upd_cntr, value);
+		setConstNumber(offset + 156, $qtn_upd_cntr, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0110.YmdHmR ship_rqst_p(){
-		return (mcframe.clientMAUB.MAUBP0110.YmdHmR) getConstInnerRow(offset + 156, $ship_rqst_p);
+		return (mcframe.clientMAUB.MAUBP0110.YmdHmR) getConstInnerRow(offset + 157, $ship_rqst_p);
 	}
 	
 	public void ship_rqst_p(mcframe.clientMAUB.MAUBP0110.YmdHmR row){
-		setConstInnerRow(offset + 156, $ship_rqst_p, row);
+		setConstInnerRow(offset + 157, $ship_rqst_p, row);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0110.YmdHmR dlv_rqst_p(){
-		return (mcframe.clientMAUB.MAUBP0110.YmdHmR) getConstInnerRow(offset + 157, $dlv_rqst_p);
+		return (mcframe.clientMAUB.MAUBP0110.YmdHmR) getConstInnerRow(offset + 158, $dlv_rqst_p);
 	}
 	
 	public void dlv_rqst_p(mcframe.clientMAUB.MAUBP0110.YmdHmR row){
-		setConstInnerRow(offset + 157, $dlv_rqst_p, row);
+		setConstInnerRow(offset + 158, $dlv_rqst_p, row);
 	}
 
 
@@ -4609,7 +4665,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ() {
-		return getConstString(offset + 158, $dlv_day_week_typ);
+		return getConstString(offset + 159, $dlv_day_week_typ);
 	}
 
 	/**
@@ -4617,7 +4673,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ(String value) {
-		setConstString(offset + 158, $dlv_day_week_typ, value);
+		setConstString(offset + 159, $dlv_day_week_typ, value);
 	}
 
 
@@ -4626,7 +4682,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String dlv_day_week_typ_nm() {
-		return getConstString(offset + 159, $dlv_day_week_typ_nm);
+		return getConstString(offset + 160, $dlv_day_week_typ_nm);
 	}
 
 	/**
@@ -4634,7 +4690,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void dlv_day_week_typ_nm(String value) {
-		setConstString(offset + 159, $dlv_day_week_typ_nm, value);
+		setConstString(offset + 160, $dlv_day_week_typ_nm, value);
 	}
 
 
@@ -4643,7 +4699,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frc_rsn_cd() {
-		return getConstString(offset + 160, $frc_rsn_cd);
+		return getConstString(offset + 161, $frc_rsn_cd);
 	}
 
 	/**
@@ -4651,7 +4707,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frc_rsn_cd(String value) {
-		setConstString(offset + 160, $frc_rsn_cd, value);
+		setConstString(offset + 161, $frc_rsn_cd, value);
 	}
 
 
@@ -4660,7 +4716,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String frc_rsn_cd_nm() {
-		return getConstString(offset + 161, $frc_rsn_cd_nm);
+		return getConstString(offset + 162, $frc_rsn_cd_nm);
 	}
 
 	/**
@@ -4668,7 +4724,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void frc_rsn_cd_nm(String value) {
-		setConstString(offset + 161, $frc_rsn_cd_nm, value);
+		setConstString(offset + 162, $frc_rsn_cd_nm, value);
 	}
 
 
@@ -4677,7 +4733,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sls_cond_typ() {
-		return getConstString(offset + 162, $sls_cond_typ);
+		return getConstString(offset + 163, $sls_cond_typ);
 	}
 
 	/**
@@ -4685,7 +4741,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_cond_typ(String value) {
-		setConstString(offset + 162, $sls_cond_typ, value);
+		setConstString(offset + 163, $sls_cond_typ, value);
 	}
 
 
@@ -4694,7 +4750,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String sales_cond_nm() {
-		return getConstString(offset + 163, $sales_cond_nm);
+		return getConstString(offset + 164, $sales_cond_nm);
 	}
 
 	/**
@@ -4702,7 +4758,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sales_cond_nm(String value) {
-		setConstString(offset + 163, $sales_cond_nm, value);
+		setConstString(offset + 164, $sales_cond_nm, value);
 	}
 
 
@@ -4711,7 +4767,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCDate sls_dt() {
-		return getConstDate(offset + 164, $sls_dt);
+		return getConstDate(offset + 165, $sls_dt);
 	}
 
 	/**
@@ -4719,7 +4775,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void sls_dt(MCDate value) {
-		setConstDate(offset + 164, $sls_dt, value);
+		setConstDate(offset + 165, $sls_dt, value);
 	}
 
 
@@ -4728,7 +4784,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean ship_prnt_no_cst_nm_flg() {
-		return getConstBoolean(offset + 165, $ship_prnt_no_cst_nm_flg);
+		return getConstBoolean(offset + 166, $ship_prnt_no_cst_nm_flg);
 	}
 
 	/**
@@ -4736,7 +4792,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void ship_prnt_no_cst_nm_flg(boolean value) {
-		setConstBoolean(offset + 165, $ship_prnt_no_cst_nm_flg, value);
+		setConstBoolean(offset + 166, $ship_prnt_no_cst_nm_flg, value);
 	}
 
 
@@ -4745,7 +4801,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String src_wrk_no() {
-		return getConstString(offset + 166, $src_wrk_no);
+		return getConstString(offset + 167, $src_wrk_no);
 	}
 
 	/**
@@ -4753,7 +4809,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void src_wrk_no(String value) {
-		setConstString(offset + 166, $src_wrk_no, value);
+		setConstString(offset + 167, $src_wrk_no, value);
 	}
 
 
@@ -4762,7 +4818,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String zoho_sls_schd_no() {
-		return getConstString(offset + 167, $zoho_sls_schd_no);
+		return getConstString(offset + 168, $zoho_sls_schd_no);
 	}
 
 	/**
@@ -4770,7 +4826,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void zoho_sls_schd_no(String value) {
-		setConstString(offset + 167, $zoho_sls_schd_no, value);
+		setConstString(offset + 168, $zoho_sls_schd_no, value);
 	}
 
 
@@ -4779,7 +4835,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public boolean slo_last_sls_flg() {
-		return getConstBoolean(offset + 168, $slo_last_sls_flg);
+		return getConstBoolean(offset + 169, $slo_last_sls_flg);
 	}
 
 	/**
@@ -4787,16 +4843,16 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void slo_last_sls_flg(boolean value) {
-		setConstBoolean(offset + 168, $slo_last_sls_flg, value);
+		setConstBoolean(offset + 169, $slo_last_sls_flg, value);
 	}
 
 
 	public mcframe.clientMAUB.MAUBP0030.ItmR par_itm_p(){
-		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 169, $par_itm_p);
+		return (mcframe.clientMAUB.MAUBP0030.ItmR) getConstInnerRow(offset + 170, $par_itm_p);
 	}
 	
 	public void par_itm_p(mcframe.clientMAUB.MAUBP0030.ItmR row){
-		setConstInnerRow(offset + 169, $par_itm_p, row);
+		setConstInnerRow(offset + 170, $par_itm_p, row);
 	}
 
 
@@ -4805,7 +4861,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public MCNumber hdr_qty() {
-		return getConstNumber(offset + 170, $hdr_qty);
+		return getConstNumber(offset + 171, $hdr_qty);
 	}
 
 	/**
@@ -4813,7 +4869,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void hdr_qty(MCNumber value) {
-		setConstNumber(offset + 170, $hdr_qty, value);
+		setConstNumber(offset + 171, $hdr_qty, value);
 	}
 
 	/**
@@ -4821,7 +4877,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void hdr_qty(int value) {
-		setConstNumber(offset + 170, $hdr_qty, value);
+		setConstNumber(offset + 171, $hdr_qty, value);
 	}
 
 	/**
@@ -4829,7 +4885,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void hdr_qty(long value) {
-		setConstNumber(offset + 170, $hdr_qty, value);
+		setConstNumber(offset + 171, $hdr_qty, value);
 	}
 
 	/**
@@ -4837,7 +4893,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void hdr_qty(float value) {
-		setConstNumber(offset + 170, $hdr_qty, value);
+		setConstNumber(offset + 171, $hdr_qty, value);
 	}
 
 	/**
@@ -4845,7 +4901,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void hdr_qty(double value) {
-		setConstNumber(offset + 170, $hdr_qty, value);
+		setConstNumber(offset + 171, $hdr_qty, value);
 	}
 
 
@@ -4854,7 +4910,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String surv_line_qty() {
-		return getConstString(offset + 171, $surv_line_qty);
+		return getConstString(offset + 172, $surv_line_qty);
 	}
 
 	/**
@@ -4862,7 +4918,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void surv_line_qty(String value) {
-		setConstString(offset + 171, $surv_line_qty, value);
+		setConstString(offset + 172, $surv_line_qty, value);
 	}
 
 
@@ -4871,7 +4927,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String diameter() {
-		return getConstString(offset + 172, $diameter);
+		return getConstString(offset + 173, $diameter);
 	}
 
 	/**
@@ -4879,7 +4935,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void diameter(String value) {
-		setConstString(offset + 172, $diameter, value);
+		setConstString(offset + 173, $diameter, value);
 	}
 
 
@@ -4888,7 +4944,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String match_key() {
-		return getConstString(offset + 173, $match_key);
+		return getConstString(offset + 174, $match_key);
 	}
 
 	/**
@@ -4896,7 +4952,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void match_key(String value) {
-		setConstString(offset + 173, $match_key, value);
+		setConstString(offset + 174, $match_key, value);
 	}
 
 
@@ -5272,6 +5328,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			return ttl_cost_amt();
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			return trd_cur_amt_no_dscnt();
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			return cst_po_rev();
@@ -5762,6 +5821,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			return ttl_cost_amt();
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			return trd_cur_amt_no_dscnt();
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			return cst_po_rev();
@@ -6376,6 +6438,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -6445,6 +6511,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			ttl_cost_amt(value);
+			return;
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
 			return;
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
@@ -6518,6 +6588,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -6589,6 +6663,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -6658,6 +6736,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			ttl_cost_amt(value);
+			return;
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
 			return;
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
@@ -7308,6 +7390,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -7377,6 +7463,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			ttl_cost_amt(value);
+			return;
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
 			return;
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
@@ -7450,6 +7540,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -7521,6 +7615,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			ttl_cost_amt(value);
 			return;
 		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
+			return;
+		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {
 			cst_po_rev(value);
 			return;
@@ -7590,6 +7688,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($ttl_cost_amt.equalsIgnoreCase(name)) {
 			ttl_cost_amt(value);
+			return;
+		}
+		if ($trd_cur_amt_no_dscnt.equalsIgnoreCase(name)) {
+			trd_cur_amt_no_dscnt(value);
 			return;
 		}
 		if ($cst_po_rev.equalsIgnoreCase(name)) {

@@ -1031,7 +1031,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		Dtl_trd_cur_upri_amt_p_PPanel
 		.setAllowManualUnitPrice(true);
 	}
-
-
 //FMCB CUSTOM END
 }

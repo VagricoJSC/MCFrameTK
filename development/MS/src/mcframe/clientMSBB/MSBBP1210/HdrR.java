@@ -679,13 +679,21 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
+ *  	<td>trd_cur_amt_no_dscnt</td>
+ *  	<td>Amount (Transaction currency)</td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
  *  	<td>trd_cur_amt_p</td>
  *  	<td><br></td>
  *  	<td>InnerRow</td>
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0060.AmtR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>trd_cur_inc_tax_amt_p</td>
  *  	<td><br></td>
@@ -693,7 +701,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0060.AmtR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>assort_typ</td>
  *  	<td>Assortment type</td>
@@ -701,7 +709,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SHIP_ASSORT_TYP SHIP_ASSORT_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>assort_typ_nm</td>
  *  	<td>Assortment type name</td>
@@ -709,7 +717,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SHIP_ASSORT_TYP_NM SHIP_ASSORT_TYP_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>adv_ship_ctrl_typ</td>
  *  	<td>Advance received control shipping type</td>
@@ -717,7 +725,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#ADV_SHIP_CTRL_TYP ADV_SHIP_CTRL_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>adv_ship_ctrl_typ_nm</td>
  *  	<td>Advance received shipping control type name</td>
@@ -725,7 +733,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#ADV_SHIP_CTRL_TYP_NM ADV_SHIP_CTRL_TYP_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>adv_bill_amt_p</td>
  *  	<td><br></td>
@@ -733,7 +741,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0060.AmtR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>adv_rcv_amt_p</td>
  *  	<td><br></td>
@@ -741,7 +749,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0060.AmtR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>cst_po_no</td>
  *  	<td>Customer order No.</td>
@@ -749,7 +757,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#CST_PO_NO CST_PO_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>cst_po_rev</td>
  *  	<td>Customer order rev. number</td>
@@ -757,7 +765,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLIP_REV SLIP_REV}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>rcpt_dt</td>
  *  	<td>Receiving date</td>
@@ -765,7 +773,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>rcpt_usr_cd</td>
  *  	<td>Receiving PIC cd.</td>
@@ -773,7 +781,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_CD USR_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>rcpt_usr_nm</td>
  *  	<td>Receiving PIC name</td>
@@ -781,7 +789,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#USR_NM USR_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>acst_cd</td>
  *  	<td>AR customer cd.</td>
@@ -789,7 +797,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_CD BP_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>acst_nm</td>
  *  	<td>AR customer name</td>
@@ -797,7 +805,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#BP_NM BP_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>ar_dpt_cd</td>
  *  	<td>AR dept. cd.</td>
@@ -805,7 +813,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_CD DPT_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>ar_dpt_nm</td>
  *  	<td>AR dept. name</td>
@@ -813,7 +821,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DPT_NM DPT_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>iv_no</td>
  *  	<td>Invoice No.</td>
@@ -821,7 +829,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IV_NO IV_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>iv_num_flg</td>
  *  	<td>Auto</td>
@@ -829,7 +837,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>trnspt_cd</td>
  *  	<td>Transportation method cd.</td>
@@ -837,7 +845,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TRNSPT_CD TRNSPT_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>trnspt_nm</td>
  *  	<td>Transportation method name</td>
@@ -845,7 +853,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TRNSPT_NM TRNSPT_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>vssl_flght</td>
  *  	<td>Ship/flight name</td>
@@ -853,7 +861,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#VSSL_FLGHT VSSL_FLGHT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>load_port_cd</td>
  *  	<td>Loading port cd.</td>
@@ -861,7 +869,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_CD PORT_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>load_port_nm</td>
  *  	<td>Loading port name</td>
@@ -869,7 +877,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_NM PORT_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>etd_dt</td>
  *  	<td>Estimated date of loading</td>
@@ -877,7 +885,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>dschrg_port_cd</td>
  *  	<td>Unloading port cd.</td>
@@ -885,7 +893,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_CD PORT_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>dschrg_port_nm</td>
  *  	<td>Unloading port name</td>
@@ -893,7 +901,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_NM PORT_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>eta_dt</td>
  *  	<td>Estimated date of unloading</td>
@@ -901,7 +909,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>via_port_cd</td>
  *  	<td>Stopover point cd.</td>
@@ -909,7 +917,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_CD PORT_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>via_port_nm</td>
  *  	<td>Stopover point name</td>
@@ -917,7 +925,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#PORT_NM PORT_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>via_schd_dt</td>
  *  	<td>Estimated stopover date</td>
@@ -925,7 +933,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>tterm_cd1</td>
  *  	<td>Transaction terms cd. 1</td>
@@ -933,7 +941,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_CD TTERM_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>tterm_nm1</td>
  *  	<td>Transaction terms name 1</td>
@@ -941,7 +949,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_NM TTERM_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>tterm_rmrks1</td>
  *  	<td>Transaction terms remarks 1</td>
@@ -949,7 +957,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#TTERM_RMRKS1 TTERM_RMRKS1}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>tterm_cd2</td>
  *  	<td>Transaction terms cd. 2</td>
@@ -957,7 +965,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_CD TTERM_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>tterm_nm2</td>
  *  	<td>Transaction terms name 2</td>
@@ -965,7 +973,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_NM TTERM_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>tterm_rmrks2</td>
  *  	<td>Transaction terms remarks 2</td>
@@ -973,7 +981,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#TTERM_RMRKS2 TTERM_RMRKS2}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>tterm_cd3</td>
  *  	<td>Transaction terms cd. 3</td>
@@ -981,7 +989,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_CD TTERM_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>tterm_nm3</td>
  *  	<td>Transaction terms name 3</td>
@@ -989,7 +997,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TTERM_NM TTERM_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>tterm_rmrks3</td>
  *  	<td>Transaction terms remarks 3</td>
@@ -997,7 +1005,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#TTERM_RMRKS3 TTERM_RMRKS3}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>cst_po_rmrks</td>
  *  	<td>Customer order remarks</td>
@@ -1005,7 +1013,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#CST_PO_RMRKS CST_PO_RMRKS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>trd_rmrks</td>
  *  	<td>Transaction remarks</td>
@@ -1013,7 +1021,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#TRD_RMRKS TRD_RMRKS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>intr_rmrks</td>
  *  	<td>Internal remarks</td>
@@ -1021,7 +1029,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_INTR_RMRKS SLO_INTR_RMRKS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>sub_char1</td>
  *  	<td>Spare 1</td>
@@ -1029,7 +1037,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_SUB_CHAR1 SLO_SUB_CHAR1}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>sub_char2</td>
  *  	<td>Spare 2</td>
@@ -1037,7 +1045,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_SUB_CHAR2 SLO_SUB_CHAR2}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>sub_char3</td>
  *  	<td>Spare 3</td>
@@ -1045,7 +1053,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_SUB_CHAR3 SLO_SUB_CHAR3}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>edi_sub_char1</td>
  *  	<td>EDI spare CHAR column 1</td>
@@ -1053,7 +1061,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_CHAR1 IF_SUB_CHAR1}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>edi_sub_char2</td>
  *  	<td>EDI spare CHAR column 2</td>
@@ -1061,7 +1069,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_CHAR2 IF_SUB_CHAR2}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>edi_sub_char3</td>
  *  	<td>EDI spare CHAR column 3</td>
@@ -1069,7 +1077,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_CHAR3 IF_SUB_CHAR3}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>edi_sub_char4</td>
  *  	<td>EDI spare CHAR column 4</td>
@@ -1077,7 +1085,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_CHAR4 IF_SUB_CHAR4}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>edi_sub_char5</td>
  *  	<td>EDI spare CHAR column 5</td>
@@ -1085,7 +1093,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_CHAR5 IF_SUB_CHAR5}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>edi_sub_num1</td>
  *  	<td>EDI spare NUM column 1</td>
@@ -1093,7 +1101,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#IF_SUB_NUM1 IF_SUB_NUM1}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>edi_sub_dt1</td>
  *  	<td>EDI spare DATE column 1</td>
@@ -1101,7 +1109,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>can_rsn_cd</td>
  *  	<td>Canceling reason cd.</td>
@@ -1109,7 +1117,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_CD SLO_RSN_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>can_rsn_nm</td>
  *  	<td>Canceling reason name</td>
@@ -1117,7 +1125,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_RSN_NM SLO_RSN_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>can_rmrks</td>
  *  	<td>Cancel remarks</td>
@@ -1125,7 +1133,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMS.meta.MS_META#SLO_CAN_RMRKS SLO_CAN_RMRKS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>old_aprv_flg</td>
  *  	<td>For original approval</td>
@@ -1133,7 +1141,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>old_aprv_no</td>
  *  	<td>Original approval No.</td>
@@ -1141,7 +1149,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_NO APRV_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>old_aprv_sts_typ</td>
  *  	<td>Original approval status type</td>
@@ -1149,7 +1157,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_STS_TYP APRV_STS_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>old_can_upd_flg</td>
  *  	<td>Original update possible</td>
@@ -1157,7 +1165,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>old_can_del_flg</td>
  *  	<td>Original cancellation possible</td>
@@ -1165,7 +1173,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>ins_usr_id</td>
  *  	<td>Entry user ID</td>
@@ -1173,7 +1181,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_ID FCM_USR_ID}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>ins_usr_nm</td>
  *  	<td>Entry user name</td>
@@ -1181,7 +1189,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_NM FCM_USR_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>ins_func_id</td>
  *  	<td>Entry function ID</td>
@@ -1189,7 +1197,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_ID FUNC_ID}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>ins_func_nm</td>
  *  	<td>Entry function name</td>
@@ -1197,7 +1205,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_NM FUNC_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>upd_usr_id</td>
  *  	<td>Update user ID</td>
@@ -1205,7 +1213,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_ID FCM_USR_ID}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>upd_usr_nm</td>
  *  	<td>Update user name</td>
@@ -1213,7 +1221,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FCM_USR_NM FCM_USR_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>upd_func_id</td>
  *  	<td>Update function ID</td>
@@ -1221,7 +1229,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_ID FUNC_ID}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>upd_func_nm</td>
  *  	<td>Update function name</td>
@@ -1229,7 +1237,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FUNC_NM FUNC_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>ins_ts</td>
  *  	<td>Entry date and time</td>
@@ -1237,7 +1245,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SYS_TS SYS_TS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>upd_ts</td>
  *  	<td>Update date and time</td>
@@ -1245,7 +1253,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SYS_TS SYS_TS}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>upd_srv_req_no</td>
  *  	<td>Update request No.</td>
@@ -1253,7 +1261,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SRV_REQ_NO SRV_REQ_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>slo_upd_cntr</td>
  *  	<td>Sales order header update counter</td>
@@ -1261,7 +1269,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#UPD_CNT UPD_CNT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>qtn_upd_cntr</td>
  *  	<td>Quotation header update counter</td>
@@ -1269,7 +1277,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#UPD_CNT UPD_CNT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>ship_rqst_p</td>
  *  	<td><br></td>
@@ -1277,7 +1285,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0110.YmdHmR}</td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>dlv_rqst_p</td>
  *  	<td><br></td>
@@ -1285,7 +1293,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0110.YmdHmR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>dlv_day_week_typ</td>
  *  	<td>Day type</td>
@@ -1293,7 +1301,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DAY_WEEK_TYP DAY_WEEK_TYP}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>dlv_day_week_typ_nm</td>
  *  	<td>Arrival day of week</td>
@@ -1301,7 +1309,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DAY_WEEK_TYP_NM DAY_WEEK_TYP_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>frc_rsn_cd</td>
  *  	<td>Free reason</td>
@@ -1309,7 +1317,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FRC_RSN_CD FRC_RSN_CD}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>frc_rsn_cd_nm</td>
  *  	<td>Free reason name</td>
@@ -1317,7 +1325,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FRC_RSN_NM FRC_RSN_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>sls_cond_typ</td>
  *  	<td>Sales condition cd.</td>
@@ -1325,7 +1333,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SALES_COND SALES_COND}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>sales_cond_nm</td>
  *  	<td>Sales condition name</td>
@@ -1333,7 +1341,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SALES_COND_NM SALES_COND_NM}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>sls_dt</td>
  *  	<td>Sales date</td>
@@ -1341,7 +1349,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>ship_prnt_no_cst_nm_flg</td>
  *  	<td><br></td>
@@ -1349,7 +1357,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>src_wrk_no</td>
  *  	<td><br></td>
@@ -1357,7 +1365,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#WRK_NO WRK_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>zoho_sls_schd_no</td>
  *  	<td><br></td>
@@ -1365,7 +1373,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#ZOHO_SLS_SCHD_NO ZOHO_SLS_SCHD_NO}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>slo_last_sls_flg</td>
  *  	<td><br></td>
@@ -1373,7 +1381,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>par_itm_p</td>
  *  	<td><br></td>
@@ -1381,7 +1389,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td><br></td>
  *  	<td>{@link mcframe.clientMAUB.MAUBP0030.ItmR}</td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>hdr_qty</td>
  *  	<td><br></td>
@@ -1389,7 +1397,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#QTY QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>surv_line_qty</td>
  *  	<td><br></td>
@@ -1397,7 +1405,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#SURV_LINE_QTY SURV_LINE_QTY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>diameter</td>
  *  	<td><br></td>
@@ -1405,7 +1413,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#DIAMETER DIAMETER}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>match_key</td>
  *  	<td><br></td>

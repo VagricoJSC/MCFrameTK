@@ -529,6 +529,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCNumberField Hdr_ttl_amt;	// [Hdr]の[ttl_amt_p.amt]を[Hdr_ttl_amt]としてエイリアス定義。
 	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_ttl_amt_no_cost_p_PPanel;
 	public MCNumberField Hdr_ttl_amt_no_cost;	// [Hdr]の[ttl_amt_no_cost_p.amt]を[Hdr_ttl_amt_no_cost]としてエイリアス定義。
+	public MCLabel Hdr_trd_cur_amt_no_dscnt_Label = null;
+	/**
+	 * Amount (Transaction currency) 取引通貨金額.<p>
+	 *
+	 */
+	public MCNumberField Hdr_trd_cur_amt_no_dscnt = null;
 	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_trd_cur_amt_p_PPanel;
 	public MCNumberField Hdr_trd_cur_amt;	// [Hdr]の[trd_cur_amt_p.amt]を[Hdr_trd_cur_amt]としてエイリアス定義。
 	public mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H Hdr_trd_cur_inc_tax_amt_p_PPanel;
@@ -4013,6 +4019,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_prof_rate_Label = p.beansFactory.createLabel("Hdr.prof_rate_Label");
 		p.Hdr_prof_rate = p.beansFactory.createNumberField("Hdr.prof_rate");
 		p.Hdr_prof_rate.setLabel(p.Hdr_prof_rate_Label);
+		p.Hdr_trd_cur_amt_no_dscnt_Label = p.beansFactory.createLabel("Hdr.trd_cur_amt_no_dscnt_Label");
+		p.Hdr_trd_cur_amt_no_dscnt = p.beansFactory.createNumberField("Hdr.trd_cur_amt_no_dscnt");
+		p.Hdr_trd_cur_amt_no_dscnt.setLabel(p.Hdr_trd_cur_amt_no_dscnt_Label);
 		p.Hdr_assort_typ_Label = p.beansFactory.createLabel("Hdr.assort_typ_Label");
 		p.Hdr_assort_typ = p.beansFactory.createTextComboBox("Hdr.assort_typ");
 		p.Hdr_assort_typ.setLabel(p.Hdr_assort_typ_Label);
@@ -4766,7 +4775,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.HdrPanel.add(p.Hdr_ttl_amt_p_PPanel);
 		p.Hdr_ttl_amt_p_PPanel.setNextBeans(p.Hdr_ttl_amt_no_cost_p_PPanel);
 		p.HdrPanel.add(p.Hdr_ttl_amt_no_cost_p_PPanel);
-		p.Hdr_ttl_amt_no_cost_p_PPanel.setNextBeans(p.Hdr_trd_cur_amt_p_PPanel);
+		p.Hdr_ttl_amt_no_cost_p_PPanel.setNextBeans(p.Hdr_trd_cur_amt_no_dscnt);
+		p.HdrPanel.add(p.Hdr_trd_cur_amt_no_dscnt_Label);
+		p.HdrPanel.add(p.Hdr_trd_cur_amt_no_dscnt);
+		p.Hdr_trd_cur_amt_no_dscnt.setNextBeans(p.Hdr_trd_cur_amt_p_PPanel);
+		p.Hdr_trd_cur_amt_no_dscnt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cur_amt_no_dscnt_META);
 		p.HdrPanel.add(p.Hdr_trd_cur_amt_p_PPanel);
 		p.Hdr_trd_cur_amt_p_PPanel.setNextBeans(p.Hdr_trd_cur_inc_tax_amt_p_PPanel);
 		p.HdrPanel.add(p.Hdr_trd_cur_inc_tax_amt_p_PPanel);
@@ -5575,6 +5588,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_rev.addAllListener(p);
 		p.Hdr_prof_rate.setListListener(p);
 		p.Hdr_prof_rate.addAllListener(p);
+		p.Hdr_trd_cur_amt_no_dscnt.setListListener(p);
+		p.Hdr_trd_cur_amt_no_dscnt.addAllListener(p);
 		p.Hdr_assort_typ.setListListener(p);
 		p.Hdr_assort_typ.addAllListener(p);
 		p.Hdr_assort_typ_nm.setListListener(p);
@@ -12756,6 +12771,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_qtn_no) return doHdr_qtn_no_VC(info);
 		if (vc == Hdr_qtn_rev) return doHdr_qtn_rev_VC(info);
 		if (vc == Hdr_prof_rate) return doHdr_prof_rate_VC(info);
+		if (vc == Hdr_trd_cur_amt_no_dscnt) return doHdr_trd_cur_amt_no_dscnt_VC(info);
 		if (vc == Hdr_assort_typ) return doHdr_assort_typ_VC(info);
 		if (vc == Hdr_assort_typ_nm) return doHdr_assort_typ_nm_VC(info);
 		if (vc == Hdr_adv_ship_ctrl_typ) return doHdr_adv_ship_ctrl_typ_VC(info);
@@ -13756,6 +13772,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doHdr_prof_rate_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_no_dscnt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_trd_cur_amt_no_dscnt_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -16045,6 +16071,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_qtn_no) doHdr_qtn_no_NC(info);
 		else if (nc == Hdr_qtn_rev) doHdr_qtn_rev_NC(info);
 		else if (nc == Hdr_prof_rate) doHdr_prof_rate_NC(info);
+		else if (nc == Hdr_trd_cur_amt_no_dscnt) doHdr_trd_cur_amt_no_dscnt_NC(info);
 		else if (nc == Hdr_assort_typ) doHdr_assort_typ_NC(info);
 		else if (nc == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NC(info);
 		else if (nc == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NC(info);
@@ -16889,6 +16916,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_prof_rate_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_no_dscnt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_no_dscnt_NC(MCEventInfo info){
 	}
 
 	/**
@@ -18737,6 +18772,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_qtn_no) doHdr_qtn_no_NE(info);
 		else if (ne == Hdr_qtn_rev) doHdr_qtn_rev_NE(info);
 		else if (ne == Hdr_prof_rate) doHdr_prof_rate_NE(info);
+		else if (ne == Hdr_trd_cur_amt_no_dscnt) doHdr_trd_cur_amt_no_dscnt_NE(info);
 		else if (ne == Hdr_assort_typ) doHdr_assort_typ_NE(info);
 		else if (ne == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NE(info);
 		else if (ne == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NE(info);
@@ -19581,6 +19617,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_prof_rate_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_no_dscnt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_no_dscnt_NE(MCEventInfo info){
 	}
 
 	/**
@@ -21429,6 +21473,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_qtn_no) doHdr_qtn_no_NX(info);
 		else if (nx == Hdr_qtn_rev) doHdr_qtn_rev_NX(info);
 		else if (nx == Hdr_prof_rate) doHdr_prof_rate_NX(info);
+		else if (nx == Hdr_trd_cur_amt_no_dscnt) doHdr_trd_cur_amt_no_dscnt_NX(info);
 		else if (nx == Hdr_assort_typ) doHdr_assort_typ_NX(info);
 		else if (nx == Hdr_assort_typ_nm) doHdr_assort_typ_nm_NX(info);
 		else if (nx == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_NX(info);
@@ -22273,6 +22318,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_prof_rate_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_no_dscnt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_no_dscnt_NX(MCEventInfo info){
 	}
 
 	/**
@@ -24103,6 +24156,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_qtn_no) doHdr_qtn_no_LC(info);
 		else if (lc == Hdr_qtn_rev) doHdr_qtn_rev_LC(info);
 		else if (lc == Hdr_prof_rate) doHdr_prof_rate_LC(info);
+		else if (lc == Hdr_trd_cur_amt_no_dscnt) doHdr_trd_cur_amt_no_dscnt_LC(info);
 		else if (lc == Hdr_assort_typ) doHdr_assort_typ_LC(info);
 		else if (lc == Hdr_assort_typ_nm) doHdr_assort_typ_nm_LC(info);
 		else if (lc == Hdr_adv_ship_ctrl_typ) doHdr_adv_ship_ctrl_typ_LC(info);
@@ -24776,6 +24830,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_prof_rate_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[trd_cur_amt_no_dscnt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_trd_cur_amt_no_dscnt_LC(MCEventInfo info){
 	}
 
 	/**
