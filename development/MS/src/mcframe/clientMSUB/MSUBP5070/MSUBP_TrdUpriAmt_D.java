@@ -35,6 +35,7 @@ import static mcframe.clientMBUC.MBUCP0010.MBUCP_MCDataUtil.*;
 import mcframe.commonMS.constant.*;
 import static mcframe.commonMS.notice.MS_Msg.*;
 import static mcframe.commonMSUA.MSUAC0010.MSUAC_List.*;
+import static mcframe.clientMAUC.MAUCP1050.MAUCP_BeansUtil_MC.*;
 
 
 /**
@@ -61,5 +62,36 @@ public class MSUBP_TrdUpriAmt_D extends MSUBP_TrdUpriAmt_D_MC {
 		super(name);
 	}
 
+	private boolean allowManualUnitPrice = false;
 
+	/**
+	 * 単価取得対象外の状態にかかわらず単価入力を許可する。
+	 * 得意先・品目の単価変更許可は維持する。
+	 */
+	public void setAllowManualUnitPrice(boolean allow) {
+	    allowManualUnitPrice = allow;
+	}
+
+	@Override
+	public MCMode getCellMode(int index, MCColumnConfig column) {
+
+	    if (allowManualUnitPrice
+	            && column == columnTrdUpriAmt_trd_cur_upri) {
+
+	        // 得意先・品目の両方が変更不可なら編集不可
+	        if (_bpUpriChngFlg != null && _itmUpriChngFlg != null) {
+	            if (!(Boolean)getValueOf(_bpUpriChngFlg, index)
+	                    && !(Boolean)getValueOf(_itmUpriChngFlg, index)) {
+	                return MCMode.READ_ONLY;
+	            }
+	        }
+
+	        // 画面定義のモードに従う
+	        return column.getMode();
+	    }
+
+	    return super.getCellMode(index, column);
+	}
+	
+	
 }

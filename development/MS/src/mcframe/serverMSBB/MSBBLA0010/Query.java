@@ -37,7 +37,7 @@ public class Query extends Query_MC  {
 						, t2.prod_itm_sub1
 						, t2.prod_itm_sub2
 						, t2.prod_itm_sub3
-						, m4.itm_nm.as("par_itm_nm")
+						, m4.itm_nm.as("prod_itm_nm")
 						, t2.sls_usr_cd.as("frcst_usr_cd")
 						, m5.usr_nm.as("frcst_usr_nm")
 						, t2.ord_dlv_dt
@@ -94,7 +94,7 @@ public class Query extends Query_MC  {
 						, t2.prod_itm_sub1
 						, t2.prod_itm_sub2
 						, t2.prod_itm_sub3
-						, m4.itm_nm.as("par_itm_nm")
+						, m4.itm_nm.as("prod_itm_nm")
 						, t2.sls_usr_cd.as("frcst_usr_cd")
 						, m5.usr_nm.as("frcst_usr_nm")
 						, t2.ord_dlv_dt

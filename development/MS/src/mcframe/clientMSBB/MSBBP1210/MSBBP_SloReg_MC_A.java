@@ -6322,6 +6322,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6774,6 +6775,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, REF, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, REF, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
@@ -7227,6 +7229,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD, MCMode.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, UPD, MCMode.ENABLE);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
 		p.columnDtl_dlv_day_week_typ.putMode(p, UPD, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD, MCMode.ENABLE);
@@ -7680,6 +7683,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
 		p.columnDtl_dlv_day_week_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
@@ -8132,6 +8136,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
 		p.columnDtl_dlv_day_week_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
@@ -8831,6 +8836,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -9284,6 +9290,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS, MCMode.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, INS, MCMode.ENABLE);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
 		p.columnDtl_dlv_day_week_typ.putMode(p, INS, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, INS, MCMode.ENABLE);
@@ -9737,6 +9744,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.REQUIRED);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.ENABLE);
 		p.columnDtl_dlv_day_week_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
@@ -10189,6 +10197,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10641,6 +10650,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, DEL, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
@@ -11093,6 +11103,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Dtl_trd_unit_qty_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5040.MAUBP_Qty_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP5070.MSUBP_TrdUpriAmt_D.READ_ONLY);
 		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_upri_not_tgt_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Dtl_trd_cur_upri_amt_p_PPanel.columnTrdUpriAmt_trd_cur_upri.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Dtl_dlv_rqst_dt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP5320.MAUBP_YmdHm_D.READ_ONLY);
 		p.columnDtl_dlv_day_week_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.columnDtl_dlv_day_week_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);

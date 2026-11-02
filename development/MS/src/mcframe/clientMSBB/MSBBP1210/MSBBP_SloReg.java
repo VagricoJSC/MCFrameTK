@@ -1024,6 +1024,14 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	    }		
 	}
 
+	@Override
+	protected void linkBeansToISPanel() {
+		super.linkBeansToISPanel();
+
+		Dtl_trd_cur_upri_amt_p_PPanel
+		.setAllowManualUnitPrice(true);
+	}
+
 
 //FMCB CUSTOM END
 }
