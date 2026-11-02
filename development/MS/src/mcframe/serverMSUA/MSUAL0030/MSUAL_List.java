@@ -337,7 +337,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		while (itr.hasNext()) {
 			MAM_BP_R r = itr.next();
 			// 売上部門CDと先頭列は一致しない場合は除外
-			if (!r.bp_cd().startsWith(cstCd)) {
+			if (!r.bp_cd().startsWith(cstCd) && !r.bp_cd().equals("99")) {
 				itr.remove();
 			}
 		}	
@@ -443,7 +443,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 		getSloDlv_AfterSelectMstr(row, builder, t, result, sl);
 		
 		// 最後に諸口を追加
-		addSundryDlvRow(sl);		
+		// addSundryDlvRow(sl);		
 		
 		return sl;
 	}

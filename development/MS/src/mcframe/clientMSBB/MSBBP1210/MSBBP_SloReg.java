@@ -226,7 +226,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			
 			valueInitSub();
 			
-			setValueEx(Hdr_trd_cd, MAUCP_TrdUtil.getDefaultTrdCdNoCache(MAC_TRD_PTN_TYP.SLS.value()));
+			// 標準動作カスタマイズ
+			// setValueEx(Hdr_trd_cd, MAUCP_TrdUtil.getDefaultTrdCdNoCache(MAC_TRD_PTN_TYP.SLS.value()));
 			
 			if (bind.contains("dlv_cd")) {
 				setValueEx(Hdr_dlv_cd, bind.getStringNE("dlv_cd"));
