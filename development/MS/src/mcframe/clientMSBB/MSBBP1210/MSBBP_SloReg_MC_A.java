@@ -157,6 +157,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCCheckBox Hdr_latest_flg = null;
+	public MCLabel Hdr_slo_aprv_dt_Label = null;
+	/**
+	 * Sales order date 受注登録日.<p>
+	 *
+	 */
+	public MCDateField Hdr_slo_aprv_dt = null;
 	public MCLabel Hdr_slo_dt_Label = null;
 	/**
 	 * Sales order date 受注日.<p>
@@ -975,6 +981,36 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCTextComboBox Hdr_par_itm_sub2;	// [Hdr]の[par_itm_p.itm_sub2]を[Hdr_par_itm_sub2]としてエイリアス定義。
 	public MCTextComboBox Hdr_par_itm_sub3;	// [Hdr]の[par_itm_p.itm_sub3]を[Hdr_par_itm_sub3]としてエイリアス定義。
 	public MCTextField Hdr_par_itm_nm;	// [Hdr]の[par_itm_p.itm_nm]を[Hdr_par_itm_nm]としてエイリアス定義。
+	public MCLabel Hdr_mst_memo1_Label = null;
+	/**
+	 *  コメント１.<p>
+	 *
+	 */
+	public MCTextField Hdr_mst_memo1 = null;
+	public MCLabel Hdr_mst_memo2_Label = null;
+	/**
+	 *  コメント２.<p>
+	 *
+	 */
+	public MCTextField Hdr_mst_memo2 = null;
+	public MCLabel Hdr_mst_memo3_Label = null;
+	/**
+	 *  コメント３.<p>
+	 *
+	 */
+	public MCTextField Hdr_mst_memo3 = null;
+	public MCLabel Hdr_mst_memo4_Label = null;
+	/**
+	 *  コメント４.<p>
+	 *
+	 */
+	public MCTextField Hdr_mst_memo4 = null;
+	public MCLabel Hdr_mst_memo5_Label = null;
+	/**
+	 *  コメント５.<p>
+	 *
+	 */
+	public MCTextField Hdr_mst_memo5 = null;
 	public MCLabel Hdr_hdr_qty_Label = null;
 	/**
 	 *  数量（ヘッダ）.<p>
@@ -3924,6 +3960,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.setLabel(p.Hdr_slo_no_Label);
 		p.Hdr_slo_rev = p.beansFactory.createNumberField("Hdr.slo_rev");
 		p.Hdr_latest_flg = p.beansFactory.createCheckBox("Hdr.latest_flg");
+		p.Hdr_slo_aprv_dt_Label = p.beansFactory.createLabel("Hdr.slo_aprv_dt_Label");
+		p.Hdr_slo_aprv_dt = p.beansFactory.createDateField("Hdr.slo_aprv_dt");
+		p.Hdr_slo_aprv_dt.setLabel(p.Hdr_slo_aprv_dt_Label);
 		p.Hdr_slo_dt_Label = p.beansFactory.createLabel("Hdr.slo_dt_Label");
 		p.Hdr_slo_dt = p.beansFactory.createDateField("Hdr.slo_dt");
 		p.Hdr_slo_dt.setLabel(p.Hdr_slo_dt_Label);
@@ -4196,6 +4235,21 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_zoho_sls_schd_no = p.beansFactory.createTextField("Hdr.zoho_sls_schd_no");
 		p.Hdr_zoho_sls_schd_no.setLabel(p.Hdr_zoho_sls_schd_no_Label);
 		p.Hdr_slo_last_sls_flg = p.beansFactory.createCheckBox("Hdr.slo_last_sls_flg");
+		p.Hdr_mst_memo1_Label = p.beansFactory.createLabel("Hdr.mst_memo1_Label");
+		p.Hdr_mst_memo1 = p.beansFactory.createTextField("Hdr.mst_memo1");
+		p.Hdr_mst_memo1.setLabel(p.Hdr_mst_memo1_Label);
+		p.Hdr_mst_memo2_Label = p.beansFactory.createLabel("Hdr.mst_memo2_Label");
+		p.Hdr_mst_memo2 = p.beansFactory.createTextField("Hdr.mst_memo2");
+		p.Hdr_mst_memo2.setLabel(p.Hdr_mst_memo2_Label);
+		p.Hdr_mst_memo3_Label = p.beansFactory.createLabel("Hdr.mst_memo3_Label");
+		p.Hdr_mst_memo3 = p.beansFactory.createTextField("Hdr.mst_memo3");
+		p.Hdr_mst_memo3.setLabel(p.Hdr_mst_memo3_Label);
+		p.Hdr_mst_memo4_Label = p.beansFactory.createLabel("Hdr.mst_memo4_Label");
+		p.Hdr_mst_memo4 = p.beansFactory.createTextField("Hdr.mst_memo4");
+		p.Hdr_mst_memo4.setLabel(p.Hdr_mst_memo4_Label);
+		p.Hdr_mst_memo5_Label = p.beansFactory.createLabel("Hdr.mst_memo5_Label");
+		p.Hdr_mst_memo5 = p.beansFactory.createTextField("Hdr.mst_memo5");
+		p.Hdr_mst_memo5.setLabel(p.Hdr_mst_memo5_Label);
 		p.Hdr_hdr_qty_Label = p.beansFactory.createLabel("Hdr.hdr_qty_Label");
 		p.Hdr_hdr_qty = p.beansFactory.createNumberField("Hdr.hdr_qty");
 		p.Hdr_hdr_qty.setLabel(p.Hdr_hdr_qty_Label);
@@ -4531,8 +4585,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_rev.setNextBeans(p.Hdr_latest_flg);
 		p.Hdr_slo_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_rev_META);
 		p.HdrPanel.add(p.Hdr_latest_flg);
-		p.Hdr_latest_flg.setNextBeans(p.Hdr_slo_dt);
+		p.Hdr_latest_flg.setNextBeans(p.Hdr_slo_aprv_dt);
 		p.Hdr_latest_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.latest_flg_META);
+		p.HdrPanel.add(p.Hdr_slo_aprv_dt_Label);
+		p.HdrPanel.add(p.Hdr_slo_aprv_dt);
+		p.Hdr_slo_aprv_dt.setNextBeans(p.Hdr_slo_dt);
+		p.Hdr_slo_aprv_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_aprv_dt_META);
+		p.Hdr_slo_aprv_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
 		p.HdrPanel.add(p.Hdr_slo_dt_Label);
 		p.HdrPanel.add(p.Hdr_slo_dt);
 		p.Hdr_slo_dt.setNextBeans(p.Hdr_slo_typ);
@@ -5104,7 +5163,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_last_sls_flg.setNextBeans(p.Hdr_par_itm_p_PPanel);
 		p.Hdr_slo_last_sls_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_last_sls_flg_META);
 		p.HdrPanel.add(p.Hdr_par_itm_p_PPanel);
-		p.Hdr_par_itm_p_PPanel.setNextBeans(p.Hdr_hdr_qty);
+		p.Hdr_par_itm_p_PPanel.setNextBeans(p.Hdr_mst_memo1);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_cd, true);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListType(MCListType.FREE);
@@ -5114,6 +5173,26 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListType(MCListType.FREE);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_sub3, true);
 		p.setPluralValueEnable(p.Hdr_par_itm_p_PPanel.Itm_itm_nm, true);
+		p.HdrPanel.add(p.Hdr_mst_memo1_Label);
+		p.HdrPanel.add(p.Hdr_mst_memo1);
+		p.Hdr_mst_memo1.setNextBeans(p.Hdr_mst_memo2);
+		p.Hdr_mst_memo1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mst_memo1_META);
+		p.HdrPanel.add(p.Hdr_mst_memo2_Label);
+		p.HdrPanel.add(p.Hdr_mst_memo2);
+		p.Hdr_mst_memo2.setNextBeans(p.Hdr_mst_memo3);
+		p.Hdr_mst_memo2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mst_memo2_META);
+		p.HdrPanel.add(p.Hdr_mst_memo3_Label);
+		p.HdrPanel.add(p.Hdr_mst_memo3);
+		p.Hdr_mst_memo3.setNextBeans(p.Hdr_mst_memo4);
+		p.Hdr_mst_memo3.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mst_memo3_META);
+		p.HdrPanel.add(p.Hdr_mst_memo4_Label);
+		p.HdrPanel.add(p.Hdr_mst_memo4);
+		p.Hdr_mst_memo4.setNextBeans(p.Hdr_mst_memo5);
+		p.Hdr_mst_memo4.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mst_memo4_META);
+		p.HdrPanel.add(p.Hdr_mst_memo5_Label);
+		p.HdrPanel.add(p.Hdr_mst_memo5);
+		p.Hdr_mst_memo5.setNextBeans(p.Hdr_hdr_qty);
+		p.Hdr_mst_memo5.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mst_memo5_META);
 		p.HdrPanel.add(p.Hdr_hdr_qty_Label);
 		p.HdrPanel.add(p.Hdr_hdr_qty);
 		p.Hdr_hdr_qty.setNextBeans(p.Hdr_surv_line_qty);
@@ -5472,6 +5551,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_rev.setListListener(p);
 		p.Hdr_slo_rev.addAllListener(p);
 		p.Hdr_latest_flg.addAllListener(p);
+		p.Hdr_slo_aprv_dt.setListListener(p);
+		p.Hdr_slo_aprv_dt.addAllListener(p);
 		p.Hdr_slo_dt.setListListener(p);
 		p.Hdr_slo_dt.addAllListener(p);
 		p.Hdr_slo_typ.setListListener(p);
@@ -5739,6 +5820,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub2.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub3.setListListener(p);	// 埋め込み画面の項目に対してEventListenerを差し込む。
+		p.Hdr_mst_memo1.setListListener(p);
+		p.Hdr_mst_memo1.addAllListener(p);
+		p.Hdr_mst_memo2.setListListener(p);
+		p.Hdr_mst_memo2.addAllListener(p);
+		p.Hdr_mst_memo3.setListListener(p);
+		p.Hdr_mst_memo3.addAllListener(p);
+		p.Hdr_mst_memo4.setListListener(p);
+		p.Hdr_mst_memo4.addAllListener(p);
+		p.Hdr_mst_memo5.setListListener(p);
+		p.Hdr_mst_memo5.addAllListener(p);
 		p.Hdr_hdr_qty.setListListener(p);
 		p.Hdr_hdr_qty.addAllListener(p);
 		p.Hdr_surv_line_qty.setListListener(p);
@@ -6110,6 +6201,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6563,6 +6655,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
@@ -7016,6 +7109,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
@@ -7470,6 +7564,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
@@ -7924,6 +8019,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
@@ -8377,6 +8473,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
@@ -8624,6 +8721,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -9077,6 +9175,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
@@ -9531,6 +9630,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
@@ -9985,6 +10085,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10438,6 +10539,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
@@ -10891,6 +10993,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_no.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_aprv_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
@@ -12708,6 +12811,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_slo_no) return doHdr_slo_no_VC(info);
 		if (vc == Hdr_slo_rev) return doHdr_slo_rev_VC(info);
 		if (vc == Hdr_latest_flg) return doHdr_latest_flg_VC(info);
+		if (vc == Hdr_slo_aprv_dt) return doHdr_slo_aprv_dt_VC(info);
 		if (vc == Hdr_slo_dt) return doHdr_slo_dt_VC(info);
 		if (vc == Hdr_slo_typ) return doHdr_slo_typ_VC(info);
 		if (vc == Hdr_slo_typ_nm) return doHdr_slo_typ_nm_VC(info);
@@ -12846,6 +12950,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_src_wrk_no) return doHdr_src_wrk_no_VC(info);
 		if (vc == Hdr_zoho_sls_schd_no) return doHdr_zoho_sls_schd_no_VC(info);
 		if (vc == Hdr_slo_last_sls_flg) return doHdr_slo_last_sls_flg_VC(info);
+		if (vc == Hdr_mst_memo1) return doHdr_mst_memo1_VC(info);
+		if (vc == Hdr_mst_memo2) return doHdr_mst_memo2_VC(info);
+		if (vc == Hdr_mst_memo3) return doHdr_mst_memo3_VC(info);
+		if (vc == Hdr_mst_memo4) return doHdr_mst_memo4_VC(info);
+		if (vc == Hdr_mst_memo5) return doHdr_mst_memo5_VC(info);
 		if (vc == Hdr_hdr_qty) return doHdr_hdr_qty_VC(info);
 		if (vc == Hdr_surv_line_qty) return doHdr_surv_line_qty_VC(info);
 		if (vc == Hdr_diameter) return doHdr_diameter_VC(info);
@@ -13142,6 +13251,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doHdr_latest_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_aprv_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_aprv_dt_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -14522,6 +14641,56 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doHdr_slo_last_sls_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mst_memo1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mst_memo2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mst_memo3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo4]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mst_memo4_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo5]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mst_memo5_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -16008,6 +16177,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_slo_no) doHdr_slo_no_NC(info);
 		else if (nc == Hdr_slo_rev) doHdr_slo_rev_NC(info);
 		else if (nc == Hdr_latest_flg) doHdr_latest_flg_NC(info);
+		else if (nc == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NC(info);
 		else if (nc == Hdr_slo_dt) doHdr_slo_dt_NC(info);
 		else if (nc == Hdr_slo_typ) doHdr_slo_typ_NC(info);
 		else if (nc == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NC(info);
@@ -16146,6 +16316,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_src_wrk_no) doHdr_src_wrk_no_NC(info);
 		else if (nc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NC(info);
 		else if (nc == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NC(info);
+		else if (nc == Hdr_mst_memo1) doHdr_mst_memo1_NC(info);
+		else if (nc == Hdr_mst_memo2) doHdr_mst_memo2_NC(info);
+		else if (nc == Hdr_mst_memo3) doHdr_mst_memo3_NC(info);
+		else if (nc == Hdr_mst_memo4) doHdr_mst_memo4_NC(info);
+		else if (nc == Hdr_mst_memo5) doHdr_mst_memo5_NC(info);
 		else if (nc == Hdr_hdr_qty) doHdr_hdr_qty_NC(info);
 		else if (nc == Hdr_surv_line_qty) doHdr_surv_line_qty_NC(info);
 		else if (nc == Hdr_diameter) doHdr_diameter_NC(info);
@@ -16412,6 +16587,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_latest_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_aprv_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_aprv_dt_NC(MCEventInfo info){
 	}
 
 	/**
@@ -17516,6 +17699,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_slo_last_sls_flg_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo4]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo4_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo5]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo5_NC(MCEventInfo info){
 	}
 
 	/**
@@ -18709,6 +18932,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_slo_no) doHdr_slo_no_NE(info);
 		else if (ne == Hdr_slo_rev) doHdr_slo_rev_NE(info);
 		else if (ne == Hdr_latest_flg) doHdr_latest_flg_NE(info);
+		else if (ne == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NE(info);
 		else if (ne == Hdr_slo_dt) doHdr_slo_dt_NE(info);
 		else if (ne == Hdr_slo_typ) doHdr_slo_typ_NE(info);
 		else if (ne == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NE(info);
@@ -18847,6 +19071,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_src_wrk_no) doHdr_src_wrk_no_NE(info);
 		else if (ne == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NE(info);
 		else if (ne == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NE(info);
+		else if (ne == Hdr_mst_memo1) doHdr_mst_memo1_NE(info);
+		else if (ne == Hdr_mst_memo2) doHdr_mst_memo2_NE(info);
+		else if (ne == Hdr_mst_memo3) doHdr_mst_memo3_NE(info);
+		else if (ne == Hdr_mst_memo4) doHdr_mst_memo4_NE(info);
+		else if (ne == Hdr_mst_memo5) doHdr_mst_memo5_NE(info);
 		else if (ne == Hdr_hdr_qty) doHdr_hdr_qty_NE(info);
 		else if (ne == Hdr_surv_line_qty) doHdr_surv_line_qty_NE(info);
 		else if (ne == Hdr_diameter) doHdr_diameter_NE(info);
@@ -19113,6 +19342,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_latest_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_aprv_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_aprv_dt_NE(MCEventInfo info){
 	}
 
 	/**
@@ -20217,6 +20454,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_slo_last_sls_flg_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo4]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo4_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo5]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo5_NE(MCEventInfo info){
 	}
 
 	/**
@@ -21410,6 +21687,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_slo_no) doHdr_slo_no_NX(info);
 		else if (nx == Hdr_slo_rev) doHdr_slo_rev_NX(info);
 		else if (nx == Hdr_latest_flg) doHdr_latest_flg_NX(info);
+		else if (nx == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NX(info);
 		else if (nx == Hdr_slo_dt) doHdr_slo_dt_NX(info);
 		else if (nx == Hdr_slo_typ) doHdr_slo_typ_NX(info);
 		else if (nx == Hdr_slo_typ_nm) doHdr_slo_typ_nm_NX(info);
@@ -21548,6 +21826,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_src_wrk_no) doHdr_src_wrk_no_NX(info);
 		else if (nx == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_NX(info);
 		else if (nx == Hdr_slo_last_sls_flg) doHdr_slo_last_sls_flg_NX(info);
+		else if (nx == Hdr_mst_memo1) doHdr_mst_memo1_NX(info);
+		else if (nx == Hdr_mst_memo2) doHdr_mst_memo2_NX(info);
+		else if (nx == Hdr_mst_memo3) doHdr_mst_memo3_NX(info);
+		else if (nx == Hdr_mst_memo4) doHdr_mst_memo4_NX(info);
+		else if (nx == Hdr_mst_memo5) doHdr_mst_memo5_NX(info);
 		else if (nx == Hdr_hdr_qty) doHdr_hdr_qty_NX(info);
 		else if (nx == Hdr_surv_line_qty) doHdr_surv_line_qty_NX(info);
 		else if (nx == Hdr_diameter) doHdr_diameter_NX(info);
@@ -21814,6 +22097,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_latest_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_aprv_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_aprv_dt_NX(MCEventInfo info){
 	}
 
 	/**
@@ -22918,6 +23209,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_slo_last_sls_flg_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo4]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo4_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo5]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo5_NX(MCEventInfo info){
 	}
 
 	/**
@@ -24106,6 +24437,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_srch_tgt_no) doHdr_srch_tgt_no_LC(info);
 		else if (lc == Hdr_slo_no) doHdr_slo_no_LC(info);
 		else if (lc == Hdr_slo_rev) doHdr_slo_rev_LC(info);
+		else if (lc == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_LC(info);
 		else if (lc == Hdr_slo_dt) doHdr_slo_dt_LC(info);
 		else if (lc == Hdr_slo_typ) doHdr_slo_typ_LC(info);
 		else if (lc == Hdr_slo_typ_nm) doHdr_slo_typ_nm_LC(info);
@@ -24228,6 +24560,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_sls_dt) doHdr_sls_dt_LC(info);
 		else if (lc == Hdr_src_wrk_no) doHdr_src_wrk_no_LC(info);
 		else if (lc == Hdr_zoho_sls_schd_no) doHdr_zoho_sls_schd_no_LC(info);
+		else if (lc == Hdr_mst_memo1) doHdr_mst_memo1_LC(info);
+		else if (lc == Hdr_mst_memo2) doHdr_mst_memo2_LC(info);
+		else if (lc == Hdr_mst_memo3) doHdr_mst_memo3_LC(info);
+		else if (lc == Hdr_mst_memo4) doHdr_mst_memo4_LC(info);
+		else if (lc == Hdr_mst_memo5) doHdr_mst_memo5_LC(info);
 		else if (lc == Hdr_hdr_qty) doHdr_hdr_qty_LC(info);
 		else if (lc == Hdr_surv_line_qty) doHdr_surv_line_qty_LC(info);
 		else if (lc == Hdr_diameter) doHdr_diameter_LC(info);
@@ -24430,6 +24767,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_slo_rev_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_aprv_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_aprv_dt_LC(MCEventInfo info){
 	}
 
 	/**
@@ -25406,6 +25751,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_zoho_sls_schd_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo4]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo4_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mst_memo5]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mst_memo5_LC(MCEventInfo info){
 	}
 
 	/**
