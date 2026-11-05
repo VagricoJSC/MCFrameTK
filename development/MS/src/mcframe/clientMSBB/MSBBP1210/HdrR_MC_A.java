@@ -67,12 +67,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 */
 	public static final String $srch_tgt_no = "srch_tgt_no";
 	/**
-	 * Sales order date 受注登録日.<p>
+	 * Sales order date 受注日（承認した日）.<p>
 	 *
 	 */
 	public static final String $slo_aprv_dt = "slo_aprv_dt";
 	/**
-	 * Sales order date 受注日.<p>
+	 * Sales order date 受注登録日.<p>
 	 *
 	 */
 	public static final String $slo_dt = "slo_dt";
@@ -1775,7 +1775,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Sales order date 受注登録日.<p>
+	 * Sales order date 受注日（承認した日）.<p>
 	 *
 	 */
 	public MCDate slo_aprv_dt() {
@@ -1783,7 +1783,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Sales order date 受注登録日.<p>
+	 * Sales order date 受注日（承認した日）.<p>
 	 *
 	 */
 	public void slo_aprv_dt(MCDate value) {
@@ -1792,7 +1792,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 
 
 	/**
-	 * Sales order date 受注日.<p>
+	 * Sales order date 受注登録日.<p>
 	 *
 	 */
 	public MCDate slo_dt() {
@@ -1800,7 +1800,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	}
 
 	/**
-	 * Sales order date 受注日.<p>
+	 * Sales order date 受注登録日.<p>
 	 *
 	 */
 	public void slo_dt(MCDate value) {

@@ -165,13 +165,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCTextField Hdr_srch_tgt_no = null;
 	public MCLabel Hdr_slo_aprv_dt_Label = null;
 	/**
-	 * Sales order date 受注登録日.<p>
+	 * Sales order date 受注日（承認した日）.<p>
 	 *
 	 */
 	public MCDateField Hdr_slo_aprv_dt = null;
 	public MCLabel Hdr_slo_dt_Label = null;
 	/**
-	 * Sales order date 受注日.<p>
+	 * Sales order date 受注登録日.<p>
 	 *
 	 */
 	public MCDateField Hdr_slo_dt = null;
@@ -7129,7 +7129,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD, MCMode.INVISIBLE);
-		p.Hdr_slo_aprv_dt.putMode(p, UPD, MCMode.REQUIRED);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
@@ -7586,7 +7586,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD_QTN, MCMode.INVISIBLE);
-		p.Hdr_slo_aprv_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_aprv_dt.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
@@ -9205,7 +9205,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, INS, MCMode.INVISIBLE);
-		p.Hdr_slo_aprv_dt.putMode(p, INS, MCMode.REQUIRED);
+		p.Hdr_slo_aprv_dt.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
@@ -9662,7 +9662,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, INS_QTN, MCMode.INVISIBLE);
-		p.Hdr_slo_aprv_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
+		p.Hdr_slo_aprv_dt.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
