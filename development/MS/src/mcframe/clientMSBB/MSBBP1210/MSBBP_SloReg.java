@@ -233,7 +233,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_dlv_cd, bind.getStringNE("dlv_cd"));
 			}
 			setValueEx(Hdr_cst_cd, bind.getStringNE("cst_cd"));
-			setValueEx(Hdr_wrk_no, bind.getStringNE("wrk_no"));
+			setValueEx(Hdr_addon_wrk_no, bind.getStringNE("wrk_no"));
 			
 			if (bind.contains("sls_usr_cd")) {
 				setValueEx(Hdr_sls_usr_cd, bind.getStringNE("sls_usr_cd"));
