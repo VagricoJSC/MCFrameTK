@@ -1051,6 +1051,355 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCButton Hdr_exp_match_btn = null;
+	public MCLabel Hdr_aprv_dt_Label = null;
+	/**
+	 *  更新日.<p>
+	 *
+	 */
+	public MCDateField Hdr_aprv_dt = null;
+	public MCLabel Hdr_rcpt_no_Label = null;
+	/**
+	 *  受付番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_rcpt_no = null;
+	public MCLabel Hdr_appl_doc_no_Label = null;
+	/**
+	 *  申請書番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_appl_doc_no = null;
+	public MCLabel Hdr_dlv_draw_no_Label = null;
+	/**
+	 *  納入図番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_dlv_draw_no = null;
+	public MCLabel Hdr_slo_num_typ_Label = null;
+	/**
+	 *  注番区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_slo_num_typ = null;
+	/**
+	 *  注番区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_num_typ_nm = null;
+	public MCLabel Hdr_slo_num_Label = null;
+	/**
+	 *  注文番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_num = null;
+	public MCLabel Hdr_paint_clr_Label = null;
+	/**
+	 *  塗色.<p>
+	 *
+	 */
+	public MCTextField Hdr_paint_clr = null;
+	public MCLabel Hdr_ship_sp_instr_typ_Label = null;
+	/**
+	 *  出荷特別指示区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_ship_sp_instr_typ = null;
+	/**
+	 *  出荷特別指示区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ship_sp_instr_typ_nm = null;
+	public MCLabel Hdr_spec_dlv_note_typ_Label = null;
+	/**
+	 *  指定納品書区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_spec_dlv_note_typ = null;
+	/**
+	 *  指定納品書区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_spec_dlv_note_typ_nm = null;
+	public MCLabel Hdr_ord_dlv_dt_Label = null;
+	/**
+	 *  注文書納期.<p>
+	 *
+	 */
+	public MCDateField Hdr_ord_dlv_dt = null;
+	public MCLabel Hdr_mrkt_cd_Label = null;
+	/**
+	 *  市場ＣＤ.<p>
+	 *
+	 */
+	public MCTextField Hdr_mrkt_cd = null;
+	/**
+	 *  市場名.<p>
+	 *
+	 */
+	public MCTextField Hdr_mrkt_nm = null;
+	public MCLabel Hdr_cntry_sign_Label = null;
+	/**
+	 *  国別符号ＣＤ.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_cntry_sign = null;
+	/**
+	 *  国別符号名.<p>
+	 *
+	 */
+	public MCTextField Hdr_cntry_sign_nm = null;
+	public MCLabel Hdr_ves_natl_Label = null;
+	/**
+	 *  船籍CD.<p>
+	 *
+	 */
+	public MCTextField Hdr_ves_natl = null;
+	/**
+	 *  船籍名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ves_natl_nm = null;
+	public MCLabel Hdr_shipyard_cd_Label = null;
+	/**
+	 *  造船所CD.<p>
+	 *
+	 */
+	public MCTextField Hdr_shipyard_cd = null;
+	/**
+	 *  造船所名.<p>
+	 *
+	 */
+	public MCTextField Hdr_shipyard_nm = null;
+	public MCLabel Hdr_ves_no_Label = null;
+	/**
+	 *  船番.<p>
+	 *
+	 */
+	public MCTextField Hdr_ves_no = null;
+	public MCLabel Hdr_ves_nm_Label = null;
+	/**
+	 *  船名.<p>
+	 *
+	 */
+	public MCTextField Hdr_ves_nm = null;
+	public MCLabel Hdr_tonnage_Label = null;
+	/**
+	 *  屯数.<p>
+	 *
+	 */
+	public MCTextField Hdr_tonnage = null;
+	public MCLabel Hdr_ves_typ_Label = null;
+	/**
+	 *  船種.<p>
+	 *
+	 */
+	public MCTextField Hdr_ves_typ = null;
+	public MCLabel Hdr_insp_std_Label = null;
+	/**
+	 *  検査規格.<p>
+	 *
+	 */
+	public MCTextField Hdr_insp_std = null;
+	public MCLabel Hdr_royalty_trg_amt_Label = null;
+	/**
+	 *  ロイヤリティ対象金額.<p>
+	 *
+	 */
+	public MCNumberField Hdr_royalty_trg_amt = null;
+	public MCLabel Hdr_royalty_psppl_Label = null;
+	/**
+	 *  ロイヤリティ支払先.<p>
+	 *
+	 */
+	public MCTextField Hdr_royalty_psppl = null;
+	public MCLabel Hdr_ins_loc_1_Label = null;
+	/**
+	 *  設置場所1.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_loc_1 = null;
+	public MCLabel Hdr_ins_loc_2_Label = null;
+	/**
+	 *  設置場所2.<p>
+	 *
+	 */
+	public MCTextField Hdr_ins_loc_2 = null;
+	public MCLabel Hdr_sfi_no_Label = null;
+	/**
+	 *  SFI番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_sfi_no = null;
+	public MCLabel Hdr_ps_sal_aft_dt_Label = null;
+	/**
+	 *  装備後売上日.<p>
+	 *
+	 */
+	public MCDateField Hdr_ps_sal_aft_dt = null;
+	public MCLabel Hdr_wit_insp_typ_Label = null;
+	/**
+	 *  立会検査有無区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_wit_insp_typ = null;
+	/**
+	 *  立会検査有無区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_wit_insp_typ_nm = null;
+	public MCLabel Hdr_equip_typ_Label = null;
+	/**
+	 *  装備要否区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_equip_typ = null;
+	/**
+	 *  装備要否区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_equip_typ_nm = null;
+	public MCLabel Hdr_spec_doc_typ_Label = null;
+	/**
+	 *  仕様書区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_spec_doc_typ = null;
+	/**
+	 *  仕様書区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_spec_doc_typ_nm = null;
+	public MCLabel Hdr_model_jp_en_typ_Label = null;
+	/**
+	 *  型式和英区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_model_jp_en_typ = null;
+	/**
+	 *  型式和英区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_model_jp_en_typ_nm = null;
+	public MCLabel Hdr_insp_rep_typ_Label = null;
+	/**
+	 *  検査成績書区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_insp_rep_typ = null;
+	/**
+	 *  検査成績書区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_insp_rep_typ_nm = null;
+	public MCLabel Hdr_insp_rep_qty_Label = null;
+	/**
+	 *  検査成績書部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_insp_rep_qty = null;
+	public MCLabel Hdr_cons_draw_typ_Label = null;
+	/**
+	 *  協議図区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_cons_draw_typ = null;
+	/**
+	 *  協議図区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_cons_draw_typ_nm = null;
+	public MCLabel Hdr_cons_draw_qty_Label = null;
+	/**
+	 *  協議図部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_cons_draw_qty = null;
+	public MCLabel Hdr_const_draw_typ_Label = null;
+	/**
+	 *  工事図区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_const_draw_typ = null;
+	/**
+	 *  工事図区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_const_draw_typ_nm = null;
+	public MCLabel Hdr_const_draw_qty_Label = null;
+	/**
+	 *  工事図部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_const_draw_qty = null;
+	public MCLabel Hdr_comp_draw_typ_Label = null;
+	/**
+	 *  完成図区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_comp_draw_typ = null;
+	/**
+	 *  完成図区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_comp_draw_typ_nm = null;
+	public MCLabel Hdr_comp_draw_qty_Label = null;
+	/**
+	 *  完成図部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_comp_draw_qty = null;
+	public MCLabel Hdr_inst_manual_typ_Label = null;
+	/**
+	 *  取扱説明書区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_inst_manual_typ = null;
+	/**
+	 *  取扱説明書区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_inst_manual_typ_nm = null;
+	public MCLabel Hdr_inst_manual_qty_Label = null;
+	/**
+	 *  取扱説明書部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_inst_manual_qty = null;
+	public MCLabel Hdr_aprv_draw_typ_Label = null;
+	/**
+	 *  承認図区分.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_aprv_draw_typ = null;
+	/**
+	 *  承認図区分名.<p>
+	 *
+	 */
+	public MCTextField Hdr_aprv_draw_typ_nm = null;
+	public MCLabel Hdr_aprv_draw_qty_Label = null;
+	/**
+	 *  承認図部数.<p>
+	 *
+	 */
+	public MCNumberField Hdr_aprv_draw_qty = null;
+	public MCLabel Hdr_slo_cng_rsn_Label = null;
+	/**
+	 *  受注変更理由.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_cng_rsn = null;
+	public MCLabel Hdr_main_draw_no_Label = null;
+	/**
+	 *  代表図番.<p>
+	 *
+	 */
+	public MCTextField Hdr_main_draw_no = null;
+	public MCLabel Hdr_jip_slo_typ_Label = null;
+	/**
+	 *  受注種別.<p>
+	 *
+	 */
+	public MCTextComboBox Hdr_jip_slo_typ = null;
 	// [Hdr2]ブロック関連のField定義
 	public MCPanel Hdr2Panel = null;
 	// [Hdr2]ブロックの項目のField定義
@@ -3370,6 +3719,231 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
+	/** [Hdr_slo_num_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_slo_num_typ_p = null;
+
+	/**
+	 * [Hdr_slo_num_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_slo_num_typ_ListPutter() {
+		if (Hdr_slo_num_typ_p == null) {
+			Hdr_slo_num_typ_p = createHdr_slo_num_typ_ListPutter(Hdr_slo_num_typ, "slo_num_typ");
+
+		}
+		return Hdr_slo_num_typ_p;
+	}
+	
+	
+	/** [Hdr_ship_sp_instr_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_ship_sp_instr_typ_p = null;
+
+	/**
+	 * [Hdr_ship_sp_instr_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_ship_sp_instr_typ_ListPutter() {
+		if (Hdr_ship_sp_instr_typ_p == null) {
+			Hdr_ship_sp_instr_typ_p = createHdr_ship_sp_instr_typ_ListPutter(Hdr_ship_sp_instr_typ, "ship_sp_instr_typ");
+
+		}
+		return Hdr_ship_sp_instr_typ_p;
+	}
+	
+	
+	/** [Hdr_spec_dlv_note_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_spec_dlv_note_typ_p = null;
+
+	/**
+	 * [Hdr_spec_dlv_note_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_spec_dlv_note_typ_ListPutter() {
+		if (Hdr_spec_dlv_note_typ_p == null) {
+			Hdr_spec_dlv_note_typ_p = createHdr_spec_dlv_note_typ_ListPutter(Hdr_spec_dlv_note_typ, "spec_dlv_note_typ");
+
+		}
+		return Hdr_spec_dlv_note_typ_p;
+	}
+	
+	
+	/** [Hdr_cntry_sign_ListPutter]の定義 */
+	private MCListPutter Hdr_cntry_sign_p = null;
+
+	/**
+	 * [Hdr_cntry_sign_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_cntry_sign_ListPutter() {
+		if (Hdr_cntry_sign_p == null) {
+			Hdr_cntry_sign_p = createHdr_cntry_sign_ListPutter(Hdr_cntry_sign, "cntry_sign");
+
+		}
+		return Hdr_cntry_sign_p;
+	}
+	
+	
+	/** [Hdr_wit_insp_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_wit_insp_typ_p = null;
+
+	/**
+	 * [Hdr_wit_insp_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_wit_insp_typ_ListPutter() {
+		if (Hdr_wit_insp_typ_p == null) {
+			Hdr_wit_insp_typ_p = createHdr_wit_insp_typ_ListPutter(Hdr_wit_insp_typ, "wit_insp_typ");
+
+		}
+		return Hdr_wit_insp_typ_p;
+	}
+	
+	
+	/** [Hdr_equip_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_equip_typ_p = null;
+
+	/**
+	 * [Hdr_equip_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_equip_typ_ListPutter() {
+		if (Hdr_equip_typ_p == null) {
+			Hdr_equip_typ_p = createHdr_equip_typ_ListPutter(Hdr_equip_typ, "equip_typ");
+
+		}
+		return Hdr_equip_typ_p;
+	}
+	
+	
+	/** [Hdr_spec_doc_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_spec_doc_typ_p = null;
+
+	/**
+	 * [Hdr_spec_doc_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_spec_doc_typ_ListPutter() {
+		if (Hdr_spec_doc_typ_p == null) {
+			Hdr_spec_doc_typ_p = createHdr_spec_doc_typ_ListPutter(Hdr_spec_doc_typ, "spec_doc_typ");
+
+		}
+		return Hdr_spec_doc_typ_p;
+	}
+	
+	
+	/** [Hdr_model_jp_en_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_model_jp_en_typ_p = null;
+
+	/**
+	 * [Hdr_model_jp_en_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_model_jp_en_typ_ListPutter() {
+		if (Hdr_model_jp_en_typ_p == null) {
+			Hdr_model_jp_en_typ_p = createHdr_model_jp_en_typ_ListPutter(Hdr_model_jp_en_typ, "model_jp_en_typ");
+
+		}
+		return Hdr_model_jp_en_typ_p;
+	}
+	
+	
+	/** [Hdr_insp_rep_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_insp_rep_typ_p = null;
+
+	/**
+	 * [Hdr_insp_rep_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_insp_rep_typ_ListPutter() {
+		if (Hdr_insp_rep_typ_p == null) {
+			Hdr_insp_rep_typ_p = createHdr_insp_rep_typ_ListPutter(Hdr_insp_rep_typ, "insp_rep_typ");
+
+		}
+		return Hdr_insp_rep_typ_p;
+	}
+	
+	
+	/** [Hdr_cons_draw_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_cons_draw_typ_p = null;
+
+	/**
+	 * [Hdr_cons_draw_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_cons_draw_typ_ListPutter() {
+		if (Hdr_cons_draw_typ_p == null) {
+			Hdr_cons_draw_typ_p = createHdr_cons_draw_typ_ListPutter(Hdr_cons_draw_typ, "cons_draw_typ");
+
+		}
+		return Hdr_cons_draw_typ_p;
+	}
+	
+	
+	/** [Hdr_const_draw_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_const_draw_typ_p = null;
+
+	/**
+	 * [Hdr_const_draw_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_const_draw_typ_ListPutter() {
+		if (Hdr_const_draw_typ_p == null) {
+			Hdr_const_draw_typ_p = createHdr_const_draw_typ_ListPutter(Hdr_const_draw_typ, "const_draw_typ");
+
+		}
+		return Hdr_const_draw_typ_p;
+	}
+	
+	
+	/** [Hdr_comp_draw_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_comp_draw_typ_p = null;
+
+	/**
+	 * [Hdr_comp_draw_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_comp_draw_typ_ListPutter() {
+		if (Hdr_comp_draw_typ_p == null) {
+			Hdr_comp_draw_typ_p = createHdr_comp_draw_typ_ListPutter(Hdr_comp_draw_typ, "comp_draw_typ");
+
+		}
+		return Hdr_comp_draw_typ_p;
+	}
+	
+	
+	/** [Hdr_inst_manual_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_inst_manual_typ_p = null;
+
+	/**
+	 * [Hdr_inst_manual_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_inst_manual_typ_ListPutter() {
+		if (Hdr_inst_manual_typ_p == null) {
+			Hdr_inst_manual_typ_p = createHdr_inst_manual_typ_ListPutter(Hdr_inst_manual_typ, "inst_manual_typ");
+
+		}
+		return Hdr_inst_manual_typ_p;
+	}
+	
+	
+	/** [Hdr_aprv_draw_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_aprv_draw_typ_p = null;
+
+	/**
+	 * [Hdr_aprv_draw_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_aprv_draw_typ_ListPutter() {
+		if (Hdr_aprv_draw_typ_p == null) {
+			Hdr_aprv_draw_typ_p = createHdr_aprv_draw_typ_ListPutter(Hdr_aprv_draw_typ, "aprv_draw_typ");
+
+		}
+		return Hdr_aprv_draw_typ_p;
+	}
+	
+	
+	/** [Hdr_jip_slo_typ_ListPutter]の定義 */
+	private MCListPutter Hdr_jip_slo_typ_p = null;
+
+	/**
+	 * [Hdr_jip_slo_typ_ListPutter]の取得
+	 */
+	protected MCListPutter getHdr_jip_slo_typ_ListPutter() {
+		if (Hdr_jip_slo_typ_p == null) {
+			Hdr_jip_slo_typ_p = createHdr_jip_slo_typ_ListPutter(Hdr_jip_slo_typ, "jip_slo_typ");
+
+		}
+		return Hdr_jip_slo_typ_p;
+	}
+	
+	
 	/** [Dtl_cst_itm_cd_ListPutter]の定義 */
 	private MCListPutter Dtl_cst_itm_cd_p = null;
 
@@ -4273,6 +4847,155 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_match_key = p.beansFactory.createTextField("Hdr.match_key");
 		p.Hdr_match_key.setLabel(p.Hdr_match_key_Label);
 		p.Hdr_exp_match_btn = p.beansFactory.createButton("Hdr.exp_match_btn", "exp_match_btn");
+		p.Hdr_aprv_dt_Label = p.beansFactory.createLabel("Hdr.aprv_dt_Label");
+		p.Hdr_aprv_dt = p.beansFactory.createDateField("Hdr.aprv_dt");
+		p.Hdr_aprv_dt.setLabel(p.Hdr_aprv_dt_Label);
+		p.Hdr_rcpt_no_Label = p.beansFactory.createLabel("Hdr.rcpt_no_Label");
+		p.Hdr_rcpt_no = p.beansFactory.createTextField("Hdr.rcpt_no");
+		p.Hdr_rcpt_no.setLabel(p.Hdr_rcpt_no_Label);
+		p.Hdr_appl_doc_no_Label = p.beansFactory.createLabel("Hdr.appl_doc_no_Label");
+		p.Hdr_appl_doc_no = p.beansFactory.createTextField("Hdr.appl_doc_no");
+		p.Hdr_appl_doc_no.setLabel(p.Hdr_appl_doc_no_Label);
+		p.Hdr_dlv_draw_no_Label = p.beansFactory.createLabel("Hdr.dlv_draw_no_Label");
+		p.Hdr_dlv_draw_no = p.beansFactory.createTextField("Hdr.dlv_draw_no");
+		p.Hdr_dlv_draw_no.setLabel(p.Hdr_dlv_draw_no_Label);
+		p.Hdr_slo_num_typ_Label = p.beansFactory.createLabel("Hdr.slo_num_typ_Label");
+		p.Hdr_slo_num_typ = p.beansFactory.createTextComboBox("Hdr.slo_num_typ");
+		p.Hdr_slo_num_typ.setLabel(p.Hdr_slo_num_typ_Label);
+		p.Hdr_slo_num_typ_nm = p.beansFactory.createTextField("Hdr.slo_num_typ_nm");
+		p.Hdr_slo_num_Label = p.beansFactory.createLabel("Hdr.slo_num_Label");
+		p.Hdr_slo_num = p.beansFactory.createTextField("Hdr.slo_num");
+		p.Hdr_slo_num.setLabel(p.Hdr_slo_num_Label);
+		p.Hdr_paint_clr_Label = p.beansFactory.createLabel("Hdr.paint_clr_Label");
+		p.Hdr_paint_clr = p.beansFactory.createTextField("Hdr.paint_clr");
+		p.Hdr_paint_clr.setLabel(p.Hdr_paint_clr_Label);
+		p.Hdr_ship_sp_instr_typ_Label = p.beansFactory.createLabel("Hdr.ship_sp_instr_typ_Label");
+		p.Hdr_ship_sp_instr_typ = p.beansFactory.createTextComboBox("Hdr.ship_sp_instr_typ");
+		p.Hdr_ship_sp_instr_typ.setLabel(p.Hdr_ship_sp_instr_typ_Label);
+		p.Hdr_ship_sp_instr_typ_nm = p.beansFactory.createTextField("Hdr.ship_sp_instr_typ_nm");
+		p.Hdr_spec_dlv_note_typ_Label = p.beansFactory.createLabel("Hdr.spec_dlv_note_typ_Label");
+		p.Hdr_spec_dlv_note_typ = p.beansFactory.createTextComboBox("Hdr.spec_dlv_note_typ");
+		p.Hdr_spec_dlv_note_typ.setLabel(p.Hdr_spec_dlv_note_typ_Label);
+		p.Hdr_spec_dlv_note_typ_nm = p.beansFactory.createTextField("Hdr.spec_dlv_note_typ_nm");
+		p.Hdr_ord_dlv_dt_Label = p.beansFactory.createLabel("Hdr.ord_dlv_dt_Label");
+		p.Hdr_ord_dlv_dt = p.beansFactory.createDateField("Hdr.ord_dlv_dt");
+		p.Hdr_ord_dlv_dt.setLabel(p.Hdr_ord_dlv_dt_Label);
+		p.Hdr_mrkt_cd_Label = p.beansFactory.createLabel("Hdr.mrkt_cd_Label");
+		p.Hdr_mrkt_cd = p.beansFactory.createTextField("Hdr.mrkt_cd");
+		p.Hdr_mrkt_cd.setLabel(p.Hdr_mrkt_cd_Label);
+		p.Hdr_mrkt_nm = p.beansFactory.createTextField("Hdr.mrkt_nm");
+		p.Hdr_cntry_sign_Label = p.beansFactory.createLabel("Hdr.cntry_sign_Label");
+		p.Hdr_cntry_sign = p.beansFactory.createTextComboBox("Hdr.cntry_sign");
+		p.Hdr_cntry_sign.setLabel(p.Hdr_cntry_sign_Label);
+		p.Hdr_cntry_sign_nm = p.beansFactory.createTextField("Hdr.cntry_sign_nm");
+		p.Hdr_ves_natl_Label = p.beansFactory.createLabel("Hdr.ves_natl_Label");
+		p.Hdr_ves_natl = p.beansFactory.createTextField("Hdr.ves_natl");
+		p.Hdr_ves_natl.setLabel(p.Hdr_ves_natl_Label);
+		p.Hdr_ves_natl_nm = p.beansFactory.createTextField("Hdr.ves_natl_nm");
+		p.Hdr_shipyard_cd_Label = p.beansFactory.createLabel("Hdr.shipyard_cd_Label");
+		p.Hdr_shipyard_cd = p.beansFactory.createTextField("Hdr.shipyard_cd");
+		p.Hdr_shipyard_cd.setLabel(p.Hdr_shipyard_cd_Label);
+		p.Hdr_shipyard_nm = p.beansFactory.createTextField("Hdr.shipyard_nm");
+		p.Hdr_ves_no_Label = p.beansFactory.createLabel("Hdr.ves_no_Label");
+		p.Hdr_ves_no = p.beansFactory.createTextField("Hdr.ves_no");
+		p.Hdr_ves_no.setLabel(p.Hdr_ves_no_Label);
+		p.Hdr_ves_nm_Label = p.beansFactory.createLabel("Hdr.ves_nm_Label");
+		p.Hdr_ves_nm = p.beansFactory.createTextField("Hdr.ves_nm");
+		p.Hdr_ves_nm.setLabel(p.Hdr_ves_nm_Label);
+		p.Hdr_tonnage_Label = p.beansFactory.createLabel("Hdr.tonnage_Label");
+		p.Hdr_tonnage = p.beansFactory.createTextField("Hdr.tonnage");
+		p.Hdr_tonnage.setLabel(p.Hdr_tonnage_Label);
+		p.Hdr_ves_typ_Label = p.beansFactory.createLabel("Hdr.ves_typ_Label");
+		p.Hdr_ves_typ = p.beansFactory.createTextField("Hdr.ves_typ");
+		p.Hdr_ves_typ.setLabel(p.Hdr_ves_typ_Label);
+		p.Hdr_insp_std_Label = p.beansFactory.createLabel("Hdr.insp_std_Label");
+		p.Hdr_insp_std = p.beansFactory.createTextField("Hdr.insp_std");
+		p.Hdr_insp_std.setLabel(p.Hdr_insp_std_Label);
+		p.Hdr_royalty_trg_amt_Label = p.beansFactory.createLabel("Hdr.royalty_trg_amt_Label");
+		p.Hdr_royalty_trg_amt = p.beansFactory.createNumberField("Hdr.royalty_trg_amt");
+		p.Hdr_royalty_trg_amt.setLabel(p.Hdr_royalty_trg_amt_Label);
+		p.Hdr_royalty_psppl_Label = p.beansFactory.createLabel("Hdr.royalty_psppl_Label");
+		p.Hdr_royalty_psppl = p.beansFactory.createTextField("Hdr.royalty_psppl");
+		p.Hdr_royalty_psppl.setLabel(p.Hdr_royalty_psppl_Label);
+		p.Hdr_ins_loc_1_Label = p.beansFactory.createLabel("Hdr.ins_loc_1_Label");
+		p.Hdr_ins_loc_1 = p.beansFactory.createTextField("Hdr.ins_loc_1");
+		p.Hdr_ins_loc_1.setLabel(p.Hdr_ins_loc_1_Label);
+		p.Hdr_ins_loc_2_Label = p.beansFactory.createLabel("Hdr.ins_loc_2_Label");
+		p.Hdr_ins_loc_2 = p.beansFactory.createTextField("Hdr.ins_loc_2");
+		p.Hdr_ins_loc_2.setLabel(p.Hdr_ins_loc_2_Label);
+		p.Hdr_sfi_no_Label = p.beansFactory.createLabel("Hdr.sfi_no_Label");
+		p.Hdr_sfi_no = p.beansFactory.createTextField("Hdr.sfi_no");
+		p.Hdr_sfi_no.setLabel(p.Hdr_sfi_no_Label);
+		p.Hdr_ps_sal_aft_dt_Label = p.beansFactory.createLabel("Hdr.ps_sal_aft_dt_Label");
+		p.Hdr_ps_sal_aft_dt = p.beansFactory.createDateField("Hdr.ps_sal_aft_dt");
+		p.Hdr_ps_sal_aft_dt.setLabel(p.Hdr_ps_sal_aft_dt_Label);
+		p.Hdr_wit_insp_typ_Label = p.beansFactory.createLabel("Hdr.wit_insp_typ_Label");
+		p.Hdr_wit_insp_typ = p.beansFactory.createTextComboBox("Hdr.wit_insp_typ");
+		p.Hdr_wit_insp_typ.setLabel(p.Hdr_wit_insp_typ_Label);
+		p.Hdr_wit_insp_typ_nm = p.beansFactory.createTextField("Hdr.wit_insp_typ_nm");
+		p.Hdr_equip_typ_Label = p.beansFactory.createLabel("Hdr.equip_typ_Label");
+		p.Hdr_equip_typ = p.beansFactory.createTextComboBox("Hdr.equip_typ");
+		p.Hdr_equip_typ.setLabel(p.Hdr_equip_typ_Label);
+		p.Hdr_equip_typ_nm = p.beansFactory.createTextField("Hdr.equip_typ_nm");
+		p.Hdr_spec_doc_typ_Label = p.beansFactory.createLabel("Hdr.spec_doc_typ_Label");
+		p.Hdr_spec_doc_typ = p.beansFactory.createTextComboBox("Hdr.spec_doc_typ");
+		p.Hdr_spec_doc_typ.setLabel(p.Hdr_spec_doc_typ_Label);
+		p.Hdr_spec_doc_typ_nm = p.beansFactory.createTextField("Hdr.spec_doc_typ_nm");
+		p.Hdr_model_jp_en_typ_Label = p.beansFactory.createLabel("Hdr.model_jp_en_typ_Label");
+		p.Hdr_model_jp_en_typ = p.beansFactory.createTextComboBox("Hdr.model_jp_en_typ");
+		p.Hdr_model_jp_en_typ.setLabel(p.Hdr_model_jp_en_typ_Label);
+		p.Hdr_model_jp_en_typ_nm = p.beansFactory.createTextField("Hdr.model_jp_en_typ_nm");
+		p.Hdr_insp_rep_typ_Label = p.beansFactory.createLabel("Hdr.insp_rep_typ_Label");
+		p.Hdr_insp_rep_typ = p.beansFactory.createTextComboBox("Hdr.insp_rep_typ");
+		p.Hdr_insp_rep_typ.setLabel(p.Hdr_insp_rep_typ_Label);
+		p.Hdr_insp_rep_typ_nm = p.beansFactory.createTextField("Hdr.insp_rep_typ_nm");
+		p.Hdr_insp_rep_qty_Label = p.beansFactory.createLabel("Hdr.insp_rep_qty_Label");
+		p.Hdr_insp_rep_qty = p.beansFactory.createNumberField("Hdr.insp_rep_qty");
+		p.Hdr_insp_rep_qty.setLabel(p.Hdr_insp_rep_qty_Label);
+		p.Hdr_cons_draw_typ_Label = p.beansFactory.createLabel("Hdr.cons_draw_typ_Label");
+		p.Hdr_cons_draw_typ = p.beansFactory.createTextComboBox("Hdr.cons_draw_typ");
+		p.Hdr_cons_draw_typ.setLabel(p.Hdr_cons_draw_typ_Label);
+		p.Hdr_cons_draw_typ_nm = p.beansFactory.createTextField("Hdr.cons_draw_typ_nm");
+		p.Hdr_cons_draw_qty_Label = p.beansFactory.createLabel("Hdr.cons_draw_qty_Label");
+		p.Hdr_cons_draw_qty = p.beansFactory.createNumberField("Hdr.cons_draw_qty");
+		p.Hdr_cons_draw_qty.setLabel(p.Hdr_cons_draw_qty_Label);
+		p.Hdr_const_draw_typ_Label = p.beansFactory.createLabel("Hdr.const_draw_typ_Label");
+		p.Hdr_const_draw_typ = p.beansFactory.createTextComboBox("Hdr.const_draw_typ");
+		p.Hdr_const_draw_typ.setLabel(p.Hdr_const_draw_typ_Label);
+		p.Hdr_const_draw_typ_nm = p.beansFactory.createTextField("Hdr.const_draw_typ_nm");
+		p.Hdr_const_draw_qty_Label = p.beansFactory.createLabel("Hdr.const_draw_qty_Label");
+		p.Hdr_const_draw_qty = p.beansFactory.createNumberField("Hdr.const_draw_qty");
+		p.Hdr_const_draw_qty.setLabel(p.Hdr_const_draw_qty_Label);
+		p.Hdr_comp_draw_typ_Label = p.beansFactory.createLabel("Hdr.comp_draw_typ_Label");
+		p.Hdr_comp_draw_typ = p.beansFactory.createTextComboBox("Hdr.comp_draw_typ");
+		p.Hdr_comp_draw_typ.setLabel(p.Hdr_comp_draw_typ_Label);
+		p.Hdr_comp_draw_typ_nm = p.beansFactory.createTextField("Hdr.comp_draw_typ_nm");
+		p.Hdr_comp_draw_qty_Label = p.beansFactory.createLabel("Hdr.comp_draw_qty_Label");
+		p.Hdr_comp_draw_qty = p.beansFactory.createNumberField("Hdr.comp_draw_qty");
+		p.Hdr_comp_draw_qty.setLabel(p.Hdr_comp_draw_qty_Label);
+		p.Hdr_inst_manual_typ_Label = p.beansFactory.createLabel("Hdr.inst_manual_typ_Label");
+		p.Hdr_inst_manual_typ = p.beansFactory.createTextComboBox("Hdr.inst_manual_typ");
+		p.Hdr_inst_manual_typ.setLabel(p.Hdr_inst_manual_typ_Label);
+		p.Hdr_inst_manual_typ_nm = p.beansFactory.createTextField("Hdr.inst_manual_typ_nm");
+		p.Hdr_inst_manual_qty_Label = p.beansFactory.createLabel("Hdr.inst_manual_qty_Label");
+		p.Hdr_inst_manual_qty = p.beansFactory.createNumberField("Hdr.inst_manual_qty");
+		p.Hdr_inst_manual_qty.setLabel(p.Hdr_inst_manual_qty_Label);
+		p.Hdr_aprv_draw_typ_Label = p.beansFactory.createLabel("Hdr.aprv_draw_typ_Label");
+		p.Hdr_aprv_draw_typ = p.beansFactory.createTextComboBox("Hdr.aprv_draw_typ");
+		p.Hdr_aprv_draw_typ.setLabel(p.Hdr_aprv_draw_typ_Label);
+		p.Hdr_aprv_draw_typ_nm = p.beansFactory.createTextField("Hdr.aprv_draw_typ_nm");
+		p.Hdr_aprv_draw_qty_Label = p.beansFactory.createLabel("Hdr.aprv_draw_qty_Label");
+		p.Hdr_aprv_draw_qty = p.beansFactory.createNumberField("Hdr.aprv_draw_qty");
+		p.Hdr_aprv_draw_qty.setLabel(p.Hdr_aprv_draw_qty_Label);
+		p.Hdr_slo_cng_rsn_Label = p.beansFactory.createLabel("Hdr.slo_cng_rsn_Label");
+		p.Hdr_slo_cng_rsn = p.beansFactory.createTextField("Hdr.slo_cng_rsn");
+		p.Hdr_slo_cng_rsn.setLabel(p.Hdr_slo_cng_rsn_Label);
+		p.Hdr_main_draw_no_Label = p.beansFactory.createLabel("Hdr.main_draw_no_Label");
+		p.Hdr_main_draw_no = p.beansFactory.createTextField("Hdr.main_draw_no");
+		p.Hdr_main_draw_no.setLabel(p.Hdr_main_draw_no_Label);
+		p.Hdr_jip_slo_typ_Label = p.beansFactory.createLabel("Hdr.jip_slo_typ_Label");
+		p.Hdr_jip_slo_typ = p.beansFactory.createTextComboBox("Hdr.jip_slo_typ");
+		p.Hdr_jip_slo_typ.setLabel(p.Hdr_jip_slo_typ_Label);
 	}
 
 	/**
@@ -5225,6 +5948,251 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_match_key.setNextBeans(p.Hdr_exp_match_btn);
 		p.Hdr_match_key.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.match_key_META);
 		p.HdrPanel.add(p.Hdr_exp_match_btn);
+		p.Hdr_exp_match_btn.setNextBeans(p.Hdr_aprv_dt);
+		p.HdrPanel.add(p.Hdr_aprv_dt_Label);
+		p.HdrPanel.add(p.Hdr_aprv_dt);
+		p.Hdr_aprv_dt.setNextBeans(p.Hdr_rcpt_no);
+		p.Hdr_aprv_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_dt_META);
+		p.Hdr_aprv_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.HdrPanel.add(p.Hdr_rcpt_no_Label);
+		p.HdrPanel.add(p.Hdr_rcpt_no);
+		p.Hdr_rcpt_no.setNextBeans(p.Hdr_appl_doc_no);
+		p.Hdr_rcpt_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.rcpt_no_META);
+		p.HdrPanel.add(p.Hdr_appl_doc_no_Label);
+		p.HdrPanel.add(p.Hdr_appl_doc_no);
+		p.Hdr_appl_doc_no.setNextBeans(p.Hdr_dlv_draw_no);
+		p.Hdr_appl_doc_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.appl_doc_no_META);
+		p.HdrPanel.add(p.Hdr_dlv_draw_no_Label);
+		p.HdrPanel.add(p.Hdr_dlv_draw_no);
+		p.Hdr_dlv_draw_no.setNextBeans(p.Hdr_slo_num_typ);
+		p.Hdr_dlv_draw_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_draw_no_META);
+		p.Hdr_slo_num_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_slo_num_typ_Label);
+		p.HdrPanel.add(p.Hdr_slo_num_typ);
+		p.Hdr_slo_num_typ.setNextBeans(p.Hdr_slo_num_typ_nm);
+		p.Hdr_slo_num_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_num_typ_META);
+		p.HdrPanel.add(p.Hdr_slo_num_typ_nm);
+		p.Hdr_slo_num_typ_nm.setNextBeans(p.Hdr_slo_num);
+		p.Hdr_slo_num_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_num_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_slo_num_Label);
+		p.HdrPanel.add(p.Hdr_slo_num);
+		p.Hdr_slo_num.setNextBeans(p.Hdr_paint_clr);
+		p.Hdr_slo_num.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_num_META);
+		p.HdrPanel.add(p.Hdr_paint_clr_Label);
+		p.HdrPanel.add(p.Hdr_paint_clr);
+		p.Hdr_paint_clr.setNextBeans(p.Hdr_ship_sp_instr_typ);
+		p.Hdr_paint_clr.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.paint_clr_META);
+		p.Hdr_ship_sp_instr_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_ship_sp_instr_typ_Label);
+		p.HdrPanel.add(p.Hdr_ship_sp_instr_typ);
+		p.Hdr_ship_sp_instr_typ.setNextBeans(p.Hdr_ship_sp_instr_typ_nm);
+		p.Hdr_ship_sp_instr_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ship_sp_instr_typ_META);
+		p.HdrPanel.add(p.Hdr_ship_sp_instr_typ_nm);
+		p.Hdr_ship_sp_instr_typ_nm.setNextBeans(p.Hdr_spec_dlv_note_typ);
+		p.Hdr_ship_sp_instr_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ship_sp_instr_typ_nm_META);
+		p.Hdr_spec_dlv_note_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_spec_dlv_note_typ_Label);
+		p.HdrPanel.add(p.Hdr_spec_dlv_note_typ);
+		p.Hdr_spec_dlv_note_typ.setNextBeans(p.Hdr_spec_dlv_note_typ_nm);
+		p.Hdr_spec_dlv_note_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.spec_dlv_note_typ_META);
+		p.HdrPanel.add(p.Hdr_spec_dlv_note_typ_nm);
+		p.Hdr_spec_dlv_note_typ_nm.setNextBeans(p.Hdr_ord_dlv_dt);
+		p.Hdr_spec_dlv_note_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.spec_dlv_note_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_ord_dlv_dt_Label);
+		p.HdrPanel.add(p.Hdr_ord_dlv_dt);
+		p.Hdr_ord_dlv_dt.setNextBeans(p.Hdr_mrkt_cd);
+		p.Hdr_ord_dlv_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ord_dlv_dt_META);
+		p.Hdr_ord_dlv_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.HdrPanel.add(p.Hdr_mrkt_cd_Label);
+		p.HdrPanel.add(p.Hdr_mrkt_cd);
+		p.Hdr_mrkt_cd.setNextBeans(p.Hdr_mrkt_nm);
+		p.Hdr_mrkt_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mrkt_cd_META);
+		p.HdrPanel.add(p.Hdr_mrkt_nm);
+		p.Hdr_mrkt_nm.setNextBeans(p.Hdr_cntry_sign);
+		p.Hdr_mrkt_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mrkt_nm_META);
+		p.Hdr_cntry_sign.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_cntry_sign_Label);
+		p.HdrPanel.add(p.Hdr_cntry_sign);
+		p.Hdr_cntry_sign.setNextBeans(p.Hdr_cntry_sign_nm);
+		p.Hdr_cntry_sign.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cntry_sign_META);
+		p.HdrPanel.add(p.Hdr_cntry_sign_nm);
+		p.Hdr_cntry_sign_nm.setNextBeans(p.Hdr_ves_natl);
+		p.Hdr_cntry_sign_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cntry_sign_nm_META);
+		p.HdrPanel.add(p.Hdr_ves_natl_Label);
+		p.HdrPanel.add(p.Hdr_ves_natl);
+		p.Hdr_ves_natl.setNextBeans(p.Hdr_ves_natl_nm);
+		p.Hdr_ves_natl.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ves_natl_META);
+		p.HdrPanel.add(p.Hdr_ves_natl_nm);
+		p.Hdr_ves_natl_nm.setNextBeans(p.Hdr_shipyard_cd);
+		p.Hdr_ves_natl_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ves_natl_nm_META);
+		p.HdrPanel.add(p.Hdr_shipyard_cd_Label);
+		p.HdrPanel.add(p.Hdr_shipyard_cd);
+		p.Hdr_shipyard_cd.setNextBeans(p.Hdr_shipyard_nm);
+		p.Hdr_shipyard_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.shipyard_cd_META);
+		p.HdrPanel.add(p.Hdr_shipyard_nm);
+		p.Hdr_shipyard_nm.setNextBeans(p.Hdr_ves_no);
+		p.Hdr_shipyard_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.shipyard_nm_META);
+		p.HdrPanel.add(p.Hdr_ves_no_Label);
+		p.HdrPanel.add(p.Hdr_ves_no);
+		p.Hdr_ves_no.setNextBeans(p.Hdr_ves_nm);
+		p.Hdr_ves_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ves_no_META);
+		p.HdrPanel.add(p.Hdr_ves_nm_Label);
+		p.HdrPanel.add(p.Hdr_ves_nm);
+		p.Hdr_ves_nm.setNextBeans(p.Hdr_tonnage);
+		p.Hdr_ves_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ves_nm_META);
+		p.HdrPanel.add(p.Hdr_tonnage_Label);
+		p.HdrPanel.add(p.Hdr_tonnage);
+		p.Hdr_tonnage.setNextBeans(p.Hdr_ves_typ);
+		p.Hdr_tonnage.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.tonnage_META);
+		p.HdrPanel.add(p.Hdr_ves_typ_Label);
+		p.HdrPanel.add(p.Hdr_ves_typ);
+		p.Hdr_ves_typ.setNextBeans(p.Hdr_insp_std);
+		p.Hdr_ves_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ves_typ_META);
+		p.HdrPanel.add(p.Hdr_insp_std_Label);
+		p.HdrPanel.add(p.Hdr_insp_std);
+		p.Hdr_insp_std.setNextBeans(p.Hdr_royalty_trg_amt);
+		p.Hdr_insp_std.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.insp_std_META);
+		p.HdrPanel.add(p.Hdr_royalty_trg_amt_Label);
+		p.HdrPanel.add(p.Hdr_royalty_trg_amt);
+		p.Hdr_royalty_trg_amt.setNextBeans(p.Hdr_royalty_psppl);
+		p.Hdr_royalty_trg_amt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.royalty_trg_amt_META);
+		p.HdrPanel.add(p.Hdr_royalty_psppl_Label);
+		p.HdrPanel.add(p.Hdr_royalty_psppl);
+		p.Hdr_royalty_psppl.setNextBeans(p.Hdr_ins_loc_1);
+		p.Hdr_royalty_psppl.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.royalty_psppl_META);
+		p.HdrPanel.add(p.Hdr_ins_loc_1_Label);
+		p.HdrPanel.add(p.Hdr_ins_loc_1);
+		p.Hdr_ins_loc_1.setNextBeans(p.Hdr_ins_loc_2);
+		p.Hdr_ins_loc_1.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_loc_1_META);
+		p.HdrPanel.add(p.Hdr_ins_loc_2_Label);
+		p.HdrPanel.add(p.Hdr_ins_loc_2);
+		p.Hdr_ins_loc_2.setNextBeans(p.Hdr_sfi_no);
+		p.Hdr_ins_loc_2.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ins_loc_2_META);
+		p.HdrPanel.add(p.Hdr_sfi_no_Label);
+		p.HdrPanel.add(p.Hdr_sfi_no);
+		p.Hdr_sfi_no.setNextBeans(p.Hdr_ps_sal_aft_dt);
+		p.Hdr_sfi_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.sfi_no_META);
+		p.HdrPanel.add(p.Hdr_ps_sal_aft_dt_Label);
+		p.HdrPanel.add(p.Hdr_ps_sal_aft_dt);
+		p.Hdr_ps_sal_aft_dt.setNextBeans(p.Hdr_wit_insp_typ);
+		p.Hdr_ps_sal_aft_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ps_sal_aft_dt_META);
+		p.Hdr_ps_sal_aft_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
+		p.Hdr_wit_insp_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_wit_insp_typ_Label);
+		p.HdrPanel.add(p.Hdr_wit_insp_typ);
+		p.Hdr_wit_insp_typ.setNextBeans(p.Hdr_wit_insp_typ_nm);
+		p.Hdr_wit_insp_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wit_insp_typ_META);
+		p.HdrPanel.add(p.Hdr_wit_insp_typ_nm);
+		p.Hdr_wit_insp_typ_nm.setNextBeans(p.Hdr_equip_typ);
+		p.Hdr_wit_insp_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wit_insp_typ_nm_META);
+		p.Hdr_equip_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_equip_typ_Label);
+		p.HdrPanel.add(p.Hdr_equip_typ);
+		p.Hdr_equip_typ.setNextBeans(p.Hdr_equip_typ_nm);
+		p.Hdr_equip_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.equip_typ_META);
+		p.HdrPanel.add(p.Hdr_equip_typ_nm);
+		p.Hdr_equip_typ_nm.setNextBeans(p.Hdr_spec_doc_typ);
+		p.Hdr_equip_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.equip_typ_nm_META);
+		p.Hdr_spec_doc_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_spec_doc_typ_Label);
+		p.HdrPanel.add(p.Hdr_spec_doc_typ);
+		p.Hdr_spec_doc_typ.setNextBeans(p.Hdr_spec_doc_typ_nm);
+		p.Hdr_spec_doc_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.spec_doc_typ_META);
+		p.HdrPanel.add(p.Hdr_spec_doc_typ_nm);
+		p.Hdr_spec_doc_typ_nm.setNextBeans(p.Hdr_model_jp_en_typ);
+		p.Hdr_spec_doc_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.spec_doc_typ_nm_META);
+		p.Hdr_model_jp_en_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_model_jp_en_typ_Label);
+		p.HdrPanel.add(p.Hdr_model_jp_en_typ);
+		p.Hdr_model_jp_en_typ.setNextBeans(p.Hdr_model_jp_en_typ_nm);
+		p.Hdr_model_jp_en_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.model_jp_en_typ_META);
+		p.HdrPanel.add(p.Hdr_model_jp_en_typ_nm);
+		p.Hdr_model_jp_en_typ_nm.setNextBeans(p.Hdr_insp_rep_typ);
+		p.Hdr_model_jp_en_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.model_jp_en_typ_nm_META);
+		p.Hdr_insp_rep_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_insp_rep_typ_Label);
+		p.HdrPanel.add(p.Hdr_insp_rep_typ);
+		p.Hdr_insp_rep_typ.setNextBeans(p.Hdr_insp_rep_typ_nm);
+		p.Hdr_insp_rep_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.insp_rep_typ_META);
+		p.HdrPanel.add(p.Hdr_insp_rep_typ_nm);
+		p.Hdr_insp_rep_typ_nm.setNextBeans(p.Hdr_insp_rep_qty);
+		p.Hdr_insp_rep_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.insp_rep_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_insp_rep_qty_Label);
+		p.HdrPanel.add(p.Hdr_insp_rep_qty);
+		p.Hdr_insp_rep_qty.setNextBeans(p.Hdr_cons_draw_typ);
+		p.Hdr_insp_rep_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.insp_rep_qty_META);
+		p.Hdr_cons_draw_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_cons_draw_typ_Label);
+		p.HdrPanel.add(p.Hdr_cons_draw_typ);
+		p.Hdr_cons_draw_typ.setNextBeans(p.Hdr_cons_draw_typ_nm);
+		p.Hdr_cons_draw_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cons_draw_typ_META);
+		p.HdrPanel.add(p.Hdr_cons_draw_typ_nm);
+		p.Hdr_cons_draw_typ_nm.setNextBeans(p.Hdr_cons_draw_qty);
+		p.Hdr_cons_draw_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cons_draw_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_cons_draw_qty_Label);
+		p.HdrPanel.add(p.Hdr_cons_draw_qty);
+		p.Hdr_cons_draw_qty.setNextBeans(p.Hdr_const_draw_typ);
+		p.Hdr_cons_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cons_draw_qty_META);
+		p.Hdr_const_draw_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_const_draw_typ_Label);
+		p.HdrPanel.add(p.Hdr_const_draw_typ);
+		p.Hdr_const_draw_typ.setNextBeans(p.Hdr_const_draw_typ_nm);
+		p.Hdr_const_draw_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_draw_typ_META);
+		p.HdrPanel.add(p.Hdr_const_draw_typ_nm);
+		p.Hdr_const_draw_typ_nm.setNextBeans(p.Hdr_const_draw_qty);
+		p.Hdr_const_draw_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_draw_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_const_draw_qty_Label);
+		p.HdrPanel.add(p.Hdr_const_draw_qty);
+		p.Hdr_const_draw_qty.setNextBeans(p.Hdr_comp_draw_typ);
+		p.Hdr_const_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_draw_qty_META);
+		p.Hdr_comp_draw_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_comp_draw_typ_Label);
+		p.HdrPanel.add(p.Hdr_comp_draw_typ);
+		p.Hdr_comp_draw_typ.setNextBeans(p.Hdr_comp_draw_typ_nm);
+		p.Hdr_comp_draw_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.comp_draw_typ_META);
+		p.HdrPanel.add(p.Hdr_comp_draw_typ_nm);
+		p.Hdr_comp_draw_typ_nm.setNextBeans(p.Hdr_comp_draw_qty);
+		p.Hdr_comp_draw_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.comp_draw_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_comp_draw_qty_Label);
+		p.HdrPanel.add(p.Hdr_comp_draw_qty);
+		p.Hdr_comp_draw_qty.setNextBeans(p.Hdr_inst_manual_typ);
+		p.Hdr_comp_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.comp_draw_qty_META);
+		p.Hdr_inst_manual_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_inst_manual_typ_Label);
+		p.HdrPanel.add(p.Hdr_inst_manual_typ);
+		p.Hdr_inst_manual_typ.setNextBeans(p.Hdr_inst_manual_typ_nm);
+		p.Hdr_inst_manual_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.inst_manual_typ_META);
+		p.HdrPanel.add(p.Hdr_inst_manual_typ_nm);
+		p.Hdr_inst_manual_typ_nm.setNextBeans(p.Hdr_inst_manual_qty);
+		p.Hdr_inst_manual_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.inst_manual_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_inst_manual_qty_Label);
+		p.HdrPanel.add(p.Hdr_inst_manual_qty);
+		p.Hdr_inst_manual_qty.setNextBeans(p.Hdr_aprv_draw_typ);
+		p.Hdr_inst_manual_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.inst_manual_qty_META);
+		p.Hdr_aprv_draw_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_aprv_draw_typ_Label);
+		p.HdrPanel.add(p.Hdr_aprv_draw_typ);
+		p.Hdr_aprv_draw_typ.setNextBeans(p.Hdr_aprv_draw_typ_nm);
+		p.Hdr_aprv_draw_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_draw_typ_META);
+		p.HdrPanel.add(p.Hdr_aprv_draw_typ_nm);
+		p.Hdr_aprv_draw_typ_nm.setNextBeans(p.Hdr_aprv_draw_qty);
+		p.Hdr_aprv_draw_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_draw_typ_nm_META);
+		p.HdrPanel.add(p.Hdr_aprv_draw_qty_Label);
+		p.HdrPanel.add(p.Hdr_aprv_draw_qty);
+		p.Hdr_aprv_draw_qty.setNextBeans(p.Hdr_slo_cng_rsn);
+		p.Hdr_aprv_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.aprv_draw_qty_META);
+		p.HdrPanel.add(p.Hdr_slo_cng_rsn_Label);
+		p.HdrPanel.add(p.Hdr_slo_cng_rsn);
+		p.Hdr_slo_cng_rsn.setNextBeans(p.Hdr_main_draw_no);
+		p.Hdr_slo_cng_rsn.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_cng_rsn_META);
+		p.HdrPanel.add(p.Hdr_main_draw_no_Label);
+		p.HdrPanel.add(p.Hdr_main_draw_no);
+		p.Hdr_main_draw_no.setNextBeans(p.Hdr_jip_slo_typ);
+		p.Hdr_main_draw_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.main_draw_no_META);
+		p.Hdr_jip_slo_typ.setListType(MCListType.STRICT);
+		p.HdrPanel.add(p.Hdr_jip_slo_typ_Label);
+		p.HdrPanel.add(p.Hdr_jip_slo_typ);
+		p.Hdr_jip_slo_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.jip_slo_typ_META);
 	}
 
 	/**
@@ -5857,6 +6825,128 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_match_key.addAllListener(p);
 		p.Hdr_exp_match_btn.addAllListener(p);
 		p.Hdr_exp_match_btn.setAPMethodName("doHdr_exp_match_btn");
+		p.Hdr_aprv_dt.setListListener(p);
+		p.Hdr_aprv_dt.addAllListener(p);
+		p.Hdr_rcpt_no.setListListener(p);
+		p.Hdr_rcpt_no.addAllListener(p);
+		p.Hdr_appl_doc_no.setListListener(p);
+		p.Hdr_appl_doc_no.addAllListener(p);
+		p.Hdr_dlv_draw_no.setListListener(p);
+		p.Hdr_dlv_draw_no.addAllListener(p);
+		p.Hdr_slo_num_typ.setListListener(p);
+		p.Hdr_slo_num_typ.addAllListener(p);
+		p.Hdr_slo_num_typ_nm.setListListener(p);
+		p.Hdr_slo_num_typ_nm.addAllListener(p);
+		p.Hdr_slo_num.setListListener(p);
+		p.Hdr_slo_num.addAllListener(p);
+		p.Hdr_paint_clr.setListListener(p);
+		p.Hdr_paint_clr.addAllListener(p);
+		p.Hdr_ship_sp_instr_typ.setListListener(p);
+		p.Hdr_ship_sp_instr_typ.addAllListener(p);
+		p.Hdr_ship_sp_instr_typ_nm.setListListener(p);
+		p.Hdr_ship_sp_instr_typ_nm.addAllListener(p);
+		p.Hdr_spec_dlv_note_typ.setListListener(p);
+		p.Hdr_spec_dlv_note_typ.addAllListener(p);
+		p.Hdr_spec_dlv_note_typ_nm.setListListener(p);
+		p.Hdr_spec_dlv_note_typ_nm.addAllListener(p);
+		p.Hdr_ord_dlv_dt.setListListener(p);
+		p.Hdr_ord_dlv_dt.addAllListener(p);
+		p.Hdr_mrkt_cd.setListListener(p);
+		p.Hdr_mrkt_cd.addAllListener(p);
+		p.Hdr_mrkt_nm.setListListener(p);
+		p.Hdr_mrkt_nm.addAllListener(p);
+		p.Hdr_cntry_sign.setListListener(p);
+		p.Hdr_cntry_sign.addAllListener(p);
+		p.Hdr_cntry_sign_nm.setListListener(p);
+		p.Hdr_cntry_sign_nm.addAllListener(p);
+		p.Hdr_ves_natl.setListListener(p);
+		p.Hdr_ves_natl.addAllListener(p);
+		p.Hdr_ves_natl_nm.setListListener(p);
+		p.Hdr_ves_natl_nm.addAllListener(p);
+		p.Hdr_shipyard_cd.setListListener(p);
+		p.Hdr_shipyard_cd.addAllListener(p);
+		p.Hdr_shipyard_nm.setListListener(p);
+		p.Hdr_shipyard_nm.addAllListener(p);
+		p.Hdr_ves_no.setListListener(p);
+		p.Hdr_ves_no.addAllListener(p);
+		p.Hdr_ves_nm.setListListener(p);
+		p.Hdr_ves_nm.addAllListener(p);
+		p.Hdr_tonnage.setListListener(p);
+		p.Hdr_tonnage.addAllListener(p);
+		p.Hdr_ves_typ.setListListener(p);
+		p.Hdr_ves_typ.addAllListener(p);
+		p.Hdr_insp_std.setListListener(p);
+		p.Hdr_insp_std.addAllListener(p);
+		p.Hdr_royalty_trg_amt.setListListener(p);
+		p.Hdr_royalty_trg_amt.addAllListener(p);
+		p.Hdr_royalty_psppl.setListListener(p);
+		p.Hdr_royalty_psppl.addAllListener(p);
+		p.Hdr_ins_loc_1.setListListener(p);
+		p.Hdr_ins_loc_1.addAllListener(p);
+		p.Hdr_ins_loc_2.setListListener(p);
+		p.Hdr_ins_loc_2.addAllListener(p);
+		p.Hdr_sfi_no.setListListener(p);
+		p.Hdr_sfi_no.addAllListener(p);
+		p.Hdr_ps_sal_aft_dt.setListListener(p);
+		p.Hdr_ps_sal_aft_dt.addAllListener(p);
+		p.Hdr_wit_insp_typ.setListListener(p);
+		p.Hdr_wit_insp_typ.addAllListener(p);
+		p.Hdr_wit_insp_typ_nm.setListListener(p);
+		p.Hdr_wit_insp_typ_nm.addAllListener(p);
+		p.Hdr_equip_typ.setListListener(p);
+		p.Hdr_equip_typ.addAllListener(p);
+		p.Hdr_equip_typ_nm.setListListener(p);
+		p.Hdr_equip_typ_nm.addAllListener(p);
+		p.Hdr_spec_doc_typ.setListListener(p);
+		p.Hdr_spec_doc_typ.addAllListener(p);
+		p.Hdr_spec_doc_typ_nm.setListListener(p);
+		p.Hdr_spec_doc_typ_nm.addAllListener(p);
+		p.Hdr_model_jp_en_typ.setListListener(p);
+		p.Hdr_model_jp_en_typ.addAllListener(p);
+		p.Hdr_model_jp_en_typ_nm.setListListener(p);
+		p.Hdr_model_jp_en_typ_nm.addAllListener(p);
+		p.Hdr_insp_rep_typ.setListListener(p);
+		p.Hdr_insp_rep_typ.addAllListener(p);
+		p.Hdr_insp_rep_typ_nm.setListListener(p);
+		p.Hdr_insp_rep_typ_nm.addAllListener(p);
+		p.Hdr_insp_rep_qty.setListListener(p);
+		p.Hdr_insp_rep_qty.addAllListener(p);
+		p.Hdr_cons_draw_typ.setListListener(p);
+		p.Hdr_cons_draw_typ.addAllListener(p);
+		p.Hdr_cons_draw_typ_nm.setListListener(p);
+		p.Hdr_cons_draw_typ_nm.addAllListener(p);
+		p.Hdr_cons_draw_qty.setListListener(p);
+		p.Hdr_cons_draw_qty.addAllListener(p);
+		p.Hdr_const_draw_typ.setListListener(p);
+		p.Hdr_const_draw_typ.addAllListener(p);
+		p.Hdr_const_draw_typ_nm.setListListener(p);
+		p.Hdr_const_draw_typ_nm.addAllListener(p);
+		p.Hdr_const_draw_qty.setListListener(p);
+		p.Hdr_const_draw_qty.addAllListener(p);
+		p.Hdr_comp_draw_typ.setListListener(p);
+		p.Hdr_comp_draw_typ.addAllListener(p);
+		p.Hdr_comp_draw_typ_nm.setListListener(p);
+		p.Hdr_comp_draw_typ_nm.addAllListener(p);
+		p.Hdr_comp_draw_qty.setListListener(p);
+		p.Hdr_comp_draw_qty.addAllListener(p);
+		p.Hdr_inst_manual_typ.setListListener(p);
+		p.Hdr_inst_manual_typ.addAllListener(p);
+		p.Hdr_inst_manual_typ_nm.setListListener(p);
+		p.Hdr_inst_manual_typ_nm.addAllListener(p);
+		p.Hdr_inst_manual_qty.setListListener(p);
+		p.Hdr_inst_manual_qty.addAllListener(p);
+		p.Hdr_aprv_draw_typ.setListListener(p);
+		p.Hdr_aprv_draw_typ.addAllListener(p);
+		p.Hdr_aprv_draw_typ_nm.setListListener(p);
+		p.Hdr_aprv_draw_typ_nm.addAllListener(p);
+		p.Hdr_aprv_draw_qty.setListListener(p);
+		p.Hdr_aprv_draw_qty.addAllListener(p);
+		p.Hdr_slo_cng_rsn.setListListener(p);
+		p.Hdr_slo_cng_rsn.addAllListener(p);
+		p.Hdr_main_draw_no.setListListener(p);
+		p.Hdr_main_draw_no.addAllListener(p);
+		p.Hdr_jip_slo_typ.setListListener(p);
+		p.Hdr_jip_slo_typ.addAllListener(p);
 	}
 
 	/**
@@ -6373,6 +7463,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, SRCH, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, SRCH, MCMode.ENABLE);
 
 	}
 
@@ -6829,6 +7980,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, REF, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, REF, MCMode.ENABLE);
 
 	}
 
@@ -7286,6 +8498,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, UPD, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, UPD, MCMode.ENABLE);
 
 	}
 
@@ -7743,6 +9016,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, UPD_QTN, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
 
 	}
 
@@ -8199,6 +9533,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, UPD_APRV, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
 
 	}
 
@@ -8905,6 +10300,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, FIX_U, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, FIX_U, MCMode.ENABLE);
 
 	}
 
@@ -9362,6 +10818,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_exp_match_btn.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_aprv_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, INS, MCMode.ENABLE);
 
 	}
 
@@ -9819,6 +11336,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_exp_match_btn.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_aprv_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, INS_QTN, MCMode.ENABLE);
 
 	}
 
@@ -10275,6 +11853,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_I, MCMode.DISABLE);
 		p.Hdr_exp_match_btn.putMode(p, FIX_I, MCMode.DISABLE);
+		p.Hdr_aprv_dt.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, FIX_I, MCMode.ENABLE);
 
 	}
 
@@ -10731,6 +12370,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, DEL, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, DEL, MCMode.ENABLE);
 
 	}
 
@@ -11187,6 +12887,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_par_itm_p_PPanel.Itm_itm_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_bom_exp_btn.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_exp_match_btn.putMode(p, FIX_D, MCMode.INVISIBLE);
+		p.Hdr_aprv_dt.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_rcpt_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_appl_doc_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_dlv_draw_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_slo_num_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_slo_num_typ_nm.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_slo_num.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_paint_clr.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ship_sp_instr_typ_nm.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_spec_dlv_note_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ord_dlv_dt.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_mrkt_cd.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_mrkt_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cntry_sign.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_cntry_sign_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ves_natl.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ves_natl_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_shipyard_cd.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_shipyard_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_ves_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ves_nm.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_tonnage.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ves_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_insp_std.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_royalty_trg_amt.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_royalty_psppl.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ins_loc_1.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ins_loc_2.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_sfi_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_ps_sal_aft_dt.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_wit_insp_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_equip_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_equip_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_spec_doc_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_spec_doc_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_model_jp_en_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_model_jp_en_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_insp_rep_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_insp_rep_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_cons_draw_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_cons_draw_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_const_draw_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_const_draw_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_const_draw_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_comp_draw_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_comp_draw_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_inst_manual_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_inst_manual_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_aprv_draw_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_aprv_draw_qty.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_slo_cng_rsn.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_main_draw_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ.putMode(p, FIX_D, MCMode.ENABLE);
 
 	}
 
@@ -11888,6 +13649,36 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_frc_rsn_cd.getListConfig().setPutter(getHdr_frc_rsn_cd_ListPutter());
 		Hdr_sls_cond_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_sls_cond_typ.getListConfig().setPutter(getHdr_sls_cond_typ_ListPutter());
+		Hdr_slo_num_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_slo_num_typ.getListConfig().setPutter(getHdr_slo_num_typ_ListPutter());
+		Hdr_ship_sp_instr_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_ship_sp_instr_typ.getListConfig().setPutter(getHdr_ship_sp_instr_typ_ListPutter());
+		Hdr_spec_dlv_note_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_spec_dlv_note_typ.getListConfig().setPutter(getHdr_spec_dlv_note_typ_ListPutter());
+		Hdr_cntry_sign.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_cntry_sign.getListConfig().setPutter(getHdr_cntry_sign_ListPutter());
+		Hdr_wit_insp_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_wit_insp_typ.getListConfig().setPutter(getHdr_wit_insp_typ_ListPutter());
+		Hdr_equip_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_equip_typ.getListConfig().setPutter(getHdr_equip_typ_ListPutter());
+		Hdr_spec_doc_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_spec_doc_typ.getListConfig().setPutter(getHdr_spec_doc_typ_ListPutter());
+		Hdr_model_jp_en_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_model_jp_en_typ.getListConfig().setPutter(getHdr_model_jp_en_typ_ListPutter());
+		Hdr_insp_rep_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_insp_rep_typ.getListConfig().setPutter(getHdr_insp_rep_typ_ListPutter());
+		Hdr_cons_draw_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_cons_draw_typ.getListConfig().setPutter(getHdr_cons_draw_typ_ListPutter());
+		Hdr_const_draw_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_const_draw_typ.getListConfig().setPutter(getHdr_const_draw_typ_ListPutter());
+		Hdr_comp_draw_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_comp_draw_typ.getListConfig().setPutter(getHdr_comp_draw_typ_ListPutter());
+		Hdr_inst_manual_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_inst_manual_typ.getListConfig().setPutter(getHdr_inst_manual_typ_ListPutter());
+		Hdr_aprv_draw_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_aprv_draw_typ.getListConfig().setPutter(getHdr_aprv_draw_typ_ListPutter());
+		Hdr_jip_slo_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
+		Hdr_jip_slo_typ.getListConfig().setPutter(getHdr_jip_slo_typ_ListPutter());
 		columnDtl_cst_itm_cd.getListConfig().setPutter(getDtl_cst_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_cd.getListConfig().setPutter(getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter());
 		Dtl_itm_p_PPanel.columnItm_itm_sub1.setListVisibleColumn(MCListLogic.getViewColumnName());
@@ -12365,6 +14156,141 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
+	 * [Hdr_slo_num_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_slo_num_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_ship_sp_instr_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_ship_sp_instr_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_spec_dlv_note_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_spec_dlv_note_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_cntry_sign_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_cntry_sign_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_wit_insp_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_wit_insp_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_equip_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_equip_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_spec_doc_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_spec_doc_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_model_jp_en_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_model_jp_en_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_insp_rep_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_insp_rep_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_cons_draw_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_cons_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_const_draw_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_const_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_comp_draw_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_comp_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_inst_manual_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_inst_manual_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_aprv_draw_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_aprv_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
+	 * [Hdr_jip_slo_typ_ListPutter]の作成
+	 */
+	protected MCListPutter createHdr_jip_slo_typ_ListPutter(MCLinkBeans compo, String... columns) {
+		MCListPutter lp = new MCListPutter(compo, columns);
+		lp.setListLogicId("");
+		return lp;
+	}
+	 
+	/**
 	 * [Dtl_cst_itm_cd_ListPutter]の作成
 	 */
 	protected MCListPutter createDtl_cst_itm_cd_ListPutter(MCLinkBeans compo, String... columns) {
@@ -12701,6 +14627,21 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub1) return getHdr_par_itm_p_PPanel_Itm_itm_sub1(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub2) return getHdr_par_itm_p_PPanel_Itm_itm_sub2(row, info);
 		if(combo == Hdr_par_itm_p_PPanel.Itm_itm_sub3) return getHdr_par_itm_p_PPanel_Itm_itm_sub3(row, info);
+		if(combo == Hdr_slo_num_typ) return getHdr_slo_num_typ(row, info);
+		if(combo == Hdr_ship_sp_instr_typ) return getHdr_ship_sp_instr_typ(row, info);
+		if(combo == Hdr_spec_dlv_note_typ) return getHdr_spec_dlv_note_typ(row, info);
+		if(combo == Hdr_cntry_sign) return getHdr_cntry_sign(row, info);
+		if(combo == Hdr_wit_insp_typ) return getHdr_wit_insp_typ(row, info);
+		if(combo == Hdr_equip_typ) return getHdr_equip_typ(row, info);
+		if(combo == Hdr_spec_doc_typ) return getHdr_spec_doc_typ(row, info);
+		if(combo == Hdr_model_jp_en_typ) return getHdr_model_jp_en_typ(row, info);
+		if(combo == Hdr_insp_rep_typ) return getHdr_insp_rep_typ(row, info);
+		if(combo == Hdr_cons_draw_typ) return getHdr_cons_draw_typ(row, info);
+		if(combo == Hdr_const_draw_typ) return getHdr_const_draw_typ(row, info);
+		if(combo == Hdr_comp_draw_typ) return getHdr_comp_draw_typ(row, info);
+		if(combo == Hdr_inst_manual_typ) return getHdr_inst_manual_typ(row, info);
+		if(combo == Hdr_aprv_draw_typ) return getHdr_aprv_draw_typ(row, info);
+		if(combo == Hdr_jip_slo_typ) return getHdr_jip_slo_typ(row, info);
 		if(combo == columnDtl_cst_itm_cd) return getDtl_cst_itm_cd(row, info);
 		if(combo == Dtl_itm_p_PPanel.columnItm_itm_cd) return getDtl_itm_p_PPanel_columnItm_itm_cd(row, info);
 		if(combo == Dtl_itm_p_PPanel.columnItm_itm_sub1) return getDtl_itm_p_PPanel_columnItm_itm_sub1(row, info);
@@ -12999,6 +14940,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_surv_line_qty) return doHdr_surv_line_qty_VC(info);
 		if (vc == Hdr_diameter) return doHdr_diameter_VC(info);
 		if (vc == Hdr_match_key) return doHdr_match_key_VC(info);
+		if (vc == Hdr_aprv_dt) return doHdr_aprv_dt_VC(info);
+		if (vc == Hdr_rcpt_no) return doHdr_rcpt_no_VC(info);
+		if (vc == Hdr_appl_doc_no) return doHdr_appl_doc_no_VC(info);
+		if (vc == Hdr_dlv_draw_no) return doHdr_dlv_draw_no_VC(info);
+		if (vc == Hdr_slo_num_typ) return doHdr_slo_num_typ_VC(info);
+		if (vc == Hdr_slo_num_typ_nm) return doHdr_slo_num_typ_nm_VC(info);
+		if (vc == Hdr_slo_num) return doHdr_slo_num_VC(info);
+		if (vc == Hdr_paint_clr) return doHdr_paint_clr_VC(info);
+		if (vc == Hdr_ship_sp_instr_typ) return doHdr_ship_sp_instr_typ_VC(info);
+		if (vc == Hdr_ship_sp_instr_typ_nm) return doHdr_ship_sp_instr_typ_nm_VC(info);
+		if (vc == Hdr_spec_dlv_note_typ) return doHdr_spec_dlv_note_typ_VC(info);
+		if (vc == Hdr_spec_dlv_note_typ_nm) return doHdr_spec_dlv_note_typ_nm_VC(info);
+		if (vc == Hdr_ord_dlv_dt) return doHdr_ord_dlv_dt_VC(info);
+		if (vc == Hdr_mrkt_cd) return doHdr_mrkt_cd_VC(info);
+		if (vc == Hdr_mrkt_nm) return doHdr_mrkt_nm_VC(info);
+		if (vc == Hdr_cntry_sign) return doHdr_cntry_sign_VC(info);
+		if (vc == Hdr_cntry_sign_nm) return doHdr_cntry_sign_nm_VC(info);
+		if (vc == Hdr_ves_natl) return doHdr_ves_natl_VC(info);
+		if (vc == Hdr_ves_natl_nm) return doHdr_ves_natl_nm_VC(info);
+		if (vc == Hdr_shipyard_cd) return doHdr_shipyard_cd_VC(info);
+		if (vc == Hdr_shipyard_nm) return doHdr_shipyard_nm_VC(info);
+		if (vc == Hdr_ves_no) return doHdr_ves_no_VC(info);
+		if (vc == Hdr_ves_nm) return doHdr_ves_nm_VC(info);
+		if (vc == Hdr_tonnage) return doHdr_tonnage_VC(info);
+		if (vc == Hdr_ves_typ) return doHdr_ves_typ_VC(info);
+		if (vc == Hdr_insp_std) return doHdr_insp_std_VC(info);
+		if (vc == Hdr_royalty_trg_amt) return doHdr_royalty_trg_amt_VC(info);
+		if (vc == Hdr_royalty_psppl) return doHdr_royalty_psppl_VC(info);
+		if (vc == Hdr_ins_loc_1) return doHdr_ins_loc_1_VC(info);
+		if (vc == Hdr_ins_loc_2) return doHdr_ins_loc_2_VC(info);
+		if (vc == Hdr_sfi_no) return doHdr_sfi_no_VC(info);
+		if (vc == Hdr_ps_sal_aft_dt) return doHdr_ps_sal_aft_dt_VC(info);
+		if (vc == Hdr_wit_insp_typ) return doHdr_wit_insp_typ_VC(info);
+		if (vc == Hdr_wit_insp_typ_nm) return doHdr_wit_insp_typ_nm_VC(info);
+		if (vc == Hdr_equip_typ) return doHdr_equip_typ_VC(info);
+		if (vc == Hdr_equip_typ_nm) return doHdr_equip_typ_nm_VC(info);
+		if (vc == Hdr_spec_doc_typ) return doHdr_spec_doc_typ_VC(info);
+		if (vc == Hdr_spec_doc_typ_nm) return doHdr_spec_doc_typ_nm_VC(info);
+		if (vc == Hdr_model_jp_en_typ) return doHdr_model_jp_en_typ_VC(info);
+		if (vc == Hdr_model_jp_en_typ_nm) return doHdr_model_jp_en_typ_nm_VC(info);
+		if (vc == Hdr_insp_rep_typ) return doHdr_insp_rep_typ_VC(info);
+		if (vc == Hdr_insp_rep_typ_nm) return doHdr_insp_rep_typ_nm_VC(info);
+		if (vc == Hdr_insp_rep_qty) return doHdr_insp_rep_qty_VC(info);
+		if (vc == Hdr_cons_draw_typ) return doHdr_cons_draw_typ_VC(info);
+		if (vc == Hdr_cons_draw_typ_nm) return doHdr_cons_draw_typ_nm_VC(info);
+		if (vc == Hdr_cons_draw_qty) return doHdr_cons_draw_qty_VC(info);
+		if (vc == Hdr_const_draw_typ) return doHdr_const_draw_typ_VC(info);
+		if (vc == Hdr_const_draw_typ_nm) return doHdr_const_draw_typ_nm_VC(info);
+		if (vc == Hdr_const_draw_qty) return doHdr_const_draw_qty_VC(info);
+		if (vc == Hdr_comp_draw_typ) return doHdr_comp_draw_typ_VC(info);
+		if (vc == Hdr_comp_draw_typ_nm) return doHdr_comp_draw_typ_nm_VC(info);
+		if (vc == Hdr_comp_draw_qty) return doHdr_comp_draw_qty_VC(info);
+		if (vc == Hdr_inst_manual_typ) return doHdr_inst_manual_typ_VC(info);
+		if (vc == Hdr_inst_manual_typ_nm) return doHdr_inst_manual_typ_nm_VC(info);
+		if (vc == Hdr_inst_manual_qty) return doHdr_inst_manual_qty_VC(info);
+		if (vc == Hdr_aprv_draw_typ) return doHdr_aprv_draw_typ_VC(info);
+		if (vc == Hdr_aprv_draw_typ_nm) return doHdr_aprv_draw_typ_nm_VC(info);
+		if (vc == Hdr_aprv_draw_qty) return doHdr_aprv_draw_qty_VC(info);
+		if (vc == Hdr_slo_cng_rsn) return doHdr_slo_cng_rsn_VC(info);
+		if (vc == Hdr_main_draw_no) return doHdr_main_draw_no_VC(info);
+		if (vc == Hdr_jip_slo_typ) return doHdr_jip_slo_typ_VC(info);
 		if (vc == columnDtl_abort_flg) return doDtl_abort_flg_VC(info);
 		if (vc == columnDtl_sls_sts_typ) return doDtl_sls_sts_typ_VC(info);
 		if (vc == columnDtl_sls_sts_typ_nm) return doDtl_sls_sts_typ_nm_VC(info);
@@ -14785,6 +16787,616 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[aprv_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_rcpt_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[appl_doc_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_appl_doc_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_draw_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_dlv_draw_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_num_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_num_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_num_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[paint_clr]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_paint_clr_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ship_sp_instr_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ship_sp_instr_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_spec_dlv_note_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_spec_dlv_note_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ord_dlv_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ord_dlv_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mrkt_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_mrkt_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cntry_sign_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cntry_sign_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ves_natl_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ves_natl_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_cd]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_shipyard_cd_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_shipyard_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ves_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ves_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[tonnage]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_tonnage_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ves_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_std]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_insp_std_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_trg_amt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_royalty_trg_amt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_psppl]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_royalty_psppl_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_loc_1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ins_loc_2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[sfi_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_sfi_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[ps_sal_aft_dt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_ps_sal_aft_dt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wit_insp_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wit_insp_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_equip_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_equip_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_spec_doc_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_spec_doc_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_model_jp_en_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_model_jp_en_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_insp_rep_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_insp_rep_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_insp_rep_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cons_draw_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cons_draw_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_cons_draw_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_const_draw_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_const_draw_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_const_draw_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_comp_draw_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_comp_draw_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_comp_draw_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_inst_manual_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_inst_manual_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_inst_manual_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_draw_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_draw_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_qty]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_aprv_draw_qty_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_cng_rsn]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_cng_rsn_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[main_draw_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_main_draw_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[jip_slo_typ]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_jip_slo_typ_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -16376,6 +18988,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_surv_line_qty) doHdr_surv_line_qty_NC(info);
 		else if (nc == Hdr_diameter) doHdr_diameter_NC(info);
 		else if (nc == Hdr_match_key) doHdr_match_key_NC(info);
+		else if (nc == Hdr_aprv_dt) doHdr_aprv_dt_NC(info);
+		else if (nc == Hdr_rcpt_no) doHdr_rcpt_no_NC(info);
+		else if (nc == Hdr_appl_doc_no) doHdr_appl_doc_no_NC(info);
+		else if (nc == Hdr_dlv_draw_no) doHdr_dlv_draw_no_NC(info);
+		else if (nc == Hdr_slo_num_typ) doHdr_slo_num_typ_NC(info);
+		else if (nc == Hdr_slo_num_typ_nm) doHdr_slo_num_typ_nm_NC(info);
+		else if (nc == Hdr_slo_num) doHdr_slo_num_NC(info);
+		else if (nc == Hdr_paint_clr) doHdr_paint_clr_NC(info);
+		else if (nc == Hdr_ship_sp_instr_typ) doHdr_ship_sp_instr_typ_NC(info);
+		else if (nc == Hdr_ship_sp_instr_typ_nm) doHdr_ship_sp_instr_typ_nm_NC(info);
+		else if (nc == Hdr_spec_dlv_note_typ) doHdr_spec_dlv_note_typ_NC(info);
+		else if (nc == Hdr_spec_dlv_note_typ_nm) doHdr_spec_dlv_note_typ_nm_NC(info);
+		else if (nc == Hdr_ord_dlv_dt) doHdr_ord_dlv_dt_NC(info);
+		else if (nc == Hdr_mrkt_cd) doHdr_mrkt_cd_NC(info);
+		else if (nc == Hdr_mrkt_nm) doHdr_mrkt_nm_NC(info);
+		else if (nc == Hdr_cntry_sign) doHdr_cntry_sign_NC(info);
+		else if (nc == Hdr_cntry_sign_nm) doHdr_cntry_sign_nm_NC(info);
+		else if (nc == Hdr_ves_natl) doHdr_ves_natl_NC(info);
+		else if (nc == Hdr_ves_natl_nm) doHdr_ves_natl_nm_NC(info);
+		else if (nc == Hdr_shipyard_cd) doHdr_shipyard_cd_NC(info);
+		else if (nc == Hdr_shipyard_nm) doHdr_shipyard_nm_NC(info);
+		else if (nc == Hdr_ves_no) doHdr_ves_no_NC(info);
+		else if (nc == Hdr_ves_nm) doHdr_ves_nm_NC(info);
+		else if (nc == Hdr_tonnage) doHdr_tonnage_NC(info);
+		else if (nc == Hdr_ves_typ) doHdr_ves_typ_NC(info);
+		else if (nc == Hdr_insp_std) doHdr_insp_std_NC(info);
+		else if (nc == Hdr_royalty_trg_amt) doHdr_royalty_trg_amt_NC(info);
+		else if (nc == Hdr_royalty_psppl) doHdr_royalty_psppl_NC(info);
+		else if (nc == Hdr_ins_loc_1) doHdr_ins_loc_1_NC(info);
+		else if (nc == Hdr_ins_loc_2) doHdr_ins_loc_2_NC(info);
+		else if (nc == Hdr_sfi_no) doHdr_sfi_no_NC(info);
+		else if (nc == Hdr_ps_sal_aft_dt) doHdr_ps_sal_aft_dt_NC(info);
+		else if (nc == Hdr_wit_insp_typ) doHdr_wit_insp_typ_NC(info);
+		else if (nc == Hdr_wit_insp_typ_nm) doHdr_wit_insp_typ_nm_NC(info);
+		else if (nc == Hdr_equip_typ) doHdr_equip_typ_NC(info);
+		else if (nc == Hdr_equip_typ_nm) doHdr_equip_typ_nm_NC(info);
+		else if (nc == Hdr_spec_doc_typ) doHdr_spec_doc_typ_NC(info);
+		else if (nc == Hdr_spec_doc_typ_nm) doHdr_spec_doc_typ_nm_NC(info);
+		else if (nc == Hdr_model_jp_en_typ) doHdr_model_jp_en_typ_NC(info);
+		else if (nc == Hdr_model_jp_en_typ_nm) doHdr_model_jp_en_typ_nm_NC(info);
+		else if (nc == Hdr_insp_rep_typ) doHdr_insp_rep_typ_NC(info);
+		else if (nc == Hdr_insp_rep_typ_nm) doHdr_insp_rep_typ_nm_NC(info);
+		else if (nc == Hdr_insp_rep_qty) doHdr_insp_rep_qty_NC(info);
+		else if (nc == Hdr_cons_draw_typ) doHdr_cons_draw_typ_NC(info);
+		else if (nc == Hdr_cons_draw_typ_nm) doHdr_cons_draw_typ_nm_NC(info);
+		else if (nc == Hdr_cons_draw_qty) doHdr_cons_draw_qty_NC(info);
+		else if (nc == Hdr_const_draw_typ) doHdr_const_draw_typ_NC(info);
+		else if (nc == Hdr_const_draw_typ_nm) doHdr_const_draw_typ_nm_NC(info);
+		else if (nc == Hdr_const_draw_qty) doHdr_const_draw_qty_NC(info);
+		else if (nc == Hdr_comp_draw_typ) doHdr_comp_draw_typ_NC(info);
+		else if (nc == Hdr_comp_draw_typ_nm) doHdr_comp_draw_typ_nm_NC(info);
+		else if (nc == Hdr_comp_draw_qty) doHdr_comp_draw_qty_NC(info);
+		else if (nc == Hdr_inst_manual_typ) doHdr_inst_manual_typ_NC(info);
+		else if (nc == Hdr_inst_manual_typ_nm) doHdr_inst_manual_typ_nm_NC(info);
+		else if (nc == Hdr_inst_manual_qty) doHdr_inst_manual_qty_NC(info);
+		else if (nc == Hdr_aprv_draw_typ) doHdr_aprv_draw_typ_NC(info);
+		else if (nc == Hdr_aprv_draw_typ_nm) doHdr_aprv_draw_typ_nm_NC(info);
+		else if (nc == Hdr_aprv_draw_qty) doHdr_aprv_draw_qty_NC(info);
+		else if (nc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NC(info);
+		else if (nc == Hdr_main_draw_no) doHdr_main_draw_no_NC(info);
+		else if (nc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NC(info);
 		else if (nc == columnDtl_abort_flg) doDtl_abort_flg_NC(info);
 		else if (nc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NC(info);
 		else if (nc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NC(info);
@@ -17833,6 +20506,494 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[aprv_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[appl_doc_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_appl_doc_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_draw_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_draw_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[paint_clr]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_paint_clr_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ord_dlv_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ord_dlv_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_cd_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tonnage]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tonnage_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_std]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_std_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_trg_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_trg_amt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_psppl]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_psppl_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sfi_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sfi_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ps_sal_aft_dt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ps_sal_aft_dt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_qty]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_qty_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_cng_rsn]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_cng_rsn_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[main_draw_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_main_draw_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[jip_slo_typ]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -19140,6 +22301,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_surv_line_qty) doHdr_surv_line_qty_NE(info);
 		else if (ne == Hdr_diameter) doHdr_diameter_NE(info);
 		else if (ne == Hdr_match_key) doHdr_match_key_NE(info);
+		else if (ne == Hdr_aprv_dt) doHdr_aprv_dt_NE(info);
+		else if (ne == Hdr_rcpt_no) doHdr_rcpt_no_NE(info);
+		else if (ne == Hdr_appl_doc_no) doHdr_appl_doc_no_NE(info);
+		else if (ne == Hdr_dlv_draw_no) doHdr_dlv_draw_no_NE(info);
+		else if (ne == Hdr_slo_num_typ) doHdr_slo_num_typ_NE(info);
+		else if (ne == Hdr_slo_num_typ_nm) doHdr_slo_num_typ_nm_NE(info);
+		else if (ne == Hdr_slo_num) doHdr_slo_num_NE(info);
+		else if (ne == Hdr_paint_clr) doHdr_paint_clr_NE(info);
+		else if (ne == Hdr_ship_sp_instr_typ) doHdr_ship_sp_instr_typ_NE(info);
+		else if (ne == Hdr_ship_sp_instr_typ_nm) doHdr_ship_sp_instr_typ_nm_NE(info);
+		else if (ne == Hdr_spec_dlv_note_typ) doHdr_spec_dlv_note_typ_NE(info);
+		else if (ne == Hdr_spec_dlv_note_typ_nm) doHdr_spec_dlv_note_typ_nm_NE(info);
+		else if (ne == Hdr_ord_dlv_dt) doHdr_ord_dlv_dt_NE(info);
+		else if (ne == Hdr_mrkt_cd) doHdr_mrkt_cd_NE(info);
+		else if (ne == Hdr_mrkt_nm) doHdr_mrkt_nm_NE(info);
+		else if (ne == Hdr_cntry_sign) doHdr_cntry_sign_NE(info);
+		else if (ne == Hdr_cntry_sign_nm) doHdr_cntry_sign_nm_NE(info);
+		else if (ne == Hdr_ves_natl) doHdr_ves_natl_NE(info);
+		else if (ne == Hdr_ves_natl_nm) doHdr_ves_natl_nm_NE(info);
+		else if (ne == Hdr_shipyard_cd) doHdr_shipyard_cd_NE(info);
+		else if (ne == Hdr_shipyard_nm) doHdr_shipyard_nm_NE(info);
+		else if (ne == Hdr_ves_no) doHdr_ves_no_NE(info);
+		else if (ne == Hdr_ves_nm) doHdr_ves_nm_NE(info);
+		else if (ne == Hdr_tonnage) doHdr_tonnage_NE(info);
+		else if (ne == Hdr_ves_typ) doHdr_ves_typ_NE(info);
+		else if (ne == Hdr_insp_std) doHdr_insp_std_NE(info);
+		else if (ne == Hdr_royalty_trg_amt) doHdr_royalty_trg_amt_NE(info);
+		else if (ne == Hdr_royalty_psppl) doHdr_royalty_psppl_NE(info);
+		else if (ne == Hdr_ins_loc_1) doHdr_ins_loc_1_NE(info);
+		else if (ne == Hdr_ins_loc_2) doHdr_ins_loc_2_NE(info);
+		else if (ne == Hdr_sfi_no) doHdr_sfi_no_NE(info);
+		else if (ne == Hdr_ps_sal_aft_dt) doHdr_ps_sal_aft_dt_NE(info);
+		else if (ne == Hdr_wit_insp_typ) doHdr_wit_insp_typ_NE(info);
+		else if (ne == Hdr_wit_insp_typ_nm) doHdr_wit_insp_typ_nm_NE(info);
+		else if (ne == Hdr_equip_typ) doHdr_equip_typ_NE(info);
+		else if (ne == Hdr_equip_typ_nm) doHdr_equip_typ_nm_NE(info);
+		else if (ne == Hdr_spec_doc_typ) doHdr_spec_doc_typ_NE(info);
+		else if (ne == Hdr_spec_doc_typ_nm) doHdr_spec_doc_typ_nm_NE(info);
+		else if (ne == Hdr_model_jp_en_typ) doHdr_model_jp_en_typ_NE(info);
+		else if (ne == Hdr_model_jp_en_typ_nm) doHdr_model_jp_en_typ_nm_NE(info);
+		else if (ne == Hdr_insp_rep_typ) doHdr_insp_rep_typ_NE(info);
+		else if (ne == Hdr_insp_rep_typ_nm) doHdr_insp_rep_typ_nm_NE(info);
+		else if (ne == Hdr_insp_rep_qty) doHdr_insp_rep_qty_NE(info);
+		else if (ne == Hdr_cons_draw_typ) doHdr_cons_draw_typ_NE(info);
+		else if (ne == Hdr_cons_draw_typ_nm) doHdr_cons_draw_typ_nm_NE(info);
+		else if (ne == Hdr_cons_draw_qty) doHdr_cons_draw_qty_NE(info);
+		else if (ne == Hdr_const_draw_typ) doHdr_const_draw_typ_NE(info);
+		else if (ne == Hdr_const_draw_typ_nm) doHdr_const_draw_typ_nm_NE(info);
+		else if (ne == Hdr_const_draw_qty) doHdr_const_draw_qty_NE(info);
+		else if (ne == Hdr_comp_draw_typ) doHdr_comp_draw_typ_NE(info);
+		else if (ne == Hdr_comp_draw_typ_nm) doHdr_comp_draw_typ_nm_NE(info);
+		else if (ne == Hdr_comp_draw_qty) doHdr_comp_draw_qty_NE(info);
+		else if (ne == Hdr_inst_manual_typ) doHdr_inst_manual_typ_NE(info);
+		else if (ne == Hdr_inst_manual_typ_nm) doHdr_inst_manual_typ_nm_NE(info);
+		else if (ne == Hdr_inst_manual_qty) doHdr_inst_manual_qty_NE(info);
+		else if (ne == Hdr_aprv_draw_typ) doHdr_aprv_draw_typ_NE(info);
+		else if (ne == Hdr_aprv_draw_typ_nm) doHdr_aprv_draw_typ_nm_NE(info);
+		else if (ne == Hdr_aprv_draw_qty) doHdr_aprv_draw_qty_NE(info);
+		else if (ne == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NE(info);
+		else if (ne == Hdr_main_draw_no) doHdr_main_draw_no_NE(info);
+		else if (ne == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NE(info);
 		else if (ne == columnDtl_abort_flg) doDtl_abort_flg_NE(info);
 		else if (ne == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NE(info);
 		else if (ne == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NE(info);
@@ -20597,6 +23819,494 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[aprv_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[appl_doc_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_appl_doc_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_draw_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_draw_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[paint_clr]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_paint_clr_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ord_dlv_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ord_dlv_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_cd_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tonnage]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tonnage_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_std]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_std_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_trg_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_trg_amt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_psppl]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_psppl_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sfi_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sfi_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ps_sal_aft_dt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ps_sal_aft_dt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_qty]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_qty_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_cng_rsn]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_cng_rsn_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[main_draw_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_main_draw_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[jip_slo_typ]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -21904,6 +25614,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_surv_line_qty) doHdr_surv_line_qty_NX(info);
 		else if (nx == Hdr_diameter) doHdr_diameter_NX(info);
 		else if (nx == Hdr_match_key) doHdr_match_key_NX(info);
+		else if (nx == Hdr_aprv_dt) doHdr_aprv_dt_NX(info);
+		else if (nx == Hdr_rcpt_no) doHdr_rcpt_no_NX(info);
+		else if (nx == Hdr_appl_doc_no) doHdr_appl_doc_no_NX(info);
+		else if (nx == Hdr_dlv_draw_no) doHdr_dlv_draw_no_NX(info);
+		else if (nx == Hdr_slo_num_typ) doHdr_slo_num_typ_NX(info);
+		else if (nx == Hdr_slo_num_typ_nm) doHdr_slo_num_typ_nm_NX(info);
+		else if (nx == Hdr_slo_num) doHdr_slo_num_NX(info);
+		else if (nx == Hdr_paint_clr) doHdr_paint_clr_NX(info);
+		else if (nx == Hdr_ship_sp_instr_typ) doHdr_ship_sp_instr_typ_NX(info);
+		else if (nx == Hdr_ship_sp_instr_typ_nm) doHdr_ship_sp_instr_typ_nm_NX(info);
+		else if (nx == Hdr_spec_dlv_note_typ) doHdr_spec_dlv_note_typ_NX(info);
+		else if (nx == Hdr_spec_dlv_note_typ_nm) doHdr_spec_dlv_note_typ_nm_NX(info);
+		else if (nx == Hdr_ord_dlv_dt) doHdr_ord_dlv_dt_NX(info);
+		else if (nx == Hdr_mrkt_cd) doHdr_mrkt_cd_NX(info);
+		else if (nx == Hdr_mrkt_nm) doHdr_mrkt_nm_NX(info);
+		else if (nx == Hdr_cntry_sign) doHdr_cntry_sign_NX(info);
+		else if (nx == Hdr_cntry_sign_nm) doHdr_cntry_sign_nm_NX(info);
+		else if (nx == Hdr_ves_natl) doHdr_ves_natl_NX(info);
+		else if (nx == Hdr_ves_natl_nm) doHdr_ves_natl_nm_NX(info);
+		else if (nx == Hdr_shipyard_cd) doHdr_shipyard_cd_NX(info);
+		else if (nx == Hdr_shipyard_nm) doHdr_shipyard_nm_NX(info);
+		else if (nx == Hdr_ves_no) doHdr_ves_no_NX(info);
+		else if (nx == Hdr_ves_nm) doHdr_ves_nm_NX(info);
+		else if (nx == Hdr_tonnage) doHdr_tonnage_NX(info);
+		else if (nx == Hdr_ves_typ) doHdr_ves_typ_NX(info);
+		else if (nx == Hdr_insp_std) doHdr_insp_std_NX(info);
+		else if (nx == Hdr_royalty_trg_amt) doHdr_royalty_trg_amt_NX(info);
+		else if (nx == Hdr_royalty_psppl) doHdr_royalty_psppl_NX(info);
+		else if (nx == Hdr_ins_loc_1) doHdr_ins_loc_1_NX(info);
+		else if (nx == Hdr_ins_loc_2) doHdr_ins_loc_2_NX(info);
+		else if (nx == Hdr_sfi_no) doHdr_sfi_no_NX(info);
+		else if (nx == Hdr_ps_sal_aft_dt) doHdr_ps_sal_aft_dt_NX(info);
+		else if (nx == Hdr_wit_insp_typ) doHdr_wit_insp_typ_NX(info);
+		else if (nx == Hdr_wit_insp_typ_nm) doHdr_wit_insp_typ_nm_NX(info);
+		else if (nx == Hdr_equip_typ) doHdr_equip_typ_NX(info);
+		else if (nx == Hdr_equip_typ_nm) doHdr_equip_typ_nm_NX(info);
+		else if (nx == Hdr_spec_doc_typ) doHdr_spec_doc_typ_NX(info);
+		else if (nx == Hdr_spec_doc_typ_nm) doHdr_spec_doc_typ_nm_NX(info);
+		else if (nx == Hdr_model_jp_en_typ) doHdr_model_jp_en_typ_NX(info);
+		else if (nx == Hdr_model_jp_en_typ_nm) doHdr_model_jp_en_typ_nm_NX(info);
+		else if (nx == Hdr_insp_rep_typ) doHdr_insp_rep_typ_NX(info);
+		else if (nx == Hdr_insp_rep_typ_nm) doHdr_insp_rep_typ_nm_NX(info);
+		else if (nx == Hdr_insp_rep_qty) doHdr_insp_rep_qty_NX(info);
+		else if (nx == Hdr_cons_draw_typ) doHdr_cons_draw_typ_NX(info);
+		else if (nx == Hdr_cons_draw_typ_nm) doHdr_cons_draw_typ_nm_NX(info);
+		else if (nx == Hdr_cons_draw_qty) doHdr_cons_draw_qty_NX(info);
+		else if (nx == Hdr_const_draw_typ) doHdr_const_draw_typ_NX(info);
+		else if (nx == Hdr_const_draw_typ_nm) doHdr_const_draw_typ_nm_NX(info);
+		else if (nx == Hdr_const_draw_qty) doHdr_const_draw_qty_NX(info);
+		else if (nx == Hdr_comp_draw_typ) doHdr_comp_draw_typ_NX(info);
+		else if (nx == Hdr_comp_draw_typ_nm) doHdr_comp_draw_typ_nm_NX(info);
+		else if (nx == Hdr_comp_draw_qty) doHdr_comp_draw_qty_NX(info);
+		else if (nx == Hdr_inst_manual_typ) doHdr_inst_manual_typ_NX(info);
+		else if (nx == Hdr_inst_manual_typ_nm) doHdr_inst_manual_typ_nm_NX(info);
+		else if (nx == Hdr_inst_manual_qty) doHdr_inst_manual_qty_NX(info);
+		else if (nx == Hdr_aprv_draw_typ) doHdr_aprv_draw_typ_NX(info);
+		else if (nx == Hdr_aprv_draw_typ_nm) doHdr_aprv_draw_typ_nm_NX(info);
+		else if (nx == Hdr_aprv_draw_qty) doHdr_aprv_draw_qty_NX(info);
+		else if (nx == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NX(info);
+		else if (nx == Hdr_main_draw_no) doHdr_main_draw_no_NX(info);
+		else if (nx == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NX(info);
 		else if (nx == columnDtl_abort_flg) doDtl_abort_flg_NX(info);
 		else if (nx == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NX(info);
 		else if (nx == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NX(info);
@@ -23361,6 +27132,494 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[aprv_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[appl_doc_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_appl_doc_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_draw_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_draw_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[paint_clr]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_paint_clr_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ord_dlv_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ord_dlv_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_cd]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_cd_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tonnage]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tonnage_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_std]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_std_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_trg_amt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_trg_amt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_psppl]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_psppl_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sfi_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sfi_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ps_sal_aft_dt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ps_sal_aft_dt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_qty]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_qty_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_cng_rsn]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_cng_rsn_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[main_draw_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_main_draw_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[jip_slo_typ]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -24647,6 +28906,67 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_surv_line_qty) doHdr_surv_line_qty_LC(info);
 		else if (lc == Hdr_diameter) doHdr_diameter_LC(info);
 		else if (lc == Hdr_match_key) doHdr_match_key_LC(info);
+		else if (lc == Hdr_aprv_dt) doHdr_aprv_dt_LC(info);
+		else if (lc == Hdr_rcpt_no) doHdr_rcpt_no_LC(info);
+		else if (lc == Hdr_appl_doc_no) doHdr_appl_doc_no_LC(info);
+		else if (lc == Hdr_dlv_draw_no) doHdr_dlv_draw_no_LC(info);
+		else if (lc == Hdr_slo_num_typ) doHdr_slo_num_typ_LC(info);
+		else if (lc == Hdr_slo_num_typ_nm) doHdr_slo_num_typ_nm_LC(info);
+		else if (lc == Hdr_slo_num) doHdr_slo_num_LC(info);
+		else if (lc == Hdr_paint_clr) doHdr_paint_clr_LC(info);
+		else if (lc == Hdr_ship_sp_instr_typ) doHdr_ship_sp_instr_typ_LC(info);
+		else if (lc == Hdr_ship_sp_instr_typ_nm) doHdr_ship_sp_instr_typ_nm_LC(info);
+		else if (lc == Hdr_spec_dlv_note_typ) doHdr_spec_dlv_note_typ_LC(info);
+		else if (lc == Hdr_spec_dlv_note_typ_nm) doHdr_spec_dlv_note_typ_nm_LC(info);
+		else if (lc == Hdr_ord_dlv_dt) doHdr_ord_dlv_dt_LC(info);
+		else if (lc == Hdr_mrkt_cd) doHdr_mrkt_cd_LC(info);
+		else if (lc == Hdr_mrkt_nm) doHdr_mrkt_nm_LC(info);
+		else if (lc == Hdr_cntry_sign) doHdr_cntry_sign_LC(info);
+		else if (lc == Hdr_cntry_sign_nm) doHdr_cntry_sign_nm_LC(info);
+		else if (lc == Hdr_ves_natl) doHdr_ves_natl_LC(info);
+		else if (lc == Hdr_ves_natl_nm) doHdr_ves_natl_nm_LC(info);
+		else if (lc == Hdr_shipyard_cd) doHdr_shipyard_cd_LC(info);
+		else if (lc == Hdr_shipyard_nm) doHdr_shipyard_nm_LC(info);
+		else if (lc == Hdr_ves_no) doHdr_ves_no_LC(info);
+		else if (lc == Hdr_ves_nm) doHdr_ves_nm_LC(info);
+		else if (lc == Hdr_tonnage) doHdr_tonnage_LC(info);
+		else if (lc == Hdr_ves_typ) doHdr_ves_typ_LC(info);
+		else if (lc == Hdr_insp_std) doHdr_insp_std_LC(info);
+		else if (lc == Hdr_royalty_trg_amt) doHdr_royalty_trg_amt_LC(info);
+		else if (lc == Hdr_royalty_psppl) doHdr_royalty_psppl_LC(info);
+		else if (lc == Hdr_ins_loc_1) doHdr_ins_loc_1_LC(info);
+		else if (lc == Hdr_ins_loc_2) doHdr_ins_loc_2_LC(info);
+		else if (lc == Hdr_sfi_no) doHdr_sfi_no_LC(info);
+		else if (lc == Hdr_ps_sal_aft_dt) doHdr_ps_sal_aft_dt_LC(info);
+		else if (lc == Hdr_wit_insp_typ) doHdr_wit_insp_typ_LC(info);
+		else if (lc == Hdr_wit_insp_typ_nm) doHdr_wit_insp_typ_nm_LC(info);
+		else if (lc == Hdr_equip_typ) doHdr_equip_typ_LC(info);
+		else if (lc == Hdr_equip_typ_nm) doHdr_equip_typ_nm_LC(info);
+		else if (lc == Hdr_spec_doc_typ) doHdr_spec_doc_typ_LC(info);
+		else if (lc == Hdr_spec_doc_typ_nm) doHdr_spec_doc_typ_nm_LC(info);
+		else if (lc == Hdr_model_jp_en_typ) doHdr_model_jp_en_typ_LC(info);
+		else if (lc == Hdr_model_jp_en_typ_nm) doHdr_model_jp_en_typ_nm_LC(info);
+		else if (lc == Hdr_insp_rep_typ) doHdr_insp_rep_typ_LC(info);
+		else if (lc == Hdr_insp_rep_typ_nm) doHdr_insp_rep_typ_nm_LC(info);
+		else if (lc == Hdr_insp_rep_qty) doHdr_insp_rep_qty_LC(info);
+		else if (lc == Hdr_cons_draw_typ) doHdr_cons_draw_typ_LC(info);
+		else if (lc == Hdr_cons_draw_typ_nm) doHdr_cons_draw_typ_nm_LC(info);
+		else if (lc == Hdr_cons_draw_qty) doHdr_cons_draw_qty_LC(info);
+		else if (lc == Hdr_const_draw_typ) doHdr_const_draw_typ_LC(info);
+		else if (lc == Hdr_const_draw_typ_nm) doHdr_const_draw_typ_nm_LC(info);
+		else if (lc == Hdr_const_draw_qty) doHdr_const_draw_qty_LC(info);
+		else if (lc == Hdr_comp_draw_typ) doHdr_comp_draw_typ_LC(info);
+		else if (lc == Hdr_comp_draw_typ_nm) doHdr_comp_draw_typ_nm_LC(info);
+		else if (lc == Hdr_comp_draw_qty) doHdr_comp_draw_qty_LC(info);
+		else if (lc == Hdr_inst_manual_typ) doHdr_inst_manual_typ_LC(info);
+		else if (lc == Hdr_inst_manual_typ_nm) doHdr_inst_manual_typ_nm_LC(info);
+		else if (lc == Hdr_inst_manual_qty) doHdr_inst_manual_qty_LC(info);
+		else if (lc == Hdr_aprv_draw_typ) doHdr_aprv_draw_typ_LC(info);
+		else if (lc == Hdr_aprv_draw_typ_nm) doHdr_aprv_draw_typ_nm_LC(info);
+		else if (lc == Hdr_aprv_draw_qty) doHdr_aprv_draw_qty_LC(info);
+		else if (lc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_LC(info);
+		else if (lc == Hdr_main_draw_no) doHdr_main_draw_no_LC(info);
+		else if (lc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_LC(info);
 		else if (lc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_LC(info);
 		else if (lc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_LC(info);
 		else if (lc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_LC(info);
@@ -25912,6 +30232,494 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[aprv_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[rcpt_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_rcpt_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[appl_doc_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_appl_doc_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[dlv_draw_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_dlv_draw_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_num]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_num_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[paint_clr]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_paint_clr_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ship_sp_instr_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ship_sp_instr_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_dlv_note_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_dlv_note_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ord_dlv_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ord_dlv_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[mrkt_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_mrkt_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cntry_sign_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cntry_sign_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_natl_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_natl_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_cd]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_cd_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[shipyard_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_shipyard_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[tonnage]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_tonnage_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ves_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ves_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_std]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_std_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_trg_amt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_trg_amt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[royalty_psppl]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_royalty_psppl_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ins_loc_2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ins_loc_2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[sfi_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_sfi_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[ps_sal_aft_dt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_ps_sal_aft_dt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wit_insp_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wit_insp_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[equip_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_equip_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[spec_doc_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_spec_doc_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[model_jp_en_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_model_jp_en_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[insp_rep_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_insp_rep_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[cons_draw_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_cons_draw_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_draw_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_draw_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[comp_draw_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_comp_draw_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[inst_manual_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_inst_manual_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[aprv_draw_qty]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_aprv_draw_qty_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_cng_rsn]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_cng_rsn_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[main_draw_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_main_draw_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[jip_slo_typ]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_LC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[sls_sts_typ]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -27084,6 +31892,111 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	public MCList getHdr_par_itm_p_PPanel_Itm_itm_sub3(MCRow row, MCEventInfo info){
 		return ((mcframe.clientMAUA.MAUAP0010.MAUAP_List)MCListLogic.create("mcframe.clientMAUA.MAUAP0010.MAUAP_List", this)).getItmSub3(row, info);
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_slo_num_typ]の作成メソッド
+	 */
+	public MCList getHdr_slo_num_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_ship_sp_instr_typ]の作成メソッド
+	 */
+	public MCList getHdr_ship_sp_instr_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_spec_dlv_note_typ]の作成メソッド
+	 */
+	public MCList getHdr_spec_dlv_note_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_cntry_sign]の作成メソッド
+	 */
+	public MCList getHdr_cntry_sign(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_wit_insp_typ]の作成メソッド
+	 */
+	public MCList getHdr_wit_insp_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_equip_typ]の作成メソッド
+	 */
+	public MCList getHdr_equip_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_spec_doc_typ]の作成メソッド
+	 */
+	public MCList getHdr_spec_doc_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_model_jp_en_typ]の作成メソッド
+	 */
+	public MCList getHdr_model_jp_en_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_insp_rep_typ]の作成メソッド
+	 */
+	public MCList getHdr_insp_rep_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_cons_draw_typ]の作成メソッド
+	 */
+	public MCList getHdr_cons_draw_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_const_draw_typ]の作成メソッド
+	 */
+	public MCList getHdr_const_draw_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_comp_draw_typ]の作成メソッド
+	 */
+	public MCList getHdr_comp_draw_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_inst_manual_typ]の作成メソッド
+	 */
+	public MCList getHdr_inst_manual_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_aprv_draw_typ]の作成メソッド
+	 */
+	public MCList getHdr_aprv_draw_typ(MCRow row, MCEventInfo info){
+		return null;
+	}
+
+	/**
+	 * コンボ／リストのリスト[Hdr_jip_slo_typ]の作成メソッド
+	 */
+	public MCList getHdr_jip_slo_typ(MCRow row, MCEventInfo info){
+		return null;
 	}
 
 	/**

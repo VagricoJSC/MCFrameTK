@@ -1477,6 +1477,502 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#MATCH_KEY MATCH_KEY}]</td>
  *  	<td><br></td>
  *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_dt</td>
+ *  	<td><br></td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>rcpt_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#RCPT_NO RCPT_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>appl_doc_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APPL_DOC_NO APPL_DOC_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>dlv_draw_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DLV_DRAW_NO DLV_DRAW_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>slo_num_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLO_NUM_TYP SLO_NUM_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>slo_num_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLO_NUM_TYP_NM SLO_NUM_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>slo_num</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLO_NUM SLO_NUM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>paint_clr</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#PAINT_CLR PAINT_CLR}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ship_sp_instr_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SHIP_SP_INSTR_TYP SHIP_SP_INSTR_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ship_sp_instr_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SHIP_SP_INSTR_TYP_NM SHIP_SP_INSTR_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>spec_dlv_note_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SPEC_DLV_NOTE_TYP SPEC_DLV_NOTE_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>spec_dlv_note_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SPEC_DLV_NOTE_TYP_NM SPEC_DLV_NOTE_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ord_dlv_dt</td>
+ *  	<td><br></td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>mrkt_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MRKT_CD MRKT_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>mrkt_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MRKT_NM MRKT_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cntry_sign</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CNTRY_SIGN CNTRY_SIGN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>cntry_sign_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR20 STR20}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ves_natl</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VES_NATL VES_NATL}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ves_natl_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VES_NATL_NM VES_NATL_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>shipyard_cd</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SHIPYARD_CD SHIPYARD_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>shipyard_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SHIPYARD_NM SHIPYARD_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ves_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VES_NO VES_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ves_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VES_NM VES_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>tonnage</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#TONNAGE TONNAGE}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ves_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#VES_TYP VES_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_std</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INSP_STD INSP_STD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>royalty_trg_amt</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>royalty_psppl</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#ROYALTY_PSPPL ROYALTY_PSPPL}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>ins_loc_1</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INS_LOC_CD INS_LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ins_loc_2</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INS_LOC_CD INS_LOC_CD}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>sfi_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SFI_NO SFI_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>ps_sal_aft_dt</td>
+ *  	<td><br></td>
+ *  	<td>Date</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#DT DT}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>wit_insp_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WIT_INSP_TYP WIT_INSP_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>wit_insp_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#WIT_INSP_TYP_NM WIT_INSP_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>equip_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#EQUIP_TYP EQUIP_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>equip_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#EQUIP_TYP_NM EQUIP_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>spec_doc_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SPEC_DOC_TYP SPEC_DOC_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>spec_doc_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SPEC_DOC_TYP_NM SPEC_DOC_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>model_jp_en_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MODEL_JP_EN_TYP MODEL_JP_EN_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>model_jp_en_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MODEL_JP_EN_TYP_NM MODEL_JP_EN_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>insp_rep_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INSP_REP_TYP INSP_REP_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>insp_rep_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INSP_REP_TYP_NM INSP_REP_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>insp_rep_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INSP_REP_QTY INSP_REP_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cons_draw_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONS_DRAW_TYP CONS_DRAW_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>cons_draw_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONS_DRAW_TYP_NM CONS_DRAW_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>cons_draw_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONS_DRAW_QTY CONS_DRAW_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>const_draw_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONST_DRAW_TYP CONST_DRAW_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>const_draw_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONST_DRAW_TYP_NM CONST_DRAW_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>const_draw_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#CONST_DRAW_QTY CONST_DRAW_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>comp_draw_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#COMP_DRAW_TYP COMP_DRAW_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>comp_draw_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#COMP_DRAW_TYP_NM COMP_DRAW_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>comp_draw_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#COMP_DRAW_QTY COMP_DRAW_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_manual_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INST_MANUAL_TYP INST_MANUAL_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>inst_manual_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INST_MANUAL_TYP_NM INST_MANUAL_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>inst_manual_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#INST_MANUAL_QTY INST_MANUAL_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_draw_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_DRAW_TYP APRV_DRAW_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>aprv_draw_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_DRAW_TYP_NM APRV_DRAW_TYP_NM}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>aprv_draw_qty</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#APRV_DRAW_QTY APRV_DRAW_QTY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>slo_cng_rsn</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#SLO_CNG_RSN SLO_CNG_RSN}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>main_draw_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MAIN_DRAW_NO MAIN_DRAW_NO}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>src_ship_flg</td>
+ *  	<td><br></td>
+ *  	<td>Boolean</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>jip_slo_typ</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#JIP_SLO_TYP JIP_SLO_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
  * </table>
  *
  * <br>
