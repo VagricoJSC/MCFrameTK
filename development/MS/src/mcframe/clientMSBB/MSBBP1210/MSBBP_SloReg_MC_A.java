@@ -6209,7 +6209,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [SRCH]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6665,7 +6665,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [REF]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitREF_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, REF, MCMode.READ_ONLY);
@@ -7121,7 +7121,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
@@ -7578,7 +7578,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_QTN]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__QTN_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
@@ -8035,7 +8035,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_APRV]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__APRV_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
@@ -8491,7 +8491,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_TRNST]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__TRNST_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, UPD_TRNST, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
@@ -8741,7 +8741,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_U]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__U_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -9197,7 +9197,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [INS]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitINS_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
@@ -9654,7 +9654,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [INS_QTN]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitINS__QTN_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
@@ -10111,7 +10111,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_I]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__I_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10567,7 +10567,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [DEL]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitDEL_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
@@ -11023,7 +11023,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_D]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__D_Hdr(MSBBP_SloReg p){
-		p.Hdr_addon_wrk_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_addon_wrk_no.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_slo_no.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
