@@ -120,6 +120,28 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	// [Hdr]ブロック関連のField定義
 	public MCPanel HdrPanel = null;
 	// [Hdr]ブロックの項目のField定義
+	public MCLabel Hdr_addon_wrk_no_Label = null;
+	/**
+	 * Work no. 案件NO.<p>
+	 *
+	 */
+	public MCTextField Hdr_addon_wrk_no = null;
+	public MCLabel Hdr_slo_no_Label = null;
+	/**
+	 * Sales order No. 受注ＮＯ.<p>
+	 *
+	 */
+	public MCTextField Hdr_slo_no = null;
+	/**
+	 * Sales order rev. number 受注改訂番号.<p>
+	 *
+	 */
+	public MCNumberField Hdr_slo_rev = null;
+	/**
+	 * Latest 最新.<p>
+	 *
+	 */
+	public MCCheckBox Hdr_latest_flg = null;
 	public MCLabel Hdr_trd_cd_Label = null;
 	/**
 	 * Transaction cd. 取引ＣＤ.<p>
@@ -141,22 +163,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextField Hdr_srch_tgt_no = null;
-	public MCLabel Hdr_slo_no_Label = null;
-	/**
-	 * Sales order No. 受注ＮＯ.<p>
-	 *
-	 */
-	public MCTextField Hdr_slo_no = null;
-	/**
-	 * Sales order rev. number 受注改訂番号.<p>
-	 *
-	 */
-	public MCNumberField Hdr_slo_rev = null;
-	/**
-	 * Latest 最新.<p>
-	 *
-	 */
-	public MCCheckBox Hdr_latest_flg = null;
 	public MCLabel Hdr_slo_aprv_dt_Label = null;
 	/**
 	 * Sales order date 受注登録日.<p>
@@ -3949,17 +3955,20 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		// ブロック関連の初期化
 		p.HdrPanel = p.beansFactory.createPanel("Hdr");
 		// ブロックの項目の初期化
+		p.Hdr_addon_wrk_no_Label = p.beansFactory.createLabel("Hdr.addon_wrk_no_Label");
+		p.Hdr_addon_wrk_no = p.beansFactory.createTextField("Hdr.addon_wrk_no");
+		p.Hdr_addon_wrk_no.setLabel(p.Hdr_addon_wrk_no_Label);
+		p.Hdr_slo_no_Label = p.beansFactory.createLabel("Hdr.slo_no_Label");
+		p.Hdr_slo_no = p.beansFactory.createTextField("Hdr.slo_no");
+		p.Hdr_slo_no.setLabel(p.Hdr_slo_no_Label);
+		p.Hdr_slo_rev = p.beansFactory.createNumberField("Hdr.slo_rev");
+		p.Hdr_latest_flg = p.beansFactory.createCheckBox("Hdr.latest_flg");
 		p.Hdr_trd_cd_Label = p.beansFactory.createLabel("Hdr.trd_cd_Label");
 		p.Hdr_trd_cd = p.beansFactory.createTextComboBox("Hdr.trd_cd");
 		p.Hdr_trd_cd.setLabel(p.Hdr_trd_cd_Label);
 		p.Hdr_trd_nm = p.beansFactory.createTextField("Hdr.trd_nm");
 		p.Hdr_trd_ptn_typ = p.beansFactory.createTextField("Hdr.trd_ptn_typ");
 		p.Hdr_srch_tgt_no = p.beansFactory.createTextField("Hdr.srch_tgt_no");
-		p.Hdr_slo_no_Label = p.beansFactory.createLabel("Hdr.slo_no_Label");
-		p.Hdr_slo_no = p.beansFactory.createTextField("Hdr.slo_no");
-		p.Hdr_slo_no.setLabel(p.Hdr_slo_no_Label);
-		p.Hdr_slo_rev = p.beansFactory.createNumberField("Hdr.slo_rev");
-		p.Hdr_latest_flg = p.beansFactory.createCheckBox("Hdr.latest_flg");
 		p.Hdr_slo_aprv_dt_Label = p.beansFactory.createLabel("Hdr.slo_aprv_dt_Label");
 		p.Hdr_slo_aprv_dt = p.beansFactory.createDateField("Hdr.slo_aprv_dt");
 		p.Hdr_slo_aprv_dt.setLabel(p.Hdr_slo_aprv_dt_Label);
@@ -4561,11 +4570,25 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		// ブロック関連の初期化
 		p.HdrPanel.setNextBeans(p.Hdr2Panel);
 		// ブロックの項目の初期化
+		p.HdrPanel.add(p.Hdr_addon_wrk_no_Label);
+		p.HdrPanel.add(p.Hdr_addon_wrk_no);
+		p.HdrPanel.setLastBeans(p.Hdr_addon_wrk_no);
+		p.Hdr_addon_wrk_no.setNextBeans(p.Hdr_slo_no);
+		p.Hdr_addon_wrk_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.addon_wrk_no_META);
+		p.HdrPanel.add(p.Hdr_slo_no_Label);
+		p.HdrPanel.add(p.Hdr_slo_no);
+		p.Hdr_slo_no.setNextBeans(p.Hdr_slo_rev);
+		p.Hdr_slo_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_no_META);
+		p.HdrPanel.add(p.Hdr_slo_rev);
+		p.Hdr_slo_rev.setNextBeans(p.Hdr_latest_flg);
+		p.Hdr_slo_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_rev_META);
+		p.HdrPanel.add(p.Hdr_latest_flg);
+		p.Hdr_latest_flg.setNextBeans(p.Hdr_trd_cd);
+		p.Hdr_latest_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.latest_flg_META);
 		p.Hdr_trd_cd.setListType(MCListType.STRICT);
 		p.Hdr_trd_cd.setLinkBeans(p.Hdr_trd_nm,p.Hdr_trd_ptn_typ);
 		p.HdrPanel.add(p.Hdr_trd_cd_Label);
 		p.HdrPanel.add(p.Hdr_trd_cd);
-		p.HdrPanel.setLastBeans(p.Hdr_trd_cd);
 		p.Hdr_trd_cd.setNextBeans(p.Hdr_trd_nm);
 		p.Hdr_trd_cd.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_cd_META);
 		p.HdrPanel.add(p.Hdr_trd_nm);
@@ -4575,18 +4598,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_ptn_typ.setNextBeans(p.Hdr_srch_tgt_no);
 		p.Hdr_trd_ptn_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.trd_ptn_typ_META);
 		p.HdrPanel.add(p.Hdr_srch_tgt_no);
-		p.Hdr_srch_tgt_no.setNextBeans(p.Hdr_slo_no);
+		p.Hdr_srch_tgt_no.setNextBeans(p.Hdr_slo_aprv_dt);
 		p.Hdr_srch_tgt_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.srch_tgt_no_META);
-		p.HdrPanel.add(p.Hdr_slo_no_Label);
-		p.HdrPanel.add(p.Hdr_slo_no);
-		p.Hdr_slo_no.setNextBeans(p.Hdr_slo_rev);
-		p.Hdr_slo_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_no_META);
-		p.HdrPanel.add(p.Hdr_slo_rev);
-		p.Hdr_slo_rev.setNextBeans(p.Hdr_latest_flg);
-		p.Hdr_slo_rev.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.slo_rev_META);
-		p.HdrPanel.add(p.Hdr_latest_flg);
-		p.Hdr_latest_flg.setNextBeans(p.Hdr_slo_aprv_dt);
-		p.Hdr_latest_flg.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.latest_flg_META);
 		p.HdrPanel.add(p.Hdr_slo_aprv_dt_Label);
 		p.HdrPanel.add(p.Hdr_slo_aprv_dt);
 		p.Hdr_slo_aprv_dt.setNextBeans(p.Hdr_slo_dt);
@@ -5538,6 +5551,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *  [Hdr]ブロックの画面部品初期設定（MCFrame仕様）
 	 */
 	protected static void mcInitHdr(MSBBP_SloReg p) {
+		p.Hdr_addon_wrk_no.setListListener(p);
+		p.Hdr_addon_wrk_no.addAllListener(p);
+		p.Hdr_slo_no.setListListener(p);
+		p.Hdr_slo_no.addAllListener(p);
+		p.Hdr_slo_rev.setListListener(p);
+		p.Hdr_slo_rev.addAllListener(p);
+		p.Hdr_latest_flg.addAllListener(p);
 		p.Hdr_trd_cd.setListListener(p);
 		p.Hdr_trd_cd.addAllListener(p);
 		p.Hdr_trd_nm.setListListener(p);
@@ -5546,11 +5566,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_trd_ptn_typ.addAllListener(p);
 		p.Hdr_srch_tgt_no.setListListener(p);
 		p.Hdr_srch_tgt_no.addAllListener(p);
-		p.Hdr_slo_no.setListListener(p);
-		p.Hdr_slo_no.addAllListener(p);
-		p.Hdr_slo_rev.setListListener(p);
-		p.Hdr_slo_rev.addAllListener(p);
-		p.Hdr_latest_flg.addAllListener(p);
 		p.Hdr_slo_aprv_dt.setListListener(p);
 		p.Hdr_slo_aprv_dt.addAllListener(p);
 		p.Hdr_slo_dt.setListListener(p);
@@ -6194,13 +6209,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [SRCH]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitSRCH_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, SRCH, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, SRCH, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, SRCH, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -6273,6 +6289,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(SRCH, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(SRCH, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -6648,13 +6665,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [REF]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitREF_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, REF, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, REF, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, REF, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, REF, MCMode.READ_ONLY);
@@ -6727,6 +6745,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(REF, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(REF, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -7102,13 +7121,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, UPD, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, UPD, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, UPD, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD, MCMode.REQUIRED);
@@ -7182,6 +7202,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(UPD, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -7557,13 +7578,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_QTN]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__QTN_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD_QTN, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, UPD_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, UPD_QTN, MCMode.REQUIRED);
@@ -7637,6 +7659,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_QTN, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -8012,13 +8035,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_APRV]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__APRV_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD_APRV, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, UPD_APRV, MCMode.REQUIRED);
@@ -8091,6 +8115,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_APRV, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_APRV, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -8466,13 +8491,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_TRNST]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__TRNST_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
@@ -8545,6 +8571,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(UPD_TRNST, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -8714,13 +8741,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_U]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__U_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, FIX_U, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, FIX_U, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -8793,6 +8821,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_U, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_U, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -9168,13 +9197,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [INS]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitINS_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_trd_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, INS, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, INS, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, INS, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS, MCMode.REQUIRED);
@@ -9248,6 +9278,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(INS, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(INS, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -9623,13 +9654,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [INS_QTN]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitINS__QTN_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, INS_QTN, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_dt.putMode(p, INS_QTN, MCMode.REQUIRED);
 		p.Hdr_slo_typ.putMode(p, INS_QTN, MCMode.REQUIRED);
@@ -9703,6 +9735,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(INS_QTN, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.ENABLE);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(INS_QTN, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -10078,13 +10111,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_I]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__I_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, FIX_I, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, FIX_I, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -10157,6 +10191,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_I, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_I, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -10532,13 +10567,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [DEL]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitDEL_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, DEL, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, DEL, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, DEL, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, DEL, MCMode.READ_ONLY);
@@ -10611,6 +10647,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(DEL, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(DEL, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -10986,13 +11023,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_D]ステータスの[Hdr]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__D_Hdr(MSBBP_SloReg p){
+		p.Hdr_addon_wrk_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_no.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_slo_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_trd_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_trd_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_trd_ptn_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_srch_tgt_no.putMode(p, FIX_D, MCMode.INVISIBLE);
-		p.Hdr_slo_no.putMode(p, FIX_D, MCMode.READ_ONLY);
-		p.Hdr_slo_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
-		p.Hdr_latest_flg.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_aprv_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_dt.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_slo_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
@@ -11065,6 +11103,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_qtn_no.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_qtn_rev.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_wrk_no_p_PPanel.putStatus(FIX_D, mcframe.clientMSUB.MSUBP0010.MSUBP_WrkNo_H.READ_ONLY);
+		p.Hdr_wrk_no_p_PPanel.WrkNo_wrk_no.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_prof_rate.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_ttl_amt_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
 		p.Hdr_ttl_amt_no_cost_p_PPanel.putStatus(FIX_D, mcframe.clientMAUB.MAUBP0060.MAUBP_Amt_H.READ_ONLY);
@@ -12804,13 +12843,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Cnd_srch_tgt_no) return doCnd_srch_tgt_no_VC(info);
 		if (vc == Cnd_srch_tgt_rev) return doCnd_srch_tgt_rev_VC(info);
 		if (vc == Cnd_latest_flg) return doCnd_latest_flg_VC(info);
+		if (vc == Hdr_addon_wrk_no) return doHdr_addon_wrk_no_VC(info);
+		if (vc == Hdr_slo_no) return doHdr_slo_no_VC(info);
+		if (vc == Hdr_slo_rev) return doHdr_slo_rev_VC(info);
+		if (vc == Hdr_latest_flg) return doHdr_latest_flg_VC(info);
 		if (vc == Hdr_trd_cd) return doHdr_trd_cd_VC(info);
 		if (vc == Hdr_trd_nm) return doHdr_trd_nm_VC(info);
 		if (vc == Hdr_trd_ptn_typ) return doHdr_trd_ptn_typ_VC(info);
 		if (vc == Hdr_srch_tgt_no) return doHdr_srch_tgt_no_VC(info);
-		if (vc == Hdr_slo_no) return doHdr_slo_no_VC(info);
-		if (vc == Hdr_slo_rev) return doHdr_slo_rev_VC(info);
-		if (vc == Hdr_latest_flg) return doHdr_latest_flg_VC(info);
 		if (vc == Hdr_slo_aprv_dt) return doHdr_slo_aprv_dt_VC(info);
 		if (vc == Hdr_slo_dt) return doHdr_slo_dt_VC(info);
 		if (vc == Hdr_slo_typ) return doHdr_slo_typ_VC(info);
@@ -13185,6 +13225,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[addon_wrk_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_addon_wrk_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_slo_rev_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_latest_flg_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Hdr]パネルの[trd_cd]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -13221,36 +13301,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @return ValidationChangeイベントの結果
 	 */
 	public boolean doHdr_srch_tgt_no_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_no]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doHdr_slo_no_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_rev]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doHdr_slo_rev_VC(MCEventInfo info){
-		return true;
-	}
-
-	/**
-	 * [Hdr]パネルの[latest_flg]のValidationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 * @return ValidationChangeイベントの結果
-	 */
-	public boolean doHdr_latest_flg_VC(MCEventInfo info){
 		return true;
 	}
 
@@ -16170,13 +16220,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NC(info);
 		else if (nc == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NC(info);
 		else if (nc == Cnd_latest_flg) doCnd_latest_flg_NC(info);
+		else if (nc == Hdr_addon_wrk_no) doHdr_addon_wrk_no_NC(info);
+		else if (nc == Hdr_slo_no) doHdr_slo_no_NC(info);
+		else if (nc == Hdr_slo_rev) doHdr_slo_rev_NC(info);
+		else if (nc == Hdr_latest_flg) doHdr_latest_flg_NC(info);
 		else if (nc == Hdr_trd_cd) doHdr_trd_cd_NC(info);
 		else if (nc == Hdr_trd_nm) doHdr_trd_nm_NC(info);
 		else if (nc == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NC(info);
 		else if (nc == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NC(info);
-		else if (nc == Hdr_slo_no) doHdr_slo_no_NC(info);
-		else if (nc == Hdr_slo_rev) doHdr_slo_rev_NC(info);
-		else if (nc == Hdr_latest_flg) doHdr_latest_flg_NC(info);
 		else if (nc == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NC(info);
 		else if (nc == Hdr_slo_dt) doHdr_slo_dt_NC(info);
 		else if (nc == Hdr_slo_typ) doHdr_slo_typ_NC(info);
@@ -16534,6 +16585,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[addon_wrk_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_addon_wrk_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[trd_cd]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -16563,30 +16646,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_srch_tgt_no_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_no]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_no_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_rev]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_rev_NC(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[latest_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_latest_flg_NC(MCEventInfo info){
 	}
 
 	/**
@@ -18925,13 +18984,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NE(info);
 		else if (ne == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NE(info);
 		else if (ne == Cnd_latest_flg) doCnd_latest_flg_NE(info);
+		else if (ne == Hdr_addon_wrk_no) doHdr_addon_wrk_no_NE(info);
+		else if (ne == Hdr_slo_no) doHdr_slo_no_NE(info);
+		else if (ne == Hdr_slo_rev) doHdr_slo_rev_NE(info);
+		else if (ne == Hdr_latest_flg) doHdr_latest_flg_NE(info);
 		else if (ne == Hdr_trd_cd) doHdr_trd_cd_NE(info);
 		else if (ne == Hdr_trd_nm) doHdr_trd_nm_NE(info);
 		else if (ne == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NE(info);
 		else if (ne == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NE(info);
-		else if (ne == Hdr_slo_no) doHdr_slo_no_NE(info);
-		else if (ne == Hdr_slo_rev) doHdr_slo_rev_NE(info);
-		else if (ne == Hdr_latest_flg) doHdr_latest_flg_NE(info);
 		else if (ne == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NE(info);
 		else if (ne == Hdr_slo_dt) doHdr_slo_dt_NE(info);
 		else if (ne == Hdr_slo_typ) doHdr_slo_typ_NE(info);
@@ -19289,6 +19349,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[addon_wrk_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_addon_wrk_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[trd_cd]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -19318,30 +19410,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_srch_tgt_no_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_no]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_no_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_rev]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_rev_NE(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[latest_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_latest_flg_NE(MCEventInfo info){
 	}
 
 	/**
@@ -21680,13 +21748,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Cnd_srch_tgt_no) doCnd_srch_tgt_no_NX(info);
 		else if (nx == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_NX(info);
 		else if (nx == Cnd_latest_flg) doCnd_latest_flg_NX(info);
+		else if (nx == Hdr_addon_wrk_no) doHdr_addon_wrk_no_NX(info);
+		else if (nx == Hdr_slo_no) doHdr_slo_no_NX(info);
+		else if (nx == Hdr_slo_rev) doHdr_slo_rev_NX(info);
+		else if (nx == Hdr_latest_flg) doHdr_latest_flg_NX(info);
 		else if (nx == Hdr_trd_cd) doHdr_trd_cd_NX(info);
 		else if (nx == Hdr_trd_nm) doHdr_trd_nm_NX(info);
 		else if (nx == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_NX(info);
 		else if (nx == Hdr_srch_tgt_no) doHdr_srch_tgt_no_NX(info);
-		else if (nx == Hdr_slo_no) doHdr_slo_no_NX(info);
-		else if (nx == Hdr_slo_rev) doHdr_slo_rev_NX(info);
-		else if (nx == Hdr_latest_flg) doHdr_latest_flg_NX(info);
 		else if (nx == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_NX(info);
 		else if (nx == Hdr_slo_dt) doHdr_slo_dt_NX(info);
 		else if (nx == Hdr_slo_typ) doHdr_slo_typ_NX(info);
@@ -22044,6 +22113,38 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[addon_wrk_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_addon_wrk_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[latest_flg]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_latest_flg_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[trd_cd]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -22073,30 +22174,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_srch_tgt_no_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_no]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_no_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_rev]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_rev_NX(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[latest_flg]のNotificationExitイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_latest_flg_NX(MCEventInfo info){
 	}
 
 	/**
@@ -24431,12 +24508,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Cnd_srch_tgt_typ_nm) doCnd_srch_tgt_typ_nm_LC(info);
 		else if (lc == Cnd_srch_tgt_no) doCnd_srch_tgt_no_LC(info);
 		else if (lc == Cnd_srch_tgt_rev) doCnd_srch_tgt_rev_LC(info);
+		else if (lc == Hdr_addon_wrk_no) doHdr_addon_wrk_no_LC(info);
+		else if (lc == Hdr_slo_no) doHdr_slo_no_LC(info);
+		else if (lc == Hdr_slo_rev) doHdr_slo_rev_LC(info);
 		else if (lc == Hdr_trd_cd) doHdr_trd_cd_LC(info);
 		else if (lc == Hdr_trd_nm) doHdr_trd_nm_LC(info);
 		else if (lc == Hdr_trd_ptn_typ) doHdr_trd_ptn_typ_LC(info);
 		else if (lc == Hdr_srch_tgt_no) doHdr_srch_tgt_no_LC(info);
-		else if (lc == Hdr_slo_no) doHdr_slo_no_LC(info);
-		else if (lc == Hdr_slo_rev) doHdr_slo_rev_LC(info);
 		else if (lc == Hdr_slo_aprv_dt) doHdr_slo_aprv_dt_LC(info);
 		else if (lc == Hdr_slo_dt) doHdr_slo_dt_LC(info);
 		else if (lc == Hdr_slo_typ) doHdr_slo_typ_LC(info);
@@ -24722,6 +24800,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[addon_wrk_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_addon_wrk_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[slo_rev]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_slo_rev_LC(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[trd_cd]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -24751,22 +24853,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_srch_tgt_no_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_no]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_no_LC(MCEventInfo info){
-	}
-
-	/**
-	 * [Hdr]パネルの[slo_rev]のListChangedイベントが実行されたときに呼び出されます。
-	 *
-	 * @param info イベント情報
-	 */
-	public void doHdr_slo_rev_LC(MCEventInfo info){
 	}
 
 	/**
