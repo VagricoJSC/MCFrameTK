@@ -1400,6 +1400,24 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextComboBox Hdr_jip_slo_typ = null;
+	public MCLabel Hdr_const_fnsh_amt_Label = null;
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public MCNumberField Hdr_const_fnsh_amt = null;
+	public MCLabel Hdr_const_recv_no_Label = null;
+	/**
+	 *  工事要領書番号.<p>
+	 *
+	 */
+	public MCTextField Hdr_const_recv_no = null;
+	public MCLabel Hdr_wrk_pj_nm_Label = null;
+	/**
+	 *  案件名.<p>
+	 *
+	 */
+	public MCTextField Hdr_wrk_pj_nm = null;
 	// [Hdr2]ブロック関連のField定義
 	public MCPanel Hdr2Panel = null;
 	// [Hdr2]ブロックの項目のField定義
@@ -4996,6 +5014,15 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_jip_slo_typ_Label = p.beansFactory.createLabel("Hdr.jip_slo_typ_Label");
 		p.Hdr_jip_slo_typ = p.beansFactory.createTextComboBox("Hdr.jip_slo_typ");
 		p.Hdr_jip_slo_typ.setLabel(p.Hdr_jip_slo_typ_Label);
+		p.Hdr_const_fnsh_amt_Label = p.beansFactory.createLabel("Hdr.const_fnsh_amt_Label");
+		p.Hdr_const_fnsh_amt = p.beansFactory.createNumberField("Hdr.const_fnsh_amt");
+		p.Hdr_const_fnsh_amt.setLabel(p.Hdr_const_fnsh_amt_Label);
+		p.Hdr_const_recv_no_Label = p.beansFactory.createLabel("Hdr.const_recv_no_Label");
+		p.Hdr_const_recv_no = p.beansFactory.createTextField("Hdr.const_recv_no");
+		p.Hdr_const_recv_no.setLabel(p.Hdr_const_recv_no_Label);
+		p.Hdr_wrk_pj_nm_Label = p.beansFactory.createLabel("Hdr.wrk_pj_nm_Label");
+		p.Hdr_wrk_pj_nm = p.beansFactory.createTextField("Hdr.wrk_pj_nm");
+		p.Hdr_wrk_pj_nm.setLabel(p.Hdr_wrk_pj_nm_Label);
 	}
 
 	/**
@@ -6192,7 +6219,19 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_jip_slo_typ.setListType(MCListType.STRICT);
 		p.HdrPanel.add(p.Hdr_jip_slo_typ_Label);
 		p.HdrPanel.add(p.Hdr_jip_slo_typ);
+		p.Hdr_jip_slo_typ.setNextBeans(p.Hdr_const_fnsh_amt);
 		p.Hdr_jip_slo_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.jip_slo_typ_META);
+		p.HdrPanel.add(p.Hdr_const_fnsh_amt_Label);
+		p.HdrPanel.add(p.Hdr_const_fnsh_amt);
+		p.Hdr_const_fnsh_amt.setNextBeans(p.Hdr_const_recv_no);
+		p.Hdr_const_fnsh_amt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_fnsh_amt_META);
+		p.HdrPanel.add(p.Hdr_const_recv_no_Label);
+		p.HdrPanel.add(p.Hdr_const_recv_no);
+		p.Hdr_const_recv_no.setNextBeans(p.Hdr_wrk_pj_nm);
+		p.Hdr_const_recv_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_recv_no_META);
+		p.HdrPanel.add(p.Hdr_wrk_pj_nm_Label);
+		p.HdrPanel.add(p.Hdr_wrk_pj_nm);
+		p.Hdr_wrk_pj_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wrk_pj_nm_META);
 	}
 
 	/**
@@ -6947,6 +6986,12 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_main_draw_no.addAllListener(p);
 		p.Hdr_jip_slo_typ.setListListener(p);
 		p.Hdr_jip_slo_typ.addAllListener(p);
+		p.Hdr_const_fnsh_amt.setListListener(p);
+		p.Hdr_const_fnsh_amt.addAllListener(p);
+		p.Hdr_const_recv_no.setListListener(p);
+		p.Hdr_const_recv_no.addAllListener(p);
+		p.Hdr_wrk_pj_nm.setListListener(p);
+		p.Hdr_wrk_pj_nm.addAllListener(p);
 	}
 
 	/**
@@ -7524,6 +7569,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, SRCH, MCMode.ENABLE);
 
 	}
 
@@ -8041,6 +8089,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, REF, MCMode.ENABLE);
 
 	}
 
@@ -8559,6 +8610,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, UPD, MCMode.ENABLE);
 
 	}
 
@@ -9077,6 +9131,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
 
 	}
 
@@ -9594,6 +9651,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
 
 	}
 
@@ -10361,6 +10421,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, FIX_U, MCMode.ENABLE);
 
 	}
 
@@ -10879,6 +10942,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, INS, MCMode.ENABLE);
 
 	}
 
@@ -11397,6 +11463,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, INS_QTN, MCMode.ENABLE);
 
 	}
 
@@ -11914,6 +11983,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, FIX_I, MCMode.ENABLE);
 
 	}
 
@@ -12431,6 +12503,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, DEL, MCMode.ENABLE);
 
 	}
 
@@ -12948,6 +13023,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_const_fnsh_amt.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_const_recv_no.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_wrk_pj_nm.putMode(p, FIX_D, MCMode.ENABLE);
 
 	}
 
@@ -15001,6 +15079,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_slo_cng_rsn) return doHdr_slo_cng_rsn_VC(info);
 		if (vc == Hdr_main_draw_no) return doHdr_main_draw_no_VC(info);
 		if (vc == Hdr_jip_slo_typ) return doHdr_jip_slo_typ_VC(info);
+		if (vc == Hdr_const_fnsh_amt) return doHdr_const_fnsh_amt_VC(info);
+		if (vc == Hdr_const_recv_no) return doHdr_const_recv_no_VC(info);
+		if (vc == Hdr_wrk_pj_nm) return doHdr_wrk_pj_nm_VC(info);
 		if (vc == columnDtl_abort_flg) return doDtl_abort_flg_VC(info);
 		if (vc == columnDtl_sls_sts_typ) return doDtl_sls_sts_typ_VC(info);
 		if (vc == columnDtl_sls_sts_typ_nm) return doDtl_sls_sts_typ_nm_VC(info);
@@ -17397,6 +17478,36 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[const_fnsh_amt]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_const_fnsh_amt_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[const_recv_no]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_const_recv_no_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Hdr]パネルの[wrk_pj_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_wrk_pj_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -19049,6 +19160,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NC(info);
 		else if (nc == Hdr_main_draw_no) doHdr_main_draw_no_NC(info);
 		else if (nc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NC(info);
+		else if (nc == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NC(info);
+		else if (nc == Hdr_const_recv_no) doHdr_const_recv_no_NC(info);
+		else if (nc == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NC(info);
 		else if (nc == columnDtl_abort_flg) doDtl_abort_flg_NC(info);
 		else if (nc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NC(info);
 		else if (nc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NC(info);
@@ -20994,6 +21108,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[const_fnsh_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_fnsh_amt_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_recv_no]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_recv_no_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wrk_pj_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wrk_pj_nm_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -22362,6 +22500,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NE(info);
 		else if (ne == Hdr_main_draw_no) doHdr_main_draw_no_NE(info);
 		else if (ne == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NE(info);
+		else if (ne == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NE(info);
+		else if (ne == Hdr_const_recv_no) doHdr_const_recv_no_NE(info);
+		else if (ne == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NE(info);
 		else if (ne == columnDtl_abort_flg) doDtl_abort_flg_NE(info);
 		else if (ne == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NE(info);
 		else if (ne == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NE(info);
@@ -24307,6 +24448,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[const_fnsh_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_fnsh_amt_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_recv_no]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_recv_no_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wrk_pj_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wrk_pj_nm_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -25675,6 +25840,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NX(info);
 		else if (nx == Hdr_main_draw_no) doHdr_main_draw_no_NX(info);
 		else if (nx == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NX(info);
+		else if (nx == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NX(info);
+		else if (nx == Hdr_const_recv_no) doHdr_const_recv_no_NX(info);
+		else if (nx == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NX(info);
 		else if (nx == columnDtl_abort_flg) doDtl_abort_flg_NX(info);
 		else if (nx == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_NX(info);
 		else if (nx == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_NX(info);
@@ -27620,6 +27788,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[const_fnsh_amt]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_fnsh_amt_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_recv_no]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_recv_no_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wrk_pj_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wrk_pj_nm_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Dtl]パネルの[abort_flg]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -28967,6 +29159,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_LC(info);
 		else if (lc == Hdr_main_draw_no) doHdr_main_draw_no_LC(info);
 		else if (lc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_LC(info);
+		else if (lc == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_LC(info);
+		else if (lc == Hdr_const_recv_no) doHdr_const_recv_no_LC(info);
+		else if (lc == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_LC(info);
 		else if (lc == columnDtl_sls_sts_typ) doDtl_sls_sts_typ_LC(info);
 		else if (lc == columnDtl_sls_sts_typ_nm) doDtl_sls_sts_typ_nm_LC(info);
 		else if (lc == columnDtl_alloc_sts_typ) doDtl_alloc_sts_typ_LC(info);
@@ -30717,6 +30912,30 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doHdr_jip_slo_typ_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_fnsh_amt]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_fnsh_amt_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[const_recv_no]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_const_recv_no_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Hdr]パネルの[wrk_pj_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_wrk_pj_nm_LC(MCEventInfo info){
 	}
 
 	/**

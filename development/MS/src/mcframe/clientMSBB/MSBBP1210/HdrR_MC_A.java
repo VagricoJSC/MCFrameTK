@@ -1161,15 +1161,25 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 */
 	public static final String $main_draw_no = "main_draw_no";
 	/**
-	 *  元出荷基準ＦＬＧ.<p>
-	 *
-	 */
-	public static final String $src_ship_flg = "src_ship_flg";
-	/**
 	 *  受注種別.<p>
 	 *
 	 */
 	public static final String $jip_slo_typ = "jip_slo_typ";
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public static final String $const_fnsh_amt = "const_fnsh_amt";
+	/**
+	 *  工事要領書番号.<p>
+	 *
+	 */
+	public static final String $const_recv_no = "const_recv_no";
+	/**
+	 *  案件名.<p>
+	 *
+	 */
+	public static final String $wrk_pj_nm = "wrk_pj_nm";
 
 	public static final String $dlv_cd = $dlv_p + ".bp_cd";
 	public static final String $dlv_nm = $dlv_p + ".bp_nm";
@@ -1471,8 +1481,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta aprv_draw_qty_META = createCommonMeta($aprv_draw_qty, mcframe.commonMA.meta.MA_META.APRV_DRAW_QTY);
 	public static final MCMeta slo_cng_rsn_META = createCommonMeta($slo_cng_rsn, mcframe.commonMA.meta.MA_META.SLO_CNG_RSN);
 	public static final MCMeta main_draw_no_META = createCommonMeta($main_draw_no, mcframe.commonMA.meta.MA_META.MAIN_DRAW_NO);
-	public static final MCMeta src_ship_flg_META = createCommonMeta($src_ship_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta jip_slo_typ_META = createCommonMeta($jip_slo_typ, mcframe.commonMA.meta.MA_META.JIP_SLO_TYP);
+	public static final MCMeta const_fnsh_amt_META = createCommonMeta($const_fnsh_amt, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta const_recv_no_META = createCommonMeta($const_recv_no, mcframe.commonMA.meta.MA_META.STR20);
+	public static final MCMeta wrk_pj_nm_META = createCommonMeta($wrk_pj_nm, mcframe.commonMA.meta.MA_META.STR20);
 
 	protected static final ConstMetaList<HdrR> constMetas = new ConstMetaList<HdrR>(
 		MCConstRow.constMetas,
@@ -1719,8 +1731,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			aprv_draw_qty_META,
 			slo_cng_rsn_META,
 			main_draw_no_META,
-			src_ship_flg_META,
-			jip_slo_typ_META
+			jip_slo_typ_META,
+			const_fnsh_amt_META,
+			const_recv_no_META,
+			wrk_pj_nm_META
 		},
 		new String[][]{
 			{
@@ -6803,28 +6817,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 
 
 	/**
-	 *  元出荷基準ＦＬＧ.<p>
-	 *
-	 */
-	public boolean src_ship_flg() {
-		return getConstBoolean(offset + 242, $src_ship_flg);
-	}
-
-	/**
-	 *  元出荷基準ＦＬＧ.<p>
-	 *
-	 */
-	public void src_ship_flg(boolean value) {
-		setConstBoolean(offset + 242, $src_ship_flg, value);
-	}
-
-
-	/**
 	 *  受注種別.<p>
 	 *
 	 */
 	public String jip_slo_typ() {
-		return getConstString(offset + 243, $jip_slo_typ);
+		return getConstString(offset + 242, $jip_slo_typ);
 	}
 
 	/**
@@ -6832,7 +6829,90 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void jip_slo_typ(String value) {
-		setConstString(offset + 243, $jip_slo_typ, value);
+		setConstString(offset + 242, $jip_slo_typ, value);
+	}
+
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public MCNumber const_fnsh_amt() {
+		return getConstNumber(offset + 243, $const_fnsh_amt);
+	}
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public void const_fnsh_amt(MCNumber value) {
+		setConstNumber(offset + 243, $const_fnsh_amt, value);
+	}
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public void const_fnsh_amt(int value) {
+		setConstNumber(offset + 243, $const_fnsh_amt, value);
+	}
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public void const_fnsh_amt(long value) {
+		setConstNumber(offset + 243, $const_fnsh_amt, value);
+	}
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public void const_fnsh_amt(float value) {
+		setConstNumber(offset + 243, $const_fnsh_amt, value);
+	}
+
+	/**
+	 *  工事完了金額.<p>
+	 *
+	 */
+	public void const_fnsh_amt(double value) {
+		setConstNumber(offset + 243, $const_fnsh_amt, value);
+	}
+
+
+	/**
+	 *  工事要領書番号.<p>
+	 *
+	 */
+	public String const_recv_no() {
+		return getConstString(offset + 244, $const_recv_no);
+	}
+
+	/**
+	 *  工事要領書番号.<p>
+	 *
+	 */
+	public void const_recv_no(String value) {
+		setConstString(offset + 244, $const_recv_no, value);
+	}
+
+
+	/**
+	 *  案件名.<p>
+	 *
+	 */
+	public String wrk_pj_nm() {
+		return getConstString(offset + 245, $wrk_pj_nm);
+	}
+
+	/**
+	 *  案件名.<p>
+	 *
+	 */
+	public void wrk_pj_nm(String value) {
+		setConstString(offset + 245, $wrk_pj_nm, value);
 	}
 
 
@@ -7341,6 +7421,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			return jip_slo_typ();
 		}
+		if ($const_recv_no.equalsIgnoreCase(name)) {
+			return const_recv_no();
+		}
+		if ($wrk_pj_nm.equalsIgnoreCase(name)) {
+			return wrk_pj_nm();
+		}
 		return super.getString(name);
 	}
 	public MCNumber getNumber(String name) {
@@ -7418,6 +7504,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			return aprv_draw_qty();
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			return const_fnsh_amt();
 		}
 		return super.getNumber(name);
 	}
@@ -7529,9 +7618,6 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
 			return slo_last_sls_flg();
-		}
-		if ($src_ship_flg.equalsIgnoreCase(name)) {
-			return src_ship_flg();
 		}
 		return super.getBoolean(name);
 	}
@@ -8041,6 +8127,12 @@ abstract class HdrR_MC_A extends MCConstRow {
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			return jip_slo_typ();
 		}
+		if ($const_recv_no.equalsIgnoreCase(name)) {
+			return const_recv_no();
+		}
+		if ($wrk_pj_nm.equalsIgnoreCase(name)) {
+			return wrk_pj_nm();
+		}
 		return super.getStringNE(name);
 	}
 	public MCNumber getNumberNE(String name) {
@@ -8118,6 +8210,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			return aprv_draw_qty();
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			return const_fnsh_amt();
 		}
 		return super.getNumberNE(name);
 	}
@@ -8229,9 +8324,6 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
 			return slo_last_sls_flg();
-		}
-		if ($src_ship_flg.equalsIgnoreCase(name)) {
-			return src_ship_flg();
 		}
 		return super.getBooleanNE(name);
 	}
@@ -8909,6 +9001,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 			jip_slo_typ(value);
 			return;
 		}
+		if ($const_recv_no.equalsIgnoreCase(name)) {
+			const_recv_no(value);
+			return;
+		}
+		if ($wrk_pj_nm.equalsIgnoreCase(name)) {
+			wrk_pj_nm(value);
+			return;
+		}
 		super.setString(name, value);
 	}
 	public void setNumber(String name, MCNumber value) {
@@ -9010,6 +9110,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -9115,6 +9219,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			aprv_draw_qty(value);
 			return;
 		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 	public void setNumber(String name, long value) {
@@ -9216,6 +9324,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -9321,6 +9433,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			aprv_draw_qty(value);
 			return;
 		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 	public void setNumber(String name, double value) {
@@ -9422,6 +9538,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -9567,10 +9687,6 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
 			slo_last_sls_flg(value);
-			return;
-		}
-		if ($src_ship_flg.equalsIgnoreCase(name)) {
-			src_ship_flg(value);
 			return;
 		}
 		super.setBoolean(name, value);
@@ -10249,6 +10365,14 @@ abstract class HdrR_MC_A extends MCConstRow {
 			jip_slo_typ(value);
 			return;
 		}
+		if ($const_recv_no.equalsIgnoreCase(name)) {
+			const_recv_no(value);
+			return;
+		}
+		if ($wrk_pj_nm.equalsIgnoreCase(name)) {
+			wrk_pj_nm(value);
+			return;
+		}
 		super.setStringNE(name, value);
 	}
 	public void setNumberNE(String name, MCNumber value) {
@@ -10350,6 +10474,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -10455,6 +10583,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			aprv_draw_qty(value);
 			return;
 		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 	public void setNumberNE(String name, long value) {
@@ -10556,6 +10688,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -10661,6 +10797,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 			aprv_draw_qty(value);
 			return;
 		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 	public void setNumberNE(String name, double value) {
@@ -10762,6 +10902,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($aprv_draw_qty.equalsIgnoreCase(name)) {
 			aprv_draw_qty(value);
+			return;
+		}
+		if ($const_fnsh_amt.equalsIgnoreCase(name)) {
+			const_fnsh_amt(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -10907,10 +11051,6 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($slo_last_sls_flg.equalsIgnoreCase(name)) {
 			slo_last_sls_flg(value);
-			return;
-		}
-		if ($src_ship_flg.equalsIgnoreCase(name)) {
-			src_ship_flg(value);
 			return;
 		}
 		super.setBooleanNE(name, value);

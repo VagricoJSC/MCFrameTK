@@ -1959,18 +1959,34 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
- *  	<td>src_ship_flg</td>
- *  	<td><br></td>
- *  	<td>Boolean</td>
- *  	<td>[{@link mcframe.commonMA.meta.MA_META#FLG FLG}]</td>
- *  	<td><br></td>
- *  </tr>
- *  <tr >
- *  	<td><br></td>
  *  	<td>jip_slo_typ</td>
  *  	<td><br></td>
  *  	<td>String</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#JIP_SLO_TYP JIP_SLO_TYP}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>const_fnsh_amt</td>
+ *  	<td><br></td>
+ *  	<td>Number</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
+ *  	<td>const_recv_no</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR20 STR20}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr >
+ *  	<td><br></td>
+ *  	<td>wrk_pj_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR20 STR20}]</td>
  *  	<td><br></td>
  *  </tr>
  * </table>
