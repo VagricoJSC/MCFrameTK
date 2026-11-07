@@ -296,16 +296,25 @@ public class MSBBPA_ShipItmCompSrch extends MSBBPA_ShipItmCompSrch_MC {
 					r.check(true);
 					return MCMode.READ_ONLY;
 				}
-
-				if (r.comp_flg()) {
-					r.check(true);
-					return MCMode.ENABLE;
-				}
 			}
 			
 			return super.getPriorMode(index, column, table);
 		}
 	}
+	
+	@Override
+	public void setRsltL(MCList<RsltR> list) {
+	    if (list != null) {
+	        for (RsltR r : list) {
+	            if (r.comp_flg()) {
+	                r.check(true);
+	            }
+	        }
+	    }
+
+	    super.setRsltL(list);
+	}
+	
 	
 //FMCB CUSTOM END
 }
