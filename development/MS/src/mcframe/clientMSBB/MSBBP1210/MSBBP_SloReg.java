@@ -960,11 +960,15 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		}
 
 		MCNumber upri = r.trd_cur_upri();
-		MCNumber dscnt = r.trd_cur_dscnt_amt();
-		if (isNull(upri) || isNull(dscnt)) {
+		if (isNull(upri)) {
 			return;
 		}
-
+		
+		MCNumber dscnt = r.trd_cur_dscnt_amt();
+		if (isNull(dscnt)) {
+			dscnt = MCNumber.ZERO;
+		}
+		
 		MCNumber amt = upri.multiply(qty).subtract(dscnt);
 
 		// GUI部品を経由せずRowに設定
