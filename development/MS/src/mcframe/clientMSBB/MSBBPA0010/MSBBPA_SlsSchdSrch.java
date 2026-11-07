@@ -142,6 +142,13 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		 bind.addStringColumn("trd_cur_cd", r.cur_cd());
 		 bind.addStringColumn("wrk_no", r.wrk_no());
 		 bind.addStringColumn("sls_usr_cd", r.frcst_usr_cd());
+		 bind.addNumberColumn("trd_cur_amt_no_dscnt", r.prd_amt());
+		 bind.addStringColumn("trd_cur_cd", r.cur_cd());
+		 bind.addDateColumn("dlv_rqst_dt", r.ord_dlv_dt());
+		 bind.addDateColumn("ps_sal_aft_dt", r.post_inst_sls_dt());
+		 bind.addStringColumn("zoho_sls_schd_no", r.zoho_sls_schd_no());
+		 
+		 // 取引CDを初期化
 		 bind.addStringColumn("trd_cd", "010");
 
 		 // ヘッダ
@@ -150,7 +157,6 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		 bind.addStringColumn("par_itm_sub2", r.par_itm_sub2());
 		 bind.addStringColumn("par_itm_sub3", r.par_itm_sub3());
 		 bind.addNumberColumn("hdr_qty", r.prd_qty());
-		
 	}
 	
 	/**
@@ -174,6 +180,7 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 			row.addStringColumn("itm_sub3", r.par_itm_sub3());
 			row.addStringColumn("trd_unit_cd", "PC");
 			row.addNumberColumn("trd_unit_qty", r.prd_qty());
+			row.addNumberColumn("trd_cur_upri", r.upri());
 			
 			list.add(row);
 		}

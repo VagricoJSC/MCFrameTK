@@ -252,6 +252,31 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				setValueEx(Hdr_trd_cd, bind.getStringNE("trd_cd"));
 			}
 			
+			// 通貨
+			if (bind.contains("trd_cur_cd")) {
+				setValueEx(Hdr_trd_cur_cd, bind.getStringNE("trd_cur_cd"));
+			}
+		
+			// 金額
+			if (bind.contains("trd_cur_amt_no_dscnt")) {
+				setValueEx(Hdr_trd_cur_amt_no_dscnt, bind.getNumberNE("trd_cur_amt_no_dscnt"));
+			}
+			
+			// 納入希望日
+			if (bind.contains("dlv_rqst_dt")) {
+				setValueEx(Hdr_dlv_rqst_dt, bind.getDateNE("dlv_rqst_dt"));
+			}
+			
+			// 装備後売上日
+			if (bind.contains("ps_sal_aft_dt")) {
+				setValueEx(Hdr_ps_sal_aft_dt, bind.getDateNE("ps_sal_aft_dt"));
+			}
+			
+			// ZOHO販売予定番号
+			if (bind.contains("zoho_sls_schd_no")) {
+				setValueEx(Hdr_zoho_sls_schd_no, bind.getStringNE("zoho_sls_schd_no"));
+			}
+			
 			// 未指定・空欄の場合はログインユーザの主部門
 			if (isNull(slsDptCd)) {
 			    slsDptCd = getUsrAcl().dpt_cd();
@@ -300,6 +325,8 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 						setValueEx(columnDtl_trd_unit_qty, i, row.getNumberNE("trd_unit_qty"));
 						setValueEx(columnDtl_cst_itm_cd, i, row.getStringNE("cst_itm_cd"));
 						setValueEx(columnDtl_cst_itm_nm, i, row.getStringNE("cst_itm_nm"));
+						setValueEx(columnDtl_trd_unit_cd, i, row.getStringNE("trd_unit_cd"));
+						setValueEx(columnDtl_iv_upri, i, row.getNumberNE("trd_cur_upri"));
 					}
 				}
 				finally {
