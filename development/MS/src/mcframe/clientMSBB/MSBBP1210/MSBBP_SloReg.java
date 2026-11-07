@@ -69,6 +69,8 @@ import java.util.Set;
 
 import mcframe.clientMAUC.MAUCP1060.MAUCP_TrdUtil;
 import mcframe.clientCore.beans.list.MCListConfig;
+import mcframe.clientCore.beans.list.MCLinkBeans;
+import mcframe.clientCore.beans.list.MCListPutter;
 //FMCB IMPORT END
 
 /**
@@ -1036,5 +1038,124 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	    Hdr_par_itm_nm.setMode(MCMode.READ_ONLY);
 
 	}
+
+	@Override
+	protected MCListPutter getListPutterForISCustom(
+			MCListPutter putter,
+			MCLinkBeans beans,
+			int eventIndex) {
+
+		final MCListPutter original =
+				super.getListPutterForISCustom(
+						putter, beans, eventIndex);
+
+		if (beans != columnDtl_itm_cd) {
+			return original;
+		}
+
+		// 通常入力用ListPutterの検索条件に追加する。
+		// 得意先・受注日・WG等の既存設定は維持する。
+		getDtl_itm_p_PPanel_columnItm_itm_cd_ListPutter()
+		.putBind(
+				mcframe.commonMSUA.MSUAC0030.MSUAC_List
+				.SloItmCols.$i_from_slo_reg,
+				Boolean.TRUE);
+
+		return new MCListPutter(
+				beans, "itm_cd", "itm_sub1", "itm_sub2", "itm_sub3") {
+
+			{
+				setListLogicId(original.getListLogicId());
+			}
+
+			@Override
+			public MCRow getBindRow(int index) {
+				return original.getBindRow(index);
+			}
+
+			@Override
+			public MCMessageList setValues(
+					int index, MCRow selectedRow) {
+
+				if (selectedRow == null) {
+					return new MCMessageList();
+				}
+
+				// 入力補助の返却行では、キーがitm_cd_p内にある。
+				MCRow keyRow = selectedRow;
+
+				if (selectedRow.contains("itm_cd_p")) {
+					Object value = selectedRow.getValue("itm_cd_p");
+
+					if (value instanceof MCRow) {
+						keyRow = (MCRow) value;
+					}
+				}
+
+				String itmCd = keyRow.getStringNE("itm_cd");
+				String sub1 = keyRow.getStringNE("itm_sub1");
+				String sub2 = keyRow.getStringNE("itm_sub2");
+				String sub3 = keyRow.getStringNE("itm_sub3");
+
+				if (isNull(itmCd)) {
+					throw new IllegalStateException(
+							"入力補助の選択行から品目CDを取得できません。");
+				}
+
+				boolean previousInitializing = initializingDtl;
+				boolean previousRecalculating =
+						recalculatingDtlAmounts;
+
+				initializingDtl = true;
+				recalculatingDtlAmounts = true;
+
+				try {
+					DtlR r = getDtlL().get(index);
+
+					// 検索対象のキーをまとめて設定する。
+					// 枝番単独の入力チェックは実行しない。
+					r.itm_cd(itmCd);
+					r.itm_sub1(sub1);
+					r.itm_sub2(sub2);
+					r.itm_sub3(sub3);
+
+					// 通常入力用リストロジックを明示的に実行
+					MCList<?> results =
+							columnDtl_itm_cd.doListEvent(
+									MCListConfig.INPUT, index);
+
+					if (results == null || results.size() != 1) {
+						throw new IllegalStateException(
+								"品目再取得の結果が1件ではありません。件数="
+										+ (results == null ? -1 : results.size()));
+					}
+
+					MCRow result = results.get(0);
+
+					// 入力補助のselectedRowではなく、
+					// 再取得した結果を元のマッピングで反映する。
+					MCMessageList messages =
+							original.setValues(index, result);
+
+					if (messages != null && messages.size() > 0) {
+						return messages;
+					}
+
+					// 全項目の反映完了後に計算する。
+					if (!previousInitializing
+							&& !previousRecalculating) {
+						recalculateDtlAmounts(index);
+					}
+
+					return messages;
+				} 
+				finally {
+					initializingDtl = previousInitializing;
+					recalculatingDtlAmounts =
+							previousRecalculating;
+				}
+			}
+		};
+	}	
 //FMCB CUSTOM END
 }
