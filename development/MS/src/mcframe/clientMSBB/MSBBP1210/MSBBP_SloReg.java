@@ -247,6 +247,11 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				slsDptCd = bind.getStringNE("sls_dpt_cd");
 			}
 			
+			// 取引CD
+			if (bind.contains("trd_cd")) {
+				setValueEx(Hdr_trd_cd, bind.getStringNE("trd_cd"));
+			}
+			
 			// 未指定・空欄の場合はログインユーザの主部門
 			if (isNull(slsDptCd)) {
 			    slsDptCd = getUsrAcl().dpt_cd();
@@ -363,7 +368,20 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 		// 候補が1件の場合は自動選択
 		selectSingleSalesCondition(info);
-		selectSingleFreeReason(info);	    
+		selectSingleFreeReason(info);
+		
+		// 現在選択中の取引CD
+		String trdCd = Hdr_trd_cd.getValue();
+		
+		// 元案件NOを入力必須にする
+		Hdr_src_wrk_no.clear();
+		
+		if (!isNull(trdCd) && TRD_CD_9XX.equals(trdCd)) {
+			Hdr_src_wrk_no.setMode(MCMode.REQUIRED);
+		}
+		else {
+			Hdr_src_wrk_no.setMode(MCMode.ENABLE);
+		}
 	}
 
 	/**
@@ -1156,6 +1174,6 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 				}
 			}
 		};
-	}	
+	}
 //FMCB CUSTOM END
 }

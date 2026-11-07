@@ -142,6 +142,7 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		 bind.addStringColumn("trd_cur_cd", r.cur_cd());
 		 bind.addStringColumn("wrk_no", r.wrk_no());
 		 bind.addStringColumn("sls_usr_cd", r.frcst_usr_cd());
+		 bind.addStringColumn("trd_cd", "010");
 
 		 // ヘッダ
 		 bind.addStringColumn("par_itm_cd", r.par_itm_cd());

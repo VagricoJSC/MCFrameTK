@@ -7500,6 +7500,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, SRCH, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, SRCH, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, SRCH, MCMode.READ_ONLY);
@@ -8020,6 +8021,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, REF, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, REF, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, REF, MCMode.READ_ONLY);
@@ -8541,6 +8543,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, UPD, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD, MCMode.READ_ONLY);
@@ -9062,6 +9065,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD_QTN, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD_QTN, MCMode.READ_ONLY);
@@ -9582,6 +9586,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD_APRV, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, UPD_APRV, MCMode.READ_ONLY);
@@ -10102,6 +10107,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, UPD_TRNST, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, UPD_TRNST, MCMode.READ_ONLY);
 
 	}
@@ -10352,6 +10358,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_U, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_U, MCMode.READ_ONLY);
@@ -10873,6 +10880,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, INS, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, INS, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, INS, MCMode.REQUIRED);
 		p.Hdr_sales_cond_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, INS, MCMode.READ_ONLY);
@@ -11394,6 +11402,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, INS_QTN, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, INS_QTN, MCMode.READ_ONLY);
@@ -11914,6 +11923,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_I, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_I, MCMode.READ_ONLY);
@@ -12434,6 +12444,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, DEL, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, DEL, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, DEL, MCMode.READ_ONLY);
@@ -12954,6 +12965,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_day_week_typ.putMode(p, FIX_D, MCMode.INVISIBLE);
 		p.Hdr_dlv_day_week_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_frc_rsn_cd_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
+		p.Hdr_sls_cond_typ.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_sales_cond_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_cd.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_par_itm_p_PPanel.Itm_itm_sub1.putMode(p, FIX_D, MCMode.READ_ONLY);
