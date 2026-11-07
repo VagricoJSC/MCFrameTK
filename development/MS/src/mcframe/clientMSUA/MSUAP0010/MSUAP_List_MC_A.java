@@ -6059,6 +6059,591 @@ abstract public class MSUAP_List_MC_A extends mcframe.clientFXBA.FXBAP0020.FXBAP
 
 
 	/** 
+	  * SloNoTyp:注番区分 メインメソッド<p>
+	  * 注番区分を表す定数を取得する<br>
+注番区分：注番を表す
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSloNoTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSloNoTyp_GetList(row, info);//リストの取得
+		getSloNoTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSloNoTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SloNoTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSloNoTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_SLO_NO_TYP.list(row);
+	}
+	/** 
+	  * SloNoTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloNoTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SloNoTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SloNoTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSloNoTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SloNoTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * ShipSpclInstTyp:出荷特別指示区分 メインメソッド<p>
+	  * 出荷特別指示区分を表す定数を取得する<br>
+出荷特別指示区分：出荷特別指示を表す
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getShipSpclInstTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getShipSpclInstTyp_GetList(row, info);//リストの取得
+		getShipSpclInstTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getShipSpclInstTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * ShipSpclInstTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getShipSpclInstTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_SHIP_SPCL_INST_TYP.list(row);
+	}
+	/** 
+	  * ShipSpclInstTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getShipSpclInstTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(ShipSpclInstTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * ShipSpclInstTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getShipSpclInstTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(ShipSpclInstTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * WitInspTyp:立会検査有無区分 メインメソッド<p>
+	  * 立会検査有無区分を表す定数を取得する<br>
+立会検査有無区分：0：立会検査無／1：立会検査有
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getWitInspTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getWitInspTyp_GetList(row, info);//リストの取得
+		getWitInspTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getWitInspTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * WitInspTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getWitInspTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_WIT_INSP_TYP.list(row);
+	}
+	/** 
+	  * WitInspTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getWitInspTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(WitInspTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * WitInspTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getWitInspTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(WitInspTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * EquipTyp:装備要否区分 メインメソッド<p>
+	  * 装備要否区分を表す定数を取得する<br>
+装備要否区分：0：不要／1：要／2：要（別工事）
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getEquipTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getEquipTyp_GetList(row, info);//リストの取得
+		getEquipTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getEquipTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * EquipTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getEquipTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_EQUIP_TYP.list(row);
+	}
+	/** 
+	  * EquipTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getEquipTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(EquipTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * EquipTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getEquipTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(EquipTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * SpecDocTyp:仕様書区分 メインメソッド<p>
+	  * 仕様書区分を表す定数を取得する<br>
+仕様書区分：0：なし／1：あり
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getSpecDocTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getSpecDocTyp_GetList(row, info);//リストの取得
+		getSpecDocTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getSpecDocTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * SpecDocTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getSpecDocTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_SPEC_DOC_TYP.list(row);
+	}
+	/** 
+	  * SpecDocTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSpecDocTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(SpecDocTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * SpecDocTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getSpecDocTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(SpecDocTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * ModelJpEnTyp:型式和英区分 メインメソッド<p>
+	  * 型式和英区分を表す定数を取得する<br>
+型式和英区分：1：和文／2：英文
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getModelJpEnTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getModelJpEnTyp_GetList(row, info);//リストの取得
+		getModelJpEnTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getModelJpEnTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * ModelJpEnTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getModelJpEnTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_MODEL_JP_EN_TYP.list(row);
+	}
+	/** 
+	  * ModelJpEnTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getModelJpEnTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(ModelJpEnTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * ModelJpEnTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getModelJpEnTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(ModelJpEnTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * InspRepTyp:検査成績書区分 メインメソッド<p>
+	  * 検査成績書区分を表す定数を取得する<br>
+検査成績書区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getInspRepTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getInspRepTyp_GetList(row, info);//リストの取得
+		getInspRepTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getInspRepTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * InspRepTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getInspRepTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_INSP_REP_TYP.list(row);
+	}
+	/** 
+	  * InspRepTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getInspRepTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(InspRepTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * InspRepTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getInspRepTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(InspRepTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * ConsDrawTyp:協議図区分 メインメソッド<p>
+	  * 検査成績書区分を表す定数を取得する<br>
+検査成績書区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getConsDrawTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getConsDrawTyp_GetList(row, info);//リストの取得
+		getConsDrawTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getConsDrawTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * ConsDrawTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getConsDrawTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_CONS_DRAW_TYP.list(row);
+	}
+	/** 
+	  * ConsDrawTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getConsDrawTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(ConsDrawTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * ConsDrawTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getConsDrawTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(ConsDrawTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * ConstDrawTyp:工事図区分 メインメソッド<p>
+	  * 工事図区分を表す定数を取得する<br>
+工事図区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getConstDrawTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getConstDrawTyp_GetList(row, info);//リストの取得
+		getConstDrawTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getConstDrawTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * ConstDrawTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getConstDrawTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_CONST_DRAW_TYP.list(row);
+	}
+	/** 
+	  * ConstDrawTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getConstDrawTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(ConstDrawTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * ConstDrawTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getConstDrawTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(ConstDrawTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * CompDrawTyp:完成図区分 メインメソッド<p>
+	  * 完成図区分を表す定数を取得する<br>
+完成図区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getCompDrawTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getCompDrawTyp_GetList(row, info);//リストの取得
+		getCompDrawTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getCompDrawTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * CompDrawTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getCompDrawTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_COMP_DRAW_TYP.list(row);
+	}
+	/** 
+	  * CompDrawTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getCompDrawTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(CompDrawTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * CompDrawTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getCompDrawTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(CompDrawTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * InstManualTyp:取扱説明書区分 メインメソッド<p>
+	  * 取扱説明書区分を表す定数を取得する<br>
+取扱説明書区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getInstManualTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getInstManualTyp_GetList(row, info);//リストの取得
+		getInstManualTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getInstManualTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * InstManualTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getInstManualTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_INST_MANUAL_TYP.list(row);
+	}
+	/** 
+	  * InstManualTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getInstManualTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(InstManualTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * InstManualTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getInstManualTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(InstManualTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * AprvDrawTyp:承認図区分 メインメソッド<p>
+	  * 承認図区分を表す定数を取得する<br>
+承認図区分：A：和文／B：英文／C：和・英同数／D：和文　第２原紙／E：英文　第２原紙／X：記事欄記入
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getAprvDrawTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getAprvDrawTyp_GetList(row, info);//リストの取得
+		getAprvDrawTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getAprvDrawTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * AprvDrawTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getAprvDrawTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_APRV_DRAW_TYP.list(row);
+	}
+	/** 
+	  * AprvDrawTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getAprvDrawTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(AprvDrawTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * AprvDrawTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getAprvDrawTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(AprvDrawTypCols.sortPolicy());
+	}
+
+
+	/** 
+	  * JipSloTyp:受注種別 メインメソッド<p>
+	  * 受注種別を表す定数を取得する<br>
+受注種別：01：通常受注／02：注文内示書による受注／03：先行受注／04：概算／05：無償等（保証を含む）／06：精算／07：一括検収値引
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	public MCList<MCRow> getJipSloTyp(MCRow row, MCEventInfo info) {
+		MCList<MCRow> down = getJipSloTyp_GetList(row, info);//リストの取得
+		getJipSloTyp_SetViewCols(down, info);//表示用カラムの追加
+		if(down != null){
+			getJipSloTyp_Sort(down, info);//ソート
+		}
+		return down;
+	}
+	/** 
+	  * JipSloTyp:リスト取得<p>
+	  * リストの取得方法を変えたい場合にカスタマイズする場所
+	  * @param row Rowコンテナ
+	  * @param info イベント情報
+	  */
+	protected MCList<MCRow>  getJipSloTyp_GetList(MCRow row, MCEventInfo info){
+		return MSC_JIP_SLO_TYP.list(row);
+	}
+	/** 
+	  * JipSloTyp:表示用カラム作成<p>
+	  * 表示カラムの作成方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getJipSloTyp_SetViewCols(MCList<MCRow> down, MCEventInfo info){
+		addDefDispColumn(JipSloTypCols.viewCols(), down, info);
+	}
+
+	/** 
+	  * JipSloTyp:リストソート<p>
+	  * ソートの方法を変えたい場合にカスタマイズする場所
+	  * @param down 検索結果を保持するListコンテナ
+	  * @param info イベント情報
+	  */
+	protected void getJipSloTyp_Sort(MCList<MCRow> down, MCEventInfo info){
+		down.sort(JipSloTypCols.sortPolicy());
+	}
+
+
+	/** 
 	  * CstItm:得意先品目 メインメソッド<p>
 	  * 取引先品目マスタから、得意先品目情報を取得する
 	  * @param row Rowコンテナ

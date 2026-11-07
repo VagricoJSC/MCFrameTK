@@ -1142,7 +1142,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *  国別符号ＣＤ.<p>
 	 *
 	 */
-	public MCTextComboBox Hdr_cntry_sign = null;
+	public MCTextField Hdr_cntry_sign = null;
 	/**
 	 *  国別符号名.<p>
 	 *
@@ -1400,6 +1400,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 *
 	 */
 	public MCTextComboBox Hdr_jip_slo_typ = null;
+	/**
+	 *  受注種別名.<p>
+	 *
+	 */
+	public MCTextField Hdr_jip_slo_typ_nm = null;
 	public MCLabel Hdr_const_fnsh_amt_Label = null;
 	/**
 	 *  工事完了金額.<p>
@@ -3745,7 +3750,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_slo_num_typ_ListPutter() {
 		if (Hdr_slo_num_typ_p == null) {
-			Hdr_slo_num_typ_p = createHdr_slo_num_typ_ListPutter(Hdr_slo_num_typ, "slo_num_typ");
+			Hdr_slo_num_typ_p = createHdr_slo_num_typ_ListPutter(Hdr_slo_num_typ, "slo_num_typ", "slo_num_typ_nm");
 
 		}
 		return Hdr_slo_num_typ_p;
@@ -3760,7 +3765,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_ship_sp_instr_typ_ListPutter() {
 		if (Hdr_ship_sp_instr_typ_p == null) {
-			Hdr_ship_sp_instr_typ_p = createHdr_ship_sp_instr_typ_ListPutter(Hdr_ship_sp_instr_typ, "ship_sp_instr_typ");
+			Hdr_ship_sp_instr_typ_p = createHdr_ship_sp_instr_typ_ListPutter(Hdr_ship_sp_instr_typ, "ship_sp_instr_typ", "ship_sp_instr_typ_nm");
 
 		}
 		return Hdr_ship_sp_instr_typ_p;
@@ -3782,21 +3787,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	
 	
-	/** [Hdr_cntry_sign_ListPutter]の定義 */
-	private MCListPutter Hdr_cntry_sign_p = null;
-
-	/**
-	 * [Hdr_cntry_sign_ListPutter]の取得
-	 */
-	protected MCListPutter getHdr_cntry_sign_ListPutter() {
-		if (Hdr_cntry_sign_p == null) {
-			Hdr_cntry_sign_p = createHdr_cntry_sign_ListPutter(Hdr_cntry_sign, "cntry_sign");
-
-		}
-		return Hdr_cntry_sign_p;
-	}
-	
-	
 	/** [Hdr_wit_insp_typ_ListPutter]の定義 */
 	private MCListPutter Hdr_wit_insp_typ_p = null;
 
@@ -3805,7 +3795,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_wit_insp_typ_ListPutter() {
 		if (Hdr_wit_insp_typ_p == null) {
-			Hdr_wit_insp_typ_p = createHdr_wit_insp_typ_ListPutter(Hdr_wit_insp_typ, "wit_insp_typ");
+			Hdr_wit_insp_typ_p = createHdr_wit_insp_typ_ListPutter(Hdr_wit_insp_typ, "wit_insp_typ", "wit_insp_typ_nm");
 
 		}
 		return Hdr_wit_insp_typ_p;
@@ -3820,7 +3810,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_equip_typ_ListPutter() {
 		if (Hdr_equip_typ_p == null) {
-			Hdr_equip_typ_p = createHdr_equip_typ_ListPutter(Hdr_equip_typ, "equip_typ");
+			Hdr_equip_typ_p = createHdr_equip_typ_ListPutter(Hdr_equip_typ, "equip_typ", "equip_typ_nm");
 
 		}
 		return Hdr_equip_typ_p;
@@ -3835,7 +3825,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_spec_doc_typ_ListPutter() {
 		if (Hdr_spec_doc_typ_p == null) {
-			Hdr_spec_doc_typ_p = createHdr_spec_doc_typ_ListPutter(Hdr_spec_doc_typ, "spec_doc_typ");
+			Hdr_spec_doc_typ_p = createHdr_spec_doc_typ_ListPutter(Hdr_spec_doc_typ, "spec_doc_typ", "spec_doc_typ_nm");
 
 		}
 		return Hdr_spec_doc_typ_p;
@@ -3850,7 +3840,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_model_jp_en_typ_ListPutter() {
 		if (Hdr_model_jp_en_typ_p == null) {
-			Hdr_model_jp_en_typ_p = createHdr_model_jp_en_typ_ListPutter(Hdr_model_jp_en_typ, "model_jp_en_typ");
+			Hdr_model_jp_en_typ_p = createHdr_model_jp_en_typ_ListPutter(Hdr_model_jp_en_typ, "model_jp_en_typ", "model_jp_en_typ_nm");
 
 		}
 		return Hdr_model_jp_en_typ_p;
@@ -3865,7 +3855,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_insp_rep_typ_ListPutter() {
 		if (Hdr_insp_rep_typ_p == null) {
-			Hdr_insp_rep_typ_p = createHdr_insp_rep_typ_ListPutter(Hdr_insp_rep_typ, "insp_rep_typ");
+			Hdr_insp_rep_typ_p = createHdr_insp_rep_typ_ListPutter(Hdr_insp_rep_typ, "insp_rep_typ", "insp_rep_typ_nm");
 
 		}
 		return Hdr_insp_rep_typ_p;
@@ -3880,7 +3870,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_cons_draw_typ_ListPutter() {
 		if (Hdr_cons_draw_typ_p == null) {
-			Hdr_cons_draw_typ_p = createHdr_cons_draw_typ_ListPutter(Hdr_cons_draw_typ, "cons_draw_typ");
+			Hdr_cons_draw_typ_p = createHdr_cons_draw_typ_ListPutter(Hdr_cons_draw_typ, "cons_draw_typ", "cons_draw_typ_nm");
 
 		}
 		return Hdr_cons_draw_typ_p;
@@ -3895,7 +3885,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_const_draw_typ_ListPutter() {
 		if (Hdr_const_draw_typ_p == null) {
-			Hdr_const_draw_typ_p = createHdr_const_draw_typ_ListPutter(Hdr_const_draw_typ, "const_draw_typ");
+			Hdr_const_draw_typ_p = createHdr_const_draw_typ_ListPutter(Hdr_const_draw_typ, "const_draw_typ", "const_draw_typ_nm");
 
 		}
 		return Hdr_const_draw_typ_p;
@@ -3910,7 +3900,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_comp_draw_typ_ListPutter() {
 		if (Hdr_comp_draw_typ_p == null) {
-			Hdr_comp_draw_typ_p = createHdr_comp_draw_typ_ListPutter(Hdr_comp_draw_typ, "comp_draw_typ");
+			Hdr_comp_draw_typ_p = createHdr_comp_draw_typ_ListPutter(Hdr_comp_draw_typ, "comp_draw_typ", "comp_draw_typ_nm");
 
 		}
 		return Hdr_comp_draw_typ_p;
@@ -3925,7 +3915,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_inst_manual_typ_ListPutter() {
 		if (Hdr_inst_manual_typ_p == null) {
-			Hdr_inst_manual_typ_p = createHdr_inst_manual_typ_ListPutter(Hdr_inst_manual_typ, "inst_manual_typ");
+			Hdr_inst_manual_typ_p = createHdr_inst_manual_typ_ListPutter(Hdr_inst_manual_typ, "inst_manual_typ", "inst_manual_typ_nm");
 
 		}
 		return Hdr_inst_manual_typ_p;
@@ -3940,7 +3930,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_aprv_draw_typ_ListPutter() {
 		if (Hdr_aprv_draw_typ_p == null) {
-			Hdr_aprv_draw_typ_p = createHdr_aprv_draw_typ_ListPutter(Hdr_aprv_draw_typ, "aprv_draw_typ");
+			Hdr_aprv_draw_typ_p = createHdr_aprv_draw_typ_ListPutter(Hdr_aprv_draw_typ, "aprv_draw_typ", "aprv_draw_typ_nm");
 
 		}
 		return Hdr_aprv_draw_typ_p;
@@ -3955,7 +3945,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_jip_slo_typ_ListPutter() {
 		if (Hdr_jip_slo_typ_p == null) {
-			Hdr_jip_slo_typ_p = createHdr_jip_slo_typ_ListPutter(Hdr_jip_slo_typ, "jip_slo_typ");
+			Hdr_jip_slo_typ_p = createHdr_jip_slo_typ_ListPutter(Hdr_jip_slo_typ, "jip_slo_typ", "jip_slo_typ_nm");
 
 		}
 		return Hdr_jip_slo_typ_p;
@@ -4903,7 +4893,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_mrkt_cd.setLabel(p.Hdr_mrkt_cd_Label);
 		p.Hdr_mrkt_nm = p.beansFactory.createTextField("Hdr.mrkt_nm");
 		p.Hdr_cntry_sign_Label = p.beansFactory.createLabel("Hdr.cntry_sign_Label");
-		p.Hdr_cntry_sign = p.beansFactory.createTextComboBox("Hdr.cntry_sign");
+		p.Hdr_cntry_sign = p.beansFactory.createTextField("Hdr.cntry_sign");
 		p.Hdr_cntry_sign.setLabel(p.Hdr_cntry_sign_Label);
 		p.Hdr_cntry_sign_nm = p.beansFactory.createTextField("Hdr.cntry_sign_nm");
 		p.Hdr_ves_natl_Label = p.beansFactory.createLabel("Hdr.ves_natl_Label");
@@ -5014,6 +5004,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_jip_slo_typ_Label = p.beansFactory.createLabel("Hdr.jip_slo_typ_Label");
 		p.Hdr_jip_slo_typ = p.beansFactory.createTextComboBox("Hdr.jip_slo_typ");
 		p.Hdr_jip_slo_typ.setLabel(p.Hdr_jip_slo_typ_Label);
+		p.Hdr_jip_slo_typ_nm = p.beansFactory.createTextField("Hdr.jip_slo_typ_nm");
 		p.Hdr_const_fnsh_amt_Label = p.beansFactory.createLabel("Hdr.const_fnsh_amt_Label");
 		p.Hdr_const_fnsh_amt = p.beansFactory.createNumberField("Hdr.const_fnsh_amt");
 		p.Hdr_const_fnsh_amt.setLabel(p.Hdr_const_fnsh_amt_Label);
@@ -5994,6 +5985,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_dlv_draw_no.setNextBeans(p.Hdr_slo_num_typ);
 		p.Hdr_dlv_draw_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.dlv_draw_no_META);
 		p.Hdr_slo_num_typ.setListType(MCListType.STRICT);
+		p.Hdr_slo_num_typ.setLinkBeans(p.Hdr_slo_num_typ_nm);
 		p.HdrPanel.add(p.Hdr_slo_num_typ_Label);
 		p.HdrPanel.add(p.Hdr_slo_num_typ);
 		p.Hdr_slo_num_typ.setNextBeans(p.Hdr_slo_num_typ_nm);
@@ -6010,6 +6002,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_paint_clr.setNextBeans(p.Hdr_ship_sp_instr_typ);
 		p.Hdr_paint_clr.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.paint_clr_META);
 		p.Hdr_ship_sp_instr_typ.setListType(MCListType.STRICT);
+		p.Hdr_ship_sp_instr_typ.setLinkBeans(p.Hdr_ship_sp_instr_typ_nm);
 		p.HdrPanel.add(p.Hdr_ship_sp_instr_typ_Label);
 		p.HdrPanel.add(p.Hdr_ship_sp_instr_typ);
 		p.Hdr_ship_sp_instr_typ.setNextBeans(p.Hdr_ship_sp_instr_typ_nm);
@@ -6037,7 +6030,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.HdrPanel.add(p.Hdr_mrkt_nm);
 		p.Hdr_mrkt_nm.setNextBeans(p.Hdr_cntry_sign);
 		p.Hdr_mrkt_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.mrkt_nm_META);
-		p.Hdr_cntry_sign.setListType(MCListType.STRICT);
 		p.HdrPanel.add(p.Hdr_cntry_sign_Label);
 		p.HdrPanel.add(p.Hdr_cntry_sign);
 		p.Hdr_cntry_sign.setNextBeans(p.Hdr_cntry_sign_nm);
@@ -6105,6 +6097,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_ps_sal_aft_dt.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ps_sal_aft_dt_META);
 		p.Hdr_ps_sal_aft_dt.setFormatID(mcframe.commonMA.meta.MA_META.DT_FORMAT);
 		p.Hdr_wit_insp_typ.setListType(MCListType.STRICT);
+		p.Hdr_wit_insp_typ.setLinkBeans(p.Hdr_wit_insp_typ_nm);
 		p.HdrPanel.add(p.Hdr_wit_insp_typ_Label);
 		p.HdrPanel.add(p.Hdr_wit_insp_typ);
 		p.Hdr_wit_insp_typ.setNextBeans(p.Hdr_wit_insp_typ_nm);
@@ -6113,6 +6106,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_wit_insp_typ_nm.setNextBeans(p.Hdr_equip_typ);
 		p.Hdr_wit_insp_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.wit_insp_typ_nm_META);
 		p.Hdr_equip_typ.setListType(MCListType.STRICT);
+		p.Hdr_equip_typ.setLinkBeans(p.Hdr_equip_typ_nm);
 		p.HdrPanel.add(p.Hdr_equip_typ_Label);
 		p.HdrPanel.add(p.Hdr_equip_typ);
 		p.Hdr_equip_typ.setNextBeans(p.Hdr_equip_typ_nm);
@@ -6121,6 +6115,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_equip_typ_nm.setNextBeans(p.Hdr_spec_doc_typ);
 		p.Hdr_equip_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.equip_typ_nm_META);
 		p.Hdr_spec_doc_typ.setListType(MCListType.STRICT);
+		p.Hdr_spec_doc_typ.setLinkBeans(p.Hdr_spec_doc_typ_nm);
 		p.HdrPanel.add(p.Hdr_spec_doc_typ_Label);
 		p.HdrPanel.add(p.Hdr_spec_doc_typ);
 		p.Hdr_spec_doc_typ.setNextBeans(p.Hdr_spec_doc_typ_nm);
@@ -6129,6 +6124,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_spec_doc_typ_nm.setNextBeans(p.Hdr_model_jp_en_typ);
 		p.Hdr_spec_doc_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.spec_doc_typ_nm_META);
 		p.Hdr_model_jp_en_typ.setListType(MCListType.STRICT);
+		p.Hdr_model_jp_en_typ.setLinkBeans(p.Hdr_model_jp_en_typ_nm);
 		p.HdrPanel.add(p.Hdr_model_jp_en_typ_Label);
 		p.HdrPanel.add(p.Hdr_model_jp_en_typ);
 		p.Hdr_model_jp_en_typ.setNextBeans(p.Hdr_model_jp_en_typ_nm);
@@ -6137,6 +6133,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_model_jp_en_typ_nm.setNextBeans(p.Hdr_insp_rep_typ);
 		p.Hdr_model_jp_en_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.model_jp_en_typ_nm_META);
 		p.Hdr_insp_rep_typ.setListType(MCListType.STRICT);
+		p.Hdr_insp_rep_typ.setLinkBeans(p.Hdr_insp_rep_typ_nm);
 		p.HdrPanel.add(p.Hdr_insp_rep_typ_Label);
 		p.HdrPanel.add(p.Hdr_insp_rep_typ);
 		p.Hdr_insp_rep_typ.setNextBeans(p.Hdr_insp_rep_typ_nm);
@@ -6149,6 +6146,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_insp_rep_qty.setNextBeans(p.Hdr_cons_draw_typ);
 		p.Hdr_insp_rep_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.insp_rep_qty_META);
 		p.Hdr_cons_draw_typ.setListType(MCListType.STRICT);
+		p.Hdr_cons_draw_typ.setLinkBeans(p.Hdr_cons_draw_typ_nm);
 		p.HdrPanel.add(p.Hdr_cons_draw_typ_Label);
 		p.HdrPanel.add(p.Hdr_cons_draw_typ);
 		p.Hdr_cons_draw_typ.setNextBeans(p.Hdr_cons_draw_typ_nm);
@@ -6161,6 +6159,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_cons_draw_qty.setNextBeans(p.Hdr_const_draw_typ);
 		p.Hdr_cons_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.cons_draw_qty_META);
 		p.Hdr_const_draw_typ.setListType(MCListType.STRICT);
+		p.Hdr_const_draw_typ.setLinkBeans(p.Hdr_const_draw_typ_nm);
 		p.HdrPanel.add(p.Hdr_const_draw_typ_Label);
 		p.HdrPanel.add(p.Hdr_const_draw_typ);
 		p.Hdr_const_draw_typ.setNextBeans(p.Hdr_const_draw_typ_nm);
@@ -6173,6 +6172,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_const_draw_qty.setNextBeans(p.Hdr_comp_draw_typ);
 		p.Hdr_const_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.const_draw_qty_META);
 		p.Hdr_comp_draw_typ.setListType(MCListType.STRICT);
+		p.Hdr_comp_draw_typ.setLinkBeans(p.Hdr_comp_draw_typ_nm);
 		p.HdrPanel.add(p.Hdr_comp_draw_typ_Label);
 		p.HdrPanel.add(p.Hdr_comp_draw_typ);
 		p.Hdr_comp_draw_typ.setNextBeans(p.Hdr_comp_draw_typ_nm);
@@ -6185,6 +6185,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_comp_draw_qty.setNextBeans(p.Hdr_inst_manual_typ);
 		p.Hdr_comp_draw_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.comp_draw_qty_META);
 		p.Hdr_inst_manual_typ.setListType(MCListType.STRICT);
+		p.Hdr_inst_manual_typ.setLinkBeans(p.Hdr_inst_manual_typ_nm);
 		p.HdrPanel.add(p.Hdr_inst_manual_typ_Label);
 		p.HdrPanel.add(p.Hdr_inst_manual_typ);
 		p.Hdr_inst_manual_typ.setNextBeans(p.Hdr_inst_manual_typ_nm);
@@ -6197,6 +6198,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_inst_manual_qty.setNextBeans(p.Hdr_aprv_draw_typ);
 		p.Hdr_inst_manual_qty.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.inst_manual_qty_META);
 		p.Hdr_aprv_draw_typ.setListType(MCListType.STRICT);
+		p.Hdr_aprv_draw_typ.setLinkBeans(p.Hdr_aprv_draw_typ_nm);
 		p.HdrPanel.add(p.Hdr_aprv_draw_typ_Label);
 		p.HdrPanel.add(p.Hdr_aprv_draw_typ);
 		p.Hdr_aprv_draw_typ.setNextBeans(p.Hdr_aprv_draw_typ_nm);
@@ -6217,10 +6219,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_main_draw_no.setNextBeans(p.Hdr_jip_slo_typ);
 		p.Hdr_main_draw_no.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.main_draw_no_META);
 		p.Hdr_jip_slo_typ.setListType(MCListType.STRICT);
+		p.Hdr_jip_slo_typ.setLinkBeans(p.Hdr_jip_slo_typ_nm);
 		p.HdrPanel.add(p.Hdr_jip_slo_typ_Label);
 		p.HdrPanel.add(p.Hdr_jip_slo_typ);
-		p.Hdr_jip_slo_typ.setNextBeans(p.Hdr_const_fnsh_amt);
+		p.Hdr_jip_slo_typ.setNextBeans(p.Hdr_jip_slo_typ_nm);
 		p.Hdr_jip_slo_typ.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.jip_slo_typ_META);
+		p.HdrPanel.add(p.Hdr_jip_slo_typ_nm);
+		p.Hdr_jip_slo_typ_nm.setNextBeans(p.Hdr_const_fnsh_amt);
+		p.Hdr_jip_slo_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.jip_slo_typ_nm_META);
 		p.HdrPanel.add(p.Hdr_const_fnsh_amt_Label);
 		p.HdrPanel.add(p.Hdr_const_fnsh_amt);
 		p.Hdr_const_fnsh_amt.setNextBeans(p.Hdr_const_recv_no);
@@ -6986,6 +6992,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_main_draw_no.addAllListener(p);
 		p.Hdr_jip_slo_typ.setListListener(p);
 		p.Hdr_jip_slo_typ.addAllListener(p);
+		p.Hdr_jip_slo_typ_nm.setListListener(p);
+		p.Hdr_jip_slo_typ_nm.addAllListener(p);
 		p.Hdr_const_fnsh_amt.setListListener(p);
 		p.Hdr_const_fnsh_amt.addAllListener(p);
 		p.Hdr_const_recv_no.setListListener(p);
@@ -7570,6 +7578,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, SRCH, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, SRCH, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, SRCH, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, SRCH, MCMode.ENABLE);
@@ -8091,6 +8100,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, REF, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, REF, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, REF, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, REF, MCMode.ENABLE);
@@ -8613,6 +8623,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, UPD, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, UPD, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, UPD, MCMode.ENABLE);
@@ -9135,6 +9146,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD_QTN, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, UPD_QTN, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, UPD_QTN, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, UPD_QTN, MCMode.ENABLE);
@@ -9656,6 +9668,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, UPD_APRV, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, UPD_APRV, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, UPD_APRV, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, UPD_APRV, MCMode.ENABLE);
@@ -10428,6 +10441,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_U, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, FIX_U, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, FIX_U, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, FIX_U, MCMode.ENABLE);
@@ -10950,6 +10964,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, INS, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, INS, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, INS, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, INS, MCMode.ENABLE);
@@ -11472,6 +11487,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, INS_QTN, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, INS_QTN, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, INS_QTN, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, INS_QTN, MCMode.ENABLE);
@@ -11993,6 +12009,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_I, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, FIX_I, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, FIX_I, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, FIX_I, MCMode.ENABLE);
@@ -12514,6 +12531,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, DEL, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, DEL, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, DEL, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, DEL, MCMode.ENABLE);
@@ -13035,6 +13053,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_slo_cng_rsn.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_main_draw_no.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_jip_slo_typ.putMode(p, FIX_D, MCMode.ENABLE);
+		p.Hdr_jip_slo_typ_nm.putMode(p, FIX_D, MCMode.READ_ONLY);
 		p.Hdr_const_fnsh_amt.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_const_recv_no.putMode(p, FIX_D, MCMode.ENABLE);
 		p.Hdr_wrk_pj_nm.putMode(p, FIX_D, MCMode.ENABLE);
@@ -13745,8 +13764,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		Hdr_ship_sp_instr_typ.getListConfig().setPutter(getHdr_ship_sp_instr_typ_ListPutter());
 		Hdr_spec_dlv_note_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_spec_dlv_note_typ.getListConfig().setPutter(getHdr_spec_dlv_note_typ_ListPutter());
-		Hdr_cntry_sign.setListVisibleColumn(MCListLogic.getViewColumnName());
-		Hdr_cntry_sign.getListConfig().setPutter(getHdr_cntry_sign_ListPutter());
 		Hdr_wit_insp_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
 		Hdr_wit_insp_typ.getListConfig().setPutter(getHdr_wit_insp_typ_ListPutter());
 		Hdr_equip_typ.setListVisibleColumn(MCListLogic.getViewColumnName());
@@ -14250,7 +14267,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_slo_num_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.SloNoTyp");
 		return lp;
 	}
 	 
@@ -14259,7 +14276,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_ship_sp_instr_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.ShipSpclInstTyp");
 		return lp;
 	}
 	 
@@ -14273,20 +14290,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 	 
 	/**
-	 * [Hdr_cntry_sign_ListPutter]の作成
-	 */
-	protected MCListPutter createHdr_cntry_sign_ListPutter(MCLinkBeans compo, String... columns) {
-		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
-		return lp;
-	}
-	 
-	/**
 	 * [Hdr_wit_insp_typ_ListPutter]の作成
 	 */
 	protected MCListPutter createHdr_wit_insp_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.WitInspTyp");
 		return lp;
 	}
 	 
@@ -14295,7 +14303,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_equip_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.EquipTyp");
 		return lp;
 	}
 	 
@@ -14304,7 +14312,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_spec_doc_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.SpecDocTyp");
 		return lp;
 	}
 	 
@@ -14313,7 +14321,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_model_jp_en_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.ModelJpEnTyp");
 		return lp;
 	}
 	 
@@ -14322,7 +14330,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_insp_rep_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.InspRepTyp");
 		return lp;
 	}
 	 
@@ -14331,7 +14339,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_cons_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.ConsDrawTyp");
 		return lp;
 	}
 	 
@@ -14340,7 +14348,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_const_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.ConstDrawTyp");
 		return lp;
 	}
 	 
@@ -14349,7 +14357,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_comp_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.CompDrawTyp");
 		return lp;
 	}
 	 
@@ -14358,7 +14366,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_inst_manual_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.InstManualTyp");
 		return lp;
 	}
 	 
@@ -14367,7 +14375,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_aprv_draw_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.AprvDrawTyp");
 		return lp;
 	}
 	 
@@ -14376,7 +14384,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_jip_slo_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.JipSloTyp");
 		return lp;
 	}
 	 
@@ -14720,7 +14728,6 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(combo == Hdr_slo_num_typ) return getHdr_slo_num_typ(row, info);
 		if(combo == Hdr_ship_sp_instr_typ) return getHdr_ship_sp_instr_typ(row, info);
 		if(combo == Hdr_spec_dlv_note_typ) return getHdr_spec_dlv_note_typ(row, info);
-		if(combo == Hdr_cntry_sign) return getHdr_cntry_sign(row, info);
 		if(combo == Hdr_wit_insp_typ) return getHdr_wit_insp_typ(row, info);
 		if(combo == Hdr_equip_typ) return getHdr_equip_typ(row, info);
 		if(combo == Hdr_spec_doc_typ) return getHdr_spec_doc_typ(row, info);
@@ -15091,6 +15098,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == Hdr_slo_cng_rsn) return doHdr_slo_cng_rsn_VC(info);
 		if (vc == Hdr_main_draw_no) return doHdr_main_draw_no_VC(info);
 		if (vc == Hdr_jip_slo_typ) return doHdr_jip_slo_typ_VC(info);
+		if (vc == Hdr_jip_slo_typ_nm) return doHdr_jip_slo_typ_nm_VC(info);
 		if (vc == Hdr_const_fnsh_amt) return doHdr_const_fnsh_amt_VC(info);
 		if (vc == Hdr_const_recv_no) return doHdr_const_recv_no_VC(info);
 		if (vc == Hdr_wrk_pj_nm) return doHdr_wrk_pj_nm_VC(info);
@@ -17490,6 +17498,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[jip_slo_typ_nm]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doHdr_jip_slo_typ_nm_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * [Hdr]パネルの[const_fnsh_amt]のValidationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -19172,6 +19190,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NC(info);
 		else if (nc == Hdr_main_draw_no) doHdr_main_draw_no_NC(info);
 		else if (nc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NC(info);
+		else if (nc == Hdr_jip_slo_typ_nm) doHdr_jip_slo_typ_nm_NC(info);
 		else if (nc == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NC(info);
 		else if (nc == Hdr_const_recv_no) doHdr_const_recv_no_NC(info);
 		else if (nc == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NC(info);
@@ -21120,6 +21139,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[jip_slo_typ_nm]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_nm_NC(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[const_fnsh_amt]のNotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -22512,6 +22539,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NE(info);
 		else if (ne == Hdr_main_draw_no) doHdr_main_draw_no_NE(info);
 		else if (ne == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NE(info);
+		else if (ne == Hdr_jip_slo_typ_nm) doHdr_jip_slo_typ_nm_NE(info);
 		else if (ne == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NE(info);
 		else if (ne == Hdr_const_recv_no) doHdr_const_recv_no_NE(info);
 		else if (ne == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NE(info);
@@ -24460,6 +24488,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[jip_slo_typ_nm]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_nm_NE(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[const_fnsh_amt]のNotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -25852,6 +25888,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_NX(info);
 		else if (nx == Hdr_main_draw_no) doHdr_main_draw_no_NX(info);
 		else if (nx == Hdr_jip_slo_typ) doHdr_jip_slo_typ_NX(info);
+		else if (nx == Hdr_jip_slo_typ_nm) doHdr_jip_slo_typ_nm_NX(info);
 		else if (nx == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_NX(info);
 		else if (nx == Hdr_const_recv_no) doHdr_const_recv_no_NX(info);
 		else if (nx == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_NX(info);
@@ -27800,6 +27837,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[jip_slo_typ_nm]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_nm_NX(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[const_fnsh_amt]のNotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -29171,6 +29216,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == Hdr_slo_cng_rsn) doHdr_slo_cng_rsn_LC(info);
 		else if (lc == Hdr_main_draw_no) doHdr_main_draw_no_LC(info);
 		else if (lc == Hdr_jip_slo_typ) doHdr_jip_slo_typ_LC(info);
+		else if (lc == Hdr_jip_slo_typ_nm) doHdr_jip_slo_typ_nm_LC(info);
 		else if (lc == Hdr_const_fnsh_amt) doHdr_const_fnsh_amt_LC(info);
 		else if (lc == Hdr_const_recv_no) doHdr_const_recv_no_LC(info);
 		else if (lc == Hdr_wrk_pj_nm) doHdr_wrk_pj_nm_LC(info);
@@ -30927,6 +30973,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Hdr]パネルの[jip_slo_typ_nm]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doHdr_jip_slo_typ_nm_LC(MCEventInfo info){
+	}
+
+	/**
 	 * [Hdr]パネルの[const_fnsh_amt]のListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param info イベント情報
@@ -32129,14 +32183,14 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * コンボ／リストのリスト[Hdr_slo_num_typ]の作成メソッド
 	 */
 	public MCList getHdr_slo_num_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSloNoTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_ship_sp_instr_typ]の作成メソッド
 	 */
 	public MCList getHdr_ship_sp_instr_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getShipSpclInstTyp(row, info);
 	}
 
 	/**
@@ -32147,87 +32201,80 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
-	 * コンボ／リストのリスト[Hdr_cntry_sign]の作成メソッド
-	 */
-	public MCList getHdr_cntry_sign(MCRow row, MCEventInfo info){
-		return null;
-	}
-
-	/**
 	 * コンボ／リストのリスト[Hdr_wit_insp_typ]の作成メソッド
 	 */
 	public MCList getHdr_wit_insp_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getWitInspTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_equip_typ]の作成メソッド
 	 */
 	public MCList getHdr_equip_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getEquipTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_spec_doc_typ]の作成メソッド
 	 */
 	public MCList getHdr_spec_doc_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSpecDocTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_model_jp_en_typ]の作成メソッド
 	 */
 	public MCList getHdr_model_jp_en_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getModelJpEnTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_insp_rep_typ]の作成メソッド
 	 */
 	public MCList getHdr_insp_rep_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getInspRepTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_cons_draw_typ]の作成メソッド
 	 */
 	public MCList getHdr_cons_draw_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getConsDrawTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_const_draw_typ]の作成メソッド
 	 */
 	public MCList getHdr_const_draw_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getConstDrawTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_comp_draw_typ]の作成メソッド
 	 */
 	public MCList getHdr_comp_draw_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getCompDrawTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_inst_manual_typ]の作成メソッド
 	 */
 	public MCList getHdr_inst_manual_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getInstManualTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_aprv_draw_typ]の作成メソッド
 	 */
 	public MCList getHdr_aprv_draw_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getAprvDrawTyp(row, info);
 	}
 
 	/**
 	 * コンボ／リストのリスト[Hdr_jip_slo_typ]の作成メソッド
 	 */
 	public MCList getHdr_jip_slo_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getJipSloTyp(row, info);
 	}
 
 	/**

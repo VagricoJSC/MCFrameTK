@@ -1967,13 +1967,21 @@ import mcframe.commonCore.annotation.EI;
  *  </tr>
  *  <tr >
  *  	<td><br></td>
+ *  	<td>jip_slo_typ_nm</td>
+ *  	<td><br></td>
+ *  	<td>String</td>
+ *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR20 STR20}]</td>
+ *  	<td><br></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td><br></td>
  *  	<td>const_fnsh_amt</td>
  *  	<td><br></td>
  *  	<td>Number</td>
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#MONEY MONEY}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr bgcolor="Moccasin">
+ *  <tr >
  *  	<td><br></td>
  *  	<td>const_recv_no</td>
  *  	<td><br></td>
@@ -1981,7 +1989,7 @@ import mcframe.commonCore.annotation.EI;
  *  	<td>[{@link mcframe.commonMA.meta.MA_META#STR20 STR20}]</td>
  *  	<td><br></td>
  *  </tr>
- *  <tr >
+ *  <tr bgcolor="Moccasin">
  *  	<td><br></td>
  *  	<td>wrk_pj_nm</td>
  *  	<td><br></td>

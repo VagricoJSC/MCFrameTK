@@ -1166,6 +1166,11 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 */
 	public static final String $jip_slo_typ = "jip_slo_typ";
 	/**
+	 *  受注種別名.<p>
+	 *
+	 */
+	public static final String $jip_slo_typ_nm = "jip_slo_typ_nm";
+	/**
 	 *  工事完了金額.<p>
 	 *
 	 */
@@ -1482,6 +1487,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	public static final MCMeta slo_cng_rsn_META = createCommonMeta($slo_cng_rsn, mcframe.commonMA.meta.MA_META.SLO_CNG_RSN);
 	public static final MCMeta main_draw_no_META = createCommonMeta($main_draw_no, mcframe.commonMA.meta.MA_META.MAIN_DRAW_NO);
 	public static final MCMeta jip_slo_typ_META = createCommonMeta($jip_slo_typ, mcframe.commonMA.meta.MA_META.JIP_SLO_TYP);
+	public static final MCMeta jip_slo_typ_nm_META = createCommonMeta($jip_slo_typ_nm, mcframe.commonMA.meta.MA_META.STR20);
 	public static final MCMeta const_fnsh_amt_META = createCommonMeta($const_fnsh_amt, mcframe.commonMA.meta.MA_META.MONEY);
 	public static final MCMeta const_recv_no_META = createCommonMeta($const_recv_no, mcframe.commonMA.meta.MA_META.STR20);
 	public static final MCMeta wrk_pj_nm_META = createCommonMeta($wrk_pj_nm, mcframe.commonMA.meta.MA_META.STR20);
@@ -1732,6 +1738,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 			slo_cng_rsn_META,
 			main_draw_no_META,
 			jip_slo_typ_META,
+			jip_slo_typ_nm_META,
 			const_fnsh_amt_META,
 			const_recv_no_META,
 			wrk_pj_nm_META
@@ -1903,7 +1910,20 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$can_rsn_cd, "slo_rsn_nm"},	// can_rsn_cd
 				{$dlv_day_week_typ_nm, "day_week_typ"},	// dlv_day_week_typ_nm
 				{$frc_rsn_cd, "free_rsn_typ_nm"},	// frc_rsn_cd
-				{$sls_cond_typ, "sls_cond_typ_nm"}	// sls_cond_typ
+				{$sls_cond_typ, "sls_cond_typ_nm"},	// sls_cond_typ
+				{$slo_num_typ, "slo_no_typ_nm"},	// slo_num_typ
+				{$ship_sp_instr_typ, "ship_spcl_inst_typ_nm"},	// ship_sp_instr_typ
+				{$wit_insp_typ, "wit_insp_typ_nm"},	// wit_insp_typ
+				{$equip_typ, "equip_typ_nm"},	// equip_typ
+				{$spec_doc_typ, "spec_doc_typ_nm"},	// spec_doc_typ
+				{$model_jp_en_typ, "model_jp_en_typ_nm"},	// model_jp_en_typ
+				{$insp_rep_typ, "insp_rep_typ_nm"},	// insp_rep_typ
+				{$cons_draw_typ, "cons_draw_typ_nm"},	// cons_draw_typ
+				{$const_draw_typ, "const_draw_typ_nm"},	// const_draw_typ
+				{$comp_draw_typ, "comp_draw_typ_nm"},	// comp_draw_typ
+				{$inst_manual_typ, "inst_manual_typ_nm"},	// inst_manual_typ
+				{$aprv_draw_typ, "aprv_draw_typ_nm"},	// aprv_draw_typ
+				{$jip_slo_typ, "jip_slo_typ_nm"}	// jip_slo_typ
 			}
 		)),
 		new MCExtMap.Entry($$LIST_IN, new MCExtList(
@@ -6834,11 +6854,28 @@ abstract class HdrR_MC_A extends MCConstRow {
 
 
 	/**
+	 *  受注種別名.<p>
+	 *
+	 */
+	public String jip_slo_typ_nm() {
+		return getConstString(offset + 243, $jip_slo_typ_nm);
+	}
+
+	/**
+	 *  受注種別名.<p>
+	 *
+	 */
+	public void jip_slo_typ_nm(String value) {
+		setConstString(offset + 243, $jip_slo_typ_nm, value);
+	}
+
+
+	/**
 	 *  工事完了金額.<p>
 	 *
 	 */
 	public MCNumber const_fnsh_amt() {
-		return getConstNumber(offset + 243, $const_fnsh_amt);
+		return getConstNumber(offset + 244, $const_fnsh_amt);
 	}
 
 	/**
@@ -6846,7 +6883,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_fnsh_amt(MCNumber value) {
-		setConstNumber(offset + 243, $const_fnsh_amt, value);
+		setConstNumber(offset + 244, $const_fnsh_amt, value);
 	}
 
 	/**
@@ -6854,7 +6891,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_fnsh_amt(int value) {
-		setConstNumber(offset + 243, $const_fnsh_amt, value);
+		setConstNumber(offset + 244, $const_fnsh_amt, value);
 	}
 
 	/**
@@ -6862,7 +6899,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_fnsh_amt(long value) {
-		setConstNumber(offset + 243, $const_fnsh_amt, value);
+		setConstNumber(offset + 244, $const_fnsh_amt, value);
 	}
 
 	/**
@@ -6870,7 +6907,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_fnsh_amt(float value) {
-		setConstNumber(offset + 243, $const_fnsh_amt, value);
+		setConstNumber(offset + 244, $const_fnsh_amt, value);
 	}
 
 	/**
@@ -6878,7 +6915,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_fnsh_amt(double value) {
-		setConstNumber(offset + 243, $const_fnsh_amt, value);
+		setConstNumber(offset + 244, $const_fnsh_amt, value);
 	}
 
 
@@ -6887,7 +6924,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String const_recv_no() {
-		return getConstString(offset + 244, $const_recv_no);
+		return getConstString(offset + 245, $const_recv_no);
 	}
 
 	/**
@@ -6895,7 +6932,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void const_recv_no(String value) {
-		setConstString(offset + 244, $const_recv_no, value);
+		setConstString(offset + 245, $const_recv_no, value);
 	}
 
 
@@ -6904,7 +6941,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public String wrk_pj_nm() {
-		return getConstString(offset + 245, $wrk_pj_nm);
+		return getConstString(offset + 246, $wrk_pj_nm);
 	}
 
 	/**
@@ -6912,7 +6949,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 	 *
 	 */
 	public void wrk_pj_nm(String value) {
-		setConstString(offset + 245, $wrk_pj_nm, value);
+		setConstString(offset + 246, $wrk_pj_nm, value);
 	}
 
 
@@ -7420,6 +7457,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			return jip_slo_typ();
+		}
+		if ($jip_slo_typ_nm.equalsIgnoreCase(name)) {
+			return jip_slo_typ_nm();
 		}
 		if ($const_recv_no.equalsIgnoreCase(name)) {
 			return const_recv_no();
@@ -8126,6 +8166,9 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			return jip_slo_typ();
+		}
+		if ($jip_slo_typ_nm.equalsIgnoreCase(name)) {
+			return jip_slo_typ_nm();
 		}
 		if ($const_recv_no.equalsIgnoreCase(name)) {
 			return const_recv_no();
@@ -8999,6 +9042,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			jip_slo_typ(value);
+			return;
+		}
+		if ($jip_slo_typ_nm.equalsIgnoreCase(name)) {
+			jip_slo_typ_nm(value);
 			return;
 		}
 		if ($const_recv_no.equalsIgnoreCase(name)) {
@@ -10363,6 +10410,10 @@ abstract class HdrR_MC_A extends MCConstRow {
 		}
 		if ($jip_slo_typ.equalsIgnoreCase(name)) {
 			jip_slo_typ(value);
+			return;
+		}
+		if ($jip_slo_typ_nm.equalsIgnoreCase(name)) {
+			jip_slo_typ_nm(value);
 			return;
 		}
 		if ($const_recv_no.equalsIgnoreCase(name)) {

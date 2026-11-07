@@ -7378,6 +7378,721 @@ class MSUAC_List_MC_A extends Object {
 
 
 	/** 
+	  * SloNoTyp:カラム名クラス
+	  */
+	protected static class SloNoTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_slo_no_typ = "slo_no_typ";
+		/** OUT:名称 */
+		public static final String $o_slo_no_typ_nm = "slo_no_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_slo_no_typ = $o_slo_no_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_slo_no_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_slo_no_typ_nm = $o_slo_no_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_slo_no_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_slo_no_typ = $o_slo_no_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_slo_no_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_slo_no_typ);
+					add($o_slo_no_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_slo_no_typ, $v_slo_no_typ);
+					put($vn_slo_no_typ_nm, $v_slo_no_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_slo_no_typ, $s_slo_no_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SloNoTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SloNoTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SloNoTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SloNoTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SloNoTypCols extends MSUAC_List.SloNoTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * ShipSpclInstTyp:カラム名クラス
+	  */
+	protected static class ShipSpclInstTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_ship_spcl_inst_typ = "ship_spcl_inst_typ";
+		/** OUT:名称 */
+		public static final String $o_ship_spcl_inst_typ_nm = "ship_spcl_inst_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_ship_spcl_inst_typ = $o_ship_spcl_inst_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_ship_spcl_inst_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_ship_spcl_inst_typ_nm = $o_ship_spcl_inst_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_ship_spcl_inst_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_ship_spcl_inst_typ = $o_ship_spcl_inst_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_ship_spcl_inst_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_ship_spcl_inst_typ);
+					add($o_ship_spcl_inst_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_ship_spcl_inst_typ, $v_ship_spcl_inst_typ);
+					put($vn_ship_spcl_inst_typ_nm, $v_ship_spcl_inst_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_ship_spcl_inst_typ, $s_ship_spcl_inst_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.ShipSpclInstTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.ShipSpclInstTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.ShipSpclInstTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.ShipSpclInstTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class ShipSpclInstTypCols extends MSUAC_List.ShipSpclInstTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * WitInspTyp:カラム名クラス
+	  */
+	protected static class WitInspTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_wit_insp_typ = "wit_insp_typ";
+		/** OUT:名称 */
+		public static final String $o_wit_insp_typ_nm = "wit_insp_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_wit_insp_typ = $o_wit_insp_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_wit_insp_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_wit_insp_typ_nm = $o_wit_insp_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_wit_insp_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_wit_insp_typ = $o_wit_insp_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_wit_insp_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_wit_insp_typ);
+					add($o_wit_insp_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_wit_insp_typ, $v_wit_insp_typ);
+					put($vn_wit_insp_typ_nm, $v_wit_insp_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_wit_insp_typ, $s_wit_insp_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.WitInspTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.WitInspTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.WitInspTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.WitInspTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class WitInspTypCols extends MSUAC_List.WitInspTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * EquipTyp:カラム名クラス
+	  */
+	protected static class EquipTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_equip_typ = "equip_typ";
+		/** OUT:名称 */
+		public static final String $o_equip_typ_nm = "equip_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_equip_typ = $o_equip_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_equip_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_equip_typ_nm = $o_equip_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_equip_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_equip_typ = $o_equip_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_equip_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_equip_typ);
+					add($o_equip_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_equip_typ, $v_equip_typ);
+					put($vn_equip_typ_nm, $v_equip_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_equip_typ, $s_equip_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.EquipTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.EquipTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.EquipTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.EquipTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class EquipTypCols extends MSUAC_List.EquipTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * SpecDocTyp:カラム名クラス
+	  */
+	protected static class SpecDocTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_spec_doc_typ = "spec_doc_typ";
+		/** OUT:名称 */
+		public static final String $o_spec_doc_typ_nm = "spec_doc_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_spec_doc_typ = $o_spec_doc_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_spec_doc_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_spec_doc_typ_nm = $o_spec_doc_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_spec_doc_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_spec_doc_typ = $o_spec_doc_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_spec_doc_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_spec_doc_typ);
+					add($o_spec_doc_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_spec_doc_typ, $v_spec_doc_typ);
+					put($vn_spec_doc_typ_nm, $v_spec_doc_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_spec_doc_typ, $s_spec_doc_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SpecDocTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SpecDocTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SpecDocTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SpecDocTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SpecDocTypCols extends MSUAC_List.SpecDocTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * ModelJpEnTyp:カラム名クラス
+	  */
+	protected static class ModelJpEnTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_model_jp_en_typ = "model_jp_en_typ";
+		/** OUT:名称 */
+		public static final String $o_model_jp_en_typ_nm = "model_jp_en_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_model_jp_en_typ = $o_model_jp_en_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_model_jp_en_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_model_jp_en_typ_nm = $o_model_jp_en_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_model_jp_en_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_model_jp_en_typ = $o_model_jp_en_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_model_jp_en_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_model_jp_en_typ);
+					add($o_model_jp_en_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_model_jp_en_typ, $v_model_jp_en_typ);
+					put($vn_model_jp_en_typ_nm, $v_model_jp_en_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_model_jp_en_typ, $s_model_jp_en_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.ModelJpEnTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.ModelJpEnTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.ModelJpEnTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.ModelJpEnTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class ModelJpEnTypCols extends MSUAC_List.ModelJpEnTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * InspRepTyp:カラム名クラス
+	  */
+	protected static class InspRepTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_insp_rep_typ = "insp_rep_typ";
+		/** OUT:名称 */
+		public static final String $o_insp_rep_typ_nm = "insp_rep_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_insp_rep_typ = $o_insp_rep_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_insp_rep_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_insp_rep_typ_nm = $o_insp_rep_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_insp_rep_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_insp_rep_typ = $o_insp_rep_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_insp_rep_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_insp_rep_typ);
+					add($o_insp_rep_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_insp_rep_typ, $v_insp_rep_typ);
+					put($vn_insp_rep_typ_nm, $v_insp_rep_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_insp_rep_typ, $s_insp_rep_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.InspRepTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.InspRepTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.InspRepTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.InspRepTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class InspRepTypCols extends MSUAC_List.InspRepTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * ConsDrawTyp:カラム名クラス
+	  */
+	protected static class ConsDrawTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_cons_draw_typ = "cons_draw_typ";
+		/** OUT:名称 */
+		public static final String $o_cons_draw_typ_nm = "cons_draw_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_cons_draw_typ = $o_cons_draw_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_cons_draw_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_cons_draw_typ_nm = $o_cons_draw_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_cons_draw_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_cons_draw_typ = $o_cons_draw_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_cons_draw_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_cons_draw_typ);
+					add($o_cons_draw_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_cons_draw_typ, $v_cons_draw_typ);
+					put($vn_cons_draw_typ_nm, $v_cons_draw_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_cons_draw_typ, $s_cons_draw_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.ConsDrawTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.ConsDrawTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.ConsDrawTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.ConsDrawTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class ConsDrawTypCols extends MSUAC_List.ConsDrawTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * ConstDrawTyp:カラム名クラス
+	  */
+	protected static class ConstDrawTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_const_draw_typ = "const_draw_typ";
+		/** OUT:名称 */
+		public static final String $o_const_draw_typ_nm = "const_draw_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_const_draw_typ = $o_const_draw_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_const_draw_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_const_draw_typ_nm = $o_const_draw_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_const_draw_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_const_draw_typ = $o_const_draw_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_const_draw_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_const_draw_typ);
+					add($o_const_draw_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_const_draw_typ, $v_const_draw_typ);
+					put($vn_const_draw_typ_nm, $v_const_draw_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_const_draw_typ, $s_const_draw_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.ConstDrawTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.ConstDrawTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.ConstDrawTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.ConstDrawTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class ConstDrawTypCols extends MSUAC_List.ConstDrawTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * CompDrawTyp:カラム名クラス
+	  */
+	protected static class CompDrawTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_comp_draw_typ = "comp_draw_typ";
+		/** OUT:名称 */
+		public static final String $o_comp_draw_typ_nm = "comp_draw_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_comp_draw_typ = $o_comp_draw_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_comp_draw_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_comp_draw_typ_nm = $o_comp_draw_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_comp_draw_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_comp_draw_typ = $o_comp_draw_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_comp_draw_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_comp_draw_typ);
+					add($o_comp_draw_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_comp_draw_typ, $v_comp_draw_typ);
+					put($vn_comp_draw_typ_nm, $v_comp_draw_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_comp_draw_typ, $s_comp_draw_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.CompDrawTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.CompDrawTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.CompDrawTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.CompDrawTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class CompDrawTypCols extends MSUAC_List.CompDrawTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * InstManualTyp:カラム名クラス
+	  */
+	protected static class InstManualTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_inst_manual_typ = "inst_manual_typ";
+		/** OUT:名称 */
+		public static final String $o_inst_manual_typ_nm = "inst_manual_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_inst_manual_typ = $o_inst_manual_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_inst_manual_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_inst_manual_typ_nm = $o_inst_manual_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_inst_manual_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_inst_manual_typ = $o_inst_manual_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_inst_manual_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_inst_manual_typ);
+					add($o_inst_manual_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_inst_manual_typ, $v_inst_manual_typ);
+					put($vn_inst_manual_typ_nm, $v_inst_manual_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_inst_manual_typ, $s_inst_manual_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.InstManualTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.InstManualTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.InstManualTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.InstManualTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class InstManualTypCols extends MSUAC_List.InstManualTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * AprvDrawTyp:カラム名クラス
+	  */
+	protected static class AprvDrawTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_aprv_draw_typ = "aprv_draw_typ";
+		/** OUT:名称 */
+		public static final String $o_aprv_draw_typ_nm = "aprv_draw_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_aprv_draw_typ = $o_aprv_draw_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_aprv_draw_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_aprv_draw_typ_nm = $o_aprv_draw_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_aprv_draw_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_aprv_draw_typ = $o_aprv_draw_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_aprv_draw_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_aprv_draw_typ);
+					add($o_aprv_draw_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_aprv_draw_typ, $v_aprv_draw_typ);
+					put($vn_aprv_draw_typ_nm, $v_aprv_draw_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_aprv_draw_typ, $s_aprv_draw_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.AprvDrawTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.AprvDrawTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.AprvDrawTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.AprvDrawTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class AprvDrawTypCols extends MSUAC_List.AprvDrawTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
+	  * JipSloTyp:カラム名クラス
+	  */
+	protected static class JipSloTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_jip_slo_typ = "jip_slo_typ";
+		/** OUT:名称 */
+		public static final String $o_jip_slo_typ_nm = "jip_slo_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_jip_slo_typ = $o_jip_slo_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_jip_slo_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_jip_slo_typ_nm = $o_jip_slo_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_jip_slo_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_jip_slo_typ = $o_jip_slo_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_jip_slo_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_jip_slo_typ);
+					add($o_jip_slo_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_jip_slo_typ, $v_jip_slo_typ);
+					put($vn_jip_slo_typ_nm, $v_jip_slo_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_jip_slo_typ, $s_jip_slo_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.JipSloTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.JipSloTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.JipSloTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.JipSloTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class JipSloTypCols extends MSUAC_List.JipSloTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
 	  * CstItm:カラム名クラス
 	  */
 	protected static class CstItmCols_MC_A  {
