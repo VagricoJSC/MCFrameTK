@@ -1913,6 +1913,7 @@ abstract class HdrR_MC_A extends MCConstRow {
 				{$sls_cond_typ, "sls_cond_typ_nm"},	// sls_cond_typ
 				{$slo_num_typ, "slo_no_typ_nm"},	// slo_num_typ
 				{$ship_sp_instr_typ, "ship_spcl_inst_typ_nm"},	// ship_sp_instr_typ
+				{$spec_dlv_note_typ, "spec_dlv_note_typ_nm"},	// spec_dlv_note_typ
 				{$wit_insp_typ, "wit_insp_typ_nm"},	// wit_insp_typ
 				{$equip_typ, "equip_typ_nm"},	// equip_typ
 				{$spec_doc_typ, "spec_doc_typ_nm"},	// spec_doc_typ

@@ -8093,6 +8093,61 @@ class MSUAC_List_MC_A extends Object {
 
 
 	/** 
+	  * SpecDlvNoteTyp:カラム名クラス
+	  */
+	protected static class SpecDlvNoteTypCols_MC_A  {
+		/** OUT:値 */
+		public static final String $o_spec_dlv_note_typ = "spec_dlv_note_typ";
+		/** OUT:名称 */
+		public static final String $o_spec_dlv_note_typ_nm = "spec_dlv_note_typ_nm";
+		/** VIEW:値 */
+		public static final String $v_spec_dlv_note_typ = $o_spec_dlv_note_typ;
+		/** VIEW_NO:値 */
+		protected static final MCNumber $vn_spec_dlv_note_typ = new MCNumber(10);
+		/** VIEW:名称 */
+		public static final String $v_spec_dlv_note_typ_nm = $o_spec_dlv_note_typ_nm;
+		/** VIEW_NO:名称 */
+		protected static final MCNumber $vn_spec_dlv_note_typ_nm = new MCNumber(20);
+		/** SORT:値 */
+		public static final String $s_spec_dlv_note_typ = $o_spec_dlv_note_typ;
+		/** SORT_NO:値 */
+		protected static final MCNumber $sn_spec_dlv_note_typ = new MCNumber(10);
+		@SuppressWarnings("serial")
+		protected static final List<String> $out_cols_MC = 
+				new ArrayList<String>(){{
+					add($o_spec_dlv_note_typ);
+					add($o_spec_dlv_note_typ_nm);
+				}};;
+		@SuppressWarnings("serial")
+		protected static final SortedMap<MCNumber, String> $view_cols_MC = 
+				new TreeMap<MCNumber, String>(){{
+					put($vn_spec_dlv_note_typ, $v_spec_dlv_note_typ);
+					put($vn_spec_dlv_note_typ_nm, $v_spec_dlv_note_typ_nm);
+				}};;
+		protected static final FXBAC_ListSortInfo $sort_cols_MC = 
+				new FXBAC_ListSortInfo(){{
+					put($sn_spec_dlv_note_typ, $s_spec_dlv_note_typ, ASC);
+				}};;
+		protected static List<String> getOutCols(){
+			return $out_cols_MC;
+		 }
+		protected static SortedMap<MCNumber, String> getViewCols(){
+			return $view_cols_MC;
+		 }
+		protected static FXBAC_ListSortInfo getSortInfo(){
+			return $sort_cols_MC;
+		 }
+		public static final String[] outAll(){return MSUAC_List.SpecDlvNoteTypCols.getOutCols().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final String[] viewCols(){return MSUAC_List.SpecDlvNoteTypCols.getViewCols().values().toArray(FXBAC_ListLogicBase.$DUMMY_ARRAY); }
+		public static final MCSortPolicy sortPolicy(){return MSUAC_List.SpecDlvNoteTypCols.getSortInfo().createSortPolicy(); }
+		public static final String[] sortCols(){return MSUAC_List.SpecDlvNoteTypCols.getSortInfo().createSortPolicy().nameArray(); }
+	}
+	public static class SpecDlvNoteTypCols extends MSUAC_List.SpecDlvNoteTypCols_MC_A {
+		//EIクラス
+	}
+
+
+	/** 
 	  * CstItm:カラム名クラス
 	  */
 	protected static class CstItmCols_MC_A  {

@@ -3780,7 +3780,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter getHdr_spec_dlv_note_typ_ListPutter() {
 		if (Hdr_spec_dlv_note_typ_p == null) {
-			Hdr_spec_dlv_note_typ_p = createHdr_spec_dlv_note_typ_ListPutter(Hdr_spec_dlv_note_typ, "spec_dlv_note_typ");
+			Hdr_spec_dlv_note_typ_p = createHdr_spec_dlv_note_typ_ListPutter(Hdr_spec_dlv_note_typ, "spec_dlv_note_typ", "spec_dlv_note_typ_nm");
 
 		}
 		return Hdr_spec_dlv_note_typ_p;
@@ -6011,6 +6011,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.Hdr_ship_sp_instr_typ_nm.setNextBeans(p.Hdr_spec_dlv_note_typ);
 		p.Hdr_ship_sp_instr_typ_nm.setRow(p.getHdrR(), mcframe.clientMSBB.MSBBP1210.HdrR.ship_sp_instr_typ_nm_META);
 		p.Hdr_spec_dlv_note_typ.setListType(MCListType.STRICT);
+		p.Hdr_spec_dlv_note_typ.setLinkBeans(p.Hdr_spec_dlv_note_typ_nm);
 		p.HdrPanel.add(p.Hdr_spec_dlv_note_typ_Label);
 		p.HdrPanel.add(p.Hdr_spec_dlv_note_typ);
 		p.Hdr_spec_dlv_note_typ.setNextBeans(p.Hdr_spec_dlv_note_typ_nm);
@@ -14285,7 +14286,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 */
 	protected MCListPutter createHdr_spec_dlv_note_typ_ListPutter(MCLinkBeans compo, String... columns) {
 		MCListPutter lp = new MCListPutter(compo, columns);
-		lp.setListLogicId("");
+		lp.setListLogicId("MS.MSUAP0010.SpecDlvNoteTyp");
 		return lp;
 	}
 	 
@@ -32197,7 +32198,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * コンボ／リストのリスト[Hdr_spec_dlv_note_typ]の作成メソッド
 	 */
 	public MCList getHdr_spec_dlv_note_typ(MCRow row, MCEventInfo info){
-		return null;
+		return ((mcframe.clientMSUA.MSUAP0010.MSUAP_List)MCListLogic.create("mcframe.clientMSUA.MSUAP0010.MSUAP_List", this)).getSpecDlvNoteTyp(row, info);
 	}
 
 	/**
