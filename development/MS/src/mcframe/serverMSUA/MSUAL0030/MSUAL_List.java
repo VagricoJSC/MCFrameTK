@@ -42,6 +42,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
+import java.util.Set;
 
 import mcframe.serverMAUC.MAUCL0020.MAUCL_AppSys;
 import mcframe.serverMAUC.MAUCL7080.MAUCL_DbUtil;
@@ -224,7 +225,15 @@ public class MSUAL_List extends MSUAL_List_MC {
 	  * @param result 検索結果を保持するListコンテナ
 	  * @return 編集後のListコンテナ
 	  */
-	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";	
+	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110"; 	// 舶用サービス
+	private static final String KENSA_DTP_CD = "D20230";				// 検査
+	private static final String KEISOKU_DTP_CD = "D20120";				// 計測
+	private static final String BOUSAI_DTP_CD = "D20200";				// 防災
+	private static final String DENSHIKIKI_DTP_CD = "D20100";			// 電子機器
+	private final static Set<String> ALL_DPT_CD = new HashSet<String>(
+			Arrays.asList(HAKUYOU_SERVICE_DTP_CD, KENSA_DTP_CD, KEISOKU_DTP_CD, BOUSAI_DTP_CD, DENSHIKIKI_DTP_CD)
+		);
+	
 	private static final HashSet<String> HAKUYOU_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
 			"010"
 			, "020"
@@ -238,18 +247,83 @@ public class MSUAL_List extends MSUAL_List_MC {
 			, "9XX"
 			, "9YY"
 	));
+	private static final HashSet<String> KENSA_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
+			"010"
+			, "020"
+			, "030"
+			, "040"
+			, "050"
+			, "060"
+			, "070"
+			, "9XX"
+			, "9YY"
+	));
+	private static final HashSet<String> KEISOKU_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
+			"010"
+			, "020"
+			, "030"
+			, "040"
+			, "050"
+			, "060"
+			, "070"
+			, "800"
+			, "9XX"
+			, "9YY"
+	));
+	private static final HashSet<String> BOUSAI_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
+			"010"
+			, "020"
+			, "030"
+			, "040"
+			, "9XX"
+			, "9YY"
+	));
+	private static final HashSet<String> DENSHIKIKI_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList( // 油圧制御システムＣｏ．????
+			"010"
+			, "020"
+			, "030"
+			, "040"
+			, "050"
+			, "060"
+			, "070"
+			, "080"
+			, "800"
+			, "9XX"
+			, "9YY"
+	));
+	
+	
 	protected MCList<?> getSloTrd_AfterSelect(MCRow row, MCQueryApiBuilder builder, MAM_TRD_R t, MCList<?> result){
 		String dptCd = row.getStringNE("sls_dpt_cd");
-		if (dptCd != null && HAKUYOU_SERVICE_DTP_CD.equals(dptCd)) {
-			@SuppressWarnings("unchecked")
-			Iterator<MAM_TRD_R> itr = (Iterator<MAM_TRD_R>)result.iterator();
-			while (itr.hasNext()) {
-				MAM_TRD_R r = itr.next();
-				if (!HAKUYOU_SERVICE_TRD_CD_SET.contains(r.trd_cd())) {
-					itr.remove();
-				}
+		if (isNull(dptCd)) {
+			return (MCList<?>)result;
+		}
+		
+		HashSet<String> trdCdSet = HAKUYOU_SERVICE_TRD_CD_SET;
+		if (dptCd.equals(KENSA_DTP_CD)) {
+			trdCdSet = KENSA_SERVICE_TRD_CD_SET;
+		}
+		else if (dptCd.equals(KEISOKU_DTP_CD)) {
+			trdCdSet = KEISOKU_SERVICE_TRD_CD_SET;
+		}
+		else if (dptCd.equals(BOUSAI_DTP_CD)) {
+			trdCdSet = BOUSAI_SERVICE_TRD_CD_SET;
+		}
+		else if (dptCd.equals(DENSHIKIKI_DTP_CD)) {
+			trdCdSet = DENSHIKIKI_SERVICE_TRD_CD_SET;
+		}
+		else {
+			return (MCList<?>)result;
+		}
+		
+		@SuppressWarnings("unchecked")
+		Iterator<MAM_TRD_R> itr = (Iterator<MAM_TRD_R>)result.iterator();
+		while (itr.hasNext()) {
+			MAM_TRD_R r = itr.next();
+			if (!trdCdSet.contains(r.trd_cd())) {
+				itr.remove();
 			}
-		}		
+		}
 		
 		return (MCList<?>)result;
 	}	

@@ -121,8 +121,15 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	    setHdrIncTaxAmt();		
 	}
 
-	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110";
-
+	private static final String HAKUYOU_SERVICE_DTP_CD = "D20110"; 	// 舶用サービス
+	private static final String KENSA_DTP_CD = "D20230";				// 検査
+	private static final String KEISOKU_DTP_CD = "D20120";				// 計測
+	private static final String BOUSAI_DTP_CD = "D20200";				// 防災
+	private static final String DENSHIKIKI_DTP_CD = "D20100";			// 電子機器
+	private final static Set<String> ALL_DPT_CD = new HashSet<String>(
+			Arrays.asList(HAKUYOU_SERVICE_DTP_CD, KENSA_DTP_CD, KEISOKU_DTP_CD, BOUSAI_DTP_CD, DENSHIKIKI_DTP_CD)
+		);
+	
 	/**
 	 * Panel[Hdr]のボタン[exp_match_btn]の押下時の処理
 	 */
@@ -349,7 +356,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	protected void doHdr_sls_dpt_cd_LC(MCEventInfo info) {
 		super.doHdr_sls_dpt_cd_LC(info);
 		String dptCd = Hdr_sls_dpt_cd.getValue();
-		if (dptCd != null && HAKUYOU_SERVICE_DTP_CD.equals(dptCd)) {
+		if (dptCd != null && ALL_DPT_CD.contains(dptCd)) {
 			Hdr_trd_cd.doListEvent(MCListConfig.LIST);
 			Hdr_trd_cd.clear();
 		}
@@ -935,7 +942,16 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		// 値引額関連の既存処理
 		setDscntAmt(r);
 
-		// 明細金額計算
+		// 暫定対応：四捨五入を仮設定する。
+		// 本対応では、マスタ・標準の取得結果から設定すること。
+		if (isNull(getHdrR().sls_amt_rnd_typ())) {
+		    setValueEx(Hdr_sls_amt_rnd_typ, MAC_RND_TYP.RNDOFF.value());
+		}
+		if (isNull(getHdrR().sls_tax_rnd_typ())) {
+		    setValueEx(Hdr_sls_tax_rnd_typ, MAC_RND_TYP.RNDOFF.value());
+		}
+		
+		// 金額・税込金額・税額
 		setDtlAmt(r);
 		
 		// インボイス金額
@@ -953,27 +969,37 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 * 単価計算
 	 * @param r
 	 */
+//	protected void setDtlAmt(DtlR r) {
+//		MCNumber qty = r.base_unit_qty();
+//		if (isNull(qty)) {
+//			return;
+//		}
+//
+//		MCNumber upri = r.trd_cur_upri();
+//		if (isNull(upri)) {
+//			return;
+//		}
+//		
+//		MCNumber dscnt = r.trd_cur_dscnt_amt();
+//		if (isNull(dscnt)) {
+//			dscnt = MCNumber.ZERO;
+//		}
+//		
+//		MCNumber amt = upri.multiply(qty).subtract(dscnt);
+//
+//		// GUI部品を経由せずRowに設定
+//		r.trd_cur_amt(amt);
+//	}
+	/**
+	 * 標準共通部品で金額・税込金額・税額を計算する。
+	 */
 	protected void setDtlAmt(DtlR r) {
-		MCNumber qty = r.base_unit_qty();
-		if (isNull(qty)) {
-			return;
-		}
+	    if (r == null || r.isEmpty() || r.isStatusDelete()) {
+	        return;
+	    }
 
-		MCNumber upri = r.trd_cur_upri();
-		if (isNull(upri)) {
-			return;
-		}
-		
-		MCNumber dscnt = r.trd_cur_dscnt_amt();
-		if (isNull(dscnt)) {
-			dscnt = MCNumber.ZERO;
-		}
-		
-		MCNumber amt = upri.multiply(qty).subtract(dscnt);
-
-		// GUI部品を経由せずRowに設定
-		r.trd_cur_amt(amt);
-	}
+	    Dtl_trd_cur_upri_amt_p_PPanel.setTrdCurAmt(r.getGUIIndex());
+	}	
 	
 	/**
 	 * 単価計算
