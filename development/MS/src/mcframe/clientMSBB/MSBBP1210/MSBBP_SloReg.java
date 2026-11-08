@@ -936,12 +936,6 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			return;
 		}
 
-		// 単価計算
-		setDtlUpri(r);
-
-		// 値引額関連の既存処理
-		setDscntAmt(r);
-
 		// 暫定対応：四捨五入を仮設定する。
 		// 本対応では、マスタ・標準の取得結果から設定すること。
 		if (isNull(getHdrR().sls_amt_rnd_typ())) {
@@ -951,6 +945,12 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		    setValueEx(Hdr_sls_tax_rnd_typ, MAC_RND_TYP.RNDOFF.value());
 		}
 		
+		// 単価計算
+		setDtlUpri(r);
+
+		// 値引額関連の既存処理
+		setDscntAmt(r);
+
 		// 金額・税込金額・税額
 		setDtlAmt(r);
 		
@@ -1045,10 +1045,26 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			return;
 		}
 
-		MCNumber discntAmt = upriRate.add(-100).multiply(-1).multiply(upri).multiply(qty).divide(100);
+		MCNumber decPlace = getHdrR().trd_cur_amt_dec_place();
+		String rndTyp = getHdrR().sls_amt_rnd_typ();
+		if (isNull(decPlace) || isNull(rndTyp)) {
+			return;
+		}
+
+		MCNumber dscntRate = MCNumber.ONE.multiply(100)
+				.subtract(upriRate);
+
+		MCNumber dscntAmt = dscntRate
+				.multiply(upri)
+				.multiply(qty)
+				.divide(
+						100,
+						decPlace.intValue(),
+						MAC_RND_TYP.toMC(rndTyp)
+						);
 
 		// 診断用：GUI部品を経由せずRowに設定
-		r.trd_cur_dscnt_amt(discntAmt);
+		r.trd_cur_dscnt_amt(dscntAmt);
 	}
 
 	/**
