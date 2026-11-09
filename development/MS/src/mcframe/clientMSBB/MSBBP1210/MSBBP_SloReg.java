@@ -1232,5 +1232,23 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			}
 		};
 	}
+
+	@Override
+	public void setOpenFocus() {
+		super.setOpenFocus();
+
+		// 標準の起動時フォーカス処理が終わってから取引CDに移す。
+		javax.swing.SwingUtilities.invokeLater(() -> {
+			if (isSame(getStatus(), INS)
+					&& Hdr_trd_cd.isShowing()
+					&& Hdr_trd_cd.isEnabled()) {
+				MCMode mode = Hdr_trd_cd.getMode();
+				if (mode == MCMode.ENABLE || mode == MCMode.REQUIRED) {
+					Hdr_trd_cd.requestFocusInWindow();
+				}
+			}
+		});
+	}
+
 //FMCB CUSTOM END
 }
