@@ -820,6 +820,31 @@ abstract class DtlR_MC_A extends MCConstRow {
 	 *
 	 */
 	public static final String $rem_abort_flg = "rem_abort_flg";
+	/**
+	 *  コメント１.<p>
+	 *
+	 */
+	public static final String $mst_memo1 = "mst_memo1";
+	/**
+	 *  コメント２.<p>
+	 *
+	 */
+	public static final String $mst_memo2 = "mst_memo2";
+	/**
+	 *  コメント３.<p>
+	 *
+	 */
+	public static final String $mst_memo3 = "mst_memo3";
+	/**
+	 *  コメント４.<p>
+	 *
+	 */
+	public static final String $mst_memo4 = "mst_memo4";
+	/**
+	 *  コメント５.<p>
+	 *
+	 */
+	public static final String $mst_memo5 = "mst_memo5";
 
 	public static final String $itm_cd = $itm_p + ".itm_cd";
 	public static final String $itm_sub1 = $itm_p + ".itm_sub1";
@@ -1116,6 +1141,11 @@ abstract class DtlR_MC_A extends MCConstRow {
 	public static final MCMeta old_trd_cur_upri_p_META = createInnerRowMeta($old_trd_cur_upri_p, mcframe.clientMAUB.MAUBP5060.UpriR.class);
 	public static final MCMeta rem_abort_qty_META = createCommonMeta($rem_abort_qty, mcframe.commonMA.meta.MA_META.QTY);
 	public static final MCMeta rem_abort_flg_META = createCommonMeta($rem_abort_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta mst_memo1_META = createCommonMeta($mst_memo1, mcframe.commonMA.meta.MA_META.MST_MEMO1);
+	public static final MCMeta mst_memo2_META = createCommonMeta($mst_memo2, mcframe.commonMA.meta.MA_META.MST_MEMO2);
+	public static final MCMeta mst_memo3_META = createCommonMeta($mst_memo3, mcframe.commonMA.meta.MA_META.MST_MEMO3);
+	public static final MCMeta mst_memo4_META = createCommonMeta($mst_memo4, mcframe.commonMA.meta.MA_META.MST_MEMO4);
+	public static final MCMeta mst_memo5_META = createCommonMeta($mst_memo5, mcframe.commonMA.meta.MA_META.MST_MEMO5);
 
 	protected static final ConstMetaList<DtlR> constMetas = new ConstMetaList<DtlR>(
 		MCConstRow.constMetas,
@@ -1309,7 +1339,12 @@ abstract class DtlR_MC_A extends MCConstRow {
 			org_ship_block_flg_META,
 			old_trd_cur_upri_p_META,
 			rem_abort_qty_META,
-			rem_abort_flg_META
+			rem_abort_flg_META,
+			mst_memo1_META,
+			mst_memo2_META,
+			mst_memo3_META,
+			mst_memo4_META,
+			mst_memo5_META
 		},
 		new String[][]{
 			{
@@ -5261,6 +5296,91 @@ abstract class DtlR_MC_A extends MCConstRow {
 	}
 
 
+	/**
+	 *  コメント１.<p>
+	 *
+	 */
+	public String mst_memo1() {
+		return getConstString(offset + 190, $mst_memo1);
+	}
+
+	/**
+	 *  コメント１.<p>
+	 *
+	 */
+	public void mst_memo1(String value) {
+		setConstString(offset + 190, $mst_memo1, value);
+	}
+
+
+	/**
+	 *  コメント２.<p>
+	 *
+	 */
+	public String mst_memo2() {
+		return getConstString(offset + 191, $mst_memo2);
+	}
+
+	/**
+	 *  コメント２.<p>
+	 *
+	 */
+	public void mst_memo2(String value) {
+		setConstString(offset + 191, $mst_memo2, value);
+	}
+
+
+	/**
+	 *  コメント３.<p>
+	 *
+	 */
+	public String mst_memo3() {
+		return getConstString(offset + 192, $mst_memo3);
+	}
+
+	/**
+	 *  コメント３.<p>
+	 *
+	 */
+	public void mst_memo3(String value) {
+		setConstString(offset + 192, $mst_memo3, value);
+	}
+
+
+	/**
+	 *  コメント４.<p>
+	 *
+	 */
+	public String mst_memo4() {
+		return getConstString(offset + 193, $mst_memo4);
+	}
+
+	/**
+	 *  コメント４.<p>
+	 *
+	 */
+	public void mst_memo4(String value) {
+		setConstString(offset + 193, $mst_memo4, value);
+	}
+
+
+	/**
+	 *  コメント５.<p>
+	 *
+	 */
+	public String mst_memo5() {
+		return getConstString(offset + 194, $mst_memo5);
+	}
+
+	/**
+	 *  コメント５.<p>
+	 *
+	 */
+	public void mst_memo5(String value) {
+		setConstString(offset + 194, $mst_memo5, value);
+	}
+
+
 	public String getString(String name) {
 		if ($sls_sts_typ.equalsIgnoreCase(name)) {
 			return sls_sts_typ();
@@ -5561,6 +5681,21 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($ship_pr_no.equalsIgnoreCase(name)) {
 			return ship_pr_no();
+		}
+		if ($mst_memo1.equalsIgnoreCase(name)) {
+			return mst_memo1();
+		}
+		if ($mst_memo2.equalsIgnoreCase(name)) {
+			return mst_memo2();
+		}
+		if ($mst_memo3.equalsIgnoreCase(name)) {
+			return mst_memo3();
+		}
+		if ($mst_memo4.equalsIgnoreCase(name)) {
+			return mst_memo4();
+		}
+		if ($mst_memo5.equalsIgnoreCase(name)) {
+			return mst_memo5();
 		}
 		return super.getString(name);
 	}
@@ -6027,6 +6162,21 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($ship_pr_no.equalsIgnoreCase(name)) {
 			return ship_pr_no();
+		}
+		if ($mst_memo1.equalsIgnoreCase(name)) {
+			return mst_memo1();
+		}
+		if ($mst_memo2.equalsIgnoreCase(name)) {
+			return mst_memo2();
+		}
+		if ($mst_memo3.equalsIgnoreCase(name)) {
+			return mst_memo3();
+		}
+		if ($mst_memo4.equalsIgnoreCase(name)) {
+			return mst_memo4();
+		}
+		if ($mst_memo5.equalsIgnoreCase(name)) {
+			return mst_memo5();
 		}
 		return super.getStringNE(name);
 	}
@@ -6592,6 +6742,26 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($ship_pr_no.equalsIgnoreCase(name)) {
 			ship_pr_no(value);
+			return;
+		}
+		if ($mst_memo1.equalsIgnoreCase(name)) {
+			mst_memo1(value);
+			return;
+		}
+		if ($mst_memo2.equalsIgnoreCase(name)) {
+			mst_memo2(value);
+			return;
+		}
+		if ($mst_memo3.equalsIgnoreCase(name)) {
+			mst_memo3(value);
+			return;
+		}
+		if ($mst_memo4.equalsIgnoreCase(name)) {
+			mst_memo4(value);
+			return;
+		}
+		if ($mst_memo5.equalsIgnoreCase(name)) {
+			mst_memo5(value);
 			return;
 		}
 		super.setString(name, value);
@@ -7525,6 +7695,26 @@ abstract class DtlR_MC_A extends MCConstRow {
 		}
 		if ($ship_pr_no.equalsIgnoreCase(name)) {
 			ship_pr_no(value);
+			return;
+		}
+		if ($mst_memo1.equalsIgnoreCase(name)) {
+			mst_memo1(value);
+			return;
+		}
+		if ($mst_memo2.equalsIgnoreCase(name)) {
+			mst_memo2(value);
+			return;
+		}
+		if ($mst_memo3.equalsIgnoreCase(name)) {
+			mst_memo3(value);
+			return;
+		}
+		if ($mst_memo4.equalsIgnoreCase(name)) {
+			mst_memo4(value);
+			return;
+		}
+		if ($mst_memo5.equalsIgnoreCase(name)) {
+			mst_memo5(value);
 			return;
 		}
 		super.setStringNE(name, value);

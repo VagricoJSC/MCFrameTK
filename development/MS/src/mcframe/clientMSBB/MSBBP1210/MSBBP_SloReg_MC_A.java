@@ -2292,6 +2292,31 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	public MCColumnConfig columnDtl_disp_seq = null;
 	public mcframe.clientMAUB.MAUBP5060.MAUBP_Upri_D Dtl_old_trd_cur_upri_p_PPanel;
 	public MCColumnConfig columnDtl_old_trd_cur_upri;// [Dtl]の[old_trd_cur_upri_p.upri]を[columnDtl_old_trd_cur_upri]としてエイリアス定義。
+	/**
+	 *  コメント１.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_mst_memo1 = null;
+	/**
+	 *  コメント２.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_mst_memo2 = null;
+	/**
+	 *  コメント３.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_mst_memo3 = null;
+	/**
+	 *  コメント４.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_mst_memo4 = null;
+	/**
+	 *  コメント５.<p>
+	 *
+	 */
+	public MCColumnConfig columnDtl_mst_memo5 = null;
 	// [Btn]ブロック関連のField定義
 	public MCPanel BtnPanel = null;
 	// [Btn]ブロックの項目のField定義
@@ -5191,6 +5216,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_base_unit_rnd_typ = p.beansFactory.createTableColumn("Dtl.base_unit_rnd_typ", MCColumnType.TEXT);
 		p.columnDtl_qtn_d_no = p.beansFactory.createTableColumn("Dtl.qtn_d_no", MCColumnType.TEXT);
 		p.columnDtl_disp_seq = p.beansFactory.createTableColumn("Dtl.disp_seq", MCColumnType.NUMBER);
+		p.columnDtl_mst_memo1 = p.beansFactory.createTableColumn("Dtl.mst_memo1", MCColumnType.TEXT);
+		p.columnDtl_mst_memo2 = p.beansFactory.createTableColumn("Dtl.mst_memo2", MCColumnType.TEXT);
+		p.columnDtl_mst_memo3 = p.beansFactory.createTableColumn("Dtl.mst_memo3", MCColumnType.TEXT);
+		p.columnDtl_mst_memo4 = p.beansFactory.createTableColumn("Dtl.mst_memo4", MCColumnType.TEXT);
+		p.columnDtl_mst_memo5 = p.beansFactory.createTableColumn("Dtl.mst_memo5", MCColumnType.TEXT);
 	}
 
 	/**
@@ -7296,6 +7326,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_qtn_d_no.setListListener(p);
 		p.columnDtl_disp_seq.addAllListener(p);
 		p.columnDtl_disp_seq.setListListener(p);
+		p.columnDtl_mst_memo1.addAllListener(p);
+		p.columnDtl_mst_memo1.setListListener(p);
+		p.columnDtl_mst_memo2.addAllListener(p);
+		p.columnDtl_mst_memo2.setListListener(p);
+		p.columnDtl_mst_memo3.addAllListener(p);
+		p.columnDtl_mst_memo3.setListListener(p);
+		p.columnDtl_mst_memo4.addAllListener(p);
+		p.columnDtl_mst_memo4.setListListener(p);
+		p.columnDtl_mst_memo5.addAllListener(p);
+		p.columnDtl_mst_memo5.setListListener(p);
 	}
 
 	/**
@@ -13722,6 +13762,16 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		p.columnDtl_disp_seq.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.disp_seq_META);
 		p.DtlTable.addColumnConfig(p.columnDtl_disp_seq);
 		p.DtlTable.addTable(p.Dtl_old_trd_cur_upri_p_PPanel.UpriTable);
+		p.columnDtl_mst_memo1.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.mst_memo1_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_mst_memo1);
+		p.columnDtl_mst_memo2.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.mst_memo2_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_mst_memo2);
+		p.columnDtl_mst_memo3.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.mst_memo3_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_mst_memo3);
+		p.columnDtl_mst_memo4.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.mst_memo4_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_mst_memo4);
+		p.columnDtl_mst_memo5.setMeta(mcframe.clientMSBB.MSBBP1210.DtlR.mst_memo5_META);
+		p.DtlTable.addColumnConfig(p.columnDtl_mst_memo5);
 	}
 
 	/**
@@ -15267,6 +15317,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (vc == columnDtl_base_unit_rnd_typ) return doDtl_base_unit_rnd_typ_VC(info);
 		if (vc == columnDtl_qtn_d_no) return doDtl_qtn_d_no_VC(info);
 		if (vc == columnDtl_disp_seq) return doDtl_disp_seq_VC(info);
+		if (vc == columnDtl_mst_memo1) return doDtl_mst_memo1_VC(info);
+		if (vc == columnDtl_mst_memo2) return doDtl_mst_memo2_VC(info);
+		if (vc == columnDtl_mst_memo3) return doDtl_mst_memo3_VC(info);
+		if (vc == columnDtl_mst_memo4) return doDtl_mst_memo4_VC(info);
+		if (vc == columnDtl_mst_memo5) return doDtl_mst_memo5_VC(info);
 		return true;
 	}
 
@@ -18991,6 +19046,56 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[mst_memo1]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_mst_memo1_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo2]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_mst_memo2_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo3]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_mst_memo3_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo4]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_mst_memo4_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo5]のValidationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 * @return ValidationChangeイベントの結果
+	 */
+	public boolean doDtl_mst_memo5_VC(MCEventInfo info){
+		return true;
+	}
+
+	/**
 	 * NotificationChangeイベントが実行されたときに呼び出されます。
 	 *
 	 * @param nc イベント対象のGUI部品
@@ -19370,6 +19475,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nc == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NC(info);
 		else if (nc == columnDtl_qtn_d_no) doDtl_qtn_d_no_NC(info);
 		else if (nc == columnDtl_disp_seq) doDtl_disp_seq_NC(info);
+		else if (nc == columnDtl_mst_memo1) doDtl_mst_memo1_NC(info);
+		else if (nc == columnDtl_mst_memo2) doDtl_mst_memo2_NC(info);
+		else if (nc == columnDtl_mst_memo3) doDtl_mst_memo3_NC(info);
+		else if (nc == columnDtl_mst_memo4) doDtl_mst_memo4_NC(info);
+		else if (nc == columnDtl_mst_memo5) doDtl_mst_memo5_NC(info);
 	}
 
 	/**
@@ -22349,6 +22459,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[mst_memo1]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo1_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo2]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo2_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo3]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo3_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo4]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo4_NC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo5]のNotificationChangeイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo5_NC(MCEventInfo info){
+	}
+
+	/**
 	 * NotificationEntryイベントが実行されたときに呼び出されます。
 	 *
 	 * @param ne イベント対象のGUI部品
@@ -22728,6 +22878,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (ne == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NE(info);
 		else if (ne == columnDtl_qtn_d_no) doDtl_qtn_d_no_NE(info);
 		else if (ne == columnDtl_disp_seq) doDtl_disp_seq_NE(info);
+		else if (ne == columnDtl_mst_memo1) doDtl_mst_memo1_NE(info);
+		else if (ne == columnDtl_mst_memo2) doDtl_mst_memo2_NE(info);
+		else if (ne == columnDtl_mst_memo3) doDtl_mst_memo3_NE(info);
+		else if (ne == columnDtl_mst_memo4) doDtl_mst_memo4_NE(info);
+		else if (ne == columnDtl_mst_memo5) doDtl_mst_memo5_NE(info);
 	}
 
 	/**
@@ -25707,6 +25862,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[mst_memo1]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo1_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo2]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo2_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo3]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo3_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo4]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo4_NE(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo5]のNotificationEntryイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo5_NE(MCEventInfo info){
+	}
+
+	/**
 	 * NotificationExitイベントが実行されたときに呼び出されます。
 	 *
 	 * @param nx イベント対象のGUI部品
@@ -26086,6 +26281,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (nx == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_NX(info);
 		else if (nx == columnDtl_qtn_d_no) doDtl_qtn_d_no_NX(info);
 		else if (nx == columnDtl_disp_seq) doDtl_disp_seq_NX(info);
+		else if (nx == columnDtl_mst_memo1) doDtl_mst_memo1_NX(info);
+		else if (nx == columnDtl_mst_memo2) doDtl_mst_memo2_NX(info);
+		else if (nx == columnDtl_mst_memo3) doDtl_mst_memo3_NX(info);
+		else if (nx == columnDtl_mst_memo4) doDtl_mst_memo4_NX(info);
+		else if (nx == columnDtl_mst_memo5) doDtl_mst_memo5_NX(info);
 	}
 
 	/**
@@ -29065,6 +29265,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [Dtl]パネルの[mst_memo1]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo1_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo2]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo2_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo3]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo3_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo4]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo4_NX(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo5]のNotificationExitイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo5_NX(MCEventInfo info){
+	}
+
+	/**
 	 * ListChangedイベントが実行されたときに呼び出されます。
 	 *
 	 * @param lc イベント対象のGUI部品
@@ -29399,6 +29639,11 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		else if (lc == columnDtl_base_unit_rnd_typ) doDtl_base_unit_rnd_typ_LC(info);
 		else if (lc == columnDtl_qtn_d_no) doDtl_qtn_d_no_LC(info);
 		else if (lc == columnDtl_disp_seq) doDtl_disp_seq_LC(info);
+		else if (lc == columnDtl_mst_memo1) doDtl_mst_memo1_LC(info);
+		else if (lc == columnDtl_mst_memo2) doDtl_mst_memo2_LC(info);
+		else if (lc == columnDtl_mst_memo3) doDtl_mst_memo3_LC(info);
+		else if (lc == columnDtl_mst_memo4) doDtl_mst_memo4_LC(info);
+		else if (lc == columnDtl_mst_memo5) doDtl_mst_memo5_LC(info);
 	}
 
 	/**
@@ -32015,6 +32260,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * @param info イベント情報
 	 */
 	public void doDtl_disp_seq_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo1]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo1_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo2]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo2_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo3]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo3_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo4]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo4_LC(MCEventInfo info){
+	}
+
+	/**
+	 * [Dtl]パネルの[mst_memo5]のListChangedイベントが実行されたときに呼び出されます。
+	 *
+	 * @param info イベント情報
+	 */
+	public void doDtl_mst_memo5_LC(MCEventInfo info){
 	}
 
 	/**
