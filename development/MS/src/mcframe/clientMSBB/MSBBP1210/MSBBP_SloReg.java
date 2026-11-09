@@ -1040,31 +1040,15 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		}
 
 		MCNumber upri = r.trd_cur_upri();
-		MCNumber upriRate = r.upri_rate();
-		if (isNull(upri) || isNull(upriRate)) {
+		MCNumber list_pri = r.list_pri();
+		if (isNull(upri) || isNull(list_pri)) {
 			return;
 		}
 
-		MCNumber decPlace = getHdrR().trd_cur_amt_dec_place();
-		String rndTyp = getHdrR().sls_amt_rnd_typ();
-		if (isNull(decPlace) || isNull(rndTyp)) {
-			return;
-		}
-
-		MCNumber dscntRate = MCNumber.ONE.multiply(100)
-				.subtract(upriRate);
-
-		MCNumber dscntAmt = dscntRate
-				.multiply(upri)
-				.multiply(qty)
-				.divide(
-						100,
-						decPlace.intValue(),
-						MAC_RND_TYP.toMC(rndTyp)
-						);
+		MCNumber dscntAmt = list_pri.subtract(upri).multiply(qty);
 
 		// 診断用：GUI部品を経由せずRowに設定
-		r.trd_cur_dscnt_amt(dscntAmt);
+		r.dscnt_amt(dscntAmt);
 	}
 
 	/**

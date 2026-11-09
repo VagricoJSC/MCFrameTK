@@ -299,8 +299,11 @@ public class MSUAL_List extends MSUAL_List_MC {
 			return (MCList<?>)result;
 		}
 		
-		HashSet<String> trdCdSet = HAKUYOU_SERVICE_TRD_CD_SET;
-		if (dptCd.equals(KENSA_DTP_CD)) {
+		HashSet<String> trdCdSet = null;
+		if (dptCd.equals(HAKUYOU_SERVICE_DTP_CD)) {
+			trdCdSet = HAKUYOU_SERVICE_TRD_CD_SET;
+		}
+		else if (dptCd.equals(KENSA_DTP_CD)) {
 			trdCdSet = KENSA_SERVICE_TRD_CD_SET;
 		}
 		else if (dptCd.equals(KEISOKU_DTP_CD)) {
