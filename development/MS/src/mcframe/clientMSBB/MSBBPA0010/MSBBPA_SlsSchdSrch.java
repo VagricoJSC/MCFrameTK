@@ -148,9 +148,6 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 		 bind.addDateColumn("ps_sal_aft_dt", r.post_inst_sls_dt());
 		 bind.addStringColumn("zoho_sls_schd_no", r.zoho_sls_schd_no());
 		 
-		 // 取引CDを初期化
-		 bind.addStringColumn("trd_cd", "010");
-
 		 // ヘッダ
 		 bind.addStringColumn("par_itm_cd", r.par_itm_cd());
 		 bind.addStringColumn("par_itm_sub1", r.par_itm_sub1());
