@@ -355,6 +355,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	@Override
 	protected void doHdr_sls_dpt_cd_LC(MCEventInfo info) {
 		super.doHdr_sls_dpt_cd_LC(info);
+		
 		String dptCd = Hdr_sls_dpt_cd.getValue();
 		if (dptCd != null && ALL_DPT_CD.contains(dptCd)) {
 			Hdr_trd_cd.doListEvent(MCListConfig.LIST);
@@ -1235,19 +1236,30 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 	@Override
 	public void setOpenFocus() {
-		super.setOpenFocus();
+		if (isSame(getStatus(), INS)
+				&& Hdr_trd_cd.isEnabled()) {
 
-		// 標準の起動時フォーカス処理が終わってから取引CDに移す。
-		javax.swing.SwingUtilities.invokeLater(() -> {
-			if (isSame(getStatus(), INS)
-					&& Hdr_trd_cd.isShowing()
-					&& Hdr_trd_cd.isEnabled()) {
-				MCMode mode = Hdr_trd_cd.getMode();
-				if (mode == MCMode.ENABLE || mode == MCMode.REQUIRED) {
-					Hdr_trd_cd.requestFocusInWindow();
-				}
+			MCMode mode = Hdr_trd_cd.getMode();
+
+			if (mode == MCMode.ENABLE || mode == MCMode.REQUIRED) {
+				Hdr_trd_cd.mcRequestFocus();
+				return;
 			}
-		});
+		}
+
+		super.setOpenFocus();
+	}
+
+	@Override
+	protected void setDefaultCostUpri(int index) {
+		DtlR r = getDtlL().get(index);
+
+		// 品目未入力の行には原価単価を設定しない。
+		if (r == null || isNull(r.itm_cd())) {
+			return;
+		}
+
+		super.setDefaultCostUpri(index);
 	}
 
 //FMCB CUSTOM END
