@@ -508,9 +508,12 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		}
 		
 		for (DtlR r : exceptEmpty(getDtlL())) {
+			if (isNull(r.itm_cd())) {
+				continue;
+			}
+			
 			if (r.isStatusCreate() || r.isStatusModify()
 					|| (r.isStatusNone() && !isNull(r.itm_cd()))) {
-
 				int index = r.getGUIIndex();
 				
 				setDefaultSlsUpriReqTyp(index);
@@ -744,19 +747,18 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	
 	@Override
 	protected void doHdr_dlv_cd_LC(MCEventInfo info) {
-		
 		if (!isNull(getHdrR().dlv_cd())){
-			
 			if (MAC_TRD_PTN_TYP.isSHIP(getHdrR().trd_ptn_typ())) {
-				
 				getHdrR().pri_prnt_flg(false);
 			}
 		}
 		
 		for (DtlR dtlR : getDtlL()) {
+			if (isNull(dtlR.itm_cd())) {
+				continue;
+			}
 			
 			if (!dtlR.isEmpty() && isEditable(columnDtl_dlv_cd, dtlR.getGUIIndex())){
-				
 				if (dtlR.isStatusNone() && !isSame(dtlR.dlv_cd(), getHdrR().dlv_cd())) {
 					dtlR.setStatus(Status.MODIFY);
 				}
@@ -966,31 +968,6 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		setHdrIncTaxAmt();
 	}
 
-	/**
-	 * 単価計算
-	 * @param r
-	 */
-//	protected void setDtlAmt(DtlR r) {
-//		MCNumber qty = r.base_unit_qty();
-//		if (isNull(qty)) {
-//			return;
-//		}
-//
-//		MCNumber upri = r.trd_cur_upri();
-//		if (isNull(upri)) {
-//			return;
-//		}
-//		
-//		MCNumber dscnt = r.trd_cur_dscnt_amt();
-//		if (isNull(dscnt)) {
-//			dscnt = MCNumber.ZERO;
-//		}
-//		
-//		MCNumber amt = upri.multiply(qty).subtract(dscnt);
-//
-//		// GUI部品を経由せずRowに設定
-//		r.trd_cur_amt(amt);
-//	}
 	/**
 	 * 標準共通部品で金額・税込金額・税額を計算する。
 	 */
