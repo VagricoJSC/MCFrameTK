@@ -61,6 +61,7 @@ public class Query extends Query_MC  {
 						.innerJoin(m4).on(t2.prod_itm_cd.eq(m4.itm_cd))
 						.innerJoin(m5).on(t2.sls_usr_cd.eq(m5.usr_cd))
 					)
+				.orderBy(t2.zoho_sls_schd_no.asc())
 				);
 	}
 
@@ -111,6 +112,7 @@ public class Query extends Query_MC  {
 						.innerJoin(m4).on(t2.prod_itm_cd.eq(m4.itm_cd))
 						.innerJoin(m5).on(t2.sls_usr_cd.eq(m5.usr_cd))						
 					)
+				.orderBy(t2.zoho_sls_schd_no.asc())
 				);
 
 	}
