@@ -6421,6 +6421,8 @@ class MSUAC_List_MC_A extends Object {
 		public static final String $o_sls_usr_cd = "sls_usr_cd";
 		/** OUT:納品先CD */
 		public static final String $o_dlv_cd = "dlv_cd";
+		/** OUT:通貨 */
+		public static final String $o_cur_cd = "cur_cd";
 		/** VIEW:取引先ＣＤ */
 		public static final String $v_bp_cd = $o_bp_cd;
 		/** VIEW_NO:取引先ＣＤ */
@@ -6450,6 +6452,7 @@ class MSUAC_List_MC_A extends Object {
 					add($o_bp_alt_nm4);
 					add($o_sls_usr_cd);
 					add($o_dlv_cd);
+					add($o_cur_cd);
 				}};;
 		@SuppressWarnings("serial")
 		protected static final SortedMap<MCNumber, String> $view_cols_MC = 

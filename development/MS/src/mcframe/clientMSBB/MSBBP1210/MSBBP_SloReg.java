@@ -1238,6 +1238,5 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 
 		super.setDefaultCostUpri(index);
 	}
-
 //FMCB CUSTOM END
 }
