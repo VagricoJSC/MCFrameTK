@@ -278,7 +278,7 @@ public class MSUAL_List extends MSUAL_List_MC {
 			, "9XX"
 			, "9YY"
 	));
-	private static final HashSet<String> DENSHIKIKI_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList( // 油圧制御システムＣｏ．????
+	private static final HashSet<String> DENSHIKIKI_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList( // 油圧制御システムＣｏ．
 			"010"
 			, "020"
 			, "030"
@@ -287,7 +287,10 @@ public class MSUAL_List extends MSUAL_List_MC {
 			, "060"
 			, "070"
 			, "080"
-			, "800"
+			, "090"
+			, "100"
+			, "110"
+			, "120"
 			, "9XX"
 			, "9YY"
 	));

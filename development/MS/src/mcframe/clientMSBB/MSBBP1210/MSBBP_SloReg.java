@@ -555,7 +555,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String SLS_COND_TYP_2 = "2";	// 営業所送り
 	private final static String SLS_COND_TYP_3 = "3";
 	private final static String SLS_COND_TYP_4 = "4";
-	private final static String SLS_COND_TYP_6 = "6";
+	private final static String SLS_COND_TYP_6 = "6"; 	// 6:受注即売上
 	private final static String SLS_COND_TYP_7 = "7";
 	private final static String SLS_COND_TYP_9 = "9";	// 代納売上
 	
@@ -585,11 +585,16 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String TRD_CD_060 = "060";
 	private final static String TRD_CD_070 = "070";
 	private final static String TRD_CD_080 = "080";
+	private final static String TRD_CD_090 = "090"; // 営業在庫品・物流在庫品（手配）
+	private final static String TRD_CD_100 = "100"; // キャンセルフィー
+	private final static String TRD_CD_110 = "110"; // 年間保守サービス費用
+	private final static String TRD_CD_120 = "120"; // 該非判定・成績書・送料など追加要求費用
 	private final static String TRD_CD_800 = "800";
 	private final static String TRD_CD_9XX = "9XX"; // 代納
 	private final static String TRD_CD_9YY = "9YY"; // 貸出
 	private final static Set<String> ALL_TRD_CD = new HashSet<String>(
-		Arrays.asList(TRD_CD_010, TRD_CD_020, TRD_CD_030, TRD_CD_040, TRD_CD_050, TRD_CD_060, TRD_CD_070, TRD_CD_080, TRD_CD_800, TRD_CD_9XX, TRD_CD_9YY)
+		Arrays.asList(TRD_CD_010, TRD_CD_020, TRD_CD_030, TRD_CD_040, TRD_CD_050, TRD_CD_060, TRD_CD_070, TRD_CD_080, 
+				TRD_CD_090, TRD_CD_100, TRD_CD_110, TRD_CD_120, TRD_CD_800, TRD_CD_9XX, TRD_CD_9YY)
 	);
 	
 	
@@ -654,6 +659,26 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		if (TRD_CD_080.equals(trdCd)) {
 			return new HashSet<>(
 					Arrays.asList(SLS_COND_TYP_6));
+		}
+
+		if (TRD_CD_090.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0)); // 0: 出荷売上
+		}
+
+		if (TRD_CD_100.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_6)); // 6:受注即売上
+		}
+
+		if (TRD_CD_110.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_2)); // 2：営業所等経由売上
+		}
+
+		if (TRD_CD_120.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_6)); // 0:出荷売上、6:受注即売上
 		}
 
 		if (TRD_CD_800.equals(trdCd)) {
