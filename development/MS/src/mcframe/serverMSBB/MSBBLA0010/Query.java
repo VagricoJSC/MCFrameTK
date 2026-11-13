@@ -18,6 +18,7 @@ public class Query extends Query_MC  {
 		mcframe.serverMA.dbc.MAM_DPT_R m3 = mcframe.serverMA.dbc.MAM_DPT_R.create("M3");
 		mcframe.serverMA.dbc.MAM_ITM_R m4 = mcframe.serverMA.dbc.MAM_ITM_R.create("M4");
 		mcframe.serverMA.dbc.MAM_USR_R m5 = mcframe.serverMA.dbc.MAM_USR_R.create("M5");
+		mcframe.serverMA.dbc.MAM_ITM_R m6 = mcframe.serverMA.dbc.MAM_ITM_R.create("M6");
 		
 		return createQueryPlan().setQuery(
 				sql("MSBBLA0010_MST_SLS_SCHD_D_S01")
@@ -49,6 +50,7 @@ public class Query extends Query_MC  {
 						, t1.itm_sub1
 						, t1.itm_sub2
 						, t1.itm_sub3
+						, m6.itm_nm.as("itm_nm")
 						, t1.qty
 						, t1.upri
 					)
@@ -60,8 +62,12 @@ public class Query extends Query_MC  {
 						.innerJoin(m3).on(t2.sls_dpt_cd.eq(m3.dpt_cd))
 						.innerJoin(m4).on(t2.prod_itm_cd.eq(m4.itm_cd))
 						.innerJoin(m5).on(t2.sls_usr_cd.eq(m5.usr_cd))
+						.leftOuterJoin(m6).on(t1.itm_cd.eq(m6.itm_cd))
 					)
-				.orderBy(t2.zoho_sls_schd_no.asc())
+				.orderBy(
+						t2.zoho_sls_schd_no.asc()
+						, t1.zoho_sls_schd_br_no.asc()
+					)
 				);
 	}
 

@@ -161,17 +161,17 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 	 */
 	protected void setMSBBP1210Dtl(MCList<MCRow> list) {
 		MCList<RsltR> rsltL = getRsltL();
-		String prod_itm_cd[] = {null};
+		String zoho_sls_schd_no[] = {null};
 		
 		int index = RsltTable.getMCSelectedRow();
 		if (index > -1) {
 			RsltR r = rsltL.get(index);
 			
 			MCRow row = MCRow.create();
-			prod_itm_cd[0] = r.par_itm_cd();
+			zoho_sls_schd_no[0] = r.zoho_sls_schd_no();
 			
 			// 明細
-			row.addStringColumn("itm_cd", prod_itm_cd[0]);
+			row.addStringColumn("itm_cd", r.par_itm_cd());
 			row.addStringColumn("itm_sub1", r.par_itm_sub1());
 			row.addStringColumn("itm_sub2", r.par_itm_sub2());
 			row.addStringColumn("itm_sub3", r.par_itm_sub3());
@@ -184,7 +184,7 @@ public class MSBBPA_SlsSchdSrch extends MSBBPA_SlsSchdSrch_MC {
 
 		
 		rsltL.forEach(r -> {
-			if (r.par_itm_cd().equals(prod_itm_cd[0])) {
+			if (r.zoho_sls_schd_no().equals(zoho_sls_schd_no[0])) {
 				MCRow row = MCRow.create();
 				row.addStringColumn("itm_cd", r.chd_itm_cd());
 				row.addStringColumn("itm_sub1", r.chd_itm_sub1());
