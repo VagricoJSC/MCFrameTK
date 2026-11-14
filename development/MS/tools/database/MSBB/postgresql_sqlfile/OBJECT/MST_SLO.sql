@@ -143,7 +143,7 @@ CREATE OR REPLACE VIEW mst_slo(
 	slo_cmnt_5,
 	src_ship_flg,
 	jip_slo_typ,
-	jip_cst_cd
+	can_rqst_flg
 	)
 AS
 SELECT
@@ -289,7 +289,7 @@ SELECT
 	mst_slo_mst_slo_all_org.slo_cmnt_5,
 	mst_slo_mst_slo_all_org.src_ship_flg,
 	mst_slo_mst_slo_all_org.jip_slo_typ,
-	mst_slo_mst_slo_all_org.jip_cst_cd
+	mst_slo_mst_slo_all_org.can_rqst_flg
 FROM
 	mst_slo_all mst_slo_mst_slo_all_org
 WHERE

@@ -429,5 +429,5 @@ COMMENT ON COLUMN mst_slo_p.src_ship_flg IS '元出荷基準ＦＬＧ // #MA.FLG
 COMMENT ON COLUMN mst_slo_p.jip_slo_typ IS '受注種別 // #MA.JIP_SLO_TYP // ';
 
 
-COMMENT ON COLUMN mst_slo_p.jip_cst_cd IS '客先コード // #MA.CST_CD // ';
+COMMENT ON COLUMN mst_slo_p.can_rqst_flg IS '取消承認依頼ＦＬＧ // #MA.FLG // ';
 
