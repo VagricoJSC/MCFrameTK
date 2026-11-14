@@ -150,7 +150,22 @@ CREATE OR REPLACE VIEW mst_slo_d_$u(
 	upd_srv_req_no,
 	not_lg_mix_flg,
 	not_lot_mix_flg,
-	not_sublot_mix_flg
+	not_sublot_mix_flg,
+	wrk_br_no,
+	list_upri,
+	wl_sale_upri,
+	upri_typ,
+	rate,
+	color,
+	nm_plt,
+	cst_itm_no,
+	est_cost,
+	match_dtl_key,
+	slo_d_cmnt_1,
+	slo_d_cmnt_2,
+	slo_d_cmnt_3,
+	slo_d_cmnt_4,
+	slo_d_cmnt_5
 	)
 AS
 SELECT
@@ -303,7 +318,22 @@ SELECT
 	mst_slo_d_$u_mst_slo_d_all_org.upd_srv_req_no,
 	mst_slo_d_$u_mst_slo_d_all_org.not_lg_mix_flg,
 	mst_slo_d_$u_mst_slo_d_all_org.not_lot_mix_flg,
-	mst_slo_d_$u_mst_slo_d_all_org.not_sublot_mix_flg
+	mst_slo_d_$u_mst_slo_d_all_org.not_sublot_mix_flg,
+	mst_slo_d_$u_mst_slo_d_all_org.wrk_br_no,
+	mst_slo_d_$u_mst_slo_d_all_org.list_upri,
+	mst_slo_d_$u_mst_slo_d_all_org.wl_sale_upri,
+	mst_slo_d_$u_mst_slo_d_all_org.upri_typ,
+	mst_slo_d_$u_mst_slo_d_all_org.rate,
+	mst_slo_d_$u_mst_slo_d_all_org.color,
+	mst_slo_d_$u_mst_slo_d_all_org.nm_plt,
+	mst_slo_d_$u_mst_slo_d_all_org.cst_itm_no,
+	mst_slo_d_$u_mst_slo_d_all_org.est_cost,
+	mst_slo_d_$u_mst_slo_d_all_org.match_dtl_key,
+	mst_slo_d_$u_mst_slo_d_all_org.slo_d_cmnt_1,
+	mst_slo_d_$u_mst_slo_d_all_org.slo_d_cmnt_2,
+	mst_slo_d_$u_mst_slo_d_all_org.slo_d_cmnt_3,
+	mst_slo_d_$u_mst_slo_d_all_org.slo_d_cmnt_4,
+	mst_slo_d_$u_mst_slo_d_all_org.slo_d_cmnt_5
 FROM
 	mst_slo_d_all mst_slo_d_$u_mst_slo_d_all_org
 WHERE

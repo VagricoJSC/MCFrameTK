@@ -452,3 +452,48 @@ COMMENT ON COLUMN mst_slo_d_p.not_lot_mix_flg IS 'ロット混在不可ＦＬＧ
 
 COMMENT ON COLUMN mst_slo_d_p.not_sublot_mix_flg IS 'サブロット混在不可ＦＬＧ // #MA.FLG // Prohibit mixed sublots flg.';
 
+
+COMMENT ON COLUMN mst_slo_d_p.wrk_br_no IS '受注工号枝番 // #MA.WRK_BR_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.list_upri IS '定価 // #MA.MONEY // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.wl_sale_upri IS '仕切単価 // #MA.MONEY // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.upri_typ IS '単価区分 // #MA.UPRI_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.rate IS '掛率 // #MA.RATE // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.color IS '塗色 // #MA.COLOR // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.nm_plt IS '銘版 // #MA.NM_PLT // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.cst_itm_no IS '客先品番 // #MA.CST_ITM_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.est_cost IS '見積原価 // #MA.MONEY // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.match_dtl_key IS '照合明細キー // #MA.MATCH_DTL_KEY // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.slo_d_cmnt_1 IS 'コメント１ // #MA.SLO_D_CMNT_1 // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.slo_d_cmnt_2 IS 'コメント２ // #MA.SLO_D_CMNT_2 // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.slo_d_cmnt_3 IS 'コメント３ // #MA.SLO_D_CMNT_3 // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.slo_d_cmnt_4 IS 'コメント４ // #MA.SLO_D_CMNT_4 // ';
+
+
+COMMENT ON COLUMN mst_slo_d_p.slo_d_cmnt_5 IS 'コメント５ // #MA.SLO_D_CMNT_5 // ';
+

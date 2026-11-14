@@ -191,7 +191,22 @@ BEGIN
 			upd_srv_req_no,
 			not_lg_mix_flg,
 			not_lot_mix_flg,
-			not_sublot_mix_flg
+			not_sublot_mix_flg,
+			wrk_br_no,
+			list_upri,
+			wl_sale_upri,
+			upri_typ,
+			rate,
+			color,
+			nm_plt,
+			cst_itm_no,
+			est_cost,
+			match_dtl_key,
+			slo_d_cmnt_1,
+			slo_d_cmnt_2,
+			slo_d_cmnt_3,
+			slo_d_cmnt_4,
+			slo_d_cmnt_5
 		)
 			VALUES (
 				h_id,
@@ -346,7 +361,22 @@ BEGIN
 				NEW.upd_srv_req_no,
 				NEW.not_lg_mix_flg,
 				NEW.not_lot_mix_flg,
-				NEW.not_sublot_mix_flg
+				NEW.not_sublot_mix_flg,
+				NEW.wrk_br_no,
+				NEW.list_upri,
+				NEW.wl_sale_upri,
+				NEW.upri_typ,
+				NEW.rate,
+				NEW.color,
+				NEW.nm_plt,
+				NEW.cst_itm_no,
+				NEW.est_cost,
+				NEW.match_dtl_key,
+				NEW.slo_d_cmnt_1,
+				NEW.slo_d_cmnt_2,
+				NEW.slo_d_cmnt_3,
+				NEW.slo_d_cmnt_4,
+				NEW.slo_d_cmnt_5
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'UPDATE') THEN
@@ -520,7 +550,22 @@ BEGIN
 				upd_srv_req_no,
 				not_lg_mix_flg,
 				not_lot_mix_flg,
-				not_sublot_mix_flg
+				not_sublot_mix_flg,
+				wrk_br_no,
+				list_upri,
+				wl_sale_upri,
+				upri_typ,
+				rate,
+				color,
+				nm_plt,
+				cst_itm_no,
+				est_cost,
+				match_dtl_key,
+				slo_d_cmnt_1,
+				slo_d_cmnt_2,
+				slo_d_cmnt_3,
+				slo_d_cmnt_4,
+				slo_d_cmnt_5
 			)
 				VALUES (
 					h_id,
@@ -675,7 +720,22 @@ BEGIN
 					OLD.upd_srv_req_no,
 					OLD.not_lg_mix_flg,
 					OLD.not_lot_mix_flg,
-					OLD.not_sublot_mix_flg
+					OLD.not_sublot_mix_flg,
+					OLD.wrk_br_no,
+					OLD.list_upri,
+					OLD.wl_sale_upri,
+					OLD.upri_typ,
+					OLD.rate,
+					OLD.color,
+					OLD.nm_plt,
+					OLD.cst_itm_no,
+					OLD.est_cost,
+					OLD.match_dtl_key,
+					OLD.slo_d_cmnt_1,
+					OLD.slo_d_cmnt_2,
+					OLD.slo_d_cmnt_3,
+					OLD.slo_d_cmnt_4,
+					OLD.slo_d_cmnt_5
 			);
 			h_typ := 'I';
 		ELSE
@@ -849,7 +909,22 @@ BEGIN
 			upd_srv_req_no,
 			not_lg_mix_flg,
 			not_lot_mix_flg,
-			not_sublot_mix_flg
+			not_sublot_mix_flg,
+			wrk_br_no,
+			list_upri,
+			wl_sale_upri,
+			upri_typ,
+			rate,
+			color,
+			nm_plt,
+			cst_itm_no,
+			est_cost,
+			match_dtl_key,
+			slo_d_cmnt_1,
+			slo_d_cmnt_2,
+			slo_d_cmnt_3,
+			slo_d_cmnt_4,
+			slo_d_cmnt_5
 		)
 			VALUES (
 				h_id,
@@ -1004,7 +1079,22 @@ BEGIN
 				NEW.upd_srv_req_no,
 				NEW.not_lg_mix_flg,
 				NEW.not_lot_mix_flg,
-				NEW.not_sublot_mix_flg
+				NEW.not_sublot_mix_flg,
+				NEW.wrk_br_no,
+				NEW.list_upri,
+				NEW.wl_sale_upri,
+				NEW.upri_typ,
+				NEW.rate,
+				NEW.color,
+				NEW.nm_plt,
+				NEW.cst_itm_no,
+				NEW.est_cost,
+				NEW.match_dtl_key,
+				NEW.slo_d_cmnt_1,
+				NEW.slo_d_cmnt_2,
+				NEW.slo_d_cmnt_3,
+				NEW.slo_d_cmnt_4,
+				NEW.slo_d_cmnt_5
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'DELETE') THEN
@@ -1177,7 +1267,22 @@ BEGIN
 			upd_srv_req_no,
 			not_lg_mix_flg,
 			not_lot_mix_flg,
-			not_sublot_mix_flg
+			not_sublot_mix_flg,
+			wrk_br_no,
+			list_upri,
+			wl_sale_upri,
+			upri_typ,
+			rate,
+			color,
+			nm_plt,
+			cst_itm_no,
+			est_cost,
+			match_dtl_key,
+			slo_d_cmnt_1,
+			slo_d_cmnt_2,
+			slo_d_cmnt_3,
+			slo_d_cmnt_4,
+			slo_d_cmnt_5
 		)
 			VALUES (
 				h_id,
@@ -1332,7 +1437,22 @@ BEGIN
 				OLD.upd_srv_req_no,
 				OLD.not_lg_mix_flg,
 				OLD.not_lot_mix_flg,
-				OLD.not_sublot_mix_flg
+				OLD.not_sublot_mix_flg,
+				OLD.wrk_br_no,
+				OLD.list_upri,
+				OLD.wl_sale_upri,
+				OLD.upri_typ,
+				OLD.rate,
+				OLD.color,
+				OLD.nm_plt,
+				OLD.cst_itm_no,
+				OLD.est_cost,
+				OLD.match_dtl_key,
+				OLD.slo_d_cmnt_1,
+				OLD.slo_d_cmnt_2,
+				OLD.slo_d_cmnt_3,
+				OLD.slo_d_cmnt_4,
+				OLD.slo_d_cmnt_5
 		);
 		RETURN OLD;
 	END IF;

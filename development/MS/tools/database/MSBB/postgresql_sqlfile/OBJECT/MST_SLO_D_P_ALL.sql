@@ -151,7 +151,22 @@ upd_func_id varchar (50) NULL,
 upd_srv_req_no varchar (50) NULL,
 not_lg_mix_flg char (1) DEFAULT '0' NOT NULL,
 not_lot_mix_flg char (1) DEFAULT '0' NOT NULL,
-not_sublot_mix_flg char (1) DEFAULT '0' NOT NULL
+not_sublot_mix_flg char (1) DEFAULT '0' NOT NULL,
+wrk_br_no varchar (20) NULL,
+list_upri numeric (21,8) NULL,
+wl_sale_upri numeric (21,8) NULL,
+upri_typ varchar (1) NULL,
+rate numeric (5,2) NULL,
+color varchar (100) NULL,
+nm_plt varchar (100) NULL,
+cst_itm_no varchar (3) NULL,
+est_cost numeric (21,8) NULL,
+match_dtl_key varchar (3) NULL,
+slo_d_cmnt_1 varchar (100) NULL,
+slo_d_cmnt_2 varchar (100) NULL,
+slo_d_cmnt_3 varchar (100) NULL,
+slo_d_cmnt_4 varchar (100) NULL,
+slo_d_cmnt_5 varchar (100) NULL
 );
 
 
