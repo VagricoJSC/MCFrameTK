@@ -58,6 +58,8 @@ SET ESCCHAR @
 
 @".\COMMENT\MAM_OUT_APPR_ALL_comment.sql"
 
+@".\COMMENT\MAM_COLLAT_EXP_ALL_comment.sql"
+
 @".\COMMENT\MAM_PURC_UPRI_ALL_comment.sql"
 
 @".\COMMENT\MAM_PURC_UPRI_APL_ALL_comment.sql"

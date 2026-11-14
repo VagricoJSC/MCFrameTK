@@ -56,6 +56,8 @@
 
 \i ./U_TR/MAM_OUT_APPR_ALL_TR_U.sql
 
+\i ./U_TR/MAM_COLLAT_EXP_ALL_TR_U.sql
+
 \i ./U_TR/MAM_PURC_UPRI_ALL_TR_U.sql
 
 \i ./U_TR/MAM_PURC_UPRI_APL_ALL_TR_U.sql
