@@ -3,7 +3,21 @@ SET ESCCHAR @
 -- 受注ヘッダを変更
 ALTER TABLE MST_SLO_ALL DROP COLUMN JIP_CST_CD;
 ALTER TABLE MST_SLO_ALL ADD (CAN_RQST_FLG CHAR(1) DEFAULT '0' NOT NULL);
+
+DELETE FROM FCM_HISTORY_TABLE WHERE 
+TABLE_NAME = 'MST_SLO_ALL'
+	;
+
+@development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_@S.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_@U.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/HST_TAB/MST_SLO_ALL_R.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/HST_TR/MST_SLO_ALL_TR_R.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/CO_VT/MST_SLO_ALL_TR_K.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/U_TR/MST_SLO_ALL_TR_U.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_ALL_CK09.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/COMMENT/MST_SLO_ALL_comment.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/COMMENT/MST_SLO_comment.sql
 
 
 -- 受注ヘッダ（改定履歴）を変更
