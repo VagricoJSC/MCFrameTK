@@ -1544,6 +1544,156 @@ import mcframe.serverCore.queryapi.MCForeignInfo;
  *  	<td>サブロット混在不可ＦＬＧ</td>
  *  	<td>Prohibit mixed sublots flg.</td>
  *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>wrk_br_no</td>
+ *  	<td>C</td>
+ *  	<td>20</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>受注工号枝番</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>list_upri</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>定価</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>wl_sale_upri</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>仕切単価</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>upri_typ</td>
+ *  	<td>C</td>
+ *  	<td>1</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>単価区分</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>rate</td>
+ *  	<td>N</td>
+ *  	<td>5,2</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>掛率</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>color</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>塗色</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>nm_plt</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>銘版</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>cst_itm_no</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>客先品番</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>est_cost</td>
+ *  	<td>N</td>
+ *  	<td>21,8</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>見積原価</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>match_dtl_key</td>
+ *  	<td>C</td>
+ *  	<td>3</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>照合明細キー</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_d_cmnt_1</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント１</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_d_cmnt_2</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント２</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_d_cmnt_3</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント３</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr >
+ *  	<td>C</td>
+ *  	<td>slo_d_cmnt_4</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント４</td>
+ *  	<td></td>
+ *  </tr>
+ *  <tr bgcolor="Moccasin">
+ *  	<td>C</td>
+ *  	<td>slo_d_cmnt_5</td>
+ *  	<td>C</td>
+ *  	<td>100</td>
+ *  	<td>Y</td>
+ *  	<td></td>
+ *  	<td>コメント５</td>
+ *  	<td></td>
+ *  </tr>
  * </table>
  *
  * <br>
@@ -2760,6 +2910,126 @@ public class MST_SLO_D_R extends MCDBContainer {
 	private static final MCPermColumnInfo _not_sublot_mix_flg = createColumnInfo("not_sublot_mix_flg");
 	public final MCBooleanPermColumn not_sublot_mix_flg = createBooleanColumn(_not_sublot_mix_flg);
 	
+	/**
+	 * 受注工号枝番. .<p>
+	 *
+	 */
+	public static final String $wrk_br_no = "wrk_br_no";
+	private static final MCPermColumnInfo _wrk_br_no = createColumnInfo("wrk_br_no");
+	public final MCStringPermColumn wrk_br_no = createStringColumn(_wrk_br_no);
+	
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public static final String $list_upri = "list_upri";
+	private static final MCPermColumnInfo _list_upri = createColumnInfo("list_upri");
+	public final MCNumberPermColumn list_upri = createNumberColumn(_list_upri);
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public static final String $wl_sale_upri = "wl_sale_upri";
+	private static final MCPermColumnInfo _wl_sale_upri = createColumnInfo("wl_sale_upri");
+	public final MCNumberPermColumn wl_sale_upri = createNumberColumn(_wl_sale_upri);
+	
+	/**
+	 * 単価区分. .<p>
+	 *
+	 */
+	public static final String $upri_typ = "upri_typ";
+	private static final MCPermColumnInfo _upri_typ = createColumnInfo("upri_typ");
+	public final MCStringPermColumn upri_typ = createStringColumn(_upri_typ);
+	
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public static final String $rate = "rate";
+	private static final MCPermColumnInfo _rate = createColumnInfo("rate");
+	public final MCNumberPermColumn rate = createNumberColumn(_rate);
+	
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public static final String $color = "color";
+	private static final MCPermColumnInfo _color = createColumnInfo("color");
+	public final MCStringPermColumn color = createStringColumn(_color);
+	
+	/**
+	 * 銘版. .<p>
+	 *
+	 */
+	public static final String $nm_plt = "nm_plt";
+	private static final MCPermColumnInfo _nm_plt = createColumnInfo("nm_plt");
+	public final MCStringPermColumn nm_plt = createStringColumn(_nm_plt);
+	
+	/**
+	 * 客先品番. .<p>
+	 *
+	 */
+	public static final String $cst_itm_no = "cst_itm_no";
+	private static final MCPermColumnInfo _cst_itm_no = createColumnInfo("cst_itm_no");
+	public final MCStringPermColumn cst_itm_no = createStringColumn(_cst_itm_no);
+	
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public static final String $est_cost = "est_cost";
+	private static final MCPermColumnInfo _est_cost = createColumnInfo("est_cost");
+	public final MCNumberPermColumn est_cost = createNumberColumn(_est_cost);
+	
+	/**
+	 * 照合明細キー. .<p>
+	 *
+	 */
+	public static final String $match_dtl_key = "match_dtl_key";
+	private static final MCPermColumnInfo _match_dtl_key = createColumnInfo("match_dtl_key");
+	public final MCStringPermColumn match_dtl_key = createStringColumn(_match_dtl_key);
+	
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public static final String $slo_d_cmnt_1 = "slo_d_cmnt_1";
+	private static final MCPermColumnInfo _slo_d_cmnt_1 = createColumnInfo("slo_d_cmnt_1");
+	public final MCStringPermColumn slo_d_cmnt_1 = createStringColumn(_slo_d_cmnt_1);
+	
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public static final String $slo_d_cmnt_2 = "slo_d_cmnt_2";
+	private static final MCPermColumnInfo _slo_d_cmnt_2 = createColumnInfo("slo_d_cmnt_2");
+	public final MCStringPermColumn slo_d_cmnt_2 = createStringColumn(_slo_d_cmnt_2);
+	
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public static final String $slo_d_cmnt_3 = "slo_d_cmnt_3";
+	private static final MCPermColumnInfo _slo_d_cmnt_3 = createColumnInfo("slo_d_cmnt_3");
+	public final MCStringPermColumn slo_d_cmnt_3 = createStringColumn(_slo_d_cmnt_3);
+	
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public static final String $slo_d_cmnt_4 = "slo_d_cmnt_4";
+	private static final MCPermColumnInfo _slo_d_cmnt_4 = createColumnInfo("slo_d_cmnt_4");
+	public final MCStringPermColumn slo_d_cmnt_4 = createStringColumn(_slo_d_cmnt_4);
+	
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public static final String $slo_d_cmnt_5 = "slo_d_cmnt_5";
+	private static final MCPermColumnInfo _slo_d_cmnt_5 = createColumnInfo("slo_d_cmnt_5");
+	public final MCStringPermColumn slo_d_cmnt_5 = createStringColumn(_slo_d_cmnt_5);
+	
 	public static final MCMeta slo_d_no_META = createCommonMeta($slo_d_no, mcframe.commonMA.meta.MA_META.SLO_D_NO);
 	public static final MCMeta slo_no_META = createCommonMeta($slo_no, mcframe.commonMA.meta.MA_META.SLO_NO);
 	public static final MCMeta slo_rev_META = createCommonMeta($slo_rev, mcframe.commonMA.meta.MA_META.SLIP_REV);
@@ -2910,6 +3180,21 @@ public class MST_SLO_D_R extends MCDBContainer {
 	public static final MCMeta not_lg_mix_flg_META = createCommonMeta($not_lg_mix_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta not_lot_mix_flg_META = createCommonMeta($not_lot_mix_flg, mcframe.commonMA.meta.MA_META.FLG);
 	public static final MCMeta not_sublot_mix_flg_META = createCommonMeta($not_sublot_mix_flg, mcframe.commonMA.meta.MA_META.FLG);
+	public static final MCMeta wrk_br_no_META = createCommonMeta($wrk_br_no, mcframe.commonMA.meta.MA_META.WRK_BR_NO);
+	public static final MCMeta list_upri_META = createCommonMeta($list_upri, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta wl_sale_upri_META = createCommonMeta($wl_sale_upri, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta upri_typ_META = createCommonMeta($upri_typ, mcframe.commonMA.meta.MA_META.UPRI_TYP);
+	public static final MCMeta rate_META = createCommonMeta($rate, mcframe.commonMA.meta.MA_META.RATE);
+	public static final MCMeta color_META = createCommonMeta($color, mcframe.commonMA.meta.MA_META.COLOR);
+	public static final MCMeta nm_plt_META = createCommonMeta($nm_plt, mcframe.commonMA.meta.MA_META.NM_PLT);
+	public static final MCMeta cst_itm_no_META = createCommonMeta($cst_itm_no, mcframe.commonMA.meta.MA_META.CST_ITM_NO);
+	public static final MCMeta est_cost_META = createCommonMeta($est_cost, mcframe.commonMA.meta.MA_META.MONEY);
+	public static final MCMeta match_dtl_key_META = createCommonMeta($match_dtl_key, mcframe.commonMA.meta.MA_META.MATCH_DTL_KEY);
+	public static final MCMeta slo_d_cmnt_1_META = createCommonMeta($slo_d_cmnt_1, mcframe.commonMA.meta.MA_META.SLO_D_CMNT_1);
+	public static final MCMeta slo_d_cmnt_2_META = createCommonMeta($slo_d_cmnt_2, mcframe.commonMA.meta.MA_META.SLO_D_CMNT_2);
+	public static final MCMeta slo_d_cmnt_3_META = createCommonMeta($slo_d_cmnt_3, mcframe.commonMA.meta.MA_META.SLO_D_CMNT_3);
+	public static final MCMeta slo_d_cmnt_4_META = createCommonMeta($slo_d_cmnt_4, mcframe.commonMA.meta.MA_META.SLO_D_CMNT_4);
+	public static final MCMeta slo_d_cmnt_5_META = createCommonMeta($slo_d_cmnt_5, mcframe.commonMA.meta.MA_META.SLO_D_CMNT_5);
 
 	protected static final List<MCForeignInfo> FOREIGN_INFO_LIST = new ArrayList<>();
 	static {
@@ -3067,7 +3352,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_srv_req_no_META,
 			not_lg_mix_flg_META,
 			not_lot_mix_flg_META,
-			not_sublot_mix_flg_META
+			not_sublot_mix_flg_META,
+			wrk_br_no_META,
+			list_upri_META,
+			wl_sale_upri_META,
+			upri_typ_META,
+			rate_META,
+			color_META,
+			nm_plt_META,
+			cst_itm_no_META,
+			est_cost_META,
+			match_dtl_key_META,
+			slo_d_cmnt_1_META,
+			slo_d_cmnt_2_META,
+			slo_d_cmnt_3_META,
+			slo_d_cmnt_4_META,
+			slo_d_cmnt_5_META
 		},
 		new String[][]{
 			{
@@ -5365,6 +5665,231 @@ public class MST_SLO_D_R extends MCDBContainer {
 				not_sublot_mix_flg,
 				false,
 				false,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$wrk_br_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$wrk_br_no,
+				"wrk_br_no",
+				wrk_br_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$list_upri,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_D_R.$list_upri,
+				"list_upri",
+				list_upri,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$wl_sale_upri,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_D_R.$wl_sale_upri,
+				"wl_sale_upri",
+				wl_sale_upri,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$upri_typ,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$upri_typ,
+				"upri_typ",
+				upri_typ,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$rate,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_D_R.$rate,
+				"rate",
+				rate,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$color,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$color,
+				"color",
+				color,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$nm_plt,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$nm_plt,
+				"nm_plt",
+				nm_plt,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$cst_itm_no,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$cst_itm_no,
+				"cst_itm_no",
+				cst_itm_no,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$est_cost,
+			new MCDBContainerColulmnInfo<MCNumberPermColumn>(
+				MCDataType.NUMBER,
+				MST_SLO_D_R.$est_cost,
+				"est_cost",
+				est_cost,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$match_dtl_key,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$match_dtl_key,
+				"match_dtl_key",
+				match_dtl_key,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$slo_d_cmnt_1,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$slo_d_cmnt_1,
+				"slo_d_cmnt_1",
+				slo_d_cmnt_1,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$slo_d_cmnt_2,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$slo_d_cmnt_2,
+				"slo_d_cmnt_2",
+				slo_d_cmnt_2,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$slo_d_cmnt_3,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$slo_d_cmnt_3,
+				"slo_d_cmnt_3",
+				slo_d_cmnt_3,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$slo_d_cmnt_4,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$slo_d_cmnt_4,
+				"slo_d_cmnt_4",
+				slo_d_cmnt_4,
+				false,
+				true,
+				false,
+				false,
+				false,
+				""
+			)
+		);
+		COLUMN_MAP.put(
+			MST_SLO_D_R.$slo_d_cmnt_5,
+			new MCDBContainerColulmnInfo<MCStringPermColumn>(
+				MCDataType.STRING,
+				MST_SLO_D_R.$slo_d_cmnt_5,
+				"slo_d_cmnt_5",
+				slo_d_cmnt_5,
+				false,
+				true,
 				false,
 				false,
 				false,
@@ -8565,6 +9090,374 @@ public class MST_SLO_D_R extends MCDBContainer {
 		setConstBoolean(offset + 149, $not_sublot_mix_flg, value);
 	}
 
+	/**
+	 * 受注工号枝番. .<p>
+	 *
+	 */
+	public String wrk_br_no() {
+		return getConstString(offset + 150, $wrk_br_no);
+	}
+
+	/**
+	 * 受注工号枝番. .<p>
+	 *
+	 */
+	public void wrk_br_no(String value) {
+		setConstString(offset + 150, $wrk_br_no, value);
+	}
+
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public MCNumber list_upri() {
+		return getConstNumber(offset + 151, $list_upri);
+	}
+
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public void list_upri(MCNumber value) {
+		setConstNumber(offset + 151, $list_upri, value);
+	}
+	
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public void list_upri(int value) {
+		setConstNumber(offset + 151, $list_upri, value);
+	}
+	
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public void list_upri(long value) {
+		setConstNumber(offset + 151, $list_upri, value);
+	}
+	
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public void list_upri(float value) {
+		setConstNumber(offset + 151, $list_upri, value);
+	}
+	
+	/**
+	 * 定価. .<p>
+	 *
+	 */
+	public void list_upri(double value) {
+		setConstNumber(offset + 151, $list_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public MCNumber wl_sale_upri() {
+		return getConstNumber(offset + 152, $wl_sale_upri);
+	}
+
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public void wl_sale_upri(MCNumber value) {
+		setConstNumber(offset + 152, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public void wl_sale_upri(int value) {
+		setConstNumber(offset + 152, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public void wl_sale_upri(long value) {
+		setConstNumber(offset + 152, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public void wl_sale_upri(float value) {
+		setConstNumber(offset + 152, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 仕切単価. .<p>
+	 *
+	 */
+	public void wl_sale_upri(double value) {
+		setConstNumber(offset + 152, $wl_sale_upri, value);
+	}
+	
+	/**
+	 * 単価区分. .<p>
+	 *
+	 */
+	public String upri_typ() {
+		return getConstString(offset + 153, $upri_typ);
+	}
+
+	/**
+	 * 単価区分. .<p>
+	 *
+	 */
+	public void upri_typ(String value) {
+		setConstString(offset + 153, $upri_typ, value);
+	}
+
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public MCNumber rate() {
+		return getConstNumber(offset + 154, $rate);
+	}
+
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public void rate(MCNumber value) {
+		setConstNumber(offset + 154, $rate, value);
+	}
+	
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public void rate(int value) {
+		setConstNumber(offset + 154, $rate, value);
+	}
+	
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public void rate(long value) {
+		setConstNumber(offset + 154, $rate, value);
+	}
+	
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public void rate(float value) {
+		setConstNumber(offset + 154, $rate, value);
+	}
+	
+	/**
+	 * 掛率. .<p>
+	 *
+	 */
+	public void rate(double value) {
+		setConstNumber(offset + 154, $rate, value);
+	}
+	
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public String color() {
+		return getConstString(offset + 155, $color);
+	}
+
+	/**
+	 * 塗色. .<p>
+	 *
+	 */
+	public void color(String value) {
+		setConstString(offset + 155, $color, value);
+	}
+
+	/**
+	 * 銘版. .<p>
+	 *
+	 */
+	public String nm_plt() {
+		return getConstString(offset + 156, $nm_plt);
+	}
+
+	/**
+	 * 銘版. .<p>
+	 *
+	 */
+	public void nm_plt(String value) {
+		setConstString(offset + 156, $nm_plt, value);
+	}
+
+	/**
+	 * 客先品番. .<p>
+	 *
+	 */
+	public String cst_itm_no() {
+		return getConstString(offset + 157, $cst_itm_no);
+	}
+
+	/**
+	 * 客先品番. .<p>
+	 *
+	 */
+	public void cst_itm_no(String value) {
+		setConstString(offset + 157, $cst_itm_no, value);
+	}
+
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public MCNumber est_cost() {
+		return getConstNumber(offset + 158, $est_cost);
+	}
+
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public void est_cost(MCNumber value) {
+		setConstNumber(offset + 158, $est_cost, value);
+	}
+	
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public void est_cost(int value) {
+		setConstNumber(offset + 158, $est_cost, value);
+	}
+	
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public void est_cost(long value) {
+		setConstNumber(offset + 158, $est_cost, value);
+	}
+	
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public void est_cost(float value) {
+		setConstNumber(offset + 158, $est_cost, value);
+	}
+	
+	/**
+	 * 見積原価. .<p>
+	 *
+	 */
+	public void est_cost(double value) {
+		setConstNumber(offset + 158, $est_cost, value);
+	}
+	
+	/**
+	 * 照合明細キー. .<p>
+	 *
+	 */
+	public String match_dtl_key() {
+		return getConstString(offset + 159, $match_dtl_key);
+	}
+
+	/**
+	 * 照合明細キー. .<p>
+	 *
+	 */
+	public void match_dtl_key(String value) {
+		setConstString(offset + 159, $match_dtl_key, value);
+	}
+
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public String slo_d_cmnt_1() {
+		return getConstString(offset + 160, $slo_d_cmnt_1);
+	}
+
+	/**
+	 * コメント１. .<p>
+	 *
+	 */
+	public void slo_d_cmnt_1(String value) {
+		setConstString(offset + 160, $slo_d_cmnt_1, value);
+	}
+
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public String slo_d_cmnt_2() {
+		return getConstString(offset + 161, $slo_d_cmnt_2);
+	}
+
+	/**
+	 * コメント２. .<p>
+	 *
+	 */
+	public void slo_d_cmnt_2(String value) {
+		setConstString(offset + 161, $slo_d_cmnt_2, value);
+	}
+
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public String slo_d_cmnt_3() {
+		return getConstString(offset + 162, $slo_d_cmnt_3);
+	}
+
+	/**
+	 * コメント３. .<p>
+	 *
+	 */
+	public void slo_d_cmnt_3(String value) {
+		setConstString(offset + 162, $slo_d_cmnt_3, value);
+	}
+
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public String slo_d_cmnt_4() {
+		return getConstString(offset + 163, $slo_d_cmnt_4);
+	}
+
+	/**
+	 * コメント４. .<p>
+	 *
+	 */
+	public void slo_d_cmnt_4(String value) {
+		setConstString(offset + 163, $slo_d_cmnt_4, value);
+	}
+
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public String slo_d_cmnt_5() {
+		return getConstString(offset + 164, $slo_d_cmnt_5);
+	}
+
+	/**
+	 * コメント５. .<p>
+	 *
+	 */
+	public void slo_d_cmnt_5(String value) {
+		setConstString(offset + 164, $slo_d_cmnt_5, value);
+	}
+
 	public String getString(String name) {
 		if ($slo_d_no.equalsIgnoreCase(name)) {
 			return slo_d_no();
@@ -8857,6 +9750,39 @@ public class MST_SLO_D_R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($wrk_br_no.equalsIgnoreCase(name)) {
+			return wrk_br_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
+		}
+		if ($color.equalsIgnoreCase(name)) {
+			return color();
+		}
+		if ($nm_plt.equalsIgnoreCase(name)) {
+			return nm_plt();
+		}
+		if ($cst_itm_no.equalsIgnoreCase(name)) {
+			return cst_itm_no();
+		}
+		if ($match_dtl_key.equalsIgnoreCase(name)) {
+			return match_dtl_key();
+		}
+		if ($slo_d_cmnt_1.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_1();
+		}
+		if ($slo_d_cmnt_2.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_2();
+		}
+		if ($slo_d_cmnt_3.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_3();
+		}
+		if ($slo_d_cmnt_4.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_4();
+		}
+		if ($slo_d_cmnt_5.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_5();
+		}
 		return super.getString(name);
 	}
 
@@ -8926,6 +9852,18 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			return list_upri();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			return rate();
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			return est_cost();
 		}
 		return super.getNumber(name);
 	}
@@ -9327,6 +10265,39 @@ public class MST_SLO_D_R extends MCDBContainer {
 		if ($upd_srv_req_no.equalsIgnoreCase(name)) {
 			return upd_srv_req_no();
 		}
+		if ($wrk_br_no.equalsIgnoreCase(name)) {
+			return wrk_br_no();
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			return upri_typ();
+		}
+		if ($color.equalsIgnoreCase(name)) {
+			return color();
+		}
+		if ($nm_plt.equalsIgnoreCase(name)) {
+			return nm_plt();
+		}
+		if ($cst_itm_no.equalsIgnoreCase(name)) {
+			return cst_itm_no();
+		}
+		if ($match_dtl_key.equalsIgnoreCase(name)) {
+			return match_dtl_key();
+		}
+		if ($slo_d_cmnt_1.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_1();
+		}
+		if ($slo_d_cmnt_2.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_2();
+		}
+		if ($slo_d_cmnt_3.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_3();
+		}
+		if ($slo_d_cmnt_4.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_4();
+		}
+		if ($slo_d_cmnt_5.equalsIgnoreCase(name)) {
+			return slo_d_cmnt_5();
+		}
 		return super.getStringNE(name);
 	}
 
@@ -9396,6 +10367,18 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			return upd_cntr();
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			return list_upri();
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			return wl_sale_upri();
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			return rate();
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			return est_cost();
 		}
 		return super.getNumberNE(name);
 	}
@@ -9894,6 +10877,50 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_srv_req_no(value);
 			return;
 		}
+		if ($wrk_br_no.equalsIgnoreCase(name)) {
+			wrk_br_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
+			return;
+		}
+		if ($color.equalsIgnoreCase(name)) {
+			color(value);
+			return;
+		}
+		if ($nm_plt.equalsIgnoreCase(name)) {
+			nm_plt(value);
+			return;
+		}
+		if ($cst_itm_no.equalsIgnoreCase(name)) {
+			cst_itm_no(value);
+			return;
+		}
+		if ($match_dtl_key.equalsIgnoreCase(name)) {
+			match_dtl_key(value);
+			return;
+		}
+		if ($slo_d_cmnt_1.equalsIgnoreCase(name)) {
+			slo_d_cmnt_1(value);
+			return;
+		}
+		if ($slo_d_cmnt_2.equalsIgnoreCase(name)) {
+			slo_d_cmnt_2(value);
+			return;
+		}
+		if ($slo_d_cmnt_3.equalsIgnoreCase(name)) {
+			slo_d_cmnt_3(value);
+			return;
+		}
+		if ($slo_d_cmnt_4.equalsIgnoreCase(name)) {
+			slo_d_cmnt_4(value);
+			return;
+		}
+		if ($slo_d_cmnt_5.equalsIgnoreCase(name)) {
+			slo_d_cmnt_5(value);
+			return;
+		}
 		super.setString(name, value);
 	}
 
@@ -9984,6 +11011,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -10078,6 +11121,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -10168,6 +11227,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -10262,6 +11337,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
+			return;
+		}
 		super.setNumber(name, value);
 	}
 
@@ -10352,6 +11443,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumber(name, value);
@@ -10882,6 +11989,50 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_srv_req_no(value);
 			return;
 		}
+		if ($wrk_br_no.equalsIgnoreCase(name)) {
+			wrk_br_no(value);
+			return;
+		}
+		if ($upri_typ.equalsIgnoreCase(name)) {
+			upri_typ(value);
+			return;
+		}
+		if ($color.equalsIgnoreCase(name)) {
+			color(value);
+			return;
+		}
+		if ($nm_plt.equalsIgnoreCase(name)) {
+			nm_plt(value);
+			return;
+		}
+		if ($cst_itm_no.equalsIgnoreCase(name)) {
+			cst_itm_no(value);
+			return;
+		}
+		if ($match_dtl_key.equalsIgnoreCase(name)) {
+			match_dtl_key(value);
+			return;
+		}
+		if ($slo_d_cmnt_1.equalsIgnoreCase(name)) {
+			slo_d_cmnt_1(value);
+			return;
+		}
+		if ($slo_d_cmnt_2.equalsIgnoreCase(name)) {
+			slo_d_cmnt_2(value);
+			return;
+		}
+		if ($slo_d_cmnt_3.equalsIgnoreCase(name)) {
+			slo_d_cmnt_3(value);
+			return;
+		}
+		if ($slo_d_cmnt_4.equalsIgnoreCase(name)) {
+			slo_d_cmnt_4(value);
+			return;
+		}
+		if ($slo_d_cmnt_5.equalsIgnoreCase(name)) {
+			slo_d_cmnt_5(value);
+			return;
+		}
 		super.setStringNE(name, value);
 	}
 
@@ -10972,6 +12123,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -11066,6 +12233,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -11156,6 +12339,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumberNE(name, value);
@@ -11250,6 +12449,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 			upd_cntr(value);
 			return;
 		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
+			return;
+		}
 		super.setNumberNE(name, value);
 	}
 
@@ -11340,6 +12555,22 @@ public class MST_SLO_D_R extends MCDBContainer {
 		}
 		if ($upd_cntr.equalsIgnoreCase(name)) {
 			upd_cntr(value);
+			return;
+		}
+		if ($list_upri.equalsIgnoreCase(name)) {
+			list_upri(value);
+			return;
+		}
+		if ($wl_sale_upri.equalsIgnoreCase(name)) {
+			wl_sale_upri(value);
+			return;
+		}
+		if ($rate.equalsIgnoreCase(name)) {
+			rate(value);
+			return;
+		}
+		if ($est_cost.equalsIgnoreCase(name)) {
+			est_cost(value);
 			return;
 		}
 		super.setNumberNE(name, value);
