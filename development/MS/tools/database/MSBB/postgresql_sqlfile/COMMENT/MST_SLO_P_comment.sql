@@ -224,3 +224,210 @@ COMMENT ON COLUMN mst_slo_p.upd_func_id IS '更新機能ＩＤ // #MA.FUNC_ID //
 
 COMMENT ON COLUMN mst_slo_p.upd_srv_req_no IS '更新リクエストＮＯ // #MA.SRV_REQ_NO // Update request No.';
 
+
+COMMENT ON COLUMN mst_slo_p.sls_dt IS '売上日 // #MA.DT // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_aprv_dt IS '受注日 // #MA.DT // ';
+
+
+COMMENT ON COLUMN mst_slo_p.aprv_dt IS '更新日 // #MA.DT // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ship_prnt_no_cst_nm_flg IS '出荷帳票得意先名印字しないＦＬＧ // #MA.FLG // ';
+
+
+COMMENT ON COLUMN mst_slo_p.src_wrk_no IS '元案件ＮＯ // #MA.WRK_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.zoho_sls_schd_no IS 'ＺＯＨＯ販売予定ＮＯ // #MA.ZOHO_SLS_SCHD_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_last_sls_flg IS '受注出荷最終売上 // #MA.FLG // ';
+
+
+COMMENT ON COLUMN mst_slo_p.prod_itm_cd IS '製品ＣＤ // #MA.ITM_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.prod_itm_sub1 IS '製品枝番１ // #MA.ITM_SUB1 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.prod_itm_sub2 IS '製品枝番２ // #MA.ITM_SUB2 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.prod_itm_sub3 IS '製品枝番３ // #MA.ITM_SUB3 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.prod_itm_nm IS '製品名 // #MA.ITM_NM // ';
+
+
+COMMENT ON COLUMN mst_slo_p.surv_line_qty IS '測線数 // #MA.SURV_LINE_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.diameter IS '口径 // #MA.DIAMETER // ';
+
+
+COMMENT ON COLUMN mst_slo_p.match_key IS '照合ＫＥＹ // #MA.MATCH_KEY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.rcpt_no IS '受付番号 // #MA.RCPT_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.appl_doc_no IS '申請書番号 // #MA.APPL_DOC_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.dlv_draw_no IS '納入図番号 // #MA.DLV_DRAW_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_num_typ IS '注番区分 // #MA.SLO_NUM_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_num IS '注文番号 // #MA.SLO_NUM // ';
+
+
+COMMENT ON COLUMN mst_slo_p.hdr_qty IS '数量（ヘッダ） // #MA.QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.hdr_amt IS '金額（ヘッダ） // #MA.MONEY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.paint_clr IS '塗色 // #MA.PAINT_CLR // ';
+
+
+COMMENT ON COLUMN mst_slo_p.sales_cond IS '売上条件区分 // #MA.SALES_COND // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ship_sp_instr_typ IS '出荷特別指示区分 // #MA.SHIP_SP_INSTR_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.spec_dlv_note_typ IS '指定納品書区分 // #MA.SPEC_DLV_NOTE_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ord_dlv_dt IS '注文書納期 // #MA.DT // ';
+
+
+COMMENT ON COLUMN mst_slo_p.mrkt_cd IS '市場ＣＤ // #MA.MRKT_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.cntry_sign IS '国別符号 // #MA.CNTRY_SIGN // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ves_natl IS '船籍 // #MA.VES_NATL // ';
+
+
+COMMENT ON COLUMN mst_slo_p.shipyard_cd IS '造船所 // #MA.SHIPYARD_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ves_no IS '船番 // #MA.VES_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ves_nm IS '船名 // #MA.VES_NM // ';
+
+
+COMMENT ON COLUMN mst_slo_p.tonnage IS '屯数 // #MA.TONNAGE // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ves_typ IS '船種 // #MA.VES_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.insp_std IS '検査規格 // #MA.INSP_STD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.royalty_trg_amt IS 'ロイヤリティ対象金額 // #MA.MONEY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.royalty_psppl IS 'ロイヤリティ支払先 // #MA.ROYALTY_PSPPL // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ins_loc_1 IS '設置場所1 // #MA.INS_LOC_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ins_loc_2 IS '設置場所2 // #MA.INS_LOC_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.sfi_no IS 'SFI番号 // #MA.SFI_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.ps_sal_aft_dt IS '装備後売上日 // #MA.DT // ';
+
+
+COMMENT ON COLUMN mst_slo_p.wit_insp_typ IS '立会検査有無区分 // #MA.WIT_INSP_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.equip_typ IS '装備要否区分 // #MA.EQUIP_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.spec_doc_typ IS '仕様書区分 // #MA.SPEC_DOC_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.model_jp_en_typ IS '型式和英区分 // #MA.MODEL_JP_EN_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.insp_rep_typ IS '検査成績書（検査成績書区分） // #MA.INSP_REP_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.insp_rep_qty IS '検査成績書（検査成績書部数） // #MA.INSP_REP_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.cons_draw_typ IS '協議図（協議図区分） // #MA.CONS_DRAW_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.cons_draw_qty IS '協議図（協議図部数） // #MA.CONS_DRAW_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.const_draw_typ IS '工事図（工事図区分） // #MA.CONST_DRAW_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.const_draw_qty IS '工事図（工事図部数） // #MA.CONST_DRAW_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.comp_draw_typ IS '完成図（完成図区分） // #MA.COMP_DRAW_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.comp_draw_qty IS '完成図（完成図部数） // #MA.COMP_DRAW_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.inst_manual_typ IS '取扱説明書（取扱説明書区分） // #MA.INST_MANUAL_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.inst_manual_qty IS '取扱説明書（取扱説明書部数） // #MA.INST_MANUAL_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.aprv_draw_typ IS '承認図（承認図区分） // #MA.APRV_DRAW_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.aprv_draw_qty IS '承認図（承認図部数） // #MA.APRV_DRAW_QTY // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cng_rsn IS '受注変更理由 // #MA.SLO_CNG_RSN // ';
+
+
+COMMENT ON COLUMN mst_slo_p.frc_rsn_cd IS '無償理由ＣＤ // #MA.FRC_RSN_CD // ';
+
+
+COMMENT ON COLUMN mst_slo_p.main_draw_no IS '代表図番 // #MA.MAIN_DRAW_NO // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cmnt_1 IS 'コメント１ // #MA.MST_MEMO1 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cmnt_2 IS 'コメント２ // #MA.MST_MEMO2 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cmnt_3 IS 'コメント３ // #MA.MST_MEMO3 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cmnt_4 IS 'コメント４ // #MA.MST_MEMO4 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.slo_cmnt_5 IS 'コメント５ // #MA.MST_MEMO5 // ';
+
+
+COMMENT ON COLUMN mst_slo_p.src_ship_flg IS '元出荷基準ＦＬＧ // #MA.FLG // ';
+
+
+COMMENT ON COLUMN mst_slo_p.jip_slo_typ IS '受注種別 // #MA.JIP_SLO_TYP // ';
+
+
+COMMENT ON COLUMN mst_slo_p.jip_cst_cd IS '客先コード // #MA.CST_CD // ';
+
