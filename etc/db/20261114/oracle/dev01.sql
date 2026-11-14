@@ -11,10 +11,10 @@ DELETE FROM FCM_HISTORY_TABLE WHERE
 TABLE_NAME = 'MST_SLO_P_ALL'
 	;
 
+@development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_P_ALL.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_P.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_P_@S.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_P_@U.sql
-@development/MS/tools/database/MSBB/oracle_sqlfile/OBJECT/MST_SLO_P_ALL.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/CO_VT/MST_SLO_P_ALL_TR_K.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/HST_TAB/MST_SLO_P_ALL_R.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/HST_TR/MST_SLO_P_ALL_TR_R.sql
