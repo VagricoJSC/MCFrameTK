@@ -189,7 +189,7 @@ BEGIN
 			SLO_CMNT_5,
 			SRC_SHIP_FLG,
 			JIP_SLO_TYP,
-			JIP_CST_CD
+			CAN_RQST_FLG
 		)
 			VALUES (
 				H_ID,
@@ -337,7 +337,7 @@ BEGIN
 				:NEW.SLO_CMNT_5,
 				:NEW.SRC_SHIP_FLG,
 				:NEW.JIP_SLO_TYP,
-				:NEW.JIP_CST_CD
+				:NEW.CAN_RQST_FLG
 		);
 	ELSIF UPDATING THEN
 --keyに変更があるかどうかの判定
@@ -505,7 +505,7 @@ BEGIN
 				SLO_CMNT_5,
 				SRC_SHIP_FLG,
 				JIP_SLO_TYP,
-				JIP_CST_CD
+				CAN_RQST_FLG
 			)
 				VALUES (
 					H_ID,
@@ -653,7 +653,7 @@ BEGIN
 					:OLD.SLO_CMNT_5,
 					:OLD.SRC_SHIP_FLG,
 					:OLD.JIP_SLO_TYP,
-					:OLD.JIP_CST_CD
+					:OLD.CAN_RQST_FLG
 			);
 			H_TYP := 'I';
 		ELSE
@@ -820,7 +820,7 @@ BEGIN
 			SLO_CMNT_5,
 			SRC_SHIP_FLG,
 			JIP_SLO_TYP,
-			JIP_CST_CD
+			CAN_RQST_FLG
 		)
 			VALUES (
 				H_ID,
@@ -968,7 +968,7 @@ BEGIN
 				:NEW.SLO_CMNT_5,
 				:NEW.SRC_SHIP_FLG,
 				:NEW.JIP_SLO_TYP,
-				:NEW.JIP_CST_CD
+				:NEW.CAN_RQST_FLG
 		);
 	ELSIF DELETING THEN
 		H_TYP := 'D';
@@ -1133,7 +1133,7 @@ BEGIN
 			SLO_CMNT_5,
 			SRC_SHIP_FLG,
 			JIP_SLO_TYP,
-			JIP_CST_CD
+			CAN_RQST_FLG
 		)
 			VALUES (
 				H_ID,
@@ -1281,7 +1281,7 @@ BEGIN
 				:OLD.SLO_CMNT_5,
 				:OLD.SRC_SHIP_FLG,
 				:OLD.JIP_SLO_TYP,
-				:OLD.JIP_CST_CD
+				:OLD.CAN_RQST_FLG
 		);
 	END IF;
 END;

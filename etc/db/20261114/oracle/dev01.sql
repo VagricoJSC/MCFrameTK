@@ -1,10 +1,14 @@
 SET ESCCHAR @
 
+-- 受注ヘッダを変更
+ALTER TABLE MST_SLO_ALL DROP COLUMN JIP_CST_CD;
+ALTER TABLE MST_SLO_ALL ADD (CAN_RQST_FLG CHAR(1) DEFAULT '0' NOT NULL);
+@development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_ALL_CK09.sql
 
+
+-- 受注ヘッダ（改定履歴）を変更
 CREATE TABLE MST_SLO_P_ALL_BAK AS SELECT * FROM MST_SLO_P_ALL;
-
 DROP TABLE MST_SLO_P_ALL CASCADE CONSTRAINTS PURGE;
-
 DROP TABLE MST_SLO_P_ALL_R CASCADE CONSTRAINTS PURGE;
 
 DELETE FROM FCM_HISTORY_TABLE WHERE 
@@ -27,6 +31,7 @@ TABLE_NAME = 'MST_SLO_P_ALL'
 @development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_P_ALL_CK06.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_P_ALL_CK07.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_P_ALL_CK08.sql
+@development/MS/tools/database/MSBB/oracle_sqlfile/CHECK/MST_SLO_P_ALL_CK09.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/COMMENT/MST_SLO_P_ALL_comment.sql
 @development/MS/tools/database/MSBB/oracle_sqlfile/COMMENT/MST_SLO_P_comment.sql
 

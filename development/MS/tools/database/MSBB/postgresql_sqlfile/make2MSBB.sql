@@ -92,6 +92,8 @@
 
 \i ./CHECK/MST_SLO_ALL_CK08.sql
 
+\i ./CHECK/MST_SLO_ALL_CK09.sql
+
 \i ./CHECK/MST_SLO_P_ALL_CK01.sql
 
 \i ./CHECK/MST_SLO_P_ALL_CK02.sql
@@ -107,6 +109,8 @@
 \i ./CHECK/MST_SLO_P_ALL_CK07.sql
 
 \i ./CHECK/MST_SLO_P_ALL_CK08.sql
+
+\i ./CHECK/MST_SLO_P_ALL_CK09.sql
 
 \i ./CHECK/MST_SLO_D_ALL_CK01.sql
 
