@@ -235,17 +235,17 @@ public class MSUAL_List extends MSUAL_List_MC {
 		);
 	
 	private static final HashSet<String> HAKUYOU_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
-			"010"
-			, "020"
-			, "030"
-			, "040"
-			, "050"
-			, "060"
-			, "070"
-			, "080"
-			, "800"
-			, "9XX"
-			, "9YY"
+			"A010"
+			, "A020"
+			, "A030"
+			, "A040"
+			, "A050"
+			, "A060"
+			, "A070"
+			, "A080"
+			, "A800"
+			, "A9XX"
+			, "A9YY"
 	));
 	private static final HashSet<String> KENSA_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList(
 			"010"
@@ -279,20 +279,20 @@ public class MSUAL_List extends MSUAL_List_MC {
 			, "9YY"
 	));
 	private static final HashSet<String> DENSHIKIKI_SERVICE_TRD_CD_SET = new HashSet<String>(Arrays.asList( // 油圧制御システムＣｏ．
-			"010"
-			, "020"
-			, "030"
-			, "040"
-			, "050"
-			, "060"
-			, "070"
-			, "080"
-			, "090"
-			, "100"
-			, "110"
-			, "120"
-			, "9XX"
-			, "9YY"
+			"D010"
+			, "D020"
+			, "D030"
+			, "D040"
+			, "D050"
+			, "D060"
+			, "D070"
+			, "D080"
+			, "D090"
+			, "D100"
+			, "D110"
+			, "D120"
+			, "D9XX"
+			, "D9YY"
 	));
 	
 	
