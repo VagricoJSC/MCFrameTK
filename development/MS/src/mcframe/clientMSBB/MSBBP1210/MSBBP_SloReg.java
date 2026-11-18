@@ -553,10 +553,10 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String SLS_COND_TYP_0 = "0";	// 出荷売上
 	private final static String SLS_COND_TYP_1 = "1";	// 営業在庫品
 	private final static String SLS_COND_TYP_2 = "2";	// 営業所送り
-	private final static String SLS_COND_TYP_3 = "3";
-	private final static String SLS_COND_TYP_4 = "4";
+	private final static String SLS_COND_TYP_3 = "3";	// 装備工事後売上
+	private final static String SLS_COND_TYP_4 = "4";	// B／L売上
 	private final static String SLS_COND_TYP_6 = "6"; 	// 6:受注即売上
-	private final static String SLS_COND_TYP_7 = "7";
+	private final static String SLS_COND_TYP_7 = "7";	// 
 	private final static String SLS_COND_TYP_9 = "9";	// 代納売上
 	
 	@Override
@@ -575,7 +575,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	
 	
 	/**
-	 * 選択中の取引CDに応じて入力項目を制御
+	 * 選択中の取引CDに応じて入力項目を制御（A:舶用）
 	 */
 	private final static String A_TRD_CD_010 = "A010";
 	private final static String A_TRD_CD_020 = "A020";
@@ -588,12 +588,40 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String A_TRD_CD_800 = "A800";
 	private final static String A_TRD_CD_9XX = "A9XX"; // 代納
 	private final static String A_TRD_CD_9YY = "A9YY"; // 貸出
-	private final static Set<String> HAKUYOU_TRD_CD = new HashSet<String>(
-		Arrays.asList(A_TRD_CD_010, A_TRD_CD_020, A_TRD_CD_030, A_TRD_CD_040, A_TRD_CD_050, A_TRD_CD_060, A_TRD_CD_070, A_TRD_CD_080, 
-				A_TRD_CD_800, A_TRD_CD_9XX, A_TRD_CD_9YY)
-	);
+
+
+	/**
+	 * 選択中の取引CDに応じて入力項目を制御（B:計測）
+	 */
+	private final static String B_TRD_CD_010 = "B010";
+	private final static String B_TRD_CD_020 = "B020";
+	private final static String B_TRD_CD_030 = "B030";
+	private final static String B_TRD_CD_040 = "B040";
+	private final static String B_TRD_CD_050 = "B050";
+	private final static String B_TRD_CD_060 = "B060";
+	private final static String B_TRD_CD_070 = "B070";
+	private final static String B_TRD_CD_800 = "B800";
+	private final static String B_TRD_CD_9XX = "B9XX"; // 代納
+	private final static String B_TRD_CD_9YY = "B9YY"; // 貸出
 
 	
+	/**
+	 * 選択中の取引CDに応じて入力項目を制御（C:検査）
+	 */
+	private final static String C_TRD_CD_010 = "C010";
+	private final static String C_TRD_CD_020 = "C020";
+	private final static String C_TRD_CD_030 = "C030";
+	private final static String C_TRD_CD_040 = "C040";
+	private final static String C_TRD_CD_050 = "C050";
+	private final static String C_TRD_CD_060 = "C060";
+	private final static String C_TRD_CD_070 = "C070";
+	private final static String C_TRD_CD_9XX = "C9XX"; // 代納
+	private final static String C_TRD_CD_9YY = "C9YY"; // 貸出
+
+		
+	/**
+	 * 選択中の取引CDに応じて入力項目を制御（D:建機電子）
+	 */
 	private final static String D_TRD_CD_010 = "D010";
 	private final static String D_TRD_CD_020 = "D020";
 	private final static String D_TRD_CD_030 = "D030";
@@ -608,11 +636,18 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	private final static String D_TRD_CD_120 = "D120"; // 該非判定・成績書・送料など追加要求費用
 	private final static String D_TRD_CD_9XX = "D9XX"; // 代納
 	private final static String D_TRD_CD_9YY = "D9YY"; // 貸出
-	private final static Set<String> DENSHIKIKI_TRD_CD = new HashSet<String>(
-			Arrays.asList(D_TRD_CD_010, D_TRD_CD_020, D_TRD_CD_030, D_TRD_CD_040, D_TRD_CD_050, D_TRD_CD_060, D_TRD_CD_070, D_TRD_CD_080, 
-					D_TRD_CD_090, D_TRD_CD_100, D_TRD_CD_110, D_TRD_CD_120, D_TRD_CD_9XX, D_TRD_CD_9YY)
-		);
 	
+	/**
+	 * 選択中の取引CDに応じて入力項目を制御（G:防災）
+	 */
+	private final static String G_TRD_CD_010 = "G010";
+	private final static String G_TRD_CD_020 = "G020";
+	private final static String G_TRD_CD_030 = "G030";
+	private final static String G_TRD_CD_040 = "G040";
+	private final static String G_TRD_CD_9XX = "G9XX"; // 代納
+	private final static String G_TRD_CD_9YY = "G9YY"; // 貸出
+
+		
 	
 	@Override
 	public MCList<?> getHdr_sls_cond_typ(
@@ -687,6 +722,71 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 					Arrays.asList(SLS_COND_TYP_0));
 		}
 
+		// コンパニー：B
+		else if (B_TRD_CD_010.equals(trdCd)
+				|| B_TRD_CD_020.equals(trdCd)
+				|| B_TRD_CD_030.equals(trdCd)
+				|| B_TRD_CD_050.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_3));
+		}
+		else if (B_TRD_CD_040.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_2));
+		}
+		else if (B_TRD_CD_060.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_4));
+		}
+		else if (B_TRD_CD_070.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_2));
+		}
+		else if (B_TRD_CD_800.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_1));
+		}
+		else if (B_TRD_CD_9XX.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_9));
+		}
+		else if (B_TRD_CD_9YY.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}	
+
+		// コンパニー：C
+		else if (C_TRD_CD_010.equals(trdCd)
+				|| C_TRD_CD_030.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_3));
+		}
+		else if (C_TRD_CD_020.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_4));
+		}
+		else if (C_TRD_CD_040.equals(trdCd)
+				|| C_TRD_CD_050.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}
+		else if (C_TRD_CD_060.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_4));
+		}
+		else if (C_TRD_CD_070.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}
+		else if (C_TRD_CD_9XX.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_9));
+		}
+		else if (C_TRD_CD_9YY.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}	
+		
 		// コンパニー：D
 		else if (D_TRD_CD_010.equals(trdCd)) {
 			return new HashSet<>(
@@ -737,6 +837,26 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 					Arrays.asList(SLS_COND_TYP_0, SLS_COND_TYP_6)); // 0:出荷売上、6:受注即売上
 		}
 		
+		// コンパニー：G
+		else if (G_TRD_CD_010.equals(trdCd)
+				|| G_TRD_CD_020.equals(trdCd)
+				|| G_TRD_CD_040.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_3));
+		}
+		else if (G_TRD_CD_030.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}
+		else if (G_TRD_CD_9XX.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_9));
+		}
+		else if (G_TRD_CD_9YY.equals(trdCd)) {
+			return new HashSet<>(
+					Arrays.asList(SLS_COND_TYP_0));
+		}	
+
 		// 未定義の取引CDでは候補を制限しない
 		return ALL_SLS_COND_CD;
 	}
@@ -1016,6 +1136,9 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		
 		// 単価計算
 		setDtlUpri(r);
+
+		// デフォルト税CDを設定
+		setDefaultTaxCd(index, false);
 
 		// 値引額関連の既存処理
 		setDscntAmt(r);
