@@ -131,9 +131,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			MCList<MatchKeySrchR> result =
 					MSBBP_SloReg.this.getMatchKeySrchL();
 			if (isNull(result) || result.isEmpty()) {
-		        MCMessageList msgList = new MCMessageList();
-		        msgList.add(new MCMessage(MSBBL0704, Hdr_match_key.getValue()));
-		        MSBBP_SloReg.this.message(msgList);
+				dialog(new MCMessage(MSBBL0704, Hdr_match_key.getValue()));
 		        return;
 			}
 			
@@ -241,6 +239,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 */
 	@Override
 	public void doHdr_exp_match_btn(MCEventInfo info) {
+		getMatchKeySrchL().clear();
 		callMS_MSBBL1210_ExpByKey01();
 	}
 

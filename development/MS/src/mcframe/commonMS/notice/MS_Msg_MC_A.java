@@ -1757,7 +1757,7 @@ public class MS_Msg_MC_A {
 	 */
 	public static String MSBBL0703 = "MSBBL0703";
 
-	/** LEVEL[E]<br>指定された照合キーが存在しません。再入力してください。<br>照合キー：{1}<p>
+	/** LEVEL[W]<br>指定された照合キーが存在しません。再入力してください。<br>照合キー：{1}<p>
 	 */
 	public static String MSBBL0704 = "MSBBL0704";
 
