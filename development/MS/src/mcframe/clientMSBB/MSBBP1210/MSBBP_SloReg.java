@@ -139,6 +139,15 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		}
 		
 		/**
+		 * 照合展開に必要な項目だけ必須チェックする。
+		 */
+		@Override
+		protected void checkReq(MCMessageList msgList) {
+			// super.checkReq(msgList)は呼ばない。
+			msgList.addAll(panel.checkReq(Hdr_match_key));
+		}
+	    
+		/**
 		 * 呼び元（受注登録）の明細テーブルにデータを反映
 		 * @param sloDtlTable
 		 */
