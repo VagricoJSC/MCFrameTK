@@ -1757,6 +1757,10 @@ public class MS_Msg_MC_A {
 	 */
 	public static String MSBBL0703 = "MSBBL0703";
 
+	/** LEVEL[E]<br>指定された照合キーが存在しません。再入力してください。<br>照合キー：{1}<p>
+	 */
+	public static String MSBBL0704 = "MSBBL0704";
+
 	/** LEVEL[I]<br>手配ＮＯ発番処理を実行します。よろしいですか？<p>
 	 */
 	public static String MSBCP0001 = "MSBCP0001";

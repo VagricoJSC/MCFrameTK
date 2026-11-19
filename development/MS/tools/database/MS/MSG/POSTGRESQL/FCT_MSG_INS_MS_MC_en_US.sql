@@ -2632,6 +2632,12 @@ INSERT INTO FCT_MSG (MSGID, LOC_CD, LVL, MSG) VALUES(
 	'en_US',
 	'W',
 	'If the unit price is not zero, you cannot specify the sales reason for sales other accounting.\nUnit price: {1}\nSales reason: {2}\n{3}');
+DELETE FROM FCT_MSG WHERE MSGID = 'MSBBL0704' AND LOC_CD = 'en_US';
+INSERT INTO FCT_MSG (MSGID, LOC_CD, LVL, MSG) VALUES(
+	'MSBBL0704',
+	'en_US',
+	'E',
+	'The specified matching key does not exist. Please re-enter it.\nMatching key: {1}');
 DELETE FROM FCT_MSG WHERE MSGID = 'MSBCP0001' AND LOC_CD = 'en_US';
 INSERT INTO FCT_MSG (MSGID, LOC_CD, LVL, MSG) VALUES(
 	'MSBCP0001',

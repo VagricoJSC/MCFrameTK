@@ -130,7 +130,13 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 			// オペレーションの取得結
 			MCList<MatchKeySrchR> result =
 					MSBBP_SloReg.this.getMatchKeySrchL();
-
+			if (isNull(result) || result.isEmpty()) {
+		        MCMessageList msgList = new MCMessageList();
+		        msgList.add(new MCMessage(MSBBL0704, Hdr_match_key.getValue()));
+		        MSBBP_SloReg.this.message(msgList);
+		        return;
+			}
+			
 			updateSloDtlTable(result);
 		}
 		
