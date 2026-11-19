@@ -121,6 +121,94 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 		protected MS_MSBBL1210_ExpByKey01Caller(P p, B b) {
 			super(p, b);
 		}
+		
+		@Override
+		protected void show() {
+			// 下り電文を画面側のMatchKeySrchリストへ格納する。
+			super.show();
+
+			// オペレーションの取得結
+			MCList<MatchKeySrchR> result =
+					MSBBP_SloReg.this.getMatchKeySrchL();
+
+			updateSloDtlTable(result);
+		}
+		
+		/**
+		 * 呼び元（受注登録）の明細テーブルにデータを反映
+		 * @param sloDtlTable
+		 */
+		protected void updateSloDtlTable(MCList <MatchKeySrchR> matchKeySrchL) {
+			if (matchKeySrchL.isEmpty()) {
+				return;
+			}
+			
+			// 現在のデータをクリア
+			DtlTable.clear();
+			
+			addProdRowToSloDtlTable();
+			addItmRowsToSloDtlTable(matchKeySrchL);
+			
+			DtlTable.selectLeftmostColumn(0);
+			DtlTable.fillSpace();
+		}
+		
+		/**
+		 * 構成品目に対応する行を受注明細テーブルに追加
+		 * @param sloDtlTable
+		 * @param list
+		 * @param sloRegPanel
+		 */
+		private void addItmRowsToSloDtlTable(MCList<MatchKeySrchR> matchKeySrchL) {
+			MCNumber prod_qty = Hdr_hdr_qty.getValue();
+			if (isNull(prod_qty)) {
+				prod_qty = MCNumber.ONE;
+			}
+			
+			// 構成品目（子品目）の行を追加
+			for (int i = 0; i < matchKeySrchL.size(); i ++) {
+				if (DtlTable.getRow(i + 1) == null) {
+					insertRow(DtlTable);
+				}
+				
+				MatchKeySrchR row = matchKeySrchL.get(i);
+				
+				// 品目CD
+				setValueEx(columnDtl_itm_cd, i + 1, row.itm_cd());
+				setValueEx(columnDtl_itm_sub1, i + 1, row.itm_sub1());
+				setValueEx(columnDtl_itm_sub2, i + 1, row.itm_sub2());
+				setValueEx(columnDtl_itm_sub3, i + 1, row.itm_sub3());
+				
+				// 数量
+				setValueEx(columnDtl_trd_unit_qty, i + 1, row.itm_qty().multiply(prod_qty));
+				setValueEx(columnDtl_bill_crryovr_times, 0, MCNumber.ONE);
+			}
+		}
+
+		/**
+		 * 製品に対応する行を受注明細テーブルに追加
+		 * @param sloDtlTable
+		 * @param list
+		 * @param sloRegPanel
+		 */
+		private void addProdRowToSloDtlTable() {
+			// 製品の1行を追加
+			if (DtlTable.getRow(0) == null) {
+				insertRow(DtlTable);
+			}
+			
+			// 品目CD
+			setValueEx(columnDtl_itm_cd, 0, Hdr_par_itm_cd.getValue());
+			setValueEx(columnDtl_itm_sub1, 0, Hdr_par_itm_sub1.getValue());
+			setValueEx(columnDtl_itm_sub2, 0, Hdr_par_itm_sub2.getValue());
+			setValueEx(columnDtl_itm_sub3, 0, Hdr_par_itm_sub3.getValue());
+			setValueEx(columnDtl_bill_crryovr_times, 0, MCNumber.ONE);
+
+			// 数量
+			setValueEx(columnDtl_trd_unit_qty, 0, MCNumber.ONE);
+		}
+		
+		
 	}
 
 	/**
@@ -147,6 +235,7 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	 */
 	@Override
 	public void doHdr_exp_match_btn(MCEventInfo info) {
+		callMS_MSBBL1210_ExpByKey01();
 	}
 
 	/**
