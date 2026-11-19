@@ -109,8 +109,20 @@ public class MSBBP_SloReg extends MSBBP_SloReg_MC {
 	}
 	public class MS_MSBBL1210_Sprt01Bridge extends MSBBP_SloReg_MC.MS_MSBBL1210_Sprt01Bridge {
 	}
+	public class MS_MSBBL1210_ExpByKey01Bridge extends MSBBP_SloReg_MC.MS_MSBBL1210_ExpByKey01Bridge {
+	}
 
 //FMCB CUSTOM START
+	/**
+	 * [MS_MSBBL1210_ExpByKey01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_ExpByKey01Caller<P extends MSBBP_SloReg, B extends MS_MSBBL1210_ExpByKey01Bridge> extends mcframe.clientMAUD.MAUDP0010.MAUDP_InputSupporter<P, B> {
+
+		protected MS_MSBBL1210_ExpByKey01Caller(P p, B b) {
+			super(p, b);
+		}
+	}
+
 	/**
 	 * Panel[Btn]のボタン[par_ship]の押下時の処理
 	 */

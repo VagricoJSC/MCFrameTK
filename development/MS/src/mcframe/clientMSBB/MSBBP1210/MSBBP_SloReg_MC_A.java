@@ -25,6 +25,7 @@ import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Ins01Caller;
 import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Upd01Caller;
 import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Del01Caller;
 import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_Sprt01Caller;
+import mcframe.clientMSBB.MSBBP1210.MSBBP_SloReg.MS_MSBBL1210_ExpByKey01Caller;
 
 /**
  * 画面"MSBBP_SloReg"パネルクラスです。<p>
@@ -2474,6 +2475,18 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MCCaller caller = createMS_MSBBL1210_Sprt01();
 		caller.exec();
 	}
+	/** [MS_MSBBL1210_ExpByKey01]のCallerの作成 */
+	protected MSBBP_SloReg.MS_MSBBL1210_ExpByKey01Caller createMS_MSBBL1210_ExpByKey01() {
+		MSBBP_SloReg.MS_MSBBL1210_ExpByKey01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_ExpByKey01Bridge>
+		caller = ((MSBBP_SloReg)this).new MS_MSBBL1210_ExpByKey01Caller<MSBBP_SloReg, MSBBP_SloReg.MS_MSBBL1210_ExpByKey01Bridge>(
+					(MSBBP_SloReg)this, ((MSBBP_SloReg)this).new MS_MSBBL1210_ExpByKey01Bridge());
+		return caller;
+	}
+	/** [MS_MSBBL1210_ExpByKey01]の呼び出し */
+	protected void callMS_MSBBL1210_ExpByKey01() {
+		MCCaller caller = createMS_MSBBL1210_ExpByKey01();
+		caller.exec();
+	}
 	/** [Cnd]ブロックのコンテナField定義 */
 	private final mcframe.clientMSBB.MSBBP1210.CndR aCndR;
 	/** [Hdr]ブロックのコンテナField定義 */
@@ -2486,6 +2499,8 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	private final MCList<mcframe.clientMSBB.MSBBP1210.DtlSpecR> aDtlSpecL;
 	/** [UpriSrch]ブロックのコンテナField定義 */
 	private final MCList<mcframe.clientMSBB.MSBBP1210.UpriSrchR> aUpriSrchL;
+	/** [MatchKeySrch]ブロックのコンテナField定義 */
+	private final MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR> aMatchKeySrchL;
 
 	/**
 	 * 項目コピーによってaCndRを設定します。
@@ -2719,6 +2734,46 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * コピーによってaMatchKeySrchLを設定します。
+	 *
+	 * aMatchKeySrchLのインスタンスは変更されません。
+	 *
+	 * @param dataset MatchKeySrchL
+	 */
+	public void setMatchKeySrchL(MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR> aList) {
+		if (getMatchKeySrchL() != aList) {
+			getMatchKeySrchL().setAll(aList);
+		}
+	}
+
+	/**
+	 * [MatchKeySrch]ブロックのコンテナaMatchKeySrchLを返します。
+	 *
+	 * @return MatchKeySrchL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR> getMatchKeySrchL() {
+		return aMatchKeySrchL;
+	}
+
+	/**
+	 * aMatchKeySrchRを作成します。
+	 *
+	 * @return MatchKeySrchR
+	 */
+	public mcframe.clientMSBB.MSBBP1210.MatchKeySrchR createMatchKeySrchR() {
+		return mcframe.clientMSBB.MSBBP1210.MatchKeySrchR.create();
+	}
+
+	/**
+	 * aMatchKeySrchLを作成します。
+	 *
+	 * @return MatchKeySrchL
+	 */
+	public MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR> createMatchKeySrchL() {
+		return MCList.create(mcframe.clientMSBB.MSBBP1210.MatchKeySrchR.class);
+	}
+
+	/**
 	 * 保持するコンテナのListを返します。
 	 *
 	 * @return コンテナのList
@@ -2731,6 +2786,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(!MCCollectionUtil.contains(ret, getDtlCompL())) ret.add(getDtlCompL());
 		if(!MCCollectionUtil.contains(ret, getDtlSpecL())) ret.add(getDtlSpecL());
 		if(!MCCollectionUtil.contains(ret, getUpriSrchL())) ret.add(getUpriSrchL());
+		if(!MCCollectionUtil.contains(ret, getMatchKeySrchL())) ret.add(getMatchKeySrchL());
 		return ret;
 	}
 
@@ -2750,6 +2806,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(aCnt == getDtlCompL()) return "DtlComp";
 		if(aCnt == getDtlSpecL()) return "DtlSpec";
 		if(aCnt == getUpriSrchL()) return "UpriSrch";
+		if(aCnt == getMatchKeySrchL()) return "MatchKeySrch";
 		return super.getBlockId(aCnt);
 	}
 
@@ -2769,6 +2826,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if(bId.equals("DtlComp")) return getDtlCompL();
 		if(bId.equals("DtlSpec")) return getDtlSpecL();
 		if(bId.equals("UpriSrch")) return getUpriSrchL();
+		if(bId.equals("MatchKeySrch")) return getMatchKeySrchL();
 		return super.getContainer(bId);
 	}
 
@@ -2801,6 +2859,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		aDtlCompL = createDtlCompL();
 		aDtlSpecL = createDtlSpecL();
 		aUpriSrchL = createUpriSrchL();
+		aMatchKeySrchL = createMatchKeySrchL();
 
 	}
 
@@ -2818,6 +2877,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		aDtlCompL = createDtlCompL();
 		aDtlSpecL = createDtlSpecL();
 		aUpriSrchL = createUpriSrchL();
+		aMatchKeySrchL = createMatchKeySrchL();
 	}
 
 
@@ -6403,6 +6463,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitSRCH_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitSRCH_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitSRCH_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitSRCH_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [REF]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitREF_ScreenOpe((MSBBP_SloReg)this);
@@ -6417,6 +6478,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitREF_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitREF_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitREF_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitREF_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [UPD]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitUPD_ScreenOpe((MSBBP_SloReg)this);
@@ -6431,6 +6493,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitUPD_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [UPD_QTN]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitUPD__QTN_ScreenOpe((MSBBP_SloReg)this);
@@ -6445,6 +6508,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitUPD__QTN_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__QTN_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__QTN_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__QTN_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [UPD_APRV]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitUPD__APRV_ScreenOpe((MSBBP_SloReg)this);
@@ -6459,6 +6523,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitUPD__APRV_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__APRV_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__APRV_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__APRV_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [UPD_TRNST]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitUPD__TRNST_ScreenOpe((MSBBP_SloReg)this);
@@ -6473,6 +6538,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitUPD__TRNST_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__TRNST_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitUPD__TRNST_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitUPD__TRNST_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [FIX_U]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitFIX__U_ScreenOpe((MSBBP_SloReg)this);
@@ -6487,6 +6553,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitFIX__U_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__U_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__U_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__U_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [INS]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitINS_ScreenOpe((MSBBP_SloReg)this);
@@ -6501,6 +6568,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitINS_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitINS_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitINS_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [INS_QTN]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitINS__QTN_ScreenOpe((MSBBP_SloReg)this);
@@ -6515,6 +6583,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitINS__QTN_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitINS__QTN_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitINS__QTN_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitINS__QTN_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [FIX_I]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitFIX__I_ScreenOpe((MSBBP_SloReg)this);
@@ -6529,6 +6598,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitFIX__I_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__I_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__I_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__I_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [DEL]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitDEL_ScreenOpe((MSBBP_SloReg)this);
@@ -6543,6 +6613,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitDEL_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitDEL_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitDEL_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitDEL_MatchKeySrch((MSBBP_SloReg)this);
 
 		// [FIX_D]ステータスのモードの設定
 		MSBBP_SloReg_MC.statusInitFIX__D_ScreenOpe((MSBBP_SloReg)this);
@@ -6557,6 +6628,7 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		MSBBP_SloReg_MC.statusInitFIX__D_Btn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__D_EastBtn((MSBBP_SloReg)this);
 		MSBBP_SloReg_MC.statusInitFIX__D_UpriSrch((MSBBP_SloReg)this);
+		MSBBP_SloReg_MC.statusInitFIX__D_MatchKeySrch((MSBBP_SloReg)this);
 
 	}
 
@@ -7892,6 +7964,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [SRCH]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitSRCH_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [REF]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitREF_ScreenOpe(MSBBP_SloReg p){
@@ -8411,6 +8490,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [REF]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitREF_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [REF]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitREF_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -8939,6 +9025,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [UPD]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [UPD_QTN]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__QTN_ScreenOpe(MSBBP_SloReg p){
@@ -9459,6 +9552,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_QTN]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__QTN_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_QTN]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__QTN_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -9986,6 +10086,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [UPD_APRV]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__APRV_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [UPD_TRNST]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__TRNST_ScreenOpe(MSBBP_SloReg p){
@@ -10233,6 +10340,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [UPD_TRNST]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitUPD__TRNST_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [UPD_TRNST]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitUPD__TRNST_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -10756,6 +10870,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_U]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__U_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_U]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__U_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -11284,6 +11405,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [INS]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitINS_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [INS_QTN]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitINS__QTN_ScreenOpe(MSBBP_SloReg p){
@@ -11804,6 +11932,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [INS_QTN]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitINS__QTN_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [INS_QTN]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitINS__QTN_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -12331,6 +12466,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [FIX_I]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__I_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [DEL]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitDEL_ScreenOpe(MSBBP_SloReg p){
@@ -12854,6 +12996,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	}
 
 	/**
+	 * [DEL]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitDEL_MatchKeySrch(MSBBP_SloReg p){
+
+	}
+
+	/**
 	 * [FIX_D]ステータスの[ScreenOpe]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__D_ScreenOpe(MSBBP_SloReg p){
@@ -13373,6 +13522,13 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 	 * [FIX_D]ステータスの[UpriSrch]ブロックのモードの設定
 	 */
 	protected static void statusInitFIX__D_UpriSrch(MSBBP_SloReg p){
+
+	}
+
+	/**
+	 * [FIX_D]ステータスの[MatchKeySrch]ブロックのモードの設定
+	 */
+	protected static void statusInitFIX__D_MatchKeySrch(MSBBP_SloReg p){
 
 	}
 
@@ -32882,6 +33038,9 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		if (id.equals("MS.MSBBL1210.Sprt01")) {
 			return new MS_MSBBL1210_Sprt01Bridge();
 		}
+		if (id.equals("MS.MSBBL1210.ExpByKey01")) {
+			return new MS_MSBBL1210_ExpByKey01Bridge();
+		}
 		return super.createBridge(id);
 	}
 	/**
@@ -33453,6 +33612,89 @@ abstract public class MSBBP_SloReg_MC_A extends mcframe.clientMSUD.MSUDP0010.MSU
 		protected List<MCContainer> getDownBlocks() {
 			List<MCContainer> result = new ArrayList<MCContainer>();
 			result.add(getUpriSrchL());
+			return result;
+		}
+	}
+	/**
+	 * [MS_MSBBL1210_ExpByKey01]の定型処理のInnerClass
+	 */
+	protected class MS_MSBBL1210_ExpByKey01Bridge extends MCCallerPanelBridge {
+		/**
+		 * 電文パラメータ<p>
+		 * 
+		 * 参照する場合には{@link #param()}を使用してください。
+		 */
+		MCParam p_MS_MSBBL1210_ExpByKey01;
+
+		/** コンストラクタ */
+		protected MS_MSBBL1210_ExpByKey01Bridge() {
+			p_MS_MSBBL1210_ExpByKey01 = new MCParam(PDef.MS_MSBBL1210_ExpByKey01_INFO);
+		}
+
+		@Override
+		public MCParam createAsyncParam() {
+			MCParam param = new MCParam(PDef.MS_MSBBL1210_ExpByKey01_INFO);
+			param.setReqSrcId(getScreenID());
+			// Up
+			param.addUpBlock(mcframe.clientMSBB.MSBBP1210.HdrR.create());
+			// Down
+			param.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.MatchKeySrchR.class));
+
+			p_MS_MSBBL1210_ExpByKey01 = param;
+			return param;
+		}
+
+		/** パラメータを通信用に設定します。*/
+		protected void setupParam() {
+			p_MS_MSBBL1210_ExpByKey01.setReqSrcId(getScreenID());
+			setupUpParam();
+			setupDownParam();
+		}
+
+		protected void setupUpParam() {
+			p_MS_MSBBL1210_ExpByKey01.addUpBlock(getHdrR());
+		}
+
+		protected MCContainer up(int i) {
+			return p_MS_MSBBL1210_ExpByKey01.getContainerParam().getUpBlock(i);
+		}
+		
+		protected MCContainer down(int i) {
+			return p_MS_MSBBL1210_ExpByKey01.getContainerParam().getDownBlock(i);
+		}
+		
+		protected mcframe.clientMSBB.MSBBP1210.HdrR up0() {
+			return (mcframe.clientMSBB.MSBBP1210.HdrR)up(0);
+		}
+
+		protected MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR> down0() {
+			return (MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR>)down(0);
+		}
+
+		protected void setupDownParam() {
+			p_MS_MSBBL1210_ExpByKey01.addDownBlock(MCList.create(mcframe.clientMSBB.MSBBP1210.MatchKeySrchR.class));
+		}
+		protected MCParam param() {
+			return p_MS_MSBBL1210_ExpByKey01;
+		}
+
+		protected void show() {
+			setMatchKeySrchL((MCList<mcframe.clientMSBB.MSBBP1210.MatchKeySrchR>)p_MS_MSBBL1210_ExpByKey01.getContainerParam().getDownBlock(0));
+		}
+
+		protected void clear() {
+			getMatchKeySrchL().clear();
+		}
+		
+		protected List<MCContainer> getUpBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getHdrR());
+			return result;
+		}
+		
+		protected List<MCContainer> getDownBlocks() {
+			List<MCContainer> result = new ArrayList<MCContainer>();
+			result.add(getMatchKeySrchL());
 			return result;
 		}
 	}

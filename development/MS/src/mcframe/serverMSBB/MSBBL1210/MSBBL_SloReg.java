@@ -56,6 +56,7 @@ import static mcframe.serverMS.dbc.MSBIFunction.*;
 //FMCB IMPORT START
 import mcframe.serverMSBB.MSBBL6020.*;	// このimportはFrameManagerの自動生成で追加されました。
 import mcframe.serverMSBB.MSBBL1210.*;	// このimportはFrameManagerの自動生成で追加されました。
+import static mcframe.serverMSBB.MSBBL1210.Query.*;
 //FMCB IMPORT END
 
 /**
@@ -67,6 +68,32 @@ import mcframe.serverMSBB.MSBBL1210.*;	// このimportはFrameManagerの自動�
 public class MSBBL_SloReg extends MSBBL_SloReg_MC {
 
 //FMCB CUSTOM START
+	/**
+	 * ExpByKey01オペレーション.<p>
+	 *
+	 * 照合展開を行う<br>
+	 */
+	public class ExpByKey01 extends MSBBL_SloReg_MC_A.ExpByKey01 {
+		@Override
+		protected void call() {
+			super.call();
+		}
+
+		@Override
+		protected void doIt() {
+			srchByMatchKey();
+		}
+		
+		/**
+		 * 受注ヘッダを検索する。
+		 * @return 受注ヘッダ件数
+		 */
+		protected int srchByMatchKey() {
+			int cnt = executeQuery(down0(), MSBBL1210_MAM_COLLAT_EXP_S01(), up0());
+			return cnt;
+		}
+		
+	}
 	/**
 	 * Sprt01オペレーション.<p>
 	 *

@@ -441,6 +441,58 @@ abstract public class MSBBL_SloReg_MC_A extends mcframe.serverMSUD.MSUDL5010.MSU
 	public MCList<mcframe.serverMSBB.MSBBL1210.Sprt01_DtlR> createSprt01_DtlL(){
 		return MCList.create(mcframe.serverMSBB.MSBBL1210.Sprt01_DtlR.class);
 	}
+	protected MSBBL_SloReg.ExpByKey01 aExpByKey01;
+
+	protected void initExpByKey01() {
+		this.info = PDef.MS_MSBBL1210_ExpByKey01_INFO;
+		this.aExpByKey01 = ((MSBBL_SloReg)this).new ExpByKey01();
+	}
+
+	public static MSBBL_SloReg.ExpByKey01 crtExpByKey01() {
+		MSBBL_SloReg lgc = new MSBBL_SloReg();
+		lgc.initExpByKey01();
+		return lgc.aExpByKey01;
+	}
+
+	protected void paramExpByKey01(MCParam p) {
+		if (this.aExpByKey01 == null) {
+			return;
+		}
+		p.setDef(this.info.def);
+		p.addUpBlock(aExpByKey01.up0());
+		p.addDownBlock(aExpByKey01.down0());
+	}
+
+	protected void doExpByKey01() {
+		aExpByKey01.call();
+	};
+
+	/**
+	 * ExpByKey01_HdrブロックのRowコンテナを作成します。
+	 *
+	 * @return Rowコンテナ
+	 */
+	public mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR createExpByKey01_HdrR(){
+		return mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR.create();
+	}
+
+	/**
+	 * ExpByKey01_DtlブロックのRowコンテナを作成します。
+	 *
+	 * @return Rowコンテナ
+	 */
+	public mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR createExpByKey01_DtlR(){
+		return mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR.create();
+	}
+
+	/**
+	 * ExpByKey01_DtlブロックのListコンテナを作成します。
+	 *
+	 * @return Listコンテナ
+	 */
+	public MCList<mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR> createExpByKey01_DtlL(){
+		return MCList.create(mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR.class);
+	}
 
 	//FMCB CTRL_FIELD_METHOD END
 
@@ -2974,6 +3026,163 @@ abstract public class MSBBL_SloReg_MC_A extends mcframe.serverMSUD.MSUDL5010.MSU
 				dest.add(r_dest);
 			}
 		}
+	}
+	/**
+	 * ExpByKey01オペレーション.<p>
+	 *
+	 * 照合展開を行う<br>
+	 */
+	abstract public class ExpByKey01 extends mcframe.serverMAUD.MAUDL5010.MAUDL_Operation {
+		/** 
+		 * オペレーションID<p>
+		 *
+		 * オペレーションはモジュールIDとロジックIDとオペレーションIDによって一意に特定できます。<br>
+		 * オペレーションインスタンスから参照する場合には{@link #getOperationID()}を使用してください。
+		 */
+		public static final String OPERATION_ID = "ExpByKey01";
+
+		/** オペレーションIDを取得します。 */
+		public String getOperationID(){ return OPERATION_ID; }
+
+		//----------フィールド----------
+		/** このオペレーションへの上り電文パラメータの第0ブロックのコンテナField定義 */
+		private final mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR up0;
+		/** このオペレーションからの下り電文パラメータの第0ブロックのコンテナField定義 */
+		private final MCList<mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR> down0;
+		
+		
+		// コンストラクタ
+		protected ExpByKey01() {
+			
+			// このオペレーションのコンテナ初期化
+			up0 = mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR.create();
+			down0 = MCList.create(mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR.class);
+
+			// 連携オペレーションの初期化
+			
+			// 連携オペレーションのコンテナ取得
+
+			// オペレーション、オペレーショングループの登録
+		}
+
+		/**
+		 * 指定された連携処理の上りブロックを準備する。<p>
+		 *
+		 */
+		public void mapUpContainers(String key) {
+			super.mapUpContainers(key);
+		}
+
+		/**
+		 * 指定された連携処理の下りブロックから値をコピーする。<p>
+		 *
+		 */
+		public void mapDownContainers(String key) {
+			super.mapDownContainers(key);
+		}
+
+		public MCContainer up(int i) {
+			if (i == 0) return up0();
+			return null;
+		}
+		
+		public MCContainer down(int i) {
+			if (i == 0) return down0();
+			return null;
+		}
+
+		public void exec() {
+			clear();
+			invoke((MSBBL_SloReg)MSBBL_SloReg_MC_A.this);
+		}
+		
+		protected void clear() {
+			down0().clear();
+		}
+		/**
+		 * ExpByKey01_HdrブロックのRowコンテナを作成します。
+		 *
+		 * @return Rowコンテナ
+		 */
+		public mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR createExpByKey01_HdrR(){
+			return mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR.create();
+		}
+
+		/**
+		 * ExpByKey01_DtlブロックのRowコンテナを作成します。
+		 *
+		 * @return Rowコンテナ
+		 */
+		public mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR createExpByKey01_DtlR(){
+			return mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR.create();
+		}
+
+		/**
+		 * ExpByKey01_DtlブロックのListコンテナを作成します。
+		 *
+		 * @return Listコンテナ
+		 */
+		public MCList<mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR> createExpByKey01_DtlL(){
+			return MCList.create(mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR.class);
+		}
+
+		//-------------------------外部 I/F--------------------------
+		/**
+		 * 上り電文の第0ブロックのデータを格納するコンテナを取得します。<p>
+		 *
+		 * <table border=1 cellspacing=0 cellpadding=2 >
+		 *  <caption>[上り第0ブロック項目]</caption>
+		 * 	<tr bgcolor="#cccccc"><th>必須</th><th>項目名</th></tr>
+		 * 	<tr><td><br></td><td>match_key</td></tr>
+		 * 	<tr><td><br></td><td>sub</td></tr>
+		 * 	<tr><td><br></td><td>typ</td></tr>
+		 * </table>
+		 *
+		 * @see mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR
+		 */
+		public mcframe.serverMSBB.MSBBL1210.ExpByKey01_HdrR up0() {
+			return up0;
+		}
+
+
+		/**
+		 * 下り電文の第0ブロックのデータを格納するコンテナを取得します。<p>
+		 *
+		 * <table border=1 cellspacing=0 cellpadding=2 >
+		 *  <caption>[下り第0ブロック項目]</caption>
+		 * 	<tr bgcolor="#cccccc"><th>必須</th><th>項目名</th></tr>
+		 * 	<tr><td><br></td><td>itm_cd</td></tr>
+		 * 	<tr><td><br></td><td>itm_sub1</td></tr>
+		 * 	<tr><td><br></td><td>itm_sub2</td></tr>
+		 * 	<tr><td><br></td><td>itm_sub3</td></tr>
+		 * 	<tr><td><br></td><td>itm_nm</td></tr>
+		 * 	<tr><td><br></td><td>itm_alt_nm1</td></tr>
+		 * 	<tr><td><br></td><td>match_dtl_key</td></tr>
+		 * 	<tr><td><br></td><td>itm_qty</td></tr>
+		 * 	<tr><td><br></td><td>work_proc_no</td></tr>
+		 * 	<tr><td><br></td><td>fill_color</td></tr>
+		 * 	<tr><td><br></td><td>nm_plate</td></tr>
+		 * 	<tr><td><br></td><td>rmrks1</td></tr>
+		 * 	<tr><td><br></td><td>rmrks2</td></tr>
+		 * 	<tr><td><br></td><td>rmrks3</td></tr>
+		 * 	<tr><td><br></td><td>rmrks4</td></tr>
+		 * 	<tr><td><br></td><td>rmrks5</td></tr>
+		 * </table>
+		 *
+		 * @see MCList
+		 */
+		public MCList<mcframe.serverMSBB.MSBBL1210.ExpByKey01_DtlR> down0() {
+			return down0;
+		}
+
+
+
+		@Override
+		public MCOperationInfo getOperationInfo(){
+			return ((MSBBL_SloReg)MSBBL_SloReg_MC_A.this).info;
+		}
+
+
 	}
 
 	//FMCB LOGIC_CONTROLLER END

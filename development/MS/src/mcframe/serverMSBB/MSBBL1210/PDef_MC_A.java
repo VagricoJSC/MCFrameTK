@@ -89,13 +89,19 @@ abstract public class PDef_MC_A extends MCDef {
 		else if (id.equals("MS.MSBBL1210.Sprt01.DOWN.BLOCK0")){
 			return MS_MSBBL1210_Sprt01_DOWN_BLOCK0();
 		}
+		else if (id.equals("MS.MSBBL1210.ExpByKey01.UP.BLOCK0")){
+			return MS_MSBBL1210_ExpByKey01_UP_BLOCK0();
+		}
+		else if (id.equals("MS.MSBBL1210.ExpByKey01.DOWN.BLOCK0")){
+			return MS_MSBBL1210_ExpByKey01_DOWN_BLOCK0();
+		}
 //FMCB GET_DEF END
 		else {
 			return null;
 		}
 	}
 	//FMCB DEF_CLASSES START
-						
+							
 	
 	static final MCOperationInfo MS_MSBBL1210_Srch01_INFO = new MCOperationInfo("MS", "MSBBL1210", "Srch01", "000000", new PDef());
 
@@ -1544,6 +1550,48 @@ abstract public class PDef_MC_A extends MCDef {
 			}
 			,
 			MCBlockDef.create("Sprt01_Dtl")
+		);
+	}
+	
+	static final MCOperationInfo MS_MSBBL1210_ExpByKey01_INFO = new MCOperationInfo("MS", "MSBBL1210", "ExpByKey01", "000000", new PDef());
+
+	public static MCContainerDef MS_MSBBL1210_ExpByKey01_UP_BLOCK0() {
+
+		return new MCGeneralContainerDef("MS", "MSBBL1210", "ExpByKey01",
+			new MCItemDef[]{
+				MCItemDef.create("match_key", "match_key"),
+				MCItemDef.create("sub", "sub"),
+				MCItemDef.create("typ", "typ")
+			}
+			,
+			MCBlockDef.create("ExpByKey01_Hdr")
+		);
+	}
+
+
+	public static MCContainerDef MS_MSBBL1210_ExpByKey01_DOWN_BLOCK0() {
+
+		return new MCGeneralContainerDef("MS", "MSBBL1210", "ExpByKey01",
+			new MCItemDef[]{
+				MCItemDef.create("itm_cd", "itm_cd"),
+				MCItemDef.create("itm_sub1", "itm_sub1"),
+				MCItemDef.create("itm_sub2", "itm_sub2"),
+				MCItemDef.create("itm_sub3", "itm_sub3"),
+				MCItemDef.create("itm_nm", "itm_nm"),
+				MCItemDef.create("itm_alt_nm1", "itm_alt_nm1"),
+				MCItemDef.create("match_dtl_key", "match_dtl_key"),
+				MCItemDef.create("itm_qty", "itm_qty"),
+				MCItemDef.create("work_proc_no", "work_proc_no"),
+				MCItemDef.create("fill_color", "fill_color"),
+				MCItemDef.create("nm_plate", "nm_plate"),
+				MCItemDef.create("rmrks1", "rmrks1"),
+				MCItemDef.create("rmrks2", "rmrks2"),
+				MCItemDef.create("rmrks3", "rmrks3"),
+				MCItemDef.create("rmrks4", "rmrks4"),
+				MCItemDef.create("rmrks5", "rmrks5")
+			}
+			,
+			MCBlockDef.create("ExpByKey01_Dtl")
 		);
 	}
 	//FMCB DEF_CLASSES END
