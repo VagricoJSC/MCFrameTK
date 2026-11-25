@@ -184,7 +184,10 @@ BEGIN
 			slo_cmnt_5,
 			src_ship_flg,
 			jip_slo_typ,
-			can_rqst_flg
+			jip_cst_cd,
+			intr_cont_rmrks,
+			comp_const_amt,
+			work_proc_no
 		)
 			VALUES (
 				h_id,
@@ -332,7 +335,10 @@ BEGIN
 				NEW.slo_cmnt_5,
 				NEW.src_ship_flg,
 				NEW.jip_slo_typ,
-				NEW.can_rqst_flg
+				NEW.jip_cst_cd,
+				NEW.intr_cont_rmrks,
+				NEW.comp_const_amt,
+				NEW.work_proc_no
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'UPDATE') THEN
@@ -499,7 +505,10 @@ BEGIN
 				slo_cmnt_5,
 				src_ship_flg,
 				jip_slo_typ,
-				can_rqst_flg
+				jip_cst_cd,
+				intr_cont_rmrks,
+				comp_const_amt,
+				work_proc_no
 			)
 				VALUES (
 					h_id,
@@ -647,7 +656,10 @@ BEGIN
 					OLD.slo_cmnt_5,
 					OLD.src_ship_flg,
 					OLD.jip_slo_typ,
-					OLD.can_rqst_flg
+					OLD.jip_cst_cd,
+					OLD.intr_cont_rmrks,
+					OLD.comp_const_amt,
+					OLD.work_proc_no
 			);
 			h_typ := 'I';
 		ELSE
@@ -814,7 +826,10 @@ BEGIN
 			slo_cmnt_5,
 			src_ship_flg,
 			jip_slo_typ,
-			can_rqst_flg
+			jip_cst_cd,
+			intr_cont_rmrks,
+			comp_const_amt,
+			work_proc_no
 		)
 			VALUES (
 				h_id,
@@ -962,7 +977,10 @@ BEGIN
 				NEW.slo_cmnt_5,
 				NEW.src_ship_flg,
 				NEW.jip_slo_typ,
-				NEW.can_rqst_flg
+				NEW.jip_cst_cd,
+				NEW.intr_cont_rmrks,
+				NEW.comp_const_amt,
+				NEW.work_proc_no
 		);
 		RETURN NEW;
 	ELSIF (TG_OP = 'DELETE') THEN
@@ -1128,7 +1146,10 @@ BEGIN
 			slo_cmnt_5,
 			src_ship_flg,
 			jip_slo_typ,
-			can_rqst_flg
+			jip_cst_cd,
+			intr_cont_rmrks,
+			comp_const_amt,
+			work_proc_no
 		)
 			VALUES (
 				h_id,
@@ -1276,7 +1297,10 @@ BEGIN
 				OLD.slo_cmnt_5,
 				OLD.src_ship_flg,
 				OLD.jip_slo_typ,
-				OLD.can_rqst_flg
+				OLD.jip_cst_cd,
+				OLD.intr_cont_rmrks,
+				OLD.comp_const_amt,
+				OLD.work_proc_no
 		);
 		RETURN OLD;
 	END IF;

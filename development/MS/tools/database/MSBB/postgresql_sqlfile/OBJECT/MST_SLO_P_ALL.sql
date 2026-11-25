@@ -144,7 +144,10 @@ slo_cmnt_4 varchar (100) NULL,
 slo_cmnt_5 varchar (100) NULL,
 src_ship_flg char (1) DEFAULT '0' NOT NULL,
 jip_slo_typ varchar (1) NULL,
-can_rqst_flg char (1) DEFAULT '0' NOT NULL
+jip_cst_cd varchar (3) NULL,
+intr_cont_rmrks varchar (100) NULL,
+comp_const_amt numeric (21,8) NULL,
+work_proc_no varchar (40) NULL
 );
 
 

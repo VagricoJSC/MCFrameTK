@@ -707,6 +707,23 @@ abstract public class MA_META_PJ_A extends mcframe.commonMA.meta.MA_META_MC_A{
 	public static final MCMeta RMRKS5 = MCMeta.createStringMeta("RMRKS5", "", 100);
 
 	/**
+	 * 社内連絡備考.<p>
+	 *
+	 * <table border=1 cellspacing=0 cellpadding=2 >
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">型</td><td>String</td>
+	 * </tr>
+	 * <tr>
+	 * 	<td bgcolor="#cccccc">桁</td><td>100</td>
+	 * </tr>
+	* <tr>
+	* 	<td bgcolor="#cccccc">表示幅</td><td>@</td>
+	* </tr>
+	 * </table>
+	 */
+	public static final MCMeta INTR_CONT_RMRKS = MCMeta.createStringMeta("INTR_CONT_RMRKS", "", 100);
+
+	/**
 	 * PRASSラベル発行区分.<p>
 	 *
 	 * <table border=1 cellspacing=0 cellpadding=2 >
