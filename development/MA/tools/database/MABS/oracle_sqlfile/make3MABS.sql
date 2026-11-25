@@ -592,6 +592,30 @@ SET ESCCHAR @
 
 @".\CO_VT\MAM_MPS_GRP_LCL_ALL_TR_K.sql"
 
+@".\OBJECT\MAM_SHIPYARD.sql"
+
+@".\OBJECT\MAM_SHIPYARD_@S.sql"
+
+@".\OBJECT\MAM_SHIPYARD_@U.sql"
+
+@".\CO_VT\MAM_SHIPYARD_ALL_TR_K.sql"
+
+@".\OBJECT\MAM_MRKT.sql"
+
+@".\OBJECT\MAM_MRKT_@S.sql"
+
+@".\OBJECT\MAM_MRKT_@U.sql"
+
+@".\CO_VT\MAM_MRKT_ALL_TR_K.sql"
+
+@".\OBJECT\MAM_CNTRY_SIGN.sql"
+
+@".\OBJECT\MAM_CNTRY_SIGN_@S.sql"
+
+@".\OBJECT\MAM_CNTRY_SIGN_@U.sql"
+
+@".\CO_VT\MAM_CNTRY_SIGN_ALL_TR_K.sql"
+
 @".\other\MAM_ITM_WG_.sql"
 
 @".\other\MAVM_ITM_WG.sql"

@@ -58,6 +58,12 @@
 
 \i ./U_TR/MAM_COLLAT_EXP_ALL_TR_U.sql
 
+\i ./U_TR/MAM_SHIPYARD_ALL_TR_U.sql
+
+\i ./U_TR/MAM_MRKT_ALL_TR_U.sql
+
+\i ./U_TR/MAM_CNTRY_SIGN_ALL_TR_U.sql
+
 \i ./U_TR/MAM_PURC_UPRI_ALL_TR_U.sql
 
 \i ./U_TR/MAM_PURC_UPRI_APL_ALL_TR_U.sql

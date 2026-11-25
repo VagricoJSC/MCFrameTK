@@ -592,6 +592,30 @@
 
 \i ./CO_VT/MAM_MPS_GRP_LCL_ALL_TR_K.sql
 
+\i ./OBJECT/MAM_SHIPYARD.sql
+
+\i ./OBJECT/MAM_SHIPYARD_@S.sql
+
+\i ./OBJECT/MAM_SHIPYARD_@U.sql
+
+\i ./CO_VT/MAM_SHIPYARD_ALL_TR_K.sql
+
+\i ./OBJECT/MAM_MRKT.sql
+
+\i ./OBJECT/MAM_MRKT_@S.sql
+
+\i ./OBJECT/MAM_MRKT_@U.sql
+
+\i ./CO_VT/MAM_MRKT_ALL_TR_K.sql
+
+\i ./OBJECT/MAM_CNTRY_SIGN.sql
+
+\i ./OBJECT/MAM_CNTRY_SIGN_@S.sql
+
+\i ./OBJECT/MAM_CNTRY_SIGN_@U.sql
+
+\i ./CO_VT/MAM_CNTRY_SIGN_ALL_TR_K.sql
+
 \i ./other/MAM_ITM_WG_.sql
 
 \i ./other/MAVM_ITM_WG.sql

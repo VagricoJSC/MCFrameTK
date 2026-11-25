@@ -60,6 +60,12 @@
 
 \i ./COMMENT/MAM_COLLAT_EXP_ALL_comment.sql
 
+\i ./COMMENT/MAM_SHIPYARD_ALL_comment.sql
+
+\i ./COMMENT/MAM_MRKT_ALL_comment.sql
+
+\i ./COMMENT/MAM_CNTRY_SIGN_ALL_comment.sql
+
 \i ./COMMENT/MAM_PURC_UPRI_ALL_comment.sql
 
 \i ./COMMENT/MAM_PURC_UPRI_APL_ALL_comment.sql
@@ -349,6 +355,12 @@
 \i ./COMMENT/MAM_SET_GRP_LCL_comment.sql
 
 \i ./COMMENT/MAM_MPS_GRP_LCL_comment.sql
+
+\i ./COMMENT/MAM_SHIPYARD_comment.sql
+
+\i ./COMMENT/MAM_MRKT_comment.sql
+
+\i ./COMMENT/MAM_CNTRY_SIGN_comment.sql
 
 \i ./COMMENT/MAM_INSP_PTN_LCL_ALL_comment.sql
 
